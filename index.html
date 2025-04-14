@@ -4,13 +4,21 @@
         <title>Desmos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="calculator.js"></script>
+        <script type="module" src="calculator.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body style="margin: 0;">
         
         <div id="calculator" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></div>
-        <script>            
-            window.Calc = Desmos.GraphingCalculator(document.querySelector('#calculator'));
+        <script>
+            let callback = () => {
+                if (window.Desmos != undefined) {
+                    window.Calc = Desmos.GraphingCalculator(document.querySelector('#calculator'));
+                } else {
+                    setTimeout(callback, 10)
+                }
+            }
+            setTimeout(callback, 10)            
             
             // function loadDesmosState(jsonString){
             //     var state = JSON.parse(jsonString);
