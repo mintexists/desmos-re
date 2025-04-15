@@ -394,7 +394,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
             (o = { maximum: t.maximum, minimum: t.minimum }),
               this.authoringConfig = {
                 type: "array",
-                required: !0,
+                required: true,
                 name: t.name,
                 count: o,
                 items: t.items.getAuthoringConfig(),
@@ -440,7 +440,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               this.authoringConfig = {
                 type: "string",
                 element: "editor",
-                required: !0,
+                required: true,
                 name: e.name,
                 default: e.default,
               };
@@ -485,7 +485,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               this.authoringConfig = {
                 type: "string",
                 element: "select",
-                required: !0,
+                required: true,
                 name: e.name,
                 default: e.default,
                 options: e.options,
@@ -538,7 +538,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
             super(),
               this.authoringConfig = {
                 type: "boolean",
-                required: !0,
+                required: true,
                 name: e.name,
                 default: e.default,
               };
@@ -547,7 +547,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
             return this.authoringConfig;
           }
           getEnumerableValues() {
-            return [!0, !1];
+            return [true, false];
           }
           getTypescriptType() {
             return "boolean";
@@ -586,7 +586,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
           shouldSkipParsingDataVariable(e) {
             return this.shouldExpectDataVariables
               ? !!(typeof e == "string" && e.includes("{{var:"))
-              : !1;
+              : false;
           }
         };
       hg = class {
@@ -596,7 +596,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
           for (let t in e) {
             let o = e[t], i = t;
             i.endsWith("?") &&
-            (i = i.slice(0, t.length - 1), this.optionalSections[i] = !0),
+            (i = i.slice(0, t.length - 1), this.optionalSections[i] = true),
               this.config[i] = o;
           }
           this.authoringConfig = $M(this.config);
@@ -821,11 +821,11 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
             }),
             color: la("Color"),
             style: CQ("Style"),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            given: Mt("Given", true).conditionalAttributes(true, {
               x_shift: Al("xShift"),
               y_shift: Al("yShift"),
               label: er("Label", ""),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               group_label: er("Label", ""),
               validation: new pt({
                 attributes: {
@@ -841,14 +841,14 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                 attributes: {
                   color: la("Color"),
                   label: er("label", ""),
-                  given: Mt("Given", !0).conditionalAttributes(!0, {
+                  given: Mt("Given", true).conditionalAttributes(true, {
                     type: CB("Type"),
-                  }).conditionalAttributes(!1, {
+                  }).conditionalAttributes(false, {
                     validation: new pt({
                       attributes: { type: CB("Type") },
                     }),
                   }),
-                  show_coords: Mt("Show Coords", !1),
+                  show_coords: Mt("Show Coords", false),
                 },
               }),
             }),
@@ -864,14 +864,14 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               label: er("Label", ""),
               ghost_label: er("Ghost Label", ""),
               post_shift_label: er("Post Shift Label", ""),
-              given: Mt("Given", !0).conditionalAttributes(!1, {
+              given: Mt("Given", true).conditionalAttributes(false, {
                 validation: new pt({
                   attributes: { shift: Al("Shift") },
                 }),
                 shifter_point: new pt({
                   attributes: {
-                    show: Mt("Shifter Point", !1).conditionalAttributes(
-                      !0,
+                    show: Mt("Shifter Point", false).conditionalAttributes(
+                      true,
                       {
                         drop_lines: gg("Drop Lines", "none"),
                         label: er("Label", ""),
@@ -884,12 +884,12 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     ),
                   },
                 }),
-              }).conditionalAttributes(!0, {
+              }).conditionalAttributes(true, {
                 shift: Al("Shift"),
                 shifter_point: new pt({
                   attributes: {
-                    show: Mt("Shifter Point", !1).conditionalAttributes(
-                      !0,
+                    show: Mt("Shifter Point", false).conditionalAttributes(
+                      true,
                       {
                         drop_lines: gg("Drop Lines", "none"),
                         label: er("Label", ""),
@@ -914,14 +914,14 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               label: er("Label", ""),
               ghost_label: er("Ghost Label", ""),
               post_shift_label: er("Post Shift Label", ""),
-              given: Mt("Given", !0).conditionalAttributes(!1, {
+              given: Mt("Given", true).conditionalAttributes(false, {
                 validation: new pt({
                   attributes: { shift: Al("Shift") },
                 }),
                 shifter_point: new pt({
                   attributes: {
-                    show: Mt("Shifter Point", !1).conditionalAttributes(
-                      !0,
+                    show: Mt("Shifter Point", false).conditionalAttributes(
+                      true,
                       {
                         drop_lines: gg("Drop Lines", "none"),
                         label: er("Label", ""),
@@ -934,12 +934,12 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     ),
                   },
                 }),
-              }).conditionalAttributes(!0, {
+              }).conditionalAttributes(true, {
                 shift: Al("Shift"),
                 shifter_point: new pt({
                   attributes: {
-                    show: Mt("Shifter Point", !1).conditionalAttributes(
-                      !0,
+                    show: Mt("Shifter Point", false).conditionalAttributes(
+                      true,
                       {
                         drop_lines: gg("Drop Lines", "none"),
                         label: er("Label", ""),
@@ -968,8 +968,8 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                   decreasing_line: Ft("Decreasing Line", "1")
                     .ensureWithinArrayBounds(EB),
                   drop_lines: gg("Drop Lines", "both"),
-                  show_coords: Mt("Show Coords", !1),
-                  show_point: Mt("Show Point", !0),
+                  show_coords: Mt("Show Coords", false),
+                  show_point: Mt("Show Point", true),
                 },
               }),
             }),
@@ -992,7 +992,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                 attributes: {
                   horizontal: YM("MC Horizontal Alignment", "mid"),
                   vertical: Kx("MC Vertical Alignment", "mid"),
-                  show: Mt("Show MC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show MC", true).conditionalAttributes(true, {
                     label: er("MC Label", "MC"),
                     color: la("MC Color", "orange"),
                   }),
@@ -1001,7 +1001,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               avc: new pt({
                 attributes: {
                   vertical: Kx("AVC Vertical Alignment", "mid"),
-                  show: Mt("Show AVC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show AVC", true).conditionalAttributes(true, {
                     label: er("AVC Label", "AVC"),
                     color: la("AVC Color", "purple"),
                   }),
@@ -1009,7 +1009,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               }),
               atc: new pt({
                 attributes: {
-                  show: Mt("Show ATC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show ATC", true).conditionalAttributes(true, {
                     label: er("ATC Label", "ATC"),
                     color: la("ATC Color", "green"),
                   }),
@@ -1020,7 +1020,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                 attributes: {
                   horizontal: YM("MC Horizontal Alignment", "mid"),
                   vertical: Kx("MC Vertical Alignment", "mid"),
-                  show: Mt("Show MC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show MC", true).conditionalAttributes(true, {
                     label: er("MC Label", "MC"),
                     color: la("MC Color", "orange"),
                   }),
@@ -1028,7 +1028,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               }),
               avc: new pt({
                 attributes: {
-                  show: Mt("Show AVC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show AVC", true).conditionalAttributes(true, {
                     label: er("AVC Label", "AVC"),
                     color: la("AVC Color", "purple"),
                   }),
@@ -1038,7 +1038,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                 attributes: {
                   horizontal: YM("ATC Horizontal Alignment", "mid"),
                   vertical: Kx("ATC Vertical Alignment", "mid"),
-                  show: Mt("Show ATC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show ATC", true).conditionalAttributes(true, {
                     label: er("ATC Label", "ATC"),
                     color: la("ATC Color", "green"),
                   }),
@@ -1048,7 +1048,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               mc: new pt({
                 attributes: {
                   vertical: Kx("MC Vertical Alignment", "mid"),
-                  show: Mt("Show MC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show MC", true).conditionalAttributes(true, {
                     label: er("MC Label", "MC"),
                     color: la("MC Color", "orange"),
                   }),
@@ -1056,7 +1056,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
               }),
               atc: new pt({
                 attributes: {
-                  show: Mt("Show ATC", !0).conditionalAttributes(!0, {
+                  show: Mt("Show ATC", true).conditionalAttributes(true, {
                     label: er("ATC Label", "ATC"),
                     color: la("ATC Color", "green"),
                   }),
@@ -1069,8 +1069,8 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
         DQ = new pt({
           attributes: {
             color: la("Color"),
-            connected: Mt("Connected", !1),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            connected: Mt("Connected", false),
+            given: Mt("Given", true).conditionalAttributes(true, {
               when_given: new pt({
                 attributes: {
                   group_points: new Vi({
@@ -1083,16 +1083,16 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                         y_coord: Ft("Y", ""),
                         label: er("label", ""),
                         drop_lines: gg("Drop Lines"),
-                        show_point: Mt("Show Point", !0)
-                          .conditionalAttributes(!0, {
-                            show_coords: Mt("Show Coords", !1),
+                        show_point: Mt("Show Point", true)
+                          .conditionalAttributes(true, {
+                            show_coords: Mt("Show Coords", false),
                           }),
                       },
                     }),
                   }),
                 },
               }),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               when_required: new pt({
                 attributes: {
                   group_label: er("Group Label", ""),
@@ -1103,7 +1103,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                       name: "Group Points",
                       attributes: {
                         drop_lines: gg("Drop Lines"),
-                        show_coords: Mt("Show Coords", !1),
+                        show_coords: Mt("Show Coords", false),
                         validation: new pt({
                           attributes: {
                             x_coord: Ft("X", ""),
@@ -1121,7 +1121,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
         kQ = new pt({
           attributes: {
             color: la("Color"),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            given: Mt("Given", true).conditionalAttributes(true, {
               when_given: new pt({
                 attributes: {
                   group_lines: new Vi({
@@ -1129,11 +1129,11 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     minimum: 1,
                     items: new pt({
                       attributes: {
-                        show_x_int: Mt("Show X Intercept", !1),
-                        show_y_int: Mt("Show Y Intercept", !1),
-                        show_slope: Mt("Show Slope", !1),
-                        use_slope: Mt("Use Slope", !0)
-                          .conditionalAttributes(!0, {
+                        show_x_int: Mt("Show X Intercept", false),
+                        show_y_int: Mt("Show Y Intercept", false),
+                        show_slope: Mt("Show Slope", false),
+                        use_slope: Mt("Use Slope", true)
+                          .conditionalAttributes(true, {
                             when_slope: new pt({
                               attributes: {
                                 x_coord_1: Ft("X1", ""),
@@ -1142,7 +1142,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                                 slope: Ft("Slope", ""),
                               },
                             }),
-                          }).conditionalAttributes(!1, {
+                          }).conditionalAttributes(false, {
                             when_not_slope: new pt({
                               attributes: {
                                 x_coord_1: Ft("X1", ""),
@@ -1154,16 +1154,16 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                               },
                             }),
                           }),
-                        show_points: Mt("Show Points", !0)
-                          .conditionalAttributes(!0, {
-                            show_coords: Mt("Show Coords", !1),
+                        show_points: Mt("Show Points", true)
+                          .conditionalAttributes(true, {
+                            show_coords: Mt("Show Coords", false),
                           }),
                       },
                     }),
                   }),
                 },
               }),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               when_required: new pt({
                 attributes: {
                   group_label: er("Group Label", ""),
@@ -1172,12 +1172,12 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     minimum: 1,
                     items: new pt({
                       attributes: {
-                        show_coords: Mt("Show Coords", !1),
-                        show_x_int: Mt("Show X Intercept", !1),
-                        show_y_int: Mt("Show Y Intercept", !1),
-                        show_slope: Mt("Show Slope", !1),
-                        use_slope: Mt("Use Slope", !0)
-                          .conditionalAttributes(!0, {
+                        show_coords: Mt("Show Coords", false),
+                        show_x_int: Mt("Show X Intercept", false),
+                        show_y_int: Mt("Show Y Intercept", false),
+                        show_slope: Mt("Show Slope", false),
+                        use_slope: Mt("Use Slope", true)
+                          .conditionalAttributes(true, {
                             when_slope: new pt({
                               attributes: {
                                 validation: new pt({
@@ -1189,7 +1189,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                                 }),
                               },
                             }),
-                          }).conditionalAttributes(!1, {
+                          }).conditionalAttributes(false, {
                             when_not_slope: new pt({
                               attributes: {
                                 validation: new pt({
@@ -1214,7 +1214,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
         _Q = new pt({
           attributes: {
             color: la("Color"),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            given: Mt("Given", true).conditionalAttributes(true, {
               when_given: new pt({
                 attributes: {
                   group_curves: new Vi({
@@ -1234,16 +1234,16 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                             },
                           }),
                         }),
-                        show_points: Mt("Show Points", !0)
-                          .conditionalAttributes(!0, {
-                            show_coords: Mt("Show Coords", !1),
+                        show_points: Mt("Show Points", true)
+                          .conditionalAttributes(true, {
+                            show_coords: Mt("Show Coords", false),
                           }),
                       },
                     }),
                   }),
                 },
               }),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               when_required: new pt({
                 attributes: {
                   group_label: er("Group Label", ""),
@@ -1252,7 +1252,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     name: "Group Curves",
                     items: new pt({
                       attributes: {
-                        show_coords: Mt("Show Coords", !1),
+                        show_coords: Mt("Show Coords", false),
                         curve_points: new Vi({
                           name: "Curve Points",
                           minimum: 3,
@@ -1279,7 +1279,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
         IQ = new pt({
           attributes: {
             color: la("Color"),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            given: Mt("Given", true).conditionalAttributes(true, {
               when_given: new pt({
                 attributes: {
                   group_mono_arcs: new Vi({
@@ -1294,16 +1294,16 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                         x_coord_2: Ft("X2", ""),
                         y_coord_2: Ft("Y2", ""),
                         label_2: er("Label 2", ""),
-                        show_points: Mt("Show Points", !0)
-                          .conditionalAttributes(!0, {
-                            show_coords: Mt("Show Coords", !1),
+                        show_points: Mt("Show Points", true)
+                          .conditionalAttributes(true, {
+                            show_coords: Mt("Show Coords", false),
                           }),
                       },
                     }),
                   }),
                 },
               }),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               when_required: new pt({
                 attributes: {
                   group_label: er("Group Label", ""),
@@ -1312,7 +1312,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     name: "Group Monotonic Arcs",
                     items: new pt({
                       attributes: {
-                        show_coords: Mt("Show Coords", !1),
+                        show_coords: Mt("Show Coords", false),
                         concavity: vB("Concavity", ""),
                         validation: new pt({
                           attributes: {
@@ -1333,7 +1333,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
         AQ = new pt({
           attributes: {
             color: la("Color"),
-            given: Mt("Given", !0).conditionalAttributes(!0, {
+            given: Mt("Given", true).conditionalAttributes(true, {
               when_given: new pt({
                 attributes: {
                   group_polygons: new Vi({
@@ -1341,9 +1341,9 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     minimum: 1,
                     items: new pt({
                       attributes: {
-                        show_area: Mt("Show Area", !1),
-                        show_perimeter: Mt("Show Perimeter", !1),
-                        fill_pattern: Mt("Fill Pattern", !0),
+                        show_area: Mt("Show Area", false),
+                        show_perimeter: Mt("Show Perimeter", false),
+                        fill_pattern: Mt("Fill Pattern", true),
                         polygon_points: new Vi({
                           name: "Polygon Points",
                           minimum: 3,
@@ -1356,16 +1356,16 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                             },
                           }),
                         }),
-                        show_points: Mt("Show Points", !0)
-                          .conditionalAttributes(!0, {
-                            show_coords: Mt("Show Coords", !1),
+                        show_points: Mt("Show Points", true)
+                          .conditionalAttributes(true, {
+                            show_coords: Mt("Show Coords", false),
                           }),
                       },
                     }),
                   }),
                 },
               }),
-            }).conditionalAttributes(!1, {
+            }).conditionalAttributes(false, {
               when_required: new pt({
                 attributes: {
                   group_label: er("Group Label", ""),
@@ -1374,10 +1374,10 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
                     name: "Group Polygons",
                     items: new pt({
                       attributes: {
-                        show_coords: Mt("Show Coords", !1),
-                        show_area: Mt("Show Area", !1),
-                        show_perimeter: Mt("Show Perimeter", !1),
-                        fill_pattern: Mt("Fill Pattern", !0),
+                        show_coords: Mt("Show Coords", false),
+                        show_area: Mt("Show Area", false),
+                        show_perimeter: Mt("Show Perimeter", false),
+                        fill_pattern: Mt("Fill Pattern", true),
                         polygon_points: new Vi({
                           name: "Polygon Points",
                           minimum: 3,
@@ -1463,7 +1463,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
   }
   function XM(r) {
     let e = NQ(r);
-    return e ? FQ.test(e) : !0;
+    return e ? FQ.test(e) : true;
   }
   function mS(r, e) {
     var i;
@@ -1527,7 +1527,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
   var df, Ss = __dcg_shared_module_exports__["b"](() => {});
   function fS(r) {
     let e = () => r;
-    return e.isDCGViewConst = !0, e;
+    return e.isDCGViewConst = true, e;
   }
   function Hn(r) {
     return typeof r == "function" && !!r.isDCGViewConst;
@@ -1549,7 +1549,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     let o = r.className.replace(RB, "").split(FB),
       i = e.replace(RB, "").split(FB),
       n = {};
-    for (let s of i) n[s] = !0;
+    for (let s of i) n[s] = true;
     let a = o.filter((s) => !n.hasOwnProperty(s));
     return t ? `${t} ${a.join(" ")}`.trim() : a.join(" ");
   }
@@ -1817,11 +1817,11 @@ ${i.formatted}`
           constructor(t) {
             var o, i;
             super();
-            this.__generatedHTMLBefore = !1;
+            this.__generatedHTMLBefore = false;
             this._childViews = [];
             this._bindings = {};
-            this._isMounted = !1;
-            this._willBeUnmounted = !1;
+            this._isMounted = false;
+            this._willBeUnmounted = false;
             this.const = fS;
             this.createElement = nd;
             this._viewName =
@@ -1885,7 +1885,7 @@ ${i.formatted}`
             if (
               o && o._childViews.push(this), this.__generatedHTMLBefore
             ) throw new Error("Cannot remount a DCGView");
-            this.__generatedHTMLBefore = !0, this._element.renderTo(t, this);
+            this.__generatedHTMLBefore = true, this._element.renderTo(t, this);
           }
           findFirstRootDOMNode() {
             let t = this._element;
@@ -1955,7 +1955,7 @@ ${i.formatted}`
                     "didUnmount",
                   ].includes(i)
               ) {
-                let c = !1, d = n;
+                let c = false, d = n;
                 n = (...p) => {
                   if (c) {
                     fg(
@@ -1964,7 +1964,7 @@ ${i.formatted}`
                     );
                     return;
                   }
-                  c = !0, d(...p);
+                  c = true, d(...p);
                 };
               }
               let l = this._bindings[i];
@@ -2061,7 +2061,7 @@ ${i.formatted}`
       a = {};
     for (let l = 0; l < n.length; l++) {
       let c = n[l];
-      a[e[c]] = !0;
+      a[e[c]] = true;
     }
     let s = [];
     for (let l = e.length - 1; l >= 0; l--) {
@@ -2099,7 +2099,7 @@ ${i.formatted}`
     r.willMount && r.willMount(), uc(r, "willMount"), r._childViews.forEach(gf);
   }
   function mf(r) {
-    r._isMounted = !0,
+    r._isMounted = true,
       r.onMount && r.onMount(),
       uc(r, "onMount"),
       r._childViews.forEach(mf);
@@ -2113,7 +2113,7 @@ ${i.formatted}`
       r._childViews.forEach(bf);
   }
   function yf(r) {
-    r._isMounted = !1,
+    r._isMounted = false,
       r._childViews.forEach(yf),
       uc(r, "onUnmount"),
       r.onUnmount && r.onUnmount();
@@ -2257,7 +2257,7 @@ ${i.formatted}`
               let s = o.removes[a], l = this._keyToView[s];
               bf(l),
                 delete this._keyToView[s],
-                l._willBeUnmounted = !0,
+                l._willBeUnmounted = true,
                 l.findAllRootDOMNodes().forEach((c) => c.remove()),
                 i.push(l);
             }
@@ -2524,8 +2524,8 @@ ${i.formatted}`
           return o && (a.onKeypress = (s) => {
             s.which === 13 && o();
           }),
-            i && (a.disabled = () => i() ? !0 : void 0),
-            n && (a.readOnly = () => n() ? !0 : void 0),
+            i && (a.disabled = () => i() ? true : void 0),
+            n && (a.readOnly = () => n() ? true : void 0),
             a.hasOwnProperty("tabIndex") ||
             (a.tabIndex = () => i && i() ? "-1" : "0"),
             a.onMount = (s) => {
@@ -2565,8 +2565,8 @@ ${i.formatted}`
                 this._isMounted && this.update();
             }).bind(this),
           };
-          return o && (n.disabled = () => o() ? !0 : void 0),
-            i && (n.readOnly = () => i() ? !0 : void 0),
+          return o && (n.disabled = () => o() ? true : void 0),
+            i && (n.readOnly = () => i() ? true : void 0),
             n.onMount = (a) => {
               this.rootDOM = a, this.props.onMount && this.props.onMount(a);
             },
@@ -2667,7 +2667,7 @@ ${i.formatted}`
   }
   function aG(r) {
     var e = !!r && "length" in r && r.length, t = VS(r);
-    return gp(r) || Tf(r) ? !1 : t === "array" || e === 0 ||
+    return gp(r) || Tf(r) ? false : t === "array" || e === 0 ||
       typeof e == "number" && e > 0 && e - 1 in r;
   }
   function vf(r, e) {
@@ -2684,9 +2684,9 @@ ${i.formatted}`
   }
   function ZQ(r) {
     return r === "true"
-      ? !0
+      ? true
       : r === "false"
-      ? !1
+      ? false
       : r === "null"
       ? null
       : r === +r + ""
@@ -2741,10 +2741,10 @@ ${i.formatted}`
       i;
   }
   function Sf() {
-    return !0;
+    return true;
   }
   function Ef() {
-    return !1;
+    return false;
   }
   function rZ(r, e) {
     return r === oZ() == (e === "focus");
@@ -2766,7 +2766,7 @@ ${i.formatted}`
         ? (i = t, o = t = void 0)
         : i == null && (typeof t == "string"
           ? (i = o, o = void 0)
-          : (i = o, o = t, t = void 0)), i === !1
+          : (i = o, o = t, t = void 0)), i === false
     ) i = Ef;
     else if (!i) return r;
     return n === 1 && (a = i,
@@ -2783,9 +2783,9 @@ ${i.formatted}`
       Qo.get(r, e) === void 0 && le.event.add(r, e, Sf);
       return;
     }
-    Qo.set(r, e, !1),
+    Qo.set(r, e, false),
       le.event.add(r, e, {
-        namespace: !1,
+        namespace: false,
         handler: function (o) {
           var i, n, a = Qo.get(this, e);
           if (o.isTrigger & 1 && this[e]) {
@@ -2798,7 +2798,7 @@ ${i.formatted}`
                 i = t(this, e),
                 this[e](),
                 n = Qo.get(this, e),
-                a !== n || i ? Qo.set(this, e, !1) : n = {},
+                a !== n || i ? Qo.set(this, e, false) : n = {},
                 a !== n
             ) {
               return o.stopImmediatePropagation(),
@@ -2862,16 +2862,16 @@ ${i.formatted}`
     var a = e === "width" ? 1 : 0, s = 0, l = 0;
     if (t === (o ? "border" : "content")) return 0;
     for (; a < 4; a += 2) {
-      t === "margin" && (l += le.css(r, t + Tu[a], !0, i)),
+      t === "margin" && (l += le.css(r, t + Tu[a], true, i)),
         o
           ? (t === "content" &&
-            (l -= le.css(r, "padding" + Tu[a], !0, i)),
+            (l -= le.css(r, "padding" + Tu[a], true, i)),
             t !== "margin" &&
-            (l -= le.css(r, "border" + Tu[a] + "Width", !0, i)))
-          : (l += le.css(r, "padding" + Tu[a], !0, i),
+            (l -= le.css(r, "border" + Tu[a] + "Width", true, i)))
+          : (l += le.css(r, "padding" + Tu[a], true, i),
             t !== "padding"
-              ? l += le.css(r, "border" + Tu[a] + "Width", !0, i)
-              : s += le.css(r, "border" + Tu[a] + "Width", !0, i));
+              ? l += le.css(r, "border" + Tu[a] + "Width", true, i)
+              : s += le.css(r, "border" + Tu[a] + "Width", true, i));
     }
     return !o && n >= 0 &&
       (l += Math.max(
@@ -2886,7 +2886,7 @@ ${i.formatted}`
   function G5(r, e, t) {
     var o = RS(r),
       i = !Tn.boxSizingReliable() || t,
-      n = i && le.css(r, "boxSizing", !1, o) === "border-box",
+      n = i && le.css(r, "boxSizing", false, o) === "border-box",
       a = n,
       s = Yx(r, e, o),
       l = "offset" + e[0].toUpperCase() + e.slice(1);
@@ -2896,9 +2896,9 @@ ${i.formatted}`
     }
     return (!Tn.boxSizingReliable() && n ||
       !Tn.reliableTrDimensions() && vf(r, "tr") || s === "auto" ||
-      !parseFloat(s) && le.css(r, "display", !1, o) === "inline") &&
+      !parseFloat(s) && le.css(r, "display", false, o) === "inline") &&
       r.getClientRects().length &&
-      (n = le.css(r, "boxSizing", !1, o) === "border-box",
+      (n = le.css(r, "boxSizing", false, o) === "border-box",
         a = l in r,
         a && (s = r[l])),
       s = parseFloat(s) || 0,
@@ -3072,7 +3072,7 @@ ${i.formatted}`
           a = arguments[0] || {},
           s = 1,
           l = arguments.length,
-          c = !1;
+          c = false;
         for (
           typeof a == "boolean" && (c = a, a = arguments[s] || {}, s++),
             typeof a != "object" && !gp(a) && (a = {}),
@@ -3091,7 +3091,7 @@ ${i.formatted}`
                       : !i && !le.isPlainObject(t)
                       ? n = {}
                       : n = t,
-                    i = !1,
+                    i = false,
                     a[e] = le.extend(c, n, o))
                   : o !== void 0 && (a[e] = o));
             }
@@ -3101,7 +3101,7 @@ ${i.formatted}`
       };
       le.extend({
         expando: "jQuery" + (F5 + Math.random()).replace(/\D/g, ""),
-        isReady: !0,
+        isReady: true,
         error: function (r) {
           throw new Error(r);
         },
@@ -3109,27 +3109,27 @@ ${i.formatted}`
         isPlainObject: function (r) {
           var e, t;
           return !r || O5.call(r) !== "[object Object]"
-            ? !1
+            ? false
             : (e = zQ(r),
               e
                 ? (t = MS.call(e, "constructor") && e.constructor,
                   typeof t == "function" && R5.call(t) === KQ)
-                : !0);
+                : true);
         },
         isEmptyObject: function (r) {
           var e;
-          for (e in r) return !1;
-          return !0;
+          for (e in r) return false;
+          return true;
         },
         each: function (r, e) {
           var t, o = 0;
           if (aG(r)) {
             for (
               t = r.length;
-              o < t && e.call(r[o], o, r[o]) !== !1;
+              o < t && e.call(r[o], o, r[o]) !== false;
               o++
             );
-          } else for (o in r) if (e.call(r[o], o, r[o]) === !1) break;
+          } else for (o in r) if (e.call(r[o], o, r[o]) === false) break;
           return r;
         },
         makeArray: function (r, e) {
@@ -3215,7 +3215,7 @@ ${i.formatted}`
           try {
             return !!v(w);
           } catch (S) {
-            return !1;
+            return false;
           } finally {
             w.parentNode && w.parentNode.removeChild(w), w = null;
           }
@@ -3234,7 +3234,7 @@ ${i.formatted}`
                 a = !t(i),
                 l != i && (S = i.defaultView) && S.top !== S &&
                 (S.addEventListener
-                  ? S.addEventListener("unload", y, !1)
+                  ? S.addEventListener("unload", y, false)
                   : S.attachEvent && S.attachEvent("onunload", y)),
                 e.attributes = E(function (_) {
                   return _.className = "i", !_.getAttribute("className");
@@ -3256,9 +3256,9 @@ ${i.formatted}`
                   }
                   : function (_, A) {
                     if (A) {
-                      for (; A = A.parentNode;) if (A === _) return !0;
+                      for (; A = A.parentNode;) if (A === _) return true;
                     }
-                    return !1;
+                    return false;
                   }),
               i;
           },
@@ -3291,12 +3291,12 @@ ${i.formatted}`
         Xx = function (r, e, t, o, i, n, a) {
           var s = 0, l = r.length, c = t == null;
           if (VS(t) === "object") {
-            i = !0;
-            for (s in t) Xx(r, e, s, t[s], !0, n, a);
+            i = true;
+            for (s in t) Xx(r, e, s, t[s], true, n, a);
           } else if (
             o !== void 0 &&
-            (i = !0,
-              gp(o) || (a = !0),
+            (i = true,
+              gp(o) || (a = true),
               c &&
               (a ? (e.call(r, o), e = null) : (c = e,
                 e = function (d, p, h) {
@@ -3326,7 +3326,7 @@ ${i.formatted}`
                 ? r[this.expando] = e
                 : Object.defineProperty(r, this.expando, {
                   value: e,
-                  configurable: !0,
+                  configurable: true,
                 }))),
             e;
         },
@@ -3402,7 +3402,7 @@ ${i.formatted}`
                     o.indexOf("data-") === 0 &&
                     (o = pp(o.slice(5)), T5(n, o, i[o])));
               }
-              Qo.set(n, "hasDataAttrs", !0);
+              Qo.set(n, "hasDataAttrs", true);
             }
             return i;
           }
@@ -3426,7 +3426,7 @@ ${i.formatted}`
               e,
               arguments.length > 1,
               null,
-              !0,
+              true,
             );
         },
         removeData: function (r) {
@@ -3442,7 +3442,7 @@ ${i.formatted}`
         U5 = function (r) {
           return le.contains(r.ownerDocument, r);
         },
-        eZ = { composed: !0 };
+        eZ = { composed: true };
       Cf.getRootNode && (U5 = function (r) {
         return le.contains(r.ownerDocument, r) ||
           r.getRootNode(eZ) === r.ownerDocument;
@@ -3456,9 +3456,9 @@ ${i.formatted}`
           t.setAttribute("checked", "checked"),
           t.setAttribute("name", "t"),
           e.appendChild(t),
-          Tn.checkClone = e.cloneNode(!0).cloneNode(!0).lastChild.checked,
+          Tn.checkClone = e.cloneNode(true).cloneNode(true).lastChild.checked,
           e.innerHTML = "<textarea>x</textarea>",
-          Tn.noCloneChecked = !!e.cloneNode(!0).lastChild.defaultValue,
+          Tn.noCloneChecked = !!e.cloneNode(true).lastChild.defaultValue,
           e.innerHTML = "<option></option>",
           Tn.option = !!e.lastChild;
       })();
@@ -3508,7 +3508,7 @@ ${i.formatted}`
                     (h = l[u]) ||
                     (h = l[u] = [],
                       h.delegateCount = 0,
-                      (!p.setup || p.setup.call(r, o, f, a) === !1) &&
+                      (!p.setup || p.setup.call(r, o, f, a) === false) &&
                       r.addEventListener && r.addEventListener(u, a)),
                     p.add &&
                     (p.add.call(r, d),
@@ -3519,7 +3519,7 @@ ${i.formatted}`
                     "Support for event delegation has been removed",
                   );
                 }
-                h.push(d), le.event.global[u] = !0;
+                h.push(d), le.event.global[u] = true;
               }
             }
           }
@@ -3545,7 +3545,7 @@ ${i.formatted}`
                   f = (s[2] || "").split(".").sort(),
                   !u
               ) {
-                for (u in l) le.event.remove(r, u + e[c], t, o, !0);
+                for (u in l) le.event.remove(r, u + e[c], t, o, true);
                 continue;
               }
               for (
@@ -3569,7 +3569,7 @@ ${i.formatted}`
               }
               a && !h.length &&
                 ((!p.teardown ||
-                  p.teardown.call(r, f, C.handle) === !1) &&
+                  p.teardown.call(r, f, C.handle) === false) &&
                   le.removeEvent(r, u, C.handle),
                   delete l[u]);
             }
@@ -3593,7 +3593,7 @@ ${i.formatted}`
           }
           if (
             l.delegateTarget = this,
-              !(d.preDispatch && d.preDispatch.call(this, l) === !1)
+              !(d.preDispatch && d.preDispatch.call(this, l) === false)
           ) {
             for (
               a = le.event.handlers.call(this, l, c), e = 0;
@@ -3604,13 +3604,13 @@ ${i.formatted}`
                 (n = i.handlers[t++]) &&
                 !l.isImmediatePropagationStopped();
               ) {
-                (!l.rnamespace || n.namespace === !1 ||
+                (!l.rnamespace || n.namespace === false ||
                   l.rnamespace.test(n.namespace)) &&
                   (l.handleObj = n,
                     l.data = n.data,
                     o = ((le.event.special[n.origType] || {}).handle ||
                       n.handler).apply(i.elem, s),
-                    o !== void 0 && (l.result = o) === !1 &&
+                    o !== void 0 && (l.result = o) === false &&
                     (l.preventDefault(), l.stopPropagation()));
               }
             }
@@ -3630,8 +3630,8 @@ ${i.formatted}`
         },
         addProp: function (r, e) {
           Object.defineProperty(le.Event.prototype, r, {
-            enumerable: !0,
-            configurable: !0,
+            enumerable: true,
+            configurable: true,
             get: gp(e)
               ? function () {
                 if (this.originalEvent) return e(this.originalEvent);
@@ -3641,9 +3641,9 @@ ${i.formatted}`
               },
             set: function (t) {
               Object.defineProperty(this, r, {
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
+                enumerable: true,
+                configurable: true,
+                writable: true,
                 value: t,
               });
             },
@@ -3653,19 +3653,19 @@ ${i.formatted}`
           return r[le.expando] ? r : new le.Event(r);
         },
         special: {
-          load: { noBubble: !0 },
+          load: { noBubble: true },
           click: {
             setup: function (r) {
               var e = this || r;
               return sG.test(e.type) && e.click && vf(e, "input") &&
                 LS(e, "click", Sf),
-                !1;
+                false;
             },
             trigger: function (r) {
               var e = this || r;
               return sG.test(e.type) && e.click && vf(e, "input") &&
                 LS(e, "click"),
-                !0;
+                true;
             },
             _default: function (r) {
               var e = r.target;
@@ -3690,7 +3690,7 @@ ${i.formatted}`
           ? (this.originalEvent = r,
             this.type = r.type,
             this.isDefaultPrevented = r.defaultPrevented ||
-                r.defaultPrevented === void 0 && r.returnValue === !1
+                r.defaultPrevented === void 0 && r.returnValue === false
               ? Sf
               : Ef,
             this.target = r.target && r.target.nodeType === 3
@@ -3701,14 +3701,14 @@ ${i.formatted}`
           : this.type = r,
           e && le.extend(this, e),
           this.timeStamp = r && r.timeStamp || Date.now(),
-          this[le.expando] = !0;
+          this[le.expando] = true;
       };
       le.Event.prototype = {
         constructor: le.Event,
         isDefaultPrevented: Ef,
         isPropagationStopped: Ef,
         isImmediatePropagationStopped: Ef,
-        isSimulated: !1,
+        isSimulated: false,
         preventDefault: function () {
           var r = this.originalEvent;
           this.isDefaultPrevented = Sf,
@@ -3727,48 +3727,48 @@ ${i.formatted}`
         },
       };
       le.each({
-        altKey: !0,
-        bubbles: !0,
-        cancelable: !0,
-        changedTouches: !0,
-        ctrlKey: !0,
-        detail: !0,
-        eventPhase: !0,
-        metaKey: !0,
-        pageX: !0,
-        pageY: !0,
-        shiftKey: !0,
-        view: !0,
-        char: !0,
-        code: !0,
-        charCode: !0,
-        key: !0,
-        keyCode: !0,
-        button: !0,
-        buttons: !0,
-        clientX: !0,
-        clientY: !0,
-        offsetX: !0,
-        offsetY: !0,
-        pointerId: !0,
-        pointerType: !0,
-        screenX: !0,
-        screenY: !0,
-        targetTouches: !0,
-        toElement: !0,
-        touches: !0,
-        which: !0,
+        altKey: true,
+        bubbles: true,
+        cancelable: true,
+        changedTouches: true,
+        ctrlKey: true,
+        detail: true,
+        eventPhase: true,
+        metaKey: true,
+        pageX: true,
+        pageY: true,
+        shiftKey: true,
+        view: true,
+        char: true,
+        code: true,
+        charCode: true,
+        key: true,
+        keyCode: true,
+        button: true,
+        buttons: true,
+        clientX: true,
+        clientY: true,
+        offsetX: true,
+        offsetY: true,
+        pointerId: true,
+        pointerType: true,
+        screenX: true,
+        screenY: true,
+        targetTouches: true,
+        toElement: true,
+        touches: true,
+        which: true,
       }, le.event.addProp);
       le.each({ focus: "focusin", blur: "focusout" }, function (r, e) {
         le.event.special[r] = {
           setup: function () {
-            return LS(this, r, rZ), !1;
+            return LS(this, r, rZ), false;
           },
           trigger: function () {
-            return LS(this, r), !0;
+            return LS(this, r), true;
           },
           _default: function () {
-            return !0;
+            return true;
           },
           delegateType: e,
         };
@@ -3814,9 +3814,9 @@ ${i.formatted}`
             for (i in r) this.off(i, e, r[i]);
             return this;
           }
-          return (e === !1 || typeof e == "function") &&
+          return (e === false || typeof e == "function") &&
             (t = e, e = void 0),
-            t === !1 && (t = Ef),
+            t === false && (t = Ef),
             this.each(function () {
               le.event.remove(this, r, t, e);
             });
@@ -3868,7 +3868,7 @@ ${i.formatted}`
           c = En.createElement("div");
         c.style &&
           (c.style.backgroundClip = "content-box",
-            c.cloneNode(!0).style.backgroundClip = "",
+            c.cloneNode(true).style.backgroundClip = "",
             Tn.clearCloneStyle = c.style.backgroundClip === "content-box",
             le.extend(Tn, {
               boxSizingReliable: function () {
@@ -3930,26 +3930,26 @@ ${i.formatted}`
           },
         },
         cssNumber: {
-          animationIterationCount: !0,
-          columnCount: !0,
-          fillOpacity: !0,
-          flexGrow: !0,
-          flexShrink: !0,
-          fontWeight: !0,
-          gridArea: !0,
-          gridColumn: !0,
-          gridColumnEnd: !0,
-          gridColumnStart: !0,
-          gridRow: !0,
-          gridRowEnd: !0,
-          gridRowStart: !0,
-          lineHeight: !0,
-          opacity: !0,
-          order: !0,
-          orphans: !0,
-          widows: !0,
-          zIndex: !0,
-          zoom: !0,
+          animationIterationCount: true,
+          columnCount: true,
+          fillOpacity: true,
+          flexGrow: true,
+          flexShrink: true,
+          fontWeight: true,
+          gridArea: true,
+          gridColumn: true,
+          gridColumnEnd: true,
+          gridColumnStart: true,
+          gridRow: true,
+          gridRowEnd: true,
+          gridRowStart: true,
+          lineHeight: true,
+          opacity: true,
+          order: true,
+          orphans: true,
+          widows: true,
+          zIndex: true,
+          zoom: true,
         },
         cssProps: {},
         style: function (r, e, t, o) {
@@ -3974,7 +3974,7 @@ ${i.formatted}`
                   (t = a.set(r, t, o)) !== void 0) &&
                 (l ? c.setProperty(e, t) : c[e] = t);
             } else {return a && "get" in a &&
-                  (i = a.get(r, !1, o)) !== void 0
+                  (i = a.get(r, false, o)) !== void 0
                 ? i
                 : c[e];}
           }
@@ -3983,11 +3983,11 @@ ${i.formatted}`
           var i, n, a, s = pp(e), l = A5.test(e);
           return l || (e = I5(s)),
             a = le.cssHooks[e] || le.cssHooks[s],
-            a && "get" in a && (i = a.get(r, !0, t)),
+            a && "get" in a && (i = a.get(r, true, t)),
             i === void 0 && (i = Yx(r, e, o)),
             i === "normal" && e in M5 && (i = M5[e]),
             t === "" || t
-              ? (n = parseFloat(i), t === !0 || isFinite(n) ? n || 0 : i)
+              ? (n = parseFloat(i), t === true || isFinite(n) ? n || 0 : i)
               : i;
         },
       });
@@ -4009,12 +4009,12 @@ ${i.formatted}`
               a = RS(t),
               s = !Tn.scrollboxSize() && a.position === "absolute",
               l = s || i,
-              c = l && le.css(t, "boxSizing", !1, a) === "border-box",
+              c = l && le.css(t, "boxSizing", false, a) === "border-box",
               d = i ? dG(t, e, i, c, a) : 0;
             return c && s &&
               (d -= Math.ceil(
                 t["offset" + e[0].toUpperCase() + e.slice(1)] -
-                  parseFloat(a[e]) - dG(t, e, "border", !1, a) - .5,
+                  parseFloat(a[e]) - dG(t, e, "border", false, a) - .5,
               )),
               d && (n = OS.exec(o)) && (n[3] || "px") !== "px" &&
               (t.style[e] = o, o = le.css(t, e)),
@@ -4056,7 +4056,7 @@ ${i.formatted}`
               var n, a, s = {}, l = 0;
               if (Array.isArray(o)) {
                 for (n = RS(t), a = o.length; l < a; l++) {
-                  s[o[l]] = le.css(t, o[l], !1, n);
+                  s[o[l]] = le.css(t, o[l], false, n);
                 }
                 return s;
               }
@@ -4123,7 +4123,7 @@ ${i.formatted}`
                 r.target || (r.target = t),
                 e = e == null ? [r] : le.makeArray(e, [r]),
                 d = le.event.special[u] || {},
-                !(!o && d.trigger && d.trigger.apply(t, e) === !1))
+                !(!o && d.trigger && d.trigger.apply(t, e) === false))
           ) {
             if (!o && !d.noBubble && !Tf(t)) {
               for (
@@ -4143,11 +4143,11 @@ ${i.formatted}`
                 c = l && n[l],
                 c && c.apply && GS(n) &&
                 (r.result = c.apply(n, e),
-                  r.result === !1 && r.preventDefault());
+                  r.result === false && r.preventDefault());
             }
             return r.type = u,
               !o && !r.isDefaultPrevented() &&
-              (!d._default || d._default.apply(h.pop(), e) === !1) &&
+              (!d._default || d._default.apply(h.pop(), e) === false) &&
               GS(t) && l && gp(t[u]) && !Tf(t) &&
               (a = t[l],
                 a && (t[l] = null),
@@ -4163,7 +4163,7 @@ ${i.formatted}`
         simulate: function (r, e, t) {
           var o = le.extend(new le.Event(), t, {
             type: r,
-            isSimulated: !0,
+            isSimulated: true,
           });
           le.event.trigger(o, null, e);
         },
@@ -4176,7 +4176,7 @@ ${i.formatted}`
         },
         triggerHandler: function (r, e) {
           var t = this[0];
-          if (t) return le.event.trigger(r, e, t, !0);
+          if (t) return le.event.trigger(r, e, t, true);
         },
       });
       Tn.focusin ||
@@ -4188,14 +4188,14 @@ ${i.formatted}`
             setup: function () {
               var o = this.ownerDocument || this.document || this,
                 i = Qo.access(o, e);
-              i || o.addEventListener(r, t, !0), Qo.access(o, e, (i || 0) + 1);
+              i || o.addEventListener(r, t, true), Qo.access(o, e, (i || 0) + 1);
             },
             teardown: function () {
               var o = this.ownerDocument || this.document || this,
                 i = Qo.access(o, e) - 1;
               i
                 ? Qo.access(o, e, i)
-                : (o.removeEventListener(r, t, !0), Qo.remove(o, e));
+                : (o.removeEventListener(r, t, true), Qo.remove(o, e));
             },
           };
         });
@@ -4277,12 +4277,12 @@ ${i.formatted}`
               ) r = r.parentNode;
               r && r !== o && r.nodeType === 1 &&
                 (i = le(r).offset(),
-                  i.top += le.css(r, "borderTopWidth", !0),
-                  i.left += le.css(r, "borderLeftWidth", !0));
+                  i.top += le.css(r, "borderTopWidth", true),
+                  i.left += le.css(r, "borderLeftWidth", true));
             }
             return {
-              top: e.top - i.top - le.css(o, "marginTop", !0),
-              left: e.left - i.left - le.css(o, "marginLeft", !0),
+              top: e.top - i.top - le.css(o, "marginTop", true),
+              left: e.left - i.left - le.css(o, "marginLeft", true),
             };
           }
         },
@@ -4336,7 +4336,7 @@ ${i.formatted}`
           function (t, o) {
             le.fn[o] = function (i, n) {
               var a = arguments.length && (t || typeof i != "boolean"),
-                s = t || (i === !0 || n === !0 ? "margin" : "border");
+                s = t || (i === true || n === true ? "margin" : "border");
               return Xx(
                 this,
                 function (l, c, d) {
@@ -4493,12 +4493,12 @@ ${i.formatted}`
           onMount(e) {
             r().shouldBeFocused() && e.focus(),
               e.onfocus = function (t) {
-                r().shouldBeFocused() || r().onFocusedChanged(!0, t);
+                r().shouldBeFocused() || r().onFocusedChanged(true, t);
               },
               e.onblur = function (t) {
                 r().shouldBeFocused() &&
                   t.target !== document.activeElement &&
-                  r().onFocusedChanged(!1, t);
+                  r().onFocusedChanged(false, t);
               };
           },
           onUpdate(e) {
@@ -4579,7 +4579,7 @@ ${i.formatted}`
                 H.localLatex = B.latex();
                 var X = n(B);
                 X && (H.rootLatex = X.latex());
-              } else H.emptyNode = !0;
+              } else H.emptyNode = true;
             }
           }
           throw m;
@@ -4730,10 +4730,10 @@ ${i.formatted}`
             this.span.parentNode !== b && P(b).prepend(P(this.span));
           },
             D.prototype.queue = function (b, g) {
-              g === void 0 && (g = !1);
+              g === void 0 && (g = false);
               var m = "";
               if (b instanceof Dt) {
-                var T = b.mathspeak({ ignoreShorthand: !0 });
+                var T = b.mathspeak({ ignoreShorthand: true });
                 g &&
                 (b.parent && b.parent.ariaLabel && b.ariaLabel === "block"
                   ? m = b.parent.ariaLabel + " " + T
@@ -4788,7 +4788,7 @@ ${i.formatted}`
               return !!(this.ends && this.ends[r] === this.ends[e]);
             },
             D.prototype.isValid = function () {
-              if (!this.ends || this.ends[r] === this.ends[e]) return !0;
+              if (!this.ends || this.ends[r] === this.ends[e]) return true;
               var b;
               return this.eachNode(function (g) {
                 return b = g;
@@ -4808,9 +4808,9 @@ ${i.formatted}`
             D.prototype.join = function (b) {
               if (!this.ends) return b;
               if (!b.ends) return this;
-              for (var g = !1, m = this.ends[e].nextSibling; m;) {
+              for (var g = false, m = this.ends[e].nextSibling; m;) {
                 if (m === b.ends[r]) {
-                  g = !0;
+                  g = true;
                   break;
                 }
                 m = m.nextSibling;
@@ -5003,9 +5003,9 @@ ${i.formatted}`
                 : this;
             },
             D.prototype.hasClass = function (b) {
-              var g = !1;
+              var g = false;
               return this.eachElement(function (m) {
-                m.classList.contains(b) && (g = !0);
+                m.classList.contains(b) && (g = true);
               }),
                 g;
             },
@@ -5048,8 +5048,8 @@ ${i.formatted}`
               return this;
             },
             D.prototype.toggleClass = function (b, g) {
-              if (g === !0) return this.addClass(b);
-              if (g === !1) return this.removeClass(b);
+              if (g === true) return this.addClass(b);
+              if (g === false) return this.removeClass(b);
               for (
                 var m = function (X) {
                     if (!X) return "continue";
@@ -5096,7 +5096,7 @@ ${i.formatted}`
           if (m) {
             for (m = m[e]; g !== m; g = g[e]) {
               var T = b(g);
-              if (T === !1) break;
+              if (T === false) break;
             }
           }
         }
@@ -5181,14 +5181,14 @@ ${i.formatted}`
           D.prototype.bubble = function (m) {
             for (var T = this.getSelfNode(), G = T; G; G = G.parent) {
               var B = m(G);
-              if (B === !1) break;
+              if (B === false) break;
             }
             return this;
           },
           D.prototype.postOrder = function (m) {
             var T = this.getSelfNode();
             return function G(B) {
-              return B ? (B.eachChild(G), m(B), !0) : !1;
+              return B ? (B.eachChild(G), m(B), true) : false;
             }(T),
               T;
           },
@@ -5199,15 +5199,15 @@ ${i.formatted}`
             if (
               !this.isEmpty() || !m || !this.parent ||
               this.parent.ctrlSeq === void 0
-            ) return !1;
+            ) return false;
             var T = this.parent.ctrlSeq.replace(/^\\(left|right)?/, "");
             return m.hasOwnProperty(T);
           },
           D.prototype.isStyleBlock = function () {
-            return !1;
+            return false;
           },
           D.prototype.isTextBlock = function () {
-            return !1;
+            return false;
           },
           D.prototype.children = function () {
             return new N(this.getEnd(r), this.getEnd(e));
@@ -5237,7 +5237,7 @@ ${i.formatted}`
             var T = m.disableAutoSubstitutionInSubscripts;
             if (
               !T || !this.parent || !(this.parent.parent instanceof ac)
-            ) return !1;
+            ) return false;
             var G = this.parent.parent[r];
             return !(typeof T == "object" && G instanceof Zt &&
                 G.endsWord && T.except[G.endsWord] ||
@@ -5247,7 +5247,7 @@ ${i.formatted}`
             return this;
           },
           D.prototype.parser = function () {
-            a("Abstract parser() method is never called", !1);
+            a("Abstract parser() method is never called", false);
           },
           D.prototype.html = function () {
             throw new Error("html() unimplemented in NodeBase");
@@ -5280,7 +5280,7 @@ ${i.formatted}`
           D.prototype.reflow = function () {},
           D.prototype.registerInnerField = function (m, T) {},
           D.prototype.chToCmd = function (m, T) {
-            a("Abstract chToCmd() method is never called", !1);
+            a("Abstract chToCmd() method is never called", false);
           },
           D.prototype.mathspeak = function (m) {
             return "";
@@ -5331,7 +5331,7 @@ ${i.formatted}`
           function D(b, g, m) {
             var T, G;
             if (
-              this.disowned = !1,
+              this.disowned = false,
                 m === void 0 && (m = r),
                 s(m),
                 a("no half-empty fragments", !b == !g, {
@@ -5384,7 +5384,7 @@ ${i.formatted}`
               var T;
               R(b, g, m);
               var G = this;
-              this.disowned = !1;
+              this.disowned = false;
               var B = G.ends[r];
               if (!B) return this;
               var H = G.ends[e];
@@ -5395,14 +5395,14 @@ ${i.formatted}`
                 b.setEnds(X),
                 H[e] = m,
                 G.each(function (ge) {
-                  return ge[r] = g, ge.parent = b, g && (g[e] = ge), g = ge, !0;
+                  return ge[r] = g, ge.parent = b, g && (g[e] = ge), g = ge, true;
                 }),
                 G;
             },
             D.prototype.disown = function () {
               var b, g = this, m = g.ends[r];
               if (!m || g.disowned) return g;
-              this.disowned = !0;
+              this.disowned = true;
               var T = g.ends[e];
               if (!T) return g;
               var G = m.parent;
@@ -5539,7 +5539,7 @@ ${i.formatted}`
                 var H = T.getBoundingClientRectWithoutMargin().left;
                 m.seek(H, T);
               }
-              T.controller.aria.queue(m, !0);
+              T.controller.aria.queue(m, true);
             },
             b.prototype.getBoundingClientRectWithoutMargin = function () {
               var g = this.domFrag();
@@ -5557,10 +5557,10 @@ ${i.formatted}`
                 g.disown().eachChild(function (Ie) {
                   return Ie.isEmpty() ||
                     (Ie.children().adopt(m, B, T).each(function (qe) {
-                      return qe.domFrag().insertBefore(g.domFrag()), !0;
+                      return qe.domFrag().insertBefore(g.domFrag()), true;
                     }),
                       B = Ie.getEnd(e)),
-                    !0;
+                    true;
                 }), !this[e]
               ) {
                 var H = this[r];
@@ -5595,7 +5595,7 @@ ${i.formatted}`
             },
             b.prototype.select = function () {
               var g, m = this.anticursor;
-              if (this[r] === m[r] && this.parent === m.parent) return !1;
+              if (this[r] === m[r] && this.parent === m.parent) return false;
               for (var T = this; T.parent; T = T.parent) {
                 if (T.parent.id in m.ancestors) {
                   g = T.parent;
@@ -5617,7 +5617,7 @@ ${i.formatted}`
                 X instanceof z && (X = X[r]),
                 this.hide().selection = G.selectChildren(H, X);
               var Ae = this.selection.getEnd(ge);
-              return this.insDirOf(ge, Ae), this.selectionChanged(), !0;
+              return this.insDirOf(ge, Ae), this.selectionChanged(), true;
             },
             b.prototype.resetToEnd = function (g) {
               this.clearSelection();
@@ -5657,7 +5657,7 @@ ${i.formatted}`
             b.prototype.isTooDeep = function (g) {
               return this.options.maxDepth !== void 0
                 ? this.depth() + (g || 0) > this.options.maxDepth
-                : !1;
+                : false;
             },
             b.prototype.selectionChanged = function () {},
             b;
@@ -5820,17 +5820,17 @@ ${i.formatted}`
         ae = {},
         q = {},
         oe = {
-          handlers: !0,
-          autoCommands: !0,
-          quietEmptyDelimiters: !0,
-          autoParenthesizedFunctions: !0,
-          autoOperatorNames: !0,
-          infixOperatorNames: !0,
-          prefixOperatorNames: !0,
-          leftRightIntoCmdGoes: !0,
-          maxDepth: !0,
-          interpretTildeAsSim: !0,
-          disableAutoSubstitutionInSubscripts: !0,
+          handlers: true,
+          autoCommands: true,
+          quietEmptyDelimiters: true,
+          autoParenthesizedFunctions: true,
+          autoOperatorNames: true,
+          infixOperatorNames: true,
+          prefixOperatorNames: true,
+          leftRightIntoCmdGoes: true,
+          maxDepth: true,
+          interpretTildeAsSim: true,
+          disableAutoSubstitutionInSubscripts: true,
         },
         K = {},
         fe = function () {
@@ -5953,7 +5953,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               lt.setDOM(
                 P(c("span", {
                   class: "dcg-mq-root-block",
-                  "aria-hidden": !0,
+                  "aria-hidden": true,
                 })).appendTo(gt).oneElement(),
               ),
                 V.linkElementByBlockNode(lt.domFrag().oneElement(), lt),
@@ -6031,7 +6031,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             }
             return Ie.prototype.mathquillify = function (qe) {
               return Ae.prototype.mathquillify.call(this, qe),
-                this.__controller.editable = !0,
+                this.__controller.editable = true,
                 this.__controller.addMouseEventListener(),
                 this.__controller.editablesTextareaEvents(),
                 this;
@@ -6268,10 +6268,10 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 for (var G = []; b._(g, B, H););
                 return m(g, G);
                 function B(X, ge) {
-                  return g = X, G.push(ge), !0;
+                  return g = X, G.push(ge), true;
                 }
                 function H() {
-                  return !1;
+                  return false;
                 }
               });
             },
@@ -6279,19 +6279,19 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               arguments.length < 2 && (g = b);
               var m = this;
               return new D(function (T, G, B) {
-                for (var H = [], X = !0, ge, Oe = 0; Oe < b; Oe += 1) {
+                for (var H = [], X = true, ge, Oe = 0; Oe < b; Oe += 1) {
                   if (X = !!m._(T, Ae, Ie), !X) return B(T, ge);
                 }
                 for (; Oe < g && X; Oe += 1) m._(T, Ae, qe);
                 return G(T, H);
                 function Ae(He, lt) {
-                  return H.push(lt), T = He, !0;
+                  return H.push(lt), T = He, true;
                 }
                 function Ie(He, lt) {
-                  return ge = lt, T = He, !1;
+                  return ge = lt, T = He, false;
                 }
                 function qe(He, lt) {
-                  return !1;
+                  return false;
                 }
               });
             },
@@ -6437,9 +6437,9 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               case "Left":
               case "Down":
               case "Up":
-                return !0;
+                return true;
             }
-            return !1;
+            return false;
           }
           function m(B) {
             return B.length === 1 && B >= "a" && B <= "z";
@@ -6482,11 +6482,11 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 Lr && Ie(),
                 He = !!Lr;
             }
-            var He = !1;
+            var He = false;
             function lt() {
               return !("selectionStart" in H) ||
                   !(H instanceof HTMLTextAreaElement)
-                ? !1
+                ? false
                 : H.selectionStart !== H.selectionEnd;
             }
             function gt() {
@@ -6618,7 +6618,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
       se.onNotify(function (D, b) {
         if (b === "edit" || b === "replace" || b === void 0) {
           var g = D.controller;
-          if (!g || !g.options.enableDigitGrouping || g.blurred !== !1) {
+          if (!g || !g.options.enableDigitGrouping || g.blurred !== false) {
             return;
           }
           g.disableGroupingForSeconds(1);
@@ -6631,7 +6631,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             return g.handleTextareaFocusEditable = function () {
               var m = g.cursor;
               g.updateMathspeak(),
-                g.blurred = !1,
+                g.blurred = false,
                 clearTimeout(g.blurTimeout),
                 P(g.container).addClass("dcg-mq-focused"),
                 m.parent || m.insAtRightEnd(g.root),
@@ -6646,32 +6646,32 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 (clearTimeout(g.textareaSelectionTimeout),
                   g.textareaSelectionTimeout = 0),
                   g.disableGroupingForSeconds(0),
-                  g.blurred = !0,
+                  g.blurred = true,
                   g.blurTimeout = setTimeout(function () {
                     g.root.postOrder(function (m) {
                       m.intentionalBlur();
                     }),
                       g.cursor.clearSelection().endSelection(),
                       g.blur(),
-                      g.updateMathspeak({ emptyContent: !0 }),
+                      g.updateMathspeak({ emptyContent: true }),
                       g.scrollHoriz();
                   }),
                   window.addEventListener("blur", g.handleWindowBlur);
               },
               g.handleTextareaFocusStatic = function () {
                 g.cursor.selection || g.cursor.controller.selectAll(),
-                  g.blurred = !1;
+                  g.blurred = false;
               },
               g.handleTextareaBlurStatic = function () {
                 g.cursor.clearSelection(),
-                  g.updateMathspeak({ emptyContent: !0 });
+                  g.updateMathspeak({ emptyContent: true });
               },
               g.handleWindowBlur = function () {
                 clearTimeout(g.blurTimeout),
                   g.cursor.selection &&
                   g.cursor.selection.domFrag().addClass("dcg-mq-blur"),
                   g.blurWithoutResettingCursor(),
-                  g.updateMathspeak({ emptyContent: !0 });
+                  g.updateMathspeak({ emptyContent: true });
               },
               g;
           }
@@ -6707,7 +6707,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 focus: this.handleTextareaFocusEditable,
                 blur: this.handleTextareaBlurEditable,
               }),
-                g.blurred = !0,
+                g.blurred = true,
                 m.hide().parent.blur(m);
             },
             b.prototype.addStaticFocusBlurListeners = function () {
@@ -6718,7 +6718,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             },
             b;
         }(Se),
-        It = !1,
+        It = false,
         Dt = function (D) {
           ht(b, D);
           function b() {
@@ -6745,7 +6745,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 return;
               case "End":
                 T.notify("move").cursor.insAtRightEnd(G.parent),
-                  T.aria.queue("end of").queue(G.parent, !0);
+                  T.aria.queue("end of").queue(G.parent, true);
                 break;
               case "Ctrl-End":
                 T.notify("move").cursor.insAtRightEnd(T.root),
@@ -6760,7 +6760,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 break;
               case "Home":
                 T.notify("move").cursor.insAtLeftEnd(G.parent),
-                  T.aria.queue("beginning of").queue(G.parent, !0);
+                  T.aria.queue("beginning of").queue(G.parent, true);
                 break;
               case "Ctrl-Home":
                 T.notify("move").cursor.insAtLeftEnd(T.root),
@@ -6864,25 +6864,25 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             T.aria.alert(), m == null || m.preventDefault(), T.scrollHoriz();
           },
             b.prototype.moveOutOf = function (g, m, T) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.moveTowards = function (g, m, T) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.deleteOutOf = function (g, m) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.deleteTowards = function (g, m) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.unselectInto = function (g, m) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.selectOutOf = function (g, m) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b.prototype.selectTowards = function (g, m) {
-              a("overridden or never called on this node", !1);
+              a("overridden or never called on this node", false);
             },
             b;
         }(V);
@@ -6966,8 +6966,8 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                     Ie &&
                     (typeof Ie == "function" && (Ie = Ie.call(Ae, T)),
                       Ie instanceof Dt && T.jumpUpDown(Ae, Ie),
-                      Ie !== !0)
-                  ) return !1;
+                      Ie !== true)
+                  ) return false;
                 }),
                 m;
             },
@@ -7044,13 +7044,13 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             },
             b.prototype.startIncrementalSelection = function () {
               a("Multiple selections can't be simultaneously open", !It),
-                It = !0,
+                It = true,
                 this.notify("select");
               var g = this.cursor;
               g.anticursor || g.startSelection();
             },
             b.prototype.selectDirIncremental = function (g) {
-              a("A selection is open", It), It = !0;
+              a("A selection is open", It), It = true;
               var m = this.cursor, T = m.selection;
               s(g);
               var G = m[g];
@@ -7068,7 +7068,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               m &&
               g.controller.aria.clear().queue(
                 m.join("mathspeak", " ").trim() + " selected",
-              ), It = !1;
+              ), It = false;
             },
             b.prototype.withIncrementalSelection = function (g) {
               var m = this;
@@ -7082,7 +7082,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   this.finishIncrementalSelection();
                 }
               } finally {
-                It = !1;
+                It = false;
               }
             },
             b.prototype.selectDir = function (g) {
@@ -7258,18 +7258,18 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 if (
                   ge = this.classifyLatexForEfficientUpdate(m),
                     !ge || ge.prefix !== Oe.prefix
-                ) return !1;
-              } else return !1;
-              var Ae = ge.digits, Ie = Oe.digits, qe = !1, He = !1;
-              Ae[0] === "-" && (qe = !0, Ae = Ae.substr(1)),
-                Ie[0] === "-" && (He = !0, Ie = Ie.substr(1));
+                ) return false;
+              } else return false;
+              var Ae = ge.digits, Ie = Oe.digits, qe = false, He = false;
+              Ae[0] === "-" && (qe = true, Ae = Ae.substr(1)),
+                Ie[0] === "-" && (He = true, Ie = Ie.substr(1));
               for (
                 var lt = this.root.getEnd(e), gt = [], At = Ae.length - 1;
                 At >= 0;
                 At--
               ) {
                 if (!lt || lt.ctrlSeq !== Ae[At] || lt.parent !== X) {
-                  return !1;
+                  return false;
                 }
                 gt.unshift(lt), lt = lt[r];
               }
@@ -7278,9 +7278,9 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 if (
                   !Gr || Gr.ctrlSeq !== "-" || Gr[e] !== gt[0] ||
                   Gr.parent !== X
-                ) return !1;
+                ) return false;
                 var wn = Gr[r];
-                if (wn && wn.parent !== X) return !1;
+                if (wn && wn.parent !== X) return false;
                 gt[0][r] = Gr[r],
                   X.getEnd(r) === Gr &&
                   X.setEnds(
@@ -7345,10 +7345,10 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   "tried updating latex efficiently but did not work. Attempted: " +
                     g + " but wrote: " + jR,
                 ),
-                  !1;
+                  false;
               }
               var YR = X.getEnd(e);
-              return YR && YR.fixDigitGrouping(this.cursor.options), !0;
+              return YR && YR.fixDigitGrouping(this.cursor.options), true;
             },
             b.prototype.renderLatexMathFromScratch = function (g) {
               var m,
@@ -7356,7 +7356,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 G = this.cursor,
                 B = ce.all,
                 H = ce.eof,
-                X = j.skip(H).or(B.result(!1)).parse(g);
+                X = j.skip(H).or(B.result(false)).parse(g);
               if (
                 T.setEnds((m = {}, m[r] = 0, m[e] = 0, m)),
                   X && X.children().adopt(T, 0, 0),
@@ -7398,7 +7398,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   return new be(gt);
                 }),
                 qe = Oe.or(Ie).many(),
-                He = qe.skip(X).or(ge.result(!1)).parse(g);
+                He = qe.skip(X).or(ge.result(false)).parse(g);
               if (He) {
                 for (var lt = 0; lt < He.length; lt += 1) {
                   He[lt].adopt(T, T.getEnd(e), 0);
@@ -7410,7 +7410,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             b;
         }(Mr),
         de = function (D) {
-          return !1;
+          return false;
         };
       fe.prototype.ignoreNextMousedown = de;
       var Ye;
@@ -7435,7 +7435,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 Oe = H.getTextarea();
               if (
                 m.preventDefault(),
-                  m.target.unselectable = !0,
+                  m.target.unselectable = true,
                   X.options.ignoreNextMousedown(m) ||
                   d(m.target, ".dcg-mq-ignore-mousedown")
               ) return;
@@ -7469,7 +7469,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               Ye = {
                 cursor: X,
                 cb: function () {
-                  At = !0, X.blink = ge, X.clearSelection(), lt(), He();
+                  At = true, X.blink = ge, X.clearSelection(), lt(), He();
                 },
               },
                 !(H.blurred && (Oe.focus(), At)) &&
@@ -7513,7 +7513,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             return D !== null && D.apply(this, arguments) || this;
           }
           return b.prototype.setOverflowClasses = function () {
-            var g = this.root.domFrag().oneElement(), m = !1, T = !1;
+            var g = this.root.domFrag().oneElement(), m = false, T = false;
             if (!this.blurred) {
               var G = v(g).width, B = g.scrollWidth, H = g.scrollLeft;
               m = B > G + H, T = H > 0;
@@ -7605,8 +7605,8 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           autocapitalize: "off",
           autocomplete: "off",
           autocorrect: "off",
-          spellcheck: !1,
-          "x-palm-disable-ste-all": !0,
+          spellcheck: false,
+          "x-palm-disable-ste-all": true,
           tabindex: D ? void 0 : "-1",
         });
       };
@@ -7717,7 +7717,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 P(T).remove(),
                 this.removeTextareaEventListener("focus"),
                 this.removeTextareaEventListener("blur"),
-                g.blurred = !0,
+                g.blurred = true,
                 this.removeTextareaEventListener("cut"),
                 this.removeTextareaEventListener("paste");
             },
@@ -7754,7 +7754,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             },
             b.prototype.setupStaticField = function () {
               this.updateMathspeak(),
-                this.blurred = !0,
+                this.blurred = true,
                 this.cursor.hide().parent.blur(this.cursor);
             },
             b.prototype.updateMathspeak = function (g) {
@@ -7800,10 +7800,10 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               var m = g.options.maxDepth;
               if (m !== void 0) {
                 var T = g.depth();
-                if (T > m) return !1;
+                if (T > m) return false;
                 this.removeNodesDeeperThan(m - T);
               }
-              return !0;
+              return true;
             },
             b.prototype.removeNodesDeeperThan = function (g) {
               for (var m = 0, T = [[this, m]], G; G = T.shift();) {
@@ -7847,7 +7847,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               g.disown(), this.replacedFragment = g;
             },
             b.prototype.isEmpty = function () {
-              return this.foldChildren(!0, function (g, m) {
+              return this.foldChildren(true, function (g, m) {
                 return g && m.isEmpty();
               });
             },
@@ -7901,7 +7901,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 : T === "down" && (G = this.downInto);
               var B = G || this.getEnd(-g);
               m.insAtDirEnd(-g, B),
-                m.controller.aria.queueDirEndOf(-g).queue(m.parent, !0);
+                m.controller.aria.queueDirEndOf(-g).queue(m.parent, true);
             },
             b.prototype.deleteTowards = function (g, m) {
               this.isEmpty() ? m[g] = this.remove()[g] : this.moveTowards(g, m);
@@ -7934,7 +7934,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   return g - H < ge[r] - g
                     ? X[r] ? m.insAtRightEnd(X[r]) : m.insLeftOf(G)
                     : m.insAtLeftEnd(X),
-                    !1;
+                    false;
                 }
                 if (g > ge[e]) {
                   X[e]
@@ -7943,7 +7943,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                     ? m.insRightOf(G)
                     : m.insAtRightEnd(X);
                   return;
-                } else return X.seek(g, m), !1;
+                } else return X.seek(g, m), false;
               });
             },
             b.prototype.numBlocks = function () {
@@ -8000,7 +8000,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               g,
               m
                 ? new Ue(0, function () {
-                  return m.cloneNode(!0);
+                  return m.cloneNode(true);
                 })
                 : void 0,
               T,
@@ -8059,7 +8059,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             },
             b.prototype.placeCursor = function () {},
             b.prototype.isEmpty = function () {
-              return !0;
+              return true;
             },
             b;
         }(at),
@@ -8107,7 +8107,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             H;
         }
         return b.prototype.isBinaryOperator = function () {
-          return !0;
+          return true;
         },
           b;
       }(ft);
@@ -8194,7 +8194,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             ) {
               var B = -g;
               m.insAtDirEnd(B, this[g]),
-                m.controller.aria.queueDirEndOf(B).queue(m.parent, !0);
+                m.controller.aria.queueDirEndOf(B).queue(m.parent, true);
             } else {m.insDirOf(g, this.parent),
                 m.controller.aria.queueDirOf(g).queue(this.parent);}
           },
@@ -8246,7 +8246,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           b.prototype.writeLatex = function (g, m) {
             var T = ce.all,
               G = ce.eof,
-              B = j.skip(G).or(T.result(!1)).parse(m);
+              B = j.skip(G).or(T.result(false)).parse(m);
             if (B && !B.isEmpty() && B.prepareInsertionAt(g)) {
               B.children().adopt(g.parent, g[r], g[e]),
                 P(B.html()).insertBefore(g.domFrag()),
@@ -8277,7 +8277,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           },
           b;
       }(Vo);
-      fe.prototype.mouseEvents = !0,
+      fe.prototype.mouseEvents = true,
         ae.StaticMath = function (D) {
           var b;
           return b = function (g) {
@@ -8357,7 +8357,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 return b !== null && b.apply(this, arguments) || this;
               }
               return g.prototype.makeStatic = function () {
-                this.__controller.editable = !1,
+                this.__controller.editable = false,
                   this.__controller.root.blur(),
                   this.__controller.unbindEditablesEvents(),
                   P(this.__controller.container).removeClass(
@@ -8365,7 +8365,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   );
               },
                 g.prototype.makeEditable = function () {
-                  this.__controller.editable = !0,
+                  this.__controller.editable = true,
                     this.__controller.editablesTextareaEvents(),
                     this.__controller.cursor.insAtRightEnd(
                       this.__controller.root,
@@ -8502,8 +8502,8 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               T = m && m[r],
               G = g.parent.parent instanceof ac ? g.parent.parent.sub : void 0;
             g.options.autoSubscriptNumerals && g.parent !== G &&
-              (m instanceof Vt && m.isItalic !== !1 ||
-                m instanceof ac && T instanceof Vt && T.isItalic !== !1)
+              (m instanceof Vt && m.isItalic !== false ||
+                m instanceof ac && T instanceof Vt && T.isItalic !== false)
               ? (new FR().createLeftOf(g),
                 D.prototype.createLeftOf.call(this, g),
                 g.insRightOf(g.parent.parent))
@@ -8519,9 +8519,9 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                     : void 0;
                 if (
                   m.options.autoSubscriptNumerals && m.parent !== B &&
-                  (T instanceof Vt && T.isItalic !== !1 ||
+                  (T instanceof Vt && T.isItalic !== false ||
                     m[r] instanceof ac && G instanceof Vt &&
-                      G.isItalic !== !1)
+                      G.isItalic !== false)
                 ) {
                   return "Subscript " + D.prototype.mathspeak.call(this) +
                     " Baseline";
@@ -8726,7 +8726,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                   X || this.parent.getEnd(e),
                 ).each(function (El) {
                   El instanceof b &&
-                    (El.italicize(!0).domFrag().removeClass(
+                    (El.italicize(true).domFrag().removeClass(
                       "dcg-mq-first dcg-mq-last dcg-mq-followed-by-supsub",
                     ),
                       El.ctrlSeq = El.letter);
@@ -8744,7 +8744,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                         var lt = 0, gt = Ae;
                         lt < Ie;
                         lt += 1, gt = gt[e]
-                      ) gt instanceof b && (gt.italicize(!1), He = gt);
+                      ) gt instanceof b && (gt.italicize(false), He = gt);
                       var At = Xo.hasOwnProperty(qe);
                       if (
                         Ae.ctrlSeq = (At ? "\\" : "\\operatorname{") +
@@ -8871,7 +8871,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         K.infixOperatorNames = xn,
         fe.prototype.prefixOperatorNames = {},
         K.prefixOperatorNames = xn,
-        fe.prototype.disableAutoSubstitutionInSubscripts = !1,
+        fe.prototype.disableAutoSubstitutionInSubscripts = false,
         K.disableAutoSubstitutionInSubscripts = function (D) {
           if (typeof D == "boolean") return D;
           if (typeof D != "object" || D === null || !("except" in D)) {
@@ -8889,7 +8889,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         for (var b = D.split(" "), g = {}, m = 0; m < b.length; m += 1) {
           var T = b[m];
           if (T.length < 2) throw '"' + T + '" not minimum length of 2';
-          g[T] = !0;
+          g[T] = true;
         }
         return g;
       }
@@ -8927,9 +8927,9 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           },
           b.prototype.parser = function () {
             return j.block.map(function (g) {
-              var m = !0, T = "", G = g.children();
+              var m = true, T = "", G = g.children();
               return G.each(function (B) {
-                B instanceof Zt ? T += B.letter : m = !1;
+                B instanceof Zt ? T += B.letter : m = false;
               }),
                 m && T === "ans" ? BR() : G;
             });
@@ -9184,23 +9184,23 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           D instanceof Zt && D.endsCategory == "infix";
       }
       function qc(D) {
-        if (!D) return !1;
+        if (!D) return false;
         var b = D[r];
         if (b) {
           if (
             Jd(b) || b instanceof Zt && b.endsCategory == "prefix" ||
             !(b instanceof Sl) && /^(\\ )|[,;:\(\[]$/.test(b.ctrlSeq)
-          ) return !1;
+          ) return false;
         } else {return D.parent && D.parent.parent &&
               D.parent.parent.isStyleBlock()
             ? qc(D.parent.parent)
-            : !1;}
-        return !0;
+            : false;}
+        return true;
       }
       var Na = function (D) {
         ht(b, D);
         function b(g, m, T) {
-          return D.call(this, g, m, void 0, T, !0) || this;
+          return D.call(this, g, m, void 0, T, true) || this;
         }
         return b.prototype.isBinaryOperator = function () {
           return qc(this);
@@ -9322,7 +9322,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           },
             b.prototype.deleteTowards = function (g, m) {
               if (g === r && !this.strict) {
-                this.swap(!0),
+                this.swap(true),
                   this.bubble(function (T) {
                     T.reflow();
                   });
@@ -9355,7 +9355,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         Fj = function (D) {
           ht(b, D);
           function b() {
-            return D.call(this, PR, !0) || this;
+            return D.call(this, PR, true) || this;
           }
           return b.prototype.createLeftOf = function (g) {
             var m = g[r];
@@ -9374,14 +9374,14 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             b;
         }(Qd);
       M["<"] = M.lt = function () {
-        return new Qd($s, !0);
+        return new Qd($s, true);
       },
         M[">"] = M.gt = Fj,
         M["\u2264"] = M.le = M.leq = function () {
-          return new Qd($s, !1);
+          return new Qd($s, false);
         },
         M["\u2265"] = M.ge = M.geq = function () {
-          return new Qd(PR, !1);
+          return new Qd(PR, false);
         },
         M["\u221E"] =
           M.infty =
@@ -9397,7 +9397,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         return b.prototype.createLeftOf = function (g) {
           var m = g[r];
           if (m instanceof Qd && m.strict) {
-            m.swap(!1),
+            m.swap(false),
               m.bubble(function (T) {
                 T.reflow();
               });
@@ -9699,11 +9699,11 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             "span",
             { class: "dcg-mq-roman dcg-mq-font" },
             "Roman Font",
-            { shouldNotSpeakDelimiters: !0 },
+            { shouldNotSpeakDelimiters: true },
           ) || this;
         }
         return b.prototype.isTextBlock = function () {
-          return !0;
+          return true;
         },
           b;
       }(nc),
@@ -9856,7 +9856,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               });
             },
             b.prototype.isStyleBlock = function () {
-              return !0;
+              return true;
             },
             b;
         }(at);
@@ -9893,7 +9893,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                 this.checkCursorContextClose(g);
             },
             b.prototype.isStyleBlock = function () {
-              return !0;
+              return true;
             },
             b;
         }(at),
@@ -9929,10 +9929,10 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
             ) return D.prototype.createLeftOf.call(this, g);
           },
           b.prototype.contactWeld = function (g) {
-            for (var m = r; m; m = m === r ? e : !1) {
+            for (var m = r; m; m = m === r ? e : false) {
               var T = this[m], G = void 0;
               if (T instanceof b) {
-                for (var B = "sub"; B; B = B === "sub" ? "sup" : !1) {
+                for (var B = "sub"; B; B = B === "sub" ? "sup" : false) {
                   var H = this[B], X = T[B];
                   if (H) {
                     if (!X) T.addBlock(H.disown());
@@ -10375,15 +10375,15 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
                         : G === "9" && (H = B ? "ninth" : "ninths"), H !== ""
                     ) {
                       for (
-                        var X = "", ge = !1, Oe = this[r];
+                        var X = "", ge = false, Oe = this[r];
                         Oe && Oe[r] !== void 0;
                         Oe = Oe[r]
                       ) {
                         if (Oe.ctrlSeq !== "\\ ") {
                           if ($1.test(Oe.ctrlSeq || "")) {
-                            ge = !0;
+                            ge = true;
                           } else {
-                            ge = !1;
+                            ge = false;
                             break;
                           }
                         }
@@ -10853,11 +10853,11 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               }
             },
             b.prototype.deleteTowards = function (g, m) {
-              this.deleteSide(-g, !1, m);
+              this.deleteSide(-g, false, m);
             },
             b.prototype.finalizeTree = function () {
               this.getEnd(r).deleteOutOf = function (g, m) {
-                this.parent.deleteSide(g, !0, m);
+                this.parent.deleteSide(g, true, m);
               },
                 this.finalizeTree = this.intentionalBlur = function () {
                   this.delimFrags[this.side === r ? e : r].removeClass(
@@ -11052,7 +11052,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
               g,
             );
             m.KIND_OF_MQ = "MathField",
-              m.editable = !0,
+              m.editable = true,
               m.createTextarea(),
               m.editablesTextareaEvents(),
               m.cursor.insAtRightEnd(m.root),
@@ -11140,22 +11140,22 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
   });
   var sK = __dcg_shared_module_exports__["c"]((nke, aK) => {
     aK.exports = {
-      area: !0,
-      base: !0,
-      br: !0,
-      col: !0,
-      embed: !0,
-      hr: !0,
-      img: !0,
-      input: !0,
-      keygen: !0,
-      link: !0,
-      menuitem: !0,
-      meta: !0,
-      param: !0,
-      source: !0,
-      track: !0,
-      wbr: !0,
+      area: true,
+      base: true,
+      br: true,
+      col: true,
+      embed: true,
+      hr: true,
+      img: true,
+      input: true,
+      keygen: true,
+      link: true,
+      menuitem: true,
+      meta: true,
+      param: true,
+      source: true,
+      track: true,
+      wbr: true,
     };
   });
   var cK = __dcg_shared_module_exports__["c"]((ake, lK) => {
@@ -11163,28 +11163,28 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
     lK.exports = function (r) {
       var e = 0,
         t,
-        o = !0,
+        o = true,
         i = {
           type: "tag",
           name: "",
-          voidElement: !1,
+          voidElement: false,
           attrs: {},
           children: [],
         };
       return r.replace(Woe, function (n) {
         if (n === "=") {
-          o = !0, e++;
+          o = true, e++;
           return;
         }
         o
           ? e === 0
             ? (($oe[n] || r.charAt(r.length - 2) === "/") &&
-              (i.voidElement = !0),
+              (i.voidElement = true),
               i.name = n)
             : (i.attrs[t] = n.replace(/^['"]|['"]$/g, ""), t = void 0)
           : (t && (i.attrs[t] = t), t = n),
           e++,
-          o = !1;
+          o = false;
       }),
         i;
     };
@@ -11201,11 +11201,11 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
     }
     dK.exports = function (e, t) {
       t || (t = {}), t.components || (t.components = Xoe);
-      var o = [], i, n = -1, a = [], s = {}, l = !1;
+      var o = [], i, n = -1, a = [], s = {}, l = false;
       return e.replace(joe, function (c, d) {
         if (l) {
           if (c !== "</" + i.name + ">") return;
-          l = !1;
+          l = false;
         }
         var p = c.charAt(1) !== "/",
           h = c.indexOf("<!--") === 0,
@@ -11216,7 +11216,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         (n++,
           i = Yoe(c),
           i.type === "tag" && t.components[i.name] &&
-          (i.type = "component", l = !0),
+          (i.type = "component", l = true),
           !i.voidElement && !l && f && f !== "<" &&
           AP(i.children, e, n, u, t.ignoreWhitespace),
           s[i.tagName] = i,
@@ -11278,9 +11278,9 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
     u3 = (r, e, t) =>
       e in r
         ? T3(r, e, {
-          enumerable: !0,
-          configurable: !0,
-          writable: !0,
+          enumerable: true,
+          configurable: true,
+          writable: true,
           value: t,
         })
         : r[e] = t,
@@ -11317,7 +11317,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
           e.exports;
       },
     aM = (r, e) => {
-      for (var t in e) T3(r, t, { get: e[t], enumerable: !0 });
+      for (var t in e) T3(r, t, { get: e[t], enumerable: true });
     },
     $j = nM({
       "generated/latex.jison.js"(r, e) {
@@ -12204,10 +12204,10 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                         R.push(Lt);
                       break;
                     case 3:
-                      return !0;
+                      return true;
                   }
                 }
-                return !0;
+                return true;
               },
             },
             U = function () {
@@ -12220,7 +12220,7 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                 setInput: function (L, V) {
                   return this.yy = V || this.yy || {},
                     this._input = L,
-                    this._more = this._backtrack = this.done = !1,
+                    this._more = this._backtrack = this.done = false,
                     this.yylineno = this.yyleng = 0,
                     this.yytext = this.matched = this.match = "",
                     this.conditionStack = ["INITIAL"],
@@ -12283,10 +12283,10 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                     this;
                 },
                 more: function () {
-                  return this._more = !0, this;
+                  return this._more = true, this;
                 },
                 reject: function () {
-                  if (this.options.backtrack_lexer) this._backtrack = !0;
+                  if (this.options.backtrack_lexer) this._backtrack = true;
                   else {return this.parseError(
                       "Lexical error on line " + (this.yylineno + 1) +
                         `. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).
@@ -12364,8 +12364,8 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                         this.offset,
                         this.offset += this.yyleng,
                       ]),
-                      this._more = !1,
-                      this._backtrack = !1,
+                      this._more = false,
+                      this._backtrack = false,
                       this._input = this._input.slice(L[0].length),
                       this.matched += L[0],
                       R = this.performAction.call(
@@ -12376,18 +12376,18 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                         this
                           .conditionStack[this.conditionStack.length - 1],
                       ),
-                      this.done && this._input && (this.done = !1),
+                      this.done && this._input && (this.done = false),
                       R
                   ) return R;
                   if (this._backtrack) {
                     for (var F in M) this[F] = M[F];
-                    return !1;
+                    return false;
                   }
-                  return !1;
+                  return false;
                 },
                 next: function () {
                   if (this.done) return this.EOF;
-                  this._input || (this.done = !0);
+                  this._input || (this.done = true);
                   var L, V, R, N;
                   this._more || (this.yytext = "", this.match = "");
                   for (
@@ -12401,17 +12401,17 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                     ) {
                       if (V = R, N = F, this.options.backtrack_lexer) {
                         if (
-                          L = this.test_match(R, M[F]), L !== !1
+                          L = this.test_match(R, M[F]), L !== false
                         ) return L;
                         if (this._backtrack) {
-                          V = !1;
+                          V = false;
                           continue;
-                        } else return !1;
+                        } else return false;
                       } else if (!this.options.flex) break;
                     }
                   }
                   return V
-                    ? (L = this.test_match(V, M[N]), L !== !1 ? L : !1)
+                    ? (L = this.test_match(V, M[N]), L !== false ? L : false)
                     : this._input === ""
                     ? this.EOF
                     : this.parseError(
@@ -12573,7 +12573,7 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                       24,
                       25,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                   INITIAL: {
                     rules: [
@@ -12603,7 +12603,7 @@ Expecting ` + It.join(", ") + ", got '" + (this.terminals_[$] || $) + "'"
                       24,
                       25,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                 },
               };
@@ -14900,10 +14900,10 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                         Ge.push(na);
                       break;
                     case 3:
-                      return !0;
+                      return true;
                   }
                 }
-                return !0;
+                return true;
               },
             },
             It = function () {
@@ -14916,7 +14916,7 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                 setInput: function (Q, j) {
                   return this.yy = j || this.yy || {},
                     this._input = Q,
-                    this._more = this._backtrack = this.done = !1,
+                    this._more = this._backtrack = this.done = false,
                     this.yylineno = this.yyleng = 0,
                     this.yytext = this.matched = this.match = "",
                     this.conditionStack = ["INITIAL"],
@@ -14984,10 +14984,10 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                     this;
                 },
                 more: function () {
-                  return this._more = !0, this;
+                  return this._more = true, this;
                 },
                 reject: function () {
-                  if (this.options.backtrack_lexer) this._backtrack = !0;
+                  if (this.options.backtrack_lexer) this._backtrack = true;
                   else {return this.parseError(
                       "Lexical error on line " + (this.yylineno + 1) +
                         `. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).
@@ -15065,8 +15065,8 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                         this.offset,
                         this.offset += this.yyleng,
                       ]),
-                      this._more = !1,
-                      this._backtrack = !1,
+                      this._more = false,
+                      this._backtrack = false,
                       this._input = this._input.slice(Q[0].length),
                       this.matched += Q[0],
                       Ge = this.performAction.call(
@@ -15077,18 +15077,18 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                         this
                           .conditionStack[this.conditionStack.length - 1],
                       ),
-                      this.done && this._input && (this.done = !1),
+                      this.done && this._input && (this.done = false),
                       Ge
                   ) return Ge;
                   if (this._backtrack) {
                     for (var Ve in Ye) this[Ve] = Ye[Ve];
-                    return !1;
+                    return false;
                   }
-                  return !1;
+                  return false;
                 },
                 next: function () {
                   if (this.done) return this.EOF;
-                  this._input || (this.done = !0);
+                  this._input || (this.done = true);
                   var Q, j, Ge, de;
                   this._more || (this.yytext = "", this.match = "");
                   for (
@@ -15101,20 +15101,20 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                         Ge && (!j || Ge[0].length > j[0].length)
                     ) {
                       if (j = Ge, de = Ve, this.options.backtrack_lexer) {
-                        if (Q = this.test_match(Ge, Ye[Ve]), Q !== !1) {
+                        if (Q = this.test_match(Ge, Ye[Ve]), Q !== false) {
                           return Q;
                         }
                         if (this._backtrack) {
-                          j = !1;
+                          j = false;
                           continue;
-                        } else return !1;
+                        } else return false;
                       } else if (!this.options.flex) {
                         break;
                       }
                     }
                   }
                   return j
-                    ? (Q = this.test_match(j, Ye[de]), Q !== !1 ? Q : !1)
+                    ? (Q = this.test_match(j, Ye[de]), Q !== false ? Q : false)
                     : this._input === ""
                     ? this.EOF
                     : this.parseError(
@@ -15514,7 +15514,7 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                       83,
                       84,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                   modexp: {
                     rules: [
@@ -15601,7 +15601,7 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                       83,
                       84,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                   INITIAL: {
                     rules: [
@@ -15685,7 +15685,7 @@ Expecting ` + xn.join(", ") + ", got '" + (this.terminals_[kt] || kt) + "'"
                       83,
                       84,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                 },
               };
@@ -18062,10 +18062,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                         ft.push(Ex);
                       break;
                     case 3:
-                      return !0;
+                      return true;
                   }
                 }
-                return !0;
+                return true;
               },
             },
             Bn = function () {
@@ -18078,7 +18078,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                 setInput: function (Ue, at) {
                   return this.yy = at || this.yy || {},
                     this._input = Ue,
-                    this._more = this._backtrack = this.done = !1,
+                    this._more = this._backtrack = this.done = false,
                     this.yylineno = this.yyleng = 0,
                     this.yytext = this.matched = this.match = "",
                     this.conditionStack = ["INITIAL"],
@@ -18143,10 +18143,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                     this;
                 },
                 more: function () {
-                  return this._more = !0, this;
+                  return this._more = true, this;
                 },
                 reject: function () {
-                  if (this.options.backtrack_lexer) this._backtrack = !0;
+                  if (this.options.backtrack_lexer) this._backtrack = true;
                   else {return this.parseError(
                       "Lexical error on line " + (this.yylineno + 1) +
                         `. You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).
@@ -18224,8 +18224,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                         this.offset,
                         this.offset += this.yyleng,
                       ]),
-                      this._more = !1,
-                      this._backtrack = !1,
+                      this._more = false,
+                      this._backtrack = false,
                       this._input = this._input.slice(Ue[0].length),
                       this.matched += Ue[0],
                       ft = this.performAction.call(
@@ -18236,18 +18236,18 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                         this
                           .conditionStack[this.conditionStack.length - 1],
                       ),
-                      this.done && this._input && (this.done = !1),
+                      this.done && this._input && (this.done = false),
                       ft
                   ) return ft;
                   if (this._backtrack) {
                     for (var pe in J) this[pe] = J[pe];
-                    return !1;
+                    return false;
                   }
-                  return !1;
+                  return false;
                 },
                 next: function () {
                   if (this.done) return this.EOF;
-                  this._input || (this.done = !0);
+                  this._input || (this.done = true);
                   var Ue, at, ft, be;
                   this._more || (this.yytext = "", this.match = "");
                   for (
@@ -18263,17 +18263,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                         at = ft, be = pe, this.options.backtrack_lexer
                       ) {
                         if (
-                          Ue = this.test_match(ft, J[pe]), Ue !== !1
+                          Ue = this.test_match(ft, J[pe]), Ue !== false
                         ) return Ue;
                         if (this._backtrack) {
-                          at = !1;
+                          at = false;
                           continue;
-                        } else return !1;
+                        } else return false;
                       } else if (!this.options.flex) break;
                     }
                   }
                   return at
-                    ? (Ue = this.test_match(at, J[be]), Ue !== !1 ? Ue : !1)
+                    ? (Ue = this.test_match(at, J[be]), Ue !== false ? Ue : false)
                     : this._input === ""
                     ? this.EOF
                     : this.parseError(
@@ -18627,7 +18627,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                       71,
                       72,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                   INITIAL: {
                     rules: [
@@ -18703,7 +18703,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                       71,
                       72,
                     ],
-                    inclusive: !0,
+                    inclusive: true,
                   },
                 },
               };
@@ -18800,7 +18800,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     jj = I3(sM),
     lM;
   function _3(r) {
-    let e = !1, t = 0, o = "", i = "";
+    let e = false, t = 0, o = "", i = "";
     for (let n of r) {
       if (n.type === "terminal" && /[A-Za-z]/.test(n.value)) {
         o += n.value, t++;
@@ -18894,7 +18894,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       "\\le": "\\leq",
       "\\vert": "|",
     },
-    eY = { "\\space": !0 };
+    eY = { "\\space": true };
   function bu(r) {
     let e = [];
     for (let t = 0; t < r.length; t++) {
@@ -18989,16 +18989,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   P3.parser.yy = A3;
   function V3(r) {
     try {
-      return { isError: !1, value: P3.parser.parse(r) };
+      return { isError: false, value: P3.parser.parse(r) };
     } catch (e) {
-      return { isError: !0, error: uM(e) };
+      return { isError: true, error: uM(e) };
     }
   }
   function oY(r) {
     return r.isError;
   }
   function iY(r, e) {
-    return oY(r) ? r : { isError: !1, value: e(r.value) };
+    return oY(r) ? r : { isError: false, value: e(r.value) };
   }
   function Zm(r, e) {
     let t = iY(r, e);
@@ -19146,19 +19146,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return r.value === "\\sum" || r.value === "\\prod";
   }
   function dY(r, e) {
-    if (e >= r.length) return !1;
+    if (e >= r.length) return false;
     let t = r[e];
     if (t.type === "terminal") {
-      if (/^[0-9]$/.test(t.value)) return !0;
-      if (t.value !== "." || e + 1 >= r.length) return !1;
+      if (/^[0-9]$/.test(t.value)) return true;
+      if (t.value !== "." || e + 1 >= r.length) return false;
       if (t = r[e + 1], t.type === "terminal") {
         return /^[0-9]$/.test(t.value);
       }
     }
-    return !1;
+    return false;
   }
   function xu(r, e) {
-    let t = "", o = r.levelIndicator, i = 0, n = !1;
+    let t = "", o = r.levelIndicator, i = 0, n = false;
     for (let a = 0; a < e.length; a++) {
       dY(e, a) &&
         (o === "" && /[A-Z]$/.test(t) ? t += Zc(o) : lY(r, t) && (t += "#"));
@@ -19168,7 +19168,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         (JA(s)
           ? o = ""
           : (r.wasModifiedExpression && r.levelIndicator === ""
-            ? r = Js(r, { wasModifiedExpression: !1 })
+            ? r = Js(r, { wasModifiedExpression: false })
             : t += Zc(r.levelIndicator),
             o = r.levelIndicator)), s.type
       ) {
@@ -19180,7 +19180,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             (l.type === "terminal" && /^[^_\d,]/.test(XA(l)) ||
               l.type === "greek") &&
             (t += '"'),
-            r = Js(r, { wasFraction: !1, wasRomanCommand: !1 });
+            r = Js(r, { wasFraction: false, wasRomanCommand: false });
           break;
         case "command":
           if (!sY(s)) {
@@ -19190,44 +19190,44 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                 ? t += " " + Zc(o) + b3(s).trim() + " "
                 : t += b3(s),
               r = Js(r, {
-                wasFraction: !1,
+                wasFraction: false,
                 wasModifiedExpression: u,
-                wasRomanCommand: !0,
+                wasRomanCommand: true,
               });
           }
           break;
         case "greek":
-          t += aY(s), r = Js(r, { wasFraction: !1 });
+          t += aY(s), r = Js(r, { wasFraction: false });
           break;
         case "fraction":
           let c = pY(r, s);
           t += c.value,
             i = Math.max(i, c.fractionLevel),
-            r = Js(r, { wasFraction: !0, wasRomanCommand: !1 });
+            r = Js(r, { wasFraction: true, wasRomanCommand: false });
           break;
         case "radical":
           let d = uY(r, s);
           t += d.value,
             i = Math.max(i, d.fractionLevel),
-            r = Js(r, { wasFraction: !1, wasRomanCommand: !1 });
+            r = Js(r, { wasFraction: false, wasRomanCommand: false });
           break;
         case "level":
           !r.wasModifiedExpression && r.wasRomanCommand
             ? (n = /\s$/.test(t), n && (t = t.replace(/\s$/, "")))
-            : n = !1;
-          let p = t.length > 0 && /[A-Za-z]/.test(t[t.length - 1]) === !0,
+            : n = false;
+          let p = t.length > 0 && /[A-Za-z]/.test(t[t.length - 1]) === true,
             h = hY(r, p, n, s);
           t += h.value,
             o = h.levelIndicator,
-            r = Js(r, { wasFraction: !1, wasRomanCommand: !1 });
+            r = Js(r, { wasFraction: false, wasRomanCommand: false });
           break;
         case "typeform":
           t += xu(r, s.value).value,
             s.name === "operator_name" && (t += " "),
             r = Js(r, {
-              wasFraction: !1,
-              wasModifiedExpression: !1,
-              wasRomanCommand: !1,
+              wasFraction: false,
+              wasModifiedExpression: false,
+              wasRomanCommand: false,
             });
           break;
       }
@@ -19235,7 +19235,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return { fractionLevel: i, levelIndicator: o, value: t };
   }
   function pY(r, e) {
-    r = Js(r, { isStartOfLine: !1 });
+    r = Js(r, { isStartOfLine: false });
     let t = xu(r, e.numerator),
       o = xu(r, e.denominator),
       i = Math.max(t.fractionLevel, o.fractionLevel),
@@ -19257,7 +19257,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     for (let a = 0; a < t; a++) i += ".";
     if (e.index) {
       o += i + "<";
-      let a = xu(Js(r, { isStartOfLine: !1 }), e.index);
+      let a = xu(Js(r, { isStartOfLine: false }), e.index);
       o += a.value,
         /\.$/.test(a.value) && (o += '"'),
         a.levelIndicator !== r.levelIndicator &&
@@ -19265,7 +19265,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         o += ">";
     } else o += i + ">";
     let n = xu(
-      Js(r, { isStartOfLine: !1, radicalLevel: t + 1 }),
+      Js(r, { isStartOfLine: false, radicalLevel: t + 1 }),
       e.radicand,
     );
     return o += n.value,
@@ -19280,7 +19280,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (n += a, o.subscript) {
       r.wasModifiedExpression && (n += "%"), i = r.levelIndicator + ";";
       let s = xu(
-        Js(r, { isStartOfLine: !1, levelIndicator: i }),
+        Js(r, { isStartOfLine: false, levelIndicator: i }),
         o.subscript,
       );
       e && /^[0-9]*(\.|\,)?[0-9]+$/.test(s.value) && i.length <= 1
@@ -19293,7 +19293,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (o.superscript) {
       r.wasModifiedExpression && (n += "<"), i = r.levelIndicator + "^";
       let s = xu(
-        Js(r, { isStartOfLine: !1, levelIndicator: i }),
+        Js(r, { isStartOfLine: false, levelIndicator: i }),
         o.superscript.slice(a.length),
       );
       !r.wasModifiedExpression && o.superscript[0] &&
@@ -19320,12 +19320,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function mY() {
     return {
-      isStartOfLine: !0,
+      isStartOfLine: true,
       levelIndicator: "",
       radicalLevel: 0,
-      wasFraction: !1,
-      wasModifiedExpression: !1,
-      wasRomanCommand: !1,
+      wasFraction: false,
+      wasModifiedExpression: false,
+      wasRomanCommand: false,
     };
   }
   function Js(r, e) {
@@ -19334,7 +19334,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function JA(r) {
     return r.type === "terminal" || r.type === "command"
       ? /^<|>|\=|\\leq?|\\geq?|\\neq?$/.test(r.value)
-      : !1;
+      : false;
   }
   function fY(r) {
     let e = mY();
@@ -19376,18 +19376,18 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       i = e.value,
       n = t && t.type === "terminal" ? t.value : "";
     return O3(i, r) && (o += ";"),
-      /^[\D]/.test(i) && (r = ed(r, { wasNumber: !1 })),
+      /^[\D]/.test(i) && (r = ed(r, { wasNumber: false })),
       /^[a-z]$/.test(i)
         ? r.capsLock
-          ? (r = ed(r, { capsLock: !1 }), o += ",'" + i.toUpperCase())
+          ? (r = ed(r, { capsLock: false }), o += ",'" + i.toUpperCase())
           : o += i.toUpperCase()
         : /^[A-Z]$/.test(i)
         ? r.capsLock
           ? o += i
           : /[A-Z]/.test(n)
-          ? (r = ed(r, { capsLock: !0 }), o += ",," + i)
+          ? (r = ed(r, { capsLock: true }), o += ",," + i)
           : o += "," + i
-        : (r = ed(r, { capsLock: !1 }),
+        : (r = ed(r, { capsLock: false }),
           /^[0-9.]$/.test(i)
             ? o += SY(i)
             : y3.hasOwnProperty(i)
@@ -19484,7 +19484,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ? t = x3[r.value]
       : t = r.value.slice(1).toUpperCase() + " ",
       O3(t, e) && (t = ";" + t),
-      /^[\D]/.test(t) && (e = ed(e, { wasNumber: !1 })),
+      /^[\D]/.test(t) && (e = ed(e, { wasNumber: false })),
       { value: t, ctx: e };
   }
   function wY(r) {
@@ -19499,14 +19499,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (e < r.length) {
       let t = r[e];
       if (t.type === "terminal") {
-        if (/^\d$/.test(t.value)) return !0;
-        if (t.value !== "." || e + 1 >= r.length) return !1;
+        if (/^\d$/.test(t.value)) return true;
+        if (t.value !== "." || e + 1 >= r.length) return false;
         if (t = r[e + 1], t.type === "terminal") {
           return /^\d$/.test(t.value);
         }
       }
     }
-    return !1;
+    return false;
   }
   function SY(r) {
     let e = "";
@@ -19522,11 +19522,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return e;
   }
   function wu(r, e) {
-    let t, o, i = "", n = !0;
+    let t, o, i = "", n = true;
     for (let a = 0; a < e.length; a++) {
       CY(e, a)
-        ? (r = ed(r, { wasNumber: !0 }), n && (i += "#", n = !1))
-        : n = !0;
+        ? (r = ed(r, { wasNumber: true }), n && (i += "#", n = false))
+        : n = true;
       let s = e[a];
       switch (s.type) {
         case "terminal":
@@ -19534,29 +19534,29 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           t = yY(r, s, l),
             r = t.ctx,
             i += t.value,
-            i[i.length - 1] === " " && (n = !0);
+            i[i.length - 1] === " " && (n = true);
           break;
         case "command":
           vY(s) ||
             (o = xY(s, r),
               r = o.ctx,
               i += o.value,
-              i[i.length - 1] === " " && (n = !0));
+              i[i.length - 1] === " " && (n = true));
           break;
         case "greek":
-          i += wY(s), i[i.length - 1] === " " && (n = !0);
+          i += wY(s), i[i.length - 1] === " " && (n = true);
           break;
         case "fraction":
           let c = EY(r, s);
-          i += c.value, r = c.ctx, n = !1;
+          i += c.value, r = c.ctx, n = false;
           break;
         case "radical":
           let d = TY(r, s);
-          i += d.value, n = !0;
+          i += d.value, n = true;
           break;
         case "level":
           let p = DY(r, s);
-          i += p.value, r = p.ctx, n = !0;
+          i += p.value, r = p.ctx, n = true;
           break;
         case "typeform":
           let h = wu(r, s.value).value;
@@ -19572,8 +19572,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function EY(r, e) {
     let t = wu(r, e.numerator), o = wu(r, e.denominator), i;
     return eM(t.value) && eM(o.value)
-      ? (r = ed(r, { wasNumber: !0 }), i = t.value + "/" + o.value.slice(1))
-      : (r = ed(r, { wasNumber: !1 }),
+      ? (r = ed(r, { wasNumber: true }), i = t.value + "/" + o.value.slice(1))
+      : (r = ed(r, { wasNumber: false }),
         i = "(" + t.value + "./" + o.value + ")"),
       { ctx: r, value: i };
   }
@@ -19633,7 +19633,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       o && o.type === "typeform";
   }
   function _Y() {
-    return { capsLock: !1, wasNumber: !1 };
+    return { capsLock: false, wasNumber: false };
   }
   function ed(r, e) {
     return Jm(Jm({}, r), e);
@@ -19791,7 +19791,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   ag.setInput = function (r, e) {
     this.delimiterStack = [],
       this.outputQueue = [],
-      this.canAcceptPrimes = !1,
+      this.canAcceptPrimes = false,
       PC.setInput.call(this, r, e);
   };
   ag.lex = function () {
@@ -19803,7 +19803,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ;
       Ox[e] === "UNKNOWN" || !this.canAcceptPrimes && Ox[e] === "PRIMES";
     ) this.warn(), e = PC.lex.call(this);
-    this.canAcceptPrimes = !0;
+    this.canAcceptPrimes = true;
     let t,
       o,
       i = this.delimiterStack
@@ -19812,60 +19812,60 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     switch (Ox[e]) {
       case "OPEN_FRAC":
       case "OPEN_MODEXP":
-        this.delimiterStack.push(e), this.canAcceptPrimes = !1;
+        this.delimiterStack.push(e), this.canAcceptPrimes = false;
         break;
       case "RADICAL_INDEX":
         i === Pi.RADICAL_INDEX &&
         (this.delimiterStack.pop(), this.pushCloseTokens(i)),
           this.delimiterStack.push(e),
-          this.canAcceptPrimes = !1;
+          this.canAcceptPrimes = false;
         break;
       case "OPEN_RADICAL":
         i === Pi.RADICAL_INDEX && this.delimiterStack.pop(),
           this.delimiterStack.push(e),
-          this.canAcceptPrimes = !1;
+          this.canAcceptPrimes = false;
         break;
       case "SLASH":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Pi.OPEN_FRAC) {
-            t = !0;
+            t = true;
             break;
           } else this.pushCloseTokens(o);
         }
         t || this.pushOpenTokens(e),
           this.delimiterStack.push(e),
-          this.canAcceptPrimes = !1;
+          this.canAcceptPrimes = false;
         break;
       case "CLOSE_FRAC":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Pi.SLASH) {
-            t = !0;
+            t = true;
             break;
           } else if (o === Pi.OPEN_FRAC) {
-            this.addMissingToken(Pi.SLASH), t = !0;
+            this.addMissingToken(Pi.SLASH), t = true;
             break;
           } else this.pushCloseTokens(o);
         }
-        if (!t) return this.warn(), this.canAcceptPrimes = !1, this.lex();
+        if (!t) return this.warn(), this.canAcceptPrimes = false, this.lex();
         break;
       case "CLOSE_RADICAL":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (
             o = this.delimiterStack.pop() || -1, o === Pi.OPEN_RADICAL
           ) {
-            t = !0;
+            t = true;
             break;
           } else if (o === Pi.RADICAL_INDEX) {
-            t = !0, this.addMissingToken(Pi.OPEN_RADICAL);
+            t = true, this.addMissingToken(Pi.OPEN_RADICAL);
             break;
           } else this.pushCloseTokens(o);
         }
         t || this.pushOpenTokens(e);
         break;
       case "CLOSE_MODEXP":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Pi.OPEN_MODEXP) {
-            t = !0;
+            t = true;
             break;
           } else this.pushCloseTokens(o);
         }
@@ -19927,7 +19927,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let t = KY.parser, o = Object.create(t);
     o.yy = tM,
       o.yy.warnOrError = (n) => {
-        o.parseError(n, { recoverable: !1 });
+        o.parseError(n, { recoverable: false });
       };
     let i = Object.create(t);
     i.yy = Jm({ warnings: [] }, tM),
@@ -19938,16 +19938,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       e.strict ? t = o : t = i;
     try {
       return {
-        isError: !1,
+        isError: false,
         value: t.parse(r),
         warnings: t.yy.warnings || [],
       };
     } catch (n) {
-      return { error: uM(n), isError: !0 };
+      return { error: uM(n), isError: true };
     }
   }
   function yu(r, e) {
-    let t = "", o = e, i = "", n = !1, a = "", s = "", l = $Y(r);
+    let t = "", o = e, i = "", n = false, a = "", s = "", l = $Y(r);
     for (let c = 0; c < r.length; c++) {
       let d = r[c], p = c + 1 < r.length ? r[c + 1] : null;
       switch (d.type) {
@@ -19956,23 +19956,23 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           h.value !== ""
             ? (t += h.value, c += h.terminalCount - 1, n = n || h.modified)
             : d.value === " "
-            ? (n ? (i = a, t += Vx(o, i), o = i) : t += "\\ ", n = !1)
+            ? (n ? (i = a, t += Vx(o, i), o = i) : t += "\\ ", n = false)
             : (l[c] === GC ? t += "\\left" : l[c] === rM && (t += "\\right"),
               t += d.value);
           break;
         case "comparison":
-          i = "", t += Vx(o, i), o = i, n = !1, t += d.value;
+          i = "", t += Vx(o, i), o = i, n = false, t += d.value;
           break;
         case "level_with_comparison":
-          t += Vx(o, d.level), o = d.level, n = !1, t += d.value;
+          t += Vx(o, d.level), o = d.level, n = false, t += d.value;
           break;
         case "command":
           let u = d.value.slice(1).trim();
           p && p.type === "terminal" && /[a-z]/.test(p.value)
-            ? (t += u, n = !1)
+            ? (t += u, n = false)
             : cM(u)
-            ? (t += "\\operatorname{" + u + "}", n = !0)
-            : (t += d.value, n = !0), a = o;
+            ? (t += "\\operatorname{" + u + "}", n = true)
+            : (t += d.value, n = true), a = o;
           break;
         case "expression":
           t += d.value;
@@ -19996,7 +19996,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         case "simple_subscript":
           o === ""
             ? (t += d.base.value + "_{" + d.subscript.value + "}",
-              d.base.type === "command" && (n = !0, a = o))
+              d.base.type === "command" && (n = true, a = o))
             : t += d.base.value + d.subscript.value;
           break;
         case "level":
@@ -20043,13 +20043,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return t;
   }
   function jY(r) {
-    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : false;
   }
   function YY(r) {
-    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : false;
   }
   function XY(r) {
-    return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : false;
   }
   function JY(r, e, t) {
     return "\\frac{" + yu(r, t) + "}{" + yu(e, t) + "}";
@@ -20107,42 +20107,42 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           this.delimiterStack.push(e);
         break;
       case "OVER":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Cn.OPEN_FRAC) {
-            t = !0;
+            t = true;
             break;
           } else this.pushCloseTokens(o);
         }
         t || this.pushOpenTokens(e), this.delimiterStack.push(e);
         break;
       case "CLOSE_FRAC":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Cn.OVER) {
-            t = !0;
+            t = true;
             break;
           } else if (o === Cn.OPEN_FRAC) {
-            this.outputQueue.push(Cn.OVER), t = !0;
+            this.outputQueue.push(Cn.OVER), t = true;
             break;
           } else this.pushCloseTokens(o);
         }
         t || this.pushOpenTokens(e);
         break;
       case "CLOSE_GROUP":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (o = this.delimiterStack.pop() || -1, o === Cn.OPEN_GROUP) {
-            t = !0;
+            t = true;
             break;
           } else this.pushCloseTokens(o);
         }
         t || this.pushOpenTokens(e);
         break;
       case "CLOSE_RADICAL":
-        for (t = !1; this.delimiterStack.length;) {
+        for (t = false; this.delimiterStack.length;) {
           if (
             o = this.delimiterStack.pop() || -1,
               o === Cn.RADICAL || o === Cn.RADICAL_WITH_INDEX
           ) {
-            t = !0;
+            t = true;
             break;
           } else this.pushCloseTokens(o);
         }
@@ -20319,16 +20319,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     i.yy = Jm({ warnings: [] }, oM), i.lexer = eX, e.strict ? t = o : t = i;
     try {
       return {
-        isError: !1,
+        isError: false,
         value: t.parse(r),
         warnings: t.yy.warnings || [],
       };
     } catch (n) {
-      return { error: uM(n), isError: !0 };
+      return { error: uM(n), isError: true };
     }
   }
   function ng(r, e) {
-    let t = "", o = !1, i = "", n = mX(r);
+    let t = "", o = false, i = "", n = mX(r);
     for (let a = 0; a < r.length; a++) {
       let s = r[a], l = a + 1 < r.length ? r[a + 1] : null;
       switch (s.type) {
@@ -20339,15 +20339,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             : s.value === " " && !o
             ? t += "\\ "
             : (n[a] === LC ? t += "\\left" : n[a] === iM && (t += "\\right"),
-              t += s.value), o = !1;
+              t += s.value), o = false;
           break;
         case "command":
           let d = s.value.slice(1).trim();
           l && l.type === "terminal" && /[a-z]/.test(l.value)
-            ? (t += d, o = !1)
+            ? (t += d, o = false)
             : cM(d)
-            ? (t += "\\operatorname{" + d + "}", o = !0)
-            : (t += s.value, o = !0);
+            ? (t += "\\operatorname{" + d + "}", o = true)
+            : (t += s.value, o = true);
           break;
         case "expression":
           t += s.value;
@@ -20411,13 +20411,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return t;
   }
   function fX(r) {
-    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : false;
   }
   function bX(r) {
-    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : false;
   }
   function yX(r) {
-    return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : !1;
+    return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : false;
   }
   function xX(r, e) {
     return "\\frac{" + ng(r) + "}{" + ng(e) + "}";
@@ -20482,9 +20482,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function MX(r) {
     for (let e = 0; e < r.length; e++) {
       let t = r.charCodeAt(e);
-      if (t < 10240 || t > 10304) return !1;
+      if (t < 10240 || t > 10304) return false;
     }
-    return !0;
+    return true;
   }
   function U3(r) {
     if (!MX(r)) {
@@ -20572,10 +20572,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return o;
   }
   function Q3(r, e) {
-    return yM(r, e, zC, !0);
+    return yM(r, e, zC, true);
   }
   function Z3(r, e) {
-    return LX(r, e, zC, !0);
+    return LX(r, e, zC, true);
   }
   function BC(r, e, t, o) {
     let i = [], n, a, s, l;
@@ -20660,22 +20660,22 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return t & H3 &&
       (i = __dcg_shared_module_exports__["t"](
         i.map((n) => UC(n, eN(e.xmin), iN(e.xmin), o)),
-        !0,
+        true,
       )),
       t & q3 &&
       (i = __dcg_shared_module_exports__["t"](
         i.map((n) => UC(n, rN(e.ymin), aN(e.ymin), o)),
-        !0,
+        true,
       )),
       t & K3 &&
       (i = __dcg_shared_module_exports__["t"](
         i.map((n) => UC(n, tN(e.xmax), nN(e.xmax), o)),
-        !0,
+        true,
       )),
       t & z3 &&
       (i = __dcg_shared_module_exports__["t"](
         i.map((n) => UC(n, oN(e.ymax), sN(e.ymax), o)),
-        !0,
+        true,
       )),
       i;
   }
@@ -20758,7 +20758,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     types: () => fQ,
   });
   var wM = {
-      enabled: !1,
+      enabled: false,
       latex: "",
       hoveredImage: "",
       depressedImage: "",
@@ -20771,15 +20771,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       opacity: "1",
       clickableInfo: wM,
       description: "",
-      draggable: !1,
+      draggable: false,
     },
     cN = {
       folderId: "",
-      hidden: !1,
-      secret: !1,
-      readonly: !1,
-      disableGraphInteractions: !1,
-      foreground: !1,
+      hidden: false,
+      secret: false,
+      readonly: false,
+      disableGraphInteractions: false,
+      foreground: false,
       name: "",
       ...qC,
     };
@@ -20803,17 +20803,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       index: 0,
       color: "",
       shouldGraph: r.hidden,
-      showPoints: !1,
+      showPoints: false,
     };
   }
-  var pN = { folderId: "", secret: !1, readonly: !1 },
+  var pN = { folderId: "", secret: false, readonly: false },
     dg = {
       latex: "",
       color: "",
-      hidden: !1,
+      hidden: false,
       values: [],
-      points: !0,
-      lines: !1,
+      points: true,
+      lines: false,
       dragMode: "NONE",
       pointStyle: "POINT",
       lineStyle: "SOLID",
@@ -20822,7 +20822,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       lineWidth: "",
       pointOpacity: "",
       pointSize: "",
-      disableGraphInteractions: !1,
+      disableGraphInteractions: false,
     };
   function WC(r) {
     let e = (r.columns || []).map((t) => ({ ...dg, ...t }));
@@ -20843,14 +20843,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       regression: r.regression,
     };
   }
-  var of = { handlerLatex: "", minStepLatex: "", open: !1, playing: !1 };
+  var of = { handlerLatex: "", minStepLatex: "", open: false, playing: false };
   function jC(r) {
     return {
       type: "ticker",
       id: r.id,
       handlerLatex: r.handlerLatex,
       minStepLatex: r.minStepLatex,
-      shouldGraph: !1,
+      shouldGraph: false,
     };
   }
   function hN(r) {
@@ -20864,7 +20864,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       type: "folder",
       id: __dcg_shared_module_exports__["xd"],
       title: "geometry",
-      secret: !0,
+      secret: true,
     };
   }
   var nf = {
@@ -20872,11 +20872,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     randomSeed: "",
     graph: {
       viewport: { xmin: -10, ymin: -13.25, xmax: 10, ymax: 13.25 },
-      showGrid: !1,
+      showGrid: false,
       product: "geometry-calculator",
-      showXAxis: !1,
-      showYAxis: !1,
-      degreeMode: !0,
+      showXAxis: false,
+      showYAxis: false,
+      degreeMode: true,
     },
     expressions: { list: [CM(), { id: "1", type: "expression" }] },
   };
@@ -20895,7 +20895,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         i = a.id,
           o[a.id] && (a.id = "" + t, t += 1),
           n = a.id,
-          o[a.id] = !0,
+          o[a.id] = true,
           a.hasOwnProperty("folderId") && delete a.folderId;
       } else {
         if (
@@ -20905,10 +20905,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             a.type === "table" && Array.isArray(a.columns)
         ) {
           for (let s of a.columns) {
-            o[s.id] && (s.id = "" + t, t += 1), o[s.id] = !0;
+            o[s.id] && (s.id = "" + t, t += 1), o[s.id] = true;
           }
         }
-        o[a.id] && (a.id = "" + t, t += 1), o[a.id] = !0;
+        o[a.id] && (a.id = "" + t, t += 1), o[a.id] = true;
       }
     }
     e === "geometry-calculator" &&
@@ -20935,11 +20935,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return Array.isArray(o) && BX(o, t),
       (i = e.graph) != null && i.complex &&
       ((n = e.graph) != null && n.degreeMode) &&
-      (e.graph.degreeMode = !1),
+      (e.graph.degreeMode = false),
       e;
   }
   var SM = { NONE: "NONE", POSITIVE: "POSITIVE", BOTH: "BOTH" },
-    zX = { expression: !0, table: !0, image: !0, folder: !0, text: !0 };
+    zX = { expression: true, table: true, image: true, folder: true, text: true };
   function qX(r) {
     if (r.type) {
       if (zX.hasOwnProperty(r.type)) return r.type;
@@ -21279,7 +21279,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         ? e.columnMode = "POINTS"
         : r.showLine
         ? e.columnMode = "LINES"
-        : (e.hidden = !0, e.columnMode = "POINTS")),
+        : (e.hidden = true, e.columnMode = "POINTS")),
       e;
   }
   function cJ(r) {
@@ -21291,7 +21291,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             ? t.hidden = !r.graphed
             : r.hasOwnProperty("userRequestedGraphing")
             ? t.hidden = r.userRequestedGraphing === "never"
-            : t.hidden = !1
+            : t.hidden = false
           : t.hidden = r.hidden;
         for (o in r) {
           if (
@@ -21360,7 +21360,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   var pJ = 6;
   function uJ(r) {
-    return r.length < 2 ? !1 : r[0] === "`" && r[r.length - 1] === "`";
+    return r.length < 2 ? false : r[0] === "`" && r[r.length - 1] === "`";
   }
   function hJ(r) {
     if (uJ(r)) return { raw: r, parts: [r] };
@@ -21397,13 +21397,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         ) {
           switch (r[t]) {
             case "LINES":
-              e.points = !1, e.lines = !0;
+              e.points = false, e.lines = true;
               break;
             case "POINTS_AND_LINES":
-              e.points = !0, e.lines = !0;
+              e.points = true, e.lines = true;
               break;
             default:
-              e.points = !0, e.lines = !1;
+              e.points = true, e.lines = false;
           }
         } else e[t] = r[t];
       }
@@ -21487,11 +21487,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         }
         n.latex && n.slider && !n.slider.isPlaying && fJ(n, o),
           n.hasOwnProperty("fillOpacity") || (n.fillOpacity = .4),
-          n.label === !1 && (n.label = ""),
+          n.label === false && (n.label = ""),
           n.labelSize || (n.labelSize = "medium"),
           n.labelOrientation || (n.labelOrientation = "default"),
-          n.verticalLabel || (n.verticalLabel = !1),
-          n.interactiveLabel || (n.interactiveLabel = !1);
+          n.verticalLabel || (n.verticalLabel = false),
+          n.interactiveLabel || (n.interactiveLabel = false);
         break;
       case "image":
         for (a in r) {
@@ -21563,7 +21563,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             l.id = o + "",
             o += 1)
           : n[l.id] = l.id,
-          i[l.id] = !0,
+          i[l.id] = true,
           bJ(l, a, n, e))
         ),
       },
@@ -21767,7 +21767,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = JSON.stringify(r), t = /_(\d)|_\{(\d+)\}/g, o, i = {};
     for (; (o = t.exec(e)) !== null;) {
       let n = o[1] !== void 0 ? o[1] : o[2];
-      i[n] = !0;
+      i[n] = true;
     }
     return i;
   }
@@ -21778,7 +21778,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = JSON.stringify(r), t = /"(\d+)"/g, o, i = {};
     for (; (o = t.exec(e)) !== null;) {
       let n = o[1] !== void 0 ? o[1] : o[2];
-      i[n] = !0;
+      i[n] = true;
     }
     return i;
   }
@@ -21792,15 +21792,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     } else return `\\frac{1000}{${r}}`;
   }
   function TJ(r, e) {
-    let t = { handlerLatex: r, playing: !0, open: !0 };
+    let t = { handlerLatex: r, playing: true, open: true };
     return e !== void 0 && (t.minStepLatex = EJ(e)), t;
   }
   function GM(r) {
     if (r.version !== 8) {
       throw new Error(`Unexpected version: ${r.version}`);
     }
-    let e = !1;
-    r.graph && r.graph.degreeMode && (e = !0);
+    let e = false;
+    r.graph && r.graph.degreeMode && (e = true);
     let t = r.expressions.ticker || of, o = 0, i, n = 0, a, s = [];
     for (let l of r.expressions.list) {
       switch (l.type) {
@@ -21827,7 +21827,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             c.clickableInfo = u;
           }
           c.clickableInfo && c.clickableInfo.enabled && c.hidden &&
-          (c.clickableInfo.enabled = !1),
+          (c.clickableInfo.enabled = false),
             s.push(c),
             d && s.push(d);
           break;
@@ -21886,15 +21886,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     switch (r.type) {
       case "TokenNode":
       case "Letter":
-        return !0;
+        return true;
       case "OperatorName": {
-        for (let e of r.arg.args) if (e.type !== "Letter") return !1;
-        return !0;
+        for (let e of r.arg.args) if (e.type !== "Letter") return false;
+        return true;
       }
       case "Cmd":
         return __dcg_shared_module_exports__["Kc"](r.val);
       default:
-        return !1;
+        return false;
     }
   }
   function LM(r) {
@@ -21966,7 +21966,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     } catch (n) {
       return o;
     }
-    return sf(i, t, o, { wrapInBraces: !1 }), o;
+    return sf(i, t, o, { wrapInBraces: false }), o;
   }
   function Il(r, e) {
     return ZC(r, e).length !== 0;
@@ -22005,16 +22005,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return i += r.slice(n, r.length), i;
   }
   function AN(r, e) {
-    if (r.args.length !== e.args.length) return !1;
+    if (r.args.length !== e.args.length) return false;
     for (let t = 0; t < r.args.length; t++) {
       let o = r.args[t], i = e.args[t];
       if (
         !(o.type === "Letter" && i.type === "Letter" &&
           o.val === i.val) &&
         !(o.type === "Digit" && i.type === "Digit" && o.val === i.val)
-      ) return !1;
+      ) return false;
     }
-    return !0;
+    return true;
   }
   function kJ(r, e, t) {
     let o = r.arg.args, i = e.arg.args;
@@ -22025,7 +22025,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           return;
         }
       }
-      t.push({ base: e.span, wrapInBraces: !1 });
+      t.push({ base: e.span, wrapInBraces: false });
     }
   }
   function sf(r, e, t, { wrapInBraces: o }) {
@@ -22055,14 +22055,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           if (
             i.type !== l.type || i.arg.args.length !== l.arg.args.length
           ) break;
-          let d = !0;
+          let d = true;
           for (let p = 0; p < i.arg.args.length; p++) {
             let h = i.arg.args[p], u = l.arg.args[p];
             if (
               h.type !== "Letter" || u.type !== "Letter" ||
               h.val !== u.val
             ) {
-              d = !1;
+              d = false;
               break;
             }
           }
@@ -22078,11 +22078,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           break;
         case "LeftRight":
         case "Sqrt":
-          sf(l.arg, e, t, { wrapInBraces: !1 });
+          sf(l.arg, e, t, { wrapInBraces: false });
           break;
         case "Frac":
-          sf(l.num, e, t, { wrapInBraces: !1 }),
-            sf(l.den, e, t, { wrapInBraces: !1 });
+          sf(l.num, e, t, { wrapInBraces: false }),
+            sf(l.den, e, t, { wrapInBraces: false });
           break;
         case "SupSub":
           (s == null ? void 0 : s.type) === "Cmd" &&
@@ -22107,9 +22107,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     for (let t = r.span.start; t >= 0; t--) {
       let o = r.span.input[t];
       if (o === e) break;
-      if (o === "{") return !0;
+      if (o === "{") return true;
     }
-    return !1;
+    return false;
   }
   function LN(r) {
     r.clickableInfo &&
@@ -22245,10 +22245,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (
       r.type === "image" && r.folderId && !r.draggable &&
       !((t = r.clickableInfo) != null && t.enabled) &&
-      e.has(r.folderId) && r.disableGraphInteractions !== !1
+      e.has(r.folderId) && r.disableGraphInteractions !== false
     ) {
       let o = { ...r };
-      return o.disableGraphInteractions = !0, o;
+      return o.disableGraphInteractions = true, o;
     } else return r;
   }
   function GJ(r) {
@@ -22311,7 +22311,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (r.version !== 11) {
       throw new Error(`Unexpected version: ${r.version}`);
     }
-    let e = (i = r.includeFunctionParametersInRandomSeed) != null ? i : !1,
+    let e = (i = r.includeFunctionParametersInRandomSeed) != null ? i : false,
       t = { ...r.expressions },
       o = [];
     for (let a of t.list) {
@@ -22344,16 +22344,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function PN(r) {
     var o, i;
-    let e = (o = r.includeFunctionParametersInRandomSeed) != null ? o : !0,
+    let e = (o = r.includeFunctionParametersInRandomSeed) != null ? o : true,
       t = ((i = r.graph) == null ? void 0 : i.product) === "graphing-3d"
         ? {
           ...r,
           includeFunctionParametersInRandomSeed: e,
-          doNotMigrate3dLineWidthZero: !0,
+          doNotMigrate3dLineWidthZero: true,
           version: 11,
         }
         : { ...r, includeFunctionParametersInRandomSeed: e, version: 11 };
-    return t.includeFunctionParametersInRandomSeed === !1 &&
+    return t.includeFunctionParametersInRandomSeed === false &&
       delete t.includeFunctionParametersInRandomSeed,
       t;
   }
@@ -22406,8 +22406,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           {
             let c = __dcg_shared_module_exports__["Hd"](
               __dcg_shared_module_exports__["Dd"](s, {
-                is3d: !1,
-                defaultLogModeRegressions: !1,
+                is3d: false,
+                defaultLogModeRegressions: false,
               }),
             );
             t[c.id] = c;
@@ -22444,7 +22444,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       getChangeSet() {
         return {
           statements: t,
-          isCompleteState: !0,
+          isCompleteState: true,
           degreeMode: o,
           globalRandomSeed: i,
           evaluationMode: n,
@@ -22612,7 +22612,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let o = {},
       i = e.filter((a) => t[a.id] !== void 0).map((a) => t[a.id]),
       n = NN(i);
-    for (let a of n) o[r[a].id] = !0;
+    for (let a of n) o[r[a].id] = true;
     return o;
   }
   function zN(r) {
@@ -22842,12 +22842,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   var KN = XJ;
   var JJ = { centerX: 0, centerY: 0, size: 15 },
-    QJ = { scale: 1, unit: "", visible: !1, showLegend: !1 };
+    QJ = { scale: 1, unit: "", visible: false, showLegend: false };
   function ZJ(r) {
     let e = r.objects || {}, t = __dcg_shared_module_exports__["Jc"](e);
     for (let o in t) {
       let i = t[o];
-      i.label && (i.showLabel = !0);
+      i.label && (i.showLabel = true);
     }
     return {
       version: "1",
@@ -22867,7 +22867,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       o = __dcg_shared_module_exports__["Jc"](r.grid);
     for (let i in t) {
       let n = t[i];
-      eQ(n) && (n.draggable = !0),
+      eQ(n) && (n.draggable = true),
         n.type === "angle" && n.showLabel && !n.label &&
         (n.label = "{angle}"),
         n.type === "segment" && n.showLabel && !n.label &&
@@ -22905,8 +22905,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       customTools: r.customTools || {},
       graphSettings: {
         showGrid: !!(r.grid || {}).visible,
-        showAxes: !1,
-        showAxisNumbers: !1,
+        showAxes: false,
+        showAxisNumbers: false,
       },
     };
   }
@@ -22915,7 +22915,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = __dcg_shared_module_exports__["Jc"](r.objects || {});
     for (let t in e) {
       let o = e[t];
-      o.draggable === !1 && (o.locked = !0), delete o.draggable;
+      o.draggable === false && (o.locked = true), delete o.draggable;
     }
     return { ...r, version: "4", objects: e };
   }
@@ -22938,7 +22938,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     ) t += 1, nS[t] && (r = nS[t](r));
     return r;
   }
-  var nQ = !1;
+  var nQ = false;
   function pg(r, e) {
     let t = e[r];
     return t.type === "transformed-object" ? pg(t.parents.object, e) : t.type;
@@ -22948,9 +22948,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "circle":
       case "compass":
       case "arc":
-        return !0;
+        return true;
     }
-    return !1;
+    return false;
   }
   function aQ(r, e, t) {
     let o = pg(e, t);
@@ -22964,9 +22964,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     switch (r) {
       case "scaled-rotation":
       case "vector":
-        return !0;
+        return true;
     }
-    return !1;
+    return false;
   }
   function sQ(r) {
     switch (r) {
@@ -23048,15 +23048,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             ymin: d - f,
             ymax: d + f,
           },
-          showGrid: !1,
-          showXAxis: !1,
-          showYAxis: !1,
-          squareAxes: !0,
-          degreeMode: !0,
+          showGrid: false,
+          showXAxis: false,
+          showYAxis: false,
+          squareAxes: true,
+          degreeMode: true,
         },
       };
     t.graphSettings.showGrid &&
-      (y.graph.showGrid = !0,
+      (y.graph.showGrid = true,
         y.graph.xAxisMinorSubdivisions = 1,
         y.graph.yAxisMinorSubdivisions = 1,
         y.graph.xAxisStep = 1,
@@ -23078,7 +23078,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ) {
         if (
           _.label = S.label,
-            _.showLabel = !0,
+            _.showLabel = true,
             k === "segment" && S.label.indexOf("{length}") !== -1
         ) {
           if (S.label === "{length}") _.label = "";
@@ -23241,7 +23241,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       type: "folder",
       id: __dcg_shared_module_exports__["xd"],
       title: "geometry",
-      secret: !0,
+      secret: true,
     }),
       C.push.apply(C, E),
       C.push.apply(C, v),
@@ -23295,9 +23295,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "Index":
         return Wr(r.args[0]) + "\\left[" + Wr(r.args[1]) + "\\right]";
       case "Subscript":
-        return Sn(r.args, "_", !0);
+        return Sn(r.args, "_", true);
       case "Superscript":
-        return Sn(r.args, "^", !0);
+        return Sn(r.args, "^", true);
       case "Prime":
         if (r.args[0].type === "Call") {
           let n = HM(r.args[0].args);
@@ -23385,7 +23385,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
     return `\\${r}_${o}`;
   }
-  function Sn(r, e, t = !1) {
+  function Sn(r, e, t = false) {
     let o = Wr(r[0]), i = t ? Ux(Wr(r[1])) : Wr(r[1]);
     return o + e + i;
   }
@@ -23429,7 +23429,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "Paren":
         return od(r.args[0]);
       default:
-        return !1;
+        return false;
     }
   }
   function Cu(r) {
@@ -23441,7 +23441,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "Paren":
         return Cu(r.args[0]);
       default:
-        return !1;
+        return false;
     }
   }
   function rB(r) {
@@ -23449,21 +23449,21 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ? Cu(r.args[0])
       : r.type === "Paren"
       ? rB(r.args[0])
-      : !1;
+      : false;
   }
   function aS(r) {
     return {
-      isPseudoSurfaceNode: !0,
+      isPseudoSurfaceNode: true,
       type: "Decimal",
       span: r,
       val: "0",
     };
   }
   function KM(r, e) {
-    return { isPseudoSurfaceNode: !0, type: "Neg", span: e, args: [r] };
+    return { isPseudoSurfaceNode: true, type: "Neg", span: e, args: [r] };
   }
   function cQ(r, e) {
-    return { isPseudoSurfaceNode: !0, type: "Paren", span: e, args: [r] };
+    return { isPseudoSurfaceNode: true, type: "Paren", span: e, args: [r] };
   }
   function Cs(r, e) {
     return { ...r, span: e };
@@ -23483,7 +23483,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
               (s = on(a.args[0].args[0])), s !== void 0
         ) {
           return {
-            isPseudoSurfaceNode: !0,
+            isPseudoSurfaceNode: true,
             type: "Sub",
             span: r.span,
             args: [n, s],
@@ -23504,7 +23504,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
               (s = a.args[0].args[0]), s
         ) {
           return {
-            isPseudoSurfaceNode: !0,
+            isPseudoSurfaceNode: true,
             type: "Add",
             span: r.span,
             args: [n, s],
@@ -23531,7 +23531,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           let s = {
             ...r,
             type: "Juxt",
-            isPseudoSurfaceNode: !0,
+            isPseudoSurfaceNode: true,
             args: [n.args[0], a],
           };
           return KM(s, r.span);
@@ -23587,17 +23587,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "EmptyRangeEnd":
       case "EmptyPiecewise":
       case "ComparatorChain":
-        return { ...r, isPseudoSurfaceNode: !0 };
+        return { ...r, isPseudoSurfaceNode: true };
       default:
         t = r.args.map((n) =>
           lQ(n)
             ? n
             : n.type === "Alphanumeric"
-            ? { ...n, isPseudoSurfaceNode: !0 }
+            ? { ...n, isPseudoSurfaceNode: true }
             : on(n)
         );
     }
-    return { ...r, isPseudoSurfaceNode: !0, args: t };
+    return { ...r, isPseudoSurfaceNode: true, args: t };
   }
   function dQ(r, e) {
     return r == null && (r = ""), __dcg_shared_module_exports__["Wc"](r, e);
@@ -23627,18 +23627,18 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     oB = __dcg_shared_module_exports__["wc"],
     bQ = {
       graphing: new __dcg_shared_module_exports__["ae"]({
-        enableGeometry: !1,
-        enable3d: !1,
+        enableGeometry: false,
+        enable3d: false,
         scales: void 0,
-        includeFunctionParametersInRandomSeed: !0,
-        isComplexEnabled: !1,
-        customRegressions: !0,
+        includeFunctionParametersInRandomSeed: true,
+        isComplexEnabled: false,
+        customRegressions: true,
       }),
       scientific: new __dcg_shared_module_exports__["ke"]({
-        singleExpression: !1,
+        singleExpression: false,
       }),
       fourFunction: new __dcg_shared_module_exports__["Ib"]({
-        singleExpression: !1,
+        singleExpression: false,
       }),
     },
     yQ = Bx,
@@ -23672,7 +23672,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                 : t.call(e);
             },
             "aria-disabled": () =>
-              this.props.disabled && this.props.disabled() ? !0 : void 0,
+              this.props.disabled && this.props.disabled() ? true : void 0,
             "aria-checked": () => this.props.checked(),
             "aria-required": () =>
               this.props.required ? this.props.required() : void 0,
@@ -23683,7 +23683,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                 : t.call(e);
             },
             class: () => ({
-              "dcg-component-checkbox": !0,
+              "dcg-component-checkbox": true,
               "dcg-checked": this.props.checked(),
               "dcg-disabled": this.props.disabled &&
                 this.props.disabled(),
@@ -23721,19 +23721,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ee.Event.prototype.wasHandled = function (e) {
         e = e || r;
         let t = this.originalEvent, o = t && t.handledBy;
-        if (o && o[e]) return !0;
-        if (e !== r) return !1;
+        if (o && o[e]) return true;
+        if (e !== r) return false;
         let i = this.target.closest("[handleEvent]");
         return i && i !== this.currentTarget
           ? i.getAttribute("handleEvent") !== "false"
-          : !1;
+          : false;
       },
         ee.Event.prototype.handle = function (e) {
           e = e || r;
           let t = this.originalEvent;
           if (!t) return;
           let o = t.handledBy;
-          o || (o = t.handledBy = {}), o[e] = !0;
+          o || (o = t.handledBy = {}), o[e] = true;
         };
     }
   }();
@@ -23834,8 +23834,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       let r = eU();
       r.src =
         "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAu1tZGF0AAACrQYF//+p3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE1NSByMjkwMSA3ZDBmZjIyIC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxOCAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTMgbG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRlcmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJfcHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTEgc2NlbmVjdXQ9NDAgaW50cmFfcmVmcmVzaD0wIHJjX2xvb2thaGVhZD00MCByYz1jcmYgbWJ0cmVlPTEgY3JmPTI4LjAgcWNvbXA9MC42MCBxcG1pbj0wIHFwbWF4PTY5IHFwc3RlcD00IGlwX3JhdGlvPTEuNDAgYXE9MToxLjAwAIAAAAAwZYiEAD//8m+P5OXfBeLGOfKE3xkODvFZuBflHv/+VwJIta6cbpIo4ABLoKBaYTkTAAAC7m1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAPoAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIYdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAPoAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAACgAAAAWgAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAD6AAAAAAAAQAAAAABkG1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAQAAAAEAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATttaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD7c3RibAAAAJdzdHNkAAAAAAAAAAEAAACHYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAACgAFoASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADFhdmNDAWQACv/hABhnZAAKrNlCjfkhAAADAAEAAAMAAg8SJZYBAAZo6+JLIsAAAAAYc3R0cwAAAAAAAAABAAAAAQAAQAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAC5QAAAAEAAAAUc3RjbwAAAAAAAAABAAAAMAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMTIuMTAw",
-        r.muted = !0,
-        r.playsInline = !0,
+        r.muted = true,
+        r.playsInline = true,
         r.style.display = "none";
       let e = await new Promise((t) => {
         document.readyState !== "loading"
@@ -23847,11 +23847,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       try {
         await r.play();
       } catch (t) {
-        return !1;
+        return false;
       } finally {
         e.removeChild(r);
       }
-      return !0;
+      return true;
     })(),
     j5,
     US = (j5 = window.matchMedia("(forced-colors: active)")) == null
@@ -24072,7 +24072,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         r.append(Mu),
         t.addEventListener("mousedown", () => {
           _f && (_f.select(), document.execCommand("copy"));
-        }, !0),
+        }, true),
         di("monitor touches");
     }
   }
@@ -24088,14 +24088,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     CG = 0,
     ow = null,
     qS = null,
-    Gu = !1,
+    Gu = false,
     zS = null,
     pU = Gu,
     Lu = function (r) {
       let e = document.activeElement;
       r.type.startsWith("key")
-        ? rw(r) || (Gu = !0)
-        : r.type.startsWith("pointer") && (Gu = !1);
+        ? rw(r) || (Gu = true)
+        : r.type.startsWith("pointer") && (Gu = false);
       let t = !!(e && wp(e));
       e && !e.closest(".dcg-tap-container." + iw) && (e = null),
         e !== zS
@@ -24108,13 +24108,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         pU = Gu,
         zS = e;
     };
-  document.addEventListener("keydown", Lu, { capture: !0 });
+  document.addEventListener("keydown", Lu, { capture: true });
   document.addEventListener("keydown", Lu);
   document.addEventListener("pointerdown", Lu);
-  document.addEventListener("pointerdown", Lu, { capture: !0 });
-  document.addEventListener("focusin", Lu, { capture: !0 });
+  document.addEventListener("pointerdown", Lu, { capture: true });
+  document.addEventListener("focusin", Lu, { capture: true });
   document.addEventListener("focusin", Lu);
-  document.addEventListener("focusout", Lu, { capture: !0 });
+  document.addEventListener("focusout", Lu, { capture: true });
   document.addEventListener("focusout", Lu);
   var uU,
     Es = [],
@@ -24155,16 +24155,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       r.classList.contains("dcg-mathquill-input-span");
   }
   var Gf = function (r) {
-      if (!(r instanceof Element)) return !1;
+      if (!(r instanceof Element)) return false;
       let e = r.closest(".dcg-tap-container");
-      return e ? e.matches(".dcg-tap-container." + iw) : !1;
+      return e ? e.matches(".dcg-tap-container." + iw) : false;
     },
     bZ = function (r) {
       return vr !== If && !wp(r) && Gf(r);
     },
     Lf = function (r, e) {
       qS = null;
-      let t = !1;
+      let t = false;
       di("endMode:" + vr),
         document.querySelectorAll(".dcg-depressed").forEach((i) => {
           i.classList.remove("dcg-depressed");
@@ -24180,7 +24180,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           let n = ee(i),
             a = n.data("originalScrollTop") - n.scrollTop(),
             s = n.data("originalScrollLeft") - n.scrollLeft();
-          (a || s) && (hc.scroll = !0);
+          (a || s) && (hc.scroll = true);
         }),
           hc["dcg-tapstart"] === 1 && hc["dcg-tapend"] === 1 &&
           !hc["dcg-tapcancel"] && !hc.scroll
@@ -24189,12 +24189,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         let i = e.changedTouches[0].clientX,
           n = e.changedTouches[0].clientY;
         if (r && !r.device && i === 0 && n === 0) {
-          di("event appears to be simulated"), t = !0, vr = If;
+          di("event appears to be simulated"), t = true, vr = If;
           let l = r.target.getBoundingClientRect();
           i = (l.left + l.right) / 2, n = (l.top + l.bottom) / 2;
         }
         di("potential dcg-tap coords:" + i + ":" + n);
-        let a = !1, s = !1;
+        let a = false, s = false;
         for (let l of yp) {
           if (a) break;
           let c;
@@ -24202,12 +24202,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             typeof l.getBoundingClientRect == "function" &&
             (c = l.getBoundingClientRect()),
               typeof l.getAttribute == "function" &&
-              l.getAttribute("tapboundary") === "true" && (a = !0),
+              l.getAttribute("tapboundary") === "true" && (a = true),
               !(c &&
                 (i < c.left || n < c.top || i > c.right || n > c.bottom))
           ) {
             qS = l,
-              s = !0,
+              s = true,
               Ha("dcg-tap", r, {
                 target: qS,
                 touches: e.touches,
@@ -24317,8 +24317,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         });
     },
     WS = function (r) {
-      for (let e of Es) if (e.pointerId === r) return !0;
-      return !1;
+      for (let e of Es) if (e.pointerId === r) return true;
+      return false;
     },
     EG = function (r) {
       for (let e = 0; e < Es.length; e++) {
@@ -24350,7 +24350,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     },
     Pf = function (r, e) {
       r.trim().split(/\s+/).forEach((t) => {
-        let o = yZ ? { passive: !1 } : void 0;
+        let o = yZ ? { passive: false } : void 0;
         document.addEventListener(t, (i) => {
           di("document.on:" + i.type), e(ee.event.fix(i));
         }, o);
@@ -24403,11 +24403,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
   });
   var yZ = function () {
-    let r = !1;
+    let r = false;
     try {
       let e = Object.defineProperty({}, "passive", {
         get: function () {
-          r = !0;
+          r = true;
         },
       });
       window.addEventListener("test", () => {}, e),
@@ -24466,7 +24466,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   var xU = function (r) {
       return !(r instanceof Element) || !Gf(r) ||
           r.closest(".dcg-do-blur") || r.closest(".dcg-text-selectable")
-        ? !1
+        ? false
         : !!r.closest(".dcg-do-not-blur");
     },
     TG = function () {
@@ -24634,13 +24634,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   var EU = window.MathQuill.noConflict().getInterface(3);
   EU.config({
     leftRightIntoCmdGoes: "up",
-    sumStartsWithNEquals: !0,
-    supSubsRequireOperand: !0,
+    sumStartsWithNEquals: true,
+    supSubsRequireOperand: true,
     charsThatBreakOutOfSupSub: "+-=<>*",
     autoCommands: Pu(),
-    autoSubscriptNumerals: !0,
-    restrictMismatchedBrackets: !0,
-    typingPercentWritesPercentOf: !0,
+    autoSubscriptNumerals: true,
+    restrictMismatchedBrackets: true,
+    typingPercentWritesPercentOf: true,
     substituteTextarea: function (r) {
       if (!BS && (Ml || Qx)) {
         let t = document.createElement("span");
@@ -24660,9 +24660,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           t.setAttribute("autocomplete", "off"),
           t.setAttribute("tabindex", r ? "0" : "-1"),
           ee(t).on("keydown", function () {
-            this.readOnly = !1, this.select();
+            this.readOnly = false, this.select();
           }).on("blur", function () {
-            this.readOnly = !0;
+            this.readOnly = true;
           }),
           t;
       }
@@ -24677,11 +24677,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     },
     ...Vf(),
     quietEmptyDelimiters: "( [",
-    resetCursorOnBlur: !0,
-    enableDigitGrouping: !0,
-    tripleDotsAreEllipsis: !0,
+    resetCursorOnBlur: true,
+    enableDigitGrouping: true,
+    tripleDotsAreEllipsis: true,
     disableAutoSubstitutionInSubscripts: { except: "log" },
-    interpretTildeAsSim: !0,
+    interpretTildeAsSim: true,
   });
   var gc = EU;
   function Of(r) {
@@ -24696,7 +24696,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       this.mathField = e;
       this.$mathField = t;
       this.props = o;
-      this.wasFocusedLastUpdate = !1;
+      this.wasFocusedLastUpdate = false;
       this.$mathField.on(
         "focusin.view focusout.view",
         (i) => this.onFocusEvent(i),
@@ -24745,12 +24745,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (e._expression.type !== "Constant") return NaN;
     if (
       !new __dcg_shared_module_exports__["ae"]({
-        enableGeometry: !1,
-        enable3d: !1,
+        enableGeometry: false,
+        enable3d: false,
         scales: void 0,
-        includeFunctionParametersInRandomSeed: !0,
-        isComplexEnabled: !1,
-        customRegressions: !0,
+        includeFunctionParametersInRandomSeed: true,
+        isComplexEnabled: false,
+        customRegressions: true,
       }).validLHS(e._symbol)
     ) return NaN;
     if (__dcg_shared_module_exports__["qc"][e._symbol]) return NaN;
@@ -24788,15 +24788,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   var AG = 1e6;
   function ZS(r) {
     let e = Sg(r);
-    if (!e) return !1;
+    if (!e) return false;
     switch (e) {
       case "anonymous-function":
       case "function-reference":
       case "point-list-reference":
       case "recursive-function":
-        return !0;
+        return true;
       case "point-list":
-        return !1;
+        return false;
     }
   }
   function Sg(r) {
@@ -24901,7 +24901,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       this.cb = e;
       this.document = t;
       this.observedAriaLiveElements = new WeakMap();
-      this.destroyed = !1;
+      this.destroyed = false;
       this.onAriaLabelFocus = (e) => {
         let t = e.target;
         if (this.isElement(t)) {
@@ -24912,7 +24912,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       this.document.documentElement.addEventListener(
         "focus",
         this.onAriaLabelFocus,
-        !0,
+        true,
       ),
         this.ariaLiveContentObserver = new MutationObserver((o) =>
           this.handleAriaLiveContentMutations(o)
@@ -24923,17 +24923,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           this.handleDocumentTreeMutations(o)
         ),
         this.treeObserver.observe(t.documentElement, {
-          childList: !0,
-          subtree: !0,
+          childList: true,
+          subtree: true,
           attributeFilter: ["aria-live"],
         });
     }
     destroy() {
-      this.destroyed = !0,
+      this.destroyed = true,
         this.document.documentElement.removeEventListener(
           "focus",
           this.onAriaLabelFocus,
-          !0,
+          true,
         ),
         this.ariaLiveContentObserver.disconnect();
     }
@@ -24949,7 +24949,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         n || (n = [], t.set(i.target, n)), n.push(i);
       }
       for (let [i, n] of t) {
-        let a = i.cloneNode(!0), s = [a.textContent || ""];
+        let a = i.cloneNode(true), s = [a.textContent || ""];
         for (let l = n.length - 1; l >= 0; l--) {
           let c = n[l];
           switch (c.type) {
@@ -24974,7 +24974,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
               c.addedNodes.length === 1 &&
               ((o = a.firstChild) == null || o.remove()),
                 c.removedNodes.length === 1 &&
-                c.removedNodes.forEach((d) => a.appendChild(d.cloneNode(!0))),
+                c.removedNodes.forEach((d) => a.appendChild(d.cloneNode(true))),
                 a.textContent && a.textContent !== s[s.length - 1] &&
                 s.push(a.textContent);
               break;
@@ -24988,18 +24988,18 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       this.destroyed ||
         e.getAttribute("aria-live") === "assertive" &&
           (this.observedAriaLiveElements.get(e) ||
-            (this.observedAriaLiveElements.set(e, !0),
+            (this.observedAriaLiveElements.set(e, true),
               e.textContent && this.cb(e.textContent, "alert"),
               this.ariaLiveContentObserver.observe(e, {
-                attributes: !0,
-                characterData: !0,
-                childList: !0,
-                attributeOldValue: !0,
-                characterDataOldValue: !0,
+                attributes: true,
+                characterData: true,
+                childList: true,
+                attributeOldValue: true,
+                characterDataOldValue: true,
               })));
     }
     stopObservingAriaLiveElement(e) {
-      this.observedAriaLiveElements.set(e, !1);
+      this.observedAriaLiveElements.set(e, false);
     }
     handleDocumentTreeMutations(e) {
       for (let t of e) {
@@ -25024,7 +25024,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     isElement(e) {
       var o;
       let t = (o = this.document.defaultView) == null ? void 0 : o.Element;
-      return t ? e instanceof t : !1;
+      return t ? e instanceof t : false;
     }
   };
   var dd, tE = [], GU = "", TZ;
@@ -25074,7 +25074,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function rE(r) {
     if (!r || r.args.length === 0) return;
     let e = r.args[r.args.length - 1];
-    switch (e.isTrailing = !0, e.type) {
+    switch (e.isTrailing = true, e.type) {
       case "Sqrt":
       case "LeftRight":
         rE(e.arg);
@@ -25157,21 +25157,21 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function VU(r) {
     let e = LU(r);
-    if (e === void 0) return () => !1;
+    if (e === void 0) return () => false;
     let t = e;
     rE(t);
     function o(i) {
       let n = LU(i);
-      return n === void 0 ? !1 : Ou(t, n);
+      return n === void 0 ? false : Ou(t, n);
     }
     return o;
   }
   function Ou(r, e) {
-    if (!e) return !1;
+    if (!e) return false;
     for (let t = 0; t < e.args.length; t++) {
-      if (OU(r, e, t) || AZ(r, e.args[t])) return !0;
+      if (OU(r, e, t) || AZ(r, e.args[t])) return true;
     }
-    return !1;
+    return false;
   }
   function AZ(r, e) {
     switch (e.type) {
@@ -25184,30 +25184,30 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "LeftRight":
         return Ou(r, e.arg);
       case "TokenNode":
-        return !1;
+        return false;
       case "Other":
-        return !1;
+        return false;
       default:
         throw new Error(`Programming Error: Invalid atom type ${e.type}`);
     }
   }
   function OU(r, e, t) {
-    if (r.args.length > e.args.length - t) return !1;
+    if (r.args.length > e.args.length - t) return false;
     for (let o = 0; o < r.args.length; o++) {
-      if (!MZ(r.args[o], e.args[o + t])) return !1;
+      if (!MZ(r.args[o], e.args[o + t])) return false;
     }
-    return !0;
+    return true;
   }
   function Vu(r, e, t) {
     return !r && !e
-      ? !0
+      ? true
       : !r || !e
-      ? !1
+      ? false
       : r.args.length === 0
-      ? !0
+      ? true
       : r.args.length > e.args.length ||
           !(t != null && t.allowPrefix) && r.args.length < e.args.length
-      ? !1
+      ? false
       : OU(r, e, 0);
   }
   function MZ(r, e) {
@@ -25417,7 +25417,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function LZ(r) {
     return !__dcg_shared_module_exports__["G"](r) || r.length !== 3
-      ? !1
+      ? false
       : __dcg_shared_module_exports__["j"](
         r,
         (e) => Number.isInteger(e) && e >= 0 && e <= 255,
@@ -25480,13 +25480,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       .072175 * (t / 255) ** 2.4;
   }
   var PG = .342;
-  function VG(r, e = !1, t = PG) {
-    if (typeof r != "string" || !r) return !1;
+  function VG(r, e = false, t = PG) {
+    if (typeof r != "string" || !r) return false;
     try {
       let o = LG(r);
       return OZ(o) > t ? !e : e;
     } catch (o) {
-      return !1;
+      return false;
     }
   }
   function qU(r, e) {
@@ -25520,7 +25520,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       });
   }
   function BZ(r) {
-    return Array.isArray(r) ? r[1] !== 0 : !1;
+    return Array.isArray(r) ? r[1] !== 0 : false;
   }
   function KU(r) {
     return r.length >= 1 && r.every(BZ);
@@ -25534,19 +25534,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       i.dependsOnRecursion = !!t.depends_on_recursive_function,
       i.packedErrors = [],
       i.computedValues = [],
-      i.hasNanOrErrorValue = !1,
-      i.hasComplexValue = !1;
+      i.hasNanOrErrorValue = false,
+      i.hasComplexValue = false;
     for (let n = t.values.length - 1; n >= 0; n--) {
       let a = t.values[n];
       typeof a == "number"
-        ? (i.computedValues[n] = FZ(a), isNaN(a) && (i.hasNanOrErrorValue = !0))
+        ? (i.computedValues[n] = FZ(a), isNaN(a) && (i.hasNanOrErrorValue = true))
         : Array.isArray(a)
         ? (i.computedValues[n] = NZ(a),
-          (isNaN(a[0]) || isNaN(a[1])) && (i.hasNanOrErrorValue = !0),
-          a[1] !== 0 && (i.hasComplexValue = !0))
+          (isNaN(a[0]) || isNaN(a[1])) && (i.hasNanOrErrorValue = true),
+          a[1] !== 0 && (i.hasComplexValue = true))
         : (i.computedValues[n] = "",
           i.packedErrors[n] = a,
-          i.hasNanOrErrorValue = !0);
+          i.hasNanOrErrorValue = true);
     }
     if (
       i.suppressIcon = o || e > 0 && KU(t.values), t.plotted && !i.suppressIcon
@@ -25565,10 +25565,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (!e) return;
     let t = Eg(r);
     if (!t) {
-      r.isExpanded || Nf(r, !0);
+      r.isExpanded || Nf(r, true);
       return;
     }
-    e.row >= t.min && e.row < t.max && Nf(r, !0);
+    e.row >= t.min && e.row < t.max && Nf(r, true);
   }
   function Eg(r) {
     if (r.isExpanded) return;
@@ -25622,19 +25622,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       shouldGraph: void 0,
       computed: void 0,
       draggable: void 0,
-      hasNanOrErrorValue: !1,
-      dependsOnRegression: !1,
-      dependsOnRecursion: !1,
-      hasComplexValue: !1,
-      suppressIcon: !1,
+      hasNanOrErrorValue: false,
+      dependsOnRegression: false,
+      dependsOnRecursion: false,
+      hasComplexValue: false,
+      suppressIcon: false,
     };
-    return e === 0 && (i.hidden = !0), i;
+    return e === 0 && (i.hidden = true), i;
   }
   function hw(r, e) {
     let t = r.table.formula;
-    if (!t) return !1;
+    if (!t) return false;
     let o = t.column_data[r.index];
-    return o ? !!o[e] : !1;
+    return o ? !!o[e] : false;
   }
   function YU(r) {
     return hw(r, "color_latex_valid");
@@ -25661,7 +25661,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     r.draggingOnGraphpaper
       ? r.preTransientState ||
         (r.preTransientState = {
-          columns: Bf(r, { stripDefaults: !1 }).columns,
+          columns: Bf(r, { stripDefaults: false }).columns,
         })
       : delete r.preTransientState, hd(r);
     let e = Ca(r), t = e && e.hidden;
@@ -25703,7 +25703,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function oz(r, e) {
     let t = Eg(r);
-    t && e === t.max - 1 && Nf(r, !0);
+    t && e === t.max - 1 && Nf(r, true);
     for (let o = 0; o < r.columnModels.length; o++) {
       KZ(r, o, e), o > 0 && vz(r.columnModels[o]);
     }
@@ -25794,7 +25794,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let t = r.regression;
     if (e.regression && t) {
       let o = Ca(r);
-      o && o.hidden && (e.regression = { ...e.regression, hidden: !0 });
+      o && o.hidden && (e.regression = { ...e.regression, hidden: true });
     }
   }
   function nz(r) {
@@ -25835,14 +25835,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       r.cachedUndoRedoDiffState = e;
   }
   var YZ = {
-    id: !1,
-    type: !1,
-    columns: !1,
-    regression: !0,
-    folderId: !0,
-    secret: !0,
-    readonly: !0,
-    disableGraphInteractions: !0,
+    id: false,
+    type: false,
+    columns: false,
+    regression: true,
+    folderId: true,
+    secret: true,
+    readonly: true,
+    disableGraphInteractions: true,
   };
   function az(r, e) {
     __dcg_shared_module_exports__["rd"]({ from: e, to: r, props: YZ }),
@@ -25855,12 +25855,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         ...ud(e),
         columnModels: void 0,
         formula: void 0,
-        draggingOnGraphpaper: !1,
+        draggingOnGraphpaper: false,
         cachedViewState: {},
         cachedParsableState: {},
         cachedUndoRedoDiffState: {},
         cachedUndoRedoFullState: {},
-        isExpanded: !1,
+        isExpanded: false,
       };
     return lz(o, t.columns), o;
   }
@@ -25876,9 +25876,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         latex: __dcg_shared_module_exports__["ma"](HU[n] + "_" + r),
         values: e[n],
         color: t.getNextColor(),
-        hidden: !1,
-        points: !0,
-        lines: !1,
+        hidden: false,
+        points: true,
+        lines: false,
         dragMode: "NONE",
         pointStyle: "POINT",
         lineStyle: "SOLID",
@@ -25887,20 +25887,20 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         lineOpacity: "",
         pointOpacity: "",
         pointSize: "",
-        disableGraphInteractions: !1,
+        disableGraphInteractions: false,
       });
     }
     return {
       id: t.generateId(),
       type: "table",
       folderId: "",
-      secret: !1,
-      readonly: !1,
+      secret: false,
+      readonly: false,
       columns: o,
     };
   }
   function cz(r, e) {
-    let t = Bf(r, { stripDefaults: !1 });
+    let t = Bf(r, { stripDefaults: false });
     if (!t.columns || !e.columns) return e;
     for (let o = 0; o < e.columns.length; o++) {
       let i = t.columns[o], n = e.columns[o];
@@ -25964,8 +25964,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       } else {
         let i = t.dragMode;
         o.dragMode = i,
-          i !== "NONE" && !o.points && (o.points = !0),
-          i !== "NONE" && (o.disableGraphInteractions = !1);
+          i !== "NONE" && !o.points && (o.points = true),
+          i !== "NONE" && (o.disableGraphInteractions = false);
       }
     }
   }
@@ -26005,7 +26005,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function cE(r, e) {
     let t = Eo(r, e);
-    return t ? !t.points && !t.lines : !0;
+    return t ? !t.points && !t.lines : true;
   }
   function vp(r, e, t) {
     if (e.row === 0) {
@@ -26029,11 +26029,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function Sz(r) {
     let e;
-    if (r.values) { for (e of r.values) if (e !== "") return !1; }
+    if (r.values) { for (e of r.values) if (e !== "") return false; }
     if (r.computedValues) {
-      for (e of r.computedValues) if (e !== "") return !1;
+      for (e of r.computedValues) if (e !== "") return false;
     }
-    return !0;
+    return true;
   }
   function Ez(r) {
     return r.computed;
@@ -26050,8 +26050,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function Dz(r) {
     let e = Pl(r), t = gw(r);
-    for (let o = 0; o < t; o++) if (dE(r, e - 1, o) !== "") return !1;
-    return !0;
+    for (let o = 0; o < t; o++) if (dE(r, e - 1, o) !== "") return false;
+    return true;
   }
   function bw(r, e) {
     var o, i;
@@ -26231,7 +26231,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         return BG(r.value).every((o) => VG(o, e));
       case "shader":
       case "image":
-        return !1;
+        return false;
       default:
         let t = r;
         throw new Error("Unexpected ColorSwatchSpec type: " + t.type);
@@ -26244,7 +26244,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         return BG(r.value).some((i) => VG(i, e, t));
       case "shader":
       case "image":
-        return !0;
+        return true;
       default:
         let o = r;
         throw new Error("Unexpected ColorSwatchSpec type: " + o.type);
@@ -26285,8 +26285,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       index: -1,
       displayIndex: "-1",
       secretIndex: "-1",
-      isHiddenFromUI: !0,
-      renderShell: !0,
+      isHiddenFromUI: true,
+      renderShell: true,
     };
   }
   function fE(r, e) {
@@ -26320,7 +26320,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (/^data:image/.test(r.colorLatex)) {
       return { type: "image", value: r.colorLatex };
     }
-    let e, t, o = !1;
+    let e, t, o = false;
     return r.type === "expression"
       ? (e = yE(r), t = bE(r), o = r.formula.color_latex_valid === void 0)
       : r.type === "table-column" && (e = ez(r), t = YU(r)),
@@ -26336,7 +26336,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return r.type === "expression" || r.type === "image" ||
         r.type === "table-column"
       ? !!r.disableGraphInteractions
-      : !1;
+      : false;
   }
   var ww = class {
     constructor(e, t) {
@@ -26359,9 +26359,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         !this.exports.get(e) &&
         this.exports.set(e, {
           name: e,
-          isMultiplyDefined: !1,
-          isRegressionExport: !1,
-          isTableColumnAssignment: !0,
+          isMultiplyDefined: false,
+          isRegressionExport: false,
+          isTableColumnAssignment: true,
         });
     }
     isDefined(e, t) {
@@ -26471,15 +26471,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       );
   }
   var iee = {
-    id: !1,
-    type: !1,
-    hidden: !0,
-    secret: !0,
-    inFrontOfEverything: !0,
-    collapsed: !0,
-    title: !0,
-    readonly: !0,
-    disableGraphInteractions: !0,
+    id: false,
+    type: false,
+    hidden: true,
+    secret: true,
+    inFrontOfEverything: true,
+    collapsed: true,
+    title: true,
+    readonly: true,
+    disableGraphInteractions: true,
   };
   function Lz(r, e) {
     __dcg_shared_module_exports__["rd"]({ from: e, to: r, props: iee });
@@ -26501,28 +26501,28 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   var Wf = "dcg_geometry_toolbar_",
     Nz = {
-      selection: { visible: !0 },
-      "box-selection": { visible: !0 },
-      "expression-edit": { visible: !0 },
-      point: { visible: !1 },
-      line: { visible: !1 },
-      segment: { visible: !1 },
-      ray: { visible: !1 },
-      vector: { visible: !1 },
-      circle: { visible: !1 },
-      arc: { visible: !1 },
-      parallel: { visible: !1 },
-      perpendicular: { visible: !1 },
-      anglebisector: { visible: !1 },
-      midpoint: { visible: !1 },
-      polygon: { visible: !1 },
-      compass: { visible: !1 },
-      angle: { visible: !1 },
-      directedangle: { visible: !1 },
-      reflect: { visible: !1 },
-      translate: { visible: !1 },
-      rotate: { visible: !1 },
-      dilate: { visible: !1 },
+      selection: { visible: true },
+      "box-selection": { visible: true },
+      "expression-edit": { visible: true },
+      point: { visible: false },
+      line: { visible: false },
+      segment: { visible: false },
+      ray: { visible: false },
+      vector: { visible: false },
+      circle: { visible: false },
+      arc: { visible: false },
+      parallel: { visible: false },
+      perpendicular: { visible: false },
+      anglebisector: { visible: false },
+      midpoint: { visible: false },
+      polygon: { visible: false },
+      compass: { visible: false },
+      angle: { visible: false },
+      directedangle: { visible: false },
+      reflect: { visible: false },
+      translate: { visible: false },
+      rotate: { visible: false },
+      dilate: { visible: false },
     };
   function Bz(r) {
     if (r.toolbar !== "all") {
@@ -26611,28 +26611,28 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function see() {
     return {
-      selection: { visible: !0 },
-      "box-selection": { visible: !0 },
-      "expression-edit": { visible: !0 },
-      point: { visible: !0 },
-      line: { visible: !0 },
-      segment: { visible: !0 },
-      ray: { visible: !0 },
-      vector: { visible: !1 },
-      circle: { visible: !0 },
-      arc: { visible: !1 },
-      parallel: { visible: !1 },
-      perpendicular: { visible: !1 },
-      anglebisector: { visible: !1 },
-      midpoint: { visible: !1 },
-      polygon: { visible: !1 },
-      compass: { visible: !1 },
-      angle: { visible: !1 },
-      directedangle: { visible: !1 },
-      reflect: { visible: !1 },
-      translate: { visible: !1 },
-      rotate: { visible: !1 },
-      dilate: { visible: !1 },
+      selection: { visible: true },
+      "box-selection": { visible: true },
+      "expression-edit": { visible: true },
+      point: { visible: true },
+      line: { visible: true },
+      segment: { visible: true },
+      ray: { visible: true },
+      vector: { visible: false },
+      circle: { visible: true },
+      arc: { visible: false },
+      parallel: { visible: false },
+      perpendicular: { visible: false },
+      anglebisector: { visible: false },
+      midpoint: { visible: false },
+      polygon: { visible: false },
+      compass: { visible: false },
+      angle: { visible: false },
+      directedangle: { visible: false },
+      reflect: { visible: false },
+      translate: { visible: false },
+      rotate: { visible: false },
+      dilate: { visible: false },
     };
   }
   function jz(r, e) {
@@ -26659,21 +26659,21 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function Tg(r, e) {
     return r.toolbar === "all"
-      ? !0
+      ? true
       : r.toolbar === "none"
-      ? !1
+      ? false
       : r.toolbarState[e].visible;
   }
   function $f(r, e) {
     var o;
-    if (r.toolbar === "all") return !0;
+    if (r.toolbar === "all") return true;
     let t = Tg(r, e);
     if (t && r.formulas[e]) {
       let i = r.formulas[e],
         n = (o = i == null ? void 0 : i.typed_constant_value) == null
           ? void 0
           : o.value;
-      return typeof n == "number" ? !n : !0;
+      return typeof n == "number" ? !n : true;
     }
     return t || e === "selection";
   }
@@ -26758,7 +26758,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         type: "statement",
         id: r.id,
         latex: r.latex,
-        shouldGraph: !1,
+        shouldGraph: false,
       },
     };
   }
@@ -26808,14 +26808,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     e.type === "inert"
       ? (r.disableGraphInteractions = e.disableGraphInteractions,
         e.disableGraphInteractions &&
-        (r.draggable = !1,
-          r.clickableInfo = { ...r.clickableInfo, enabled: !1 }))
+        (r.draggable = false,
+          r.clickableInfo = { ...r.clickableInfo, enabled: false }))
       : e.type === "draggable"
       ? (r.draggable = e.draggable,
-        e.draggable && (r.disableGraphInteractions = !1))
+        e.draggable && (r.disableGraphInteractions = false))
       : e.type === "clickable" &&
         (r.clickableInfo = e.clickableInfo,
-          e.clickableInfo.enabled && (r.disableGraphInteractions = !1));
+          e.clickableInfo.enabled && (r.disableGraphInteractions = false));
   }
   function KG(r, e) {
     SE(r, { type: "draggable", draggable: e });
@@ -26833,17 +26833,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function pee(r) {
     let e = jf(r);
-    if (!e) return !1;
+    if (!e) return false;
     let t = Ro(e);
     return !(!t || t === "NONE");
   }
   function fc(r) {
-    return !r.draggable || Ds(r) ? !1 : pee(r);
+    return !r.draggable || Ds(r) ? false : pee(r);
   }
   function r4(r) {
-    if (!r.formula || !r.formula.center_is_point_literal) return !1;
+    if (!r.formula || !r.formula.center_is_point_literal) return false;
     let e = r.formula.move_strategy;
-    if (!e) return !1;
+    if (!e) return false;
     let t = e[2],
       o = e[3],
       i = t && t.type !== "none",
@@ -26885,7 +26885,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         })
       : delete r.preTransientState, hd(r);
     let e = Ca(r);
-    r.shouldGraph = e && e.hidden ? !1 : !r.hidden,
+    r.shouldGraph = e && e.hidden ? false : !r.hidden,
       r.showPoints = r.shouldGraph && Sa(r) &&
         r.loadStatus === "loaded" && !fc(r) &&
         r.controller.isTraceEnabled(),
@@ -26927,18 +26927,18 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
   }
   function s4(r, e) {
-    return !r.formula || !r.formula.errorMap ? !1 : !!r.formula.errorMap[e];
+    return !r.formula || !r.formula.errorMap ? false : !!r.formula.errorMap[e];
   }
   function DE(r, e) {
     let t = r.cachedViewState;
     return e.stripDefaults ? dN(t) : t;
   }
   function gee(r) {
-    let e = r.cachedViewState.clickableInfo, t = !0, o = !0;
+    let e = r.cachedViewState.clickableInfo, t = true, o = true;
     if (
       e &&
-      (e.depressedImage === r.clickableInfo.depressedImage && (o = !1),
-        e.hoveredImage === r.clickableInfo.hoveredImage && (t = !1)),
+      (e.depressedImage === r.clickableInfo.depressedImage && (o = false),
+        e.hoveredImage === r.clickableInfo.hoveredImage && (t = false)),
         t &&
         (r.hoveredImageObj &&
           (ee(r.hoveredImageObj).off("load"), delete r.hoveredImageObj),
@@ -27046,7 +27046,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       showPoints: void 0,
       error: void 0,
       formula: void 0,
-      draggingOnGraphpaper: !1,
+      draggingOnGraphpaper: false,
       cachedViewState: {},
       cachedParsableState: {},
       cachedUndoRedoDiffState: {},
@@ -27054,16 +27054,16 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     };
   }
   var bee = {
-    id: !1,
-    type: !1,
-    image_url: !0,
-    name: !0,
-    folderId: !0,
-    hidden: !0,
-    secret: !0,
-    readonly: !0,
-    disableGraphInteractions: !0,
-    foreground: !0,
+    id: false,
+    type: false,
+    image_url: true,
+    name: true,
+    folderId: true,
+    hidden: true,
+    secret: true,
+    readonly: true,
+    disableGraphInteractions: true,
+    foreground: true,
     ...__dcg_shared_module_exports__["ud"](qC),
   };
   function c4(r, e) {
@@ -27115,7 +27115,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             e.dispatch({
               type: "image-upload-error",
               token: i,
-              error: !0,
+              error: true,
             });
           });
         }
@@ -27228,7 +27228,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       this.suggestedIdentifierRename.countOfChanges = l;
     }
   };
-  var u4 = { folderId: "", text: "", secret: !1, readonly: !1 };
+  var u4 = { folderId: "", text: "", secret: false, readonly: false };
   function h4(r) {
     return { ...u4, ...r };
   }
@@ -27251,12 +27251,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     hd(r), vee(r), Cee(r);
   }
   var wee = {
-    id: !1,
-    type: !1,
-    folderId: !0,
-    text: !0,
-    secret: !0,
-    readonly: !0,
+    id: false,
+    type: false,
+    folderId: true,
+    text: true,
+    secret: true,
+    readonly: true,
   };
   function b4(r, e) {
     __dcg_shared_module_exports__["rd"]({ from: e, to: r, props: wee });
@@ -27319,7 +27319,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       cachedParsableState: {},
       cachedUndoRedoDiffState: {},
       cachedUndoRedoFullState: {},
-      filteredBySearch: !1,
+      filteredBySearch: false,
     };
   }
   function E4(r, e) {
@@ -27337,13 +27337,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       !r.playing ||
       ((a = r.formula) == null ? void 0 : a.handler.status) !==
         "maybe-valid"
-    ) return !1;
-    if (r.lastTickTime == null || t == null) return !0;
+    ) return false;
+    if (r.lastTickTime == null || t == null) return true;
     if (
       ((s = r.formula) == null ? void 0 : s.minStep.status) !== "valid"
-    ) return !1;
+    ) return false;
     let o = r.formula.minStep.value, i = r.lastTickTime + o;
-    if (e >= i) return !0;
+    if (e >= i) return true;
     let n = e - t;
     return i - e < n / 2;
   }
@@ -27381,11 +27381,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       __itemIdToModel: {},
       __helperIdToModel: {},
       __toolPreviewIdToModel: {},
-      __anyDependsOnRandomSeed: !1,
-      __anyFunctionDefinitionsDependOnRandomSeed: !1,
-      __anyUnmutedTones: !1,
-      __anyTones: !1,
-      __anyIsAction: !1,
+      __anyDependsOnRandomSeed: false,
+      __anyFunctionDefinitionsDependOnRandomSeed: false,
+      __anyUnmutedTones: false,
+      __anyTones: false,
+      __anyIsAction: false,
       selectedItemMap: {},
       tabOrder: [],
       drawLayers: [],
@@ -27400,9 +27400,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function G4(r) {
     for (let e = 0; e < r.__itemModelArray.length; e++) {
       let t = r.__itemModelArray[e];
-      if (t.type === "image" && t.loadStatus === "loading") return !0;
+      if (t.type === "image" && t.loadStatus === "loading") return true;
     }
-    return !1;
+    return false;
   }
   function L4(r) {
     let e = __dcg_shared_module_exports__["i"](
@@ -27486,8 +27486,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return !!(r && r.readonly);
   }
   function Xf(r) {
-    if (!r) return !1;
-    if (r.secret) return !0;
+    if (!r) return false;
+    if (r.secret) return true;
     let e = Ca(r);
     return !!(e && e.secret &&
       e.id !== __dcg_shared_module_exports__["xd"]);
@@ -27501,11 +27501,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         r.folderId === __dcg_shared_module_exports__["xd"];
   }
   function UG(r) {
-    if (!r || r.filteredBySearch || F4(r)) return !0;
+    if (!r || r.filteredBySearch || F4(r)) return true;
     if (r.controller.isItemBeingDragged(r.id)) {
       return !!r.controller.shouldRenderDraggedItemAsToken();
     }
-    if (!r.controller.shouldShowAuthorFeatures() && Xf(r)) return !0;
+    if (!r.controller.shouldShowAuthorFeatures() && Xf(r)) return true;
     let t = Ca(r);
     return !!(t && t.collapsed && !r.controller.getExpressionSearchStr());
   }
@@ -27572,24 +27572,24 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
   }
   function B4(r, e) {
-    if (!ya(e)) return !1;
-    let o = !1;
+    if (!ya(e)) return false;
+    let o = false;
     return ob(r, (i) => {
-      Il(i, e) && (o = !0);
+      Il(i, e) && (o = true);
     }),
       o;
   }
   function U4(r, e) {
-    let t = !1;
+    let t = false;
     for (let o of r.__itemModelArray) {
       if (
         o.type === "table" && (fw(o, (i) => {
-          Il(i, e) && (t = !0);
-        }, { headersOnly: !0 }),
+          Il(i, e) && (t = true);
+        }, { headersOnly: true }),
           t)
-      ) return !0;
+      ) return true;
     }
-    return !1;
+    return false;
   }
   function z4(r, e) {
     let t = 0, o = ya(e);
@@ -27597,26 +27597,26 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       !Il(r.ticker.handlerLatex, e) && !Il(r.ticker.minStepLatex, e);
     for (let i of r.__itemModelArray) {
       if (!o) {
-        i.filteredBySearch = !1, t++;
+        i.filteredBySearch = false, t++;
         continue;
       }
-      switch (i.filteredBySearch = !0, i.type) {
+      switch (i.filteredBySearch = true, i.type) {
         case "expression":
           qE(i, (s) => {
-            Il(s, e) && (i.filteredBySearch = !1, t++);
+            Il(s, e) && (i.filteredBySearch = false, t++);
           });
           let n = ja(i);
           i.label && n && i.label.match(LE(e)) &&
-            (i.filteredBySearch = !1, t++);
+            (i.filteredBySearch = false, t++);
           break;
         case "table":
           fw(i, (s) => {
-            Il(s, e) && (i.filteredBySearch = !1, t++);
+            Il(s, e) && (i.filteredBySearch = false, t++);
           });
           break;
         case "image":
           EE(i, (s) => {
-            Il(s, e) && (i.filteredBySearch = !1, t++);
+            Il(s, e) && (i.filteredBySearch = false, t++);
           });
           break;
         case "folder":
@@ -27626,7 +27626,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           return i;
       }
       !i.filteredBySearch && i.type !== "folder" && i.folderId &&
-        (r.__itemIdToModel[i.folderId].filteredBySearch = !1, t++);
+        (r.__itemIdToModel[i.folderId].filteredBySearch = false, t++);
     }
     return t;
   }
@@ -27636,46 +27636,46 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       !o(r.ticker.handlerLatex) && !o(r.ticker.minStepLatex);
     for (let n = 0; n < r.__itemModelArray.length; n++) {
       if (!e) {
-        r.__itemModelArray[n].filteredBySearch = !1;
+        r.__itemModelArray[n].filteredBySearch = false;
         continue;
       }
       let a = r.__itemModelArray[n];
-      switch (a.filteredBySearch = !0, a.type) {
+      switch (a.filteredBySearch = true, a.type) {
         case "expression":
           qE(a, (c) => {
-            o(c) && (a.filteredBySearch = !1, t++);
+            o(c) && (a.filteredBySearch = false, t++);
           });
           let s = ja(a);
           ub(a) && (a.label || s) &&
             (e === "\\operatorname{label}" ||
               e.length > 1 && "label".indexOf(e) === 0 || o(a.label)) &&
-            (a.filteredBySearch = !1, t++);
+            (a.filteredBySearch = false, t++);
           break;
         case "table":
           fw(a, (c) => {
-            o(c) && (a.filteredBySearch = !1, t++);
+            o(c) && (a.filteredBySearch = false, t++);
           });
           break;
         case "image":
           e === "\\operatorname{image}" ||
             e.length > 1 && "image".indexOf(e) === 0
-            ? (a.filteredBySearch = !1, t++)
+            ? (a.filteredBySearch = false, t++)
             : EE(a, (c) => {
-              o(c) && (a.filteredBySearch = !1, t++);
+              o(c) && (a.filteredBySearch = false, t++);
             });
           break;
         case "folder":
           a.title && a.title.indexOf(e) >= 0 &&
-            (a.filteredBySearch = !1, t++);
+            (a.filteredBySearch = false, t++);
           break;
         case "text":
-          i.test(a.text) && (a.filteredBySearch = !1, t++);
+          i.test(a.text) && (a.filteredBySearch = false, t++);
           break;
         default:
           return a;
       }
       !a.filteredBySearch && a.type !== "folder" && a.folderId &&
-        (r.__itemIdToModel[a.folderId].filteredBySearch = !1, t++);
+        (r.__itemIdToModel[a.folderId].filteredBySearch = false, t++);
     }
     return t;
   }
@@ -27732,7 +27732,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       let a = eS(i, e, t);
       if (n.type === "geometry-toolbar") {
         let l = r.controller.getGeometryToolbarModel();
-        vE(l, n.tool, { visible: !0, disabledLatex: a });
+        vE(l, n.tool, { visible: true, disabledLatex: a });
         return;
       }
       let s = n.item;
@@ -27988,10 +27988,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           : a.other.push(c.id);
         return;
       }
-      let d = !1;
+      let d = false;
       if (c.type !== "folder" && c.folderId) {
         let h = r.__itemIdToModel[c.folderId];
-        h && h.type === "folder" && h.inFrontOfEverything && (d = !0);
+        h && h.type === "folder" && h.inFrontOfEverything && (d = true);
       }
       let p = i;
       d ? p = n : c.type === "image" && !c.foreground && (p = o),
@@ -28060,24 +28060,24 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     r.__exportedVariables = new ww(VE(r), e);
   }
   function ZG(r) {
-    r.__anyDependsOnRandomSeed = !1,
-      r.__anyFunctionDefinitionsDependOnRandomSeed = !1;
+    r.__anyDependsOnRandomSeed = false,
+      r.__anyFunctionDefinitionsDependOnRandomSeed = false;
     for (let e = 0; e < r.__itemModelArray.length; e++) {
       let t = r.__itemModelArray[e];
       t && "formula" in t && t.formula &&
         t.formula.depends_on_random_seed &&
-        (r.__anyDependsOnRandomSeed = !0,
+        (r.__anyDependsOnRandomSeed = true,
           t.type === "expression" && t.formula.function_definition &&
-          (r.__anyFunctionDefinitionsDependOnRandomSeed = !0));
+          (r.__anyFunctionDefinitionsDependOnRandomSeed = true));
     }
   }
   function J4(r) {
-    r.__anyIsAction = !1;
+    r.__anyIsAction = false;
   }
   function RE(r) {
     if (!r.__anyIsAction) {
       if (r.ticker.open) {
-        r.__anyIsAction = !0;
+        r.__anyIsAction = true;
         return;
       }
       for (let e = 0; e < r.__itemModelArray.length; e++) {
@@ -28089,7 +28089,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             o.hasOwnProperty("action_value") ||
             o.hasOwnProperty("click_handler")
           ) {
-            r.__anyIsAction = !0;
+            r.__anyIsAction = true;
             return;
           }
         }
@@ -28128,10 +28128,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       r.__itemIdToModel = {},
       r.__helperIdToModel = {},
       r.__toolPreviewIdToModel = {},
-      r.__anyDependsOnRandomSeed = !1,
-      r.__anyFunctionDefinitionsDependOnRandomSeed = !1,
-      r.__anyUnmutedTones = !1,
-      r.__anyTones = !1;
+      r.__anyDependsOnRandomSeed = false,
+      r.__anyFunctionDefinitionsDependOnRandomSeed = false,
+      r.__anyUnmutedTones = false,
+      r.__anyTones = false;
   }
   function kw(r) {
     return r.__itemModelArray.length;
@@ -28327,13 +28327,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let n;
     switch (i.type) {
       case "expression":
-        let a = !1, s = !1, l;
-        i.__workerNeedsDotplotXMode = !1;
+        let a = false, s = false, l;
+        i.__workerNeedsDotplotXMode = false;
         for (let p = 0; p < t.length; p++) {
           let h = t[p];
           if (
             "recursionTerminationStatus" in h &&
-            h.recursionTerminationStatus === 1 && (s = !0),
+            h.recursionTerminationStatus === 1 && (s = true),
               "nanBlame" in h && h.nanBlame !== void 0 &&
               (l = h.nanBlame),
               h.graphMode === 15
@@ -28341,10 +28341,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             i.error = h.error;
             continue;
           }
-          "resolved" in h && !h.resolved && (a = !0),
+          "resolved" in h && !h.resolved && (a = true),
             "boundingBox" in h && h.boundingBox &&
             (n || (n = []), n.push(h.boundingBox)),
-            h.needsDotplotXMode && (i.__workerNeedsDotplotXMode = !0);
+            h.needsDotplotXMode && (i.__workerNeedsDotplotXMode = true);
         }
         i.unresolved = a,
           i.boundingBoxes = n,
@@ -28525,20 +28525,20 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function NE(r) {
     let e = Ig(r);
-    if (!e) return !1;
+    if (!e) return false;
     let t = Ew(r, e.index);
     return t
       ? (Nr(r, t),
         t.index === kw(r) - 1 && e.type === "expression" && Vl(e) &&
         ib(r, t.index),
-        !0)
-      : !1;
+        true)
+      : false;
   }
   function BE(r) {
     let e = Ig(r);
-    if (!e) return !1;
+    if (!e) return false;
     let t = Tw(r, e.index);
-    return t ? (Nr(r, t), !0) : !1;
+    return t ? (Nr(r, t), true) : false;
   }
   function bq(r, e) {
     let t = r.selectedItemMap;
@@ -28580,7 +28580,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function nb(r) {
     return r
       ? r.type === "image" && Dg(r) || r.type === "expression" && $n(r)
-      : !1;
+      : false;
   }
   function oL(r) {
     return r.__exportedVariables;
@@ -28668,10 +28668,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         jn = document.createElement("audio"),
           r.appendChild(jn),
           jn.setAttribute("x-webkit-airplay", "deny"),
-          jn.controls = !1,
-          jn.disableRemotePlayback = !0,
+          jn.controls = false,
+          jn.disableRemotePlayback = true,
           jn.preload = "auto",
-          jn.loop = !0,
+          jn.loop = true,
           jn.src = Vee,
           jn.load();
       }
@@ -28686,9 +28686,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     Nw = class {
       constructor(e) {
         this.expressionSynthMap = new Map();
-        this.useOfflineContext = !1;
-        this.globalUnmuteState = !1;
-        this.hasEverInteractedWithMute = !1;
+        this.useOfflineContext = false;
+        this.globalUnmuteState = false;
+        this.hasEverInteractedWithMute = false;
         this.maxGain = .5;
         this.handleVisibilityChange = () => {
           !this.audioContext || this.isGlobalMuted() ||
@@ -28723,7 +28723,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         this.handleBeforeUnload();
       }
       setOfflineAudio() {
-        this.useOfflineContext = !0;
+        this.useOfflineContext = true;
       }
       prepareToRenderAudio(e) {
         this.useOfflineContext &&
@@ -28739,7 +28739,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         return this.hasEverInteractedWithMute;
       }
       registerMuteInteraction() {
-        this.hasEverInteractedWithMute = !0;
+        this.hasEverInteractedWithMute = true;
       }
       async startRendering() {
         return this.audioContext.startRendering();
@@ -28863,15 +28863,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         switch (e.type) {
           case "mute-global": {
             YE(),
-              this.globalUnmuteState = !1,
+              this.globalUnmuteState = false,
               (o = (t = this.controller).logEvent) == null ||
               o.call(t, { category: "tone", action: "mute-global" });
             break;
           }
           case "unmute-global": {
             jE(),
-              this.globalUnmuteState = !0,
-              this.hasEverInteractedWithMute = !0,
+              this.globalUnmuteState = true,
+              this.hasEverInteractedWithMute = true,
               (n = (i = this.controller).logEvent) == null ||
               n.call(i, { category: "tone", action: "unmute-global" });
             break;
@@ -29042,7 +29042,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         __dcg_shared_module_exports__["ia"](
           sL((o = e.typed_constant_value) == null ? void 0 : o.value),
         )
-      : !1;
+      : false;
   }
   function qw(r) {
     return !!(r.formula && r.formula.is_graphable);
@@ -29053,10 +29053,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function lL(r) {
     var a, s;
     let e = r.formula;
-    if (!e) return !1;
+    if (!e) return false;
     if (e.warning) {
       let l = (a = r.formula.typed_constant_value) == null ? void 0 : a.value;
-      if (l === void 0 || Number.isNaN(l)) return !1;
+      if (l === void 0 || Number.isNaN(l)) return false;
     }
     let o = !(e.operator === "=" && r.controller.isThreeDMode() &&
         (e.assignment === "x" || e.assignment === "y" ||
@@ -29132,7 +29132,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function qu(r, e) {
     if (!isFinite(e)) return r;
     let t = r.indexOf("=") + 1;
-    return io(r.slice(t), !1) === e
+    return io(r.slice(t), false) === e
       ? r
       : r.slice(0, t) + __dcg_shared_module_exports__["ce"](e);
   }
@@ -29140,7 +29140,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = r.latex || "", t = r.label || "";
     return (e + t).split(" ").join("") === "";
   }
-  function Ro(r, e = { isReverseDrag: !1 }) {
+  function Ro(r, e = { isReverseDrag: false }) {
     let t = r.dragMode === "AUTO" && r.formula.default_drag_mode !== void 0
       ? r.formula.default_drag_mode
       : r.dragMode;
@@ -29150,7 +29150,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function Bee(r) {
     let e = Ro(r);
-    r.interactiveLabel && e !== "NONE" && $w(r, !1);
+    r.interactiveLabel && e !== "NONE" && $w(r, false);
   }
   function Ol(r, e, t) {
     if (!r.sliderExists) return NaN;
@@ -29206,19 +29206,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function QE(r, e) {
     if (!r.sliderExists) return;
-    r.slider.isPlaying && As(r, !1);
-    let t = Ol(r, e, { ignoreSoftLimits: !0 });
+    r.slider.isPlaying && As(r, false);
+    let t = Ol(r, e, { ignoreSoftLimits: true });
     r.latex = qu(r.latex, t);
   }
   function Dq(r, e, t) {
     if (!r.sliderExists) return;
-    r.slider.isPlaying && As(r, !1), yb(r);
+    r.slider.isPlaying && As(r, false), yb(r);
     let o = dL(r, e, t);
     r.latex = qu(r.latex, o);
   }
   function kq(r, e) {
     if (!r.sliderExists) return;
-    r.slider.isPlaying && As(r, !1);
+    r.slider.isPlaying && As(r, false);
     let t = Ol(r, e);
     r.latex = qu(r.latex, t);
   }
@@ -29257,7 +29257,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         r.sliderAnimationTargetValue += d,
         p = r.sliderAnimationTargetValue,
         a || (p = ho(p - d * .1, p + d * .1)),
-        p = Ol(r, p, { ignoreSoftLimits: !0 }),
+        p = Ol(r, p, { ignoreSoftLimits: true }),
         r.latex = qu(r.latex, p);
     } else {
       if (
@@ -29288,23 +29288,23 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function QG(r, e) {
     r.formula = e,
       r.error = e.error,
-      r.unresolved = !1,
-      r.expressionTooComplex = !1,
-      r.recursiveDepthPlottingError = !1,
+      r.unresolved = false,
+      r.expressionTooComplex = false,
+      r.recursiveDepthPlottingError = false,
       r.nanBlame = __dcg_shared_module_exports__["Zd"].None,
       e.is_slider
         ? (!r.sliderExists || r.resetSliderAnimationTargetValue) &&
           (r.sliderAnimationTargetValue = al(r),
-            r.sliderDragging = !1,
-            r.sliderExists = !0)
-        : r.sliderExists = !1,
-      r.resetSliderAnimationTargetValue = !1;
+            r.sliderDragging = false,
+            r.sliderExists = true)
+        : r.sliderExists = false,
+      r.resetSliderAnimationTargetValue = false;
     let t = {};
     e.is_regression &&
     (t = e.regression.parameters,
       r.residualVariable = e.regression.residualVariable,
       r.controller.areLogModeRegressionsForced() &&
-      (r.isLogModeRegression = !0)),
+      (r.isLogModeRegression = true)),
       __dcg_shared_module_exports__["E"](r.regressionParameters, t) ||
       (r.regressionParameters = t);
   }
@@ -29329,7 +29329,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           gb &&
         ((n = r.formula.typed_constant_value) == null ? void 0 : n.value[0]) <=
           mb
-    ) return !1;
+    ) return false;
     let e = __dcg_shared_module_exports__["Wc"](r.latex);
     return !!(e && e._dependencies && e._dependencies.length === 1);
   }
@@ -29338,13 +29338,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return !!r.hidden || !!((e = Ca(r)) != null && e.hidden);
   }
   function Aw(r) {
-    return !Is(r) || Bw(r) ? !1 : r.formula.typed_constant_value.valueType ===
+    return !Is(r) || Bw(r) ? false : r.formula.typed_constant_value.valueType ===
         __dcg_shared_module_exports__["fb"]
       ? r.formula.typed_constant_value.value[1] > 0
       : r.formula.typed_constant_value.valueType ===
           __dcg_shared_module_exports__["gb"]
       ? r.formula.typed_constant_value.value.some((e) => e[1] > 0)
-      : !1;
+      : false;
   }
   function Uee(r) {
     if (
@@ -29354,17 +29354,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           r.controller.getHoveredOrFocusedTokenIdentifier(),
         ) === r.id,
         t = r.controller.isItemSelected(r.id);
-      (e || t || r.controller.getGhostMode()) && (r.shouldGraph = !0);
+      (e || t || r.controller.getGhostMode()) && (r.shouldGraph = true);
     }
   }
   function Hi(r) {
     var t;
-    if (!r) return !1;
-    if (r.hidden) return !0;
+    if (!r) return false;
+    if (r.hidden) return true;
     if (
       (t = r == null ? void 0 : r.formula) != null && t.expression_type &&
       wb(r)
-    ) return !0;
+    ) return true;
     let e = Ca(r);
     return !!(e && e.hidden);
   }
@@ -29464,10 +29464,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return isFinite(t) ? t : NaN;
   }
   function hL(r) {
-    return r.slider.loopMode !== "PLAY_ONCE" ? !1 : al(r) >= bc(r);
+    return r.slider.loopMode !== "PLAY_ONCE" ? false : al(r) >= bc(r);
   }
   function Gq(r, e) {
-    return r.formula.viz_valids ? !!r.formula.viz_valids[e] : !1;
+    return r.formula.viz_valids ? !!r.formula.viz_valids[e] : false;
   }
   function Tp(r, e) {
     return r.vizProps[e];
@@ -29480,26 +29480,26 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       r.disableGraphInteractions = e.disableGraphInteractions,
         e.disableGraphInteractions &&
         (r.dragMode = "NONE",
-          r.clickableInfo = { ...r.clickableInfo, enabled: !1 },
+          r.clickableInfo = { ...r.clickableInfo, enabled: false },
           r.editableLabelMode = "NONE",
-          r.interactiveLabel = !1);
+          r.interactiveLabel = false);
     } else if (e.type === "drag-mode") {
       let t = e.dragMode;
       r.dragMode = t,
-        t !== "NONE" && (r.disableGraphInteractions = !1),
+        t !== "NONE" && (r.disableGraphInteractions = false),
         r.movablePointSize !== r.pointSize &&
         (t === "NONE"
           ? r.pointSize = r.movablePointSize
           : r.movablePointSize = r.pointSize);
     } else {e.type === "clickable"
         ? (r.clickableInfo = e.clickableInfo,
-          e.clickableInfo.enabled && (r.disableGraphInteractions = !1))
+          e.clickableInfo.enabled && (r.disableGraphInteractions = false))
         : e.type === "editable-label"
         ? (r.editableLabelMode = e.editable,
-          e.editable !== "NONE" && (r.disableGraphInteractions = !1))
+          e.editable !== "NONE" && (r.disableGraphInteractions = false))
         : e.type === "interactive-label" &&
           (r.interactiveLabel = e.interactive,
-            e.interactive && (r.disableGraphInteractions = !1));}
+            e.interactive && (r.disableGraphInteractions = false));}
   }
   function Pq(r, e, t) {
     fb(r, {
@@ -29561,11 +29561,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function Fq(r, e) {
     let t = rT(r, e);
-    return t ? t.minValid : !1;
+    return t ? t.minValid : false;
   }
   function Nq(r, e) {
     let t = rT(r, e);
-    return t ? t.maxValid : !1;
+    return t ? t.maxValid : false;
   }
   function Mw(r, e) {
     let t = r.cachedViewState;
@@ -29686,11 +29686,11 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return (!o || !Ff(o)) && (o = e.getNextColor()), {
       ...t,
       ...ud(e),
-      labelDropdownOpen: !1,
+      labelDropdownOpen: false,
       formula: { error: void 0, operator: "=", variables: [] },
       error: void 0,
-      unresolved: !1,
-      expressionTooComplex: !1,
+      unresolved: false,
+      expressionTooComplex: false,
       color: o,
       pointStyle: t.pointStyle,
       lineStyle: t.lineStyle,
@@ -29699,9 +29699,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       shouldGraph: void 0,
       sliderDragging: void 0,
       sliderAnimationTargetValue: void 0,
-      resetSliderAnimationTargetValue: !1,
+      resetSliderAnimationTargetValue: false,
       sliderLastTickTime: void 0,
-      draggingOnGraphpaper: !1,
+      draggingOnGraphpaper: false,
       cachedUndoRedoDiffState: void 0,
       cachedUndoRedoFullState: void 0,
       cachedParsableState: void 0,
@@ -29795,7 +29795,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         null
       ? void 0
       : o.valueType;
-    return e == null ? !1 : __dcg_shared_module_exports__["wb"](e);
+    return e == null ? false : __dcg_shared_module_exports__["wb"](e);
   }
   function oT(r) {
     var o;
@@ -29809,10 +29809,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           null
         ? void 0
         : i.valueType,
-      t = !1;
+      t = false;
     if (
       e && __dcg_shared_module_exports__["wb"](e) &&
-      (t = !0, e = __dcg_shared_module_exports__["xb"](e)),
+      (t = true, e = __dcg_shared_module_exports__["xb"](e)),
         e == null || !__dcg_shared_module_exports__["yb"](e)
     ) return "U";
     switch (e) {
@@ -29968,59 +29968,59 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       zee(r);
   }
   var jee = {
-    id: !1,
-    type: !1,
-    color: !0,
-    folderId: !0,
-    latex: !0,
-    showLabel: !0,
-    showAngleLabel: !0,
-    label: !0,
-    hidden: !0,
-    secret: !0,
-    readonly: !0,
-    disableGraphInteractions: !0,
-    points: !0,
-    lines: !0,
-    lineStyle: !0,
-    arrowMode: !0,
-    pointStyle: !0,
-    fill: !0,
-    dragMode: !0,
-    labelSize: !0,
-    labelOrientation: !0,
-    suppressTextOutline: !0,
-    interactiveLabel: !0,
-    editableLabelMode: !0,
-    residualVariable: !0,
-    regressionParameters: !0,
-    isLogModeRegression: !0,
-    displayEvaluationAsFraction: !0,
-    slider: !0,
-    strictIntersection: !0,
-    angleType: !0,
-    showAngleDirection: !0,
-    extendTo3D: !1,
+    id: false,
+    type: false,
+    color: true,
+    folderId: true,
+    latex: true,
+    showLabel: true,
+    showAngleLabel: true,
+    label: true,
+    hidden: true,
+    secret: true,
+    readonly: true,
+    disableGraphInteractions: true,
+    points: true,
+    lines: true,
+    lineStyle: true,
+    arrowMode: true,
+    pointStyle: true,
+    fill: true,
+    dragMode: true,
+    labelSize: true,
+    labelOrientation: true,
+    suppressTextOutline: true,
+    interactiveLabel: true,
+    editableLabelMode: true,
+    residualVariable: true,
+    regressionParameters: true,
+    isLogModeRegression: true,
+    displayEvaluationAsFraction: true,
+    slider: true,
+    strictIntersection: true,
+    angleType: true,
+    showAngleDirection: true,
+    extendTo3D: false,
     ...__dcg_shared_module_exports__["ud"](
       __dcg_shared_module_exports__["zd"],
     ),
   };
   function wq(r, e) {
     __dcg_shared_module_exports__["rd"]({ from: e, to: r, props: jee }),
-      r.resetSliderAnimationTargetValue = !0,
+      r.resetSliderAnimationTargetValue = true,
       r.sliderAnimationTargetValue = void 0;
   }
   function sb(r, e) {
-    e ? In(r, { hardMin: !0, min: e }) : In(r, {
-      hardMin: !1,
+    e ? In(r, { hardMin: true, min: e }) : In(r, {
+      hardMin: false,
       min: r.controller.is3dProduct()
         ? `${__dcg_shared_module_exports__["xc"].xmin}`
         : "-10",
     });
   }
   function lb(r, e) {
-    e ? In(r, { hardMax: !0, max: e }) : In(r, {
-      hardMax: !1,
+    e ? In(r, { hardMax: true, max: e }) : In(r, {
+      hardMax: false,
       max: r.controller.is3dProduct()
         ? `${__dcg_shared_module_exports__["xc"].xmax}`
         : "10",
@@ -30053,8 +30053,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         hardMin: r.slider.hardMin ? nl(r) : void 0,
         hardMax: r.slider.hardMax ? bc(r) : void 0,
       });
-      o.min || In(r, { hardMin: !1, min: "-10" }),
-        o.max || In(r, { hardMax: !1, max: "10" }),
+      o.min || In(r, { hardMin: false, min: "-10" }),
+        o.max || In(r, { hardMax: false, max: "10" }),
         o.step || In(r, { step: "" });
     }
     r.latex = e;
@@ -30062,7 +30062,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function Kq(r, e) {
     In(r, { loopMode: e, playDirection: 1 }),
       e === "PLAY_INDEFINITELY" &&
-      In(r, { hardMin: !1, hardMax: !1, min: "", max: "" }),
+      In(r, { hardMin: false, hardMax: false, min: "", max: "" }),
       r.sliderAnimationTargetValue = nl(r);
   }
   function Ww(r, e) {
@@ -30079,7 +30079,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return ((e = r.formula.typed_constant_value) == null
         ? void 0
         : e.valueType) === __dcg_shared_module_exports__["db"]
-      ? !1
+      ? false
       : r.displayEvaluationAsFraction;
   }
   function $q(r, e) {
@@ -30239,7 +30239,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     r.hidden = e, !e && wb(r) && (r.lines = r.points = r.fill = void 0);
   }
   function wb(r) {
-    if (wd(r) && !r.controller.isThreeDMode()) return !1;
+    if (wd(r) && !r.controller.isThreeDMode()) return false;
     let { points: e, lines: t, fill: o } = r,
       i = __dcg_shared_module_exports__["Zc"](r.formula.expression_type, {
         points: e,
@@ -30253,10 +30253,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return !i.points && !i.lines && !i.fill;
   }
   function Wu(r) {
-    return r.formula.map_type !== void 0 ? !1 : Gg(r) || Sb(r) || dT(r);
+    return r.formula.map_type !== void 0 ? false : Gg(r) || Sb(r) || dT(r);
   }
   function Dp(r) {
-    return r.formula.map_type !== void 0 ? !1 : pH(r) || dH(r) || DL(r);
+    return r.formula.map_type !== void 0 ? false : pH(r) || dH(r) || DL(r);
   }
   function oH(r, e) {
     switch (e) {
@@ -30351,9 +30351,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       case "IMPLICIT_SURFACE_AMBIGUOUS":
       case "TRIANGLE3D":
       case "SPHERE3D":
-        return !0;
+        return true;
       default:
-        return !1;
+        return false;
     }
   }
   function lT(r) {
@@ -30399,7 +30399,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function zu(r) {
     let e = r.formula.typed_constant_value;
-    if (!e) return !1;
+    if (!e) return false;
     let t = e.valueType;
     return t === __dcg_shared_module_exports__["Va"] ||
       t === __dcg_shared_module_exports__["Wa"] ||
@@ -30411,9 +30411,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return e && r.showAngleLabel || !e && r.showLabel;
   }
   function ub(r) {
-    if (mc(r)) return !0;
+    if (mc(r)) return true;
     let e = r.formula.typed_constant_value;
-    if (!e) return !1;
+    if (!e) return false;
     let t = e.valueType;
     return t === __dcg_shared_module_exports__["La"] ||
       t === __dcg_shared_module_exports__["Ma"] ||
@@ -30469,7 +30469,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   function uH(r) {
     let { formula: e } = r;
-    return e ? !!e.is_discrete_distribution : !1;
+    return e ? !!e.is_discrete_distribution : false;
   }
   function hH(r) {
     var t, o;
@@ -30504,7 +30504,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return !!r.formula.is_concrete_list;
   }
   function vd(r) {
-    return !IL(r) || AL(r) ? !1 : r.cdf.show;
+    return !IL(r) || AL(r) ? false : r.cdf.show;
   }
   function hT(r) {
     return r.cdf.min;
@@ -30530,43 +30530,43 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     r.cdf = { ...r.cdf, max: e };
   }
   function mT(r) {
-    return !!r.formula && r.formula.cdf_min_valid !== !1;
+    return !!r.formula && r.formula.cdf_min_valid !== false;
   }
   function fT(r) {
-    return !!r.formula && r.formula.cdf_max_valid !== !1;
+    return !!r.formula && r.formula.cdf_max_valid !== false;
   }
   function ML(r) {
-    return !!r.formula && r.formula.fill_opacity_valid !== !1;
+    return !!r.formula && r.formula.fill_opacity_valid !== false;
   }
   function GL(r) {
-    return !!r.formula && r.formula.surface_opacity_valid !== !1;
+    return !!r.formula && r.formula.surface_opacity_valid !== false;
   }
   function bH(r) {
-    return !!r.formula && r.formula.line_opacity_valid !== !1;
+    return !!r.formula && r.formula.line_opacity_valid !== false;
   }
   function yH(r) {
-    return !!r.formula && r.formula.point_opacity_valid !== !1;
+    return !!r.formula && r.formula.point_opacity_valid !== false;
   }
   function LL(r) {
-    return !!r.formula && r.formula.label_size_valid !== !1;
+    return !!r.formula && r.formula.label_size_valid !== false;
   }
   function PL(r) {
-    return !!r.formula && r.formula.label_angle_valid !== !1;
+    return !!r.formula && r.formula.label_angle_valid !== false;
   }
   function xH(r) {
-    return !!r.formula && r.formula.movable_point_size_valid !== !1;
+    return !!r.formula && r.formula.movable_point_size_valid !== false;
   }
   function bT(r) {
-    return !!r.formula && r.formula.point_size_valid !== !1;
+    return !!r.formula && r.formula.point_size_valid !== false;
   }
   function yT(r) {
-    return !!r.formula && r.formula.line_width_valid !== !1;
+    return !!r.formula && r.formula.line_width_valid !== false;
   }
   function wH(r) {
-    return !!r.formula && r.formula.resolution_valid !== !1;
+    return !!r.formula && r.formula.resolution_valid !== false;
   }
   function bE(r) {
-    return !!r.formula && r.formula.color_latex_valid !== !1;
+    return !!r.formula && r.formula.color_latex_valid !== false;
   }
   function yE(r) {
     return r.formula && r.formula.color_latex_value;
@@ -30582,7 +30582,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (
       !r ||
       !__dcg_shared_module_exports__["_c"](r.formula.expression_type)
-    ) return !1;
+    ) return false;
     let e = Ro(r);
     return !(e && e !== "NONE");
   }
@@ -30607,8 +30607,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         __dcg_shared_module_exports__["Ad"].displayEvaluationAsFraction,
       r.strictIntersection =
         __dcg_shared_module_exports__["Ad"].strictIntersection,
-      r.suppressTextOutline = !1,
-      r.interactiveLabel = !1,
+      r.suppressTextOutline = false,
+      r.interactiveLabel = false,
       r.editableLabelMode =
         __dcg_shared_module_exports__["Ad"].editableLabelMode,
       __dcg_shared_module_exports__["sd"](
@@ -30724,138 +30724,138 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       displayName: "English (US)",
       userGuideURL:
         "https://docs.google.com/document/d/1gV-WgDjgR9hKKb32ffeUpjwggNAgfqxl0Gsg6xocbok/preview",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     es: {
       displayName: "Espa\xF1ol (LATAM)",
       userGuideURL:
         "https://desmos.s3.amazonaws.com/Desmos_User_Guide_ES-ES.pdf",
-      useAsRoot: !0,
+      useAsRoot: true,
     },
     et: {
       displayName: "Eesti",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     ru: {
       displayName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_RU.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     da: {
       displayName: "Dansk",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     de: {
       displayName: "Deutsch",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_DE.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     "pt-BR": {
       displayName: "Portugu\xEAs (Brasil)",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !0,
+      useAsRoot: true,
     },
     "pt-PT": {
       displayName: "Portugu\xEAs (Portugal)",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     ca: {
       displayName: "Catal\xE0",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     fr: {
       displayName: "Fran\xE7ais",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_FR.pdf",
-      useAsRoot: !0,
+      useAsRoot: true,
     },
     "fr-CA": {
       displayName: "Fran\xE7ais (Canada)",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_FR.pdf",
-      useAsRoot: !0,
+      useAsRoot: true,
     },
     it: {
       displayName: "Italiano",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_IT.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     is: {
       displayName: "\xCDslenska",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     nl: {
       displayName: "Nederlands",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     no: {
       displayName: "Norsk",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     "sv-SE": {
       displayName: "Svenska",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !0,
+      useAsRoot: true,
     },
     hu: {
       displayName: "Magyar",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     cs: {
       displayName: "\u010Ce\u0161tina",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     pl: {
       displayName: "Polski",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_PL.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     id: {
       displayName: "Bahasa Indonesia",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     vi: {
       displayName: "Ti\u1EBFng Vi\u1EC7t",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_VI.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     el: {
       displayName: "\u0395\u03BB\u03BB\u03B7\u03BD\u03B9\u03BA\u03AC",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_EL.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     uk: {
       displayName:
         "\u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     ka: {
       displayName: "\u10E5\u10D0\u10E0\u10D7\u10E3\u10DA\u10D8",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     th: {
       displayName: "\u0E20\u0E32\u0E29\u0E32\u0E44\u0E17\u0E22",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     tr: {
       displayName: "T\xFCrk\xE7e",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_TR.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     "zh-CN": {
       displayName: "\u7B80\u4F53\u4E2D\u6587",
-      useAsRoot: !0,
+      useAsRoot: true,
       userGuideURL:
         "https://desmos.s3.amazonaws.com/Desmos_User_Guide_ZH-CN.pdf",
     },
@@ -30863,17 +30863,17 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       displayName: "\u7E41\u9AD4\u4E2D\u6587",
       userGuideURL:
         "https://desmos.s3.amazonaws.com/Desmos_User_Guide_ZH-TW.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     ko: {
       displayName: "\uD55C\uAD6D\uC5B4",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
     ja: {
       displayName: "\u65E5\u672C\u8A9E",
       userGuideURL: "https://desmos.s3.amazonaws.com/Desmos_User_Guide_JA.pdf",
-      useAsRoot: !1,
+      useAsRoot: false,
     },
   };
   var TH = `account-shell-button-cancel = Cancel
@@ -34060,14 +34060,14 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
   function lte(r, e, t) {
     if (
       t === e || t instanceof Ms && e instanceof Ms && t.value === e.value
-    ) return !0;
+    ) return true;
     if (e instanceof Ms && typeof t == "string") {
       let o = r.memoizeIntlObject(Intl.PluralRules, e.opts).select(
         e.value,
       );
-      if (t === o) return !0;
+      if (t === o) return true;
     }
-    return !1;
+    return false;
   }
   function kH(r, e, t) {
     return e[t]
@@ -34300,7 +34300,7 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
   var Qw = class {
     constructor(
       e,
-      { functions: t, useIsolating: o = !0, transform: i = (n) => n } = {},
+      { functions: t, useIsolating: o = true, transform: i = (n) => n } = {},
     ) {
       this._terms = new Map(),
         this._messages = new Map(),
@@ -34316,12 +34316,12 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
     getMessage(e) {
       return this._messages.get(e);
     }
-    addResource(e, { allowOverrides: t = !1 } = {}) {
+    addResource(e, { allowOverrides: t = false } = {}) {
       let o = [];
       for (let i = 0; i < e.body.length; i++) {
         let n = e.body[i];
         if (n.id.startsWith("-")) {
-          if (t === !1 && this._terms.has(n.id)) {
+          if (t === false && this._terms.has(n.id)) {
             o.push(
               new Error(
                 `Attempt to override an existing term: "${n.id}"`,
@@ -34331,7 +34331,7 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
           }
           this._terms.set(n.id, n);
         } else {
-          if (t === !1 && this._messages.has(n.id)) {
+          if (t === false && this._messages.has(n.id)) {
             o.push(
               new Error(
                 `Attempt to override an existing message: "${n.id}"`,
@@ -34400,14 +34400,14 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
           return O.lastIndex = t, O.test(e);
         }
         function i(O, U) {
-          if (e[t] === O) return t++, !0;
+          if (e[t] === O) return t++, true;
           if (U) throw new U(`Expected ${O}`);
-          return !1;
+          return false;
         }
         function n(O, U) {
-          if (o(O)) return t = O.lastIndex, !0;
+          if (o(O)) return t = O.lastIndex, true;
           if (U) throw new U(`Expected ${O.toString()}`);
-          return !1;
+          return false;
         }
         function a(O) {
           O.lastIndex = t;
@@ -34594,11 +34594,11 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
             case "*":
             case "}":
             case void 0:
-              return !1;
+              return false;
             case "{":
               return P(e.slice(O, t));
           }
-          return e[t - 1] === " " ? P(e.slice(O, t)) : !1;
+          return e[t - 1] === " " ? P(e.slice(O, t)) : false;
         }
         function A(O, U) {
           return O.replace(U, "");
@@ -34650,14 +34650,14 @@ matrix-calculator-narration-keypad-key-transpose = Transpose
         for (let { lang: n, source: a } of e) {
           let s = n.split("-")[0],
             l = new Qw(n, { ...o, useIsolating: Ate.indexOf(s) >= 0 });
-          l.addResource(new Tb(a), { allowOverrides: !1 }),
+          l.addResource(new Tb(a), { allowOverrides: false }),
             l.addResource(
               new Tb(`
 l10n-internal-date-day-month-year = {DATETIME($d, month: "short", day: "numeric", year: "numeric")}
 l10n-internal-date-day-month = {DATETIME($d, month: "short", day: "numeric")}
 l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
 `),
-              { allowOverrides: !1 },
+              { allowOverrides: false },
             ),
             i.push(l);
         }
@@ -34702,7 +34702,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         for (let o of this.bundles) {
           if (o.locales.indexOf(t) >= 0) return o.hasMessage(e);
         }
-        return !1;
+        return false;
       }
       coerceNumericVariables(e) {
         let t = {};
@@ -34822,7 +34822,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     return "en";
   }
   async function qH(r) {
-    if (Db[r] || r === "en" || r === "xx-XX") return kT(r), !0;
+    if (Db[r] || r === "en" || r === "xx-XX") return kT(r), true;
     if (!$L(r)) {
       let e = r.indexOf("-") !== -1 ? r.split("-")[0] : r;
       for (let t in Vg) {
@@ -34834,7 +34834,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     try {
       let e = await EH(`/api/v1/calculator/language/${r}.ftl`);
-      return Db[r] = e[r], KL(Db), kT(r), !0;
+      return Db[r] = e[r], KL(Db), kT(r), true;
     } catch (e) {
       throw e.status === 404 &&
         __dcg_shared_module_exports__["qe"].warn(
@@ -34844,10 +34844,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
   }
   function _T(r) {
-    if (Db[r]) return !0;
+    if (Db[r]) return true;
     let e = Xw([r]);
-    for (let t of e) if (Db[t]) return !0;
-    return !1;
+    for (let t of e) if (Db[t]) return true;
+    return false;
   }
   KL(Db);
   kT(jL());
@@ -34858,7 +34858,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let e = r.match(/`/g);
         return (e != null && e.length || 0) % 2 == 0;
       }
-      return !0;
+      return true;
     },
     Ote = (r) => {
       let e = [];
@@ -35007,8 +35007,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "graphing-calculator-narration-geometry-intersection-of-items",
                 {
                   intersectionDescription: i,
-                  item1: Fo(l, e, { includeDetails: !1, depth: o + 1 }),
-                  item2: Fo(c, e, { includeDetails: !1, depth: o + 1 }),
+                  item1: Fo(l, e, { includeDetails: false, depth: o + 1 }),
+                  item2: Fo(c, e, { includeDetails: false, depth: o + 1 }),
                 },
               ),
             )
@@ -35030,7 +35030,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "graphing-calculator-narration-geometry-midpoint-of-item",
                 {
                   midpointDescription: i,
-                  item: Fo(l, e, { includeDetails: !1, depth: o + 1 }),
+                  item: Fo(l, e, { includeDetails: false, depth: o + 1 }),
                 },
               ),
             )
@@ -35052,7 +35052,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "graphing-calculator-narration-geometry-glider-on-item",
                 {
                   gliderDescription: i,
-                  item: Fo(l, e, { includeDetails: !1, depth: o + 1 }),
+                  item: Fo(l, e, { includeDetails: false, depth: o + 1 }),
                 },
               ),
             )
@@ -35100,7 +35100,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "graphing-calculator-narration-geometry-circle-with-center-and-radius",
           {
             index: r.id,
-            center: Fo(a, e, { includeDetails: !1, depth: o + 1 }),
+            center: Fo(a, e, { includeDetails: false, depth: o + 1 }),
             radius: Ao(
               __dcg_shared_module_exports__["ea"](l, d.xmax - d.xmin)
                 .latex,
@@ -35121,9 +35121,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       ? i.push(
         e.s("graphing-calculator-narration-geometry-arc-through-points", {
           index: r.id,
-          start: Fo(a, e, { includeDetails: !1, depth: o + 1 }),
-          middle: Fo(s, e, { includeDetails: !1, depth: o + 1 }),
-          end: Fo(l, e, { includeDetails: !1, depth: o + 1 }),
+          start: Fo(a, e, { includeDetails: false, depth: o + 1 }),
+          middle: Fo(s, e, { includeDetails: false, depth: o + 1 }),
+          end: Fo(l, e, { includeDetails: false, depth: o + 1 }),
         }),
       )
       : i.push(
@@ -35216,7 +35216,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           Ap(d, t).valueType === __dcg_shared_module_exports__["ya"]
         );
         c.length === n && c.forEach((d) => {
-          l.push(Fo(d, e, { includeDetails: !1, depth: o + 1 }));
+          l.push(Fo(d, e, { includeDetails: false, depth: o + 1 }));
         });
       }
       l.length
@@ -35254,8 +35254,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "graphing-calculator-narration-geometry-parallel-to-line-through-point",
             {
               index: r.id,
-              line: Fo(E, e, { includeDetails: !1, depth: o + 1 }),
-              point: Fo(v, e, { includeDetails: !1, depth: o + 1 }),
+              line: Fo(E, e, { includeDetails: false, depth: o + 1 }),
+              point: Fo(v, e, { includeDetails: false, depth: o + 1 }),
             },
           ),
         )
@@ -35280,8 +35280,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "graphing-calculator-narration-geometry-perpendicular-to-line-through-point",
             {
               index: r.id,
-              line: Fo(E, e, { includeDetails: !1, depth: o + 1 }),
-              point: Fo(v, e, { includeDetails: !1, depth: o + 1 }),
+              line: Fo(E, e, { includeDetails: false, depth: o + 1 }),
+              point: Fo(v, e, { includeDetails: false, depth: o + 1 }),
             },
           ),
         )
@@ -35335,7 +35335,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 ? void 0
                 : P.valueType) === __dcg_shared_module_exports__["Xa"])
       ) {
-        let O = Fo(E, e, { includeDetails: !1, depth: o + 1 });
+        let O = Fo(E, e, { includeDetails: false, depth: o + 1 });
         i = e.s(
           "graphing-calculator-narration-geometry-anglebisector-of-item",
           { bisectorDescription: i, item: O },
@@ -35397,8 +35397,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "graphing-calculator-narration-geometry-straight-from-item-to-item",
             {
               straightType: i,
-              start: Fo(E, e, { includeDetails: !1, depth: o + 1 }),
-              end: Fo(v, e, { includeDetails: !1, depth: o + 1 }),
+              start: Fo(E, e, { includeDetails: false, depth: o + 1 }),
+              end: Fo(v, e, { includeDetails: false, depth: o + 1 }),
             },
           ),
         )
@@ -35409,7 +35409,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               {
                 straightType: i,
                 index: s,
-                item: Fo(E, e, { includeDetails: !1, depth: o + 1 }),
+                item: Fo(E, e, { includeDetails: false, depth: o + 1 }),
               },
             ),
           )),
@@ -35469,9 +35469,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "graphing-calculator-narration-geometry-angle-through-points",
           {
             itemDescription: n,
-            parent1: Fo(h, e, { includeDetails: !1, depth: o + 1 }),
-            parent2: Fo(u, e, { includeDetails: !1, depth: o + 1 }),
-            parent3: Fo(f, e, { includeDetails: !1, depth: o + 1 }),
+            parent1: Fo(h, e, { includeDetails: false, depth: o + 1 }),
+            parent2: Fo(u, e, { includeDetails: false, depth: o + 1 }),
+            parent3: Fo(f, e, { includeDetails: false, depth: o + 1 }),
           },
         ),
       )
@@ -35480,7 +35480,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       ? a.push(
         e.s("graphing-calculator-narration-geometry-angle-of-polygon", {
           itemDescription: n,
-          parent: Fo(h, e, { includeDetails: !1, depth: o + 1 }),
+          parent: Fo(h, e, { includeDetails: false, depth: o + 1 }),
         }),
       )
       : a.push(n),
@@ -35736,7 +35736,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     } else Fg.delete(t), Fg.set(t, o), i = o.canvas;
     return i;
   }
-  function QH(r, e, t, o = { cacheRenderedSvgs: !1 }) {
+  function QH(r, e, t, o = { cacheRenderedSvgs: false }) {
     let { ctx: i, projection: n } = r, a = e.formula;
     if (!a || !a.dimensions.x) return;
     let s = a.dimensions;
@@ -35922,7 +35922,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     isZValid() {
       return this.zmin === void 0 || this.zmax === void 0
-        ? !1
+        ? false
         : VT(this.zmin, this.zmax);
     }
     isValid(e) {
@@ -35933,7 +35933,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     isSquare3D() {
       let { xmin: e, xmax: t, ymin: o, ymax: i, zmin: n, zmax: a } = this;
-      if (n === void 0 || a === void 0) return !1;
+      if (n === void 0 || a === void 0) return false;
       let s = [t - e, i - o, a - n];
       return Math.min(...s) / Math.max(...s) > .99999;
     }
@@ -36167,12 +36167,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           a.fillStyle = v.color && !s.settings.globalCurveColor && !zte()
             ? v.color
             : h,
-          v.graphMode !== 6 && (a.desmos_batching = !0, a.beginPath());
+          v.graphMode !== 6 && (a.desmos_batching = true, a.beginPath());
         let S = v.graphMode === 6 ? .2 : (f = v.fillOpacity) != null ? f : NaN;
         a.globalAlpha = r._clampedOpacity(S * w, .4);
         let k = JL(s, v);
         for (let _ of k) r.fillPolygonFillToCtx(a, _);
-        v.graphMode !== 6 && (a.fill(), a.desmos_batching = !1),
+        v.graphMode !== 6 && (a.fill(), a.desmos_batching = false),
           a.globalAlpha = 1;
         for (let _ of v.segments) {
           let A = 2;
@@ -36544,7 +36544,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         !p ||
         e.sizeFactor !== void 0 &&
           (e.sizeFactor <= 0 || !isFinite(e.sizeFactor))
-      ) return !1;
+      ) return false;
       No(t, "dcg-svg-point"),
         e.alpha !== void 0 ? t.globalAlpha = e.alpha : t.globalAlpha = .9,
         e.opacityFactor !== void 0 && (t.globalAlpha *= e.opacityFactor),
@@ -36572,7 +36572,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       } else if (e.style === "OPEN") {
         let u = h * .42;
         t.moveTo(p.x + u, p.y),
-          t.arc(p.x, p.y, u, 0, Math.PI * 2, !0),
+          t.arc(p.x, p.y, u, 0, Math.PI * 2, true),
           t.closePath(),
           t.fillStyle = "white",
           t.lineWidth = h * .25,
@@ -36589,11 +36589,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           t.strokeStyle = "#6A93D2",
           t.beginPath(),
           t.moveTo(p.x + u, p.y),
-          t.arc(p.x, p.y, u, 0, Math.PI * 2, !0),
+          t.arc(p.x, p.y, u, 0, Math.PI * 2, true),
           t.stroke(),
           t.closePath();
       }
-      return t.lineWidth = l, t.fillStyle = c, t.strokeStyle = d, To(t), !0;
+      return t.lineWidth = l, t.fillStyle = c, t.strokeStyle = d, To(t), true;
     }
     static drawPointsToCtx(e) {
       let {
@@ -36705,9 +36705,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     if (t !== 1 && t !== 2 && t !== 6 && t !== 7) return;
     let o = p8(r.screen);
     for (let i of qte(r, e)) {
-      let n = t === 7 ? lg : Rx(t, !0, r.settings),
+      let n = t === 7 ? lg : Rx(t, true, r.settings),
         a = vu(i, r.mathToPixels, n);
-      yield yM(a, o, Hte(e.graphMode), !1);
+      yield yM(a, o, Hte(e.graphMode), false);
     }
   }
   function Kte(r, e) {
@@ -36716,11 +36716,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Wte(r) {
     switch (r) {
       case "NONE":
-        return { startArrow: !1, endArrow: !1 };
+        return { startArrow: false, endArrow: false };
       case "POSITIVE":
-        return { startArrow: !1, endArrow: !0 };
+        return { startArrow: false, endArrow: true };
       case "BOTH":
-        return { startArrow: !0, endArrow: !0 };
+        return { startArrow: true, endArrow: true };
       default:
         let e = r;
         throw new Error("Unexpected arrowMode: " + e);
@@ -36858,7 +36858,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       p = t.height + i + s;
     return {
       type: "path",
-      hasOutline: !1,
+      hasOutline: false,
       instructions: [
         { type: "moveTo", x: l + n, y: d },
         { type: "lineTo", x: c - n, y: d },
@@ -36925,7 +36925,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       type: "path",
       instructions: E.concat(v),
       fillColor: s,
-      hasOutline: !1,
+      hasOutline: false,
     };
   }
   function g8(r, e) {
@@ -36962,7 +36962,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           rotation: 0,
           startAngle: Math.PI,
           endAngle: 3 * Math.PI / 2,
-          anticlockwise: !1,
+          anticlockwise: false,
         },
         { type: "lineTo", x: n + o.width - h[0], y: a },
         {
@@ -36974,7 +36974,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           rotation: 0,
           startAngle: 3 * Math.PI / 2,
           endAngle: 0,
-          anticlockwise: !1,
+          anticlockwise: false,
         },
         { type: "lineTo", x: n + o.width, y: a + h[1] + l },
         {
@@ -36986,7 +36986,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           rotation: 0,
           startAngle: 0,
           endAngle: 3 * Math.PI / 2,
-          anticlockwise: !0,
+          anticlockwise: true,
         },
         { type: "lineTo", x: n + p[0], y: a + l },
         {
@@ -36998,7 +36998,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           rotation: 0,
           startAngle: 3 * Math.PI / 2,
           endAngle: Math.PI,
-          anticlockwise: !0,
+          anticlockwise: true,
         },
       ]
       : d = [
@@ -37269,7 +37269,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       (this.mathquillTokenHelper = new Mb(
         this.props.tokenController(),
         e,
-        !0,
+        true,
       )),
         this.staticMath = gc.StaticMath(e, {
           ...this.props.config(),
@@ -37403,7 +37403,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             class: () => {
               var e, t, o, i;
               return {
-                "dcg-tooltip-positioning-container": !0,
+                "dcg-tooltip-positioning-container": true,
                 "dcg-tooltip-gravity-n-s": this.gravity() === "n" ||
                   this.gravity() === "s",
                 "dcg-tooltip-gravity-e-w": this.gravity() === "e" ||
@@ -37452,7 +37452,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 class: () => {
                   var e, t;
                   return {
-                    "dcg-tooltip-message": !0,
+                    "dcg-tooltip-message": true,
                     "dcg-text-selectable": (t = (e = this.props).sticky) == null
                       ? void 0
                       : t.call(e),
@@ -37473,8 +37473,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ),
           sn.createElement("div", {
             class: () => ({
-              "dcg-tooltip-arrow": !0,
-              [this.getTooltipGravityClass()]: !0,
+              "dcg-tooltip-arrow": true,
+              [this.getTooltipGravityClass()]: true,
             }),
             style: () => {
               var e, t;
@@ -37683,11 +37683,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         class: () => {
           var e, t, o, i;
           return {
-            "dcg-tooltip-hit-area-container": !0,
+            "dcg-tooltip-hit-area-container": true,
             "dcg-display-block": (t = (e = this.props).displayBlock) == null
               ? void 0
               : t.call(e),
-            "dcg-do-not-blur": !0,
+            "dcg-do-not-blur": true,
             "dcg-sticky-tooltip": this.isSticky(),
             "dcg-tooltip-disabled": this.props.disabled &&
               this.props.disabled(),
@@ -37701,7 +37701,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         },
         handleEvent: sn.const("true"),
         didMount: (e) => {
-          this.isMounted = !0,
+          this.isMounted = true,
             this.hitAreaNode = e,
             this.setupEventListeners(this.hitAreaNode);
         },
@@ -37789,7 +37789,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       });
     }
     willUnmount() {
-      this.clearTimeouts(), this.isMounted = !1, this.hideTooltip();
+      this.clearTimeouts(), this.isMounted = false, this.hideTooltip();
     }
     setUpHideOnExternalMousedown() {
       ee(document).on(
@@ -37806,7 +37806,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       this.isMounted && this.wrapperRef &&
         (this.isStuck ||
           (this.setUpHideOnExternalMousedown(),
-            this.isStuck = !0,
+            this.isStuck = true,
             this.updateTooltip()));
     }
     clearTimeouts() {
@@ -37857,7 +37857,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ke(C) === kn && this.hideTooltip();
       });
       let h = () => this.updateTooltip();
-      window.addEventListener("scroll", h, !0),
+      window.addEventListener("scroll", h, true),
         this.wrapperRef = {
           elt: t,
           view: p,
@@ -37870,12 +37870,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     hideTooltip() {
       this.clearTimeouts(),
         this.wrapperRef &&
-        (this.isStuck = !1,
+        (this.isStuck = false,
           ee(document).off(`.dcg-tooltip-${this.uuid}`),
           window.removeEventListener(
             "scroll",
             this.wrapperRef.onScroll,
-            !0,
+            true,
           ),
           this.restoreAriaDescribedBy(),
           sn.unmountFromNode(this.wrapperRef.elt),
@@ -38513,7 +38513,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.sketch = i,
           this.branch = n,
           this.pointIdxOnBranch = a,
-          this.bareLabel = s === void 0 ? !1 : s,
+          this.bareLabel = s === void 0 ? false : s,
           this.id = hre++;
       }
       getLabel() {
@@ -38577,19 +38577,19 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.isMovable() ? __dcg_shared_module_exports__["Vd"](8) : 8;
       }
       getTextOutline() {
-        if (this.hasEditableLabel()) return !1;
+        if (this.hasEditableLabel()) return false;
         let e = this.sketch && this.sketch.branches[this.branch];
         return this.type === 1008 && e && "suppressTextOutline" in e
           ? !e.suppressTextOutline
-          : !0;
+          : true;
       }
       hasInteractiveLabel() {
         let e = this.sketch && this.sketch.branches[this.branch];
-        return e && "interactiveLabel" in e ? !!e.interactiveLabel : !1;
+        return e && "interactiveLabel" in e ? !!e.interactiveLabel : false;
       }
       hasEditableLabel() {
         let e = this.sketch && this.sketch.branches[this.branch];
-        return e && "editableLabel" in e ? !!e.editableLabel : !1;
+        return e && "editableLabel" in e ? !!e.editableLabel : false;
       }
       isBareLabel() {
         return this.bareLabel;
@@ -38604,41 +38604,41 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var { If: D8, Input: gre, For: mre, Switch: fre } = Pr.Components,
     bre = 300,
     k8 = {
-      id: !0,
-      sketchId: !0,
-      rotatedWidth: !0,
-      rotatedHeight: !0,
-      alignedWidth: !0,
-      alignedHeight: !0,
-      content: !0,
-      focused: !0,
-      isNakedLabel: !0,
-      isClickable: !0,
-      hasOutline: !0,
-      hasBorder: !0,
-      classes: !0,
-      styles: !0,
-      dotStyles: !0,
-      poi: !1,
-      objectSpec: !1,
-      x: !1,
-      y: !1,
-      screenX: !1,
-      screenY: !1,
-      left: !1,
-      top: !1,
-      rotation: !1,
-      opacity: !1,
-      forcedOrientation: !1,
-      orientation: !1,
-      labelDOM: !1,
-      containerDOM: !1,
-      willCopyToCanvas: !1,
-      layerFilter: !1,
-      cachedDrawingCommands: !1,
-      animation: !1,
-      layerNumber: !1,
-      isComplex: !1,
+      id: true,
+      sketchId: true,
+      rotatedWidth: true,
+      rotatedHeight: true,
+      alignedWidth: true,
+      alignedHeight: true,
+      content: true,
+      focused: true,
+      isNakedLabel: true,
+      isClickable: true,
+      hasOutline: true,
+      hasBorder: true,
+      classes: true,
+      styles: true,
+      dotStyles: true,
+      poi: false,
+      objectSpec: false,
+      x: false,
+      y: false,
+      screenX: false,
+      screenY: false,
+      left: false,
+      top: false,
+      rotation: false,
+      opacity: false,
+      forcedOrientation: false,
+      orientation: false,
+      labelDOM: false,
+      containerDOM: false,
+      willCopyToCanvas: false,
+      layerFilter: false,
+      cachedDrawingCommands: false,
+      animation: false,
+      layerNumber: false,
+      isComplex: false,
     };
   function _8(r, e) {
     return e ? e.getPOIById(r) : null;
@@ -38661,7 +38661,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     return e ? [r[1], r[0]] : r;
   }
   function iP(r, e) {
-    let t, o = !1, i = "", n = "", { poi: a } = r, s = a.getGraphMode();
+    let t, o = false, i = "", n = "", { poi: a } = r, s = a.getGraphMode();
     if (r.type === "poi") {
       let { xscale: c, yscale: d } = yre(e, a);
       t = a.getLabel();
@@ -38745,7 +38745,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     },
     Pb = class extends Pr.Class {
       constructor() {
-        super(...arguments), this.labelsDirty = !1, this.traceLinePt = void 0;
+        super(...arguments), this.labelsDirty = false, this.traceLinePt = void 0;
       }
       init() {
         this.grapher = this.props.grapher(),
@@ -38823,7 +38823,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ),
           Pr.createElement(
             D8,
-            { predicate: () => !0 },
+            { predicate: () => true },
             () =>
               Pr.createElement(rP, {
                 point: () => this.traceLinePt,
@@ -38844,7 +38844,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           !this.controller.isListEnabled() ||
           !this.controller.isListVisible()
-        ) return !1;
+        ) return false;
         let t = this.getHoveredPOI();
         (t == null ? void 0 : t.id) !== parseInt(e) && (t = void 0);
         let o = _8(e, this.grapher.graphSketches[this.openedPOI2Sketch[e]]) ||
@@ -38854,9 +38854,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           case 1002:
           case 1003:
           case 1004:
-            return !0;
+            return true;
           default:
-            return !1;
+            return false;
         }
       }
       setTraceLine(e) {
@@ -38904,8 +38904,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "div",
                 {
                   class: () => ({
-                    "dcg-editable-label-border": !0,
-                    "dcg-do-not-blur": !0,
+                    "dcg-editable-label-border": true,
+                    "dcg-do-not-blur": true,
                     "dcg-focus": this.shouldEditableLabelBeFocused(e),
                     "dcg-empty-label":
                       this.getEditableLabelText(e).trim().length === 0,
@@ -38924,7 +38924,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   capExpressionSize: () =>
                     this.controller.getGraphSettings().config
                       .capExpressionSize,
-                  selectOnFocus: Pr.const(!1),
+                  selectOnFocus: Pr.const(false),
                   config: this.bindFn(this.getMQConfig),
                   getAriaLabel: () => this.getAriaLabelForId(e),
                   getAriaPostLabel: this.const(""),
@@ -38935,8 +38935,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     }),
                   onFocusedChanged: (o) =>
                     this.onEditableLabelFocusChange(o, e),
-                  hasError: this.const(!1),
-                  noFadeout: this.const(!0),
+                  hasError: this.const(false),
+                  noFadeout: this.const(true),
                   needsSystemKeypad: () => !this.controller.isKeypadEnabled(),
                 }),
               )
@@ -38944,8 +38944,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "div",
                 {
                   class: () => ({
-                    "dcg-resizing-text-input-container": !0,
-                    "dcg-editable-label-border": !0,
+                    "dcg-resizing-text-input-container": true,
+                    "dcg-editable-label-border": true,
                     "dcg-focus": this.shouldEditableLabelBeFocused(e),
                     "dcg-empty-label":
                       this.getEditableLabelText(e).trim().length === 0,
@@ -38964,8 +38964,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   "aria-label": () => this.getAriaLabelForId(e),
                   onInput: (o) => this.onLabelInput(o, e),
                   value: () => this.getEditableLabelText(e),
-                  onFocus: () => this.onEditableLabelFocusChange(!0, e),
-                  onBlur: () => this.onEditableLabelFocusChange(!1, e),
+                  onFocus: () => this.onEditableLabelFocusChange(true, e),
+                  onBlur: () => this.onEditableLabelFocusChange(false, e),
                 }),
                 Pr.createElement("span", {
                   class: Pr.const("dcg-text-input-content"),
@@ -39050,14 +39050,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let t = this.cachedLabelDict[e];
         if (t) {
           let o = this.getSketchIdFromLabelId(e);
-          if (!o) return { is_hole: !1, type: "text", text: "" };
+          if (!o) return { is_hole: false, type: "text", text: "" };
           let i = this.controller.getItemEditableLabelMode(o);
           return t.classes["dcg-editable-label"] && i !== void 0 &&
               i !== "NONE"
-            ? { is_hole: !1, type: i, text: "" }
+            ? { is_hole: false, type: i, text: "" }
             : t.content;
         }
-        return { is_hole: !1, type: "text", text: "" };
+        return { is_hole: false, type: "text", text: "" };
       }
       didMountRoot(e) {
         this.node = e;
@@ -39123,7 +39123,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             !a.coordsAreOnscreen(c, d, 20) ||
             this.isHiddenInteractiveLabel(l)
         ) return;
-        let u = !1, f, y = l.sketch, C = y && y.branches[0];
+        let u = false, f, y = l.sketch, C = y && y.branches[0];
         C &&
           (u = !!("nakedLabel" in C && C.nakedLabel),
             f = "labelOrientation" in C ? C.labelOrientation : void 0);
@@ -39177,11 +39177,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           Ce.l > .2 ? Ce.l -= .1 : Ce.l += .2, F = Ce.toString();
         }
         let Z = !U, te = z;
-        x && (te = !0, Z = !0), i === "trace" && (te = !1, Z = !0);
+        x && (te = true, Z = true), i === "trace" && (te = false, Z = true);
         let Y = o[s],
           he = Y && Y.orientation,
           se = {
-            "dcg-poi-label": !0,
+            "dcg-poi-label": true,
             "dcg-tracept": i === "trace",
             "dcg-opened": i === "opened",
             "dcg-hole": S.is_hole,
@@ -39299,7 +39299,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.cachedLabelDict[t] = e;
       }
       markLabelsDirty() {
-        this.labelsDirty = !0;
+        this.labelsDirty = true;
       }
       getInteractiveLabelUnderPoint(e) {
         let t;
@@ -39344,7 +39344,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       positionLabels(e, t, o, i) {
         let n = !this.labelsDirty;
-        this.labelsDirty = !1;
+        this.labelsDirty = false;
         let a = [];
         e.forEach((d) => {
           let p = t[d];
@@ -39498,7 +39498,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let s = (p = n.cachedDrawingCommands) == null ? void 0 : p.commands,
             l = {};
           for (let u in k8) {
-            if (k8[u] === !0) {
+            if (k8[u] === true) {
               let f = n[u],
                 y = (h = n.cachedDrawingCommands) == null
                   ? void 0
@@ -39539,10 +39539,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         for (let t in this.cachedLabelDict) {
           let o = (e = this.cachedLabelDict[t]) == null ? void 0 : e.animation;
           if (o && (o.now_dx !== o.to_dx || o.now_dy !== o.to_dy)) {
-            return !0;
+            return true;
           }
         }
-        return !1;
+        return false;
       }
       computeRotatedCenter(e, t, o) {
         let i = Math.cos(-o),
@@ -39580,7 +39580,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       isHiddenInteractiveLabel(e) {
         return !e || !e.hasInteractiveLabel()
-          ? !1
+          ? false
           : !this.isOpenPOI(e) && this.getHoveredPOI() !== e;
       }
       setHoveredPOI(e) {
@@ -39626,13 +39626,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let o = this.getAriaAlert({
               id: t.id,
               lastAriaAlert: this.lastAriaAlert,
-              includeUsageInstructions: !1,
+              includeUsageInstructions: false,
             });
             o != null && o.updated &&
               (xe(o.completeMessage), this.lastAriaAlert = o);
           },
           1e3,
-          { leading: !1, trailing: !0 },
+          { leading: false, trailing: true },
         );
     }
     recomputeMovablePoints(e) {
@@ -39703,7 +39703,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     getAllRenderedObjects(e) {
       return this.renderedPointsIdOrder.filter((t) =>
-        e ? this.renderedPoints[t].type === e : !0
+        e ? this.renderedPoints[t].type === e : true
       ).map((t) => this.renderedPoints[t]);
     }
     getOrderedTabTargets(e) {
@@ -39787,8 +39787,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             color: Nb(t, "color"),
             pointOpacity: Nb(t, "pointOpacity"),
             pointSize: Nb(t, "pointSize"),
-            pointIsHovered: !1,
-            pointIsPressed: !1,
+            pointIsHovered: false,
+            pointIsPressed: false,
             selected: h,
             lastHoverActionTime: 0,
             animationPercent: 0,
@@ -39852,7 +39852,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         e.globalAlpha = .35 * p,
         e.beginPath(),
         e.moveTo(a + h, s),
-        e.arc(a, s, h, 0, Math.PI * 2, !0),
+        e.arc(a, s, h, 0, Math.PI * 2, true),
         e.closePath(),
         e.fill(),
         e.globalAlpha = p,
@@ -39861,7 +39861,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         i = i + (h - i) * l,
         e.beginPath(),
         e.moveTo(a + i, s),
-        e.arc(a, s, i, 0, Math.PI * 2, !0),
+        e.arc(a, s, i, 0, Math.PI * 2, true),
         e.closePath(),
         e.fill(),
         e.globalAlpha = c,
@@ -39885,9 +39885,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         e.animationPercent = s;
     }
     shouldDrawGhosted(e) {
-      if (!e) return !1;
+      if (!e) return false;
       let t = this.grapher.controller.getItemModel(e);
-      return !t || t.type !== "expression" ? !1 : Hi(t);
+      return !t || t.type !== "expression" ? false : Hi(t);
     }
     getTabIndex(e) {
       if (this.grapher.controller.getActiveTool() !== "selection") {
@@ -39908,7 +39908,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return !this.grapher.settings.config.graphpaper;
     }
     getAriaLabel(e) {
-      let t = this.getAriaAlert({ id: e, includeUsageInstructions: !1 });
+      let t = this.getAriaAlert({ id: e, includeUsageInstructions: false });
       return t && t.completeMessage;
     }
     speakAriaAlert() {
@@ -39917,18 +39917,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (e) {
         let n = this.renderedPoints[e];
         if (!n || n.type === "static") {
-          return this.lastAriaAlert = void 0, !1;
+          return this.lastAriaAlert = void 0, false;
         }
       }
       let t = this.getAriaAlert({
           id: e,
           lastAriaAlert: this.lastAriaAlert,
-          includeUsageInstructions: !0,
+          includeUsageInstructions: true,
         }),
         o = !this.lastAriaAlert || this.lastAriaAlert.id !== e ||
           !!(t != null && t.updated);
       return this.lastAriaAlert = t,
-        t != null && t.completeMessage ? (o && xe(t.completeMessage), !0) : !1;
+        t != null && t.completeMessage ? (o && xe(t.completeMessage), true) : false;
     }
     getAriaAlert(e) {
       var U, z;
@@ -39955,7 +39955,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (!l || !d || !d.viewport) return;
       let u = o == null ? void 0 : o.label, f = l.ariaLabel;
       a.isGeometry() && il(s) &&
-        (f = AT(s, a, { poi: l, includeDetails: !1 }).join(" "));
+        (f = AT(s, a, { poi: l, includeDetails: false }).join(" "));
       let y = u !== f,
         C = n.selected,
         E = !!(o != null && o.selected) !== C,
@@ -40370,7 +40370,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return e;
     }
   }
-  function Fo(r, e, t = { includeDetails: !0 }) {
+  function Fo(r, e, t = { includeDetails: true }) {
     var s, l, c;
     if (!r) {
       return e.s(
@@ -40416,7 +40416,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       })),
       a;
   }
-  function xre(r, e, t = { includeDetails: !0 }) {
+  function xre(r, e, t = { includeDetails: true }) {
     var l;
     let { value: o, valueType: i } = Ap(r, t);
     if (!o) return e.s("shared-calculator-narration-item-unknown");
@@ -40535,7 +40535,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function Bg(r) {
     let e = r.predicate;
-    if (e && !e()) return !1;
+    if (e && !e()) return false;
     let t = r.controller.getFocusLocation();
     return t && __dcg_shared_module_exports__["E"](t, r.location);
   }
@@ -40968,7 +40968,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               var t, o;
               let e = this.parentOrChildHovered();
               return {
-                "dcg-geo-token-view": !0,
+                "dcg-geo-token-view": true,
                 "dcg-static-token": (o = (t = this.props).isStatic) == null
                   ? void 0
                   : o.call(t),
@@ -41012,7 +41012,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "span",
             {
               class: () => ({
-                "dcg-token-icon": !0,
+                "dcg-token-icon": true,
                 [this.getAdditionalTokenClass()]: !!this
                   .getAdditionalTokenClass(),
                 "dcg-token-is-list": this.getIsList() &&
@@ -41051,7 +41051,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             { predicate: () => this.showLabel() },
             () =>
               $i.createElement("span", {
-                class: () => ({ "dcg-token-label": !0 }),
+                class: () => ({ "dcg-token-label": true }),
               }, () => this.getLabel()),
           ),
           $i.createElement(
@@ -41063,7 +41063,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       isLightColor() {
         let e = this.getColor();
-        return !e || this.isTransformation() || this.isHidden() ? !1 : qf(
+        return !e || this.isTransformation() || this.isHidden() ? false : qf(
           { type: "single-color", value: e },
           this.controller.invertSwatches(),
           Nre,
@@ -41187,18 +41187,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           !this.props.showParentChildrenHover ||
           !this.props.showParentChildrenHover()
-        ) return !1;
+        ) return false;
         let e = this.controller.getHoveredOrFocusedTokenIdentifier(),
           t = this.controller.getExpressionIdForIdentifier(e),
           o = this.props.identifier(),
           i = this.props.controller().getExpressionIdForIdentifier(o) ||
             "";
-        if (!t) return !1;
+        if (!t) return false;
         let n = this.controller.getItemModel(t),
           a = this.controller.getItemModel(i);
         if (
           !n || n.type !== "expression" || !a || a.type !== "expression"
-        ) return !1;
+        ) return false;
         let s = ((p = (d = (c = n.formula) == null ? void 0 : c.geometry) ==
                 null
               ? void 0
@@ -41217,7 +41217,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         for (let y = 0; y < l.length; y++) {
           if (this.getIdFromParentRef(l[y]) === t) return "child";
         }
-        return !1;
+        return false;
       }
       willUnmount() {
         this.implicitMouseOut();
@@ -41305,7 +41305,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           this.getIconType() !== "point" &&
           this.getIconType() !== "midpoint"
-        ) return !1;
+        ) return false;
         let e = this.getTokenInfo().label.trim();
         return e.length <= 2 ? e : "";
       }
@@ -41318,7 +41318,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           t = Fo(
             this.controller.getItemModel(e == null ? void 0 : e.calcId),
             this.controller,
-            { includeDetails: !1, depth: 1 },
+            { includeDetails: false, depth: 1 },
           );
         return this.isHidden()
           ? this.controller.s(
@@ -41409,7 +41409,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let e = function () {
         return r;
       };
-      return e.isDcgViewConst = !0, e;
+      return e.isDcgViewConst = true, e;
     },
     Mb = class {
       constructor(e, t, o) {
@@ -41438,9 +41438,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               a = N8.mountToNode(Ad, o, {
                 controller: Ub(this.tokenController),
                 identifier: Ub("$" + n),
-                insideMQ: Ub(!0),
-                insideGroup: Ub(!1),
-                putInTabOrder: Ub(!1),
+                insideMQ: Ub(true),
+                insideGroup: Ub(false),
+                putInTabOrder: Ub(false),
                 isStatic: Ub(this.isStatic),
               });
             o.dcgTokenView = a;
@@ -41474,7 +41474,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ),
           cl.createElement("div", {
             class: () => ({
-              "dcg-math-field": !0,
+              "dcg-math-field": true,
               "dcg-no-fadeout": this.props.noFadeout &&
                 this.props.noFadeout(),
               "dcg-invalid": this.props.hasError(),
@@ -41565,7 +41565,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           (this.mathquillTokenHelper = new Mb(
             this.props.tokenController(),
             e,
-            !1,
+            false,
           )),
           this.$mathField = ee(e);
         let o = gc.MathField(e, t);
@@ -41615,8 +41615,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
       static canAcceptText(e, t, o) {
-        if (!e) return !1;
-        if (!t) return !0;
+        if (!e) return false;
+        if (!t) return true;
         let i = e.latex();
         return Of(i) + Of(o) <= zb;
       }
@@ -41698,7 +41698,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let i = e.selection(),
           n = i.startIndex === 0 && i.endIndex === i.latex.length;
         if ((t === "Up" || t === "Down") && n) {
-          return e.keystroke(t, o), !0;
+          return e.keystroke(t, o), true;
         }
         e.keystroke(t, o);
         let a = e.selection();
@@ -41746,10 +41746,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       static handleKeystrokeAndDecideIfSpecialEvent(e, t, o) {
         return t === "Enter" || t === "Delete" && e.latex() === "" ||
             t === "Backspace" && e.latex() === ""
-          ? !0
+          ? true
           : t === "Up" || t === "Down" || t === "Left" || t === "Right"
           ? r.applyArrowKeyAndReturnIfWasAtBounds(e, t, o)
-          : (e.keystroke(t, o), !1);
+          : (e.keystroke(t, o), false);
       }
       static normalizeLatex(e, t) {
         let o = document.createElement("div"), i = gc.MathField(o, t);
@@ -41781,7 +41781,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               var e, t;
               return (t = (e = this.props).treatAsMultiSelect) != null &&
                   t.call(e)
-                ? !0
+                ? true
                 : void 0;
             },
             onKeyDown: this.bindFn(this.handleRadioKeydown),
@@ -41795,7 +41795,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-segmented-control-btn": !0,
+                  "dcg-segmented-control-btn": true,
                   "dcg-selected": e.selected(),
                   "dcg-theme-mini": this.getTheme() === "mini",
                   "dcg-theme-default": this.getTheme() === "default",
@@ -41941,7 +41941,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       : e === "ueb"
       ? cp(r, { operatorNames: o })
       : {
-        isError: !0,
+        isError: true,
         error: "Braille mode should be 'nemeth' or 'ueb'",
       };
   }
@@ -41952,7 +41952,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       : e === "ueb"
       ? bM(r, { operatorNames: o })
       : {
-        isError: !0,
+        isError: true,
         error: "Braille mode should be 'nemeth' or 'ueb'",
       };
   }
@@ -41979,7 +41979,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return Hb.createElement(Hre, {
           class: this.const("dcg-braille-input dcg-do-blur"),
           tabIndex: () => this.props.tabIndex ? this.props.tabIndex() : 0,
-          readOnly: () => this.props.isStatic() ? !0 : void 0,
+          readOnly: () => this.props.isStatic() ? true : void 0,
           autocomplete: this.const("off"),
           autocorrect: this.const("off"),
           autocapitalize: this.const("off"),
@@ -42000,10 +42000,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.rootNode = e,
           ee(this.rootNode).on("focus", (t) => {
             this.props.shouldFocus() ||
-              this.props.onFocusedChanged(!0, t.originalEvent || t);
+              this.props.onFocusedChanged(true, t.originalEvent || t);
           }).on("blur", (t) => {
             this.props.shouldFocus() &&
-              this.props.onFocusedChanged(!1, t.originalEvent || t);
+              this.props.onFocusedChanged(false, t.originalEvent || t);
           }),
           this.props.didMount(e),
           this.updateFocus();
@@ -42036,7 +42036,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           : this.props.onKeyDown && this.props.onKeyDown(e);
       }
       onKeyUp(e) {
-        let t = this.charCodes.indexOf(e.which), o = !1;
+        let t = this.charCodes.indexOf(e.which), o = false;
         return !this.props.isStatic() && this.isSixKeyInput() &&
             !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey &&
             t !== -1
@@ -42052,7 +42052,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 ...this.sixKeyModel,
                 stickyKeysDown: 0,
               }))
-          : o = !0,
+          : o = true,
           o || e.preventDefault(),
           o;
       }
@@ -42091,7 +42091,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             config: this.const({}),
           }),
         theme: this.const("light"),
-        noWrap: this.const(!0),
+        noWrap: this.const(true),
       }, this.props.children);
     }
   };
@@ -42102,7 +42102,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.props.latex(),
         ),
           this.currentBrailleMode = this.props.mode(),
-          this.hasTranslationError = !1,
+          this.hasTranslationError = false,
           this.currentLatex = this.props.latex();
       }
       isFocused() {
@@ -42133,7 +42133,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             (this.currentBrailleValue = this.getBrailleFromLatex(
               this.props.latex(),
             ),
-              this.hasTranslationError = !1),
+              this.hasTranslationError = false),
             this.currentBrailleMode = t);
       }
       onBrailleInput(e) {
@@ -42150,7 +42150,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           t.isError ||
           (this.currentLatex = t.value, this.props.onBrailleInput(t.value));
       }
-      getBrailleFromLatex(e, t = !1) {
+      getBrailleFromLatex(e, t = false) {
         let o = qb(
           e,
           this.props.mode(),
@@ -42177,10 +42177,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return e === "nemeth" || e === "ueb";
       }
       isOverflowingLeft() {
-        return this.brailleInput ? this.brailleInput.scrollLeft > 0 : !1;
+        return this.brailleInput ? this.brailleInput.scrollLeft > 0 : false;
       }
       isOverflowingRight() {
-        if (!this.brailleInput) return !1;
+        if (!this.brailleInput) return false;
         let e = this.brailleInput.getBoundingClientRect().width,
           t = this.brailleInput.scrollWidth,
           o = this.brailleInput.scrollLeft;
@@ -42217,7 +42217,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-mathquill-braille": !0,
+                  "dcg-mathquill-braille": true,
                   "dcg-text-selectable": this.isStatic(),
                   "dcg-focus": this.getBrailleShouldFocus(),
                   "dcg-invalid": this.hasError(),
@@ -42238,7 +42238,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   tooltip: () => this.getTooltipText(),
                   gravity: this.const("s"),
                   delay: this.const(0),
-                  showOnTapstart: this.const(!0),
+                  showOnTapstart: this.const(true),
                 },
                 Xn.createElement(
                   uP,
@@ -42248,7 +42248,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       class: Xn.const("dcg-inline-braille"),
                     }, () =>
                       Gs(
-                        this.getBrailleFromLatex(this.props.latex(), !0),
+                        this.getBrailleFromLatex(this.props.latex(), true),
                       )),
                 ),
                 Xn.createElement(uP, {
@@ -42323,12 +42323,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       this.controller = this.props.controller(),
         this.model = this.props.model(),
         this.id = this.model.id,
-        this._isFirstRender = !0,
+        this._isFirstRender = true,
         this._isDragCopy = this.props.isDragCopy();
     }
     onItemViewMounted(e) {
       this._isDragCopy || (this.model.rootViewNode = e),
-        this._isFirstRender = !1;
+        this._isFirstRender = false;
     }
     onItemViewUnmounted() {
       this._isDragCopy || (this.model.rootViewNode = void 0);
@@ -42359,8 +42359,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     exitEditListMode() {
       this.controller.dispatch({
         type: "set-edit-list-mode",
-        isEditListMode: !1,
-        focusExpressionList: !0,
+        isEditListMode: false,
+        focusExpressionList: true,
       });
     }
   };
@@ -42378,7 +42378,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "span",
             {
               class: () => ({
-                "dcg-expression-edit-actions": !0,
+                "dcg-expression-edit-actions": true,
                 "dcg-limited-height": this.limitedHeight(),
               }),
               didMount: () => {
@@ -42442,8 +42442,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   "span",
                   {
                     class: () => ({
-                      "dcg-action-lock": !0,
-                      "dcg-exp-action-button": !0,
+                      "dcg-action-lock": true,
+                      "dcg-exp-action-button": true,
                       "dcg-selected": this.isReadonly(),
                     }),
                     handleEvent: Ht.const("true"),
@@ -42611,14 +42611,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ti.createElement(
             Mo,
             {
-              isStatic: this.const(!0),
+              isStatic: this.const(true),
               latex: () => this.model.clickableInfo.latex,
               operatorNames: () => this.getMQConfig().autoOperatorNames,
               ariaLabel: () =>
                 this.controller.s(
                   "graphing-calculator-label-ticker-min-step",
                 ),
-              brailleShouldFocus: this.const(!1),
+              brailleShouldFocus: this.const(false),
               ...ui(this.controller),
             },
             ti.createElement(nt, {
@@ -42660,7 +42660,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "expression",
               model: this.model,
               guid: this.getMenuGUID(),
-              focusFirstOption: !1,
+              focusFirstOption: false,
             },
           })
           : this.controller.dispatch({
@@ -42669,7 +42669,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "image",
               model: this.model,
               guid: this.getMenuGUID(),
-              focusFirstOption: !1,
+              focusFirstOption: false,
             },
           }),
           this.controller.dispatch({
@@ -42729,8 +42729,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           class: () => {
             var e, t;
             return {
-              "dcg-color-swatch": !0,
-              "dcg-forced-color-none": !0,
+              "dcg-color-swatch": true,
+              "dcg-forced-color-none": true,
               "dcg-color-evaluation":
                 (t = (e = this.props).isEvaluation) == null
                   ? void 0
@@ -42772,7 +42772,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     this.controller.s(
                       "shared-calculator-error-slow-evaluation",
                     ),
-                  sticky: this.const(!0),
+                  sticky: this.const(true),
                   gravity: this.const("n"),
                 },
                 Do.createElement("span", {
@@ -42785,8 +42785,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "div",
             {
               class: () => ({
-                "dcg-evaluation": !0,
-                "dcg-do-blur": !0,
+                "dcg-evaluation": true,
+                "dcg-do-blur": true,
                 "dcg-hidden": this.props.controller().isInEditListMode(),
                 "dcg-slow-evaluation": this.displaySlowEvaluation(),
               }),
@@ -42810,7 +42810,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   let t = ke(e);
                   t && this.handlePressedKey(t);
                 },
-                isStatic: this.const(!0),
+                isStatic: this.const(true),
                 onBrailleFocusedChanged: (e) => this.handleMQFocusedChanged(e),
                 ...ui(this.controller),
               },
@@ -42833,7 +42833,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "span",
                 {
                   class: () => ({
-                    "dcg-evaluation-html": !0,
+                    "dcg-evaluation-html": true,
                     "dcg-color-evaluation":
                       this.getEvaluationRHS().type === "rgbcolor",
                   }),
@@ -42853,7 +42853,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   number: (e) =>
                     Do.createElement($b, {
                       latex: () => e().valueLatex,
-                      config: this.const({ tabbable: !0 }),
+                      config: this.const({ tabbable: true }),
                       didMountMathquill: (t) => this.staticMQ = t,
                       isFocused: () => this.isFocused(),
                       onFocusedChanged: (t) => this.handleMQFocusedChanged(t),
@@ -42866,7 +42866,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   rgbcolor: (e) =>
                     Do.createElement(Pp, {
                       color: () => e().colorValue,
-                      isEvaluation: this.const(!0),
+                      isEvaluation: this.const(true),
                       invertSwatches: () => this.controller.invertSwatches(),
                       ariaLabel: () => e().ariaLabel,
                     }),
@@ -42893,7 +42893,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "set-focus-location",
               location: { type: "expression", id: this.props.id() },
             }),
-              !0;
+              true;
           case "PageUp":
           case "PageDown":
           case "Down":
@@ -42902,11 +42902,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "on-special-key-pressed",
               key: e,
             }),
-              !0;
+              true;
           case "Esc":
-            return Jr(), !0;
+            return Jr(), true;
         }
-        return !1;
+        return false;
       }
       shouldShowEquals() {
         return this.getEvaluationRHS().type === "number";
@@ -43032,7 +43032,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   latex: this.bindFn(this.getStaticLatex),
                   operatorNames: () => this.getMQConfig().autoOperatorNames,
                   brailleShouldFocus: this.props.isFocused,
-                  isStatic: this.const(!0),
+                  isStatic: this.const(true),
                   onBrailleFocusedChanged: this.props.handleFocusChanged,
                   ariaLabel: this.bindFn(this.getBrailleLabel),
                   dataLabelAttributeValue: this.props.dataLabelAttributeValue,
@@ -43071,7 +43071,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   operatorNames: () =>
                     this.getMQConfig().autoOperatorNames || "",
                   brailleShouldFocus: this.props.isFocused,
-                  selectOnFocus: this.const(!0),
+                  selectOnFocus: this.const(true),
                   onBrailleInput: this.props.handleLatexChanged,
                   onBrailleFocusedChanged: this.props.handleFocusChanged,
                   onBrailleKeydown: this.bindFn(this.onBrailleKeydown),
@@ -43101,7 +43101,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   placeholder: this.props.placeholder,
                   capExpressionSize: () =>
                     this.controller.getCapExpressionSize(),
-                  selectOnFocus: this.const(!0),
+                  selectOnFocus: this.const(true),
                   config: this.bindFn(this.getMQConfig),
                   getAriaLabel: this.props.ariaLabel,
                   hasError: this.props.hasError,
@@ -43129,13 +43129,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       getContainerClass() {
         let e = this.props.containerClass ? this.props.containerClass() : {};
-        return e["dcg-inline-math-input-view"] = !0,
+        return e["dcg-inline-math-input-view"] = true,
           this.props.fullWidth && this.props.fullWidth() &&
-          (e["dcg-full-width-inline-math-input"] = !0),
+          (e["dcg-full-width-inline-math-input"] = true),
           this.props.fontSize && this.props.fontSize() === "large" &&
-          (e["dcg-large-font-inline-math-input"] = !0),
+          (e["dcg-large-font-inline-math-input"] = true),
           this.props.noBorder && this.props.noBorder() &&
-          (e["dcg-no-border-inline-math-input"] = !0),
+          (e["dcg-no-border-inline-math-input"] = true),
           e;
       }
       onBrailleKeydown(e) {
@@ -43293,7 +43293,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       isInputFocused(e) {
         let t = this.controller.getFocusLocation();
         return !t || t.type !== "cdf-limit" || t.id !== this.id
-          ? !1
+          ? false
           : t.location === e;
       }
       handleFocusedChanged(e, t) {
@@ -43323,7 +43323,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-parameter-suggestion-container": !0,
+                  "dcg-parameter-suggestion-container": true,
                   "dcg-parameter-suggestion-braille":
                     this.controller.getBrailleMode() !== "none",
                 }),
@@ -43340,7 +43340,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-parameter-suggestion-container": !0,
+                  "dcg-parameter-suggestion-container": true,
                   "dcg-parameter-suggestion-braille":
                     this.controller.getBrailleMode() !== "none",
                 }),
@@ -43367,7 +43367,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           individual: () =>
             Mn.createElement("div", {
               class: () => ({
-                "dcg-parameter-suggestion-container": !0,
+                "dcg-parameter-suggestion-container": true,
                 "dcg-parameter-suggestion-braille":
                   this.controller.getBrailleMode() !== "none",
               }),
@@ -43405,13 +43405,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
       isMissingDefault() {
-        if (!Yw(this.model)) return !1;
+        if (!Yw(this.model)) return false;
         let e = sl(this.model);
-        if (!e) return !1;
+        if (!e) return false;
         for (let t = 0; t < e.params.length; t++) {
-          if (this.shouldShowDefaultValue(e.params[t])) return !0;
+          if (this.shouldShowDefaultValue(e.params[t])) return true;
         }
-        return !1;
+        return false;
       }
       getSuggestionType() {
         return this.getListOfParameters().length > 1
@@ -43601,8 +43601,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               (n.selectionStart === 0 && t === "Left" ||
                 n.selectionStart === n.value.length && t === "Right" ||
                 t === "Up" || t === "Down")
-            ? a = !0
-            : a = !1,
+            ? a = true
+            : a = false,
             a &&
             (o && o.preventDefault(),
               t === "Left"
@@ -43819,7 +43819,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return Wu(this.model) || Dp(this.model) && !aH(this.model);
       }
       hasSecondDomainIndex() {
-        return Dp(this.model) ? !sH(this.model) : !1;
+        return Dp(this.model) ? !sH(this.model) : false;
       }
       template() {
         return ri.createElement(
@@ -43994,8 +43994,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               class: () => ({
                 "dcg-label-visible": this.getShowLabel(),
                 "dcg-label-input-visible": !this.getIsDisabled(),
-                "dcg-label-container": !0,
-                "dcg-do-blur": !0,
+                "dcg-label-container": true,
+                "dcg-do-blur": true,
               }),
               tapboundary: ln.const("true"),
               handleEvent: ln.const("true"),
@@ -44059,7 +44059,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         var e;
                         return ln.createElement(eoe, {
                           class: () => ({
-                            "dcg-label-input": !0,
+                            "dcg-label-input": true,
                             "dcg-readonly": this.getIsReadonly(),
                             "dcg-disabled-editable-input": this
                               .hasEditableLabel(),
@@ -44152,7 +44152,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         var e, t;
         return (t = (e = this.props).forceEnabled) != null && t.call(e) ||
             document.activeElement === this.inputNode
-          ? !1
+          ? false
           : this.getLabel().length === 0 && !this.getShowLabel();
       }
       onLabelInput(e) {
@@ -44297,7 +44297,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     "button",
                     {
                       class: () => ({
-                        "dcg-btn-slider": !0,
+                        "dcg-btn-slider": true,
                         "dcg-btn-blue": this.getMissingVariables().length === 1,
                         "dcg-base-case-btn":
                           this.getMissingBaseCases().length > 0,
@@ -44381,7 +44381,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           latex: this.props.latex,
           brailleShouldFocus: this.bindFn(this.shouldFocus),
           onBrailleFocusedChanged: this.bindFn(this.onFocusChange),
-          isStatic: this.const(!0),
+          isStatic: this.const(true),
           ariaLabel: this.props.brailleAriaLabel || this.props.ariaLabel,
           ...ui(this.controller),
           onBrailleKeydown: (e) => {
@@ -44465,7 +44465,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: ns.const("dcg-residuals-zoom-view dcg-do-blur"),
-                handleEvent: ns.const(!0),
+                handleEvent: ns.const(true),
               },
               ns.createElement(
                 Le,
@@ -44706,7 +44706,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         Ke.createElement(pl, {
                           latex: () => `\\operatorname{${e.type}}=` + yP(t),
                           ariaLabel: this.const(""),
-                          tabbable: this.const(!0),
+                          tabbable: this.const(true),
                           focusLocation: this.const({
                             type: "regression-output",
                             id: this.id,
@@ -44737,7 +44737,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 Ke.createElement(pl, {
                   latex: this.bindFn(this.getResidualVariable),
                   ariaLabel: this.const(""),
-                  tabbable: this.const(!0),
+                  tabbable: this.const(true),
                   focusLocation: this.const({
                     type: "regression-output",
                     id: this.id,
@@ -44842,7 +44842,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         var e, t;
         return (t = (e = this.props).suppressLogModeCheckbox) != null &&
             t.call(e)
-          ? !1
+          ? false
           : !!this.getRegression().shouldSuggestLogMode;
       }
       hasParameterWarning() {
@@ -44899,7 +44899,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               Ke.createElement(pl, {
                 latex: () => this.getParameterEquationLatex(e),
                 ariaLabel: this.const(""),
-                tabbable: this.const(!0),
+                tabbable: this.const(true),
                 focusLocation: this.const({
                   type: "regression-output",
                   id: this.id,
@@ -44964,7 +44964,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var tD = class {
     constructor() {
       this._eventBus = new Kl();
-      this.dragging = !1;
+      this.dragging = false;
       this.guid = __dcg_shared_module_exports__["K"]("dragdrop-class");
     }
     _evt2pt(e) {
@@ -44985,7 +44985,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       });
     }
     destroy() {
-      ee(document).off(`.${this.guid}`), this._destroyed = !0;
+      ee(document).off(`.${this.guid}`), this._destroyed = true;
     }
     startDrag(e, t = {}) {
       if (!this.dragging) {
@@ -45005,7 +45005,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             y: this._evt2pt(e).y - t.origin.y,
           }),
           this._startPt = this._evt2pt(e),
-          this.dragging = !0,
+          this.dragging = true,
           this._dispatch("onGrab", e);
       }
     }
@@ -45016,7 +45016,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       this.dragging &&
         (ee(document).off(`.${this.guid}`),
           this.doDrag(e),
-          this.dragging = !1,
+          this.dragging = false,
           this._dispatch("onDrop", e));
     }
     observeEvent(e, t) {
@@ -45030,7 +45030,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-slider-interior": !0,
+              "dcg-slider-interior": true,
               "dcg-disable-slider": this.shouldDisableSlider(),
             }),
             didMount: this.bindFn(this.didMountRoot),
@@ -45056,7 +45056,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "div",
             {
               class: () => ({
-                "dcg-thumb": !0,
+                "dcg-thumb": true,
                 "dcg-down": this.isDragging,
               }),
               role: hi.const("slider"),
@@ -45106,14 +45106,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       didMountRoot(e) {
         this.rootNode = e,
           this.dragDrop = new tD(),
-          this.isMounted = !0,
+          this.isMounted = true,
           this.dragDrop.observeEvent("onDrop", () => {
-            this.isDragging = !1,
+            this.isDragging = false,
               this.update(),
               this.props.onDrop && this.props.onDrop();
           }),
           this.dragDrop.observeEvent("onGrab", () => {
-            this.isDragging = !0,
+            this.isDragging = true,
               this.update(),
               this.props.onGrab && this.props.onGrab();
           }),
@@ -45383,8 +45383,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               (n.selectionStart === 0 && t === "Left" ||
                 n.selectionStart === n.value.length && t === "Right" ||
                 t === "Up" || t === "Down")
-            ? a = !0
-            : a = !1,
+            ? a = true
+            : a = false,
             a &&
             (o && o.preventDefault(),
               t === "Left" && !this.shouldOnlyShowStep()
@@ -45673,12 +45673,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           );
       }
       onGrab() {
-        this.dispatchIsDraggingIfChanged(!0);
+        this.dispatchIsDraggingIfChanged(true);
       }
       onDrop() {
         this.controller.dispatch({ type: "set-none-selected" }),
-          this.dispatchIsPlayingIfChanged(!1),
-          this.dispatchIsDraggingIfChanged(!1);
+          this.dispatchIsPlayingIfChanged(false),
+          this.dispatchIsDraggingIfChanged(false);
       }
       onKeyboardUpdate(e) {
         this.controller.dispatch({
@@ -45717,12 +45717,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
       shouldShowLimitInputs() {
-        if (this.controller.isInEditListMode()) return !0;
-        if (this.controller.isItemReadonly(this.model.id)) return !1;
+        if (this.controller.isInEditListMode()) return true;
+        if (this.controller.isItemReadonly(this.model.id)) return false;
         if (
           !ZE(this.model) || !eT(this.model) || !tT(this.model) ||
           this.model.slider.loopMode === "PLAY_INDEFINITELY"
-        ) return !0;
+        ) return true;
         let e = this.controller.getFocusLocation();
         return !!(e &&
           (e.type === "slider-limit" || e.type === "expression" ||
@@ -45783,7 +45783,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   Gn.createElement(pl, {
                     latex: () => e.value,
                     ariaLabel: () => t,
-                    tabbable: this.const(!0),
+                    tabbable: this.const(true),
                     focusLocation: this.const({
                       type: "stats-output",
                       id: this.id,
@@ -46244,7 +46244,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       isInputFocused(e) {
         let t = this.controller.getFocusLocation();
         return !t || t.type !== "visualization-prop" || t.id !== this.id
-          ? !1
+          ? false
           : t.location === e;
       }
       handleFocusedChanged(e, t) {
@@ -46500,8 +46500,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let e = !this.props.isFirstRender() &&
           !this.model.expressionTooComplex;
         return this.const({
-          "dcg-expression-bottom": !0,
-          "dcg-indent-in-folder": !0,
+          "dcg-expression-bottom": true,
+          "dcg-indent-in-folder": true,
           "dcg-fadein-bottom": e,
         });
       }
@@ -46527,7 +46527,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.controller.isThreeDMode()
           ? cT(this.model) && !this.model.expressionTooComplex &&
             this.model.shouldGraph
-          : !1;
+          : false;
       }
       getFooterWarning() {
         let e = this.model.formula;
@@ -46564,7 +46564,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         Le,
         {
           tooltip: this.props.error,
-          sticky: this.const(!0),
+          sticky: this.const(true),
           gravity: this.props.gravity,
           additionalClass: this.const("dcg-tooltipped-error-container"),
         },
@@ -46574,7 +46574,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             class: () => {
               var e, t, o, i;
               return {
-                "dcg-tooltipped-error": !0,
+                "dcg-tooltipped-error": true,
                 "dcg-small":
                   ((t = (e = this.props).size) == null ? void 0 : t.call(e)) ===
                     "small",
@@ -46643,9 +46643,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "span",
           {
             class: () => ({
-              "dcg-do-not-blur": !0,
-              "dcg-forced-color-none": !0,
-              "dcg-circular-icon": !0,
+              "dcg-do-not-blur": true,
+              "dcg-forced-color-none": true,
+              "dcg-circular-icon": true,
               "dcg-thick-outline": this.isThickOutline(),
               "dcg-white-icon": !!this.props.whiteIcon &&
                 this.props.whiteIcon(),
@@ -46675,8 +46675,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           }, () =>
             Ln.createElement("i", {
               class: () => ({
-                [this.backgroundIcon()]: !0,
-                "dcg-layered-icon": !0,
+                [this.backgroundIcon()]: true,
+                "dcg-layered-icon": true,
               }),
               style: () => ({
                 opacity: this.backgroundOpacity().toString(),
@@ -46688,8 +46688,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             () =>
               Ln.createElement("i", {
                 class: () => ({
-                  [this.primaryIcon()]: !0,
-                  "dcg-layered-icon": !0,
+                  [this.primaryIcon()]: true,
+                  "dcg-layered-icon": true,
                 }),
                 style: () => ({
                   color: this.props.foregroundColor &&
@@ -46872,7 +46872,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     };
   var iD = class extends Gd.Class {
     constructor() {
-      super(...arguments), this.isAnimating = !1;
+      super(...arguments), this.isAnimating = false;
     }
     init() {
       this.controller = this.props.controller(),
@@ -46883,7 +46883,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         "div",
         {
           class: () => ({
-            "dcg-action-icon-view": !0,
+            "dcg-action-icon-view": true,
             "dcg-action-icon-view-animating": this.isAnimating,
           }),
         },
@@ -46918,14 +46918,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       );
     }
     runActionOnce() {
-      this.isAnimating = !0,
+      this.isAnimating = true,
         this.controller.dispatch({
           type: "action-single-step",
           id: this.model.id,
         }),
         setTimeout(
           this.bindIfMounted(() => {
-            this.isAnimating = !1, this.update();
+            this.isAnimating = false, this.update();
           }),
           150,
         );
@@ -46950,13 +46950,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "graphing-calculator-label-slider-disabled-while-ticker-playing",
               ),
             disabled: () => !this.controller.getTickerPlaying(),
-            sticky: this.const(!0),
+            sticky: this.const(true),
           },
           Jn.createElement(
             "div",
             {
               class: () => ({
-                "dcg-circular-icon-container": !0,
+                "dcg-circular-icon-container": true,
                 "dcg-disabled": this.controller.getTickerPlaying(),
               }),
               "aria-label": this.bindFn(this.getAriaLabel),
@@ -47001,7 +47001,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-slider-menu-opener": !0,
+                  "dcg-slider-menu-opener": true,
                   "dcg-menu-open": this.myOptionsOpen(),
                 }),
                 tabIndex: Jn.const(0),
@@ -47100,7 +47100,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "set-slider-isplaying",
               id: this.model.id,
-              isPlaying: !1,
+              isPlaying: false,
             }))
           : (typeof t == "string" &&
             (e = this.controller.s(
@@ -47110,7 +47110,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "set-slider-isplaying",
               id: this.model.id,
-              isPlaying: !0,
+              isPlaying: true,
             })), e !== "" && xe(e);
       }
     }
@@ -47137,8 +47137,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           class: () => {
             var e;
             return {
-              "dcg-unstyled-button": !0,
-              "dcg-circular-icon-container": !0,
+              "dcg-unstyled-button": true,
+              "dcg-circular-icon-container": true,
               "dcg-show-globally-muted":
                 ((e = this.controller.toneController) == null
                   ? void 0
@@ -47289,7 +47289,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       renderAsSelected() {
         return this.controller.isItemBeingDragged(this.model.id)
-          ? !0
+          ? true
           : this.controller.isItemSelected(this.model.id) &&
             !this.controller.isInEditListMode();
       }
@@ -47337,7 +47337,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           !this.model.formula.assignment;
       }
       hasError() {
-        return this.colorError() ? !0 : !!this.model.error && !Vl(this.model) &&
+        return this.colorError() ? true : !!this.model.error && !Vl(this.model) &&
           this.controller.getBrailleMode() === "none";
       }
       hasSlider() {
@@ -47466,7 +47466,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         let a = i.operator,
           s = __dcg_shared_module_exports__["rc"][a].direction !== 0,
-          l = __dcg_shared_module_exports__["rc"][a].inclusive === !1;
+          l = __dcg_shared_module_exports__["rc"][a].inclusive === false;
         return i.is_shade_between || !l && s
           ? "shaded-inequality"
           : l && !s
@@ -47519,7 +47519,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: as.const("dcg-generate-table-view dcg-do-blur"),
-                handleEvent: as.const(!0),
+                handleEvent: as.const(true),
               },
               as.createElement(
                 Le,
@@ -47545,7 +47545,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       shouldShow() {
         return Sg(this.model) !== "recursive-function" || !this.model ||
             this.model.type !== "expression"
-          ? !1
+          ? false
           : !this.controller.hasTableHeaderWithIdentifier(
             this.model.formula.function_definition,
           );
@@ -47575,7 +47575,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: ss.const("dcg-suggested-zoom-view dcg-do-blur"),
-                handleEvent: ss.const(!0),
+                handleEvent: ss.const(true),
               },
               ss.createElement(
                 Le,
@@ -47657,7 +47657,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "div",
             {
               class: () => ({
-                "dcg-top-level-icon": !0,
+                "dcg-top-level-icon": true,
                 "dcg-tappable": this.isIconTappable(),
               }),
               tabIndex: () => this.isIconTappable() ? 0 : -1,
@@ -47738,9 +47738,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-do-not-blur": !0,
-              "dcg-expressionitem": !0,
-              "dcg-mathitem": !0,
+              "dcg-do-not-blur": true,
+              "dcg-expressionitem": true,
+              "dcg-mathitem": true,
               "dcg-inFolder": !!this.model.folderId,
               "dcg-readonly": this.controller.isItemReadonly(this.id),
               "dcg-selected": this.controller.isItemSelected(this.id) &&
@@ -47796,7 +47796,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     capExpressionSize: () =>
                       this.controller.getCapExpressionSize(),
                     config: this.bindFn(this.getMQConfig),
-                    hasError: this.const(!1),
+                    hasError: this.const(false),
                     onUserPressedKey: (e, t) => this.handlePressedKey(e, t),
                     onUserChangedLatex: (e) => this.handleLatexChanged(e),
                     onExpressionSizeExceeded: () =>
@@ -47833,11 +47833,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       latex: () => Kw(this.model),
                       operatorNames: () => this.getMQConfig().autoOperatorNames,
                       ariaLabel: () => this.getAriaLabel("braille"),
-                      isStatic: this.const(!0),
+                      isStatic: this.const(true),
                       brailleShouldFocus: () => {
                         let e = this.controller.getFocusLocation();
                         return !e || e.type !== "readonly-expression"
-                          ? !1
+                          ? false
                           : e.id === this.id;
                       },
                       onBrailleFocusedChanged: (e, t) => {
@@ -47880,7 +47880,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         manageFocus: this.const({
                           shouldBeFocused: () =>
                             this.controller.getBrailleMode() !== "none"
-                              ? !1
+                              ? false
                               : Bg({
                                 controller: this.controller,
                                 location: {
@@ -47929,9 +47929,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "span",
             {
               class: () => ({
-                "dcg-tab": !0,
-                "dcg-action-drag": !0,
-                "dcg-action-icon-touch": !0,
+                "dcg-tab": true,
+                "dcg-action-drag": true,
+                "dcg-action-icon-touch": true,
                 ...this.debugProgressClassMap(),
               }),
               handleEvent: Ur.const("true"),
@@ -47978,11 +47978,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           case "RESOLVED":
             return {};
           case "UNPUBLISHED":
-            return { "dcg-progress-unpublished": !0 };
+            return { "dcg-progress-unpublished": true };
           case "ANALYZING":
-            return { "dcg-progress-analyzing": !0 };
+            return { "dcg-progress-analyzing": true };
           case "GRAPHING":
-            return { "dcg-progress-graphing": !0 };
+            return { "dcg-progress-graphing": true };
           default:
             throw new Error(`Unexpected analysis state: ${e}`);
         }
@@ -48221,14 +48221,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       d.id === this.model.id && !d.isFakeGraphFocus &&
                       this.controller.dispatch({
                         type: "set-focus-location",
-                        location: { ...d, isFakeGraphFocus: !0 },
+                        location: { ...d, isFakeGraphFocus: true },
                       }), s
                     ) {
                       let p = a.findTabbableObjectsForCurrentTool(s);
                       p.currentIsTabbable &&
                         a.updateKeyboardAttention(
                           p.targets[p.currentTabIndex],
-                          { describe: !1 },
+                          { describe: false },
                         );
                     }
                   }
@@ -48290,7 +48290,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       doesNodeBelongToSliderLimit(e) {
         return !e || !this.rootNode.contains(e)
-          ? !1
+          ? false
           : !!e.closest("[data-dcg-label]");
       }
       handleMQFocusedChanged(e, t) {
@@ -48323,7 +48323,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       isFocused() {
         let e = this.controller.getFocusLocation();
-        return !e || e.type !== "expression" ? !1 : e.id === this.id;
+        return !e || e.type !== "expression" ? false : e.id === this.id;
       }
       hasError() {
         return !!this.model.error && !Vl(this.model);
@@ -48358,7 +48358,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       ) i = n = bt.createObjectURL(r), o._type = r.type;
       else if (typeof r == "string") {
         i = r, t && t.crossOrigin && (o.crossOrigin = t.crossOrigin);
-      } else return !1;
+      } else return false;
       return i ? (o.src = i, o) : bt.readFile(r, function (a) {
         var s = a.target;
         s && s.result ? o.src = s.result : e && e(a);
@@ -48447,10 +48447,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         : (r.width = a, r.height = s, r);
   };
   bt.createObjectURL = function (r) {
-    return lD ? lD.createObjectURL(r) : !1;
+    return lD ? lD.createObjectURL(r) : false;
   };
   bt.revokeObjectURL = function (r) {
-    return lD ? lD.revokeObjectURL(r) : !1;
+    return lD ? lD.revokeObjectURL(r) : false;
   };
   bt.readFile = function (r, e, t) {
     if (window.FileReader) {
@@ -48459,7 +48459,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return o[t](r), o;
       }
     }
-    return !1;
+    return false;
   };
   (!window.navigator || !window.navigator.platform ||
     !/iP(hone|od|ad)/.test(window.navigator.platform)) &&
@@ -48472,7 +48472,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             t = e.getContext("2d"),
             t.drawImage(r, -r.width + 1, 0),
             t.getImageData(0, 0, 1, 1).data[3] === 0)
-          : !1;
+          : false;
       },
       bt.detectVerticalSquash = function (r, e) {
         var t = r.naturalHeight || r.height,
@@ -48689,7 +48689,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return String.fromCharCode(r.getUint8(e));
       },
       size: 1,
-      ascii: !0,
+      ascii: true,
     },
     3: {
       getValue: function (r, e, t) {
@@ -48793,10 +48793,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         switch (r.getUint16(n)) {
           case 18761:
-            a = !0;
+            a = true;
             break;
           case 19789:
-            a = !1;
+            a = false;
             break;
           default:
             console.log(
@@ -49169,13 +49169,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function Doe(r) {
     let t = r.getContext("2d").getImageData(0, 0, r.width, r.height).data;
-    for (let o = 3; o < t.length; o += 4) if (t[o] !== 255) return !0;
-    return !1;
+    for (let o = 3; o < t.length; o += 4) if (t[o] !== 255) return true;
+    return false;
   }
   function cD(r, e) {
     bt(r, (o) => {
       if (!o.toDataURL) {
-        e(!0);
+        e(true);
         return;
       }
       let i = 2e5, n;
@@ -49186,7 +49186,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           (n = n.length > .75 * o.width * o.height && !Doe(o)
             ? tK(o, i)
             : Toe(o, i))), e(null, n);
-    }, { orientation: !0, canvas: !0, maxWidth: 1600, maxHeight: 1600 });
+    }, { orientation: true, canvas: true, maxWidth: 1600, maxHeight: 1600 });
   }
   var Pn = __dcg_shared_module_exports__["e"](ne());
   function dD(r) {
@@ -49333,8 +49333,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     };
   function Ev(r, e) {
-    for (let t in e) if (e.hasOwnProperty(t) && e[t] === r) return !0;
-    return !1;
+    for (let t in e) if (e.hasOwnProperty(t) && e[t] === r) return true;
+    return false;
   }
   function SP(r) {
     return Ev(r, TP);
@@ -49548,8 +49548,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           max: __dcg_shared_module_exports__["be"](r.sliderBounds.max),
           step: __dcg_shared_module_exports__["be"](r.sliderBounds.step),
         },
-          t.slider.min && (t.slider.hardMin = !0),
-          t.slider.max && (t.slider.hardMax = !0)),
+          t.slider.min && (t.slider.hardMin = true),
+          t.slider.max && (t.slider.hardMax = true)),
         r.hasOwnProperty("playing")
     ) {
       let { playing: o } = r;
@@ -49682,16 +49682,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         "As of API v1.1 the 'columnMode' property is deprecated and has been split into individual 'points' and 'lines' properties.",
       ),
         r.columnMode === Sv.POINTS_AND_LINES
-          ? (t.points = !0, t.lines = !0)
+          ? (t.points = true, t.lines = true)
           : r.columnMode === Sv.LINES
-          ? (t.points = !1, t.lines = !0)
-          : (t.points = !0, t.lines = !1),
+          ? (t.points = false, t.lines = true)
+          : (t.points = true, t.lines = false),
         t.lines && !t.points && r.hasOwnProperty("dragMode") &&
         r.dragMode !== "NONE" &&
         (__dcg_shared_module_exports__["qe"].warn(
           "A 'lines' value of true and 'points' value of false is only compatible with a dragMode of 'NONE'. Proceeding by setting 'points' to true.",
         ),
-          t.points = !0),
+          t.points = true),
         Ioe(r.columnMode) &&
         __dcg_shared_module_exports__["qe"].warn(
           "Invalid columnMode: '" + r.columnMode + "'.",
@@ -50015,13 +50015,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       updateImage(e, t) {
         if (!t || !t[0]) return;
         let o = t[0];
-        e === "hovered" && (this.hoveredUploading = !0),
-          e === "depressed" && (this.depressedUploading = !0),
+        e === "hovered" && (this.hoveredUploading = true),
+          e === "depressed" && (this.depressedUploading = true),
           this.controller.getGraphSettings().config.imageUploadCallback(
             o,
             (i, n) => {
-              e === "hovered" && (this.hoveredUploading = !1),
-                e === "depressed" && (this.depressedUploading = !1),
+              e === "hovered" && (this.hoveredUploading = false),
+                e === "depressed" && (this.depressedUploading = false),
                 !i && n && (e === "hovered"
                   ? this.controller.dispatch({
                     type: "set-hovered-image",
@@ -50044,7 +50044,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-toggle-view": !0,
+              "dcg-toggle-view": true,
               "dcg-toggled": this.props.toggled(),
             }),
             "aria-label": () => this.props.ariaLabel(),
@@ -50083,16 +50083,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (!MP.test(p)) {
           throw new Error(`Invalid <Localize> variable: ${p}.`);
         }
-        return e.addBinding && e.addBinding(d, c), i[d] = !0, p;
+        return e.addBinding && e.addBinding(d, c), i[d] = true, p;
       } else if (c !== r && e.isView(c)) {
         let d = l(n, e.getViewName(c));
         if (!/[a-zA-Z0-9\-_]/.test(d)) {
           throw new Error(`Invalid <Localize> subview identifier: ${d}.`);
         }
-        return e.addView && e.addView(d, c), n[d] = !0, `<${d}/>`;
+        return e.addView && e.addView(d, c), n[d] = true, `<${d}/>`;
       } else if (e.isBinding(c)) {
         let d = l(i, `v${t++}`), p = `{$${d}}`;
-        return e.addBinding && e.addBinding(d, c), i[d] = !0, p;
+        return e.addBinding && e.addBinding(d, c), i[d] = true, p;
       } else {
         let d = `${o++}`;
         e.addElement && e.addElement(d, c);
@@ -50100,7 +50100,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return e.forEachChild(c, (h) => {
           p.push(s(h));
         }),
-          n[d] = !0,
+          n[d] = true,
           p.length > 0 ? `<${d}>${p.join("")}</${d}>` : `<${d}/>`;
       }
     }
@@ -50110,7 +50110,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return h;
     }
   }
-  var Qoe = !0;
+  var Qoe = true;
   function Zoe(r) {
     return Qoe ? r : r.replace(/\{|\}/g, (e) => `{"${e}"}`).replace(
       /(^|[\s\n]+)(\[|\]|\.)/g,
@@ -50154,7 +50154,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let e = this.props.options && this.props.options();
       return e && e.hideUntranslatedView && this.i18n.hasTranslation
         ? this.i18n.hasTranslation(this.props.key())
-        : !0;
+        : true;
     }
     translatedString() {
       let e = {};
@@ -50185,8 +50185,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           return;
         }
         a.name === "token"
-          ? o[a.attrs.id] = !0
-          : a.type !== "text" && (i[a.name] = !0, n(a.children));
+          ? o[a.attrs.id] = true
+          : a.type !== "text" && (i[a.name] = true, n(a.children));
       }
     }
     renderDeserializedTemplateNode(e) {
@@ -50351,7 +50351,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         !!this.controller.getGraphSettings().config
                           .capExpressionSize,
                       tokenController: this.props.controller,
-                      selectOnFocus: this.const(!0),
+                      selectOnFocus: this.const(true),
                       config: this.bindFn(this.getMQConfig),
                       getAriaLabel: () =>
                         this.controller.s(
@@ -50413,15 +50413,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       Sr.const(" "),
                       Sr.createElement("span", {
                         class: () => ({
-                          "dcg-index-variable-marker": !0,
-                          "dcg-btn": !0,
-                          "dcg-btn-light-gray": !0,
+                          "dcg-index-variable-marker": true,
+                          "dcg-btn": true,
+                          "dcg-btn-light-gray": true,
                           "dcg-mathquill-has-focus": ki(
                             this.controller,
                             this.model.id,
                             "updaterule",
                           ),
-                          "dcg-do-not-blur": !0,
+                          "dcg-do-not-blur": true,
                         }),
                         onTap: this.bindFn(this.insertIndex),
                       }, Sr.const("index")),
@@ -50469,7 +50469,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
       isList() {
-        return this.model.formula ? !!this.model.formula.is_concrete_list : !1;
+        return this.model.formula ? !!this.model.formula.is_concrete_list : false;
       }
       hasError() {
         return this.packedError() !== void 0;
@@ -50488,7 +50488,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           value: !this.model.clickableInfo.enabled,
         }),
           this.model.clickableInfo.enabled &&
-          _i(this.controller, this.model.id, !0, "updaterule");
+          _i(this.controller, this.model.id, true, "updaterule");
       }
       dispatchUpdateRuleLatexIfChanged(e) {
         this.model.clickableInfo.latex !== e &&
@@ -50668,7 +50668,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? void 0
             : t.call(e)) != null
           ? o
-          : !1;
+          : false;
       }
       isFirstAndNoneSelected(e) {
         return e === this.getColorValues()[0] &&
@@ -50681,7 +50681,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 this.getUniqueCustomColors(),
                 "assignmentLatex",
               ).indexOf(t) >= 0
-          ? !1
+          ? false
           : this.props.selectedColor() === e;
       }
       getColorValues() {
@@ -50718,9 +50718,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
       }
       getCheckmarkClass(e) {
-        return qf(this.getColorValue(e), !1)
+        return qf(this.getColorValue(e), false)
           ? `dcg-icon-check ${
-            _z(this.getColorValue(e), !1)
+            _z(this.getColorValue(e), false)
               ? "dcg-light-color"
               : "dcg-mixed-color"
           }`
@@ -50805,7 +50805,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     hideColorFunctions() {
       return this.model.type !== "expression"
-        ? !1
+        ? false
         : Cb(this.model) || $u(this.model);
     }
     customColorVisibility() {
@@ -50919,7 +50919,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         "div",
                         {
                           class: () => ({
-                            "dcg-style-icon-container": !0,
+                            "dcg-style-icon-container": true,
                             "dcg-disabled": this.isDisabled(e),
                           }),
                           onTap: () => this.onDragModeSelected(e),
@@ -51235,8 +51235,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "div",
                 {
                   class: () => ({
-                    [e.cssClass]: !0,
-                    "dcg-orientation-option": !0,
+                    [e.cssClass]: true,
+                    "dcg-orientation-option": true,
                     "dcg-selected": this.isSelected(e.orientation),
                     "dcg-orientation-disabled": this.isDisabled(
                       e.orientation,
@@ -51259,9 +51259,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       isDisabled(e) {
         return e !== "default"
-          ? !1
+          ? false
           : this.isPointVisible()
-          ? !0
+          ? true
           : this.model.labelOrientation === "default";
       }
       isSelected(e) {
@@ -51271,7 +51271,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       isPointVisible() {
         return this.model.hidden
-          ? !1
+          ? false
           : Ea(this.model)
           ? !this.model.hidden
           : this.model.points;
@@ -51350,7 +51350,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ? yH(this.model)
         : this.model.type === "table-column"
         ? ZU(this.model)
-        : !1;
+        : false;
     }
     dispatchPointOpacityLatexIfChanged(e) {
       this.model.pointOpacity !== e &&
@@ -51465,8 +51465,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       "div",
                       {
                         class: () => ({
-                          "dcg-iconed-mathquill-row": !0,
-                          "dcg-label-angle-row": !0,
+                          "dcg-iconed-mathquill-row": true,
+                          "dcg-label-angle-row": true,
                           "dcg-suffix-degree":
                             this.props.controller().getGraphSettings()
                               .degreeMode,
@@ -51599,7 +51599,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
       getWhiteTextOutline() {
-        return this.getEditable() ? !1 : !this.model.suppressTextOutline;
+        return this.getEditable() ? false : !this.model.suppressTextOutline;
       }
       setWhiteTextOutline(e) {
         this.controller.dispatch({
@@ -51882,14 +51882,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? bH(this.model)
           : this.model.type === "table-column"
           ? XU(this.model)
-          : !1;
+          : false;
       }
       isLineWidthValid() {
         return this.model.type === "expression"
           ? yT(this.model)
           : this.model.type === "table-column"
           ? JU(this.model)
-          : !1;
+          : false;
       }
       dispatchLineOpacityLatexIfChanged(e) {
         this.model.lineOpacity !== e &&
@@ -52044,7 +52044,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
       isLineWidthValid() {
-        return this.model.type === "expression" ? yT(this.model) : !1;
+        return this.model.type === "expression" ? yT(this.model) : false;
       }
       dispatchLineWidthLatexIfChanged(e) {
         this.model.lineWidth !== e && this.model.type === "expression" &&
@@ -52223,7 +52223,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? this.isDraggable() ? xH(this.model) : bT(this.model)
           : this.model.type === "table-column"
           ? QU(this.model)
-          : !1;
+          : false;
       }
       onPointStyleSelected(e) {
         this.model.pointStyle !== e &&
@@ -52377,7 +52377,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
       isPointSizeValid() {
-        return this.model.type === "expression" ? bT(this.model) : !1;
+        return this.model.type === "expression" ? bT(this.model) : false;
       }
       dispatchPointSizeLatexIfChanged(e) {
         this.model.pointSize !== e && this.model.type === "expression" &&
@@ -52480,7 +52480,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                           this.controller.s(
                             "graphing-calculator-label-opacity-tooltip",
                           ),
-                        sticky: this.const(!0),
+                        sticky: this.const(true),
                         gravity: this.const("s"),
                       },
                       jo.createElement("i", {
@@ -52523,8 +52523,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       shouldShowOpacity() {
         return this.controller.getGraphSettings().config.beta3d
-          ? this.model.formula.is_inequality !== !0
-          : !1;
+          ? this.model.formula.is_inequality !== true
+          : false;
       }
       toggleSurfacesVisible() {
         this.controller.dispatch({
@@ -52545,7 +52545,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
       isResolutionValid() {
-        return this.model.type === "expression" ? wH(this.model) : !1;
+        return this.model.type === "expression" ? wH(this.model) : false;
       }
       getDefaultResolution() {
         return this.model.type === "expression" && cH(this.model)
@@ -52626,8 +52626,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         "div",
         {
           class: () => ({
-            "dcg-expressions-options-menu": !0,
-            "dcg-options-menu": !0,
+            "dcg-expressions-options-menu": true,
+            "dcg-options-menu": true,
           }),
           role: fi.const("region"),
           "aria-label": () =>
@@ -52732,12 +52732,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return this.controller.shouldShowAuthorFeatures() || !Ds(e);
     }
     getSectionsWithColorAfterFirstOpen() {
-      let e = this.getSections(), t = [], o = !1;
+      let e = this.getSections(), t = [], o = false;
       for (let i of e) {
         t.push(i),
-          i === "colors" && (o = !0),
+          i === "colors" && (o = true),
           !o && this.canColorComeAfterSection(i) &&
-          this.isSectionOpen(i) && (t.push("colors"), o = !0);
+          this.isSectionOpen(i) && (t.push("colors"), o = true);
       }
       return t;
     }
@@ -52772,7 +52772,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       switch (e) {
         case "colors":
         case "drag":
-          return !1;
+          return false;
         case "fill":
         case "label":
         case "lines":
@@ -52780,7 +52780,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         case "points":
         case "points3d":
         case "surfaces":
-          return !0;
+          return true;
         default:
           return e;
       }
@@ -52802,29 +52802,29 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       switch (e) {
         case "lines":
-          return t.hidden ? !1 : a.lines;
+          return t.hidden ? false : a.lines;
         case "label":
           return ja(t);
         case "fill":
-          return t.hidden ? !1 : wd(t) ? !0 : a.fill;
+          return t.hidden ? false : wd(t) ? true : a.fill;
         case "points":
-          return t.hidden ? !1 : Ea(t) ? !t.hidden : a.points;
+          return t.hidden ? false : Ea(t) ? !t.hidden : a.points;
         case "drag":
           return Ro(t) !== "NONE";
         case "colors":
-          return !0;
+          return true;
         case "points3d":
-          return t.hidden ? !1 : a.points;
+          return t.hidden ? false : a.points;
         case "lines3d":
         case "surfaces":
-          return t.hidden ? !1 : a.lines;
+          return t.hidden ? false : a.lines;
       }
     }
   };
   var OP = {
-      showGrid: !0,
-      showXAxis: !0,
-      showYAxis: !0,
+      showGrid: true,
+      showXAxis: true,
+      showYAxis: true,
       xAxisStep: 0,
       yAxisStep: 0,
       xAxisScale: "linear",
@@ -52835,36 +52835,36 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       yAxisArrowMode: "NONE",
       xAxisLabel: "",
       yAxisLabel: "",
-      xAxisNumbers: !0,
-      yAxisNumbers: !0,
-      polarMode: !1,
-      polarNumbers: !0,
-      degreeMode: !1,
+      xAxisNumbers: true,
+      yAxisNumbers: true,
+      polarMode: false,
+      polarNumbers: true,
+      degreeMode: false,
       randomSeed: "",
-      restrictGridToFirstQuadrant: !1,
-      userLockedViewport: !1,
-      complex: !1,
+      restrictGridToFirstQuadrant: false,
+      userLockedViewport: false,
+      complex: false,
     },
     EK = {
-      threeDMode: !1,
+      threeDMode: false,
       worldRotation3D: [],
       axis3D: [0, 0, 1],
       speed3D: 0,
-      showPlane3D: !0,
-      showNumbers3D: !0,
+      showPlane3D: true,
+      showNumbers3D: true,
       plane3dOpacity: "",
       backgroundColor3d: "#FFF",
-      showAxis3D: !0,
-      showAxisLabels3D: !0,
-      showBox3D: !0,
+      showAxis3D: true,
+      showAxisLabels3D: true,
+      showBox3D: true,
     },
-    yie = { squareAxes: !0 },
+    yie = { squareAxes: true },
     xie = {
       ...EK,
       ...yie,
       product: "graphing",
-      includeFunctionParametersInRandomSeed: !0,
-      hideCustomColors: !1,
+      includeFunctionParametersInRandomSeed: true,
+      hideCustomColors: false,
     };
   function TK(r) {
     return r in EK;
@@ -53161,39 +53161,39 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       : r;
   }
   var RP = {
-      keypad: !0,
-      graphpaper: !0,
-      expressions: !0,
-      settingsMenu: !0,
-      zoomButtons: !0,
-      showResetButtonOnGraphpaper: !1,
-      expressionsTopbar: !0,
-      capExpressionSize: !1,
-      pointsOfInterest: !0,
-      trace: !0,
-      border: !0,
-      lockViewport: !1,
-      expressionsCollapsed: !1,
-      authorFeatures: !1,
-      authorMode: !0,
-      advancedStyling: !1,
-      images: !0,
+      keypad: true,
+      graphpaper: true,
+      expressions: true,
+      settingsMenu: true,
+      zoomButtons: true,
+      showResetButtonOnGraphpaper: false,
+      expressionsTopbar: true,
+      capExpressionSize: false,
+      pointsOfInterest: true,
+      trace: true,
+      border: true,
+      lockViewport: false,
+      expressionsCollapsed: false,
+      authorFeatures: false,
+      authorMode: true,
+      advancedStyling: false,
+      images: true,
       imageUploadCallback: cD,
-      folders: !0,
-      notes: !0,
-      sliders: !0,
-      links: !0,
-      qwertyKeyboard: !0,
-      restrictedFunctions: !1,
-      forceEnableGeometryFunctions: !1,
-      pasteGraphLink: !1,
-      pasteTableData: !0,
-      degreeMode: !1,
-      clearIntoDegreeMode: !1,
-      autosize: !0,
-      plotSingleVariableImplicitEquations: !0,
-      plotImplicits: !0,
-      plotInequalities: !0,
+      folders: true,
+      notes: true,
+      sliders: true,
+      links: true,
+      qwertyKeyboard: true,
+      restrictedFunctions: false,
+      forceEnableGeometryFunctions: false,
+      pasteGraphLink: false,
+      pasteTableData: true,
+      degreeMode: false,
+      clearIntoDegreeMode: false,
+      autosize: true,
+      plotSingleVariableImplicitEquations: true,
+      plotImplicits: true,
+      plotInequalities: true,
       colors: {
         RED: pE,
         BLUE: uE,
@@ -53202,86 +53202,86 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         PURPLE: gE,
         BLACK: zf,
       },
-      invertedColors: !1,
-      functionDefinition: !0,
-      projectorMode: !1,
-      decimalToFraction: !0,
+      invertedColors: false,
+      functionDefinition: true,
+      projectorMode: false,
+      decimalToFraction: true,
       fontSize: 16,
       language: "en",
       backgroundColor: "#fff",
       textColor: "#000",
-      distributions: !0,
+      distributions: true,
       brailleMode: "none",
-      sixKeyInput: !1,
-      brailleControls: !0,
+      sixKeyInput: false,
+      brailleControls: true,
       graphDescription: void 0,
-      zoomFit: !0,
-      forceLogModeRegressions: !1,
-      defaultLogModeRegressions: !1,
+      zoomFit: true,
+      forceLogModeRegressions: false,
+      defaultLogModeRegressions: false,
       actions: "auto",
-      audio: !0,
-      logScales: !0,
-      translucentSurfaces: !1,
+      audio: true,
+      logScales: true,
+      translucentSurfaces: false,
       perspectiveDistortion: 1,
-      showKeyboardShortcutsInTooltips: !1,
-      tone: !0,
-      muted: !0,
-      showPerformanceMeter: !1,
-      allowComplex: !0,
-      customRegressions: !0,
+      showKeyboardShortcutsInTooltips: false,
+      tone: true,
+      muted: true,
+      showPerformanceMeter: false,
+      allowComplex: true,
+      customRegressions: true,
     },
     IK = Object.keys(RP),
     wie = {
-      orientationButtons: !0,
+      orientationButtons: true,
       debug3dRender: void 0,
       debugPeelLayers: void 0,
-      adaptivePeeling: !0,
+      adaptivePeeling: true,
       debugPixelRatio: void 0,
       translucentOpacity: "0.8",
-      peelFloatTexture: !1,
+      peelFloatTexture: false,
       debugScale: 1 / 10,
       peelUpsample: void 0,
     },
     AK = {
       product: "graphing",
-      showHamburger: !1,
-      disableScrollFix: !1,
-      branding: !0,
-      onlyTraceSelected: !1,
-      disableMouseInteractions: !1,
-      nativeOnscreenKeypad: !1,
-      plaidMode: !1,
-      wireframe: !1,
+      showHamburger: false,
+      disableScrollFix: false,
+      branding: true,
+      onlyTraceSelected: false,
+      disableMouseInteractions: false,
+      nativeOnscreenKeypad: false,
+      plaidMode: false,
+      wireframe: false,
       pasteGraphLinkCallback: void 0,
-      editOnWeb: !1,
-      crossOriginSaveTest: !1,
-      enableTabindex: !0,
-      audioTraceReverseExpressions: !1,
-      audioTraceSimult: !1,
-      transparentBackground: !1,
-      pauseWhenOffscreen: !1,
-      hideGeoUI: !1,
-      substitutions: !0,
-      intervalComprehensions: !0,
-      recursion: !0,
-      beta3d: !1,
-      disableLighting: !1,
-      disableWorkerOnZoom: !1,
-      cacheRenderedSvgs: !1,
-      ghostMode: !1,
-      tableRegressions: !0,
-      reflectionArc: !1,
-      logInternalErrors: !1,
-      debugProgressUpdates: !1,
+      editOnWeb: false,
+      crossOriginSaveTest: false,
+      enableTabindex: true,
+      audioTraceReverseExpressions: false,
+      audioTraceSimult: false,
+      transparentBackground: false,
+      pauseWhenOffscreen: false,
+      hideGeoUI: false,
+      substitutions: true,
+      intervalComprehensions: true,
+      recursion: true,
+      beta3d: false,
+      disableLighting: false,
+      disableWorkerOnZoom: false,
+      cacheRenderedSvgs: false,
+      ghostMode: false,
+      tableRegressions: true,
+      reflectionArc: false,
+      logInternalErrors: false,
+      debugProgressUpdates: false,
       recursionDepthLimit: void 0,
       ...wie,
     },
     vie = {
-      solutions: !0,
-      menus: !0,
-      singleVariableSolutions: !0,
-      clickableObjects: !1,
-      administerSecretFolders: !1,
+      solutions: true,
+      menus: true,
+      singleVariableSolutions: true,
+      clickableObjects: false,
+      administerSecretFolders: false,
     },
     sy = { ...RP, ...AK };
   function FP(r) {
@@ -53301,14 +53301,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         __dcg_shared_module_exports__["qe"].warn(
           "Invalid textColor. Text color must be a 3- or 6-character hex color (e.g. #000 or #001111)",
         )),
-      e.actions !== !0 && e.actions !== !1 && e.actions !== "auto" &&
+      e.actions !== true && e.actions !== false && e.actions !== "auto" &&
       (e.actions = sy.actions,
         __dcg_shared_module_exports__["qe"].warn(
           "Invalid actions setting. Must be true, false, or 'auto'.",
         )),
       r.zoomButtons === void 0 && (!e.graphpaper || e.lockViewport) &&
-      (e.zoomButtons = !1),
-      r.images === void 0 && (e.graphpaper || (e.images = !1)),
+      (e.zoomButtons = false),
+      r.images === void 0 && (e.graphpaper || (e.images = false)),
       r.hasOwnProperty("menus") &&
       (__dcg_shared_module_exports__["qe"].warn(
         "As of API version 0.4, the 'menus' option is deprecated and has been split into 'settingsMenu' (boolean) and 'expressionsTopbar' (boolean).",
@@ -53330,38 +53330,38 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       (__dcg_shared_module_exports__["qe"].warn(
         "As of API v1.7, the 'clickableObjects' option is deprecated and has been replaced with 'actions'.",
       ),
-        r.clickableObjects === !0 && !r.hasOwnProperty("actions") &&
-        (e.actions = !0)),
+        r.clickableObjects === true && !r.hasOwnProperty("actions") &&
+        (e.actions = true)),
       r.hasOwnProperty("administerSecretFolders") &&
       (__dcg_shared_module_exports__["qe"].warn(
         "As of API v1.8, the 'administerSecretFolders' option is deprecated and has been subsumed under 'authorFeatures'.",
       ),
-        r.administerSecretFolders === !0 &&
-        !r.hasOwnProperty("authorFeatures") && (e.authorFeatures = !0)),
+        r.administerSecretFolders === true &&
+        !r.hasOwnProperty("authorFeatures") && (e.authorFeatures = true)),
       e.graphpaper ||
       (e.expressionsCollapsed &&
-        (e.expressionsCollapsed = !1,
+        (e.expressionsCollapsed = false,
           __dcg_shared_module_exports__["qe"].warn(
             "Desmos API initialized with bad options. graphpaper: false and expressionsCollapsed: true are incompatible. Proceeding with expressionsCollapsed: false.",
           )),
         e.zoomButtons &&
-        (e.zoomButtons = !1,
+        (e.zoomButtons = false,
           __dcg_shared_module_exports__["qe"].warn(
             "Desmos API initialized with bad options. graphpaper: false and zoomButtons: true are incompatible. Proceeding with zoomButtons: false.",
           )),
         e.showResetButtonOnGraphpaper &&
-        (e.showResetButtonOnGraphpaper = !1,
+        (e.showResetButtonOnGraphpaper = false,
           __dcg_shared_module_exports__["qe"].warn(
             "Desmos API initialized with bad options. graphpaper: false and showResetButtonOnGraphpaper: true are incompatible. Proceeding with showResetButtonOnGraphpaper: false.",
           ))),
       e.lockViewport && e.zoomButtons &&
-      (e.zoomButtons = !1,
+      (e.zoomButtons = false,
         __dcg_shared_module_exports__["qe"].warn(
           "Desmos API initialized with bad options. lockViewport: true and zoomButtons: true are incompatible. Proceeding with zoomButtons: false.",
         )),
-      (e.notes === !1 || e.folders === !1 || e.images === !1) &&
-      e.pasteGraphLink === !0 &&
-      (e.pasteGraphLink = !1,
+      (e.notes === false || e.folders === false || e.images === false) &&
+      e.pasteGraphLink === true &&
+      (e.pasteGraphLink = false,
         __dcg_shared_module_exports__["qe"].warn(
           "Desmos API initialized with bad options. pasteGraphLink: true is incompatible with disabling the creation of note, folder, or image expressions. Proceeding with pasteGraphLink: false.",
         )),
@@ -53371,14 +53371,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Cie(r) {
     FS ? setTimeout(r, 25) : requestAnimationFrame(r);
   }
-  var MK = 1, ly = {}, Dv = !1;
+  var MK = 1, ly = {}, Dv = false;
   function LK() {
-    Dv = !0, Cie(Sie);
+    Dv = true, Cie(Sie);
   }
   var GK = {};
   function Sie() {
-    GK.rafSPY && GK.rafSPY(), Dv = !1;
-    for (let r in ly) ly[r].detectAndEnqueueEvent(), Dv = !0;
+    GK.rafSPY && GK.rafSPY(), Dv = false;
+    for (let r in ly) ly[r].detectAndEnqueueEvent(), Dv = true;
     if (Dv) {
       LK();
       for (let r in ly) ly[r].dispatchQueuedEvent();
@@ -53388,8 +53388,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     constructor(e, t) {
       this.elt = e;
       this.cb = t;
-      this.destroyed = !1;
-      this.lastOffscreen = !1;
+      this.destroyed = false;
+      this.lastOffscreen = false;
       this.id = MK.toString(), this.appliedScale = { x: 1, y: 1 }, MK++;
     }
     stopWatching() {
@@ -53420,14 +53420,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     detectAndEnqueueEvent() {
       if (this.destroyed) return;
-      let e = !0;
+      let e = true;
       if (!(document.body && document.body.contains(this.elt))) {
         this.lastSize &&
           (this.lastSize = void 0,
             this.queuedEvent = {
               type: "removed",
               target: this.elt,
-              isOffscreen: !0,
+              isOffscreen: true,
             });
       } else {
         let o = this.resetAppliedScalingAndGetBoundingClientRect();
@@ -53477,7 +53477,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     destroy() {
       this.stopWatching();
       for (let e in this) this.hasOwnProperty(e) && delete this[e];
-      this.destroyed = !0;
+      this.destroyed = true;
     }
   };
   var Eie = 0,
@@ -53656,7 +53656,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     this.__root = r, this.__ctx = e;
   };
   xt = function (r) {
-    var e = { width: 500, height: 500, enableMirroring: !1 }, t;
+    var e = { width: 500, height: 500, enableMirroring: false }, t;
     if (
       arguments.length > 1
         ? (t = e, t.width = arguments[0], t.height = arguments[1])
@@ -53914,7 +53914,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     var r, e;
     this.__currentDefaultPath = "",
       this.__currentPosition = {},
-      r = this.__createElement("path", {}, !0),
+      r = this.__createElement("path", {}, true),
       e = this.__closestGroupOrSvg(),
       e.appendChild(r),
       this.__currentElement = r;
@@ -54035,7 +54035,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     i = this.__createElement(
       "rect",
       { x: r, y: e, width: t, height: o },
-      !0,
+      true,
     ),
       n = this.__closestGroupOrSvg(),
       n.appendChild(i),
@@ -54047,7 +54047,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     i = this.__createElement(
       "rect",
       { x: r, y: e, width: t, height: o },
-      !0,
+      true,
     ),
       n = this.__closestGroupOrSvg(),
       n.appendChild(i),
@@ -54080,7 +54080,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       width: t,
       height: o,
       fill: "#FFFFFF",
-    }, !0), n.appendChild(i);
+    }, true), n.appendChild(i);
   };
   xt.prototype.createLinearGradient = function (r, e, t, o) {
     var i = this.__createElement("linearGradient", {
@@ -54090,7 +54090,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       y1: e + "px",
       y2: o + "px",
       gradientUnits: "userSpaceOnUse",
-    }, !1);
+    }, false);
     return this.__defs.appendChild(i), new kv(i, this);
   };
   xt.prototype.createRadialGradient = function (r, e, t, o, i, n) {
@@ -54102,7 +54102,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       fx: r + "px",
       fy: e + "px",
       gradientUnits: "userSpaceOnUse",
-    }, !1);
+    }, false);
     return this.__defs.appendChild(a), new kv(a, this);
   };
   xt.prototype.__parseFont = function () {
@@ -54147,7 +54147,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         x: e,
         y: t,
         "text-anchor": kie(this.textAlign),
-      }, !0);
+      }, true);
     a.appendChild(this.__document.createTextNode(r)),
       this.__currentElement = a,
       this.__applyStyleToCurrentElement(o),
@@ -54250,7 +54250,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     var w = "translate(" + t + ", " + o + ")";
     if (e instanceof xt) {
       if (
-        p = e.getSvg().cloneNode(!0), p.childNodes && p.childNodes.length > 1
+        p = e.getSvg().cloneNode(true), p.childNodes && p.childNodes.length > 1
       ) {
         for (h = p.childNodes[0]; h.childNodes.length;) {
           v = h.childNodes[0].getAttribute("id"),
@@ -54354,14 +54354,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   };
   xt.prototype._dcgSetTitle = function (r) {
     var e = this.__currentElement,
-      t = !1,
+      t = false,
       o,
       i = e.getElementsByTagName("title");
     i.length > 0 ? o = i[0] : (o = this.__document.createElementNS(
       "http://www.w3.org/2000/svg",
       "title",
     ),
-      t = !0),
+      t = true),
       o.textContent = r,
       t && e.appendChild(o);
   };
@@ -54419,7 +54419,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         o("pixelsPerLabel", 80, 120),
         i("curveOpacity", .7, 1, .7, 1),
         o("globalCurveColor", void 0, void 0),
-        o("disableFill", !1, !1),
+        o("disableFill", false, false),
         i("graphLineWidth", 2.5, 3.5, 5, 7),
         i("pointLineWidth", 8, 8 * 1.2, 8 * 1.3, 8 * 1.2 * 1.3);
     }
@@ -54487,7 +54487,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         case "enableTabindex":
         case "invertedColors":
         case "complex":
-          i = o === "false" ? !1 : !!o,
+          i = o === "false" ? false : !!o,
             o !== i &&
             __dcg_shared_module_exports__["qe"].warn(
               t + " must be a Boolean. You provided " + o + " (" +
@@ -54603,14 +54603,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return i;
     }
     validateSettings(t) {
-      let o = {}, i = !1;
+      let o = {}, i = false;
       for (let n in t) {
         this.stateProperties.indexOf(n) >= 0
           ? o[n] = this._validateSetting(n, t[n])
           : (__dcg_shared_module_exports__["qe"].warn(
             'Invalid graph setting "' + n + '".',
           ),
-            i = !0);
+            i = true);
       }
       return i &&
         __dcg_shared_module_exports__["qe"].warn(
@@ -54623,13 +54623,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           (__dcg_shared_module_exports__["qe"].warn(
             "complex: true is not compatible with allowComplex: false. Forcing complex: false",
           ),
-            o.complex = !1),
+            o.complex = false),
         o.complex &&
         (o.degreeMode &&
           __dcg_shared_module_exports__["qe"].warn(
             "degreeMode: true is not compatible with complex: true. Forcing degreeMode: false",
           ),
-          o.degreeMode = !1),
+          o.degreeMode = false),
         o;
     }
     getConfiguredBackgroundColor() {
@@ -54637,7 +54637,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.config.backgroundColor || "#fff",
       );
     }
-    getBackgroundColor({ invertWhite: t } = { invertWhite: !1 }) {
+    getBackgroundColor({ invertWhite: t } = { invertWhite: false }) {
       let o = this.getConfiguredBackgroundColor();
       return this.config.invertedColors && t
         ? __dcg_shared_module_exports__["Md"](o)
@@ -54648,7 +54648,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.config.textColor || "#000",
       );
     }
-    getTextColor({ invertBlack: t } = { invertBlack: !1 }) {
+    getTextColor({ invertBlack: t } = { invertBlack: false }) {
       let o = this.getConfiguredTextColor();
       return this.config.invertedColors && t
         ? __dcg_shared_module_exports__["Md"](o)
@@ -54665,11 +54665,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   qt();
   var _D = class {
     constructor(e, t) {
-      this.is3d = !0;
+      this.is3d = true;
       this.color = "#000000",
-        this.showHighlight = !1,
-        this.selected = !1,
-        this.hoistToTop = !1,
+        this.showHighlight = false,
+        this.selected = false,
+        this.hoistToTop = false,
         this.id = e,
         this.branches = t !== void 0 ? t : [];
     }
@@ -54688,11 +54688,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       OK(e) ||
       r.isGeoUIActive() &&
         r.getAllToolPreviewItems().filter((o) => o.id === e.id).length > 0
-    ) return !1;
+    ) return false;
     for (let t of e.branches) {
-      if (kc(t, r.getGraphSettings().config.audioTraceSimult)) return !0;
+      if (kc(t, r.getGraphSettings().config.audioTraceSimult)) return true;
     }
-    return !1;
+    return false;
   }
   function kc(r, e) {
     if (r) {
@@ -54709,7 +54709,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         case 26:
           return r.segments.length > 0;
         default:
-          return !1;
+          return false;
       }
     }
   }
@@ -54732,9 +54732,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       case 4:
       case 25:
       case 26:
-        return !0;
+        return true;
       default:
-        return !1;
+        return false;
     }
   }
   function NK(r, e) {
@@ -54783,7 +54783,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     };
     return __dcg_shared_module_exports__["t"](
       __dcg_shared_module_exports__["y"](r, 2).map((o) => t(o)),
-      !0,
+      true,
     );
   }
   function KP(r, e, t) {
@@ -54835,9 +54835,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         xAxisLabel: c,
         yAxisLabel: d,
       } = e.settings,
-      p = !1,
+      p = false,
       h = "",
-      u = !1,
+      u = false,
       f = [],
       y = Ao(
         __dcg_shared_module_exports__["qa"].value(t.xmin, Ng(o, t.xmin))
@@ -54865,7 +54865,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let { xmin: _, xmax: A, ymin: P, ymax: O, zmin: U, zmax: z } = t,
         { showAxis3D: x, showNumbers3D: L, showPlane3D: V } = e.settings;
       _ === P && _ === U && A === O && A === z && x
-        ? (n = s = p = !1,
+        ? (n = s = p = false,
           f.push(
             r.s(
               "graphing-calculator-narration-audio-trace-description-visible-xyz-axis-range",
@@ -55115,7 +55115,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
       }
       canTrace(e) {
-        if (!e || e.type === "image" || e.type === "text") return !1;
+        if (!e || e.type === "image" || e.type === "text") return false;
         let t;
         if (e.type === "expression" && e.shouldGraph) {
           t = this.grapher.getGraphSketch(e.id);
@@ -55127,7 +55127,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             }
           }
         }
-        return t ? ul(this.controller, t) : !1;
+        return t ? ul(this.controller, t) : false;
       }
       getTraceableExpressionCount() {
         let e = 0, t = this.controller.getItemCount();
@@ -55352,7 +55352,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       canMoveToPrevPoint() {
         let e = this.getCurrentPoint();
-        if (!e) return !1;
+        if (!e) return false;
         if (__dcg_shared_module_exports__["N"](e.graphMode)) {
           return this.canMoveToPrevPOI();
         }
@@ -55362,7 +55362,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       canMoveToNextPoint() {
         let e = this.getCurrentPoint();
-        if (!e) return !1;
+        if (!e) return false;
         if (__dcg_shared_module_exports__["N"](e.graphMode)) {
           return this.canMoveToNextPOI();
         }
@@ -55456,14 +55456,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             }
           }
         }
-        let i = !0;
+        let i = true;
         if (o.length > 0) {
           let n = Math.floor((o.length - 1) / 2), a = o[n];
           a &&
             (e === "x"
-              ? (this.independent = a.x !== void 0 ? a.x : 0, i = !1)
+              ? (this.independent = a.x !== void 0 ? a.x : 0, i = false)
               : e === "y" &&
-                (this.independent = a.y !== void 0 ? a.y : 0, i = !1));
+                (this.independent = a.y !== void 0 ? a.y : 0, i = false));
         }
         i && (this.independent = 0),
           this.resetToFirstBranch(),
@@ -55561,7 +55561,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? this.controller.shouldAudioTraceReverseExpressions()
             ? !!this.findNextTraceableIndex(e.index)
             : !!this.findPrevTraceableIndex(e.index)
-          : !1;
+          : false;
       }
       canMoveToNextCurve() {
         let e = this.controller.getSelectedItem();
@@ -55569,7 +55569,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? this.controller.shouldAudioTraceReverseExpressions()
             ? !!this.findPrevTraceableIndex(e.index)
             : !!this.findNextTraceableIndex(e.index)
-          : !1;
+          : false;
       }
       *getTraceableCurves(e, t = "down") {
         let o = t === "down" ? 1 : -1;
@@ -55702,7 +55702,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.brownNoiseGain.gain.value = 0,
           this.brownNoiseSource = this.audioContext.createBufferSource(),
           this.brownNoiseSource.buffer = e.brownNoiseSample,
-          this.brownNoiseSource.loop = !0,
+          this.brownNoiseSource.loop = true,
           this.brownNoiseSource.start(),
           this.brownNoiseSource.connect(this.brownNoiseGain),
           this.brownNoiseGain.connect(this.pan));
@@ -55743,7 +55743,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   var AD = class {
     constructor({ controller: e, agNavigator: t, audioEnabled: o }) {
-      this.isPlayingOneBranch = !1;
+      this.isPlayingOneBranch = false;
       this.FREQ_MIN = WK;
       this.FREQ_MAX = jK;
       this.FREQ_BASE = $K;
@@ -55778,9 +55778,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       try {
         this.audioContext =
           (await this.audioContextManager.getResumedAudioContext())
-            .audioContext, this.playbackSupported = !0;
+            .audioContext, this.playbackSupported = true;
       } catch (o) {
-        this.playbackSupported = !1;
+        this.playbackSupported = false;
         return;
       }
       this.audioContext.destination.disconnect(),
@@ -55873,8 +55873,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     playCurrentSketch(e = "sequential") {
       this.audioContextManager && this.prepareSynthesizer().then(() => {
-        this.isPlaying = !0,
-          this.isPlayingOneBranch = !1,
+        this.isPlaying = true,
+          this.isPlayingOneBranch = false,
           this.controller.runAfterDispatch(() =>
             this.controller.dispatch({ type: "render" })
           ),
@@ -55920,7 +55920,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       var i, n, a, s, l, c;
       YE(),
         clearTimeout(this.timeoutId),
-        this.isPlaying = !1,
+        this.isPlaying = false,
         this.startPlayingTime = void 0;
       let e = (i = this.audioContext) == null ? void 0 : i.currentTime;
       if (!e) return;
@@ -55961,8 +55961,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     playBranchByIndex(e) {
       this.audioContext && this.prepareSynthesizer().then(() => {
         this.prepareToPlay("simultaneous"),
-          this.isPlayingOneBranch = !0,
-          this.isPlaying = !0,
+          this.isPlayingOneBranch = true,
+          this.isPlaying = true,
           this.startPlayingTime = this.audioContext.currentTime + fo,
           this.currentPlayLoopStartTime = this.startPlayingTime,
           this.currentPlayLoopBranchIndex = e,
@@ -56065,12 +56065,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           }
           return o = __dcg_shared_module_exports__["t"](
             o.map((n) => Vie(n).map((a) => Oie(a))),
-            !0,
+            true,
           ),
             o.sort((n, a) => n[0] - a[0]),
             o.map((n) => ({
               graphMode: e.graphMode,
-              discrete: !1,
+              discrete: false,
               poi: e.poi,
               clippedSegments: [n],
             })).filter((n) => n.clippedSegments.length > 0);
@@ -56083,7 +56083,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           }
           return n.sort((a, s) => a[0] - s[0]), {
             graphMode: e.graphMode,
-            discrete: !1,
+            discrete: false,
             clippedSegments: n,
             poi: e.poi,
           };
@@ -56102,7 +56102,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           }
           return {
             graphMode: 2,
-            discrete: !0,
+            discrete: true,
             clippedSegments: [l],
             poi: void 0,
           };
@@ -56571,9 +56571,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.focusedTableLocation = void 0;
         this.grapher = t,
           this.controller = e,
-          this.audioTraceActive = !1,
-          this.wasFocusInExpressionsView = !1,
-          this.sliderTraceActive = !1,
+          this.audioTraceActive = false,
+          this.wasFocusInExpressionsView = false,
+          this.sliderTraceActive = false,
           this.sliderIndex = 0,
           this.sliderArray = [],
           this.lastSpokenBranch = 1,
@@ -56782,7 +56782,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? (e.preventDefault(),
               e.stopPropagation(),
               Si(),
-              this.queueAnimatingPoints(!0),
+              this.queueAnimatingPoints(true),
               xe())
             : i && n === "S" && this.controller.isListEnabled()
             ? (e.preventDefault(),
@@ -56822,7 +56822,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               { branches: t },
             ),
           );
-        let o = !1, i = !1;
+        let o = false, i = false;
         for (let a of e.branches) {
           if (
             t === 1 && a.segments.length > 0 &&
@@ -56863,8 +56863,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             }
           } else {t > 1 && (a.graphMode === 2 || a.graphMode === 1
               ? (a.operator === "<" || a.operator === "<=" ||
-                a.operator === ">" || a.operator === ">=") && (o = !0)
-              : a.graphMode === 7 && (i = !0));}
+                a.operator === ">" || a.operator === ">=") && (o = true)
+              : a.graphMode === 7 && (i = true));}
         }
         o && i &&
           yt(
@@ -57065,7 +57065,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         var t;
         if (this.audioTraceActive) {
           if (
-            this.audioTraceActive = !1,
+            this.audioTraceActive = false,
               this.controller.isKeypadEnabled() &&
               this.controller.dispatch({ type: "keypad/123" }),
               e ||
@@ -57112,10 +57112,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.controller.dispatch(i);
             }
           }
-          this.wasFocusInExpressionsView = !1,
+          this.wasFocusInExpressionsView = false,
             this.focusedTableLocation = void 0,
             this.stopAnimations(),
-            this.sliderTraceActive = !1,
+            this.sliderTraceActive = false,
             this.sliderIndex = 0,
             this.agSynthesizer.stop(),
             this.agSynthesizer.releaseAudio(),
@@ -57124,7 +57124,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.grapher.traceLayer.setTraceInfo(void 0),
             this.grapher.traceLayer.setTraceLine(void 0),
             this.controller.requestRedrawGraph(),
-            this.enteredAudioTraceWithFirstTableColumnFocused = !1,
+            this.enteredAudioTraceWithFirstTableColumnFocused = false,
             xe(e),
             this.resumeAnimations();
         }
@@ -57140,7 +57140,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? e.type === "table"
             ? !!this.agNavigator.getCurrentSketch()
             : this.agNavigator.canTrace(e)
-          : !1;
+          : false;
       }
       enterAudioTrace(e) {
         var a, s;
@@ -57148,7 +57148,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = t && t.type !== "table" && !this.agNavigator.canTrace(t)
             ? this.getExpressionAriaLabel(t.id)
             : void 0,
-          i = !1;
+          i = false;
         this.audioTraceActive ||
           (this.wasFocusInExpressionsView = this
             .isFocusInExpressionsView(),
@@ -57163,7 +57163,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let n;
         if (i) {
           n = this.agNavigator.getFirstTraceableSketch({
-            selectAssociatedExpression: !0,
+            selectAssociatedExpression: true,
           });
         } else if (!o) {
           if (
@@ -57202,7 +57202,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       : void 0,
                   ));
             }
-          } else {this.enteredAudioTraceWithFirstTableColumnFocused = !1,
+          } else {this.enteredAudioTraceWithFirstTableColumnFocused = false,
               this.setFocusedTableLocation(void 0);}
           n = this.agNavigator.getCurrentSketch();
         }
@@ -57267,7 +57267,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   message: this.controller.s(
                     "graphing-calculator-text-audio-trace-on",
                   ),
-                  noAria: !0,
+                  noAria: true,
                   onHide: () => this.exitAudioTrace(),
                   hideAfter: 0,
                 },
@@ -57297,7 +57297,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 ),
               ),
               this.pauseAnimations(),
-              this.queueAnimatingPoints(!1),
+              this.queueAnimatingPoints(false),
               this.agSynthesizer.prepareSynthesizer(),
               (!e || !e.fromKeypad) &&
               (yt(
@@ -57348,9 +57348,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         this.agNavigator.moveToOrigin(),
           yt(this.getExpressionAriaLabel(n.id)),
-          this.reportAudioTrace({ playSound: !1 }),
+          this.reportAudioTrace({ playSound: false }),
           this.wasFocusInExpressionsView || xe(),
-          this.audioTraceActive = !0,
+          this.audioTraceActive = true,
           this.controller.isKeypadEnabled() &&
           this.controller.dispatch({ type: "keypad/audio" });
       }
@@ -57374,7 +57374,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               (this.controller.dispatch({
                 type: "set-slider-isplaying",
                 id: t.id,
-                isPlaying: !1,
+                isPlaying: false,
               }),
                 this.sliderArray.push(t));
           });
@@ -57383,11 +57383,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (this.sliderArray.length !== 0) {
           for (let e = 0; e < this.sliderArray.length; e++) {
             let t = this.sliderArray[e];
-            t.slider.isPlaying !== !0 &&
+            t.slider.isPlaying !== true &&
               this.controller.dispatch({
                 type: "set-slider-isplaying",
                 id: t.id,
-                isPlaying: !0,
+                isPlaying: true,
               });
           }
           this.sliderArray.length = 0;
@@ -57399,16 +57399,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "set-slider-isplaying",
               id: t.id,
-              isPlaying: !1,
+              isPlaying: false,
             });
         });
       }
       hasActiveSliders() {
         let e = this.controller.getAllModelsWithSliders();
         for (let t = 0; t < e.length; t++) {
-          if (e[t].slider.isPlaying) return !0;
+          if (e[t].slider.isPlaying) return true;
         }
-        return !1;
+        return false;
       }
       queueAnimatingPoints(e) {
         this.sliderArray.length === 1
@@ -57541,13 +57541,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ),
             ),
               this.queueSliderLatex(),
-              this.sliderTraceActive = !0)
+              this.sliderTraceActive = true)
             : (yt(
               this.controller.s(
                 "graphing-calculator-narration-slider-trace-no-sliders",
               ),
             ),
-              this.sliderTraceActive = !1),
+              this.sliderTraceActive = false),
           xe();
       }
       exitSliderTrace() {
@@ -57557,7 +57557,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "graphing-calculator-narration-slider-trace-off",
             ),
           ),
-            this.sliderTraceActive = !1,
+            this.sliderTraceActive = false,
             this.sliderIndex = 0,
             xe());
       }
@@ -57612,10 +57612,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.controller.dispatch({ type: "render" });
       }
       reportX() {
-        Si(), this.reportAudioTrace({ propToSpeak: "x", playSound: !1 });
+        Si(), this.reportAudioTrace({ propToSpeak: "x", playSound: false });
       }
       reportY() {
-        Si(), this.reportAudioTrace({ propToSpeak: "y", playSound: !1 });
+        Si(), this.reportAudioTrace({ propToSpeak: "y", playSound: false });
       }
       reportColor() {
         Si();
@@ -57638,13 +57638,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
       reportType() {
-        Si(), this.reportAudioTrace({ propToSpeak: "type", playSound: !1 });
+        Si(), this.reportAudioTrace({ propToSpeak: "type", playSound: false });
       }
       reportBranch() {
-        Si(), this.reportAudioTrace({ propToSpeak: "branch", playSound: !1 });
+        Si(), this.reportAudioTrace({ propToSpeak: "branch", playSound: false });
       }
       describePoint() {
-        Si(), this.reportAudioTrace({ playSound: !1 }), xe();
+        Si(), this.reportAudioTrace({ playSound: false }), xe();
       }
       playCurrentPoint() {
         let e = this.agNavigator.getCurrentPoint();
@@ -57657,8 +57657,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let o = e == null ? void 0 : e.propToSpeak,
           i = this.controller.getAudio() &&
             this.agSynthesizer.getPlaybackSupported() &&
-            ((a = e == null ? void 0 : e.playSound) != null ? a : !0),
-          n = (s = e == null ? void 0 : e.speakCoordinates) != null ? s : !0;
+            ((a = e == null ? void 0 : e.playSound) != null ? a : true),
+          n = (s = e == null ? void 0 : e.speakCoordinates) != null ? s : true;
         this.agSynthesizer.stop(),
           i && this.playCurrentPoint(),
           n &&
@@ -57950,14 +57950,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function VD(r, e) {
     let { x: t, y: o, width: i, height: n } = e,
       a = r.getImageData(t, o, i, n).data;
-    for (let s = 3; s < a.length; s += 4) if (a[s] !== 0) return !1;
-    return !0;
+    for (let s = 3; s < a.length; s += 4) if (a[s] !== 0) return false;
+    return true;
   }
   function Nie(r, e) {
     let { x: t, y: o, width: i, height: n } = e,
       a = r.getImageData(t, o, i, n).data;
-    for (let s = 3; s < a.length; s += 4) if (a[s] === 0) return !1;
-    return !0;
+    for (let s = 3; s < a.length; s += 4) if (a[s] === 0) return false;
+    return true;
   }
   function YP(r, e, t, o, i) {
     return VD(e, RD(r, t, o, i));
@@ -58086,18 +58086,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       y = l.yAxisArrowMode,
       C = a.graphLineWidth,
       E = {
-        showGrid: !1,
-        xAxisNumbers: !1,
+        showGrid: false,
+        xAxisNumbers: false,
         xAxisArrowMode: "NONE",
-        yAxisNumbers: !1,
+        yAxisNumbers: false,
         yAxisArrowMode: "NONE",
-        showXAxis: !1,
-        showYAxis: !1,
+        showXAxis: false,
+        showYAxis: false,
         graphLineWidth: C,
         pointLineWidth: 2.5,
         curveOpacity: 1,
         globalCurveColor: "#000",
-        disableFill: !0,
+        disableFill: true,
       };
     for (let F in E) e.settings[F] = E[F];
     let v = r.width - s.right - s.left,
@@ -58122,20 +58122,20 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       A !== null && R !== null && O !== null && L !== null &&
       M !== null && z !== null
     ) {
-      e.settings.disableFill = !0,
+      e.settings.disableFill = true,
         e.screenshotToCanvas(V, {
           width: v,
           height: w,
           targetPixelRatio: 1,
-          transparentBackground: !0,
+          transparentBackground: true,
           showMovablePoints: n,
         }),
-        e.settings.disableFill = !1,
+        e.settings.disableFill = false,
         e.screenshotToCanvas(P, {
           width: v,
           height: w,
           targetPixelRatio: 1,
-          transparentBackground: !0,
+          transparentBackground: true,
           showMovablePoints: n,
         }),
         A.fillStyle = "white",
@@ -58263,7 +58263,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         dotSpacing: 0,
         cellPadding: 1,
         graphLineWidth: 1.75,
-        embossPatternInequalities: !0,
+        embossPatternInequalities: true,
       };
     }
     if (r === "vpmax8" || r === "vpmax11") {
@@ -58271,7 +58271,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         dotSpacing: 1,
         cellPadding: 2,
         graphLineWidth: 1,
-        embossPatternInequalities: !1,
+        embossPatternInequalities: false,
       };
     }
     {
@@ -58280,8 +58280,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
   }
   function Kie(r) {
-    if (r === "etc8" || r === "etc11") return !1;
-    if (r === "vpmax8" || r === "vpmax11") return !0;
+    if (r === "etc8" || r === "etc11") return false;
+    if (r === "vpmax8" || r === "vpmax11") return true;
     {
       let e = r;
       throw new Error(`Unexpected embosser model ${e}`);
@@ -58472,7 +58472,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (t) return t.listIndex;
     }
     isKeyboardFocused(e, t) {
-      if (!e) return !1;
+      if (!e) return false;
       let o = this.grapher.poiController.keyboardAttentionManager
           .getKeyboardAttention(),
         i = o == null ? void 0 : o.calcId;
@@ -58480,20 +58480,20 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         (t === void 0 || t === (o == null ? void 0 : o.listIndex));
     }
     shouldDrawHovered(e, t, o) {
-      if (!t) return !1;
-      if (this.isKeyboardFocused(t, o)) return !0;
+      if (!t) return false;
+      if (this.isKeyboardFocused(t, o)) return true;
       let {
         translationPreviewVectorParents: i,
         rotationPreviewAngleMarkerParents: n,
       } = e.transformationPreviewParentData;
       if (i.has(t) || n.has(t) && !this.controller.isToolPreviewItem(t)) {
-        return !0;
+        return true;
       }
-      if (this.isAnObjectPressed() && !this.isObjectPressed(t)) return !1;
+      if (this.isAnObjectPressed() && !this.isObjectPressed(t)) return false;
       let a = this.getHoveredObjectById(t);
       return a
-        ? a.listIndexes === void 0 || o === void 0 ? !0 : !!a.listIndexes[o]
-        : !1;
+        ? a.listIndexes === void 0 || o === void 0 ? true : !!a.listIndexes[o]
+        : false;
     }
     setHoveredObjects(e) {
       __dcg_shared_module_exports__["E"](e, this.hoveredObjects) ||
@@ -58507,8 +58507,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = t[e.calcId],
           i = e.listIndex || 0;
         return o
-          ? o.listIndexes ? o.listIndexes[i] = !0 : o.listIndexes = { [i]: !0 }
-          : (o = { listIndexes: { [i]: !0 } }, t[e.calcId] = o),
+          ? o.listIndexes ? o.listIndexes[i] = true : o.listIndexes = { [i]: true }
+          : (o = { listIndexes: { [i]: true } }, t[e.calcId] = o),
           t;
       } else return this.hoveredObjects;
     }
@@ -58516,13 +58516,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return this.getHoveredObjects()[e];
     }
     shouldDrawPressed(e, t) {
-      if (!e) return !1;
+      if (!e) return false;
       let o = this.pressedObject;
-      return !o || o.id !== e ? !1 : t === void 0 ? !0 : o.listIndex === t;
+      return !o || o.id !== e ? false : t === void 0 ? true : o.listIndex === t;
     }
     isObjectPressed(e) {
       return e === void 0
-        ? !1
+        ? false
         : !!(this.pressedObject && this.pressedObject.id === e);
     }
     setPressedObject(e) {
@@ -58541,9 +58541,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       this.controller.requestRedrawGraph();
     }
     shouldDrawGhosted(e) {
-      if (!e) return !1;
+      if (!e) return false;
       let t = this.controller.getItemModel(e);
-      return !t || t.type !== "expression" ? !1 : Hi(t);
+      return !t || t.type !== "expression" ? false : Hi(t);
     }
   };
   var qp = __dcg_shared_module_exports__["e"](ne()),
@@ -58699,7 +58699,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             e > 0 &&
             (i.getAudioTraceActive() ||
               i.agNavigator.getFirstTraceableSketch({
-                      selectAssociatedExpression: !1,
+                      selectAssociatedExpression: false,
                     }) !== void 0 && (Zo
                     ? t.push(
                       this.controller.s(
@@ -58823,11 +58823,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     tV = class extends eV {
       constructor() {
         super(...arguments);
-        this.__redrawRequested = !1;
+        this.__redrawRequested = false;
         this.events = new Kl();
       }
       redrawAllLayers() {
-        this.__redrawRequested = !0;
+        this.__redrawRequested = true;
       }
       redrawAllLayersSynchronously() {
         return this._redrawAllLayers();
@@ -58916,15 +58916,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     my = class extends oV {};
   var BD = class {
     constructor(e, t) {
-      this.is3d = !1;
+      this.is3d = false;
       this.color = "#000000",
         this.style = "normal",
-        this.showPOI = !1,
-        this.showHighlight = !1,
-        this.hoistToTop = !1,
-        this.selected = !1,
-        this.tokenHovered = !1,
-        this.tokenSelected = !1,
+        this.showPOI = false,
+        this.showHighlight = false,
+        this.hoistToTop = false,
+        this.selected = false,
+        this.tokenHovered = false,
+        this.tokenSelected = false,
         this.labels = [],
         this.id = e,
         this.branches = t !== void 0 ? t : [],
@@ -58934,7 +58934,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         t.forEach((o, i) => {
           if (o.graphMode === 22) {
             if (o.objectType === 17) {
-              let n = new Lp(0, 0, 1008, this, i, 0, !1);
+              let n = new Lp(0, 0, 1008, this, i, 0, false);
               this.labels.push({
                 id: "label-" + e + "-" + (o.listIndex || 0),
                 type: "segment",
@@ -58943,7 +58943,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 text: o.labels && o.labels[0] || "",
               });
             } else if (o.objectType === 16) {
-              let n = new Lp(0, 0, 1008, this, i, 0, !1);
+              let n = new Lp(0, 0, 1008, this, i, 0, false);
               this.labels.push({
                 id: "label-" + e + "-" + (o.listIndex || 0),
                 type: "polygon",
@@ -58952,7 +58952,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 text: o.labels && o.labels[0] || "",
               });
             } else if (o.objectType === 23) {
-              let n = new Lp(0, 0, 1008, this, i, 0, !1);
+              let n = new Lp(0, 0, 1008, this, i, 0, false);
               this.labels.push({
                 id: "label-" + e + "-" + (o.listIndex || 0),
                 type: "angle",
@@ -58978,8 +58978,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         } else if (__dcg_shared_module_exports__["_d"](t)) {
           let o = t.poi,
             i = (t.graphMode === 3 || t.graphMode === 25) &&
-              t.interactiveLabel === !0;
-          if (t.showLabel === !0 || i) {
+              t.interactiveLabel === true;
+          if (t.showLabel === true || i) {
             let n = t.nakedLabel;
             o.defined && this._pushPOI(o.defined, e, 1008, n);
           } else o.defined && this._pushPOI(o.defined, e, 1006);
@@ -59064,7 +59064,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }),
         this.__cachedStaticLabeledPoints;
     }
-    _pushPOI(e, t, o, i = !1) {
+    _pushPOI(e, t, o, i = false) {
       for (let n = 0, a = e.x.length; n < a; n++) {
         let s = new Lp(e.x[n], e.y[n], o, this, t, n, i);
         e.intersects && (s.intersects = e.intersects[n]),
@@ -59107,11 +59107,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.tokenHovered = e.tokenHovered,
           __dcg_shared_module_exports__["_d"](this.branches[0]))
       ) {
-        let t = !0;
+        let t = true;
         for (let o = 0; o < this.__cachedPOI.length; o++) {
           let i = e.__cachedPOI[o], n = this.__cachedPOI[o];
           if (!i || i.type !== n.type) {
-            t = !1;
+            t = false;
             break;
           }
         }
@@ -59934,9 +59934,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (t.settings.threeDMode && !t.settings.showNumbers3D) {
           return { x: _, y: A };
         }
-        let P = 5, O = !1;
+        let P = 5, O = false;
         if (a && s && (l || c)) {
-          O = !0, e.fillStyle = E;
+          O = true, e.fillStyle = E;
           let V = new _a(__dcg_shared_module_exports__["ea"](0, 1), k);
           V.drawCenteredAt(e, {
             x: w - V.getRect().right - P,
@@ -60191,7 +60191,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             description: this.controller.isGeometry() ||
                 (o = this.getAriaAlert({
                     id: t.id,
-                    includeUsageInstructions: !0,
+                    includeUsageInstructions: true,
                   })) == null
               ? void 0
               : o.completeMessage,
@@ -60243,7 +60243,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         : this.grapher.getAudioTrace().getExpressionAriaLabel(e.id);
     }
     getAriaLabel(e) {
-      let t = this.getAriaAlert({ id: e, includeUsageInstructions: !1 });
+      let t = this.getAriaAlert({ id: e, includeUsageInstructions: false });
       return t && t.completeMessage;
     }
     speakAriaAlert() {
@@ -60257,7 +60257,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         o = this.getAriaAlert({
           id: t,
           lastAriaAlert: this.lastAriaAlert,
-          includeUsageInstructions: !0,
+          includeUsageInstructions: true,
         });
       this.lastAriaAlert = o, o && o.completeMessage && xe(o.completeMessage);
     }
@@ -60324,43 +60324,43 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     }
     hasNonlinearMoveStrategy(e) {
-      if (!e) return !1;
+      if (!e) return false;
       let t = this.controller.getItemModel(e);
-      if (!t || t.type !== "expression" || !t.formula) return !1;
+      if (!t || t.type !== "expression" || !t.formula) return false;
       let o = t.formula.move_strategy;
-      return !o || !o[0] ? !1 : o[0].type === "updateSliderNonlinear";
+      return !o || !o[0] ? false : o[0].type === "updateSliderNonlinear";
     }
     isImageFullyVisible(e, t) {
       let o = e.formula.dimensions;
-      if (!o || !o.x || !o.y) return !1;
+      if (!o || !o.x || !o.y) return false;
       for (let i = 0; i < o.x.length; i++) {
         if (!t.coordsAreOnscreen(t.mapx(o.x[i]), t.mapy(o.y[i]))) {
-          return !1;
+          return false;
         }
       }
-      return !0;
+      return true;
     }
   };
-  var s6 = { translate: !0, reflect: !0, dilate: !0, rotate: !0 },
+  var s6 = { translate: true, reflect: true, dilate: true, rotate: true },
     MMe = {
-      selection: !0,
-      point: !0,
-      line: !0,
-      segment: !0,
-      ray: !0,
-      vector: !0,
-      circle: !0,
-      arc: !0,
-      parallel: !0,
-      perpendicular: !0,
-      midpoint: !0,
-      polygon: !0,
-      compass: !0,
-      angle: !0,
-      directedangle: !0,
-      anglebisector: !0,
-      "box-selection": !0,
-      "expression-edit": !0,
+      selection: true,
+      point: true,
+      line: true,
+      segment: true,
+      ray: true,
+      vector: true,
+      circle: true,
+      arc: true,
+      parallel: true,
+      perpendicular: true,
+      midpoint: true,
+      polygon: true,
+      compass: true,
+      angle: true,
+      directedangle: true,
+      anglebisector: true,
+      "box-selection": true,
+      "expression-edit": true,
       ...s6,
     },
     fy = Object.keys(s6);
@@ -60476,7 +60476,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       case "angle":
       case "directedangle":
         return {
-          showAngleLabel: (n = r.showAngleLabel) != null ? n : !0,
+          showAngleLabel: (n = r.showAngleLabel) != null ? n : true,
           rhs: "\\operatorname{" + r.type + "}\\left(" +
             i(r.parents).join(",") + "\\right)",
         };
@@ -60533,7 +60533,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       : "\\idref_{" + r.id + "}";
   }
   function Qg(r, e) {
-    let { controller: t, expandLists: o = !0 } = r;
+    let { controller: t, expandLists: o = true } = r;
     t.getAllItemModels().concat(t.getAllToolPreviewItems()).forEach(
       (n) => {
         var d;
@@ -60736,10 +60736,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let i = this.model.getOrCreatePointNearMouse(e, o);
       if (i.type === "def") {
         return {
-          createdNew: !1,
+          createdNew: false,
           def: i.def,
           reference: this.getExpandedReferenceForDef(i.def, t),
-          previewOnly: !1,
+          previewOnly: false,
         };
       }
       let n = this.createPointDefinition(i.spec, t),
@@ -60772,7 +60772,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });}
       }
       return {
-        createdNew: !0,
+        createdNew: true,
         def: void 0,
         reference: this.model._createInputObject(n),
         previewOnly: n.type === "point" && n.previewOnly,
@@ -60788,7 +60788,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     canNextInputBePoint() {
       let e = this._getFirstMissingInput();
-      return e && e.type === "point" ? !0 : !!(e && e.type === "union" &&
+      return e && e.type === "point" ? true : !!(e && e.type === "union" &&
         e.valueTypes.indexOf(__dcg_shared_module_exports__["ya"]) !==
           -1);
     }
@@ -60805,9 +60805,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           e,
           __dcg_shared_module_exports__["ya"],
         )
-      ) return !0;
+      ) return true;
       let t = this._getFirstMissingInput();
-      if (!t) return !1;
+      if (!t) return false;
       let o = [];
       if (t.type === "union") o = t.valueTypes;
       else {
@@ -60923,14 +60923,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     onFocus(e) {
       this.clearTentativeOutputs(),
-        e && this.tentativelyAddInput({ target: e }, !1),
+        e && this.tentativelyAddInput({ target: e }, false),
         this.createOutput();
     }
     onMove(e) {
       this.clearTentativeOutputs();
       let t = this.canNextInputBePoint(),
         o = this.getNonPointInputType(),
-        i = !1;
+        i = false;
       if (o) {
         let n = this.model.getObjectDefUnderMouse(
           e.pt,
@@ -60938,7 +60938,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.model.getCurrentTool(),
         );
         n && this.model.objectIsInstanceOf(n, o) &&
-          (this.tentativelyAddInput({ target: n }, e.shift), i = !0);
+          (this.tentativelyAddInput({ target: n }, e.shift), i = true);
       }
       if (!i && t) {
         let n = this._getOrCreatePoint(e.pt, e.shift, e.tolerance);
@@ -60987,10 +60987,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return i;
     }
     shouldUseJitEdges() {
-      return !0;
+      return true;
     }
     shouldHighlightRelevantObjects() {
-      return !0;
+      return true;
     }
     getPolygonEdgeColor(e) {
       var n;
@@ -61066,10 +61066,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.workflows = o.workflows.map((i) => {
             let n = i.input.broadcast
               ? __dcg_shared_module_exports__["Db"](i.input.types, {
-                geometry: !0,
+                geometry: true,
               })
               : __dcg_shared_module_exports__["Cb"](i.input.types, {
-                geometry: !0,
+                geometry: true,
               });
             return { ...i, signature: n };
           });
@@ -61120,7 +61120,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = this.getMatchingWorkflowForCurrentInputs(t - 1);
         return !!(o != null && o.allMatches.some((i) => {
           let n = i.signature.argTypeAtIndex(t);
-          return n === void 0 ? !1 : __dcg_shared_module_exports__["Eb"](
+          return n === void 0 ? false : __dcg_shared_module_exports__["Eb"](
             __dcg_shared_module_exports__["ya"],
             n,
           );
@@ -61135,11 +61135,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               previousInputs: (o == null ? void 0 : o.inputs) || [],
               proposedInput: i,
             })
-            : !1;
+            : false;
         }
         return super.isDegenerateInput(t);
       }
-      getSpec({ isCommitting: t } = { isCommitting: !1 }) {
+      getSpec({ isCommitting: t } = { isCommitting: false }) {
         var l, c;
         let o = this.getMatchingWorkflowForCurrentInputs();
         if (!o) return { inputs: [], outputs: [] };
@@ -61190,7 +61190,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ) {
           this.clearTentativeOutputs(),
             this.model.createCustomToolOutput(
-              this.getSpec({ isCommitting: !0 }),
+              this.getSpec({ isCommitting: true }),
             );
           let o = this.model.getUncommittedObjects();
           for (let n in o) {
@@ -61225,12 +61225,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             : []).some((c) => {
               let d = c.signature.argTypeAtIndex(a);
               return d === void 0
-                ? !1
+                ? false
                 : typeof d == "number"
                 ? __dcg_shared_module_exports__["wb"](d)
                 : d.getTypes().some(__dcg_shared_module_exports__["wb"]);
             });
-        } else return !0;
+        } else return true;
       }
     };
   function pV(r, e, t) {
@@ -61241,7 +61241,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       o.map((i, n) => ({
         ...i,
         id: `result-${n}`,
-        hidden: !1,
+        hidden: false,
         parents: i.parents.map((a) => ({
           type: "reference-input",
           id: `${a}`,
@@ -61269,9 +61269,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       case "point-reference":
       case "midpoint":
       case "vector-endpoint":
-        return !0;
+        return true;
       default:
-        return r.type, !1;
+        return r.type, false;
     }
   }
   var Kp = __dcg_shared_module_exports__["e"](ne()),
@@ -61506,14 +61506,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.props.focusOnOpen() === "first";
       }
       if (this.openView && this.openView.matches(":focus-within")) {
-        return !1;
+        return false;
       }
       let e = this.controller.getOpenItemMenu();
       return (e == null ? void 0 : e.type) === this.props.menuType() &&
         !!(e != null && e.focusFirstOption);
     }
     shouldMoveFocusToLastOption() {
-      return this.props.focusOnOpen ? this.props.focusOnOpen() === "last" : !1;
+      return this.props.focusOnOpen ? this.props.focusOnOpen() === "last" : false;
     }
   };
   var Zg = __dcg_shared_module_exports__["e"](ne()),
@@ -61543,13 +61543,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let i;
             !o.color || o.color === "dark"
               ? i = GT({
-                isPoint: !0,
+                isPoint: true,
                 color: e.point,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
               })
               : o.color === "light"
               ? i = __dcg_shared_module_exports__["Kd"](e.point, .7)
@@ -61584,13 +61584,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let i;
             !o.color || o.color === "dark"
               ? i = tv({
-                isPoint: !1,
+                isPoint: false,
                 color: e.circle,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
               })
               : o.color === "light"
               ? i = __dcg_shared_module_exports__["Kd"](e.circle, .7)
@@ -61625,13 +61625,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let i;
             !o.color || o.color === "dark"
               ? i = tv({
-                isPoint: !1,
+                isPoint: false,
                 color: e.circle,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
               })
               : o.color === "light"
               ? i = __dcg_shared_module_exports__["Kd"](e.circle, .7)
@@ -61661,13 +61661,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let i;
             !o.color || o.color === "dark"
               ? i = tv({
-                isPoint: !1,
+                isPoint: false,
                 color: e.line,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
               })
               : o.color === "light"
               ? i = __dcg_shared_module_exports__["Kd"](e.line, .7)
@@ -61710,14 +61710,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           {
             let i;
             o.color ? i = o.color : i = GT({
-              isPoint: !1,
+              isPoint: false,
               color: e.polygon,
-              uncommitted: !1,
-              featured: !1,
-              hidden: !1,
-              hovered: !1,
-              projectorMode: !1,
-              isTransparentObject: !0,
+              uncommitted: false,
+              featured: false,
+              hidden: false,
+              hovered: false,
+              projectorMode: false,
+              isTransparentObject: true,
             });
             let n = o.path;
             r.fillStyle = i, r.beginPath(), r.moveTo(n[0], n[1]);
@@ -61730,31 +61730,31 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         case "angle":
           {
             let i = tv({
-                isPoint: !1,
+                isPoint: false,
                 color: e.angle,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
-                isTransparentObject: !0,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
+                isTransparentObject: true,
               }),
               n = GT({
-                isPoint: !1,
+                isPoint: false,
                 color: e.angle,
-                uncommitted: !1,
-                featured: !1,
-                hidden: !1,
-                hovered: !1,
-                projectorMode: !1,
-                isTransparentObject: !0,
+                uncommitted: false,
+                featured: false,
+                hidden: false,
+                hovered: false,
+                projectorMode: false,
+                isTransparentObject: true,
               });
             pne(r, {
               type: "angle-indicator",
               lineWidth: 4,
               strokeStyle: i,
               fillStyle: n,
-              isRightAngle: !1,
+              isRightAngle: false,
               x: o.x,
               y: o.y,
               isDirected: o.isDirected,
@@ -61858,8 +61858,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-options-menu": !0,
-              "dcg-select-tools-dropdown": !0,
+              "dcg-options-menu": true,
+              "dcg-select-tools-dropdown": true,
               "dcg-shift-menu-left": this.props.items()[0][0] === "angle" ||
                 this.props.items()[0][0] === "segment",
             }),
@@ -61877,7 +61877,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               item: (e) =>
                 pa.createElement(
                   "div",
-                  { class: () => ({ "dcg-options-menu-section": !0 }) },
+                  { class: () => ({ "dcg-options-menu-section": true }) },
                   pa.createElement(hne, {
                     each: () => e,
                   }, (t) =>
@@ -61908,8 +61908,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         },
                         "dcg-geo-tool": this.const(t),
                         class: () => ({
-                          "dcg-dropdown-tool": !0,
-                          "dcg-unstyled-button": !0,
+                          "dcg-dropdown-tool": true,
+                          "dcg-unstyled-button": true,
                           "dcg-transformation-tool":
                             __dcg_shared_module_exports__["Dc"](t),
                           "dcg-selected-tool":
@@ -62149,8 +62149,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       "span",
                       {
                         class: () => ({
-                          "dcg-basic-tool-btn": !0,
-                          "dcg-icon": !0,
+                          "dcg-basic-tool-btn": true,
+                          "dcg-icon": true,
                         }),
                       },
                       _r.createElement(em, {
@@ -62182,7 +62182,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       ps,
                       {
                         controller: this.props.controller,
-                        shouldHandleTabAndEscape: this.const(!1),
+                        shouldHandleTabAndEscape: this.const(false),
                         menuType: this.const("geo-tool-dropdown"),
                         menuButtonFocusLocation: this.const({
                           type: "geo-basic-tool",
@@ -62221,7 +62221,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   "div",
                   {
                     class: () => ({
-                      "dcg-geo-getting-started-pointer": !0,
+                      "dcg-geo-getting-started-pointer": true,
                       "dcg-geo-getting-started-has-tool": this.controller
                         .getGeometryGettingStartedMessageState() !==
                         "pick-a-tool",
@@ -62351,7 +62351,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 guid: this.getGuid(e),
                 tools: e.dropdown,
                 group: e.group,
-                focusFirstOption: !1,
+                focusFirstOption: false,
               },
             }),
             this.controller.dispatch({
@@ -62433,10 +62433,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           identifier: (e) =>
             or.createElement(Ad, {
               identifier: () => e().identifier,
-              insideMQ: () => !1,
+              insideMQ: () => false,
               controller: () => this.props.controller(),
-              insideGroup: () => !1,
-              putInTabOrder: () => !1,
+              insideGroup: () => false,
+              putInTabOrder: () => false,
             }),
           latex: (e) =>
             or.createElement(nt, {
@@ -62772,9 +62772,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.controller.getGeoModel().resetToolMode(),
               this.controller.dispatch({
                 type: "commit-geo-objects",
-                shiftKey: !1,
+                shiftKey: false,
                 committed: n.outputs,
-                clearToolAndSelection: !0,
+                clearToolAndSelection: true,
                 toolIdToLatex: {},
               });
           } else {
@@ -62782,7 +62782,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "select-geo-tool",
               tool: t,
-              forceSingleUse: !0,
+              forceSingleUse: true,
               focusGraphPaper: !!e.fromKeyboard,
             });
             let s = this.controller.getGeoModel(),
@@ -63007,7 +63007,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "set-item-showlabel",
               id: e.model.id,
-              showLabel: !1,
+              showLabel: false,
             }))
           : (this.singleItemState.mode = "text",
             ((t = e.model.formula.geometry) == null ? void 0 : t.valueType) ===
@@ -63019,7 +63019,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               : this.controller.dispatch({
                 type: "set-item-showlabel",
                 id: e.model.id,
-                showLabel: !1,
+                showLabel: false,
               }));
       }
       onSelectMeasurementLabel() {
@@ -63041,13 +63041,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.dispatch({
               type: "set-item-showlabel",
               id: e.model.id,
-              showLabel: !1,
+              showLabel: false,
             }))
           : (this.singleItemState.mode = "measurement",
             this.controller.dispatch({
               type: "set-item-showlabel",
               id: e.model.id,
-              showLabel: !0,
+              showLabel: true,
             }),
             this.controller.dispatch({
               type: "set-item-label",
@@ -63060,9 +63060,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-generic-options-menu": !0,
-              "dcg-options-menu": !0,
-              "dcg-multi-select-label-menu": !0,
+              "dcg-generic-options-menu": true,
+              "dcg-options-menu": true,
+              "dcg-multi-select-label-menu": true,
             }),
             role: dn.const("region"),
             "aria-label": () =>
@@ -63109,7 +63109,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   dn.createElement(Hg, {
                     controller: this.props.controller,
                     model: () => e().model,
-                    forceEnabled: this.const(!0),
+                    forceEnabled: this.const(true),
                     displayComputedValue: () => {
                       if (this.getLabelMode() !== "measurement") return;
                       let t = this.controller.getGrapher2d(),
@@ -63220,7 +63220,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   }),
                   Fi.createElement("div", {
                     class: () => ({
-                      "dcg-btn-purple": !0,
+                      "dcg-btn-purple": true,
                       "dcg-disabled": !this.newFolderTitle,
                     }),
                     role: Fi.const("button"),
@@ -63245,17 +63245,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           !(e.length === 1 && t.type !== "folder" &&
             t.folderId === __dcg_shared_module_exports__["xd"])
-        ) return !1;
+        ) return false;
         if (
           t.type !== "expression" ||
           ((a = (n = t.formula.geometry) == null ? void 0 : n.call) ==
                 null
               ? void 0
               : a.symbol) !== "apply"
-        ) return !0;
+        ) return true;
         let i = t.formula.geometry.call.parents[0];
         return i.type === "arbitrary-expression"
-          ? !0
+          ? true
           : this.controller.getItemsByIdentifier(
             __dcg_shared_module_exports__["Cc"](i),
           ).every((s) => s.folderId !== __dcg_shared_module_exports__["xd"]);
@@ -63284,7 +63284,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             update: {
               prop: "folderId",
               value: this.newFolderTitle,
-              createFolder: !0,
+              createFolder: true,
             },
           });
       }
@@ -63313,9 +63313,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-generic-options-menu": !0,
-              "dcg-options-menu": !0,
-              "dcg-multi-select-options-menu": !0,
+              "dcg-generic-options-menu": true,
+              "dcg-options-menu": true,
+              "dcg-multi-select-options-menu": true,
             }),
             role: ao.const("region"),
             "aria-label": () =>
@@ -63501,9 +63501,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "div",
           {
             class: () => ({
-              "dcg-generic-options-menu": !0,
-              "dcg-options-menu": !0,
-              "dcg-multi-select-style-menu": !0,
+              "dcg-generic-options-menu": true,
+              "dcg-options-menu": true,
+              "dcg-multi-select-style-menu": true,
             }),
             role: us.const("region"),
             "aria-label": () =>
@@ -63627,8 +63627,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "div",
                 {
                   class: () => ({
-                    "dcg-btn-outline": !0,
-                    "dcg-show-hide-btn": !0,
+                    "dcg-btn-outline": true,
+                    "dcg-show-hide-btn": true,
                     "dcg-any-visible-objects": this.anyVisible(),
                   }),
                   handleEvent: Et.const("true"),
@@ -63665,8 +63665,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             "div",
             {
               class: () => ({
-                "dcg-style-button": !0,
-                "dcg-toolbar-dropdown-button": !0,
+                "dcg-style-button": true,
+                "dcg-toolbar-dropdown-button": true,
                 "dcg-menu-open": this.isStyleMenuOpen(),
               }),
               handleEvent: Et.const("true"),
@@ -63707,8 +63707,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-label-button": !0,
-                  "dcg-toolbar-dropdown-button": !0,
+                  "dcg-label-button": true,
+                  "dcg-toolbar-dropdown-button": true,
                   "dcg-menu-open": this.isLabelMenuOpen(),
                 }),
                 handleEvent: Et.const("true"),
@@ -63749,8 +63749,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               "div",
               {
                 class: () => ({
-                  "dcg-construct-button": !0,
-                  "dcg-toolbar-dropdown-button": !0,
+                  "dcg-construct-button": true,
+                  "dcg-toolbar-dropdown-button": true,
                   "dcg-menu-open": this.isConstructMenuOpen(),
                 }),
                 handleEvent: Et.const("true"),
@@ -63795,7 +63795,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 "aria-expanded": this.bindFn(this.isMoreMenuOpen),
                 class: () => ({
                   "dcg-multi-select-icon-button dcg-more-options dcg-toolbar-dropdown-button":
-                    !0,
+                    true,
                   "dcg-menu-open": this.isMoreMenuOpen(),
                 }),
                 "dcg-open-menu-guid": () => rm(),
@@ -63820,7 +63820,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 ps,
                 {
                   controller: this.props.controller,
-                  shouldHandleTabAndEscape: this.const(!0),
+                  shouldHandleTabAndEscape: this.const(true),
                   menuType: this.const("multi-select-label"),
                   menuButtonFocusLocation: this.const({
                     type: "multi-select-label-icon",
@@ -63839,7 +63839,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ps,
               {
                 controller: this.props.controller,
-                shouldHandleTabAndEscape: this.const(!0),
+                shouldHandleTabAndEscape: this.const(true),
                 menuType: this.const("multi-select-style"),
                 menuButtonFocusLocation: this.const({
                   type: "multi-select-style-icon",
@@ -63858,7 +63858,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ps,
               {
                 controller: this.props.controller,
-                shouldHandleTabAndEscape: this.const(!0),
+                shouldHandleTabAndEscape: this.const(true),
                 menuType: this.const("multi-select-construct"),
                 menuButtonFocusLocation: this.const({
                   type: "multi-select-construct-icon",
@@ -63880,7 +63880,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ps,
               {
                 controller: this.props.controller,
-                shouldHandleTabAndEscape: this.const(!0),
+                shouldHandleTabAndEscape: this.const(true),
                 menuType: this.const("multi-select-more"),
                 menuButtonFocusLocation: this.const({
                   type: "multi-select-more-icon",
@@ -63910,7 +63910,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           case "multi-select-show-hide-icon":
             return this.hasSelectedAndEditableItems();
           case "multi-select-style-icon":
-            return !0;
+            return true;
           case "multi-select-label-icon":
             return this.sectionValues.pointLabels !== void 0 ||
               this.sectionValues.singleLabelableExpressionModel !==
@@ -63922,7 +63922,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.hasSelectedAndEditableItems() ||
               this.sectionValues.draggableFreePoint !== void 0;
           default:
-            return !1;
+            return false;
         }
       }
       cacheSectionValues() {
@@ -64181,7 +64181,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           menu: {
             type: "multi-select-more",
             guid: rm(),
-            focusFirstOption: !0,
+            focusFirstOption: true,
           },
         });
       }
@@ -64191,7 +64191,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           menu: {
             type: "multi-select-construct",
             guid: zv(),
-            focusFirstOption: !0,
+            focusFirstOption: true,
           },
         });
       }
@@ -64201,7 +64201,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           menu: {
             type: "multi-select-style",
             guid: hV(),
-            focusFirstOption: !0,
+            focusFirstOption: true,
           },
         });
       }
@@ -64220,7 +64220,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             menu: {
               type: "multi-select-label",
               guid: gV(),
-              focusFirstOption: !0,
+              focusFirstOption: true,
             },
           }),
           this.isLabelMenuOpen() && e && e.label !== "" &&
@@ -64235,13 +64235,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       hideSelected() {
         this.controller.dispatch({
           type: "update-all-selected-items",
-          update: { prop: "visible", value: !1 },
+          update: { prop: "visible", value: false },
         });
       }
       showSelected() {
         this.controller.dispatch({
           type: "update-all-selected-items",
-          update: { prop: "visible", value: !0 },
+          update: { prop: "visible", value: true },
         });
       }
       getSelectedColor() {
@@ -64333,29 +64333,29 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       y1: r.top,
       x2: r.left,
       y2: r.bottom,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: r.left,
       y1: r.top,
       x2: r.right,
       y2: r.top,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: r.right,
       y1: r.top,
       x2: r.right,
       y2: r.bottom,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: r.left,
       y1: r.bottom,
       x2: r.right,
       y2: r.bottom,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }];
   }
   function Mne(r) {
@@ -64375,29 +64375,29 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       y1: p.y,
       x2: h.x,
       y2: h.y,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: h.x,
       y1: h.y,
       x2: u.x,
       y2: u.y,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: u.x,
       y1: u.y,
       x2: f.x,
       y2: f.y,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }, {
       x1: f.x,
       y1: f.y,
       x2: p.x,
       y2: p.y,
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     }];
   }
   function Gne(r, e) {
@@ -64406,15 +64406,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function Lne(r, e) {
     let t = fV(r);
-    return !!(Vd(e, t[0], !1) || Vd(e, t[1], !1) || Vd(e, t[2], !1) ||
-      Vd(e, t[3], !1) || Vd(e, t[0], !0) || Vd(e, t[1], !0) ||
-      Vd(e, t[2], !0) || Vd(e, t[3], !0));
+    return !!(Vd(e, t[0], false) || Vd(e, t[1], false) || Vd(e, t[2], false) ||
+      Vd(e, t[3], false) || Vd(e, t[0], true) || Vd(e, t[1], true) ||
+      Vd(e, t[2], true) || Vd(e, t[3], true));
   }
   function Pne(r, e) {
     let t = fV(r);
-    return !!(ph(e, t[0], !1) || ph(e, t[1], !1) || ph(e, t[2], !1) ||
-      ph(e, t[3], !1) || ph(e, t[0], !0) || ph(e, t[1], !0) ||
-      ph(e, t[2], !0) || ph(e, t[3], !0));
+    return !!(ph(e, t[0], false) || ph(e, t[1], false) || ph(e, t[2], false) ||
+      ph(e, t[3], false) || ph(e, t[0], true) || ph(e, t[1], true) ||
+      ph(e, t[2], true) || ph(e, t[3], true));
   }
   function Vne(r, e) {
     return r.left <= e.left && r.right >= e.right && r.top <= e.top &&
@@ -64428,7 +64428,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     if (!e.extendStart) {
       let t = r.left <= e.x1 && e.x1 <= r.right,
         o = r.top <= e.y1 && e.y1 <= r.bottom;
-      if (t && o) return !0;
+      if (t && o) return true;
     }
     return Gne(r, e);
   }
@@ -64454,25 +64454,25 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     return Math.abs(a.x) <= e.width / 2 && Math.abs(a.y) <= e.height / 2;
   }
   function k6(r, e) {
-    if (e.length < 4) return !1;
+    if (e.length < 4) return false;
     let t = {
       x1: NaN,
       y1: NaN,
       x2: e[0],
       y2: e[1],
-      extendStart: !1,
-      extendEnd: !1,
+      extendStart: false,
+      extendEnd: false,
     };
     for (let o = 2; o < e.length; o += 2) {
       if (
         t.x1 = t.x2, t.y1 = t.y2, t.x2 = e[o], t.y2 = e[o + 1], dk(r, t)
-      ) return !0;
+      ) return true;
     }
-    return !1;
+    return false;
   }
   function _6(r, e) {
     let t = Mne(e);
-    for (let o of t) if (dk(r, o)) return !0;
+    for (let o of t) if (dk(r, o)) return true;
     return !!Rne({ x: r.left, y: r.top }, e);
   }
   function Fne(r, e, t) {
@@ -64521,9 +64521,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     if (o != null && mV(o, e)) return o;
   }
   function ph(r, e, t) {
-    let o = Vd(wy(r), e, !1) || v6, i = C6(t, S6(r, o), E6(e));
+    let o = Vd(wy(r), e, false) || v6, i = C6(t, S6(r, o), E6(e));
     if (
-      i || (o = Vd(wy(r), e, !0) || v6, i = C6(t, S6(r, o), E6(e))),
+      i || (o = Vd(wy(r), e, true) || v6, i = C6(t, S6(r, o), E6(e))),
         i && Bne(o, r)
     ) return o;
   }
@@ -64580,7 +64580,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     clearTentativeOutputs() {}
     canNextInputBePoint() {
-      return !1;
+      return false;
     }
     getAllValidNextInputTypes() {
       return __dcg_shared_module_exports__["tb"].filter((e) =>
@@ -64599,17 +64599,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     onNumberInput(e) {}
     onMove(e) {
-      return !0;
+      return true;
     }
     onFocus(e) {}
     tryCommitResults() {
       return { committed: void 0 };
     }
     shouldUseJitEdges() {
-      return !1;
+      return false;
     }
     shouldHighlightRelevantObjects() {
-      return !1;
+      return false;
     }
   };
   function I6(r, e) {
@@ -64679,7 +64679,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       let n = [],
         a = -1,
-        s = !1,
+        s = false,
         l = this.controller.getGrapher3d(),
         c = l ? l.getTabOrder() : this.grapher.getTabOrder();
       for (let d of c) {
@@ -64702,7 +64702,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               : 0
           );
           for (let h of p) {
-            d === t && (s || (a = n.length), I6(h, e) && (s = !0)), n.push(h);
+            d === t && (s || (a = n.length), I6(h, e) && (s = true)), n.push(h);
           }
         }
       }
@@ -64714,20 +64714,20 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (!o.length) return;
       if (n === -1) {
         return e === "next"
-          ? { wrapped: !1, target: o[0] }
-          : { wrapped: !1, target: o[o.length - 1] };
+          ? { wrapped: false, target: o[0] }
+          : { wrapped: false, target: o[o.length - 1] };
       }
-      let a = !1, s = n;
+      let a = false, s = n;
       return e === "prev" ? s -= 1 : i && (s += 1),
         s === -1
-          ? (a = !0, s = o.length - 1)
-          : s >= o.length && (a = !0, s = 0),
+          ? (a = true, s = o.length - 1)
+          : s >= o.length && (a = true, s = 0),
         { wrapped: a, target: o[s] };
     }
     focusNextObjFromKeyboard(e = {}) {
       let t = {
-          allowWrapping: !0,
-          selectNonClickables: !1,
+          allowWrapping: true,
+          selectNonClickables: false,
           direction: "next",
         },
         { direction: o, allowWrapping: i, selectNonClickables: n } = {
@@ -64736,7 +64736,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         },
         a = this.findNextObjFromKeyboard(o, this.getKeyboardAttention());
       return !a || !i && a.wrapped
-        ? (n && this.controller.dispatch({ type: "set-none-selected" }), !1)
+        ? (n && this.controller.dispatch({ type: "set-none-selected" }), false)
         : (a.wrapped && this.controller.isVirtualMouseAllowed()
           ? this.resetBackToGeoKeyboardPt()
           : (n &&
@@ -64748,8 +64748,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 id: a.target.calcId,
                 state: "selected",
               })),
-            this.updateKeyboardAttention(a.target, { describe: !0 })),
-          !0);
+            this.updateKeyboardAttention(a.target, { describe: true })),
+          true);
     }
     updateKeyboardAttention(e, t) {
       let o = this.getKeyboardAttention();
@@ -64761,12 +64761,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ),
           this.poiController.moveGeoKeyboardPtToFocusedItem(t),
           t.describe &&
-          this.poiController.describeFocusedItem({ includeDetails: !0 }));
+          this.poiController.describeFocusedItem({ includeDetails: true }));
     }
     clearAttentionIfNotTabbable() {
       let { currentIsTabbable: e } = this
         .findTabbableObjectsForCurrentTool(this.getKeyboardAttention());
-      e || this.updateKeyboardAttention(void 0, { describe: !1 });
+      e || this.updateKeyboardAttention(void 0, { describe: false });
     }
     handleGrapherGainedFocus() {
       if (
@@ -64777,7 +64777,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let t = this.findTabbableObjectsForCurrentTool(void 0).targets;
         t.length
           ? (this.setKeyboardAttention(void 0),
-            this.updateKeyboardAttention(t[0], { describe: !0 }))
+            this.updateKeyboardAttention(t[0], { describe: true }))
           : xe(
             this.controller.s(
               "graphing-calculator-narration-geometry-no-tool-inputs",
@@ -64786,7 +64786,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     }
     resetBackToGeoKeyboardPt() {
-      this.updateKeyboardAttention(void 0, { describe: !0 }),
+      this.updateKeyboardAttention(void 0, { describe: true }),
         this.poiController.geoKeyboardPt.x =
           this.poiController.geoKeyboardPt.lastArrowedX,
         this.poiController.geoKeyboardPt.y =
@@ -64813,7 +64813,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           lastArrowedX: NaN,
           lastArrowedY: NaN,
         };
-        this.canceledGeoToolplayWhilePressed = !1;
+        this.canceledGeoToolplayWhilePressed = false;
         this.manager = e,
           this.controller = e.controller,
           this.keyboardAttentionManager = new pk(this),
@@ -64845,7 +64845,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 s && s !== n && xe(ei(s));
               },
               100,
-              { leading: !1, trailing: !0 },
+              { leading: false, trailing: true },
             ),
           !(!this.graphSettings.config.graphpaper ||
             this.graphSettings.config.disableMouseInteractions) &&
@@ -64902,7 +64902,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               let t = this.controller.getGeoModel();
               t.onMouseAction("move", {
                 pt: { x: NaN, y: NaN },
-                shift: !1,
+                shift: false,
                 tolerance: 0,
               }), t.onPreviewChange();
             }
@@ -64961,7 +64961,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           (f = h.model, y = uk(h));
         let C = this.manager.clickableObjectsLayer, E = {};
         f &&
-        (E[f.id] = { listIndexes: y === void 0 ? void 0 : { [y]: !0 } }),
+        (E[f.id] = { listIndexes: y === void 0 ? void 0 : { [y]: true } }),
           C.setHoveredObjects(E);
         let v;
         h && "poi" in h && h.poi &&
@@ -64974,13 +64974,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? c.setHoveredPOI(v)
             : c.setHoveredPOI(void 0),
             this.controller.requestRedrawGraph());
-        let S = !1;
+        let S = false;
         if (h && h.type === "image") {
           let A = fc(h.model), P = h.isClickable;
           S = A && !P;
         }
-        let k = !1;
-        h && h.type === "draggable-label" && (k = !0),
+        let k = false;
+        h && h.type === "draggable-label" && (k = true),
           S || k
             ? this.manager.setLayerClass(
               "extraMoveCursor",
@@ -65041,7 +65041,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 type: "clickable-item-clicked",
                 id: i.id,
                 listIndex: i.index,
-              })), o.isTrackingPressedAction = !1;
+              })), o.isTrackingPressedAction = false;
           }),
           ee(t).on("dcg-tapmove", (i) => {
             if (o.isTrackingPressedAction) {
@@ -65150,7 +65150,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             return;
           }
         }
-        let a = !1, s = n.model;
+        let a = false, s = n.model;
         if (
           this.controller.isGeometry() && s && s.type === "expression" &&
           s.formula.geometry
@@ -65201,7 +65201,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               d && p ||
               (this.selectItemIfNotSecret(n.model.id, {
                 multiSelect: this.isBoxSelectActive(e),
-                tentative: !1,
+                tentative: false,
               }),
                 d)
             ) return;
@@ -65216,11 +65216,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   : "default") === "default" && a ||
           this.selectFeatureUnderMouse(n, {
             multiSelect: this.isBoxSelectActive(e),
-            tentative: !0,
+            tentative: true,
           });
-        let c = !1;
+        let c = false;
         this.addGlobalMouseListener("dcg-tapmove", (d) => {
-          c = !0,
+          c = true,
             this.manager.clickableObjectsLayer.isAnObjectPressed()
               ? o = this.getMouseRelativeToGrapher(d)
               : a ||
@@ -65234,7 +65234,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                         this.shouldTreatSmallDragAsClick(e, p) &&
                         this.selectFeatureUnderMouse(n, {
                           multiSelect: this.isBoxSelectActive(p),
-                          tentative: !1,
+                          tentative: false,
                         });
                     })),
                   this.manager.viewportController.beginPanning(d));
@@ -65264,7 +65264,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 })
                 : this.selectFeatureUnderMouse(u, {
                   multiSelect: this.isBoxSelectActive(d),
-                  tentative: !1,
+                  tentative: false,
                 }));
           });
       }
@@ -65288,7 +65288,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             e.isClickable || this.selectItemIfNotSecret(o, t));
       }
       isBoxSelectActive(e) {
-        if (!this.controller.isMultiSelectEnabled()) return !1;
+        if (!this.controller.isMultiSelectEnabled()) return false;
         let t = this.controller.getActiveTool();
         return t === "selection" && e.shiftKey || t === "box-selection";
       }
@@ -65334,12 +65334,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 let C = this.getDraggablePointOrAncestors(y, o);
                 this.movePointsFromKeyboard(C, o),
                   this.controller.getEvaluator().notifyWhenSynced(() => {
-                    this.describeFocusedItem({ includeDetails: !0 });
+                    this.describeFocusedItem({ includeDetails: true });
                   });
               } else {this.controller.isVirtualMouseAllowed() &&
                   (this.keyboardAttentionManager.updateKeyboardAttention(
                     void 0,
-                    { describe: !1 },
+                    { describe: false },
                   ),
                     this.moveGeoPointFromKeyboard(o));}
             } else if (
@@ -65389,7 +65389,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.controller.isGeometry() &&
               this.controller.isGraphPaperFocused()
             ) {
-              let u = !1;
+              let u = false;
               if (o.ctrlKey && o.shiftKey && !o.altKey && !o.metaKey) {
                 let f;
                 if (
@@ -65397,14 +65397,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     ? f = {
                       type: "multi-select-more",
                       guid: rm(),
-                      focusFirstOption: !0,
+                      focusFirstOption: true,
                       previousFocusLocation: { type: "graph-paper" },
                     }
                     : s === "A" &&
                       (f = {
                         type: "multi-select-construct",
                         guid: zv(),
-                        focusFirstOption: !0,
+                        focusFirstOption: true,
                         previousFocusLocation: { type: "graph-paper" },
                       }), f
                 ) {
@@ -65437,10 +65437,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       : d.calcId) || "";
                     this.controller.isClickableId(f) && (f = ""),
                       this.selectItemIfNotSecret(f, {
-                        multiSelect: !0,
-                        tentative: !1,
+                        multiSelect: true,
+                        tentative: false,
                       }),
-                      this.describeFocusedItem({ includeDetails: !1 });
+                      this.describeFocusedItem({ includeDetails: false });
                   } else {
                     let f = this.keyboardAttentionManager
                       .getKeyboardAttention();
@@ -65454,7 +65454,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 } else if (s === "D") {
                   o.preventDefault(),
                     o.stopPropagation(),
-                    this.describeFocusedItem({ includeDetails: !0 });
+                    this.describeFocusedItem({ includeDetails: true });
                 } else if (a === "Backspace" || a === "Del") {
                   o.preventDefault(), o.stopPropagation();
                   let f = this.keyboardAttentionManager
@@ -65469,7 +65469,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     this.controller.dispatch({
                       type: "delete-all-selected-items",
                     }),
-                    u = !0;
+                    u = true;
                 } else if (s === "-" || s === "=") {
                   o.preventDefault(), o.stopPropagation();
                   let f = this.controller.getAllVisibleGeoToolbarItems(),
@@ -65483,7 +65483,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       E > f.length - 1 && (E = E - f.length);
                     let v = (p = f[E]) == null ? void 0 : p.current;
                     if (this.selectGeoTool(v)) {
-                      u = !0;
+                      u = true;
                       break;
                     }
                   }
@@ -65506,7 +65506,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       w > C.length - 1 && (w = w - C.length);
                     let S = C[w];
                     if (this.selectGeoTool(S)) {
-                      u = !0;
+                      u = true;
                       break;
                     }
                   }
@@ -65537,7 +65537,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "select-geo-tool",
               tool: e,
             }),
-              !0)
+              true)
             : (xe(
               this.controller.s(
                 "graphing-calculator-narration-geometry-tool-disabled",
@@ -65547,8 +65547,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 },
               ),
             ),
-              !1)
-          : !1;
+              false)
+          : false;
       }
       getMouseRelativeToGrapher(e) {
         let t = this.elt.getBoundingClientRect(),
@@ -65560,9 +65560,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       _getStyledPointRadiusAdjustments() {
         return {
           radiusMultiplier: this.graphSettings
-            .getHighlightPropertyMultiplier("pointLineWidth", !1),
+            .getHighlightPropertyMultiplier("pointLineWidth", false),
           selectedRadiusMultiplier: this.graphSettings
-            .getHighlightPropertyMultiplier("pointLineWidth", !0),
+            .getHighlightPropertyMultiplier("pointLineWidth", true),
         };
       }
       _getStyledPointRadiusForPOI(e, t) {
@@ -65584,7 +65584,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           return;
         } else if (!o) {
           this.keyboardAttentionManager.updateKeyboardAttention(void 0, {
-            describe: !1,
+            describe: false,
           }),
             e === "prev" &&
             (t == null || t.preventDefault(),
@@ -65636,14 +65636,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               if (!a || !a.length) continue;
               for (let s = 0; s < a.length; s++) {
                 if (this.doesBoxIntersectBranch(a[s], e)) {
-                  t[i.id] = !0;
+                  t[i.id] = true;
                   break;
                 }
               }
             } else if (i.type === "image") {
               let n = this.manager.getGraphImage(o);
               if (!n) continue;
-              r.doesBoxIntersectAnyImage(n, e) && (t[i.id] = !0);
+              r.doesBoxIntersectAnyImage(n, e) && (t[i.id] = true);
             }
           }
         }
@@ -65654,16 +65654,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.controller.isItemNotSelectableBecauseItsSecret(i) ||
             o.isBareLabel() ||
             (o.isMovable() || o.isAttachedToPlottedPoint()) &&
-              r.doesBoxIntersectPOI(o, e) && (t[i] = !0);
+              r.doesBoxIntersectPOI(o, e) && (t[i] = true);
         }),
           t;
       }
       _getStyledLineAdjustments() {
         return {
           thicknessMultiplier: this.graphSettings
-            .getHighlightPropertyMultiplier("graphLineWidth", !1),
+            .getHighlightPropertyMultiplier("graphLineWidth", false),
           selectedThicknessMultiplier: this.graphSettings
-            .getHighlightPropertyMultiplier("graphLineWidth", !0),
+            .getHighlightPropertyMultiplier("graphLineWidth", true),
         };
       }
       _getStyledLineThicknessForBranch(e, t, o) {
@@ -65731,7 +65731,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                   type: "clickable-label",
                   model: t.model,
                   poi: t.poi,
-                  isClickable: !0,
+                  isClickable: true,
                 },
               };
           }
@@ -65783,7 +65783,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 (v = -1 / 0, i[C] = { layerNumber: 1 / 0, stackingContext: v }),
                   !n || n.stackingContext >= v
               ) {
-                let k = E.type === "table" ? !1 : $n(E);
+                let k = E.type === "table" ? false : $n(E);
                 for (let _ = 0; _ < S.length; _++) {
                   let A = S[_],
                     P = this._getDistanceFromStyledBranch(
@@ -65793,12 +65793,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       c,
                     );
                   if (P !== void 0) {
-                    let O = !1;
+                    let O = false;
                     n
                       ? (v < n.stackingContext ||
                         v === n.stackingContext &&
-                          P < n.distance - 3.5) && (O = !0)
-                      : O = !0,
+                          P < n.distance - 3.5) && (O = true)
+                      : O = true,
                       O &&
                       (n = {
                         type: "sketch-branch",
@@ -65891,7 +65891,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         let h = this._getClosestPoint(d, e, t + 2);
         if (h) {
-          return { type: "poi", poi: h, isClickable: !1, model: void 0 };
+          return { type: "poi", poi: h, isClickable: false, model: void 0 };
         }
         let u = this._getClosestPoint(c, e, t);
         if (u) {
@@ -65901,13 +65901,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               type: "static-point",
               poi: u,
               sketch: u.sketch,
-              isClickable: !0,
+              isClickable: true,
               model: y,
             }
             : {
               type: "static-point",
               poi: u,
-              isClickable: !1,
+              isClickable: false,
               sketch: u.sketch,
               model: y,
             };
@@ -65916,7 +65916,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           if (o.type === "label") return o.label;
           if (o.type === "sketch-branch") {
             let y, C;
-            if (o.model.type === "table") C = !0, y = !1;
+            if (o.model.type === "table") C = true, y = false;
             else {
               y = $n(o.model);
               let E = (f = o.model.formula.typed_constant_value) == null
@@ -65953,18 +65953,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       _togglePOIUnderPoint(e) {
         if (!this.controller.isTraceEnabled()) return;
-        if (e.isClickable) return !1;
+        if (e.isClickable) return false;
         let t = "poi" in e && e.poi;
         return !t || t.isBareLabel() ||
             this.controller.isGeometry() && e.type === "static-point" &&
               !t.hasInteractiveLabel()
-          ? !1
+          ? false
           : (this.manager.poiLabelsLayer.isOpenPOI(t)
             ? (this.manager.poiLabelsLayer.closePOI(t),
               this.manager.poiLabelsLayer.setHoveredPOI(void 0))
             : (this.manager.poiLabelsLayer.openPOI(t), this.speakPoint(t)),
             this.controller.requestRedrawGraph(),
-            !0);
+            true);
       }
       getImageInfoUnderMouse(e, t, o) {
         if (!e) return;
@@ -65990,17 +65990,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
       }
       doesBoxIntersectBranch(e, t) {
-        let o = !1, i = !1;
+        let o = false, i = false;
         switch (e.graphMode) {
           case 5:
           case 8:
           case 2:
             break;
           case 6:
-            o = !0;
+            o = true;
             break;
           case 1:
-            i = !0;
+            i = true;
             break;
           case 18:
           case 17:
@@ -66037,7 +66037,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             });
           }
           default:
-            return !1;
+            return false;
         }
         let n = e.segments;
         for (let a = 0; a < n.length; a++) {
@@ -66054,9 +66054,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             s = [];
             for (let c = 0; c < l.length; c += 2) s.push(l[c + 1], l[c]);
           }
-          if (k6(t, s)) return !0;
+          if (k6(t, s)) return true;
         }
-        return !1;
+        return false;
       }
       getBoxIntersectArgsForArc(e) {
         return [e.segments[0][2], e.segments[0][3], e.segments[0][4]];
@@ -66089,9 +66089,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 angle: i.radianAngle[n],
                 center: { x: i.x[n], y: i.y[n] },
               })
-            ) return !0;
+            ) return true;
           }
-          return !1;
+          return false;
         }
       }
       static doesBoxIntersectPOI(e, t) {
@@ -66314,7 +66314,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (!e) return;
         let s = "compiled" in e && e.compiled, l = s && s.fn;
         if (!l) return;
-        let c = this.getBranchesDistanceInfo(e, t, o, !1, i);
+        let c = this.getBranchesDistanceInfo(e, t, o, false, i);
         if (!c) return;
         let { mathToPixels: d, pixelsToMath: p } = o, h, u;
         e.graphMode === 2
@@ -66361,14 +66361,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           case "poi":
             return A6(e.poi.getMovablePoint());
           case "movable-point-parent":
-            return { calcId: e.id, isReverseDrag: !0 };
+            return { calcId: e.id, isReverseDrag: true };
           case "image":
             return {
               calcId: e.image.formula.center_reference_id,
-              isReverseDrag: !1,
+              isReverseDrag: false,
             };
           case "draggable-label":
-            return { calcId: e.model.id, isReverseDrag: !1 };
+            return { calcId: e.model.id, isReverseDrag: false };
           default:
             return e;
         }
@@ -66382,7 +66382,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ? Ro(l) === "NONE" ? [] : [{
                 type: "movable-point-parent",
                 id: e,
-                shouldDelayUntilRealMove: !0,
+                shouldDelayUntilRealMove: true,
                 ...c,
               }]
               : [];
@@ -66395,7 +66395,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ...this.controller.getAllSelectedItems().map((l) => l.id)
               .filter((l) => l !== e),
           );
-        let i = !1, n = {}, a = [];
+        let i = false, n = {}, a = [];
         Qg({ controller: this.controller }, (l, c) => {
           if (
             !c &&
@@ -66412,7 +66412,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         for (let l in s) {
           let c = n[l];
           if (!c) {
-            i = !0;
+            i = true;
             break;
           }
           a.push({
@@ -66420,7 +66420,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             id: l,
             x: c.value.x,
             y: c.value.y,
-            shouldDelayUntilRealMove: !0,
+            shouldDelayUntilRealMove: true,
             transformations: s[l],
           });
         }
@@ -66462,21 +66462,21 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             points: n,
             originalTargetObjectId: e,
           }),
-            !0)
-          : !1;
+            true)
+          : false;
       }
       startMovingPoints(e) {
         let t = e.points,
-          o = !1,
+          o = false,
           i = t.map(this.getPointInfo),
           n = this.controller;
         function a() {
-          o = !0, n.dispatch({ type: "start-moving-points", points: i });
+          o = true, n.dispatch({ type: "start-moving-points", points: i });
         }
-        let s = !1;
+        let s = false;
         for (let h of t) {
           if (h.shouldDelayUntilRealMove) {
-            s = !0;
+            s = true;
             break;
           }
         }
@@ -66585,7 +66585,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         a.branchInfo.sketch = s;
         let l = a.branchInfo.sketch.branches;
         for (let p = 0; p < l.length; p++) {
-          let h = this.calculateDistanceFromBranch(l[p], o, t, !1);
+          let h = this.calculateDistanceFromBranch(l[p], o, t, false);
           h < i && (n = p, i = h);
         }
         let c = l[n],
@@ -66603,11 +66603,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.controller.requestRedrawGraph();
       }
       hasNonlinearMoveStrategy(e) {
-        if (!e || e.type !== "movable-point-parent") return !1;
+        if (!e || e.type !== "movable-point-parent") return false;
         let t = this.controller.getItemModel(e.id);
-        if (!t || t.type !== "expression" || !t.formula) return !1;
+        if (!t || t.type !== "expression" || !t.formula) return false;
         let o = t.formula.move_strategy;
-        return !o || !o[0] ? !1 : o[0].type === "updateSliderNonlinear";
+        return !o || !o[0] ? false : o[0].type === "updateSliderNonlinear";
       }
       movePointsFromKeyboard(e, t) {
         if (!t) return;
@@ -66704,7 +66704,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ? s = o.xmax
               : s = Math.min(Math.round((s + n) / n) * n, o.xmax)),
           !(s === this.geoKeyboardPt.x && l === this.geoKeyboardPt.y) &&
-          (this.setGeoKeyboardPt({ x: s, y: l, fromArrowKeys: !0 }),
+          (this.setGeoKeyboardPt({ x: s, y: l, fromArrowKeys: true }),
             this.handleGeoKeyboardPtMove(e),
             this.controller.getEvaluator().notifyWhenSynced(() => {
               yt(
@@ -66719,12 +66719,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 p = [];
               for (let h in d) {
                 let u = this.controller.getItemModel(h, {
-                  includePreviewItems: !0,
+                  includePreviewItems: true,
                 });
                 u !== void 0 &&
                   p.push(
                     Fo(u, this.controller, {
-                      includeDetails: !1,
+                      includeDetails: false,
                       depth: this.controller.isToolPreviewItem(h) ? 0 : 1,
                     }),
                   );
@@ -67134,7 +67134,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       handleGeoTapStart(e, t) {
         let o = this.controller.getGeoModel();
-        this.canceledGeoToolplayWhilePressed = !1;
+        this.canceledGeoToolplayWhilePressed = false;
         let i = e.shift;
         return o.onMouseAction("move", {
             pt: e.mathPoint,
@@ -67145,8 +67145,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? this.handleGeoTapMove(e)
             : (o.onPreviewChange(), this.updateGeoHoveredObjects()),
             o.getToolMode() === "expression-edit" && t.preventDefault(),
-            !0)
-          : !1;
+            true)
+          : false;
       }
       updatePointerState(e) {
         var n;
@@ -67155,9 +67155,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = this.isEventWithinInstance(e),
           i;
         return e.type === "dcg-tapstart"
-          ? i = !0
+          ? i = true
           : e.type === "dcg-tapend"
-          ? i = !1
+          ? i = false
           : i = !!((n = this.pointerState) != null && n.isPressed),
           this.pointerState = {
             mathPoint: this.convertTouchEventToMathPoint(e),
@@ -67186,8 +67186,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             e.mathPoint,
             this.getToleranceByDevice(e.device),
             {
-              shouldUseJitEdges: () => !0,
-              isValidNextInputType: () => !0,
+              shouldUseJitEdges: () => true,
+              isValidNextInputType: () => true,
             },
           ) &&
             this.controller.dispatch({
@@ -67226,10 +67226,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           }).handled
           : (t.onMouseAction("move", {
             pt: { x: NaN, y: NaN },
-            shift: !1,
+            shift: false,
             tolerance: 0,
           }),
-            o = !0),
+            o = true),
           t.onPreviewChange(),
           o;
       }
@@ -67253,7 +67253,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               shift: e.shift,
               tolerance: this.getToleranceByDevice(e.device),
             });
-        this.canceledGeoToolplayWhilePressed = !1,
+        this.canceledGeoToolplayWhilePressed = false,
           i.committed &&
           this.controller.dispatch({
             type: "commit-geo-objects",
@@ -67270,7 +67270,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o.getToolMode() === "expression-edit" && t.preventDefault();
       }
       isEventWithinInstance(e) {
-        return e.target ? this.manager.elt.contains(e.target) : !1;
+        return e.target ? this.manager.elt.contains(e.target) : false;
       }
       updateGeoHoveredObjects() {
         let e = this.controller.getGeoModel(), t = {};
@@ -67288,11 +67288,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               ? o.listIndex === void 0
                 ? n.listIndexes = void 0
                 : n.listIndexes !== void 0 &&
-                  (n.listIndexes[o.listIndex] = !0)
+                  (n.listIndexes[o.listIndex] = true)
               : t[i] = {
                 listIndexes: o.listIndex === void 0
                   ? void 0
-                  : { [o.listIndex]: !0 },
+                  : { [o.listIndex]: true },
               };
           }
         }),
@@ -67309,7 +67309,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       startBoxSelect(e) {
         let t = {};
-        this.controller.getAllSelectedItems().forEach((n) => t[n.id] = !0);
+        this.controller.getAllSelectedItems().forEach((n) => t[n.id] = true);
         let o = this.manager.getProjection().reverse_map_pt(
             this.getMouseRelativeToGrapher(e),
           ),
@@ -67342,7 +67342,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function A6(r) {
     return {
       calcId: r.sketch.id,
-      isReverseDrag: !1,
+      isReverseDrag: false,
       scaleFactor: r.type === "movable-point" ? r.scaleFactor : void 0,
       tableInfo: r.type === "movable-point" ? r.tableInfo : void 0,
     };
@@ -67358,7 +67358,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (!d) continue;
         if (d.hoistToTop && !this.controller.isGeometry()) {
           let h = d.showHighlight;
-          h && e.projection.settings.setProperty("highlight", !0),
+          h && e.projection.settings.setProperty("highlight", true),
             Td.drawSketchToCtx({
               sketch: d,
               drawContext: e,
@@ -67366,7 +67366,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               clickableObjectsLayer: i,
               geometryContext: this.controller.getGeoModel(),
             }),
-            h && e.projection.settings.setProperty("highlight", !1);
+            h && e.projection.settings.setProperty("highlight", false);
         }
         let p = d.getPOI();
         (d.showPOI || p.length && p[0].isAttachedToPlottedPoint()) &&
@@ -67454,7 +67454,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.getMode() === "number" &&
             this.model.getNonObjectsState().ui.currentTool.inputIndex ===
               1
-          ? !1
+          ? false
           : super.onMove(t);
       }
       getSpecIdToLockIn(t, o) {
@@ -67522,7 +67522,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             this.model.getNonObjectsState().ui.currentTool;
           n > 1 && delete t.inputs[1].numberInputInfo;
           let a = i[2],
-            s = !1,
+            s = false,
             l = a && this.model.findDefsForInputId(a)[0];
           s = !!(l &&
             l.typedRuntimeValue.valueType ==
@@ -67532,8 +67532,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 t.outputs.push({
                   id: "directed-angle",
                   type: "directedangle",
-                  hidden: !1,
-                  showAngleLabel: !1,
+                  hidden: false,
+                  showAngleLabel: false,
                   parents: [{ type: "reference-input", id: "2" }, {
                     type: "reference-input",
                     id: "1",
@@ -67541,7 +67541,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 }, {
                   id: "angle-output",
                   type: "rotate",
-                  hidden: !1,
+                  hidden: false,
                   name: this.generateDefaultName(),
                   parents: [{ type: "reference-input", id: "1" }, {
                     type: "reference-input",
@@ -67551,7 +67551,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               : t.outputs.push({
                 id: "angle-output",
                 type: "rotate",
-                hidden: !1,
+                hidden: false,
                 name: this.generateDefaultName(),
                 parents: [{ type: "reference-input", id: "1" }, {
                   type: "reference-input",
@@ -67574,14 +67574,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           type: "stroked-path",
           path: [32, 68, 65, 35],
           lineWidth: "large",
-          arrow: !0,
+          arrow: true,
         },
         { type: "point", x: 32, y: 68 },
         { type: "point", x: 68, y: 32 },
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -67591,7 +67591,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         output: [{ type: "vector", parents: [0, 1] }],
       }, {
         input: {
-          broadcast: !1,
+          broadcast: false,
           types: [
             __dcg_shared_module_exports__["$a"],
             __dcg_shared_module_exports__["ya"],
@@ -67754,7 +67754,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.controller.getGraphSettings().config.reflectionArc
       ) {
         let v = Math.atan2(y - p, f - d), w = h, S = h * .7;
-        e.moveTo(f, y), e.ellipse(d, p, w, S, v, 0, Math.PI, !1);
+        e.moveTo(f, y), e.ellipse(d, p, w, S, v, 0, Math.PI, false);
         let k = .35, _ = v + Math.PI / 2 + k, A = v + Math.PI / 2 - k;
         xc(e, f + Math.cos(_), y + Math.sin(_), f, y, 10),
           xc(e, C + Math.cos(A), E + Math.sin(A), C, E, 10);
@@ -67790,7 +67790,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       ) {
         if (a !== void 0 && a !== 0 && isFinite(a)) {
           if (i && i[0] === o[0] && i[1] === o[1]) return;
-          this.drawFullRotationAngle(e, t, o, n, a, !1);
+          this.drawFullRotationAngle(e, t, o, n, a, false);
         } else if (i) {
           this.drawPlaceholderRotationAngle(e, t, i, n);
           return;
@@ -67955,12 +67955,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       l = [
         ...r.getAllItemModels().filter((w) => {
           var S;
-          if (r.isItemSelected(w.id)) return !0;
+          if (r.isItemSelected(w.id)) return true;
           if (w.type === "expression" && s) {
             let k = (S = pi(w)) == null ? void 0 : S.identifier;
             return s === k;
           }
-          return !1;
+          return false;
         }),
         ...r.getAllToolPreviewItems(),
       ];
@@ -68117,10 +68117,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.elt = e.elt,
           this.id = aae++,
           this.controller = t,
-          this.isScalingEnabled = !1,
+          this.isScalingEnabled = false,
           this.mousePt = Aa(0, 0),
           this.lastScrollZoom = Date.now(),
-          this.preventScrollZoom = !1,
+          this.preventScrollZoom = false,
           this.addMouseWheelEventHandler(),
           this.addTouchEventHandler();
       }
@@ -68256,9 +68256,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         cancelAnimationFrame(this.__animationTimeout);
       }
       addMouseWheelEventHandler() {
-        let e = !1, t, o;
+        let e = false, t, o;
         ee(window).on("scroll.viewportcontroller-" + this.id, (a) => {
-          e = !0;
+          e = true;
         }),
           ee(window).on("wheel.viewportcontroller-" + this.id, (a) => {
             t = a.clientX, o = a.clientY;
@@ -68268,7 +68268,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             (a) => {
               if (!e) return;
               let s = a.clientX - t, l = a.clientY - o;
-              s * s + l * l < 100 || (e = !1);
+              s * s + l * l < 100 || (e = false);
             },
           );
         let i = 0,
@@ -68278,7 +68278,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let l = Date.now(), c = l - this.lastScrollZoom;
             if (
               this.preventScrollZoom && c > 50 &&
-              (this.preventScrollZoom = !1),
+              (this.preventScrollZoom = false),
                 this.lastScrollZoom = l,
                 this.preventScrollZoom
             ) return;
@@ -68372,9 +68372,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       addTouchEventHandler() {
         let e = [],
-          t = !1,
-          o = !0,
-          i = !0,
+          t = false,
+          o = true,
+          i = true,
           n = (u) => {
             t || this.isViewportLocked() ||
               (this.updateMouse(u.originalEvent),
@@ -68387,7 +68387,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.isViewportLocked() || t ||
               u.touches.length !== u.changedTouches.length
             ) return;
-            t = !0, this.grapher.isDragging = !0, this.updateMouse(u);
+            t = true, this.grapher.isDragging = true, this.updateMouse(u);
             let y = f.mathToPixels.mapPoint(Aa(0, 0)),
               C = this.grapher.scaleAxis;
             (C === "x" || C === "both") && (o = this.mousePt.x > y.x),
@@ -68427,7 +68427,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 this.updateCursor());
           },
           c = () => {
-            this.isScalingEnabled = !1, this.preventScrollZoom = !0, l();
+            this.isScalingEnabled = false, this.preventScrollZoom = true, l();
           },
           d = (u) => u.altKey || u.ctrlKey || u.metaKey,
           p = (u) => {
@@ -68465,8 +68465,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               (this.cancelAnimation(),
                 e = F6(f.touches, Gl(this.elt)),
                 f.touches.length === 0 &&
-                (t = !1,
-                  this.grapher.isDragging = !1,
+                (t = false,
+                  this.grapher.isDragging = false,
                   ee(document).off(".graphdrag"),
                   this.grapher.debounceUserRequestedViewportChange(),
                   this.controller.dispatch({ type: "grapher/drag-end" })),
@@ -68477,7 +68477,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ee(window).on("keydown.viewportcontroller-" + this.id, (u) => {
           this.controller.isGeoToolActive() || this.isViewportLocked() ||
             (ke(u) === tw && !d(u) && this.shouldAllowShiftScaling()
-              ? (this.isScalingEnabled = !0,
+              ? (this.isScalingEnabled = true,
                 this.grapher.scaleAxis || this.updateScaleAxis())
               : c());
         }),
@@ -68502,7 +68502,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             xe(this.s("graphing-calculator-narration-viewport-zoom-out"));
         } else if (e === "square") {
           let o = this.getSquareViewport();
-          this.getProjection().settings.setProperty("squareAxes", !0),
+          this.getProjection().settings.setProperty("squareAxes", true),
             this.animateToViewport(o),
             xe(
               this.s(
@@ -68590,7 +68590,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ),
           this.poiController = new hk(this, o),
           this.viewportController = new yk(this, this.controller),
-          this.showPOIDots = !0,
+          this.showPOIDots = true,
           this.graphSketches = {},
           this.graphImages = {},
           this.audioGraph = new MD(i, this),
@@ -68715,7 +68715,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.controller.isThreeDMode() &&
           ({ width: i, height: n } = this.__screenRequested3D),
           i > 0 && n > 0
-            ? (this._setIsVisible(!0),
+            ? (this._setIsVisible(true),
               this._updateScreenSize(i, n),
               Wn(this.elt, {
                 position: "absolute",
@@ -68724,7 +68724,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 width: i + "px",
                 height: n + "px",
               }))
-            : this._setIsVisible(!1);
+            : this._setIsVisible(false);
       }
       setActiveToken(t, o) {
         let i = this.lastActiveToken[o];
@@ -68734,24 +68734,24 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         a !== n &&
         (a &&
           (o === "selected"
-            ? a.tokenSelected = !1
-            : o === "hovered" && (a.tokenHovered = !1)),
+            ? a.tokenSelected = false
+            : o === "hovered" && (a.tokenHovered = false)),
           n &&
           (o === "selected"
-            ? n.tokenSelected = !0
-            : o === "hovered" && (n.tokenHovered = !0))),
+            ? n.tokenSelected = true
+            : o === "hovered" && (n.tokenHovered = true))),
           this.controller.requestRedrawGraph();
       }
       deselectSketch(t) {
         let o = this.getGraphSketch(t);
-        o && (o.selected = !1, o.showPOI = !1, o.showHighlight = !1);
+        o && (o.selected = false, o.showPOI = false, o.showHighlight = false);
       }
       selectSketch(t) {
         let o = this.getGraphSketch(t);
         o &&
-          (o.selected = !0,
+          (o.selected = true,
             o.showPOI = this.controller.isTraceEnabled(),
-            o.showHighlight = !0);
+            o.showHighlight = true);
       }
       setSketchHoistedToTop(t, o) {
         let i = this.getGraphSketch(t);
@@ -68818,7 +68818,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           this.update(), !this.isVisible && !this.isDrawingPlaneFor3dMode()
         ) return;
-        this.__redrawRequested = !1;
+        this.__redrawRequested = false;
         let t = Date.now();
         this._clear();
         let o = this.createDrawContext();
@@ -68862,8 +68862,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               () =>
                 this.drawLabelHitMask({
                   projection: this.getProjection(),
-                  showMovablePoints: !0,
-                  includePillboxes: !0,
+                  showMovablePoints: true,
+                  includePillboxes: true,
                 }),
             ));
         let i = (n) => {
@@ -68884,7 +68884,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 t.ctx,
                 t.projection,
                 n.drawOrder,
-                { showMovablePoints: !0, renderForScreenshot: !1 },
+                { showMovablePoints: true, renderForScreenshot: false },
               ));
         };
         for (let n of this.__drawLayers) n.layer < 0 && i(n);
@@ -68924,14 +68924,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return o;
       }
       screenshot(t) {
-        return t && t.showLabels && (t = { ...t, showLabels: !1 }),
+        return t && t.showLabels && (t = { ...t, showLabels: false }),
           this._syncScreenshotReturnCanvas(t).toDataURL("image/png");
       }
       asyncScreenshot(t, o) {
         if (t && t.format === "svg") {
           t.transparentBackground &&
             (t = __dcg_shared_module_exports__["Jc"](t),
-              t.transparentBackground = !1);
+              t.transparentBackground = false);
           let { width: i, height: n, targetPixelRatio: a } = this
             ._parseScreenshotOpts(t);
           i *= a, n *= a;
@@ -68980,7 +68980,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ),
             this.movablePointsLayer.redrawToCtx(a.ctx, a.projection, s, {
               showMovablePoints: t.showMovablePoints,
-              renderForScreenshot: !0,
+              renderForScreenshot: true,
             }),
             t.includePillboxes
         ) {
@@ -69008,7 +69008,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           s = t.getContext("2d");
         s.scale(n, n);
         let l = this.makeScreenshotProjection(o);
-        l.settings.takingScreenshot = !0,
+        l.settings.takingScreenshot = true,
           Ja(s, "background"),
           No(s, "dcg-svg-background"),
           a
@@ -69046,7 +69046,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let v = Hv.mountToNode(Pb, E.querySelector(".dcg-grapher"), {
             grapher: () => this,
           });
-          v.takingScreenshot = !0;
+          v.takingScreenshot = true;
           let w = { width: l.screen.width, height: l.screen.height };
           v.recomputeLabels(
             {
@@ -69064,7 +69064,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.drawLabelHitMask({
                 projection: l,
                 showMovablePoints: !!o.showMovablePoints,
-                includePillboxes: !1,
+                includePillboxes: false,
               }),
           ), d = { labelsLayer: v, layersWrapper: E };
         }
@@ -69088,7 +69088,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               h.drawOrder,
               {
                 showMovablePoints: !!(o != null && o.showMovablePoints),
-                renderForScreenshot: !0,
+                renderForScreenshot: true,
               },
             );
         };
@@ -69110,7 +69110,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (
           (!o || !o.doNotClear) && this.clear(),
             "complex" in t && !this.controller.canEnableComplexMode() &&
-            (t = { ...t, complex: !1 }),
+            (t = { ...t, complex: false }),
             t = r.copyGraphProperties(t, this.settings),
             "viewport" in t
         ) {
@@ -69148,13 +69148,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       : (o = t.width,
         i = t.height,
         n = 1,
-        a = !1,
+        a = false,
         s = Bp.fromObject(e),
-        l = !1),
+        l = false),
       a &&
-      (s.setProperty("xAxisNumbers", !1),
-        s.setProperty("yAxisNumbers", !1),
-        s.setProperty("polarNumbers", !1)),
+      (s.setProperty("xAxisNumbers", false),
+        s.setProperty("yAxisNumbers", false),
+        s.setProperty("polarNumbers", false)),
       {
         width: o,
         height: i,
@@ -69743,7 +69743,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   };
   var Nt = class r {
       constructor(e, t, o, i, n, a, s, l, c, d, p, h, u, f, y, C) {
-        this.isMatrix4 = !0;
+        this.isMatrix4 = true;
         this.elements = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
           e !== void 0 &&
           this.set(e, t, o, i, n, a, s, l, c, d, p, h, u, f, y, C);
@@ -70220,8 +70220,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       equals(e) {
         let t = this.elements, o = e.elements;
-        for (let i = 0; i < 16; i++) if (t[i] !== o[i]) return !1;
-        return !0;
+        for (let i = 0; i < 16; i++) if (t[i] !== o[i]) return false;
+        return true;
       }
       fromArray(e, t = 0) {
         for (let o = 0; o < 16; o++) this.elements[o] = e[o + t];
@@ -70291,7 +70291,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this._onChangeCallback(),
           this;
       }
-      setFromRotationMatrix(e, t = this._order, o = !0) {
+      setFromRotationMatrix(e, t = this._order, o = true) {
         let i = e.elements,
           n = i[0],
           a = i[4],
@@ -70327,7 +70327,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 t,
             );
         }
-        return this._order = t, o === !0 && this._onChangeCallback(), this;
+        return this._order = t, o === true && this._onChangeCallback(), this;
       }
       setFromQuaternion(e, t, o) {
         return _W.makeRotationFromQuaternion(e),
@@ -70473,8 +70473,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
     equals(e) {
       let t = this.elements, o = e.elements;
-      for (let i = 0; i < 9; i++) if (t[i] !== o[i]) return !1;
-      return !0;
+      for (let i = 0; i < 9; i++) if (t[i] !== o[i]) return false;
+      return true;
     }
     toArray(e, t = 0) {
       let o = this.elements;
@@ -70497,7 +70497,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   };
   var Ql = class r {
     constructor(e = 0, t = 0, o = 0, i = 1) {
-      this.isQuaternion = !0;
+      this.isQuaternion = true;
       this._x = e, this._y = t, this._z = o, this._w = i;
     }
     get x() {
@@ -70581,7 +70581,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               a,
           );
       }
-      return t !== !1 && this._onChangeCallback(), this;
+      return t !== false && this._onChangeCallback(), this;
     }
     setFromRotationMatrix(e) {
       let t = e.elements,
@@ -70736,8 +70736,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   };
   var hs = new ye(),
     ha = class {
-      constructor(e, t, o = !1) {
-        this.isBufferAttribute = !0;
+      constructor(e, t, o = false) {
+        this.isBufferAttribute = true;
         if (Array.isArray(e)) {
           throw new TypeError(
             "THREE.BufferAttribute: array should be a Typed Array.",
@@ -70755,7 +70755,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       onUploadCallback() {}
       set needsUpdate(e) {
-        e === !0 && this.version++;
+        e === true && this.version++;
       }
       applyMatrix4(e) {
         for (let t = 0, o = this.count; t < o; t++) {
@@ -70832,7 +70832,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     };
   var Ns = class {
     hasEventListener(e, t) {
-      if (this._listeners === void 0) return !1;
+      if (this._listeners === void 0) return false;
       let o = this._listeners;
       return o[e] !== void 0 && o[e].indexOf(t) !== -1;
     }
@@ -70888,7 +70888,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     yh = class yh extends Ns {
       constructor() {
         super();
-        this.isObject3D = !0;
+        this.isObject3D = true;
         Object.defineProperty(this, "id", { value: pae++ }),
           this.uuid = Yl(),
           this.name = "",
@@ -70898,18 +70898,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.up = yh.DEFAULT_UP.clone();
         let t = new ye(), o = new Fs(), i = new Ql(), n = new ye(1, 1, 1);
         function a() {
-          i.setFromEuler(o, !1);
+          i.setFromEuler(o, false);
         }
         function s() {
-          o.setFromQuaternion(i, void 0, !1);
+          o.setFromQuaternion(i, void 0, false);
         }
         o._onChange(a),
           i._onChange(s),
           Object.defineProperties(this, {
-            position: { configurable: !0, enumerable: !0, value: t },
-            rotation: { configurable: !0, enumerable: !0, value: o },
-            quaternion: { configurable: !0, enumerable: !0, value: i },
-            scale: { configurable: !0, enumerable: !0, value: n },
+            position: { configurable: true, enumerable: true, value: t },
+            rotation: { configurable: true, enumerable: true, value: o },
+            quaternion: { configurable: true, enumerable: true, value: i },
+            scale: { configurable: true, enumerable: true, value: n },
             modelViewMatrix: { value: new Nt() },
             normalMatrix: { value: new Po() },
           }),
@@ -70917,11 +70917,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.matrixWorld = new Nt(),
           this.dcgModelMatrix = new Nt(),
           this.matrixAutoUpdate = yh.DEFAULT_MATRIX_AUTO_UPDATE,
-          this.matrixWorldNeedsUpdate = !1,
+          this.matrixWorldNeedsUpdate = false,
           this.matrixWorldAutoUpdate = yh.DEFAULT_MATRIX_WORLD_AUTO_UPDATE,
           this.layers = new Ty(),
-          this.visible = !0,
-          this.frustumCulled = !0,
+          this.visible = true,
+          this.frustumCulled = true,
           this.renderOrder = 0,
           this.userData = {};
       }
@@ -70939,7 +70939,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           );
       }
       setRotationFromEuler(t) {
-        this.quaternion.setFromEuler(t, !0);
+        this.quaternion.setFromEuler(t, true);
       }
       setRotationFromMatrix(t) {
         this.quaternion.setFromRotationMatrix(t);
@@ -70961,7 +70961,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       lookAt(t) {
         eO.copy(t);
         let o = this.parent;
-        this.updateWorldMatrix(!0, !1),
+        this.updateWorldMatrix(true, false),
           tO.setFromMatrixPosition(this.matrixWorld),
           this.isCamera || this.isLight
             ? Qv.lookAt(tO, eO, this.up)
@@ -71033,14 +71033,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         for (let i = 0, n = o.length; i < n; i++) o[i].traverse(t);
       }
       traverseVisible(t) {
-        if (this.visible === !1) return;
+        if (this.visible === false) return;
         t(this);
         let o = this.children;
         for (let i = 0, n = o.length; i < n; i++) o[i].traverseVisible(t);
       }
       updateMatrix() {
         this.matrix.compose(this.position, this.quaternion, this.scale),
-          this.matrixWorldNeedsUpdate = !0;
+          this.matrixWorldNeedsUpdate = true;
       }
       updateMatrixWorld(t) {
         this.matrixAutoUpdate && this.updateMatrix(),
@@ -71051,20 +71051,20 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               this.parent.matrixWorld,
               this.matrix,
             ),
-            this.matrixWorldNeedsUpdate = !1,
-            t = !0);
+            this.matrixWorldNeedsUpdate = false,
+            t = true);
         let o = this.children;
         for (let i = 0, n = o.length; i < n; i++) {
           let a = o[i];
-          (a.matrixWorldAutoUpdate === !0 || t === !0) &&
+          (a.matrixWorldAutoUpdate === true || t === true) &&
             a.updateMatrixWorld(t);
         }
       }
       updateWorldMatrix(t, o) {
         let i = this.parent;
         if (
-          t === !0 && i !== null && i.matrixWorldAutoUpdate === !0 &&
-          i.updateWorldMatrix(!0, !1),
+          t === true && i !== null && i.matrixWorldAutoUpdate === true &&
+          i.updateWorldMatrix(true, false),
             this.matrixAutoUpdate && this.updateMatrix(),
             this.parent === null
               ? this.matrixWorld.copy(this.matrix)
@@ -71072,25 +71072,25 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 this.parent.matrixWorld,
                 this.matrix,
               ),
-            o === !0
+            o === true
         ) {
           let n = this.children;
           for (let a = 0, s = n.length; a < s; a++) {
             let l = n[a];
-            l.matrixWorldAutoUpdate === !0 && l.updateWorldMatrix(!1, !0);
+            l.matrixWorldAutoUpdate === true && l.updateWorldMatrix(false, true);
           }
         }
       }
     };
   yh.DEFAULT_UP = new ye(0, 1, 0),
-    yh.DEFAULT_MATRIX_AUTO_UPDATE = !0,
-    yh.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = !0;
+    yh.DEFAULT_MATRIX_AUTO_UPDATE = true,
+    yh.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = true;
   var Ii = yh;
   var Dy = class extends Ii {
     constructor() {
       super();
-      this.isCamera = !0;
-      this.isCamera = !0,
+      this.isCamera = true;
+      this.isCamera = true,
         this.type = "Camera",
         this.matrixWorldInverse = new Nt(),
         this.projectionMatrix = new Nt(),
@@ -71123,7 +71123,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     setViewOffset(e, t, o, i, n, a) {
       this.view === null &&
       (this.view = {
-        enabled: !0,
+        enabled: true,
         fullWidth: 1,
         fullHeight: 1,
         offsetX: 0,
@@ -71131,7 +71131,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         width: 1,
         height: 1,
       }),
-        this.view.enabled = !0,
+        this.view.enabled = true,
         this.view.fullWidth = e,
         this.view.fullHeight = t,
         this.view.offsetX = o,
@@ -71141,7 +71141,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.updateProjectionMatrix();
     }
     clearViewOffset() {
-      this.view !== null && (this.view.enabled = !1),
+      this.view !== null && (this.view.enabled = false),
         this.updateProjectionMatrix();
     }
     updateProjectionMatrix() {
@@ -71209,7 +71209,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       this.aspect = e / t,
         this.view === null &&
         (this.view = {
-          enabled: !0,
+          enabled: true,
           fullWidth: 1,
           fullHeight: 1,
           offsetX: 0,
@@ -71217,7 +71217,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           width: 1,
           height: 1,
         }),
-        this.view.enabled = !0,
+        this.view.enabled = true,
         this.view.fullWidth = e,
         this.view.fullHeight = t,
         this.view.offsetX = o,
@@ -71227,7 +71227,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.updateProjectionMatrix();
     }
     clearViewOffset() {
-      this.view !== null && (this.view.enabled = !1),
+      this.view !== null && (this.view.enabled = false),
         this.updateProjectionMatrix();
     }
     updateProjectionMatrix() {
@@ -71306,7 +71306,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           ? this
           : this.isEmpty()
           ? (this.copy(e), this)
-          : (this.center.equals(e.center) === !0
+          : (this.center.equals(e.center) === true
             ? this.radius = Math.max(this.radius, e.radius)
             : (oO.subVectors(e.center, this.center).setLength(e.radius),
               this.expandByPoint(ky.copy(e.center).add(oO)),
@@ -71335,8 +71335,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     };
   function Nk(r) {
-    for (let e = r.length - 1; e >= 0; --e) if (r[e] >= 65535) return !0;
-    return !1;
+    for (let e = r.length - 1; e >= 0; --e) if (r[e] >= 65535) return true;
+    return false;
   }
   function Bk(r) {
     return document.createElementNS("http://www.w3.org/1999/xhtml", r);
@@ -71375,7 +71375,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     La = class extends Ns {
       constructor() {
         super();
-        this.isBufferGeometry = !0;
+        this.isBufferGeometry = true;
         Object.defineProperty(this, "id", { value: yae++ }),
           this.uuid = Yl(),
           this.name = "",
@@ -71406,15 +71406,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       applyMatrix4(t) {
         let o = this.attributes.position;
-        o !== void 0 && (o.applyMatrix4(t), o.needsUpdate = !0);
+        o !== void 0 && (o.applyMatrix4(t), o.needsUpdate = true);
         let i = this.attributes.normal;
         if (i !== void 0) {
           let a = new Po().getNormalMatrix(t);
-          i.applyNormalMatrix(a), i.needsUpdate = !0;
+          i.applyNormalMatrix(a), i.needsUpdate = true;
         }
         let n = this.attributes.tangent;
         return n !== void 0 &&
-          (n.transformDirection(t), n.needsUpdate = !0),
+          (n.transformDirection(t), n.needsUpdate = true),
           this.boundingSphere !== null && this.computeBoundingSphere(),
           this;
       }
@@ -71494,7 +71494,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 i.setXYZ(u + 1, p.x, p.y, p.z),
                 i.setXYZ(u + 2, p.x, p.y, p.z);
             }}
-          this.normalizeNormals(), i.needsUpdate = !0;
+          this.normalizeNormals(), i.needsUpdate = true;
         }
       }
       normalizeNormals() {
@@ -71623,13 +71623,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     Uk = class {
       constructor(e) {
         this.data = e;
-        this.isSource = !0;
+        this.isSource = true;
         this.uuid = Yl();
         this.version = 0;
         Object.defineProperty(this, "id", { value: xae++ });
       }
       set needsUpdate(e) {
-        e === !0 && this.version++;
+        e === true && this.version++;
       }
     };
   var Bd = class {
@@ -71654,7 +71654,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         d = Ey,
       ) {
         super(),
-          this.isTexture = !0,
+          this.isTexture = true,
           Object.defineProperty(this, "id", { value: wae++ }),
           this.uuid = Yl(),
           this.name = "",
@@ -71674,18 +71674,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.repeat = new Tt(1, 1),
           this.center = new Tt(0, 0),
           this.rotation = 0,
-          this.matrixAutoUpdate = !0,
+          this.matrixAutoUpdate = true,
           this.matrix = new Po(),
-          this.generateMipmaps = !0,
-          this.premultiplyAlpha = !1,
-          this.flipY = !0,
+          this.generateMipmaps = true,
+          this.premultiplyAlpha = false,
+          this.flipY = true,
           this.unpackAlignment = 4,
           this.colorSpace = d,
           this.userData = {},
           this.version = 0,
           this.onUpdate = void 0,
-          this.isRenderTargetTexture = !1,
-          this.needsPMREMUpdate = !1;
+          this.isRenderTargetTexture = false,
+          this.needsPMREMUpdate = false;
       }
       get image() {
         return this.source.data;
@@ -71722,7 +71722,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.unpackAlignment = e.unpackAlignment,
           this.colorSpace = e.colorSpace,
           this.userData = JSON.parse(JSON.stringify(e.userData)),
-          this.needsUpdate = !0,
+          this.needsUpdate = true,
           this;
       }
       dispose() {
@@ -71763,7 +71763,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.flipY && (e.y = 1 - e.y), e;
       }
       set needsUpdate(e) {
-        e === !0 && (this.version++, this.source.needsUpdate = !0);
+        e === true && (this.version++, this.source.needsUpdate = true);
       }
     };
   Iy.DEFAULT_ANISOTROPY = 1, Iy.DEFAULT_MAPPING = TV;
@@ -71771,12 +71771,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var zk = class extends Ns {
     constructor(t = 1, o = 1, i = {}) {
       super();
-      this.isRenderTarget = !0;
+      this.isRenderTarget = true;
       this.width = t,
         this.height = o,
         this.depth = 1,
         this.scissor = new pn(0, 0, t, o),
-        this.scissorTest = !1,
+        this.scissorTest = false,
         this.viewport = new pn(0, 0, t, o);
       let n = new Bd(t, o, 1);
       this.texture = new Bs(
@@ -71791,17 +71791,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         i.anisotropy,
         i.colorSpace,
       ),
-        this.texture.isRenderTargetTexture = !0,
-        this.texture.flipY = !1,
+        this.texture.isRenderTargetTexture = true,
+        this.texture.flipY = false,
         this.texture.generateMipmaps = i.generateMipmaps !== void 0
           ? i.generateMipmaps
-          : !1,
+          : false,
         this.texture.internalFormat = i.internalFormat !== void 0
           ? i.internalFormat
           : null,
         this.texture.minFilter = i.minFilter !== void 0 ? i.minFilter : ml,
-        this.depthBuffer = i.depthBuffer !== void 0 ? i.depthBuffer : !0,
-        this.stencilBuffer = i.stencilBuffer !== void 0 ? i.stencilBuffer : !1,
+        this.depthBuffer = i.depthBuffer !== void 0 ? i.depthBuffer : true,
+        this.stencilBuffer = i.stencilBuffer !== void 0 ? i.stencilBuffer : false,
         this.depthTexture = i.depthTexture !== void 0 ? i.depthTexture : null,
         this.samples = i.samples !== void 0 ? i.samples : 0;
     }
@@ -71820,7 +71820,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var wh = class {
     constructor() {
       this.arcLengthDivisions = 200;
-      this.needsUpdate = !1;
+      this.needsUpdate = false;
     }
     getPointAt(e, t) {
       let o = this.getUtoTmapping(e);
@@ -71845,7 +71845,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.cacheArcLengths && this.cacheArcLengths.length === e + 1 &&
         !this.needsUpdate
       ) return this.cacheArcLengths;
-      this.needsUpdate = !1;
+      this.needsUpdate = false;
       let t = [], o, i = this.getPoint(0), n = 0;
       t.push(0);
       for (let a = 1; a <= e; a++) {
@@ -71854,7 +71854,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return this.cacheArcLengths = t, t;
     }
     updateArcLengths() {
-      this.needsUpdate = !0, this.getLengths();
+      this.needsUpdate = true, this.getLengths();
     }
     getUtoTmapping(e, t) {
       let o = this.getLengths(), i = 0, n = o.length, a;
@@ -71916,7 +71916,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         a[h].crossVectors(i[h], n[h]);
       }
-      if (t === !0) {
+      if (t === true) {
         let h = Math.acos(sm(n[0].dot(n[e]), -1, 1));
         h /= e, i[0].dot(s.crossVectors(n[0], n[e])) > 0 && (h = -h);
         for (let u = 1; u <= e; u++) {
@@ -71952,7 +71952,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     constructor() {
       super(...arguments);
       this.curves = [];
-      this.autoClose = !1;
+      this.autoClose = false;
     }
     add(t) {
       this.curves.push(t);
@@ -71980,7 +71980,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return t[t.length - 1];
     }
     updateArcLengths() {
-      this.needsUpdate = !0, this.cacheLengths = void 0, this.getCurveLengths();
+      this.needsUpdate = true, this.cacheLengths = void 0, this.getCurveLengths();
     }
     getCurveLengths() {
       if (
@@ -72082,7 +72082,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   };
   var vt = class r {
     constructor(e) {
-      this.isColor = !0;
+      this.isColor = true;
       if (e instanceof r) this.copy(e);
       else if (typeof e == "number") this.setHex(e);
       else if (typeof e == "string") {
@@ -72139,7 +72139,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     triangulate: function (r, e, t = 2) {
       let o = e && e.length,
         i = o ? e[0] * t : r.length,
-        n = Eae(r, 0, i, t, !0),
+        n = Eae(r, 0, i, t, true),
         a = [];
       if (!n || n.next === n.prev) return a;
       let s, l, c, d, p, h, u;
@@ -72187,7 +72187,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function Dae(r) {
     let e = r.prev, t = r, o = r.next;
-    if (gm(e, t, o) >= 0) return !1;
+    if (gm(e, t, o) >= 0) return false;
     let i = e.x,
       n = t.x,
       a = o.x,
@@ -72203,14 +72203,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (
         f.x >= d && f.x <= h && f.y >= p && f.y <= u &&
         Zv(i, s, n, l, a, c, f.x, f.y) && gm(f.prev, f, f.next) >= 0
-      ) return !1;
+      ) return false;
       f = f.next;
     }
-    return !0;
+    return true;
   }
   function kae(r, e, t, o) {
     let i = r.prev, n = r, a = r.next;
-    if (gm(i, n, a) >= 0) return !1;
+    if (gm(i, n, a) >= 0) return false;
     let s = i.x,
       l = n.x,
       c = a.x,
@@ -72234,7 +72234,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           S.x >= u && S.x <= y && S.y >= f && S.y <= C && S !== i &&
           S !== a && Zv(s, d, l, p, c, h, S.x, S.y) &&
           gm(S.prev, S, S.next) >= 0)
-      ) return !1;
+      ) return false;
       S = S.nextZ;
     }
     for (; w && w.z >= E;) {
@@ -72242,7 +72242,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         w.x >= u && w.x <= y && w.y >= f && w.y <= C && w !== i &&
         w !== a && Zv(s, d, l, p, c, h, w.x, w.y) &&
         gm(w.prev, w, w.next) >= 0
-      ) return !1;
+      ) return false;
       w = w.prevZ;
     }
     for (; S && S.z <= v;) {
@@ -72250,10 +72250,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         S.x >= u && S.x <= y && S.y >= f && S.y <= C && S !== i &&
         S !== a && Zv(s, d, l, p, c, h, S.x, S.y) &&
         gm(S.prev, S, S.next) >= 0
-      ) return !1;
+      ) return false;
       S = S.nextZ;
     }
-    return !0;
+    return true;
   }
   function _ae(r, e, t, o) {
     let i = r;
@@ -72331,7 +72331,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.z = 0,
         this.prevZ = void 0,
         this.nextZ = void 0,
-        this.steiner = !1;
+        this.steiner = false;
     }
   };
   function Mae(r, e, t, o) {
@@ -72390,7 +72390,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     quadraticCurveTo(e, t, o, i) {
       return this.currentPath.quadraticCurveTo(e, t, o, i), this;
     }
-    toShapes(e = !1) {
+    toShapes(e = false) {
       function t(E) {
         let v = [];
         for (let w = 0, S = E.length; w < S; w++) {
@@ -72400,7 +72400,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return v;
       }
       function o(E, v) {
-        let w = v.length, S = !1;
+        let w = v.length, S = false;
         for (let k = w - 1, _ = 0; _ < w; k = _++) {
           let A = v[k], P = v[_], O = P.x - A.x, U = P.y - A.y;
           if (Math.abs(U) > Number.EPSILON) {
@@ -72408,17 +72408,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               U < 0 && (A = v[_], O = -O, P = v[k], U = -U),
                 E.y < A.y || E.y > P.y
             ) continue;
-            if (E.y === A.y) { if (E.x === A.x) return !0; }
+            if (E.y === A.y) { if (E.x === A.x) return true; }
             else {
               let z = U * (E.x - A.x) - O * (E.y - A.y);
-              if (z === 0) return !0;
+              if (z === 0) return true;
               if (z < 0) continue;
               S = !S;
             }
           } else {
             if (E.y !== A.y) continue;
             if (P.x <= E.x && E.x <= A.x || A.x <= E.x && E.x <= P.x) {
-              return !0;
+              return true;
             }
           }
         }
@@ -72443,20 +72443,20 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       if (!h[0]) return t(n);
       if (h.length > 1) {
-        let E = !1, v = 0;
+        let E = false, v = 0;
         for (let w = 0, S = h.length; w < S; w++) p[w] = [];
         for (let w = 0, S = h.length; w < S; w++) {
           let k = u[w];
           for (let _ = 0; _ < k.length; _++) {
-            let A = k[_], P = !0;
+            let A = k[_], P = true;
             for (let O = 0; O < h.length; O++) {
               o(A.p, h[O].p) &&
-                (w !== O && v++, P ? (P = !1, p[O].push(A)) : E = !0);
+                (w !== O && v++, P ? (P = false, p[O].push(A)) : E = true);
             }
             P && p[w].push(A);
           }
         }
-        v > 0 && E === !1 && (u = p);
+        v > 0 && E === false && (u = p);
       }
       let C;
       for (let E = 0, v = h.length; E < v; E++) {
@@ -72473,7 +72473,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       o = 1,
       i = 32,
       n = 1,
-      a = !1,
+      a = false,
       s = 0,
       l = Math.PI * 2,
     ) {
@@ -72482,7 +72482,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       i = Math.floor(i), n = Math.floor(n);
       let d = [], p = [], h = [], u = [], f = 0, y = [], C = o / 2, E = 0;
       v(),
-        a === !1 && (e > 0 && w(!0), t > 0 && w(!1)),
+        a === false && (e > 0 && w(true), t > 0 && w(false)),
         this.setIndex(d),
         this.setAttribute("position", new Bo(p, 3)),
         this.setAttribute("normal", new Bo(h, 3)),
@@ -72523,8 +72523,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           _ = new Tt(),
           A = new ye(),
           P = 0,
-          O = S === !0 ? e : t,
-          U = S === !0 ? 1 : -1;
+          O = S === true ? e : t,
+          U = S === true ? 1 : -1;
         for (let x = 1; x <= i; x++) {
           p.push(0, C * U, 0), h.push(0, U, 0), u.push(.5, .5), f++;
         }
@@ -72543,9 +72543,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         }
         for (let x = 0; x < i; x++) {
           let L = k + x, V = z + x;
-          S === !0 ? d.push(V, V + 1, L) : d.push(V + 1, V, L), P += 3;
+          S === true ? d.push(V, V + 1, L) : d.push(V + 1, V, L), P += 3;
         }
-        c.addGroup(E, P, S === !0 ? 1 : 2), E += P;
+        c.addGroup(E, P, S === true ? 1 : 2), E += P;
       }
     }
   };
@@ -72555,7 +72555,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       t = 1,
       o = 32,
       i = 1,
-      n = !1,
+      n = false,
       a = 0,
       s = Math.PI * 2,
     ) {
@@ -72578,7 +72578,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             c = t.curveSegments !== void 0 ? t.curveSegments : 12,
             d = t.steps !== void 0 ? t.steps : 1,
             p = t.depth !== void 0 ? t.depth : 1,
-            h = t.bevelEnabled !== void 0 ? t.bevelEnabled : !0,
+            h = t.bevelEnabled !== void 0 ? t.bevelEnabled : true,
             u = t.bevelThickness !== void 0 ? t.bevelThickness : .2,
             f = t.bevelSize !== void 0 ? t.bevelSize : u - .1,
             y = t.bevelOffset !== void 0 ? t.bevelOffset : 0,
@@ -72628,12 +72628,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               if (It <= 2) return new Tt(fe, me);
               we = Math.sqrt(It / 2);
             } else {
-              let Ee = !1;
+              let Ee = false;
               Ce > Number.EPSILON
-                ? We > Number.EPSILON && (Ee = !0)
+                ? We > Number.EPSILON && (Ee = true)
                 : Ce < -Number.EPSILON
-                ? We < -Number.EPSILON && (Ee = !0)
-                : Math.sign(_e) === Math.sign($) && (Ee = !0),
+                ? We < -Number.EPSILON && (Ee = true)
+                : Math.sign(_e) === Math.sign($) && (Ee = true),
                 Ee
                   ? (fe = -_e, me = Ce, we = Math.sqrt(W))
                   : (fe = Ce, me = _e, we = Math.sqrt(W / 2));
@@ -72870,7 +72870,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var My = class extends Ii {
     constructor(t, o = 1) {
       super();
-      this.isLight = !0;
+      this.isLight = true;
       this.type = "Light", this.color = new vt(t), this.intensity = o;
     }
     dispose() {}
@@ -72878,14 +72878,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var Gy = class extends My {
     constructor(t, o) {
       super(t, o);
-      this.isAmbientLight = !0;
+      this.isAmbientLight = true;
       this.type = "AmbientLight";
     }
   };
   var Ch = class extends My {
     constructor(t, o) {
       super(t, o);
-      this.isDirectionalLight = !0;
+      this.isDirectionalLight = true;
       this.type = "DirectionalLight",
         this.position.copy(Ii.DEFAULT_UP),
         this.updateMatrix(),
@@ -72934,10 +72934,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.type = "Material",
           this.blending = hh,
           this.side = Wv,
-          this.vertexColors = !1,
-          this.useVertexPickingColors = !1,
+          this.vertexColors = false,
+          this.useVertexPickingColors = false,
           this.opacity = 1,
-          this.transparent = !1,
+          this.transparent = false,
           this.blendSrc = Ek,
           this.blendDst = Tk,
           this.blendEquation = Od,
@@ -72945,8 +72945,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.blendDstAlpha = null,
           this.blendEquationAlpha = null,
           this.depthFunc = $v,
-          this.depthTest = !0,
-          this.depthWrite = !0,
+          this.depthTest = true,
+          this.depthWrite = true,
           this.stencilWriteMask = 255,
           this.stencilFunc = yW,
           this.stencilRef = 0,
@@ -72954,16 +72954,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.stencilFail = Ok,
           this.stencilZFail = Ok,
           this.stencilZPass = Ok,
-          this.stencilWrite = !1,
-          this.colorWrite = !0,
+          this.stencilWrite = false,
+          this.colorWrite = true,
           this.precision = null,
-          this.polygonOffset = !1,
+          this.polygonOffset = false,
           this.polygonOffsetFactor = 0,
           this.polygonOffsetUnits = 0,
-          this.alphaToCoverage = !1,
-          this.premultipliedAlpha = !1,
-          this.forceSinglePass = !1,
-          this.visible = !0,
+          this.alphaToCoverage = false,
+          this.premultipliedAlpha = false,
+          this.forceSinglePass = false,
+          this.visible = true,
           this.userData = {},
           this.version = 0,
           this._alphaTest = 0,
@@ -72972,15 +72972,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.uniformsGroups = [],
           this.vertexShader = "",
           this.fragmentShader = "",
-          this.wireframe = !1,
-          this.lights = !1,
-          this.forceSinglePass = !0,
-          this.exprTooComplex = !1,
+          this.wireframe = false,
+          this.lights = false,
+          this.forceSinglePass = true,
+          this.exprTooComplex = false,
           this.extensions = {
-            derivatives: !1,
-            fragDepth: !1,
-            drawBuffers: !1,
-            shaderTextureLOD: !1,
+            derivatives: false,
+            fragDepth: false,
+            drawBuffers: false,
+            shaderTextureLOD: false,
           },
           this.defaultAttributeValues = {
             color: [1, 1, 1],
@@ -72988,7 +72988,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             uv1: [0, 0],
           },
           this.index0AttributeName = void 0,
-          this.uniformsNeedUpdate = !1,
+          this.uniformsNeedUpdate = false,
           this.glslVersion = null,
           e !== void 0 && this.setValues(e);
       }
@@ -73081,18 +73081,18 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.dispatchEvent({ type: "dispose" });
       }
       set needsUpdate(e) {
-        e === !0 && this.version++;
+        e === true && this.version++;
       }
     };
   var Eh = class extends ha {
-    constructor(e, t, o = !1, i = 1) {
+    constructor(e, t, o = false, i = 1) {
       super(e, t, o), this.meshPerAttribute = i;
     }
   };
   var Ai = class extends Ii {
     constructor(e, t) {
       super(),
-        this.isMesh = !0,
+        this.isMesh = true,
         this.type = "Mesh",
         this.geometry = e,
         this.material = t;
@@ -73150,7 +73150,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     };
   var Qp = class {
     constructor(e = new ye(1, 0, 0), t = 0) {
-      this.isPlane = !0;
+      this.isPlane = true;
       this.normal = e, this.constant = t;
     }
     setComponents(e, t, o, i) {
@@ -73221,19 +73221,19 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               t0.applyMatrix4(e.dcgModelMatrix),
               t0.applyMatrix4(e.matrixWorld)),
             this.intersectsSphere(t0))
-          : !1;
+          : false;
       }
       intersectsSphere(e) {
         let t = this.planes, o = e.center, i = -e.radius;
         for (let n = 0; n < 6; n++) {
-          if (t[n].distanceToPoint(o) < i) return !1;
+          if (t[n].distanceToPoint(o) < i) return false;
         }
-        return !0;
+        return true;
       }
     };
   var r0 = class extends Ii {
     constructor() {
-      super(), this.isGroup = !0, this.type = "Group";
+      super(), this.isGroup = true, this.type = "Group";
     }
   };
   var UW = new ye(),
@@ -73241,7 +73241,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     Yk = class extends Ii {
       constructor(e, t) {
         super(),
-          this.isLine = !0,
+          this.isLine = true,
           this.type = "Line",
           this.geometry = e,
           this.material = t;
@@ -73267,7 +73267,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     HW = new ye(),
     Xk = class extends Yk {
       constructor(e, t) {
-        super(e, t), this.isLineSegments = !0, this.type = "LineSegments";
+        super(e, t), this.isLineSegments = true, this.type = "LineSegments";
       }
       computeLineDistances() {
         let e = this.geometry;
@@ -73677,7 +73677,7 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
       let i;
       function n() {
         if (i !== void 0) return i;
-        if (t.has("EXT_texture_filter_anisotropic") === !0) {
+        if (t.has("EXT_texture_filter_anisotropic") === true) {
           let A = t.get("EXT_texture_filter_anisotropic");
           i = e.getParameter(A.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
         } else i = 0;
@@ -73825,9 +73825,9 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
           o.memory.geometries--;
       }
       function l(h, u) {
-        return n[u.id] === !0 ||
+        return n[u.id] === true ||
           (u.addEventListener("dispose", s),
-            n[u.id] = !0,
+            n[u.id] = true,
             o.memory.geometries++),
           u;
       }
@@ -73903,7 +73903,7 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
   var r_ = class {
     constructor(e) {
       this.gl = e;
-      this.autoReset = !0;
+      this.autoReset = true;
       this.programs = null;
       this.memory = { geometries: 0, textures: 0 },
         this.render = {
@@ -74009,7 +74009,7 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
         let d = i.render.frame, p = c.geometry, h = t.get(c, p);
         return n.get(h) !== d && (t.update(h), n.set(h, d)),
           c instanceof Mi &&
-          (c.hasEventListener("dispose", l) === !1 &&
+          (c.hasEventListener("dispose", l) === false &&
             c.addEventListener("dispose", l),
             n.get(c) !== d &&
             (o.update(c.instanceMatrix, e.ARRAY_BUFFER),
@@ -74061,11 +74061,11 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
     return i;
   }
   function Pa(r, e) {
-    if (r.length !== e.length) return !1;
+    if (r.length !== e.length) return false;
     for (let t = 0, o = r.length; t < o; t++) {
-      if (r[t] !== e[t]) return !1;
+      if (r[t] !== e[t]) return false;
     }
-    return !0;
+    return true;
   }
   function Va(r, e) {
     for (let t = 0, o = e.length; t < o; t++) r[t] = e[t];
@@ -74127,33 +74127,33 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
     let t = this.cache;
     if (Array.isArray(e)) {
       if (Pa(t, e)) return;
-      r.uniformMatrix2fv(this.addr, !1, e), Va(t, e);
+      r.uniformMatrix2fv(this.addr, false, e), Va(t, e);
     } else {
       let o = e.elements;
       if (Pa(t, o)) return;
-      i7.set(o), r.uniformMatrix2fv(this.addr, !1, i7), Va(t, o);
+      i7.set(o), r.uniformMatrix2fv(this.addr, false, i7), Va(t, o);
     }
   }
   function zae(r, e) {
     let t = this.cache;
     if (Array.isArray(e)) {
       if (Pa(t, e)) return;
-      r.uniformMatrix3fv(this.addr, !1, e), Va(t, e);
+      r.uniformMatrix3fv(this.addr, false, e), Va(t, e);
     } else {
       let o = e.elements;
       if (Pa(t, o)) return;
-      o7.set(o), r.uniformMatrix3fv(this.addr, !1, o7), Va(t, o);
+      o7.set(o), r.uniformMatrix3fv(this.addr, false, o7), Va(t, o);
     }
   }
   function qae(r, e) {
     let t = this.cache;
     if (Array.isArray(e)) {
       if (Pa(t, e)) return;
-      r.uniformMatrix4fv(this.addr, !1, e), Va(t, e);
+      r.uniformMatrix4fv(this.addr, false, e), Va(t, e);
     } else {
       let o = e.elements;
       if (Pa(t, o)) return;
-      r7.set(o), r.uniformMatrix4fv(this.addr, !1, r7), Va(t, o);
+      r7.set(o), r.uniformMatrix4fv(this.addr, false, r7), Va(t, o);
     }
   }
   function Hae(r, e) {
@@ -74322,15 +74322,15 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
   }
   function ise(r, e) {
     let t = Py(e, this.size, 4);
-    r.uniformMatrix2fv(this.addr, !1, t);
+    r.uniformMatrix2fv(this.addr, false, t);
   }
   function nse(r, e) {
     let t = Py(e, this.size, 9);
-    r.uniformMatrix3fv(this.addr, !1, t);
+    r.uniformMatrix3fv(this.addr, false, t);
   }
   function ase(r, e) {
     let t = Py(e, this.size, 16);
-    r.uniformMatrix4fv(this.addr, !1, t);
+    r.uniformMatrix4fv(this.addr, false, t);
   }
   function sse(r, e) {
     r.uniform1iv(this.addr, e);
@@ -74500,7 +74500,7 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
     static upload(e, t, o, i) {
       for (let n = 0, a = t.length; n !== a; ++n) {
         let s = t[n], l = o[s.id];
-        l.needsUpdate !== !1 && s.setValue(e, l.value, i);
+        l.needsUpdate !== false && s.setValue(e, l.value, i);
       }
     }
     static seqWithValue(e, t) {
@@ -74566,7 +74566,7 @@ reflectedLight.indirectDiffuse += diffuse * cosineWeightedIrradiance;
     let e = [];
     for (let t in r) {
       let o = r[t];
-      o !== !1 && e.push("#define " + t + " " + o);
+      o !== false && e.push("#define " + t + " " + o);
     }
     return e.join(`
 `);
@@ -74776,9 +74776,9 @@ precision ` + r.precision + " int;";
         wt(A, "program lob", n),
           wt(P, "vertex log", n),
           wt(O, "fragment log", n);
-        let U = !0, z = !0, x = !1;
-        if (n.getProgramParameter(d, n.LINK_STATUS) === !1) {
-          if (U = !1, typeof e.debug.onShaderError == "function") {
+        let U = true, z = true, x = false;
+        if (n.getProgramParameter(d, n.LINK_STATUS) === false) {
+          if (U = false, typeof e.debug.onShaderError == "function") {
             e.debug.onShaderError(n, d, C, E);
           } else {
             let L = s7(n, C, "vertex"),
@@ -74817,7 +74817,7 @@ Program Info Log: ` + A + `
           }
         } else {A !== ""
             ? console.warn("THREE.WebGLProgram: Program Info Log:", A)
-            : (P === "" || O === "") && (z = !1);}
+            : (P === "" || O === "") && (z = false);}
         z &&
           (this.diagnostics = {
             runnable: U,
@@ -74862,8 +74862,8 @@ Program Info Log: ` + A + `
           i = this._getShaderStage(t),
           n = this._getShaderStage(o),
           a = this._getShaderCacheForMaterial(e);
-        return a.has(i) === !1 && (a.add(i), i.usedTimes++),
-          a.has(n) === !1 && (a.add(n), n.usedTimes++),
+        return a.has(i) === false && (a.add(i), i.usedTimes++),
+          a.has(n) === false && (a.add(n), n.usedTimes++),
           this;
       }
       remove(e) {
@@ -74945,7 +74945,7 @@ Program Info Log: ` + A + `
           supportsVertexTextures: s,
           outputColorSpace: z === null ? e.outputColorSpace : Ga,
           map: !!v.map,
-          opaque: v.transparent === !1 && v.blending === hh,
+          opaque: v.transparent === false && v.blending === hh,
           alphaTest: v.alphaTest > 0,
           mapUv: !!v.map && c(v.map.channel),
           vertexColors: v.vertexColors,
@@ -74958,16 +74958,16 @@ Program Info Log: ` + A + `
           flipSided: v.side === lm,
           index0AttributeName: v.index0AttributeName,
           extensionDerivatives:
-            ((M = v.extensions) == null ? void 0 : M.derivatives) === !0,
+            ((M = v.extensions) == null ? void 0 : M.derivatives) === true,
           extensionFragDepth:
-            ((F = v.extensions) == null ? void 0 : F.fragDepth) === !0,
+            ((F = v.extensions) == null ? void 0 : F.fragDepth) === true,
           extensionDrawBuffers:
-            ((Z = v.extensions) == null ? void 0 : Z.drawBuffers) === !0,
+            ((Z = v.extensions) == null ? void 0 : Z.drawBuffers) === true,
           extensionShaderTextureLOD:
-            ((te = v.extensions) == null ? void 0 : te.shaderTextureLOD) === !0,
-          rendererExtensionFragDepth: !0,
-          rendererExtensionDrawBuffers: !0,
-          rendererExtensionShaderTextureLod: !0,
+            ((te = v.extensions) == null ? void 0 : te.shaderTextureLOD) === true,
+          rendererExtensionFragDepth: true,
+          rendererExtensionDrawBuffers: true,
+          rendererExtensionShaderTextureLod: true,
           customProgramCacheKey: v.customProgramCacheKey(),
         };
       }
@@ -75096,11 +75096,11 @@ Program Info Log: ` + A + `
         }
         function s(p, h, u, f, y, C) {
           let E = a(p, h, u, f, y, C);
-          u.transparent === !0 ? i.push(E) : o.push(E);
+          u.transparent === true ? i.push(E) : o.push(E);
         }
         function l(p, h, u, f, y, C) {
           let E = a(p, h, u, f, y, C);
-          u.transparent === !0 ? i.unshift(E) : o.unshift(E);
+          u.transparent === true ? i.unshift(E) : o.unshift(E);
         }
         function c(p, h) {
           o.length > 1 && o.sort(p || kse), i.length > 1 && i.sort(h || _se);
@@ -75166,7 +75166,7 @@ Program Info Log: ` + A + `
   var u_ = class {
     constructor(e) {
       function t() {
-        let Q = !1, j = new pn(), Ge = null, de = new pn(0, 0, 0, 0);
+        let Q = false, j = new pn(), Ge = null, de = new pn(0, 0, 0, 0);
         return {
           setMask: function (Ye) {
             Ge !== Ye && !Q && (e.colorMask(Ye, Ye, Ye, Ye), Ge = Ye);
@@ -75175,18 +75175,18 @@ Program Info Log: ` + A + `
             Q = Ye;
           },
           setClear: function (Ye, Ve, Qr, st, Bn) {
-            Bn === !0 && (Ye *= st, Ve *= st, Qr *= st),
+            Bn === true && (Ye *= st, Ve *= st, Qr *= st),
               j.set(Ye, Ve, Qr, st),
-              de.equals(j) === !1 &&
+              de.equals(j) === false &&
               (e.clearColor(Ye, Ve, Qr, st), de.copy(j));
           },
           reset: function () {
-            Q = !1, Ge = null, de.set(-1, 0, 0, 0);
+            Q = false, Ge = null, de.set(-1, 0, 0, 0);
           },
         };
       }
       function o() {
-        let Q = !1, j = null, Ge = null, de = null;
+        let Q = false, j = null, Ge = null, de = null;
         return {
           setTest: function (Ye) {
             Ye ? q(e.DEPTH_TEST) : oe(e.DEPTH_TEST);
@@ -75234,12 +75234,12 @@ Program Info Log: ` + A + `
             de !== Ye && (e.clearDepth(Ye), de = Ye);
           },
           reset: function () {
-            Q = !1, j = null, Ge = null, de = null;
+            Q = false, j = null, Ge = null, de = null;
           },
         };
       }
       function i() {
-        let Q = !1,
+        let Q = false,
           j = null,
           Ge = null,
           de = null,
@@ -75270,7 +75270,7 @@ Program Info Log: ` + A + `
             Bn !== co && (e.clearStencil(co), Bn = co);
           },
           reset: function () {
-            Q = !1,
+            Q = false,
               j = null,
               Ge = null,
               de = null,
@@ -75292,7 +75292,7 @@ Program Info Log: ` + A + `
         h = new WeakMap(),
         u = [],
         f = null,
-        y = !1,
+        y = false,
         C = null,
         E = null,
         v = null,
@@ -75300,14 +75300,14 @@ Program Info Log: ` + A + `
         S = null,
         k = null,
         _ = null,
-        A = !1,
+        A = false,
         P = null,
         O = null,
         U = null,
         z = null,
         x = null,
         L = e.getParameter(e.MAX_COMBINED_TEXTURE_IMAGE_UNITS),
-        V = !1,
+        V = false,
         R = 0,
         N = e.getParameter(e.VERSION);
       if (N.indexOf("WebGL") !== -1) {
@@ -75377,15 +75377,15 @@ Program Info Log: ` + A + `
         s.setClear(0),
         q(e.DEPTH_TEST),
         a.setFunc($v),
-        $(!1),
+        $(false),
         W(vV),
         q(e.CULL_FACE),
         _e(wk);
       function q(Q) {
-        d[Q] !== !0 && (e.enable(Q), d[Q] = !0);
+        d[Q] !== true && (e.enable(Q), d[Q] = true);
       }
       function oe(Q) {
-        d[Q] !== !1 && (e.disable(Q), d[Q] = !1);
+        d[Q] !== false && (e.disable(Q), d[Q] = false);
       }
       function K(Q, j) {
         return p[Q] !== j
@@ -75393,22 +75393,22 @@ Program Info Log: ` + A + `
             p[Q] = j,
             Q === e.DRAW_FRAMEBUFFER && (p[e.FRAMEBUFFER] = j),
             Q === e.FRAMEBUFFER && (p[e.DRAW_FRAMEBUFFER] = j),
-            !0)
-          : !1;
+            true)
+          : false;
       }
       function fe(Q, j) {
-        let Ge = u, de = !1;
+        let Ge = u, de = false;
         Q
           ? (wt(j, "framebuffer", e),
             Ge = h.get(j),
             Ge === void 0 && (Ge = [], h.set(j, Ge)),
             Ge[0] !== e.COLOR_ATTACHMENT0 &&
-            (Ge[0] = e.COLOR_ATTACHMENT0, de = !0))
-          : Ge[0] !== e.BACK && (Ge[0] = e.BACK, de = !0),
+            (Ge[0] = e.COLOR_ATTACHMENT0, de = true))
+          : Ge[0] !== e.BACK && (Ge[0] = e.BACK, de = true),
           de && e.drawBuffers(Ge);
       }
       function me(Q) {
-        return f !== Q ? (wt(Q, "program", e), e.useProgram(Q), f = Q, !0) : !1;
+        return f !== Q ? (wt(Q, "program", e), e.useProgram(Q), f = Q, true) : false;
       }
       let we = {
           [Od]: e.FUNC_ADD,
@@ -75432,10 +75432,10 @@ Program Info Log: ` + A + `
         };
       function _e(Q, j, Ge, de, Ye, Ve, Qr, st) {
         if (Q === wk) {
-          y === !0 && (oe(e.BLEND), y = !1);
+          y === true && (oe(e.BLEND), y = false);
           return;
         }
-        if (y === !1 && (q(e.BLEND), y = !0), Q !== vk) {
+        if (y === false && (q(e.BLEND), y = true), Q !== vk) {
           if (Q !== C || st !== A) {
             if (
               (E !== Od || S !== Od) &&
@@ -75530,14 +75530,14 @@ Program Info Log: ` + A + `
             k = Ve,
             _ = Qr),
           C = Q,
-          A = !1;
+          A = false;
       }
       function We(Q, j) {
         Q.side === ua ? oe(e.CULL_FACE) : q(e.CULL_FACE);
         let Ge = Q.side === lm;
         j && (Ge = !Ge),
           $(Ge),
-          Q.blending === hh && Q.transparent === !1 ? _e(wk) : _e(
+          Q.blending === hh && Q.transparent === false ? _e(wk) : _e(
             Q.blending,
             Q.blendEquation,
             Q.blendSrc,
@@ -75562,7 +75562,7 @@ Program Info Log: ` + A + `
             Q.polygonOffsetFactor,
             Q.polygonOffsetUnits,
           ),
-          Q.alphaToCoverage === !0
+          Q.alphaToCoverage === true
             ? q(e.SAMPLE_ALPHA_TO_COVERAGE)
             : oe(e.SAMPLE_ALPHA_TO_COVERAGE);
       }
@@ -75693,10 +75693,10 @@ Program Info Log: ` + A + `
           }
         };
       function Se(Q) {
-        Y.equals(Q) === !1 && (e.scissor(Q.x, Q.y, Q.z, Q.w), Y.copy(Q));
+        Y.equals(Q) === false && (e.scissor(Q.x, Q.y, Q.z, Q.w), Y.copy(Q));
       }
       function Lt(Q) {
-        he.equals(Q) === !1 &&
+        he.equals(Q) === false &&
           (e.viewport(Q.x, Q.y, Q.z, Q.w), he.copy(Q));
       }
       function It(Q, j) {
@@ -75722,9 +75722,9 @@ Program Info Log: ` + A + `
           e.blendEquation(e.FUNC_ADD),
           e.blendFunc(e.ONE, e.ZERO),
           e.blendFuncSeparate(e.ONE, e.ZERO, e.ONE, e.ZERO),
-          e.colorMask(!0, !0, !0, !0),
+          e.colorMask(true, true, true, true),
           e.clearColor(0, 0, 0, 0),
-          e.depthMask(!0),
+          e.depthMask(true),
           e.depthFunc(e.LESS),
           e.clearDepth(1),
           e.stencilMask(4294967295),
@@ -75749,7 +75749,7 @@ Program Info Log: ` + A + `
           h = new WeakMap(),
           u = [],
           f = null,
-          y = !1,
+          y = false,
           C = null,
           E = null,
           v = null,
@@ -75757,7 +75757,7 @@ Program Info Log: ` + A + `
           S = null,
           k = null,
           _ = null,
-          A = !1,
+          A = false,
           P = null,
           O = null,
           U = null,
@@ -75803,13 +75803,13 @@ Program Info Log: ` + A + `
         i === void 0 && p === gh && (i = Fd);
       let h = new Bd(t, o);
       super(h, n, a, s, l, c, p, i, d);
-      this.isDepthTexture = !0;
-      this.isDepthTexture = !0,
+      this.isDepthTexture = true;
+      this.isDepthTexture = true,
         this.image = h,
         this.magFilter = l !== void 0 ? l : Rd,
         this.minFilter = c !== void 0 ? c : Rd,
-        this.flipY = !1,
-        this.generateMipmaps = !1,
+        this.flipY = false,
+        this.generateMipmaps = false,
         this.compareFunction = null;
     }
     copy(t) {
@@ -75825,11 +75825,11 @@ Program Info Log: ` + A + `
           ? t.get("WEBGL_multisampled_render_to_texture")
           : null,
         h = typeof navigator == "undefined"
-          ? !1
+          ? false
           : /OculusBrowser/g.test(navigator.userAgent),
         u,
         f = new WeakMap(),
-        y = !1;
+        y = false;
       try {
         y = typeof OffscreenCanvas != "undefined" &&
           new OffscreenCanvas(1, 1).getContext("2d") !== null;
@@ -75885,7 +75885,7 @@ Program Info Log: ` + A + `
       function S($) {
         e.generateMipmap($);
       }
-      function k($, W, ue, Ee, Be = !1) {
+      function k($, W, ue, Ee, Be = false) {
         if ($ !== null) {
           if (e[$] !== void 0) return e[$];
           console.warn(
@@ -75913,7 +75913,7 @@ Program Info Log: ` + A + `
           (ue === e.FLOAT && (ce = e.RGBA32F),
             ue === e.HALF_FLOAT && (ce = e.RGBA16F),
             ue === e.UNSIGNED_BYTE &&
-            (ce = Ee === Lo && Be === !1 ? e.SRGB8_ALPHA8 : e.RGBA8),
+            (ce = Ee === Lo && Be === false ? e.SRGB8_ALPHA8 : e.RGBA8),
             ue === e.UNSIGNED_SHORT_4_4_4_4 && (ce = e.RGBA4),
             ue === e.UNSIGNED_SHORT_5_5_5_1 && (ce = e.RGB5_A1)),
           (ce === e.R16F || ce === e.R32F || ce === e.RG16F ||
@@ -75922,7 +75922,7 @@ Program Info Log: ` + A + `
           ce;
       }
       function _($, W) {
-        return w($) === !0
+        return w($) === true
           ? Math.log2(Math.max(W.width, W.height)) + 1
           : $.mipmaps !== void 0 && $.mipmaps.length > 0
           ? $.mipmaps.length
@@ -76020,10 +76020,10 @@ Program Info Log: ` + A + `
       function N($, W) {
         let ue = i.get($);
         if (
-          $.isRenderTargetTexture === !1 && $.version > 0 &&
+          $.isRenderTargetTexture === false && $.version > 0 &&
           ue.__version !== $.version
         ) {
-          if ($.image.complete === !1) {
+          if ($.image.complete === false) {
             console.warn(
               "THREE.WebGLRenderer: Texture marked for update but image is incomplete",
             );
@@ -76074,13 +76074,13 @@ Program Info Log: ` + A + `
                 e.TEXTURE_COMPARE_FUNC,
                 Z[W.compareFunction],
               )),
-            t.has("EXT_texture_filter_anisotropic") === !0
+            t.has("EXT_texture_filter_anisotropic") === true
         ) {
           let ue = t.get("EXT_texture_filter_anisotropic");
           if (
             W.magFilter === Rd ||
             W.minFilter !== DV && W.minFilter !== Xv ||
-            W.type === Xl && t.has("OES_texture_float_linear") === !1
+            W.type === Xl && t.has("OES_texture_float_linear") === false
           ) return;
           (W.anisotropy > 1 || i.get(W).__currentAnisotropy) &&
             (e.texParameterf(
@@ -76092,9 +76092,9 @@ Program Info Log: ` + A + `
         }
       }
       function Y($, W) {
-        let ue = !1;
+        let ue = false;
         $.__webglInit === void 0 &&
-          ($.__webglInit = !0, W.addEventListener("dispose", A));
+          ($.__webglInit = true, W.addEventListener("dispose", A));
         let Ee = W.source, Be = f.get(Ee);
         Be === void 0 && (Be = {}, f.set(Ee, Be));
         let ce = R(W);
@@ -76105,7 +76105,7 @@ Program Info Log: ` + A + `
             usedTimes: 0,
           },
             s.memory.textures++,
-            ue = !0), Be[ce].usedTimes++;
+            ue = true), Be[ce].usedTimes++;
           let ot = $.__cacheKey ? Be[$.__cacheKey] : void 0;
           ot !== void 0 &&
           (Be[$.__cacheKey].usedTimes--, ot.usedTimes === 0 && U(W)),
@@ -76118,7 +76118,7 @@ Program Info Log: ` + A + `
         let Ee = e.TEXTURE_2D, Be = Y($, W), ce = W.source;
         o.bindTexture(Ee, $.__webglTexture, e.TEXTURE0 + ue);
         let ot = i.get(ce);
-        if (ce.version !== ot.__version || Be === !0) {
+        if (ce.version !== ot.__version || Be === true) {
           o.activeTexture(e.TEXTURE0 + ue),
             e.pixelStorei(e.UNPACK_FLIP_Y_WEBGL, W.flipY),
             e.pixelStorei(
@@ -76136,7 +76136,7 @@ Program Info Log: ` + A + `
           te(Ee, W);
           let Mr,
             Q = W.mipmaps,
-            j = ot.__version === void 0 || Be === !0,
+            j = ot.__version === void 0 || Be === true,
             Ge = _(W, it);
           if (W instanceof mm) {
             Dt = e.DEPTH_COMPONENT,
@@ -76176,7 +76176,7 @@ Program Info Log: ` + A + `
             for (let de = 0, Ye = Q.length; de < Ye; de++) {
               Mr = Q[de], o.texSubImage2D(e.TEXTURE_2D, de, 0, 0, Lt, It, Mr);
             }
-            W.generateMipmaps = !1;
+            W.generateMipmaps = false;
           } else {
             if (
               j &&
@@ -76269,7 +76269,7 @@ Program Info Log: ` + A + `
           );
         } else if (W.depthBuffer && W.stencilBuffer) {
           let Ee = Ce(W);
-          ue && _e(W) === !1
+          ue && _e(W) === false
             ? e.renderbufferStorageMultisample(
               e.RENDERBUFFER,
               Ee,
@@ -76305,7 +76305,7 @@ Program Info Log: ` + A + `
               it = a.convert(ce.type),
               Se = k(ce.internalFormat, ot, it, ce.colorSpace),
               Lt = Ce(W);
-            ue && _e(W) === !1
+            ue && _e(W) === false
               ? e.renderbufferStorageMultisample(
                 e.RENDERBUFFER,
                 Lt,
@@ -76345,7 +76345,7 @@ Program Info Log: ` + A + `
           W.depthTexture.image.height !== W.height) &&
         (W.depthTexture.image.width = W.width,
           W.depthTexture.image.height = W.height,
-          W.depthTexture.needsUpdate = !0), N(W.depthTexture, 0);
+          W.depthTexture.needsUpdate = true), N(W.depthTexture, 0);
         let ue = i.get(W.depthTexture).__webglTexture;
         wt(ue, "webglDepthTexture");
         let Ee = Ce(W);
@@ -76391,7 +76391,7 @@ Program Info Log: ` + A + `
           ? q(ue, $)
           : (o.bindFramebuffer(e.FRAMEBUFFER, ue),
             W.__webglDepthbuffer = e.createRenderbuffer() || void 0,
-            ae(W.__webglDepthbuffer, $, !1)),
+            ae(W.__webglDepthbuffer, $, false)),
           o.bindFramebuffer(e.FRAMEBUFFER, null);
       }
       function K($, W, ue) {
@@ -76420,7 +76420,7 @@ Program Info Log: ` + A + `
           let ce = e.createFramebuffer();
           ue.__webglFramebuffer = ce || void 0;
         }
-        if ($.samples > 0 && _e($) === !1) {
+        if ($.samples > 0 && _e($) === false) {
           let ce = [W], ot = e.createFramebuffer();
           wt(ot, "framebuffer", e),
             ue.__webglMultisampledFramebuffer = ot,
@@ -76439,7 +76439,7 @@ Program Info Log: ` + A + `
               );
             let It = a.convert(Se.format, Se.colorSpace),
               Dt = a.convert(Se.type),
-              Mr = k(Se.internalFormat, It, Dt, Se.colorSpace, !1),
+              Mr = k(Se.internalFormat, It, Dt, Se.colorSpace, false),
               Q = Ce($);
             e.renderbufferStorageMultisample(
               e.RENDERBUFFER,
@@ -76459,7 +76459,7 @@ Program Info Log: ` + A + `
             let it = e.createRenderbuffer();
             wt(it, "renderbuffer", e),
               ue.__webglDepthRenderbuffer = it,
-              ae(ue.__webglDepthRenderbuffer, $, !0);
+              ae(ue.__webglDepthRenderbuffer, $, true);
           }
           o.bindFramebuffer(e.FRAMEBUFFER, null);
         }
@@ -76494,7 +76494,7 @@ Program Info Log: ` + A + `
         }
       }
       function we($) {
-        if ($.samples > 0 && _e($) === !1) {
+        if ($.samples > 0 && _e($) === false) {
           let W = [$.texture],
             ue = $.width,
             Ee = $.height,
@@ -76517,11 +76517,11 @@ Program Info Log: ` + A + `
             ce.push(e.COLOR_ATTACHMENT0 + Se), $.depthBuffer && ce.push(ot);
             let Lt = it.__ignoreDepthValues !== void 0
               ? it.__ignoreDepthValues
-              : !1;
-            Lt === !1 &&
+              : false;
+            Lt === false &&
             ($.depthBuffer && (Be |= e.DEPTH_BUFFER_BIT),
               $.stencilBuffer && (Be |= e.STENCIL_BUFFER_BIT)),
-              Lt === !0 &&
+              Lt === true &&
               (e.invalidateFramebuffer(e.READ_FRAMEBUFFER, [ot]),
                 e.invalidateFramebuffer(e.DRAW_FRAMEBUFFER, [ot])),
               e.blitFramebuffer(
@@ -76552,8 +76552,8 @@ Program Info Log: ` + A + `
       function _e($) {
         let W = i.get($);
         return $.samples > 0 &&
-          t.has("WEBGL_multisampled_render_to_texture") === !0 &&
-          W.__useRenderToTexture !== !1;
+          t.has("WEBGL_multisampled_render_to_texture") === true &&
+          W.__useRenderToTexture !== false;
       }
       function We($, W) {
         let ue = $.colorSpace, Ee = $.format, Be = $.type;
@@ -76644,7 +76644,7 @@ Program Info Log: ` + A + `
         e.bindBuffer(e.UNIFORM_BUFFER, w);
         for (let _ = 0, A = S.length; _ < A; _++) {
           let P = S[_];
-          if (u(P, _, k) === !0) {
+          if (u(P, _, k) === true) {
             let O = P.__offset,
               U = Array.isArray(P.value) ? P.value : [P.value],
               z = 0;
@@ -76686,19 +76686,19 @@ Program Info Log: ` + A + `
             }
             S[w] = A;
           }
-          return !0;
+          return true;
         } else if (typeof k == "number") {
-          if (S[w] !== k) return S[w] = k, !0;
+          if (S[w] !== k) return S[w] = k, true;
         } else {
           let _ = S[w],
             A = Array.isArray(_) ? _ : [_],
             P = Array.isArray(k) ? k : [k];
           for (let O = 0; O < A.length; O++) {
             let U = A[O];
-            if (U.equals(P[O]) === !1) return U.copy(P[O]), !0;
+            if (U.equals(P[O]) === false) return U.copy(P[O]), true;
           }
         }
-        return !1;
+        return false;
       }
       function f(v) {
         let w = v.uniforms, S = 0, k = 16, _ = 0;
@@ -76949,8 +76949,8 @@ Program Info Log: ` + A + `
   var eu = class extends Ii {
     constructor() {
       super();
-      this.isScene = !0;
-      this.isScene = !0,
+      this.isScene = true;
+      this.isScene = true,
         this.type = "Scene",
         this.background = null,
         this.overrideMaterial = null;
@@ -77011,10 +77011,10 @@ Program Info Log: ` + A + `
   var b_ = new vt(0),
     y_ = class {
       constructor(e, t, o, i, n) {
-        let a = new vt(0), s = i === !0 ? 0 : 1;
+        let a = new vt(0), s = i === true ? 0 : 1;
         function l(d, p) {
-          let h = !1, u = p.isScene === !0 ? p.background : null;
-          u === null ? c(a, s) : u && u.isColor && (c(u, 1), h = !0),
+          let h = false, u = p.isScene === true ? p.background : null;
+          u === null ? c(a, s) : u && u.isColor && (c(u, 1), h = true),
             (e.autoClear || h) &&
             e.clear(
               e.autoClearColor,
@@ -77043,27 +77043,27 @@ Program Info Log: ` + A + `
   var x_ = class {
     constructor(e, t) {
       let o = e.getParameter(e.MAX_VERTEX_ATTRIBS),
-        i = !0,
+        i = true,
         n = {},
         a = f(null),
         s = a,
-        l = !1;
+        l = false;
       function c(x, L, V, R, N) {
-        let M = !1;
+        let M = false;
         if (i) {
           let F = u(R, V, L);
           s !== F && (s = F, p(s.object)),
             M = y(x, R, V, N),
             M && C(x, R, V, N);
         } else {
-          let F = L.wireframe === !0;
+          let F = L.wireframe === true;
           (s.geometry !== R.id || s.program !== V.id ||
             s.wireframe !== F) &&
-            (s.geometry = R.id, s.program = V.id, s.wireframe = F, M = !0);
+            (s.geometry = R.id, s.program = V.id, s.wireframe = F, M = true);
         }
         if (
           N !== null && t.update(N, e.ELEMENT_ARRAY_BUFFER),
-            (M || l) && (l = !1, _(x, L, V, R), N !== null)
+            (M || l) && (l = false, _(x, L, V, R), N !== null)
         ) {
           let F = t.get(N);
           wt(F, "indexAttributes"),
@@ -77080,7 +77080,7 @@ Program Info Log: ` + A + `
         return e.deleteVertexArray(x);
       }
       function u(x, L, V) {
-        let R = V.wireframe === !0 ? "true" : "false", N = n[x.id];
+        let R = V.wireframe === true ? "true" : "false", N = n[x.id];
         N === void 0 && (N = {}, n[x.id] = N);
         let M = N[L.id];
         M === void 0 && (M = {}, N[L.id] = M);
@@ -77093,7 +77093,7 @@ Program Info Log: ` + A + `
         return {
           geometry: null,
           program: null,
-          wireframe: !1,
+          wireframe: false,
           newAttributes: L,
           enabledAttributes: V,
           attributeDivisors: R,
@@ -77120,7 +77120,7 @@ Program Info Log: ` + A + `
                 (se = x.instancePickingColor)),
                 he === void 0 || he.attribute !== se ||
                 se && he.data !== se.data
-            ) return !0;
+            ) return true;
             F++;
           }
         }
@@ -77168,7 +77168,7 @@ Program Info Log: ` + A + `
         }
       }
       function k(x, L, V, R, N, M, F) {
-        F === !0
+        F === true
           ? e.vertexAttribIPointer(x, L, V, N, M)
           : e.vertexAttribPointer(x, L, V, R, N, M);
       }
@@ -77286,10 +77286,10 @@ Program Info Log: ` + A + `
         }
       }
       function U() {
-        z(), l = !0, s !== a && (s = a, p(s.object));
+        z(), l = true, s !== a && (s = a, p(s.object));
       }
       function z() {
-        a.geometry = null, a.program = null, a.wireframe = !1;
+        a.geometry = null, a.program = null, a.wireframe = false;
       }
       this.setup = c,
         this.reset = U,
@@ -77368,16 +77368,16 @@ Program Info Log: ` + A + `
       let {
         canvas: t = Gse(),
         context: o = null,
-        depth: i = !0,
-        stencil: n = !0,
-        alpha: a = !1,
-        antialias: s = !1,
-        premultipliedAlpha: l = !0,
-        preserveDrawingBuffer: c = !1,
+        depth: i = true,
+        stencil: n = true,
+        alpha: a = false,
+        antialias: s = false,
+        premultipliedAlpha: l = true,
+        preserveDrawingBuffer: c = false,
         powerPreference: d = "default",
-        failIfMajorPerformanceCaveat: p = !1,
+        failIfMajorPerformanceCaveat: p = false,
       } = e;
-      this.isWebGLRenderer = !0;
+      this.isWebGLRenderer = true;
       let h;
       o !== null ? h = o.getContextAttributes().alpha : h = a;
       let u = new Uint32Array(4),
@@ -77387,15 +77387,15 @@ Program Info Log: ` + A + `
         E = [],
         v = [];
       this.domElement = t,
-        this.debug = { checkShaderErrors: !0, onShaderError: null },
-        this.autoClear = !0,
-        this.autoClearColor = !0,
-        this.autoClearDepth = !0,
-        this.autoClearStencil = !0,
-        this.sortObjects = !0,
+        this.debug = { checkShaderErrors: true, onShaderError: null },
+        this.autoClear = true,
+        this.autoClearColor = true,
+        this.autoClearDepth = true,
+        this.autoClearStencil = true,
+        this.sortObjects = true,
         this.outputColorSpace = Lo;
       let w = this,
-        S = !1,
+        S = false,
         k = 0,
         _ = 0,
         A = null,
@@ -77411,7 +77411,7 @@ Program Info Log: ` + A + `
         M = null,
         F = new pn(0, 0, L, V),
         Z = new pn(0, 0, L, V),
-        te = !1,
+        te = false,
         Y = new jk(),
         he = new Nt(),
         se = new ye(),
@@ -77420,7 +77420,7 @@ Program Info Log: ` + A + `
         return A === null ? R : 1;
       }
       let oe = {
-        alpha: !0,
+        alpha: true,
         depth: i,
         stencil: n,
         antialias: s,
@@ -77431,9 +77431,9 @@ Program Info Log: ` + A + `
       };
       "setAttribute" in t &&
       t.setAttribute("data-engine", `three.js r${U6}`),
-        t.addEventListener("webglcontextlost", Q, !1),
-        t.addEventListener("webglcontextrestored", j, !1),
-        t.addEventListener("webglcontextcreationerror", Ge, !1);
+        t.addEventListener("webglcontextlost", Q, false),
+        t.addEventListener("webglcontextrestored", j, false),
+        t.addEventListener("webglcontextcreationerror", Ge, false);
       let K = (() => {
           let J = o || t.getContext("webgl2", oe);
           if (J === null) {
@@ -77509,17 +77509,17 @@ Program Info Log: ` + A + `
           return R;
         },
         this.setPixelRatio = function (J) {
-          J !== void 0 && (R = J, this.setSize(L, V, !1));
+          J !== void 0 && (R = J, this.setSize(L, V, false));
         },
         this.getSize = function (J) {
           return J.set(L, V);
         },
-        this.setSize = function (J, pe, Ne = !0) {
+        this.setSize = function (J, pe, Ne = true) {
           L = J,
             V = pe,
             t.width = Math.floor(J * R),
             t.height = Math.floor(pe * R),
-            Ne === !0 &&
+            Ne === true &&
             (t.style.width = J + "px", t.style.height = pe + "px"),
             this.setViewport(0, 0, J, pe);
         },
@@ -77575,10 +77575,10 @@ Program Info Log: ` + A + `
         this.setClearAlpha = function (...J) {
           ot.setClearAlpha.apply(ot, J);
         },
-        this.clear = function (J = !0, pe = !0, Ne = !0) {
+        this.clear = function (J = true, pe = true, Ne = true) {
           let Te = 0;
           if (J) {
-            let dt = !1;
+            let dt = false;
             if (A !== null) {
               let ut = A.texture.format;
               dt = ut === Mk || ut === Ak || ut === Ik;
@@ -77611,18 +77611,18 @@ Program Info Log: ` + A + `
             K.clear(Te);
         },
         this.clearColor = function () {
-          this.clear(!0, !1, !1);
+          this.clear(true, false, false);
         },
         this.clearDepth = function () {
-          this.clear(!1, !0, !1);
+          this.clear(false, true, false);
         },
         this.clearStencil = function () {
-          this.clear(!1, !1, !0);
+          this.clear(false, false, true);
         },
         this.dispose = function () {
-          t.removeEventListener("webglcontextlost", Q, !1),
-            t.removeEventListener("webglcontextrestored", j, !1),
-            t.removeEventListener("webglcontextcreationerror", Ge, !1),
+          t.removeEventListener("webglcontextlost", Q, false),
+            t.removeEventListener("webglcontextrestored", j, false),
+            t.removeEventListener("webglcontextcreationerror", Ge, false),
             Be.dispose(),
             ce.dispose(),
             _e.dispose(),
@@ -77634,10 +77634,10 @@ Program Info Log: ` + A + `
       function Q(J) {
         J.preventDefault(),
           console.log("THREE.WebGLRenderer: Context Lost."),
-          S = !0;
+          S = true;
       }
       function j() {
-        console.log("THREE.WebGLRenderer: Context Restored."), S = !1;
+        console.log("THREE.WebGLRenderer: Context Restored."), S = false;
         let J = Ce.autoReset;
         Mr(), Ce.autoReset = J;
       }
@@ -77667,7 +77667,7 @@ Program Info Log: ` + A + `
           Qt = at(J, pe, Te, dt);
         we.setMaterial(Te, kt);
         let Gt = Ne.index, Vt = 1;
-        if (Te.wireframe === !0) {
+        if (Te.wireframe === true) {
           if (Gt = W.getWireframeAttribute(Ne), Gt === void 0) return;
           Vt = 2;
         }
@@ -77687,7 +77687,7 @@ Program Info Log: ` + A + `
           Gt !== null &&
           (Zi = $.get(Gt), na = Se, wt(Zi, "attribute"), Se.setIndex(Zi)),
             C_(dt)
-              ? Te.wireframe === !0
+              ? Te.wireframe === true
                 ? (we.setLineWidth(q()), na.setMode(K.LINES))
                 : na.setMode(K.TRIANGLES)
               : mO(dt) &&
@@ -77705,13 +77705,13 @@ Program Info Log: ` + A + `
       },
         this.compile = function (J, pe) {
           function Ne(Te, dt, ut) {
-            Te.transparent === !0 && Te.side === ua &&
-              Te.forceSinglePass === !1
+            Te.transparent === true && Te.side === ua &&
+              Te.forceSinglePass === false
               ? (Te.side = lm,
-                Te.needsUpdate = !0,
+                Te.needsUpdate = true,
                 Vo(Te, dt, ut),
                 Te.side = Wv,
-                Te.needsUpdate = !0,
+                Te.needsUpdate = true,
                 Vo(Te, dt, ut),
                 Te.side = ua)
               : Vo(Te, dt, ut);
@@ -77744,15 +77744,15 @@ Program Info Log: ` + A + `
             C = null;
         },
         this.render = function (J, pe) {
-          if (pe !== void 0 && pe.isCamera !== !0) {
+          if (pe !== void 0 && pe.isCamera !== true) {
             console.error(
               "THREE.WebGLRenderer.render: camera is not an instance of THREE.Camera.",
             );
             return;
           }
-          S !== !0 &&
-            (J.matrixWorldAutoUpdate === !0 && J.updateMatrixWorld(),
-              pe.parent === null && pe.matrixWorldAutoUpdate === !0 &&
+          S !== true &&
+            (J.matrixWorldAutoUpdate === true && J.updateMatrixWorld(),
+              pe.parent === null && pe.matrixWorldAutoUpdate === true &&
               pe.updateMatrixWorld(),
               C = ce.get(J, v.length),
               C.init(),
@@ -77767,9 +77767,9 @@ Program Info Log: ` + A + `
               E.push(y),
               Qr(J, pe, 0, w.sortObjects),
               y.finish(),
-              w.sortObjects === !0 && y.sort(N, M),
+              w.sortObjects === true && y.sort(N, M),
               this.info.render.frame++,
-              this.info.autoReset === !0 && this.info.reset(),
+              this.info.autoReset === true && this.info.reset(),
               ot.render(y, J),
               C.setupLights(),
               st(y, J, pe),
@@ -77785,7 +77785,7 @@ Program Info Log: ` + A + `
               E.length > 0 ? y = E[E.length - 1] : y = null);
         };
       function Qr(J, pe, Ne, Te) {
-        if (J.visible === !1) return;
+        if (J.visible === false) return;
         if (J.layers.test(pe.layers)) {
           if (wt(C, "render state"), J.isGroup) {
             Ne = J.renderOrder;
@@ -77824,10 +77824,10 @@ Program Info Log: ` + A + `
           Te && we.viewport(U.copy(Te)),
           dt.length > 0 && Bn(dt, pe, Ne),
           ut.length > 0 && Bn(ut, pe, Ne),
-          we.buffers.depth.setTest(!0),
-          we.buffers.depth.setMask(!0),
-          we.buffers.color.setMask(!0),
-          we.setPolygonOffset(!1);
+          we.buffers.depth.setTest(true),
+          we.buffers.depth.setMask(true),
+          we.buffers.color.setMask(true),
+          we.setPolygonOffset(false);
       }
       function Bn(J, pe, Ne) {
         let Te = Ase(pe) ? pe.overrideMaterial : null;
@@ -77846,19 +77846,19 @@ Program Info Log: ` + A + `
           J.matrixWorld,
         ),
           J.normalMatrix.getNormalMatrix(J.modelViewMatrix),
-          dt.transparent === !0 && dt.side === ua &&
-            dt.forceSinglePass === !1
+          dt.transparent === true && dt.side === ua &&
+            dt.forceSinglePass === false
             ? (dt.side = lm,
-              dt.needsUpdate = !0,
+              dt.needsUpdate = true,
               w.renderBufferDirect(Ne, pe, Te, dt, J, ut),
               dt.side = Wv,
-              dt.needsUpdate = !0,
+              dt.needsUpdate = true,
               w.renderBufferDirect(Ne, pe, Te, dt, J, ut),
               dt.side = ua)
             : w.renderBufferDirect(Ne, pe, Te, dt, J, ut);
       }
       function Vo(J, pe, Ne) {
-        pe.isScene !== !0 && (pe = ae);
+        pe.isScene !== true && (pe = ae);
         let Te = _e.get(J);
         wt(C, "render state");
         let dt = C.state.lights,
@@ -77897,32 +77897,32 @@ Program Info Log: ` + A + `
       }
       function at(J, pe, Ne, Te) {
         var na;
-        pe.isScene !== !0 && (pe = ae), We.resetTextureUnits();
+        pe.isScene !== true && (pe = ae), We.resetTextureUnits();
         let dt = A === null ? w.outputColorSpace : Ga, ut = _e.get(Ne);
         wt(C, "render state");
-        let kt = C.state.lights, Qt = !1;
+        let kt = C.state.lights, Qt = false;
         Ne.version === ut.__version
           ? (ut.needsLights &&
               ut.lightsStateVersion !== kt.state.version ||
             ut.outputColorSpace !== dt ||
-            Te instanceof Mi != !!ut.instancing) && (Qt = !0)
-          : (Qt = !0, ut.__version = Ne.version);
+            Te instanceof Mi != !!ut.instancing) && (Qt = true)
+          : (Qt = true, ut.__version = Ne.version);
         let Gt = ut.currentProgram;
-        Qt === !0 && (Gt = Vo(Ne, pe, Te)),
+        Qt === true && (Gt = Vo(Ne, pe, Te)),
           Ne.exprTooComplex =
             ((na = Gt == null ? void 0 : Gt.diagnostics) == null
               ? void 0
-              : na.exprTooComplex) === !0;
-        let Vt = !1, Ct = !1, xr = !1;
+              : na.exprTooComplex) === true;
+        let Vt = false, Ct = false, xr = false;
         wt(Gt, "program");
         let Zt = Gt.getUniforms(), Xo = ut.uniforms;
         if (
-          we.useProgram(Gt.program) && (Vt = !0, Ct = !0, xr = !0),
-            Ne.id !== P && (P = Ne.id, Ct = !0),
+          we.useProgram(Gt.program) && (Vt = true, Ct = true, xr = true),
+            Ne.id !== P && (P = Ne.id, Ct = true),
             Vt || O !== J
         ) {
           Zt.setValue(K, "projectionMatrix", J.projectionMatrix, We),
-            O !== J && (O = J, Ct = !0, xr = !0);
+            O !== J && (O = J, Ct = true, xr = true);
           let xn = Zt.map.cameraPosition;
           xn !== void 0 &&
           xn.setValue(K, se.setFromMatrixPosition(J.matrixWorld), We),
@@ -77931,15 +77931,15 @@ Program Info Log: ` + A + `
         }
         Ct &&
         (ut.needsLights && (wt(Xo, "m_uniforms"), ft(Xo, xr)),
-          Ne.uniformsNeedUpdate = !1,
+          Ne.uniformsNeedUpdate = false,
           wt(ut.uniformsList, "uniformsList"),
           wt(Xo, "m_uniforms"),
           Th.upload(K, ut.uniformsList, Xo, We)),
-          Ne.uniformsNeedUpdate === !0 &&
+          Ne.uniformsNeedUpdate === true &&
           (wt(ut.uniformsList, "uniformsList"),
             wt(Xo, "m_uniforms"),
             Th.upload(K, ut.uniformsList, Xo, We),
-            Ne.uniformsNeedUpdate = !1),
+            Ne.uniformsNeedUpdate = false),
           Zt.setValue(K, "dcgModelMatrix", Te.dcgModelMatrix, We),
           Zt.setValue(K, "modelViewMatrix", Te.modelViewMatrix, We),
           Zt.setValue(
@@ -77961,7 +77961,7 @@ Program Info Log: ` + A + `
           J.directionalLights.needsUpdate = pe;
       }
       function be(J) {
-        return J.lights === !0;
+        return J.lights === true;
       }
       this.getActiveCubeFace = function () {
         return k;
@@ -77974,11 +77974,11 @@ Program Info Log: ` + A + `
         },
         this.setRenderTarget = function (J, pe = 0, Ne = 0) {
           A = J, k = pe, _ = Ne;
-          let Te = !0, dt = null;
+          let Te = true, dt = null;
           if (J) {
             let kt = _e.get(J);
             kt.__useDefaultFramebuffer !== void 0
-              ? (we.bindFramebuffer(K.FRAMEBUFFER, null), Te = !1)
+              ? (we.bindFramebuffer(K.FRAMEBUFFER, null), Te = false)
               : kt.__webglFramebuffer === void 0
               ? We.setupRenderTarget(J)
               : kt.__hasExternalTextures && J.depthTexture &&
@@ -77988,7 +77988,7 @@ Program Info Log: ` + A + `
                   _e.get(J.depthTexture).__webglTexture,
                 );
             let Qt = _e.get(J).__webglFramebuffer;
-            J.samples > 0 && We.useMultisampledRTT(J) === !1
+            J.samples > 0 && We.useMultisampledRTT(J) === false
               ? dt = _e.get(J).__webglMultisampledFramebuffer
               : Array.isArray(Qt)
               ? dt = Qt[Ne]
@@ -78103,14 +78103,14 @@ Program Info Log: ` + A + `
   var Oa = class extends zk {
     constructor(t = 1, o = 1, i = {}) {
       super(t, o, i);
-      this.isWebGLRenderTarget = !0;
+      this.isWebGLRenderTarget = true;
     }
   };
   var S_ = class extends Bs {
     constructor(t, o, i, n, a, s, l, c, d) {
       super(t, o, i, n, a, s, l, c, d);
-      this.isCanvasTexture = !0;
-      this.needsUpdate = !0;
+      this.isCanvasTexture = true;
+      this.needsUpdate = true;
     }
   };
   var o0 = class extends $k {
@@ -78119,7 +78119,7 @@ Program Info Log: ` + A + `
         n = { ...t, depth: t.height !== void 0 ? t.height : 50 };
       n.bevelThickness === void 0 && (n.bevelThickness = 10),
         n.bevelSize === void 0 && (n.bevelSize = 8),
-        n.bevelEnabled === void 0 && (n.bevelEnabled = !1),
+        n.bevelEnabled === void 0 && (n.bevelEnabled = false),
         super(i, n);
     }
   };
@@ -78329,7 +78329,7 @@ Program Info Log: ` + A + `
       animateToDomain(e) {
         let t = this.getCurrentDomain(), o = this.grapher3d.transition;
         o.isZooming ||
-          (o.isZooming = !0,
+          (o.isZooming = true,
             o.startTime = window.performance.now(),
             o.duration = 150,
             o.zoom0 = t,
@@ -78373,7 +78373,7 @@ Program Info Log: ` + A + `
           case "in":
             {
               if (o.isZooming) return;
-              o.isZooming = !0,
+              o.isZooming = true,
                 o.startTime = window.performance.now(),
                 o.duration = 150,
                 o.zoom0 = t,
@@ -78389,7 +78389,7 @@ Program Info Log: ` + A + `
           case "out":
             {
               if (o.isZooming) return;
-              o.isZooming = !0,
+              o.isZooming = true,
                 o.startTime = window.performance.now(),
                 o.duration = 150,
                 o.zoom0 = t,
@@ -78403,7 +78403,7 @@ Program Info Log: ` + A + `
             }
             break;
           case "square":
-            this.grapher3d.settings.setProperty("squareAxes", !0),
+            this.grapher3d.settings.setProperty("squareAxes", true),
               this.animateToDomain(Rse(this.getCurrentDomain())),
               xe(
                 this.s(
@@ -78577,12 +78577,12 @@ Program Info Log: ` + A + `
           this.lastMovedTime = 0,
           this.lastRotateTime = 0,
           this.lastWheelEventTime = 0,
-          this.keyStillDown = !1,
+          this.keyStillDown = false,
           this.lastAngle = 0,
-          this.useVirtualSphere = !1,
-          this.startedOutsideVirtualSphere = !1,
-          this.isXYsnapped = !1,
-          this.isZsnapped = !1,
+          this.useVirtualSphere = false,
+          this.startedOutsideVirtualSphere = false,
+          this.isXYsnapped = false,
+          this.isZsnapped = false,
           this.dimensions = () => {
             let a = this.domElement === document
                 ? this.domElement.body
@@ -78635,7 +78635,7 @@ Program Info Log: ` + A + `
                 s.shiftKey && this.grapher3d.settings.config.beta3d ||
                 !this.isHorizonLevel(),
               this.state !== tu.NONE &&
-              (this.grapher3d.isDragging = !0,
+              (this.grapher3d.isDragging = true,
                 ee(document).on("dcg-tapmove", this.onTapMove),
                 ee(document).on("dcg-tapend", this.onTapUp),
                 ee(document).on("dcg-tapcancel", this.onTapUp),
@@ -78728,7 +78728,7 @@ Program Info Log: ` + A + `
               (c > 0 ||
                 (this.lastMovedTime + k7 < s.timeStamp &&
                   !this.isPinchZooming() && (this.speed3D = 0),
-                  this.grapher3d.isDragging = !1,
+                  this.grapher3d.isDragging = false,
                   ee(document).off("dcg-tapmove", this.onTapMove),
                   ee(document).off("dcg-tapend", this.onTapUp),
                   ee(document).off("dcg-tapcancel", this.onTapUp),
@@ -78817,7 +78817,7 @@ Program Info Log: ` + A + `
               this.grapher3d.webglLayer.updateAxes(),
               this.grapher3d.controller.dispatch({ type: "render" });
           };
-        let n = { passive: !1 };
+        let n = { passive: false };
         this.onTouchStart = (a) => {
           a.preventDefault();
         },
@@ -78831,7 +78831,7 @@ Program Info Log: ` + A + `
           this.domElement.addEventListener("wheel", this.onMouseWheel);
       }
       keyUp() {
-        this.keyStillDown = !1,
+        this.keyStillDown = false,
           this.speed3D &&
           xe(
             this.grapher3d.controller.s(
@@ -78903,7 +78903,7 @@ Program Info Log: ` + A + `
           }
         } else if (this.speed3D) {
           this.lastKeyboardDirection = void 0,
-            this.keyStillDown = !0,
+            this.keyStillDown = true,
             this.speed3D = 0,
             xe(
               this.grapher3d.controller.s(
@@ -78911,7 +78911,7 @@ Program Info Log: ` + A + `
               ),
             );
         } else {
-          this.lastKeyboardDirection = t, this.keyStillDown = !0, xe(i[t]);
+          this.lastKeyboardDirection = t, this.keyStillDown = true, xe(i[t]);
           let p = Lc / 180;
           switch (t) {
             case "Up":
@@ -78991,7 +78991,7 @@ Program Info Log: ` + A + `
         );
       }
       update() {
-        return !0;
+        return true;
       }
       dispose() {
         ee(this.domElement).off("dcg-tapstart", this.onTapStart),
@@ -79043,7 +79043,7 @@ Program Info Log: ` + A + `
         let c = i.q0.clone().normalize(),
           d = i.q1.clone().normalize(),
           p = 2 * D7(Gc(c.dot(d))) * (180 / Lc);
-        i.isOrienting = !0,
+        i.isOrienting = true,
           i.startTime = window.performance.now(),
           i.duration = 150 *
             __dcg_shared_module_exports__["Sb"](p / 30, 1, 3);
@@ -79064,10 +79064,10 @@ Program Info Log: ` + A + `
     },
     A_ = class {
       constructor() {
-        this.isZooming = !1;
+        this.isZooming = false;
         this.zoom0 = new __dcg_shared_module_exports__["Yd"]();
         this.zoom1 = new __dcg_shared_module_exports__["Yd"]();
-        this.isOrienting = !1;
+        this.isOrienting = false;
         this.q0 = new Ql();
         this.q1 = new Ql();
         this.objectIdExtendingTo3D = void 0;
@@ -79094,14 +79094,14 @@ Program Info Log: ` + A + `
             a * i.zmin + (1 - a) * o.zmin,
             a * i.zmax + (1 - a) * o.zmax,
           );
-        a >= 1 && (e.endZoom(), t.isZooming = !1), r.updateViewport(s);
+        a >= 1 && (e.endZoom(), t.isZooming = false), r.updateViewport(s);
       }
       if (t.isOrienting) {
         let i = (window.performance.now() - t.startTime) / t.duration;
         if (i >= 1) {
           let n = new Nt().makeRotationFromQuaternion(t.q1);
           r.setWorldRotation(new Po().setFromMatrix4(n)),
-            t.isOrienting = !1,
+            t.isOrienting = false,
             e.controller.dispatch({ type: "render" });
         } else {
           let n = t.q0.clone().slerp(t.q1, i),
@@ -79405,8 +79405,8 @@ void main() {
         magFilter: Rd,
         type: l[u],
         format: Nd,
-        stencilBuffer: !1,
-        depthBuffer: !0,
+        stencilBuffer: false,
+        depthBuffer: true,
       });
       r.render(a, f, new Oa()), s.readPixels(0, 0, 1, 1, s.RGBA, c[u], d[u]);
       let y = [...d[u]];
@@ -79436,13 +79436,13 @@ void main() {
       constructor({ filter: e }) {
         this.canvases = {};
         e
-          ? (this.enabled = !0, this.filter = new RegExp(e))
-          : this.enabled = !1;
+          ? (this.enabled = true, this.filter = new RegExp(e))
+          : this.enabled = false;
       }
       removeUnused() {
         for (let e in this.canvases) {
           this.canvases[e].used
-            ? this.canvases[e].used = !1
+            ? this.canvases[e].used = false
             : (this.canvases[e].container.remove(), delete this.canvases[e]);
         }
       }
@@ -79451,7 +79451,7 @@ void main() {
         if (!(!this.enabled || !this.filter.test(o))) {
           return this.canvases[e] || (this.canvases[e] = new SO()),
             this.canvases[e].setLabel(o),
-            this.canvases[e].used = !0,
+            this.canvases[e].used = true,
             this.canvases[e];
         }
       }
@@ -79612,9 +79612,9 @@ discard;
     return {
       zMinForAnimation: { value: -1 / 0 },
       zMaxForAnimation: { value: 1 / 0 },
-      clip_x: { value: !0 },
-      clip_y: { value: !0 },
-      clip_z: { value: !0 },
+      clip_x: { value: true },
+      clip_y: { value: true },
+      clip_z: { value: true },
       NaN: { value: NaN },
       Infinity: { value: 1 / 0 },
     };
@@ -79939,14 +79939,14 @@ gl_FragColor.a = opacity;
           fragmentShader: i,
           opacity: t.opacity,
           side: ua,
-          lights: !0,
+          lights: true,
           uniforms: l,
         });
-        this.defines = { DCG_SUPPORTS_PICKING: !1 };
+        this.defines = { DCG_SUPPORTS_PICKING: false };
         this.vertexColors = t.vertexColors,
           this.useVertexPickingColors = t.useVertexPickingColors,
           this.map = t.map,
-          this.defines.DCG_SUPPORTS_PICKING = !0,
+          this.defines.DCG_SUPPORTS_PICKING = true,
           this.cacheKey = n;
       }
       setEmissiveIntensity(t) {
@@ -80098,14 +80098,14 @@ ${Dh}
       restrictionShader: void 0,
       uvArgs: [],
       variant: { type: "zClip" },
-      wireframe: !1,
-      vertexColors: !1,
-      useVertexPickingColors: !1,
+      wireframe: false,
+      vertexColors: false,
+      useVertexPickingColors: false,
       globalUniforms: e,
       graphUniforms: {
-        clip_x: { value: !1 },
-        clip_y: { value: !1 },
-        clip_z: { value: !1 },
+        clip_x: { value: false },
+        clip_y: { value: false },
+        clip_z: { value: false },
       },
     });
     return t.customProgramCacheKey = () => "axis-material", t;
@@ -80302,7 +80302,7 @@ ${Dh}
           k.scale.set(f / 4, y / 4, C / 4),
           k.position.set(_, A, (u + h) / 2),
           lle(t.zCanvas, o, e),
-          t.zMaterial.uniforms.map.value.needsUpdate = !0,
+          t.zMaterial.uniforms.map.value.needsUpdate = true,
           this.add(k);
       }
     }
@@ -80339,9 +80339,9 @@ ${Dh}
       o.fillRect(0, 0, e.screen.width, e.screen.height),
       o.lineWidth = 1.5,
       o.miterLimit = 2,
-      o.strokeStyle = e.settings.getBackgroundColor({ invertWhite: !0 });
+      o.strokeStyle = e.settings.getBackgroundColor({ invertWhite: true });
     let p = 5,
-      h = e.settings.getTextColor({ invertBlack: !0 }),
+      h = e.settings.getTextColor({ invertBlack: true }),
       u = e.screen.width,
       f = e.screen.height,
       y = { left: 3, top: 3, right: u - 3, bottom: f - 3 },
@@ -80440,7 +80440,7 @@ ${Dh}
       size: 1,
       height: .02,
       curveSegments: 12,
-      bevelEnabled: !0,
+      bevelEnabled: true,
       bevelThickness: .04,
       bevelSize: .04,
       bevelOffset: 0,
@@ -80511,9 +80511,9 @@ ${Dh}
             color: o,
             opacity: 1,
             graphUniforms: {
-              clip_x: { value: !1 },
-              clip_y: { value: !1 },
-              clip_z: { value: !1 },
+              clip_x: { value: false },
+              clip_y: { value: false },
+              clip_z: { value: false },
             },
             globalUniforms: i,
           }),
@@ -80635,7 +80635,7 @@ void main() {
     ${Dh}
 }
 `,
-        defines: { DCG_SUPPORTS_PICKING: !0, FADE_THRESHOLD: .4 },
+        defines: { DCG_SUPPORTS_PICKING: true, FADE_THRESHOLD: .4 },
         uniforms: {
           opacity: { value: e.opacity },
           diffuse: { value: e.color },
@@ -80748,9 +80748,9 @@ gl_FragColor.rgb /= gl_FragColor.a;
     H_ = class {
       constructor() {
         this.shaderPass = new bl(hle, {
-          depthTest: !1,
-          depthWrite: !1,
-          transparent: !1,
+          depthTest: false,
+          depthWrite: false,
+          transparent: false,
         }, "uTextureA");
       }
       dispose() {
@@ -80804,9 +80804,9 @@ gl_FragColor.rgb /= gl_FragColor.a;
     K_ = class {
       constructor() {
         this.shaderPass = new bl(gle, {
-          depthTest: !1,
-          depthWrite: !1,
-          transparent: !1,
+          depthTest: false,
+          depthWrite: false,
+          transparent: false,
         }, "uTopTexture");
       }
       dispose() {
@@ -80867,9 +80867,9 @@ gl_FragColor = maxAccum;
     IO = class {
       constructor() {
         this.shaderPass = new bl(mle, {
-          depthTest: !1,
-          depthWrite: !1,
-          transparent: !0,
+          depthTest: false,
+          depthWrite: false,
+          transparent: true,
         });
       }
       dispose() {
@@ -81010,7 +81010,7 @@ gl_FragColor = maxAccum;
         this.size.y !== i.y) &&
         (this.size.copy(i), this.dispose(), this.init());
       let n = t.getClearColor(new vt()), a = t.autoClear;
-      t.autoClear = !1,
+      t.autoClear = false,
         t.setClearColor(new vt(0), 1),
         t.clear(),
         this.materialManager.setGlobalUniform(
@@ -81136,7 +81136,7 @@ gl_FragColor = maxAccum;
           ),
           this.renderer.setClearColor(new vt(0), 0),
           this.renderer.setRenderTarget(c),
-          this.renderer.clear(!0, !0);
+          this.renderer.clear(true, true);
         let d = this.scene.background;
         this.scene.background = null,
           this.renderer.render(this.scene, this.camera),
@@ -81225,12 +81225,12 @@ gl_FragColor = maxAccum;
   var ble = .999;
   function yle(r) {
     r.traverse((e) => {
-      l9(e) === "transparent" && (e.visible = !1);
+      l9(e) === "transparent" && (e.visible = false);
     });
   }
   function xle(r) {
     r.traverse((e) => {
-      l9(e) === "opaque" && (e.visible = !1);
+      l9(e) === "opaque" && (e.visible = false);
     });
   }
   function l9(r) {
@@ -81263,7 +81263,7 @@ gl_FragColor = maxAccum;
         uScreenSize: new Tt(1, 1),
         uInverseScreenSize: new Tt(1, 1),
         uDepthOffset: 1e-6,
-        disableLighting: !0,
+        disableLighting: true,
       };
     }
     setGlobalUniform(e, t) {
@@ -81280,7 +81280,7 @@ gl_FragColor = maxAccum;
           let n = i.material, a;
           Array.isArray(i.material) ? a = n : a = [n],
             a.forEach((s) => {
-              d9(s) && (t[s.dcgMaterialCacheKey] = !0);
+              d9(s) && (t[s.dcgMaterialCacheKey] = true);
             });
         }
       });
@@ -81369,8 +81369,8 @@ gl_FragColor = maxAccum;
           extraMeshArgs: n,
           map: void 0,
           variant: l,
-          vertexColors: e.vertexColors || !1,
-          useVertexPickingColors: e.useVertexPickingColors || !1,
+          vertexColors: e.vertexColors || false,
+          useVertexPickingColors: e.useVertexPickingColors || false,
           restrictionShader: a,
           uvArgs: i,
           globalUniforms: this.getGlobalUniforms(),
@@ -81631,7 +81631,7 @@ gl_FragColor = maxAccum;
               index: i,
               isPoint: e.isPoint,
               blocksPicking: e.blocksPicking,
-              forceOpaque: !1,
+              forceOpaque: false,
               pickingId: n,
             });
           t.setPickingColorAt(i, a);
@@ -81645,7 +81645,7 @@ gl_FragColor = maxAccum;
               index: a,
               isPoint: e.isPoint,
               blocksPicking: e.blocksPicking,
-              forceOpaque: !1,
+              forceOpaque: false,
               pickingId: l,
             });
           i.push(c);
@@ -81779,7 +81779,7 @@ gl_FragColor = texture2D( t3, uv );
   var m9 = {
     name: "CopyShader",
     uniforms: { tDiffuse: { value: null }, weight: { value: 1 } },
-    defines: { SRGB_COLOR_SPACE: !0 },
+    defines: { SRGB_COLOR_SPACE: true },
     vertexShader: `
 varying vec2 vUv;
 
@@ -81906,7 +81906,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.pickingColorManager = new Y_();
         this.perspective = 1;
         this.lastFrameExpressionTooComplexIDs = new Set();
-        this.debugOnlyMeasureGPUTiming = !1;
+        this.debugOnlyMeasureGPUTiming = false;
         this.lastRenderInfo = {
           peelLayers: 0,
           triangles: 0,
@@ -81944,7 +81944,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.surfaces = {},
           this.renderedTabTargets = {},
           this.renderedTabTargetOrder = [],
-          this.isTrackingPressedAction = !1,
+          this.isTrackingPressedAction = false,
           this.scene = new eu(),
           this.spinningWorld = new Ii(),
           this.world = new Ii(),
@@ -81965,7 +81965,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.canvas.height,
             { colorSpace: Ga, samples: 4 },
           ),
-          this.mainCopyOutputPass.defines.SRGB_COLOR_SPACE = !1;
+          this.mainCopyOutputPass.defines.SRGB_COLOR_SPACE = false;
         let i = new Gy(4210752, Math.PI);
         this.scene.add(i);
         let n = 2.8, a = new Ch(16777215, n);
@@ -82065,10 +82065,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       getClipAxes(e) {
         return this.controller.getGraphSettings().showBox3D
-          ? { x: !0, y: !0, z: !0 }
+          ? { x: true, y: true, z: true }
           : e != null
           ? e
-          : { x: !1, y: !1, z: !1 };
+          : { x: false, y: false, z: false };
       }
       setBackgroundColor(e) {
         this.backgroundColor = new vt(e), this.updateBackgroundColor();
@@ -82152,9 +82152,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.disposePlaneTextureIfResized(),
           this.domainPlaneMaterials !== void 0 &&
           (this.domainPlaneMaterials.xyNumbersMaterial.uniforms.map.value
-            .needsUpdate = !0,
+            .needsUpdate = true,
             this.domainPlaneMaterials.zMaterial.uniforms.map.value
-              .needsUpdate = !0);
+              .needsUpdate = true);
       }
       disposePlaneTextureIfResized() {
         let e = this.controller.getGrapher2d().getCanvasNode();
@@ -82186,9 +82186,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.domainPlane.xyPlane &&
             this.pickingColorManager.setPickingColorForMesh({
               mesh: this.domainPlane.xyPlane,
-              isPoint: !1,
-              blocksPicking: !0,
-              forceOpaque: !0,
+              isPoint: false,
+              blocksPicking: true,
+              forceOpaque: true,
               branchId: "**dcg_domain_plane_picking_id**",
             }),
             (this.controller.showPlane3D() ||
@@ -82233,7 +82233,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               type: "domain-plane-numbers-material",
               canvas: a,
               showNumbers: e,
-              transparent: !1,
+              transparent: false,
             },
           }),
           l = this.controller.getGraphSettings().plane3dOpacity,
@@ -82408,14 +82408,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.surfaces[t] = {
               mesh: A,
               cacheKey: f,
-              isNotInSketchOrder: !1,
+              isNotInSketchOrder: false,
               materialColor: o,
-              isTransparent: !1,
-              isPoint: !0,
+              isTransparent: false,
+              isPoint: true,
             },
             this.world.add(A);
         }
-        this.surfaces[t].isNotInSketchOrder = !1;
+        this.surfaces[t].isNotInSketchOrder = false;
       }
       makeCacheKey(e, t) {
         return e + ":" + JSON.stringify(t);
@@ -82471,13 +82471,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.surfaces[e] = {
             mesh: v,
             cacheKey: u,
-            isNotInSketchOrder: !1,
+            isNotInSketchOrder: false,
             materialColor: f,
-            isTransparent: !1,
-            isPoint: !0,
+            isTransparent: false,
+            isPoint: true,
           }, this.world.add(v);
         }
-        return this.surfaces[e].isNotInSketchOrder = !1, this.surfaces[e];
+        return this.surfaces[e].isNotInSketchOrder = false, this.surfaces[e];
       }
       renderSphere3D(e, t, o) {
         var U, z;
@@ -82526,7 +82526,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               mesh: V,
               material: x,
               cacheKey: s,
-              isNotInSketchOrder: !1,
+              isNotInSketchOrder: false,
               materialColor: o,
               isTransparent: l < 1,
               shape: "sphere",
@@ -82534,7 +82534,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             },
             this.world.add(V);
         }
-        this.surfaces[t].isNotInSketchOrder = !1;
+        this.surfaces[t].isNotInSketchOrder = false;
       }
       renderCurve3D(e, t, o) {
         var h, u;
@@ -82578,12 +82578,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.surfaces[t] = {
               mesh: S,
               cacheKey: c,
-              isNotInSketchOrder: !1,
-              isTransparent: !1,
+              isNotInSketchOrder: false,
+              isTransparent: false,
               materialColor: o,
             }, this.world.add(S);
           }
-          this.surfaces[t].isNotInSketchOrder = !1;
+          this.surfaces[t].isNotInSketchOrder = false;
         }
       }
       renderVector3D(e, t, o, i) {
@@ -82666,13 +82666,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.surfaces[l] = {
             mesh: M,
             cacheKey: y,
-            isNotInSketchOrder: !1,
-            isTransparent: !1,
+            isNotInSketchOrder: false,
+            isTransparent: false,
             materialColor: i,
             pickingColorVertexCounts: U,
           }, this.world.add(M);
         }
-        this.surfaces[l].isNotInSketchOrder = !1;
+        this.surfaces[l].isNotInSketchOrder = false;
       }
       renderTriangle3D(e, t, o, i) {
         if (e.surfaceOpacity < p0) return;
@@ -82730,7 +82730,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           v && (v.pickingColorVertexCounts = w);
         }
       }
-      renderSurface(e, t, o, i = !1, n = "") {
+      renderSurface(e, t, o, i = false, n = "") {
         var y, C, E;
         this.getConfig().wireframe && (o = "wireframe:" + o);
         let { meshData: a, surfaceOpacity: s } = e;
@@ -82799,7 +82799,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             mesh: S,
             material: v,
             cacheKey: f,
-            isNotInSketchOrder: !1,
+            isNotInSketchOrder: false,
             materialColor: o,
             shader: h,
             isTransparent: s < 1,
@@ -82807,7 +82807,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             domain: u,
           }, this.world.add(S);
         }
-        return this.surfaces[t].isNotInSketchOrder = !1, this.surfaces[t];
+        return this.surfaces[t].isNotInSketchOrder = false, this.surfaces[t];
       }
       projectMathCoordinates(e, t = new ye()) {
         return t.copy(e).applyMatrix4(this.world.matrixWorld).project(
@@ -82825,8 +82825,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           branchId: t,
           mesh: o.mesh,
           isPoint: !!o.isPoint,
-          blocksPicking: !1,
-          forceOpaque: !1,
+          blocksPicking: false,
+          forceOpaque: false,
           pickingColorVertexCounts: o.pickingColorVertexCounts,
         });
         let a = o == null ? void 0 : o.mesh.material;
@@ -82834,7 +82834,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           (o.mesh.renderOrder = i, a.setEmissiveIntensity(n ? .015 : 0));
       }
       needsHighlighting(e, t) {
-        if (!this.isClickable(e)) return !1;
+        if (!this.isClickable(e)) return false;
         let { keyboardFocusId: o, keyboardFocusIndex: i } = this
             .getKeyboardFocus(),
           { pressedId: n, pressedIndex: a } = this.pressedActionData(),
@@ -82895,7 +82895,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ),
           s.setSize(i.width / l, i.height / l);
         for (let R in this.surfaces) {
-          this.surfaces[R].isNotInSketchOrder = !0;
+          this.surfaces[R].isNotInSketchOrder = true;
         }
         let c = this.getPickResult();
         this.isClickable(c == null ? void 0 : c.id)
@@ -83094,10 +83094,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           if (s.set(u, u.visible), u instanceof Ai) {
             let y = u.material;
             u.visible = !!((f = y.defines) != null && f.DCG_SUPPORTS_PICKING);
-          } else u.visible = !1;
+          } else u.visible = false;
         }),
           this.domainPlane && s.get(this.domainPlane) &&
-          (this.domainPlane.visible = !0,
+          (this.domainPlane.visible = true,
             this.domainPlane.children.forEach((u) => {
               s.set(u, u.visible), u.visible = u.name === "xy plane";
             }));
@@ -83229,7 +83229,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         };
       }
       isClickable(e) {
-        if (e === void 0) return !1;
+        if (e === void 0) return false;
         let t = this.controller.getItemModel(e);
         return !!bb(t);
       }
@@ -83333,7 +83333,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       setPressedAction(e) {
         this.pressedAction = e,
-          e !== void 0 && (this.isTrackingPressedAction = !0);
+          e !== void 0 && (this.isTrackingPressedAction = true);
         let t = this.controller.getGrapher3d();
         t && (t.controls.state = tu.NONE, t.redrawAllLayers());
       }
@@ -83386,9 +83386,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     };
   function Vle(r) {
     let e = new Vy({
-      antialias: !0,
-      alpha: !0,
-      preserveDrawingBuffer: !0,
+      antialias: true,
+      alpha: true,
+      preserveDrawingBuffer: true,
       canvas: r,
     });
     return e.setPixelRatio(window.devicePixelRatio || 1), e;
@@ -83396,20 +83396,20 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function VO(r) {
     switch (r) {
       case 106:
-        return { x: !0, y: !0, z: !1 };
+        return { x: true, y: true, z: false };
       case 107:
-        return { x: !1, y: !0, z: !0 };
+        return { x: false, y: true, z: true };
       case 108:
-        return { x: !0, y: !1, z: !0 };
+        return { x: true, y: false, z: true };
       case 110:
-        return { x: !1, y: !1, z: !0 };
+        return { x: false, y: false, z: true };
       case 112:
       case 113:
       case 210:
       case 128:
-        return { x: !0, y: !0, z: !0 };
+        return { x: true, y: true, z: true };
       default:
-        return { x: !1, y: !1, z: !1 };
+        return { x: false, y: false, z: false };
     }
   }
   var _h = { zMinForAnimation: -1 / 0, zMaxForAnimation: 1 / 0 };
@@ -83449,7 +83449,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       d = (u) => (u - i) / (n - i),
       p = (u) => (u - a) / (s - a),
       h = (u) => (u - l) / (c - l);
-    if (t === 1) return !0;
+    if (t === 1) return true;
     if (t === 2 && o === 4) {
       let u = r.positions,
         f = new ye(d(u[0]), p(u[1]), h(u[2])),
@@ -83462,7 +83462,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         k = v.cross(w);
       return Q_(k.dot(S) / (k.length() * S.length())) < .01;
     }
-    return !1;
+    return false;
   }
   function MO(r) {
     return r.split(":")[0];
@@ -83522,11 +83522,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     startZoom() {
       this.settings.config.disableWorkerOnZoom &&
-        this.evaluator.setTicksEnabled(!1);
+        this.evaluator.setTicksEnabled(false);
     }
     endZoom() {
       this.settings.config.disableWorkerOnZoom &&
-        this.evaluator.setTicksEnabled(!0);
+        this.evaluator.setTicksEnabled(true);
     }
     remove() {
       this.controls.dispose(),
@@ -83542,12 +83542,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.webglLayer.pickAtMouseAndReadResults();
       let i = this.webglLayer.getPickResult();
       __dcg_shared_module_exports__["E"](o, i) ||
-      (this.__redrawRequested = !0),
+      (this.__redrawRequested = true),
         (!this.lastRenderedWorldRotation ||
           !this.lastRenderedWorldRotation.equals(
             this.controls.worldRotation3D,
           )) &&
-        (this.__redrawRequested = !0,
+        (this.__redrawRequested = true,
           this.lastRenderedWorldRotation = this.controls.worldRotation3D
             .clone()),
         this.__redrawRequested && this._redrawAllLayers();
@@ -83623,7 +83623,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         s.update(),
         this.webglLayer.updateDomainObjects(),
         i > 0 && n > 0
-          ? (this._setIsVisible(!0),
+          ? (this._setIsVisible(true),
             this._updateScreenSize(i, n),
             Wn(this.elt, {
               position: "absolute",
@@ -83632,15 +83632,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               width: i + "px",
               height: n + "px",
             }))
-          : this._setIsVisible(!1);
+          : this._setIsVisible(false);
     }
     deselectSketch(t) {
       let o = this.getGraphSketch(t);
-      o && (o.selected = !1, o.showHighlight = !1);
+      o && (o.selected = false, o.showHighlight = false);
     }
     selectSketch(t) {
       let o = this.getGraphSketch(t);
-      o && (o.selected = !0, o.showHighlight = !0);
+      o && (o.selected = true, o.showHighlight = true);
     }
     setSketchHoistedToTop(t, o) {
       let i = this.getGraphSketch(t);
@@ -83666,7 +83666,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     _redrawAllLayers() {
       if (!this.isVisible) return;
       let t = Date.now();
-      this.__redrawRequested = !1,
+      this.__redrawRequested = false,
         this.canvasLayer.resize(this.screen.width, this.screen.height),
         this.controls.update(),
         this._redrawWebglLayer(),
@@ -83726,7 +83726,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     setGrapherState(t, o) {
       t = __dcg_shared_module_exports__["od"](Os, t),
         "complex" in t && !this.controller.canEnableComplexMode() &&
-        (t = { ...t, complex: !1 }),
+        (t = { ...t, complex: false }),
         (!o || !o.doNotClear) && this.clear();
       for (let i in Os) {
         Os.hasOwnProperty(i) && this.settings.setProperty(i, t[i]);
@@ -83821,15 +83821,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           .keyboardAttentionManager,
         s = n.getKeyboardAttention() !== void 0;
       if (t === "prev" && !s) {
-        n.updateKeyboardAttention(void 0, { describe: !1 }),
+        n.updateKeyboardAttention(void 0, { describe: false }),
           this.webglLayer.updateDomainObjects();
         return;
       }
       if (
         n.focusNextObjFromKeyboard({
           direction: t,
-          allowWrapping: !1,
-          selectNonClickables: !1,
+          allowWrapping: false,
+          selectNonClickables: false,
         })
       ) {
         o == null || o.preventDefault(),
@@ -83837,7 +83837,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.webglLayer.updateDomainObjects();
         return;
       } else {
-        n.updateKeyboardAttention(void 0, { describe: !1 }),
+        n.updateKeyboardAttention(void 0, { describe: false }),
           t === "prev" && s &&
           (this.controller.dispatch({
             type: "set-focus-location",
@@ -83869,7 +83869,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             class: () => {
               var e, t, o, i, n;
               return {
-                "dcg-keypad-btn-container": !0,
+                "dcg-keypad-btn-container": true,
                 "dcg-disabled": this.isDisabled(),
                 [
                   (o = (t = (e = this.props).additionalClass) == null
@@ -83916,25 +83916,25 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       getClasses() {
         let e = {
-            "dcg-keypad-btn": !0,
+            "dcg-keypad-btn": true,
             "dcg-keypad-btn-active": this.isActive(),
           },
           t = this.props.style();
         switch (t) {
           case "default":
-            e["dcg-btn-light-on-gray"] = !0;
+            e["dcg-btn-light-on-gray"] = true;
             break;
           case "highlight":
-            e["dcg-btn-dark-on-gray"] = !0;
+            e["dcg-btn-dark-on-gray"] = true;
             break;
           case "popover":
-            e["dcg-btn-light-gray"] = !0;
+            e["dcg-btn-light-gray"] = true;
             break;
           case "blue":
-            e["dcg-btn-short-blue"] = !0;
+            e["dcg-btn-short-blue"] = true;
             break;
           case "tall-blue":
-            e["dcg-btn-tall-blue"] = !0;
+            e["dcg-btn-tall-blue"] = true;
             break;
           default:
             return t;
@@ -83942,7 +83942,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return e;
       }
       isActive() {
-        return this.props.active ? this.props.active() : !1;
+        return this.props.active ? this.props.active() : false;
       }
       getAriaLabel() {
         return this.props.ariaLabel
@@ -84106,7 +84106,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "span",
             {
               class: () => ({
-                "dcg-button-icon": !0,
+                "dcg-button-icon": true,
                 "dcg-icon-only": r.contentKey === void 0,
               }),
             },
@@ -84301,7 +84301,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () => o("shared-calculator-narration-keypad-key-enter"),
           colspan: cr(t.colspan, 1),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "undo", source: "button-tap" }),
         },
@@ -84317,7 +84317,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () => o("shared-calculator-narration-keypad-key-enter"),
           colspan: cr(t.colspan, 1),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "redo", source: "button-tap" }),
         },
@@ -84334,7 +84334,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () => o("shared-calculator-narration-keypad-key-shift"),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
-          active: cr(t.active, !1),
+          active: cr(t.active, false),
           onTap: () => e({ type: "keypad/shift" }),
         },
         re.createElement("i", {
@@ -85008,7 +85008,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         tr,
         {
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: cr(t.style, "blue"),
           ariaLabel: re.const(void 0),
@@ -85035,7 +85035,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         tr,
         {
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: cr(t.style, "blue"),
           onTap: () => {
@@ -85060,7 +85060,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-volume-down"),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () =>
             e({ type: "keypad/audio-trace", command: "volume-down" }),
@@ -85081,7 +85081,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-volume-up"),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "volume-up" }),
         },
@@ -85101,7 +85101,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-speed-down"),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "speed-down" }),
         },
@@ -85121,7 +85121,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           command: re.const(r),
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-speed-up"),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "speed-up" }),
         },
@@ -85141,7 +85141,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-previous-point"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
           onTap: () =>
@@ -85163,7 +85163,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-next-point"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "next-point" }),
@@ -85184,7 +85184,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-previous-poi"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
           onTap: () =>
@@ -85206,7 +85206,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-next-poi"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "next-poi" }),
@@ -85227,7 +85227,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-previous-curve"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           colspan: cr(t.colspan, 1),
           style: () => t.style || "default",
           onTap: () =>
@@ -85249,7 +85249,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ariaLabel: () =>
             o("graphing-calculator-narration-keypad-key-next-curve"),
           command: re.const(r),
-          disabled: cr(t.disabled, !1),
+          disabled: cr(t.disabled, false),
           style: () => t.style || "default",
           onTap: () => e({ type: "keypad/audio-trace", command: "next-curve" }),
         },
@@ -85339,7 +85339,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         role: ze.const("heading"),
                         "aria-level": ze.const("2"),
                         class: () => ({
-                          "dcg-key-nav-section-title-container": !0,
+                          "dcg-key-nav-section-title-container": true,
                           "dcg-disabled": this.isAudioDisabled(),
                         }),
                       },
@@ -85380,7 +85380,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "div",
                       {
                         class: () => ({
-                          "dcg-key-nav-section-title-container": !0,
+                          "dcg-key-nav-section-title-container": true,
                           "dcg-disabled": this.isAudioDisabled(),
                         }),
                         role: ze.const("heading"),
@@ -85529,7 +85529,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         "graphing-calculator-label-audio-trace-need-screen-reader",
                       ),
                     gravity: this.const("s"),
-                    sticky: this.const(!0),
+                    sticky: this.const(true),
                   },
                   ze.createElement("i", {
                     class: ze.const("dcg-icon-question-sign"),
@@ -85624,27 +85624,27 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isPrevPointDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToPrevPoint() : !0;
+        return r ? !r.agNavigator.canMoveToPrevPoint() : true;
       }
       isNextPointDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToNextPoint() : !0;
+        return r ? !r.agNavigator.canMoveToNextPoint() : true;
       }
       isPrevPOIDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToPrevPOI() : !0;
+        return r ? !r.agNavigator.canMoveToPrevPOI() : true;
       }
       isNextPOIDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToNextPOI() : !0;
+        return r ? !r.agNavigator.canMoveToNextPOI() : true;
       }
       isPrevCurveDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToPrevCurve() : !0;
+        return r ? !r.agNavigator.canMoveToPrevCurve() : true;
       }
       isNextCurveDisabled() {
         let r = this.controller.getAudioGraph();
-        return r ? !r.agNavigator.canMoveToNextCurve() : !0;
+        return r ? !r.agNavigator.canMoveToNextCurve() : true;
       }
       isAudioDisabled() {
         return !this.controller.getAudio();
@@ -85657,11 +85657,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isVolumeDownDisabled() {
         let r = this.controller.getAudioGraph();
-        return !r || this.isAudioDisabled() ? !0 : r.getAudioVolume() <= 0;
+        return !r || this.isAudioDisabled() ? true : r.getAudioVolume() <= 0;
       }
       isVolumeUpDisabled() {
         let r = this.controller.getAudioGraph();
-        return !r || this.isAudioDisabled() ? !0 : r.getAudioVolume() >= 1;
+        return !r || this.isAudioDisabled() ? true : r.getAudioVolume() >= 1;
       }
       getAudioTraceSpeed() {
         let r = this.controller.getAudioGraph();
@@ -85671,12 +85671,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isSpeedDownDisabled() {
         let r = this.controller.getAudioGraph();
-        return !r || this.isAudioDisabled() ? !0 : r.getAudioSpeedIndex() <= 0;
+        return !r || this.isAudioDisabled() ? true : r.getAudioSpeedIndex() <= 0;
       }
       isSpeedUpDisabled() {
         let r = this.controller.getAudioGraph();
         return !r || this.isAudioDisabled()
-          ? !0
+          ? true
           : r.getAudioSpeedIndex() === Mv.length - 1;
       }
       getDisabledTooltipText() {
@@ -85695,9 +85695,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-functions-popover": !0,
-              "dcg-popover": !0,
-              "dcg-top": !0,
+              "dcg-functions-popover": true,
+              "dcg-popover": true,
+              "dcg-top": true,
               "dcg-two-column": this.shouldRenderWithTwoColumns(),
             }),
             id: this.const(`dcg-functions-popover-${ii.uuid}`),
@@ -86620,7 +86620,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           null,
           I(this, "shift", {
             colspan: 1.364,
-            active: !0,
+            active: true,
             style: "highlight",
           }),
           to(.136),
@@ -86671,7 +86671,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-keys-container": !0,
+                "dcg-keys-container": true,
                 "dcg-smaller-functions-text":
                   this.controller.getLayoutMeasurements().width < 650,
                 "dcg-small-ABC":
@@ -86763,7 +86763,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         onTap: () => {
                           this.controller.dispatch({
                             type: "keypad/set-minimized",
-                            minimized: !0,
+                            minimized: true,
                           });
                         },
                       },
@@ -86811,7 +86811,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     onTap: () => {
                       this.controller.dispatch({
                         type: "keypad/set-minimized",
-                        minimized: !1,
+                        minimized: false,
                       });
                     },
                   },
@@ -86833,7 +86833,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isShowKeypadButtonVisible() {
         return this.controller.getBrailleMode() !== "none"
-          ? !1
+          ? false
           : !this.controller.isKeypadOpen() &&
             !this.controller.isNarrow() &&
             !this.controller.isInEditListMode() &&
@@ -86889,9 +86889,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   qt();
   var jle = function () {
     {
-      let o = !1,
+      let o = false,
         i = function () {
-          n(document), o = !0;
+          n(document), o = true;
         },
         n = function (a) {
           o || ee(a).bind("touchstart", (s) => {
@@ -87073,7 +87073,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         "dcg-suffix-degree": this.getNumberUnits() === "\xB0",
                         "dcg-suffix-radian": this.getNumberUnits() === "rad",
                       }),
-                      readonly: () => !1,
+                      readonly: () => false,
                       latex: () => this.getNumberInputLatex(),
                       ariaLabel: this.bindFn(this.getActiveString),
                       isFocused: () => this.isNumberInputFocused(),
@@ -87090,7 +87090,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         this.handleLatexChanged(e);
                       },
                       handleSelectionChanged: (e) => {
-                        this.handleLatexChanged(e.latex, !0);
+                        this.handleLatexChanged(e.latex, true);
                       },
                       dataLabelAttributeValue: this.const(
                         "transformation-number",
@@ -87100,9 +87100,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "span",
                       {
                         class: () => ({
-                          "dcg-action-submit": !0,
+                          "dcg-action-submit": true,
                           "dcg-disabled": this.isSubmitNumberDisabled(),
-                          "dcg-btn-purple": !0,
+                          "dcg-btn-purple": true,
                         }),
                         role: ko.const("button"),
                         tabIndex: () => this.isSubmitNumberDisabled() ? -1 : 0,
@@ -87142,12 +87142,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ((l = this.getStep().numberInputInfo) == null
               ? void 0
               : l.defaultLatex)
-        ) return !1;
+        ) return false;
         let t = this.props.toolSpec().outputs[0].id,
           { idMap: o } = this.controller.getGeoModel().getNonObjectsState().ui
             .currentTool,
           i = o[t];
-        if (!i) return !0;
+        if (!i) return true;
         let n = rb(this.controller.getListModel()).filter((c) => {
             var d;
             if (c.type === "expression") {
@@ -87155,9 +87155,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             }
           }),
           a = n[0];
-        if (!a || n.length === 0 || n.length > 1 || a.error) return !0;
+        if (!a || n.length === 0 || n.length > 1 || a.error) return true;
         let s = a.formula.typed_constant_value;
-        if (!s) return !0;
+        if (!s) return true;
         if (
           __dcg_shared_module_exports__["Ab"](
             s.valueType,
@@ -87169,11 +87169,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             : [s.value];
           for (let d of c) {
             let [[p, h], [u, f]] = d;
-            if (isNaN(p) || isNaN(h) || isNaN(u) || isNaN(f)) return !0;
+            if (isNaN(p) || isNaN(h) || isNaN(u) || isNaN(f)) return true;
           }
-          return !1;
+          return false;
         }
-        return !0;
+        return true;
       }
       handlePressedKey(e, t) {
         let o = Fe.getFocusedMathquill();
@@ -87246,7 +87246,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   var { SwitchUnion: Qle, If: z9 } = ro.Components,
     yI = class extends ro.Class {
       constructor() {
-        super(...arguments), this.afterInitialLoad = !1;
+        super(...arguments), this.afterInitialLoad = false;
       }
       init() {
         this.controller = this.props.controller();
@@ -87256,7 +87256,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-geometry-toolbar-view": !0,
+              "dcg-geometry-toolbar-view": true,
               "dcg-after-initial-load": this.afterInitialLoad,
             }),
             style: () => ({
@@ -87354,7 +87354,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.getGraphSettings().config.showHamburger
           ? !this.controller.isListEnabled() ||
             !this.controller.isListVisible() || this.controller.isNarrow()
-          : !1;
+          : false;
       }
       showOpenExpressionsButton() {
         return this.controller.isListEnabled() &&
@@ -87363,7 +87363,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       willUpdate() {
         this.afterInitialLoad ||
           this.getViewToShow() === "selectedItems" &&
-            (this.afterInitialLoad = !0);
+            (this.afterInitialLoad = true);
       }
       onTapStart(e) {
         e.target.classList.contains("dcg-do-blur") &&
@@ -87417,9 +87417,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "button",
             {
               class: () => ({
-                "dcg-unstyled-button": !0,
-                "dcg-action-undo": !0,
-                "dcg-icon-btn": !0,
+                "dcg-unstyled-button": true,
+                "dcg-action-undo": true,
+                "dcg-icon-btn": true,
                 "dcg-pillbox-btn-interior": this.props.isPillbox(),
                 "dcg-disabled": !this.controller.canUndo(),
               }),
@@ -87454,9 +87454,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "button",
             {
               class: () => ({
-                "dcg-unstyled-button": !0,
-                "dcg-action-redo": !0,
-                "dcg-icon-btn": !0,
+                "dcg-unstyled-button": true,
+                "dcg-action-redo": true,
+                "dcg-icon-btn": true,
                 "dcg-pillbox-btn-interior": this.props.isPillbox(),
                 "dcg-disabled": !this.controller.canRedo(),
               }),
@@ -87497,9 +87497,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-action-settings": !0,
-                "dcg-pillbox-btn-interior": !0,
-                "dcg-icon-btn": !0,
+                "dcg-action-settings": true,
+                "dcg-pillbox-btn-interior": true,
+                "dcg-icon-btn": true,
                 "dcg-btn-flat-gray": this.isPillbox(),
                 "dcg-settings-pillbox": this.isPillbox(),
               }),
@@ -87692,9 +87692,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         "div",
         {
           class: () => ({
-            "dcg-3d-orientation-pillbox": !0,
-            "dcg-btn-flat-gray": !0,
-            "dcg-btn-flat-gray-group": !0,
+            "dcg-3d-orientation-pillbox": true,
+            "dcg-btn-flat-gray": true,
+            "dcg-btn-flat-gray-group": true,
             "dcg-group-horizontal": this.props.layout() === "horizontal",
             "dcg-group-vertical": this.props.layout() === "vertical",
           }),
@@ -87710,14 +87710,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             disabled: this.bindFn(this.isDefaultOrientation),
             tooltip: this.bindFn(this.getDefaultOrientationLabel),
             gravity: this.bindFn(this.getTooltipGravity),
-            displayBlock: this.const(!0),
+            displayBlock: this.const(true),
           },
           ra.createElement(
             "div",
             {
               class: () => ({
-                "dcg-action-defaultorientation": !0,
-                "dcg-pillbox-btn-interior": !0,
+                "dcg-action-defaultorientation": true,
+                "dcg-pillbox-btn-interior": true,
                 "dcg-disabled": this.isDefaultOrientation(),
               }),
               role: ra.const("button"),
@@ -87738,14 +87738,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             tooltip: this.bindFn(this.getXYOrientationLabel),
             gravity: this.bindFn(this.getTooltipGravity),
             disabled: this.bindFn(this.isXYPlaneOrientation),
-            displayBlock: this.const(!0),
+            displayBlock: this.const(true),
           },
           ra.createElement(
             "div",
             {
               class: () => ({
-                "dcg-action-xyorientation": !0,
-                "dcg-pillbox-btn-interior": !0,
+                "dcg-action-xyorientation": true,
+                "dcg-pillbox-btn-interior": true,
                 "dcg-disabled": this.isXYPlaneOrientation(),
               }),
               role: ra.const("button"),
@@ -87805,19 +87805,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   var ve = __dcg_shared_module_exports__["e"](ne());
   qt();
   var tc = function (r, e, t) {
-    if (r === void 0 || e === void 0) return !1;
+    if (r === void 0 || e === void 0) return false;
     let o,
       i = e.getBoundingClientRect().height,
       n = r.getBoundingClientRect().height,
       a = Gl(r),
       s = Gl(e);
-    if (!a || !s) return !1;
+    if (!a || !s) return false;
     let l = e.scrollTop,
       c = a.top + l - s.top,
       d = c - t,
       p = n + c + t - i;
     return d >= p ? o = Math.min(Math.max(l, p), d) : o = .5 * (d + p),
-      o !== l ? (e.scrollTop = o, e.scrollTop != l) : !1;
+      o !== l ? (e.scrollTop = o, e.scrollTop != l) : false;
   };
   var yo = __dcg_shared_module_exports__["e"](ne());
   var Mh = __dcg_shared_module_exports__["e"](ne());
@@ -87874,8 +87874,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "div",
                 {
                   class: () => ({
-                    "dcg-advanced-toggle": !0,
-                    "dcg-margin-top": !0,
+                    "dcg-advanced-toggle": true,
+                    "dcg-margin-top": true,
                     "dcg-opened": this.isOpen,
                   }),
                   onTap: this.bindFn(this.toggleOpen),
@@ -88171,8 +88171,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "shared-calculator-text-complex-radian-mode",
                     ),
                   gravity: this.bindFn(this.getGravity),
-                  sticky: this.const(!0),
-                  displayBlock: this.const(!0),
+                  sticky: this.const(true),
+                  displayBlock: this.const(true),
                   additionalClass: this.const("dcg-cursor-default"),
                 },
                 Pc.createElement(vo, {
@@ -88212,7 +88212,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "graphing-calculator-button-settings-radians",
               ),
           selected: () => !this.getDegreeMode(),
-          onSelect: () => this.setDegreeMode(!1),
+          onSelect: () => this.setDegreeMode(false),
           focusHelperOptions: e.type === "advanced"
             ? {
               controller: e.controller,
@@ -88228,7 +88228,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "graphing-calculator-button-settings-degrees",
               ),
           selected: () => this.getDegreeMode(),
-          onSelect: () => this.setDegreeMode(!0),
+          onSelect: () => this.setDegreeMode(true),
           focusHelperOptions: e.type === "advanced"
             ? {
               controller: e.controller,
@@ -88292,7 +88292,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ),
         class: () => "dcg-displaysize-default",
         selected: () => !this.getProjectorMode(),
-        onSelect: () => this.onSelectProjectorModeOption(!1),
+        onSelect: () => this.onSelectProjectorModeOption(false),
         focusHelperOptions: {
           controller: this.controller,
           location: { type: "settings", location: "default-size" },
@@ -88306,7 +88306,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ),
         class: () => "dcg-displaysize-large",
         selected: () => this.getProjectorMode(),
-        onSelect: () => this.onSelectProjectorModeOption(!0),
+        onSelect: () => this.onSelectProjectorModeOption(true),
         focusHelperOptions: {
           controller: this.controller,
           location: { type: "settings", location: "large-size" },
@@ -88342,7 +88342,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.props.parent().isLimitInvalid(this.props.limit()),
           dataLabelAttributeValue: this.props.limit,
           controller: this.props.controller,
-          readonly: this.const(!1),
+          readonly: this.const(false),
           containerClass: () => ({
             "dcg-log-scale": this.props.axisScale() === "logarithmic",
           }),
@@ -88359,7 +88359,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           { class: ve.const("dcg-settings-view-container") },
           ve.createElement(Ah, {
             ...this.props,
-            isPillbox: this.const(!0),
+            isPillbox: this.const(true),
           }),
           ve.createElement(wl, {
             predicate: () => this.controller.isGraphSettingsOpen(),
@@ -88421,7 +88421,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                           },
                           ve.createElement(Gh, {
                             controller: this.props.controller,
-                            showBrailleNote: this.const(!0),
+                            showBrailleNote: this.const(true),
                           }),
                         )),
                     )),
@@ -88458,8 +88458,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                           "div",
                           {
                             class: () => ({
-                              "dcg-circle-icon": !0,
-                              "dcg-action-cartesian": !0,
+                              "dcg-circle-icon": true,
+                              "dcg-action-cartesian": true,
                               "dcg-selected": !this.getPolarMode(),
                             }),
                             role: ve.const("button"),
@@ -88480,8 +88480,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                           "div",
                           {
                             class: () => ({
-                              "dcg-circle-icon": !0,
-                              "dcg-action-polar": !0,
+                              "dcg-circle-icon": true,
+                              "dcg-action-polar": true,
                               "dcg-selected": this.getPolarMode(),
                             }),
                             role: ve.const("button"),
@@ -88521,8 +88521,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                             role: ve.const("button"),
                             tabIndex: ve.const("0"),
                             class: () => ({
-                              "dcg-circle-icon": !0,
-                              "dcg-arrows": !0,
+                              "dcg-circle-icon": true,
+                              "dcg-arrows": true,
                               "dcg-selected":
                                 this.getAxisArrowMode() === "BOTH",
                             }),
@@ -88547,8 +88547,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                             role: ve.const("button"),
                             tabIndex: ve.const("0"),
                             class: () => ({
-                              "dcg-circle-icon": !0,
-                              "dcg-arrows": !0,
+                              "dcg-circle-icon": true,
+                              "dcg-arrows": true,
                               "dcg-selected":
                                 this.getAxisArrowMode() === "POSITIVE",
                             }),
@@ -88574,7 +88574,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     ve.createElement(mt, {
                       onChange: this.bindFn(this.toggleAxisNumbers),
                       checked: this.bindFn(this.getAxisNumbers),
-                      small: this.const(!0),
+                      small: this.const(true),
                     }, () =>
                       this.controller.s(
                         "graphing-calculator-label-settings-axis-numbers",
@@ -88586,7 +88586,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       ve.createElement(mt, {
                         onChange: this.bindFn(this.toggleMinorGridlines),
                         checked: this.bindFn(this.getMinorGridlines),
-                        small: this.const(!0),
+                        small: this.const(true),
                       }, () =>
                         this.controller.s(
                           "graphing-calculator-label-settings-minor-gridlines",
@@ -88605,7 +88605,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                             type: "set-graph-settings",
                             restrictGridToFirstQuadrant: e,
                           }),
-                        small: this.const(!0),
+                        small: this.const(true),
                       }, () =>
                         this.controller.s(
                           "graphing-calculator-label-settings-one-quadrant",
@@ -88663,7 +88663,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                           )),
                         ve.createElement(H9, {
                           class: this.const("dcg-x-axis-label"),
-                          disabled: () => this.getShowXAxis() ? void 0 : !0,
+                          disabled: () => this.getShowXAxis() ? void 0 : true,
                           onInput: this.bindFn(this.onXAxisLabelInput),
                           value: this.bindFn(this.getXAxisLabel),
                           "aria-describedby": this.const(
@@ -88928,7 +88928,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 o === "Esc" &&
                 this.controller.dispatch({
                   type: "close-graph-settings",
-                  focusIconAfterClose: !0,
+                  focusIconAfterClose: true,
                 }),
                   this.controller.isGraphSettingsOpen() && o === "Tab" &&
                   !t.altKey && !t.metaKey && !t.ctrlKey
@@ -89131,13 +89131,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       setPolarMode() {
         this.controller.dispatch({
           type: "set-polar-mode",
-          polarMode: !0,
+          polarMode: true,
         });
       }
       setCartesianMode() {
         this.controller.dispatch({
           type: "set-polar-mode",
-          polarMode: !1,
+          polarMode: false,
         });
       }
       getAxisScale(e) {
@@ -89226,7 +89226,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     { class: Ra.const("dcg-braille-options-container") },
                     Ra.createElement(Gh, {
                       controller: this.props.controller,
-                      showBrailleNote: this.const(!0),
+                      showBrailleNote: this.const(true),
                     }),
                   ),
               ),
@@ -89352,7 +89352,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 this.controller.s(
                   "graphing-calculator-label-settings-3d-perspective-distortion-ratio",
                 ),
-              ariaPercent: this.const(!0),
+              ariaPercent: this.const(true),
               onDragUpdate: this.bindFn(this.onDragUpdate),
               onKeyboardUpdate: this.bindFn(this.onKeyboardUpdate),
             }),
@@ -89439,7 +89439,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.props.parent().isLimitInvalid(this.props.limit()),
           dataLabelAttributeValue: this.props.limit,
           controller: this.props.controller,
-          readonly: this.const(!1),
+          readonly: this.const(false),
         });
       }
     },
@@ -89449,7 +89449,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.isOpen = this.mustBeOpen();
       }
       willUpdate() {
-        this.mustBeOpen() && (this.isOpen = !0);
+        this.mustBeOpen() && (this.isOpen = true);
       }
       mustBeOpen() {
         var t;
@@ -89459,7 +89459,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return e
           ? e.xmin !== e.ymin || e.xmin !== e.zmin || e.xmax !== e.ymax ||
             e.xmax !== e.zmax
-          : !1;
+          : false;
       }
       template() {
         return et.createElement(
@@ -89510,7 +89510,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-advanced-toggle": !0,
+                  "dcg-advanced-toggle": true,
                   "dcg-opened": this.isOpen,
                   "dcg-disabled": this.mustBeOpen(),
                 }),
@@ -89871,7 +89871,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             { class: Tr.const("dcg-3d-settings-flex-container") },
             Tr.createElement(Ah, {
               ...this.props,
-              isPillbox: this.const(!0),
+              isPillbox: this.const(true),
             }),
           ),
           Tr.createElement(UO, {
@@ -90053,7 +90053,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 o === "Esc" &&
                 this.controller.dispatch({
                   type: "close-graph-settings",
-                  focusIconAfterClose: !0,
+                  focusIconAfterClose: true,
                 }),
                   this.controller.isGraphSettingsOpen() && o === "Tab" &&
                   !t.altKey && !t.metaKey && !t.ctrlKey
@@ -90148,9 +90148,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-btn-flat-gray": !0,
-              "dcg-pillbox-btn-interior": !0,
-              "dcg-action-zoomrestore": !0,
+              "dcg-btn-flat-gray": true,
+              "dcg-pillbox-btn-interior": true,
+              "dcg-action-zoomrestore": true,
             }),
             role: Vc.const("button"),
             tabIndex: Vc.const("0"),
@@ -90208,7 +90208,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             Le,
             {
               tooltip: this.bindFn(this.getZoomInLabel),
-              displayBlock: this.const(!0),
+              displayBlock: this.const(true),
               gravity: this.const("w"),
             },
             ni.createElement(
@@ -90238,7 +90238,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             Le,
             {
               tooltip: this.bindFn(this.getZoomOutLabel),
-              displayBlock: this.const(!0),
+              displayBlock: this.const(true),
               gravity: this.const("w"),
             },
             ni.createElement(
@@ -90294,7 +90294,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-left-pillboxes": !0,
+                  "dcg-left-pillboxes": true,
                   "dcg-geometry-toolbar-present": this.controller
                     .shouldShowGeoToolbar(),
                 }),
@@ -90304,7 +90304,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               }, () =>
                 xo.createElement(Yy, {
                   controller: this.props.controller,
-                  isPillbox: this.const(!0),
+                  isPillbox: this.const(true),
                 })),
               xo.createElement(b0, {
                 predicate: this.bindFn(this.shouldShowGeoReset),
@@ -90318,7 +90318,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-pillbox-container": !0,
+                "dcg-pillbox-container": true,
                 "dcg-geometry-toolbar-present": this.controller
                   .shouldShowGeoToolbar(),
               }),
@@ -90367,7 +90367,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         case "settings-geo":
                           return xo.createElement(Ah, {
                             ...this.props,
-                            isPillbox: this.const(!0),
+                            isPillbox: this.const(true),
                           });
                         case "reset":
                           return xo.createElement(g0, {
@@ -90448,7 +90448,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       shouldShowGeometrySettings() {
         return this.controller.getGraphSettings().config.settingsMenu
           ? this.controller.isGeometry()
-          : !1;
+          : false;
       }
       zoomEnabled() {
         return this.controller.getGraphSettings().config.zoomButtons &&
@@ -90459,7 +90459,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return e.width < 450 || e.height < 450;
       }
       shouldShowZoomInOutButtons() {
-        return Df && this.onSmallScreen() ? !1 : this.zoomEnabled();
+        return Df && this.onSmallScreen() ? false : this.zoomEnabled();
       }
       shouldShowZoomHomeButton() {
         return this.zoomEnabled() &&
@@ -90574,7 +90574,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-toast-view": !0,
+              "dcg-toast-view": true,
               "dcg-visible": !!this.props.controller().toastData.message,
               "dcg-below-geo-toolbar": this.isGeometryInCalculator(),
             }),
@@ -90614,22 +90614,22 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let e;
     if (typeof r == "number") e = r + "";
     else if (typeof r == "string") e = r;
-    else return !1;
+    else return false;
     return e.trim().match(/^-?[0-9]*\.?[0-9]*$/);
   }
   var Hd = {
       delimiter: "",
-      header: !1,
-      dynamicTyping: !1,
+      header: false,
+      dynamicTyping: false,
       preview: 0,
       step: void 0,
       encoding: "",
-      comments: !1,
+      comments: false,
       complete: void 0,
       error: void 0,
-      download: !1,
+      download: false,
       chunk: void 0,
-      keepEmptyRows: !1,
+      keepEmptyRows: false,
     },
     Rn = {};
   Rn.parse = ice;
@@ -90657,17 +90657,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       t = this,
       o,
       i,
-      n = !1,
+      n = false,
       a,
       s = [],
       l = { data: [], errors: [], meta: {} };
     r = HO(r),
       this.parse = function (C) {
-        if (a = !1, !r.delimiter) {
+        if (a = false, !r.delimiter) {
           var E = u(C);
           E.successful
             ? r.delimiter = E.bestDelimiter
-            : (a = !0, r.delimiter = Rn.DefaultDelimiter),
+            : (a = true, r.delimiter = Rn.DefaultDelimiter),
             l.meta.delimiter = r.delimiter;
         }
         if (Qy(r.step)) {
@@ -90682,13 +90682,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           l = i.parse(o),
           c(),
           Qy(r.complete) && !n && r.complete(l),
-          n ? { meta: { paused: !0 } } : l;
+          n ? { meta: { paused: true } } : l;
       },
       this.pause = function () {
-        n = !0, i.abort(), o = o.substr(i.getCharIndex());
+        n = true, i.abort(), o = o.substr(i.getCharIndex());
       },
       this.resume = function () {
-        n = !1,
+        n = false,
           i = new II(r),
           i.parse(o),
           Qy(r.complete) && !n && r.complete(l);
@@ -90704,7 +90704,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "Unable to auto-detect delimiting character; defaulted to '" +
             Rn.DefaultDelimiter + "'",
         ),
-          a = !1),
+          a = false),
         d() && p(),
         h();
     }
@@ -90728,9 +90728,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           if (r.dynamicTyping) {
             var w = l.data[C][v];
             w == "true"
-              ? l.data[C][v] = !0
+              ? l.data[C][v] = true
               : w == "false"
-              ? l.data[C][v] = !1
+              ? l.data[C][v] = false
               : l.data[C][v] = f(w);
           }
           r.header &&
@@ -90797,7 +90797,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   }
   function II(r) {
-    var e = /^\s*$/, t, o, i, n, a, s, l, c, d, p, h, u, f, y, C, E = !1;
+    var e = /^\s*$/, t, o, i, n, a, s, l, c, d, p, h, u, f, y, C, E = false;
     r = r || {},
       o = r.delimiter,
       i = r.comments,
@@ -90805,14 +90805,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       s = r.preview,
       (typeof o != "string" || o.length != 1 ||
         Rn.BAD_DELIMITERS.indexOf(o) > -1) && (o = ","),
-      i === !0 ? i = "#" : (typeof i != "string" || i.length != 1 ||
-        Rn.BAD_DELIMITERS.indexOf(i) > -1 || i == o) && (i = !1),
+      i === true ? i = "#" : (typeof i != "string" || i.length != 1 ||
+        Rn.BAD_DELIMITERS.indexOf(i) > -1 || i == o) && (i = false),
       this.parse = function (ae) {
         if (typeof ae != "string") throw "Input must be a string";
         return Y(ae), v();
       },
       this.abort = function () {
-        E = !0;
+        E = true;
       },
       this.getCharIndex = function () {
         return c;
@@ -90855,7 +90855,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       l == o ? z() : R(c) ? (x(), w()) : N(c) ? x() : P() ? O() : U();
     }
     function P() {
-      if (!i) return !1;
+      if (!i) return false;
       var ae = c == 0 || N(c - 1) || R(c - 2);
       return ae && t[c] === i;
     }
@@ -90911,7 +90911,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       });
     }
     function Y(ae) {
-      t = ae, d = !1, c = 0, C = 0, p = 1, he(), h = [[""]], l = t[c];
+      t = ae, d = false, c = 0, C = 0, p = 1, he(), h = [[""]], l = t[c];
     }
     function he() {
       h = [], u = [], f = 0, y = 0;
@@ -90959,12 +90959,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   var { parse: X9 } = Rn;
   function J9(r) {
-    let e = r.split(/\r?\n/), t = [], o = !1;
+    let e = r.split(/\r?\n/), t = [], o = false;
     if (!(e.length < 2)) {
       for (let i = 0; i < e.length; i++) {
         let n = e[i];
         if (!n.trim()) continue;
-        i > 0 && !qO(n.replace(/,(\d{3})/g, "$1")) && (o = !0);
+        i > 0 && !qO(n.replace(/,(\d{3})/g, "$1")) && (o = true);
         let a = { content: n };
         t.push(a);
       }
@@ -90974,7 +90974,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
         return qO(i[0]) || (i = i.slice(1)), [{
           content: "\\left[" + i.join(",") + "\\right]",
-          numberList: !0,
+          numberList: true,
         }];
       }
       return t;
@@ -91038,7 +91038,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       : void 0;
   }
   async function MI(r, e, t) {
-    let o = !1;
+    let o = false;
     r.dispatch({
       type: "toast/show",
       toast: {
@@ -91046,7 +91046,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         hideAfter: 0,
         toastStyle: "cover",
         onHide: () => {
-          o = !0;
+          o = true;
         },
       },
     });
@@ -91079,7 +91079,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         r.dispatch({
           type: "set-state",
           state: l,
-          opts: { forceUnsavedChanges: !0 },
+          opts: { forceUnsavedChanges: true },
         }),
           r.dispatch({
             type: "toast/show",
@@ -91091,7 +91091,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 r.dispatch({
                   type: "set-state",
                   state: c,
-                  opts: { forceUnsavedChanges: !0 },
+                  opts: { forceUnsavedChanges: true },
                 });
               },
             },
@@ -91204,7 +91204,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isVisible() {
         return this.props.controller().expressionsAreFullWidth()
-          ? !1
+          ? false
           : this.props.controller().isListVisible();
       }
       onTapStart(e) {
@@ -91265,8 +91265,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-table-column-menu": !0,
-              "dcg-options-menu": !0,
+              "dcg-table-column-menu": true,
+              "dcg-options-menu": true,
             }),
             role: Qi.const("region"),
             "aria-label": () =>
@@ -91323,7 +91323,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               },
               Qi.createElement("button", {
                 class: () => ({
-                  "dcg-btn-light-gray": !0,
+                  "dcg-btn-light-gray": true,
                   "dcg-disabled": this.isRegressionButtonDisabled(),
                 }),
                 onTap: this.bindFn(this.addRegression),
@@ -91344,15 +91344,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.model.table,
           )
           ? Cp(this.model)
-          : !1;
+          : false;
       }
       getSectionsWithColorAfterFirstOpen() {
-        let e = this.getSections(), t = [], o = !1;
+        let e = this.getSections(), t = [], o = false;
         for (let i of e) {
           t.push(i),
-            i === "colors" && (o = !0),
+            i === "colors" && (o = true),
             !o && this.canColorComeAfterSection(i) &&
-            this.isSectionOpen(i) && (t.push("colors"), o = !0);
+            this.isSectionOpen(i) && (t.push("colors"), o = true);
         }
         return t;
       }
@@ -91360,10 +91360,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         switch (e) {
           case "colors":
           case "drag":
-            return !1;
+            return false;
           case "lines":
           case "points":
-            return !0;
+            return true;
           default:
             return e;
         }
@@ -91383,7 +91383,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           case "points":
             return !!this.model.points;
           case "colors":
-            return !0;
+            return true;
         }
       }
       addRegression() {
@@ -91431,8 +91431,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         "div",
         {
           class: () => ({
-            "dcg-table-column-menu": !0,
-            "dcg-options-menu": !0,
+            "dcg-table-column-menu": true,
+            "dcg-options-menu": true,
           }),
           role: nu.const("region"),
           "aria-label": () =>
@@ -91456,7 +91456,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   var { If: w0 } = ir.Components,
     VI = class extends ir.Class {
       constructor() {
-        super(...arguments), this.justGlobalReplaced = !1;
+        super(...arguments), this.justGlobalReplaced = false;
       }
       init() {
         this.controller = this.props.controller();
@@ -91466,7 +91466,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-expression-search-bar": !0,
+              "dcg-expression-search-bar": true,
               "dcg-expressions-scrolled": this.props.expsScrolled() &&
                 !this.controller.getTickerOpen(),
             }),
@@ -91479,7 +91479,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               { class: ir.const("dcg-search-mathquill-container") },
               ir.createElement(Fe, {
-                hasError: this.const(!1),
+                hasError: this.const(false),
                 getAriaLabel: () =>
                   this.controller.s(
                     "graphing-calculator-label-search-expressions",
@@ -91503,13 +91503,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         ),
                       },
                     ),
-                capExpressionSize: this.const(!1),
+                capExpressionSize: this.const(false),
                 onUserChangedLatex: this.bindFn(this.onSearchChange),
                 latex: () => this.controller.getRawExpressionSearchStr(),
                 isFocused: this.bindFn(this.isSearchFocused),
                 config: this.bindFn(this.getMQConfig),
                 onFocusedChanged: this.bindFn(this.onSearchFocusChanged),
-                noFadeout: this.const(!0),
+                noFadeout: this.const(true),
                 onUserPressedKey: (e, t) => {
                   if (e === "Esc") {
                     t && t.preventDefault(), this.closeSearch();
@@ -91530,7 +91530,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     o.keystroke(e, t),
                       this.controller.getRawExpressionSearchStr() !==
                         o.latex() &&
-                      (this.justGlobalReplaced = !1,
+                      (this.justGlobalReplaced = false,
                         this.onSearchChange(o.latex()));
                   }
                 },
@@ -91629,10 +91629,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
       onGlobalReplace() {
-        this.justGlobalReplaced = !0,
+        this.justGlobalReplaced = true,
           setTimeout(
             this.bindIfMounted(() => {
-              this.justGlobalReplaced = !1, this.update();
+              this.justGlobalReplaced = false, this.update();
             }),
             1500,
           ),
@@ -91736,11 +91736,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "button",
               {
                 class: () => ({
-                  "dcg-unstyled-button": !0,
-                  "dcg-icon-btn": !0,
-                  "dcg-add-expression-btn": !0,
-                  "dcg-action-add-expression": !0,
-                  "dcg-do-blur": !0,
+                  "dcg-unstyled-button": true,
+                  "dcg-icon-btn": true,
+                  "dcg-add-expression-btn": true,
+                  "dcg-action-add-expression": true,
+                  "dcg-do-blur": true,
                   "dcg-active": this.controller.isAddExpressionOpen(),
                 }),
                 handleEvent: ct.const("true"),
@@ -91774,8 +91774,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-add-expression-dropdown": !0,
-                  "dcg-popover": !0,
+                  "dcg-add-expression-dropdown": true,
+                  "dcg-popover": true,
                   "dcg-bottom": !this.controller.isNarrow(),
                   "dcg-right": this.controller.isNarrow(),
                 }),
@@ -91935,7 +91935,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         ),
                       onFileChange: (e) => this.insertFiles(e),
                       location: this.const({ type: "add-image-btn" }),
-                      readonly: this.const(!1),
+                      readonly: this.const(false),
                     },
                     ct.createElement(
                       "div",
@@ -92017,7 +92017,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               ke(t) === "Esc" &&
               this.controller.dispatch({
                 type: "close-add-expression",
-                focusIconAfterClose: !0,
+                focusIconAfterClose: true,
               }), ke(t) === "Tab" && !t.altKey && !t.metaKey && !t.ctrlKey
             ) {
               let o = this.controller.getFocusLocation();
@@ -92095,11 +92095,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         "button",
         {
           class: () => ({
-            "dcg-unstyled-button": !0,
-            "dcg-constructions-count-link": !0,
-            "dcg-icon-btn": !0,
+            "dcg-unstyled-button": true,
+            "dcg-constructions-count-link": true,
+            "dcg-icon-btn": true,
             "dcg-active": this.controller.getShowConstructionsOpen(),
-            "dcg-do-not-blur": !0,
+            "dcg-do-not-blur": true,
           }),
           handleEvent: Kd.const("true"),
           "aria-expanded": () => this.controller.getShowConstructionsOpen(),
@@ -92127,7 +92127,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.controller.dispatch({
         type: "set-show-constructions-open",
         open: !this.controller.getShowConstructionsOpen(),
-        setFocus: !1,
+        setFocus: false,
       });
     }
   };
@@ -92174,9 +92174,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             class: () => {
               var e;
               return {
-                "dcg-global-mute-button": !0,
-                "dcg-unstyled-button": !0,
-                "dcg-icon-btn": !0,
+                "dcg-global-mute-button": true,
+                "dcg-unstyled-button": true,
+                "dcg-icon-btn": true,
                 "dcg-is-muted": this.getMutedState() === "muted",
                 "dcg-has-never-interacted":
                   !((e = this.controller.toneController) != null &&
@@ -92216,7 +92216,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-expression-top-bar": !0,
+              "dcg-expression-top-bar": true,
               "dcg-expressions-scrolled": this.showShadow(),
             }),
             role: _t.const("toolbar"),
@@ -92337,7 +92337,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             { class: _t.const("dcg-center-buttons") },
             _t.createElement(Yy, {
               ...this.props,
-              isPillbox: this.const(!1),
+              isPillbox: this.const(false),
             }),
           ),
           _t.createElement(
@@ -92421,10 +92421,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   "button",
                   {
                     class: () => ({
-                      "dcg-unstyled-button": !0,
-                      "dcg-resize-list-btn": !0,
-                      "dcg-action-hideexpressions": !0,
-                      "dcg-icon-btn": !0,
+                      "dcg-unstyled-button": true,
+                      "dcg-resize-list-btn": true,
+                      "dcg-action-hideexpressions": true,
+                      "dcg-icon-btn": true,
                       "dcg-rotated": this.controller.isNarrow(),
                     }),
                     "aria-label": () =>
@@ -92456,18 +92456,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       showShadow() {
         return this.controller.getTickerOpen() ||
             this.controller.getExpressionSearchOpen()
-          ? !1
+          ? false
           : this.props.expsScrolled();
       }
       showRerandomize() {
         return this.controller.isInEditListMode()
-          ? !1
+          ? false
           : this.controller.anyItemDependsOnRandomSeed();
       }
       showHamburger() {
         return !this.controller.getGraphSettings().config.showHamburger ||
             this.controller.isInEditListMode()
-          ? !1
+          ? false
           : !this.controller.isNarrow();
       }
       getHamburgerLabel() {
@@ -92487,7 +92487,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({
           type: "set-edit-list-mode",
           isEditListMode: !this.controller.isInEditListMode(),
-          focusExpressionList: !1,
+          focusExpressionList: false,
         }),
           e.device === "keyboard" &&
           this.controller.dispatch({
@@ -92497,7 +92497,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       showMuteButton() {
         return this.controller.isInEditListMode()
-          ? !1
+          ? false
           : this.controller.toneItemsExist();
       }
     };
@@ -92518,9 +92518,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           }),
           Oc.createElement(dce, {
             class: () => ({
-              "dcg-do-blur": !0,
-              "dcg-fixed-width-element": !0,
-              "dcg-smart-textarea": !0,
+              "dcg-do-blur": true,
+              "dcg-fixed-width-element": true,
+              "dcg-smart-textarea": true,
               "dcg-empty": !this.props.text(),
             }),
             "aria-label": () => {
@@ -92530,7 +92530,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 : t.call(e);
             },
             placeholder: this.bindFn(this.getPlaceholder),
-            readOnly: () => this.props.readonly() ? !0 : void 0,
+            readOnly: () => this.props.readonly() ? true : void 0,
             value: this.props.text,
             onInput: this.props.onInput,
             didMount: this.bindFn(this.didMountTextarea),
@@ -92670,11 +92670,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-do-not-blur": !0,
-              "dcg-expressionitem": !0,
+              "dcg-do-not-blur": true,
+              "dcg-expressionitem": true,
               "dcg-readonly": this.controller.isItemReadonly(this.id),
-              "dcg-expressionfolder": !0,
-              "dcg-inFolder": !1,
+              "dcg-expressionfolder": true,
+              "dcg-inFolder": false,
               "dcg-selected": this.renderAsSelected(),
               "dcg-dragging": !!this.controller.isItemBeingDragged(
                 this.id,
@@ -92996,14 +92996,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       init() {
         this.controller = this.props.controller(),
           this.currentlyInspectedDepth = 1 / 0,
-          this.cachedTokenDepths = { depths: {}, isInvalid: !1 },
+          this.cachedTokenDepths = { depths: {}, isInvalid: false },
           this.updateCachedTokenDepthInfo();
       }
       willUpdate() {
         this.updateCachedTokenDepthInfo();
       }
       updateCachedTokenDepthInfo() {
-        let e = "", t = !1, o = this.controller.getFocusLocation();
+        let e = "", t = false, o = this.controller.getFocusLocation();
         if (o && o.type === "expression") {
           let n = this.controller.getFocusedItem();
           (n == null ? void 0 : n.type) === "expression" &&
@@ -93014,12 +93014,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (
           this.cachedTokenDepths.focusedExpressionBeforeError == e && t
         ) {
-          this.cachedTokenDepths.isInvalid = !0;
+          this.cachedTokenDepths.isInvalid = true;
           return;
         }
         this.cachedTokenDepths = {
           depths: this.controller.cachedGeoTokenDepths,
-          isInvalid: !1,
+          isInvalid: false,
           focusedExpressionBeforeError: t ? void 0 : e,
         };
       }
@@ -93028,7 +93028,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-geo-show-constructions-pane": !0,
+              "dcg-geo-show-constructions-pane": true,
               "dcg-transient-error": this.cachedTokenDepths.isInvalid,
               "dcg-cant-drag-item": !!this.controller.getDraggedItemId() &&
                 !this.controller.canDraggedItemBeMovedIntoTokenPane(),
@@ -93060,7 +93060,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "div",
                 {
                   class: () => ({
-                    "dcg-displayed-section-level": !0,
+                    "dcg-displayed-section-level": true,
                     "dcg-selected-level":
                       parseInt(e) === this.getCurrentlyInspectedDepth(),
                     "dcg-below-the-line":
@@ -93101,11 +93101,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         },
                       },
                       mn.createElement(Ad, {
-                        showParentChildrenHover: this.const(!0),
+                        showParentChildrenHover: this.const(true),
                         controller: this.props.controller,
                         identifier: () => this.getIdentifierForDepth(e, o),
-                        insideMQ: this.const(!1),
-                        insideGroup: this.const(!0),
+                        insideMQ: this.const(false),
+                        insideGroup: this.const(true),
                         focusLocation: () => ({
                           type: "geo-token",
                           identifier: this.getIdentifierForDepth(e, o),
@@ -93128,7 +93128,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isTokenBeingDragged(e, t) {
         let o = this.controller.getDraggedItemId();
-        if (!o) return !1;
+        if (!o) return false;
         if (this.controller.isItemInGeoFolder(o)) {
           return o == this.getCalcIdForDepth(e, t);
         }
@@ -93184,7 +93184,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               menu: {
                 type: "multi-select-more",
                 guid: rm(),
-                focusFirstOption: !0,
+                focusFirstOption: true,
                 previousFocusLocation: t,
               },
             });
@@ -93217,8 +93217,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             e.stopPropagation(),
             this.controller.dispatch({
               type: "set-show-constructions-open",
-              open: !1,
-              setFocus: !0,
+              open: false,
+              setFocus: true,
             });
           return;
         }
@@ -93479,7 +93479,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       shouldShowClickable() {
         return this.controller.shouldIgnoreGraphInteractions(this.model)
-          ? !1
+          ? false
           : this.controller.areActionsEnabled();
       }
       makeDraggable() {
@@ -93492,7 +93492,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (
           this.controller.isThreeDMode() ||
           this.controller.shouldIgnoreGraphInteractions(this.model)
-        ) return !1;
+        ) return false;
         let e = jf(this.model);
         return e ? xT(e) : r4(this.model);
       }
@@ -93511,14 +93511,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       template() {
         return Qe.createElement(lr, {
           containerClass: () => ({
-            "dcg-image-input-mathquill": !0,
+            "dcg-image-input-mathquill": true,
             "dcg-suffix-degree": this.props.name() === "angle" &&
               this.props.controller().getGraphSettings().degreeMode,
             "dcg-suffix-radian": this.props.name() === "angle" &&
               !this.props.controller().getGraphSettings().degreeMode,
           }),
           fontSize: this.const("large"),
-          fullWidth: this.const(!0),
+          fullWidth: this.const(true),
           readonly: this.props.readonly,
           latex: () => this.model[this.props.name()],
           isFocused: () => this.props.focusedInput() === this.props.name(),
@@ -93558,9 +93558,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           e === "Right" && (s = a + 1);
         let l = e;
         if (s >= 0 && s < n.length) {
-          let c = !1;
+          let c = false;
           if (i) c = Fe.applyArrowKeyAndReturnIfWasAtBounds(i, l, t);
-          else if (e === "Up" || e === "Down") c = !0;
+          else if (e === "Up" || e === "Down") c = true;
           else {
             let d = os();
             c = d &&
@@ -93615,12 +93615,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-do-not-blur": !0,
-              "dcg-expressionitem": !0,
+              "dcg-do-not-blur": true,
+              "dcg-expressionitem": true,
               "dcg-readonly": this.controller.isItemMarkedReadonly(
                 this.id,
               ),
-              "dcg-expressionimage": !0,
+              "dcg-expressionimage": true,
               "dcg-inFolder": !!this.model.folderId,
               "dcg-selected": this.controller.isItemSelected(this.id),
               "dcg-dragging": !!this.controller.isItemBeingDragged(
@@ -93739,8 +93739,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "div",
                       {
                         class: () => ({
-                          "dcg-do-blur": !0,
-                          "dcg-image-input-grid": !0,
+                          "dcg-do-blur": true,
+                          "dcg-image-input-grid": true,
                         }),
                         handleEvent: Qe.const("true"),
                       },
@@ -94138,7 +94138,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "span",
             {
               class: () => ({
-                "dcg-action-slower": !0,
+                "dcg-action-slower": true,
                 "dcg-disabled": this.isSlowerDisabled(),
               }),
               onTap: () => this.animateSlower(),
@@ -94162,7 +94162,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "span",
             {
               class: () => ({
-                "dcg-action-faster": !0,
+                "dcg-action-faster": true,
                 "dcg-disabled": this.isFasterDisabled(),
               }),
               onTap: () => this.animateFaster(),
@@ -94480,7 +94480,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: fs.const("dcg-add-regression-view dcg-do-blur"),
-                handleEvent: fs.const(!0),
+                handleEvent: fs.const(true),
               },
               fs.createElement(
                 Le,
@@ -94575,7 +94575,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       focusItemAtIdx(e) {
         let t = this.getFocusableItems();
-        return t.length && t.length > e ? (t[e].focus(), !0) : !1;
+        return t.length && t.length > e ? (t[e].focus(), true) : false;
       }
       focusFirstItem() {
         this.focusItemAtIdx(0);
@@ -94589,11 +94589,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       moveFocusInDirection(e) {
         let t = this.getFocusableItems(),
           o = t.findIndex((a) => a.matches(":focus"));
-        if (o === -1) return !1;
+        if (o === -1) return false;
         let i = o + e;
-        if (i == -1 || i == t.length) return !0;
+        if (i == -1 || i == t.length) return true;
         let n = t[i];
-        return n ? (n.focus(), !0) : !1;
+        return n ? (n.focus(), true) : false;
       }
       isAnchorFocused() {
         var e;
@@ -94683,7 +94683,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         e && document.removeEventListener("keydown", e.handleKeydown);
       }
       isVisible() {
-        return this.props.visible ? this.props.visible() : !0;
+        return this.props.visible ? this.props.visible() : true;
       }
       getPositionClasses() {
         let e = this.props.position();
@@ -94701,7 +94701,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             class: () => {
               var e, t, o, i, n, a;
               return {
-                "dcg-dropdown-popover": !0,
+                "dcg-dropdown-popover": true,
                 "dcg-dropdown-popover--with-arrow":
                   !((t = (e = this.props).hideArrow) != null &&
                     t.call(e)),
@@ -94766,7 +94766,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     P0 = class extends Ni.Class {
       constructor() {
         super(...arguments),
-          this.showDropdown = !1,
+          this.showDropdown = false,
           this.guid = this.props.guid(),
           this.dropdownStyle = {},
           this.arrowStyle = void 0,
@@ -94783,7 +94783,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           anchorSelector: `.dcg-popover-with-anchor__anchor--${this.guid}`,
           popoverSelector: `.dcg-popover-with-anchor__popover--${this.guid}`,
           isOpen: () => this.isDropdownOpen(),
-          closeMenu: () => this.setDropdownOpen(!1),
+          closeMenu: () => this.setDropdownOpen(false),
           itemNavigationKey: e.itemNavigationKey,
         }));
       }
@@ -94833,13 +94833,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 n.clientX > s.left && n.clientX < s.right &&
                 n.clientY > s.top && n.clientY < s.bottom
               ) return;
-              this.setDropdownOpen(!1);
+              this.setDropdownOpen(false);
               return;
             }
           });
       }
       didUnmountWrapper() {
-        this.showDropdown = !1,
+        this.showDropdown = false,
           ee(document.body).off(`.${this.guid}`),
           ee(document).off(`.${this.guid}`),
           window.removeEventListener(
@@ -94943,7 +94943,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             class: () => {
               var e, t;
               return {
-                "dcg-popover-with-anchor": !0,
+                "dcg-popover-with-anchor": true,
                 [
                   ((t = (e = this.props).containerClassName) == null
                     ? void 0
@@ -94966,8 +94966,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "aria-expanded": this.bindFn(this.isDropdownOpen),
             "aria-haspopup": Ni.const("true"),
             class: () => ({
-              "dcg-popover-with-anchor__anchor": !0,
-              [`dcg-popover-with-anchor__anchor--${this.guid}`]: !0,
+              "dcg-popover-with-anchor__anchor": true,
+              [`dcg-popover-with-anchor__anchor--${this.guid}`]: true,
               "dcg-popover-with-anchor__open": this.isDropdownOpen(),
             }),
             onTap: () => {
@@ -95000,7 +95000,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             class: () => {
               var o, i;
               return {
-                "dcg-shared-options-dropdown": !0,
+                "dcg-shared-options-dropdown": true,
                 [
                   ((i = (o = this.props).class) == null ? void 0 : i.call(o)) ||
                   ""
@@ -95038,7 +95038,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         return {
                           [i.class || ""]: !!i.class,
                           "dcg-standard-link-styling": !i.class,
-                          "dcg-dropdown-choice": !0,
+                          "dcg-dropdown-choice": true,
                           "dcg-disabled": i.disabled,
                           "dcg-selected": (n = i.selected) == null
                             ? void 0
@@ -95082,7 +95082,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         return {
                           [i.class || ""]: !!i.class,
                           "dcg-standard-link-styling": !i.class,
-                          "dcg-dropdown-choice": !0,
+                          "dcg-dropdown-choice": true,
                           "dcg-disabled": i.disabled,
                           "dcg-selected": (n = i.selected) == null
                             ? void 0
@@ -95164,7 +95164,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.filter = (t = (e = this.props).defaultValue) == null
             ? void 0
             : t.call(e),
-          this.shouldShowResults = !1,
+          this.shouldShowResults = false,
           this.uuid = Dd(),
           this.focusHelper = new ex({
             anchorSelector:
@@ -95172,7 +95172,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             popoverSelector:
               `#dcg-select-dropdown-container-${this.props.id()} .dcg-select-dropdown-list`,
             isOpen: () => this.isOpen(),
-            closeMenu: () => this.setResultsOpen(!1),
+            closeMenu: () => this.setResultsOpen(false),
             itemNavigationKey: "arrow",
           });
       }
@@ -95181,7 +95181,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         switch (ke(e)) {
           case Kn:
             if (!this.isOpen()) {
-              this.setResultsOpen(!0), e.preventDefault();
+              this.setResultsOpen(true), e.preventDefault();
               return;
             }
             break;
@@ -95213,7 +95213,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "button",
             {
               class: () => ({
-                "dcg-dropdown-input": !0,
+                "dcg-dropdown-input": true,
                 "dcg-results-hidden": !this.isOpen(),
               }),
               "aria-haspopup": this.const("listbox"),
@@ -95331,7 +95331,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let o = this.props.options().find((a) => a.id === e);
         o &&
           (this.onInputChange(o.id),
-            this.setResultsOpen(!1),
+            this.setResultsOpen(false),
             this.focusHelper.focusAnchor(),
             (n = (i = this.props).onChange) == null || n.call(i, o.id));
       }
@@ -95349,7 +95349,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       tapListener(e) {
         e.target.closest(
           `#dcg-select-dropdown-container-${this.props.id()}`,
-        ) || this.setResultsOpen(!1);
+        ) || this.setResultsOpen(false);
       }
     };
   Ss();
@@ -95359,10 +95359,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       case "IDLE":
       case "UNPUBLISHED":
       case "RESOLVED":
-        return !1;
+        return false;
       case "ANALYZING":
       case "GRAPHING":
-        return !0;
+        return true;
       default:
         throw new Error(`Unexpected progress status: ${r}`);
     }
@@ -95371,12 +95371,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   qt();
   var O0 = class {
     constructor(e) {
-      this.active = !1, this.controller = e;
+      this.active = false, this.controller = e;
       let t = this.controller.getExppanelElt();
       t && (this.exppanel = t);
     }
     startDragging(e) {
-      this.active = !0, this.mousePt = e, this.setupEventListeners();
+      this.active = true, this.mousePt = e, this.setupEventListeners();
     }
     applyDrag() {
       var w;
@@ -95476,24 +95476,24 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (t.y === void 0 || !o || !i) return;
       let n = o.height,
         a = i.height,
-        s = !1,
+        s = false,
         l = this.controller.getExppanelElt(),
         c = l == null
           ? void 0
           : l.querySelector(".dcg-template-expressioneach"),
         d = c == null ? void 0 : c.getBoundingClientRect();
-      d && d.top <= e.mousePt.y && (s = !0);
-      let p = !1,
+      d && d.top <= e.mousePt.y && (s = true);
+      let p = false,
         h = l == null
           ? void 0
           : l.querySelector(".dcg-geo-show-constructions-pane"),
         u = h == null ? void 0 : h.getBoundingClientRect();
-      u && u.bottom > e.mousePt.y && (p = !0);
-      let f = !1;
+      u && u.bottom > e.mousePt.y && (p = true);
+      let f = false;
       (e.dragTarget.type === "token" && !s ||
         e.dragTarget.type === "expression" && p && !s &&
           this.controller.canDraggedItemBeMovedIntoTokenPane()) &&
-        (f = !0);
+        (f = true);
       let y = e.grabOffset;
       f
         ? y = { x: i.width / 2 + 2.5, y: i.height / 2 }
@@ -95540,24 +95540,24 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       for (let { id: n, rect: a } of o) {
         if (a.top <= i.top && a.bottom >= i.top) {
           let s = this.controller.getItemModel(n);
-          if (!s) return !1;
+          if (!s) return false;
           if (
             s.type === "folder" && s.id === t ||
             s.type !== "folder" && s.folderId === t
-          ) return !0;
+          ) return true;
         }
       }
-      return !1;
+      return false;
     }
     scheduleUpdateScroll() {
       this.updateScrollScheduled ||
-        (this.updateScrollScheduled = !0,
+        (this.updateScrollScheduled = true,
           requestAnimationFrame(() => {
-            this.updateScroll(), this.updateScrollScheduled = !1;
+            this.updateScroll(), this.updateScrollScheduled = false;
           }));
     }
     stop() {
-      this.active = !1,
+      this.active = false,
         this.tearDownEventListeners(),
         this.controller.dispatch({ type: "stop-dragdrop" });
     }
@@ -95756,7 +95756,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   }
   function Ice(r, e) {
-    if (!e) return !1;
+    if (!e) return false;
     let { left: t, right: o, top: i, bottom: n } = r.pixelCoordinates,
       { x: a, y: s } = e.mathPoint;
     if (e.transform) {
@@ -95780,17 +95780,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     if (a !== void 0) {
       let l = r.mathToPixels.mapX(a);
-      if (l < t - .5 || l > o + .5) return !1;
+      if (l < t - .5 || l > o + .5) return false;
     }
     if (s !== void 0) {
       let l = r.mathToPixels.mapY(s);
-      if (l < i - .5 || l > n + .5) return !1;
+      if (l < i - .5 || l > n + .5) return false;
     }
-    return !0;
+    return true;
   }
   function h$(r, e) {
-    if (e.length === 1 && !Ice(r, e[0])) return !1;
-    let t = !1;
+    if (e.length === 1 && !Ice(r, e[0])) return false;
+    let t = false;
     for (let o of e) {
       if (o.newPointLatex) {
         let i = o.model.latex;
@@ -95906,7 +95906,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     if (!f) return a;
     let y = ho(f[0], f[1]);
     p !== void 0 && y < p && (y = p), h !== void 0 && y > h && (y = h);
-    let C = Ol(s, y, { ignoreSoftLimits: !0 });
+    let C = Ol(s, y, { ignoreSoftLimits: true });
     n && (C = f$(e, al(s), C, l));
     let [E, v] = l(C);
     return a.mathPoint.x = E,
@@ -96020,7 +96020,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (!y || y.type !== "expression") continue;
         let [C, E] = f.coefficients,
           v = ho(E * c[u].min + C, E * c[u].max + C),
-          w = Ol(y, v, { ignoreSoftLimits: !0 }),
+          w = Ol(y, v, { ignoreSoftLimits: true }),
           S = (w - C) / E;
         if (!s || t) {
           d.mathPoint[u === 0 ? "x" : "y"] = S,
@@ -96064,23 +96064,23 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return {
         latex: w.input.slice(0, w.start) +
           __dcg_shared_module_exports__["pa"]([E, v], {
-            alwaysEmitImaginary: !0,
+            alwaysEmitImaginary: true,
           }) + w.input.slice(w.end),
         x: y ? o : void 0,
         y: C ? i : void 0,
       };
     }
-    let s = !1, l = !1, c, d = "", p = 0;
+    let s = false, l = false, c, d = "", p = 0;
     if (
       n.type === "updateCoordinate" && F0(0, t) &&
       (c = n.inputSpan.input,
-        s = !0,
+        s = true,
         d += c.slice(p, n.inputSpan.start),
         d += __dcg_shared_module_exports__["ce"](o),
         p = n.inputSpan.end),
         a.type === "updateCoordinate" && F0(1, t) &&
         (c = a.inputSpan.input,
-          l = !0,
+          l = true,
           d += c.slice(p, a.inputSpan.start),
           d += __dcg_shared_module_exports__["ce"](i),
           p = a.inputSpan.end),
@@ -96097,9 +96097,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       case "Y":
         return r === 1;
       case "XY":
-        return !0;
+        return true;
       default:
-        return !1;
+        return false;
     }
   }
   function b$(r, e, t) {
@@ -96109,11 +96109,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   function y$(r, e, t, o, i, n, a) {
     var d;
-    let s = !1, l = e.length === 1, c = [];
+    let s = false, l = e.length === 1, c = [];
     for (let p = 0; p < e.length; p++) {
       let h = e[p];
       if (h.tableInfo) {
-        Lce(r, h, o[p], i), s = !0;
+        Lce(r, h, o[p], i), s = true;
         continue;
       }
       let u = r.getItemModel(h.calcId);
@@ -96149,7 +96149,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       Nr(e, void 0);
       let o = r.getItemModel(t.tableInfo.tableId);
       if (!o || o.type !== "table") return;
-      RG(o, !0);
+      RG(o, true);
     } else {
       let o = r.getItemModel(t.calcId);
       if (
@@ -96163,7 +96163,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           i[n].type === "updateCoordinate" ||
           i[n].type === "updateGliderParameter"
         ) {
-          o.type === "image" ? $G(o, !0) : o.type === "expression" && gL(o, !0);
+          o.type === "image" ? $G(o, true) : o.type === "expression" && gL(o, true);
         } else if (
           a.type === "updateSlider" ||
           a.type === "updateSliderNonlinear" ||
@@ -96178,7 +96178,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               : l = void 0,
               l === "NONE" || n === 0 && l === "Y" || n === 1 && l === "X"
           ) continue;
-          Ww(s, !0);
+          Ww(s, true);
         }
       }
     }
@@ -96186,10 +96186,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function Gce(r, e) {
     for (let t of r.getAllItemModels()) {
       t.type === "table"
-        ? t.draggingOnGraphpaper && RG(t, !1)
+        ? t.draggingOnGraphpaper && RG(t, false)
         : t.type === "expression"
-        ? (t.sliderDragging && Ww(t, !1), t.draggingOnGraphpaper && gL(t, !1))
-        : t.type === "image" && t.draggingOnGraphpaper && $G(t, !1);
+        ? (t.sliderDragging && Ww(t, false), t.draggingOnGraphpaper && gL(t, false))
+        : t.type === "image" && t.draggingOnGraphpaper && $G(t, false);
     }
   }
   function Lce(r, e, t, o) {
@@ -96274,7 +96274,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     var k;
     let n = e.formula;
     if (!n || ((k = n.move_strategy) == null ? void 0 : k.length) !== 4) {
-      return !1;
+      return false;
     }
     let a = n.dimensions,
       s = {
@@ -96305,8 +96305,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }),
       E = Math.abs(C.right - C.left),
       v = Math.abs(C.bottom - C.top);
-    if (E < f && E < 1 || v < y && v < 1) return !1;
-    let w = ["width", "height", "x", "y"], S = !1;
+    if (E < f && E < 1 || v < y && v < 1) return false;
+    let w = ["width", "height", "x", "y"], S = false;
     for (let _ = 0; _ < w.length; _++) {
       let A = w[_], P = n.move_strategy[_];
       switch (P.type) {
@@ -96344,7 +96344,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             default:
               return A;
           }
-          S = !0;
+          S = true;
           break;
         case "updateSlider":
           {
@@ -96356,7 +96356,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               N = V * h.max[A] + L,
               M = ho(R, N),
               F = x.latex;
-            QE(x, M), x.latex !== F && (S = !0);
+            QE(x, M), x.latex !== F && (S = true);
           }
           break;
       }
@@ -96425,7 +96425,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           });
       }
       return C &&
-        { ...C, commitSliderSoftLimits: !1, transform: a, model: e };
+        { ...C, commitSliderSoftLimits: false, transform: a, model: e };
     }
     let u;
     if (d.type === "updateSliderNonlinear") {
@@ -96492,7 +96492,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       });
     }
     return u &&
-      { ...u, commitSliderSoftLimits: !0, transform: a, model: e };
+      { ...u, commitSliderSoftLimits: true, transform: a, model: e };
   }
   function ZO(r, e) {
     if (!r.settings.showGrid) return;
@@ -96519,7 +96519,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       function r() {
         Fce(this, r),
           this._callbacks = {},
-          this._isDispatching = !1,
+          this._isDispatching = false,
           this._isHandled = {},
           this._isPending = {},
           this._lastID = 1;
@@ -96531,7 +96531,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         r.prototype.unregister = function (t) {
           this._callbacks[t] ||
           B0(
-            !1,
+            false,
             "Dispatcher.unregister(...): `%s` does not map to a registered callback.",
             t,
           ), delete this._callbacks[t];
@@ -96539,7 +96539,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         r.prototype.waitFor = function (t) {
           this._isDispatching ||
             B0(
-              !1,
+              false,
               "Dispatcher.waitFor(...): Must be invoked while dispatching.",
             );
           for (var o = 0; o < t.length; o++) {
@@ -96547,7 +96547,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             if (this._isPending[i]) {
               this._isHandled[i] ||
                 B0(
-                  !1,
+                  false,
                   "Dispatcher.waitFor(...): Circular dependency detected while waiting for `%s`.",
                   i,
                 );
@@ -96555,7 +96555,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             }
             this._callbacks[i] ||
             B0(
-              !1,
+              false,
               "Dispatcher.waitFor(...): `%s` does not map to a registered callback.",
               i,
             ), this._invokeCallback(i);
@@ -96564,7 +96564,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         r.prototype.dispatch = function (t) {
           this._isDispatching &&
           B0(
-            !1,
+            false,
             "Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.",
           ), this._startDispatching(t);
           try {
@@ -96579,18 +96579,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           return this._isDispatching;
         },
         r.prototype._invokeCallback = function (t) {
-          this._isPending[t] = !0,
+          this._isPending[t] = true,
             this._callbacks[t](this._pendingPayload),
-            this._isHandled[t] = !0;
+            this._isHandled[t] = true;
         },
         r.prototype._startDispatching = function (t) {
           for (var o in this._callbacks) {
-            this._isPending[o] = !1, this._isHandled[o] = !1;
+            this._isPending[o] = false, this._isHandled[o] = false;
           }
-          this._pendingPayload = t, this._isDispatching = !0;
+          this._pendingPayload = t, this._isDispatching = true;
         },
         r.prototype._stopDispatching = function () {
-          delete this._pendingPayload, this._isDispatching = !1;
+          delete this._pendingPayload, this._isDispatching = false;
         },
         r;
     }();
@@ -96732,7 +96732,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     return n.filter(S$);
   }
-  var Uce = [[1, 0], [0, 0], !1],
+  var Uce = [[1, 0], [0, 0], false],
     z0 = class z0 {
       constructor(e, t) {
         let o = (e == null ? void 0 : e.list) || [];
@@ -96746,12 +96746,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return new z0(this, e);
       }
       equals(e) {
-        if (this.list.length !== e.list.length) return !1;
+        if (this.list.length !== e.list.length) return false;
         for (let t = this.list.length - 1; t >= 0; t--) {
           let o = this.list[t], i = e.list[t];
-          if (!__dcg_shared_module_exports__["E"](o, i)) return !1;
+          if (!__dcg_shared_module_exports__["E"](o, i)) return false;
         }
-        return !0;
+        return true;
       }
       isCompletelyRigid() {
         return this.list.length === 0;
@@ -96790,7 +96790,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function eR(r, e) {
     var p, h, u, f, y, C, E, v, w, S;
     let t = {}, o = {}, i = {}, n = {}, a = {};
-    for (let k of e) a[k] = !0, i[k] = jI.COMPLETELY_RIGID;
+    for (let k of e) a[k] = true, i[k] = jI.COMPLETELY_RIGID;
     let { parentToChildren: s, childToReversibilityParents: l } = zce(r);
     for (let k of C$(l)) {
       let _ = r[k];
@@ -96823,20 +96823,20 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let U = (f = l[_.assignment]) != null ? f : [];
           for (let z of U) {
             i[z]
-              ? O.equals(i[z]) || (i[z] = jI.COMPLETELY_RIGID, n[z] = !0)
+              ? O.equals(i[z]) || (i[z] = jI.COMPLETELY_RIGID, n[z] = true)
               : i[z] = O;
           }
         }
       }
     }
     let c = {};
-    for (let k in i) c[k] = !0;
+    for (let k in i) c[k] = true;
     for (let k of C$(s)) {
       if (c[k]) {
-        for (let _ of s[k] || []) c[_] = !0;
+        for (let _ of s[k] || []) c[_] = true;
         if (i[k]) {
           let _ = l[k] || [];
-          for (let A of _) n[A] && (n[k] = !0);
+          for (let A of _) n[A] && (n[k] = true);
         }
       }
     }
@@ -96844,7 +96844,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let A = (((C = (y = r[k]) == null ? void 0 : y.data.call) == null
         ? void 0
         : C.parents) || []).map(tx)[0];
-      A && c[A] && (n[A] = !0);
+      A && c[A] && (n[A] = true);
     }
     for (let k in r) {
       if (!c[k]) continue;
@@ -96868,9 +96868,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           i[k].isCompletelyRigid() &&
             (!(O in i) || i[O].isCompletelyRigid()) || x
         ) {
-          n[O] = !0;
+          n[O] = true;
           for (let V of z) {
-            V && (n[V] = !0);
+            V && (n[V] = true);
           }
         }
       }
@@ -96977,18 +96977,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return r
       ? !!(qce(r) && r !== "Vector" || r === "Circle" || r === "Arc" ||
         r === "Polygon")
-      : !1;
+      : false;
   }
   function qce(r) {
-    if (!r) return !1;
+    if (!r) return false;
     switch (r) {
       case "Line":
       case "Ray":
       case "Vector":
       case "Segment":
-        return !0;
+        return true;
     }
-    return !1;
+    return false;
   }
   function D$(r, e) {
     let t = { i: 0, x: NaN, y: NaN }, o = { i: 1, x: NaN, y: NaN };
@@ -97123,7 +97123,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           outputs: [{
             type: "expression-edit-preview-latex",
             rhsLatex: this.buildPreviewLatex(),
-            hidden: !1,
+            hidden: false,
             color: t.color,
             id: "2",
             parents: [],
@@ -97166,21 +97166,21 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (
         (t == null ? void 0 : t.type) !== "expression-arguments" ||
         t.expressionType !== "FunctionCall" && t.expressionType !== "List"
-      ) return !1;
+      ) return false;
       let o = tR(t);
-      if (!o) return !1;
-      let i = !1;
+      if (!o) return false;
+      let i = false;
       for (let n of o) {
         if (
           __dcg_shared_module_exports__["Ab"](
             n,
             __dcg_shared_module_exports__["va"],
           )
-        ) return !1;
+        ) return false;
         __dcg_shared_module_exports__["Ab"](
           n,
           __dcg_shared_module_exports__["ya"],
-        ) && (i = !0);
+        ) && (i = true);
       }
       return i;
     }
@@ -97189,7 +97189,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (
         (t == null ? void 0 : t.type) === "empty" ||
         (t == null ? void 0 : t.type) === "permissive"
-      ) return !1;
+      ) return false;
       let o = tR(t);
       return !(!o || o.some((i) =>
         __dcg_shared_module_exports__["Ab"](
@@ -97265,7 +97265,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           radius: 20,
           startAngle: -1.325817,
           deltaAngle: 1.325817,
-          isDirected: !1,
+          isDirected: false,
         },
         { type: "point", x: 30, y: 70 },
         { type: "point", x: 40, y: 30 },
@@ -97273,7 +97273,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97284,7 +97284,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         output: [{ type: "angle", parents: [0, 1, 2] }],
       }, {
         input: {
-          broadcast: !1,
+          broadcast: false,
           types: [__dcg_shared_module_exports__["Ja"]],
           hints: [nR],
         },
@@ -97330,7 +97330,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         radius: 20,
         startAngle: -1.325817,
         deltaAngle: 1.325817,
-        isDirected: !1,
+        isDirected: false,
       }, {
         type: "stroked-path",
         lineWidth: "large",
@@ -97338,7 +97338,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }],
       workflows: [{
         input: {
-          broadcast: !1,
+          broadcast: false,
           types: [
             __dcg_shared_module_exports__["sb"].of([
               __dcg_shared_module_exports__["Va"],
@@ -97392,7 +97392,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       icon: Xce,
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97422,7 +97422,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, { type: "point", x: 68, y: 32 }],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97487,7 +97487,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["La"],
             __dcg_shared_module_exports__["ya"],
@@ -97535,7 +97535,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           outputs: [{
             id: "3",
             type: "dilate",
-            hidden: !1,
+            hidden: false,
             name: this.generateDefaultName(),
             parents: [{ type: "reference-input", id: "1" }, {
               type: "reference-input",
@@ -97561,7 +97561,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           x: 30,
           y: 70,
           radius: 20,
-          isDirected: !0,
+          isDirected: true,
           startAngle: -1.325817,
           deltaAngle: 1.325817,
         },
@@ -97577,7 +97577,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97588,7 +97588,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         output: [{ type: "directedangle", parents: [0, 1, 2] }],
       }, {
         input: {
-          broadcast: !1,
+          broadcast: false,
           types: [__dcg_shared_module_exports__["Ja"]],
           hints: [nR],
         },
@@ -97634,7 +97634,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97664,7 +97664,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97674,7 +97674,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         output: [{ type: "midpoint", parents: [0, 1] }],
       }, {
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [__dcg_shared_module_exports__["La"]],
           hints: [A$],
         },
@@ -97707,7 +97707,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, { type: "point", x: 50, y: 60, size: "medium" }],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["zb"],
             __dcg_shared_module_exports__["ya"],
@@ -97743,7 +97743,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, { type: "point", x: 50, y: 50, size: "medium" }],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["zb"],
             __dcg_shared_module_exports__["ya"],
@@ -97767,7 +97767,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       icon: [{ type: "point", x: 50, y: 50, size: "large" }],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [__dcg_shared_module_exports__["ya"]],
           hints: [mde],
         },
@@ -97806,7 +97806,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         !!(r.length === 1 && __dcg_shared_module_exports__["E"](r[0], e)),
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: {
             type: "variadic",
             initial: [
@@ -97824,9 +97824,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             r[r.length - 1],
             r[r.length - 2],
           )) && (r = r.slice(0, -1)),
-          [{ type: "polygon", hidden: !1, parents: r.map((t, o) => o) }]),
+          [{ type: "polygon", hidden: false, parents: r.map((t, o) => o) }]),
         canCommit: (r) => {
-          if (r.length < 2) return !1;
+          if (r.length < 2) return false;
           let e = r[r.length - 1], t = r[r.length - 2], o = r[0];
           return __dcg_shared_module_exports__["E"](e, o) ||
             __dcg_shared_module_exports__["E"](e, t);
@@ -97856,7 +97856,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97891,7 +97891,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           outputs: [{
             id: "2",
             type: "reflect",
-            hidden: !1,
+            hidden: false,
             name: this.generateDefaultName(),
             parents: [{ type: "reference-input", id: "1" }],
           }],
@@ -97916,7 +97916,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ],
       workflows: [{
         input: {
-          broadcast: !0,
+          broadcast: true,
           types: [
             __dcg_shared_module_exports__["ya"],
             __dcg_shared_module_exports__["ya"],
@@ -97965,7 +97965,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     clearTentativeOutputs() {}
     canNextInputBePoint() {
-      return !1;
+      return false;
     }
     getAllValidNextInputTypes() {
       return __dcg_shared_module_exports__["tb"].filter((e) =>
@@ -97984,17 +97984,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     onNumberInput(e) {}
     onMove(e) {
-      return !0;
+      return true;
     }
     onFocus(e) {}
     tryCommitResults() {
       return { committed: void 0 };
     }
     shouldUseJitEdges() {
-      return !1;
+      return false;
     }
     shouldHighlightRelevantObjects() {
-      return !1;
+      return false;
     }
   };
   var lR =
@@ -98035,7 +98035,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             outputs: [{
               id: "3",
               type: "translate",
-              hidden: !1,
+              hidden: false,
               name: this.generateDefaultName(),
               parents: [{ type: "reference-input", id: "1" }],
             }],
@@ -98053,7 +98053,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             outputs: [{
               id: "3",
               type: "translate",
-              hidden: !1,
+              hidden: false,
               name: this.generateDefaultName(),
               parents: [{ type: "reference-input", id: "1" }, {
                 type: "reference-input",
@@ -98088,7 +98088,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       "expression-edit": Rh,
     },
     cR = kde;
-  var _de = !0, Ide = !1, P$ = "**dcg_geo_tool_output_slider**";
+  var _de = true, Ide = false, P$ = "**dcg_geo_tool_output_slider**";
   function Ade() {
     return {
       point: __dcg_shared_module_exports__["Rd"].PURPLE,
@@ -98136,7 +98136,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         s.type === "polygon-segment" &&
           (!i[a] ||
             Object.keys(t).some((l) => !i[l] && t[l].parents.includes(a))) &&
-          (t[a] = { ...s, showAsSepratePreviewObject: !0 });
+          (t[a] = { ...s, showAsSepratePreviewObject: true });
       }
       __dcg_shared_module_exports__["E"](e, t)
         ? this.controller.dispatch({ type: "render" })
@@ -98168,7 +98168,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             lockedIds: {},
             inputIndex: 0,
             outputHistory: {},
-            forceSingleUse: !1,
+            forceSingleUse: false,
           },
           colors: Ade(),
           clickToInsertMode: "valid-type",
@@ -98190,7 +98190,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     onMouseAction(e, t) {
       let o = this.getCurrentTool();
       if (o instanceof Rh && !this.controller.getValidCursorContext()) {
-        return { committed: void 0, handled: !1 };
+        return { committed: void 0, handled: false };
       }
       switch (
         this.updateNextObjectId(
@@ -98205,8 +98205,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           o.onMove(t);
           let i = o.tryCommitResults();
           return i.committed
-            ? { ...i, handled: !0 }
-            : { committed: void 0, handled: !1 };
+            ? { ...i, handled: true }
+            : { committed: void 0, handled: false };
       }
     }
     generatePureToolOutput(e, t) {
@@ -98214,7 +98214,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (!(o instanceof Vr)) return;
       let i = t.map((d) => d.typedValue), n = o.getMatchingWorkflow(i);
       if (!n) return;
-      let a = pV(n.firstMatch, i, !1), s = {}, l = {};
+      let a = pV(n.firstMatch, i, false), s = {}, l = {};
       for (let d = 0; d < t.length; d++) l[d] = t[d].referenceLatex;
       this.updateNextObjectId(this.controller.findLastTokenNumber() + 1),
         this.generateIdsForNewToolOutputs(a);
@@ -98349,7 +98349,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 sliderInfo: s,
                 id: P$,
                 parents: [],
-                hidden: !1,
+                hidden: false,
                 color: "#000",
               });
           }
@@ -98357,7 +98357,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       this._shouldNewObjectsBeMarkedUncommitted() &&
       this.store.shallowMutate("uncommittedIds", (a) => {
-        for (let s of o) a[s.id] = !0;
+        for (let s of o) a[s.id] = true;
       }), this._addObjects(o);
     }
     _getReusableIdForCurrentInput(e) {
@@ -98376,7 +98376,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         ? o = this._getReusableIdForCurrentInput(t) ||
           this.generateObjectId()
         : o = this.generateObjectId(),
-        i && this.store.set(["uncommittedIds", o], !0);
+        i && this.store.set(["uncommittedIds", o], true);
       let n = this.defaultColorForObject(this.getNonObjectsState().ui, e),
         a = {
           hidden: e.type === "point" && !!e.previewOnly,
@@ -98411,19 +98411,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return;
       }
       this.store.set(["ui", "currentTool", "inputIndex"], t + 1),
-        this.store.set(["ui", "currentTool", "lockedIds", a], !0);
+        this.store.set(["ui", "currentTool", "lockedIds", a], true);
       for (let l = 0; l < 2; l++) {
         let c = n + "-" + l, d = o[c];
-        d && this.store.set(["ui", "currentTool", "lockedIds", d], !0);
+        d && this.store.set(["ui", "currentTool", "lockedIds", d], true);
       }
       i.didLockInput(e), this.updateFadeAnimations();
     }
     generateIdsForNewToolOutputs(e) {
       let { idMap: t } = this.getNonObjectsState().ui.currentTool,
-        o = !1,
+        o = false,
         i = {};
       for (let n of e) {
-        t[n.id] || (o = !0, i[n.id] = this.generateObjectId());
+        t[n.id] || (o = true, i[n.id] = this.generateObjectId());
       }
       o && this.store.set(["ui", "currentTool", "idMap"], { ...t, ...i });
     }
@@ -98477,10 +98477,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isDegenerateInput(e) {
       let t = this.getCurrentTool();
-      return t instanceof _c ? t.isDegenerateInput(e) : !1;
+      return t instanceof _c ? t.isDegenerateInput(e) : false;
     }
     getEnabledAdditionalTools() {
-      return v$.filter((e) => !0);
+      return v$.filter((e) => true);
     }
     getAdditionalTools() {
       return this.getEnabledAdditionalTools();
@@ -98525,7 +98525,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.store.shallowMutate(
         ["ui", "currentTool", "outputHistory"],
         (t) => {
-          t[e] = !0;
+          t[e] = true;
         },
       );
     }
@@ -98609,11 +98609,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (t instanceof Vr) {
         let o = t.getWorkflows();
         for (let i of this.availableInputTypes) {
-          if (o.some((n) => n.signature.matches([i]))) return !0;
+          if (o.some((n) => n.signature.matches([i]))) return true;
         }
-        return !1;
+        return false;
       }
-      return !0;
+      return true;
     }
     isFading() {
       return Date.now() <= this.store.getState().maxAnimationEndTime;
@@ -98645,7 +98645,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         lockedIds: {},
         inputIndex: 0,
         outputHistory: e !== t ? {} : o.outputHistory,
-        forceSingleUse: e !== t ? !1 : o.forceSingleUse,
+        forceSingleUse: e !== t ? false : o.forceSingleUse,
       }),
         this.updateFadeAnimations(),
         e !== t && this.controller.isGraphPaperFocused() &&
@@ -98657,7 +98657,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.setToolMode(this.getToolMode());
     }
     markCurrentToolSingleUse() {
-      this.store.set(["ui", "currentTool", "forceSingleUse"], !0);
+      this.store.set(["ui", "currentTool", "forceSingleUse"], true);
     }
     areAnyObjectsHovered() {
       return !!this.getNonObjectsState().hoveredObjects.length;
@@ -98770,10 +98770,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 __dcg_shared_module_exports__["S"](c[0] - s, c[1] - l)
               : 1 / 0;
           } else {return n.type === "segment"
-              ? a(n.start, n.end, !1, !1)
+              ? a(n.start, n.end, false, false)
               : Math.min(
-                a(n.start1, n.end1, !1, !0),
-                a(n.start2, n.end2, !1, !0),
+                a(n.start1, n.end1, false, true),
+                a(n.start2, n.end2, false, true),
               );}
         }
         case __dcg_shared_module_exports__["Ja"]: {
@@ -98841,17 +98841,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         i = e.mode === "tab",
         n = e.mode === "mouse",
         a = i && this.controller.getActiveTool() === "box-selection",
-        s = !1,
-        l = !1;
+        s = false,
+        l = false;
       (h = t.isValidNextInputType) != null &&
-      h.call(t, __dcg_shared_module_exports__["ya"]) && (s = !0),
+      h.call(t, __dcg_shared_module_exports__["ya"]) && (s = true),
         t.shouldUseJitEdges() &&
         (t.isValidNextInputType(__dcg_shared_module_exports__["La"]) ||
           t.isValidNextInputType(__dcg_shared_module_exports__["Ra"]) ||
           t.isValidNextInputType(__dcg_shared_module_exports__["Ta"])) &&
-        (l = !0);
+        (l = true);
       let c = n && s;
-      c && (l = !0);
+      c && (l = true);
       let { lockedIds: d, reusableInputIdMap: p } =
         this.store.getState().ui.currentTool;
       return Qg({ controller: this.controller }, (u, f) => {
@@ -98890,7 +98890,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         calcId: v.calcId,
                         listIndex: v.listIndex,
                         hidden: v.hidden,
-                        isGraphableAndInteractive: !1,
+                        isGraphableAndInteractive: false,
                         assignment: A,
                         referenceLatex: A,
                         data: v.data,
@@ -99002,7 +99002,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let u = h[0].i === 0 ? [a, l] : [l, a],
             f = this.findIncidentPointDef(a, l);
           if (f != null && f.hidden) {
-            let y = !1, C;
+            let y = false, C;
             if (
               cV(f.typedRuntimeValue, (E, v) => {
                 let [w, S] = E.value,
@@ -99010,7 +99010,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     x: w,
                     y: S,
                   });
-                dh(k.x - o.x, k.y - o.y) < t && (y = !0, C = v);
+                dh(k.x - o.x, k.y - o.y) < t && (y = true, C = v);
               }), y
             ) {
               return C !== void 0 && (f = dV(f, C)), {
@@ -99059,7 +99059,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let o = e.typedRuntimeValue.valueType,
         i = t.typedRuntimeValue.valueType,
         n = {};
-      Qg({ controller: this.controller, expandLists: !1 }, (l) => {
+      Qg({ controller: this.controller, expandLists: false }, (l) => {
         if (
           l.data.identifier &&
           __dcg_shared_module_exports__["Ab"](
@@ -99208,7 +99208,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       r.focusLocation = e,
         !e ||
         (e.type === "ticker" &&
-          (r.getListModel().ticker.playing = !1, Nr(r.getListModel(), void 0)),
+          (r.getListModel().ticker.playing = false, Nr(r.getListModel(), void 0)),
           e.type === "settings" || e.type === "generic-menu" ||
           e.type === "editable-label" || e.type === "add-item-btn" ||
           e.type === "add-expression-btn" || e.type === "add-note-btn" ||
@@ -99242,7 +99242,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       Nr(r.getListModel(), void 0);
       return;
     } else Nr(r.getListModel(), t);
-    t && t.type === "expression" && As(t, !1);
+    t && t.type === "expression" && As(t, false);
   }
   function Vde(r, e, t) {
     let o = r.getItemModel(e);
@@ -99255,7 +99255,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       case "text":
         return { type: o.type, id: e };
       case "table": {
-        let a = { row: 1, column: 0 }, s = !1;
+        let a = { row: 1, column: 0 }, s = false;
         return t &&
           (t.location === "cell"
             ? a = { row: t.row, column: t.column }
@@ -99263,7 +99263,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ? a = { row: Pl(o), column: 0 }
             : t === "start"
             ? a = { row: 0, column: 0 }
-            : t === "container" && (s = !0)),
+            : t === "container" && (s = true)),
           s
             ? { type: "table-container", id: e }
             : { type: o.type, id: e, location: a };
@@ -99476,7 +99476,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return;
       }
     }
-    if (hR(r, { moveSelection: !0 }), t && tl && mp) {
+    if (hR(r, { moveSelection: true }), t && tl && mp) {
       Nr(r.getListModel(), void 0);
       return;
     }
@@ -99487,7 +99487,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let e = r.getSelectedItem();
     e &&
       (r.getItemCount() === 1 && e.type === "expression" ||
-        (gR(r, { moveSelection: !0 }),
+        (gR(r, { moveSelection: true }),
           e = r.getSelectedItem(),
           e && bi(r, e.id, "start")));
   }
@@ -99923,10 +99923,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   function eA(r, e) {
     let t = c1(r, e);
-    if (!t) return !1;
+    if (!t) return false;
     let { xAxisScale: o, yAxisScale: i } = e.settings;
     if (!Br.fromObject(t).isValid({ xAxisScale: o, yAxisScale: i })) {
-      return !1;
+      return false;
     }
     let a = e.mapx(t.xmin),
       s = e.mapx(t.xmax),
@@ -99997,19 +99997,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     for (let a of n) {
       let s = $de(a);
       for (let l of s.selected) {
-        o[l] = !0, t.selected[l] || e.selectSketch(l);
+        o[l] = true, t.selected[l] || e.selectSketch(l);
       }
       for (let l of s.hoistedToTop) {
-        i[l] = !0, t.hoistedToTop[l] || e.setSketchHoistedToTop(l, !0);
+        i[l] = true, t.hoistedToTop[l] || e.setSketchHoistedToTop(l, true);
       }
     }
     for (let a in t.selected) o[a] || e.deselectSketch(a);
-    for (let a in t.hoistedToTop) i[a] || e.setSketchHoistedToTop(a, !1);
+    for (let a in t.hoistedToTop) i[a] || e.setSketchHoistedToTop(a, false);
     return { selected: o, hoistedToTop: i };
   }
   function jde(r) {
-    for (let e in r) return !1;
-    return !0;
+    for (let e in r) return false;
+    return true;
   }
   function Yde(r) {
     var o;
@@ -100040,7 +100040,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               (((o = (t = n.formula.geometry) == null ? void 0 : t.call) == null
                     ? void 0
                     : o.symbol) === "segments" || mc(n)) &&
-              (a.deleteIfNotReferenced = !0));
+              (a.deleteIfNotReferenced = true));
           for (
             let s of ((i = n.formula.geometry) == null
               ? void 0
@@ -100063,9 +100063,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return e;
   }
   function $$(r, e, t) {
-    e.referencesTheseIdentifiers[t] = !0;
+    e.referencesTheseIdentifiers[t] = true;
     let o = r.lookupIdentifier[t];
-    o && (o.referencedByTheseCalcIds[e.calcId] = !0);
+    o && (o.referencedByTheseCalcIds[e.calcId] = true);
   }
   function Jde(r, e, t) {
     var a;
@@ -100084,13 +100084,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     for (let s in t) {
       for (let l of t[s]) {
         let c = r.lookupIdentifier[l];
-        c && delete c.referencedByTheseCalcIds[s], i[l] = !0;
+        c && delete c.referencedByTheseCalcIds[s], i[l] = true;
       }
     }
     let n = {};
     for (let s of o) {
       let l = s.referencesTheseIdentifiers;
-      for (let d in l) i[d] = !0;
+      for (let d in l) i[d] = true;
       let c = s.identifier;
       if (c) {
         let d = (a = r.lookupIdentifier[c]) == null
@@ -100099,7 +100099,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (d) {
           for (let p in d) {
             let h = r.lookupCalcId[p];
-            h && h.isGarbageCollectable && (n[p] = !0);
+            h && h.isGarbageCollectable && (n[p] = true);
           }
         }
       }
@@ -100109,7 +100109,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (l && l.deleteIfNotReferenced) {
         let c = l.referencedByTheseCalcIds;
         l.calcId && l.isGarbageCollectable && jde(c) &&
-          (n[l.calcId] = !0);
+          (n[l.calcId] = true);
       }
     }
     for (let s of o) {
@@ -100134,7 +100134,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ? void 0
           : c.parentDependencies) || []
       ) {
-        u[y] = !0;
+        u[y] = true;
       }
       for (let y in u) {
         Il(p, __dcg_shared_module_exports__["ma"](y)) && delete u[y];
@@ -100144,8 +100144,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     let l = Object.keys(s).length > 0;
     for (; i.length || l;) {
-      l = !1, i = Jde(n, i, s);
-      for (let d of i) a[d] = !0;
+      l = false, i = Jde(n, i, s);
+      for (let d of i) a[d] = true;
     }
     return Object.keys(a);
   }
@@ -100158,9 +100158,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
         Object.defineProperty(this, Y$, {
           value: t.clone(),
-          enumerable: !1,
-          configurable: !1,
-          writable: !1,
+          enumerable: false,
+          configurable: false,
+          writable: false,
         });
       }
       toJSON() {
@@ -100178,7 +100178,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     randomSeed: "",
     graph: {
       product: "graphing-3d",
-      threeDMode: !0,
+      threeDMode: true,
       viewport: { ...__dcg_shared_module_exports__["xc"] },
     },
     expressions: { list: [{ id: "1", type: "expression" }] },
@@ -100207,12 +100207,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return {
       keypadMinimized: !Q5,
       keypadLayout: "mainNumbers",
-      keypadFunctionsOpen: !1,
-      graphSettingsOpen: !1,
-      addExpressionOpen: !1,
+      keypadFunctionsOpen: false,
+      graphSettingsOpen: false,
+      addExpressionOpen: false,
       expressionsVisible: !!r.expressions,
-      inEditListMode: !1,
-      isFileDraggedOver: !1,
+      inEditListMode: false,
+      isFileDraggedOver: false,
       expressionsHiddenTime: void 0,
     };
   }
@@ -100319,11 +100319,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       case "tick":
       case "tick-ticker":
       case "evaluator-progress-update":
-        return !1;
+        return false;
       case "on-evaluator-changes":
         return !!((e = r.eventUpdates) != null && e.userAction);
       default:
-        return !0;
+        return true;
     }
   }
   var Im = class {
@@ -100337,15 +100337,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.nextSubscription = 0;
       this.subscriptions = {};
       this._queuedCallbacks = [];
-      this._hasUnsavedChanges = !1;
-      this.shouldScrollSelectedItemIntoViewAfterDispatch = !1;
+      this._hasUnsavedChanges = false;
+      this.shouldScrollSelectedItemIntoViewAfterDispatch = false;
       this.lastParsableObjects = {};
-      this.isExpressionSearchStrValidForReplace = !1;
-      this.isExpressionReplaceStrValidForReplace = !1;
+      this.isExpressionSearchStrValidForReplace = false;
+      this.isExpressionReplaceStrValidForReplace = false;
       this.expressionSearchCount = 0;
-      this.expressionSearchOpen = !1;
-      this.geoUIActive = !1;
-      this.showConstructionsOpen = !1;
+      this.expressionSearchOpen = false;
+      this.geoUIActive = false;
+      this.showConstructionsOpen = false;
       this.activeTool = "selection";
       this.geometryGettingStartedMessageState = "pick-a-tool";
       this.activeTokens = { selected: void 0, hovered: void 0 };
@@ -100353,8 +100353,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         apiMethodCallDepth: 0,
         withHistoryReplacementDepth: 0,
       };
-      this.canShowKeyboardShortcuts = !1;
-      this.progressUpdateLegendHidden = !1;
+      this.canShowKeyboardShortcuts = false;
+      this.progressUpdateLegendHidden = false;
       this.shellViews = {};
       this.toastData = {};
       this.s = Ip(() => this.graphSettings.config.language);
@@ -100405,7 +100405,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let t;
         for (; t = this._queuedCallbacks.shift();) t();
       };
-      this._requiresTickNextFrame = !1;
+      this._requiresTickNextFrame = false;
       this.cachedGeoTokenDepths = {};
       this.cachedGeoTokenInfo = {};
       this.toolPreviewJSONState = {};
@@ -100413,15 +100413,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         for (let e in this.subscriptions) this.subscriptions[e]();
       };
       this.bugsnagContext = "";
-      this.inPrintMode = !1;
+      this.inPrintMode = false;
       this.lastInfiniteScrollFirstDOM = void 0;
       this.lastInfiniteScrollLastDOM = void 0;
-      this.hasDispatchSinceLastInfiniteScrollUpdate = !1;
+      this.hasDispatchSinceLastInfiniteScrollUpdate = false;
       this.stateStack = new su();
-      this.isCurrentlyDoingSetState = !1;
-      this.isCurrentlyDoingRestoreState = !1;
+      this.isCurrentlyDoingSetState = false;
+      this.isCurrentlyDoingRestoreState = false;
       this.expressionActionsToRestartIfSlow = new Array();
-      this.getQuestIsActive = () => !1;
+      this.getQuestIsActive = () => false;
       this.logEvent = (e) => {};
       this.logEventsFromDispatch = (e) => {};
       var t, o;
@@ -100490,7 +100490,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.activeTool !== "selection" &&
             this.activeTool !== "box-selection" ||
           this.isClickableId(e) || "label" in t && t.label !== ""
-        : !1;
+        : false;
     }
     getGeoModel() {
       return this.geoModel;
@@ -100529,13 +100529,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return t;
     }
     getTickerOpen() {
-      return this.areActionsEnabled() ? this.listModel.ticker.open : !1;
+      return this.areActionsEnabled() ? this.listModel.ticker.open : false;
     }
     getTickerVisible() {
       return this.getTickerOpen() && !this.getTicker().filteredBySearch;
     }
     getTickerPlaying() {
-      return this.areActionsEnabled() ? this.listModel.ticker.playing : !1;
+      return this.areActionsEnabled() ? this.listModel.ticker.playing : false;
     }
     hasVisibleToast() {
       return !__dcg_shared_module_exports__["F"](this.toastData);
@@ -100605,7 +100605,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return !!this._requiresTickNextFrame;
     }
     markTickRequiredNextFrame() {
-      this._requiresTickNextFrame = !0;
+      this._requiresTickNextFrame = true;
     }
     handleTick(e) {
       let t = this.handlePossiblySlowEvaluator();
@@ -100627,7 +100627,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           var l;
           let t = this.getFirstSelectedItem(),
             o = this.getFocusLocation();
-          this.shouldScrollSelectedItemIntoViewAfterDispatch = !1;
+          this.shouldScrollSelectedItemIntoViewAfterDispatch = false;
           let i;
           this.enqueuedEvents = {
             change: void 0,
@@ -100639,9 +100639,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             userClickedObject: void 0,
             userEditedLabel: void 0,
           },
-            e.type === "tick" && (this._requiresTickNextFrame = !1),
-            this.isCurrentlyDoingSetState = !1,
-            this.isCurrentlyDoingRestoreState = !1,
+            e.type === "tick" && (this._requiresTickNextFrame = false),
+            this.isCurrentlyDoingSetState = false,
+            this.isCurrentlyDoingRestoreState = false,
             this.handleDispatchedAction(e),
             this.constrainMultiSelect(),
             this.updateTheComputedWorld();
@@ -100655,26 +100655,26 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             e.type !== "restore-history" && !this.isDragDropActive() &&
             this.commitUndoRedoSynchronously(e),
             this.requestParseForAllItems(),
-            this.isCurrentlyDoingSetState = !1,
-            this.isCurrentlyDoingRestoreState = !1,
+            this.isCurrentlyDoingSetState = false,
+            this.isCurrentlyDoingRestoreState = false,
             this.enqueuedEvents.change &&
             ((l = this.getGrapher2d()) == null || l.markLabelsDirty()),
             this.enqueuedEvents.clearUnsavedChanges
-              ? this._hasUnsavedChanges = !1
+              ? this._hasUnsavedChanges = false
               : this.enqueuedEvents.change &&
-                (this._hasUnsavedChanges = !0);
+                (this._hasUnsavedChanges = true);
           let a = this.getFirstSelectedItem();
           a
             ? (!t || t.guid !== a.guid) &&
-              (this.shouldScrollSelectedItemIntoViewAfterDispatch = !0)
-            : this.shouldScrollSelectedItemIntoViewAfterDispatch = !1;
+              (this.shouldScrollSelectedItemIntoViewAfterDispatch = true)
+            : this.shouldScrollSelectedItemIntoViewAfterDispatch = false;
           let s = this.getFocusLocation();
           s && !__dcg_shared_module_exports__["E"](s, o) &&
           this.getFocusedItem() == a &&
-          (this.shouldScrollSelectedItemIntoViewAfterDispatch = !0),
+          (this.shouldScrollSelectedItemIntoViewAfterDispatch = true),
             o && t && t.type === "table" && o.type === "table" &&
             (!s || s.type !== "table" || o.id !== s.id) && t.isExpanded &&
-            (Nf(t, !1), s || (i = t)),
+            (Nf(t, false), s || (i = t)),
             s && a && a.type === "table" && WU(a),
             (e.type === "adjust-slider-by-dragging-thumb" ||
               e.type === "adjust-slider-by-keyboard") &&
@@ -100783,7 +100783,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               (x.folderId = "");
             let L = this.getItemCount() - 1, V = kg(this.listModel, L);
             if (V && V.type === "expression" && V.latex === "") {
-              this._toplevelReplaceItemAt(L, x, !1);
+              this._toplevelReplaceItemAt(L, x, false);
               return;
             }
             ol(this.listModel, x);
@@ -100807,7 +100807,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   ? this._toplevelReplaceItemAt(
                     this.getItemCount() - 1,
                     Y,
-                    !1,
+                    false,
                   )
                   : ol(this.listModel, Y);
               } else L = e.update.value;
@@ -100827,7 +100827,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       q = ae.type !== "arbitrary-expression"
                         ? __dcg_shared_module_exports__["Cc"](ae)
                         : void 0;
-                    q && (N[q] = !0);
+                    q && (N[q] = true);
                   }
                 }
               });
@@ -100871,8 +100871,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.getAllSelectedItems().forEach((L) => {
                 this.isItemReadonly(L.id) ||
                   (this._setItemHidden(L.id, !x.value),
-                    x.value === !1 && L.type === "expression" &&
-                    Ku(L, !1));
+                    x.value === false && L.type === "expression" &&
+                    Ku(L, false));
               });
             } else if (e.update.prop === "color") {
               let L = e.update.value;
@@ -100951,10 +100951,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         }
         case "upward-delete-selected-expression":
-          hR(this, { moveSelection: !1 });
+          hR(this, { moveSelection: false });
           break;
         case "downward-delete-selected-expression":
-          gR(this, { moveSelection: !1 });
+          gR(this, { moveSelection: false });
           break;
         case "table-show-more-rows":
           {
@@ -100963,7 +100963,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let L = Eg(x);
             if (!L) return;
             Nr(this.listModel, x),
-              Nf(x, !0),
+              Nf(x, true),
               qr(this, {
                 type: "table",
                 id: x.id,
@@ -100986,15 +100986,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "expression-zoom-fit":
           this._expressionZoomFit(e.id, {
             focusAfterTap: e.focusAfterTap,
-            synchronous: !1,
-            justResiduals: !1,
+            synchronous: false,
+            justResiduals: false,
           });
           break;
         case "expression-zoom-fit-residuals":
           this._expressionZoomFit(e.id, {
             focusAfterTap: e.focusAfterTap,
-            synchronous: !1,
-            justResiduals: !0,
+            synchronous: false,
+            justResiduals: true,
           });
           break;
         case "set-expression-properties-from-api":
@@ -101015,12 +101015,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let { id: x } = e, L = this.getItemModel(x);
             if (!L || L.type !== "folder") return;
             let V = this.createItemModel({
-                ...xE(L, { stripDefaults: !1 }),
+                ...xE(L, { stripDefaults: false }),
                 id: this.generateId(),
               }),
               R = this.getNumberOfItemsInFolder(x),
               N = R + 1;
-            this._toplevelInsertItemAt(L.index + N, V, !1, void 0);
+            this._toplevelInsertItemAt(L.index + N, V, false, void 0);
             let M = L.index + 1, F = M + R;
             for (let Z = M; Z <= F; Z++) {
               let te = kg(this.listModel, Z);
@@ -101043,7 +101043,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               id: this.generateId(),
               color: this.getNextColor(),
             });
-            this.setEditListMode(!1), ol(this.listModel, x), bi(this, x.id);
+            this.setEditListMode(false), ol(this.listModel, x), bi(this, x.id);
           }
           break;
         case "new-expression":
@@ -101053,8 +101053,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               id: this.generateId(),
               color: this.getNextColor(),
             });
-            this.setEditListMode(!1),
-              this._toplevelNewItemAtSelection(x, { shouldFocus: !0 }),
+            this.setEditListMode(false),
+              this._toplevelNewItemAtSelection(x, { shouldFocus: true }),
               this._closeAddExpression();
           }
           break;
@@ -101064,7 +101064,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               id: this.generateId(),
               type: "text",
             });
-            this._toplevelNewItemAtSelection(x, { shouldFocus: !0 }),
+            this._toplevelNewItemAtSelection(x, { shouldFocus: true }),
               this._closeAddExpression();
           }
           break;
@@ -101074,7 +101074,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               type: "folder",
               id: this.generateId(),
             });
-            this._toplevelNewItemAtSelection(x, { shouldFocus: !0 }),
+            this._toplevelNewItemAtSelection(x, { shouldFocus: true }),
               this._closeAddExpression();
           }
           break;
@@ -101091,7 +101091,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "new-table":
           {
             let x = this._createTableItem();
-            this._toplevelNewItemAtSelection(x, { shouldFocus: !0 }),
+            this._toplevelNewItemAtSelection(x, { shouldFocus: true }),
               this._closeAddExpression();
           }
           break;
@@ -101102,7 +101102,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this._convertOrCreateTable(e.index);
           break;
         case "insert-several-expressions":
-          this.shouldScrollSelectedItemIntoViewAfterDispatch = !0,
+          this.shouldScrollSelectedItemIntoViewAfterDispatch = true,
             this._insertSeveralExpressions(e.expressions);
           break;
         case "append-number-list":
@@ -101138,10 +101138,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.isItemSelected(x.id)
               ? Nr(this.listModel, x)
               : Nr(this.listModel, void 0), this.setGeoTool("selection");
-            let R = !1, N = 1;
+            let R = false, N = 1;
             x.type === "folder" &&
             (N += this.getNumberOfItemsInFolder(x.id),
-              x.collapsed || (R = !0, Kf(x, !0))),
+              x.collapsed || (R = true, Kf(x, true))),
               _w(this.listModel, {
                 firstItemId: x.id,
                 numberOfItems: N,
@@ -101169,7 +101169,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             if (!x) return;
             let L = this.getItemModel(x.firstItemId);
             if (!L) return;
-            L.type === "folder" && x.expandFolder && Kf(L, !1),
+            L.type === "folder" && x.expandFolder && Kf(L, false),
               _w(this.listModel, void 0),
               this.ensureAtLeastOneVisibleItem();
           }
@@ -101215,11 +101215,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 x === "table" &&
                 (this.layoutModel = {
                   ...this.layoutModel,
-                  inEditListMode: !1,
+                  inEditListMode: false,
                 }),
                 x === "graph-paper"
             ) {
-              this.setGraphPaperFocus({ isFocused: !0 });
+              this.setGraphPaperFocus({ isFocused: true });
               break;
             }
             qr(this, e.location);
@@ -101235,7 +101235,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "blur-focus-location":
           this.isFocusLocationFocused(e.location) && qr(this, void 0),
             ((t = e.location) == null ? void 0 : t.type) ===
-              "graph-paper" && this.setGraphPaperFocus({ isFocused: !1 });
+              "graph-paper" && this.setGraphPaperFocus({ isFocused: false });
           break;
         case "set-folder-collapsed":
           {
@@ -101387,7 +101387,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             Ku(x, e.showLabel),
-              !e.showLabel && !zu(x) && ($w(x, !1), aT(x, "NONE"));
+              !e.showLabel && !zu(x) && ($w(x, false), aT(x, "NONE"));
           }
           break;
         case "set-item-color":
@@ -101419,7 +101419,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "image") return;
-            o4(x, e.opacity), this._setItemHidden(x.id, !1);
+            o4(x, e.opacity), this._setItemHidden(x.id, false);
           }
           break;
         case "set-image-in-foreground":
@@ -101453,7 +101453,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   image_url: e.url,
                   name: e.name,
                 });
-                this._toplevelNewItemAtSelection(x, { shouldFocus: !1 });
+                this._toplevelNewItemAtSelection(x, { shouldFocus: false });
               }
             }
             this.isUploadingImages() || (this.toastData = {});
@@ -101494,7 +101494,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             if (!x || x.type !== "table") return;
             gz(x, e.columnId, e.dragMode),
               e.dragMode !== "NONE" &&
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-points":
@@ -101526,7 +101526,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             uz(x, e.columnId, e.lineStyle),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-linewidth":
@@ -101534,7 +101534,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             iE(x, e.columnId, e.lineWidth),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-lineopacity":
@@ -101542,7 +101542,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             nE(x, e.columnId, e.lineOpacity),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-pointsize":
@@ -101550,7 +101550,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             aE(x, e.columnId, e.pointSize),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-pointopacity":
@@ -101558,7 +101558,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             sE(x, e.columnId, e.pointOpacity),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-tablecolumn-pointstyle":
@@ -101566,7 +101566,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             dz(x, e.columnId, e.pointStyle),
-              this._setTableColumnHidden(e.tableId, e.columnId, !1);
+              this._setTableColumnHidden(e.tableId, e.columnId, false);
           }
           break;
         case "set-item-points":
@@ -101582,7 +101582,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            vL(x, e.pointStyle), this._setItemHidden(e.id, !1);
+            vL(x, e.pointStyle), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-lines":
@@ -101596,7 +101596,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Xq(x, e.extendTo3D), this._setItemHidden(e.id, !1);
+            Xq(x, e.extendTo3D), this._setItemHidden(e.id, false);
             let L = (o = this.grapher3d) == null ? void 0 : o.transition;
             L && e.extendTo3D &&
               (L.objectIdExtendingTo3D &&
@@ -101615,13 +101615,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            nT(x, e.lineStyle), this._setItemHidden(e.id, !1);
+            nT(x, e.lineStyle), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-arrow-mode": {
           let x = this.getItemModel(e.id);
           if (!x || x.type !== "expression") return;
-          Jq(x, e.value), this._setItemHidden(e.id, !1);
+          Jq(x, e.value), this._setItemHidden(e.id, false);
           break;
         }
         case "set-item-label-dropdown-open":
@@ -101635,49 +101635,49 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Lw(x, e.fillOpacity), this._setItemHidden(e.id, !1);
+            Lw(x, e.fillOpacity), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-surfaceopacity":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Pw(x, e.surfaceOpacity), this._setItemHidden(e.id, !1);
+            Pw(x, e.surfaceOpacity), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-lineopacity":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            cb(x, e.lineOpacity), this._setItemHidden(e.id, !1);
+            cb(x, e.lineOpacity), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-pointopacity":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Vw(x, e.pointOpacity), x.showLabel || this._setItemHidden(e.id, !1);
+            Vw(x, e.pointOpacity), x.showLabel || this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-pointsize":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Ow(x, e.pointSize), this._setItemHidden(e.id, !1);
+            Ow(x, e.pointSize), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-linewidth":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            db(x, e.lineWidth), this._setItemHidden(e.id, !1);
+            db(x, e.lineWidth), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-resolution":
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            HE(x, e.resolution), this._setItemHidden(e.id, !1);
+            HE(x, e.resolution), this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-colorlatex":
@@ -101730,7 +101730,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             e.editableLabelMode !== "NONE" &&
             x.editableLabelMode !== e.editableLabelMode && yd(x, ""),
               aT(x, e.editableLabelMode),
-              e.editableLabelMode !== "NONE" && $w(x, !1);
+              e.editableLabelMode !== "NONE" && $w(x, false);
           }
           break;
         case "plot-residuals":
@@ -101781,7 +101781,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-item-latex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             let L = e.latex, V = x.latex;
@@ -101794,10 +101794,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 id: this.generateId(),
                 type: "text",
               });
-              this._toplevelReplaceItemAt(x.index, R, !0);
+              this._toplevelReplaceItemAt(x.index, R, true);
             } else if (L === "") CH(x);
             else if (L === "ticker" && this.canAddTicker()) {
-              this.listModel.ticker.open = !0,
+              this.listModel.ticker.open = true,
                 this.focusLocation = {
                   type: "ticker",
                   location: "handler",
@@ -101810,13 +101810,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               });
               Ca(x)
                 ? (this._toplevelNewItemAtSelection(R, {
-                  shouldFocus: !0,
+                  shouldFocus: true,
                 }),
                   $a(x, ""))
-                : this._toplevelReplaceItemAt(x.index, R, !0);
+                : this._toplevelReplaceItemAt(x.index, R, true);
             } else if (L === "table") {
               let R = this._createTableItem();
-              this._toplevelReplaceItemAt(x.index, R, !0);
+              this._toplevelReplaceItemAt(x.index, R, true);
             } else {!this.isGeometry() &&
                   (L === "betchacant" || L === "pride" ||
                     L === "teapot" && this.is3dProduct())
@@ -101858,7 +101858,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-folder-title":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "folder") return;
             Pz(x, e.title);
@@ -101866,7 +101866,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-image-mq-attribute":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "image") return;
             ks(x, e.attribute, e.latex);
@@ -101874,7 +101874,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-image-name":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "image") return;
             t4(x, e.name);
@@ -101932,7 +101932,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-domain-minlatex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             Ka(x, e.latex, e.variable);
@@ -101940,7 +101940,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-domain-maxlatex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             Wa(x, e.latex, e.variable);
@@ -101948,7 +101948,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-note-text":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "text") return;
             XG(x, e.text);
@@ -101993,7 +101993,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-tablecell-latex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.tableId);
             if (!x || x.type !== "table") return;
             vp(x, e.cell, e.latex);
@@ -102021,12 +102021,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getState();
             this.externalSetState(this.graphSettings.defaultState, {
-              allowUndo: !0,
+              allowUndo: true,
             }),
               this.setGeoTool("selection"),
               this.graphSettings.config.expressions
                 ? this.focusFirstExpression()
-                : this.setGraphPaperFocus({ isFocused: !0 }),
+                : this.setGraphPaperFocus({ isFocused: true }),
               this._showToast({
                 message: this.s(
                   "graphing-calculator-text-toast-graph-reset",
@@ -102035,7 +102035,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   this.dispatch({
                     type: "set-state",
                     state: x,
-                    opts: { allowUndo: !0 },
+                    opts: { allowUndo: true },
                   }),
               }),
               this.enqueueEvent("graphReset", e);
@@ -102049,7 +102049,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             }
             let x = this.getState();
             this.externalSetState(this.getBlankState(), {
-              allowUndo: !0,
+              allowUndo: true,
             });
             let L = this.getItemModelByIndex(0);
             L && bi(this, L.id, "end"),
@@ -102061,14 +102061,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   this.dispatch({
                     type: "set-state",
                     state: x,
-                    opts: { allowUndo: !0 },
+                    opts: { allowUndo: true },
                   }),
               }),
               this.enqueueEvent("graphReset", e);
           }
           break;
         case "hide-progress-update-legend":
-          this.progressUpdateLegendHidden = !0;
+          this.progressUpdateLegendHidden = true;
           break;
         case "evaluator-progress-update":
           this.handleEvaluatorProgressUpdates();
@@ -102090,7 +102090,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 e.type === "on-evaluator-changes" &&
                 !this.getIncludeFunctionParametersInRandomSeed() &&
                 !gq(this.listModel) && this.stateStack.getState() &&
-                this.setIncludeFunctionParametersInRandomSeed(!0),
+                this.setIncludeFunctionParametersInRandomSeed(true),
                 !e.graphData
             ) break;
             for (let x in e.graphData.addedGraphs) {
@@ -102127,10 +102127,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 y.handleEvaluatorChange(e.graphData);
             }
             if (e.eventUpdates) {
-              let x = !1;
+              let x = false;
               for (let L in e.eventUpdates.updates) {
                 if (this.doesIdentifierBlockActionUpdate(L)) {
-                  x = !0;
+                  x = true;
                   break;
                 }
               }
@@ -102174,7 +102174,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-slider-minlatex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             sb(x, e.latex);
@@ -102182,7 +102182,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-slider-maxlatex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             lb(x, e.latex);
@@ -102190,7 +102190,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           break;
         case "set-slider-steplatex":
           {
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
             Gw(x, e.latex);
@@ -102210,7 +102210,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let L = nl(x);
             if (isNaN(L)) return;
             let V = qu(x.latex, L);
-            As(x, !1), $a(x, V), As(x, !0);
+            As(x, false), $a(x, V), As(x, true);
           }
           break;
         case "set-slider-isplaying":
@@ -102298,10 +102298,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           );
           break;
         case "toggle-complex-mode": {
-          let x = this.getState({ avoidBackMigration: !0 });
+          let x = this.getState({ avoidBackMigration: true });
           x.graph.complex = !x.graph.complex,
-            x.graph.degreeMode = !1,
-            this.setState(x, { allowUndo: !0 });
+            x.graph.degreeMode = false,
+            this.setState(x, { allowUndo: true });
           break;
         }
         case "set-axis-limit-latex":
@@ -102340,7 +102340,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "close-graph-settings":
           this.layoutModel = {
             ...this.layoutModel,
-            graphSettingsOpen: !1,
+            graphSettingsOpen: false,
           },
             e.focusIconAfterClose &&
             qr(this, { type: "settings", location: "icon" });
@@ -102361,13 +102361,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.layoutMeasurements = {
             width: e.size.width,
             height: e.size.height,
-          }, this.shouldScrollSelectedItemIntoViewAfterDispatch = !0;
+          }, this.shouldScrollSelectedItemIntoViewAfterDispatch = true;
           break;
         case "enter-printmode":
-          this.inPrintMode = !0;
+          this.inPrintMode = true;
           break;
         case "exit-printmode":
-          this.inPrintMode = !1;
+          this.inPrintMode = false;
           break;
         case "expression-size-exceeded":
           this._showToast({
@@ -102380,7 +102380,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.layoutModel = {
             ...this.layoutModel,
             keypadLayout: e.layout,
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           };
           break;
         case "keypad/set-minimized":
@@ -102389,7 +102389,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             keypadMinimized: e.minimized,
             keypadLayout: "mainNumbers",
           },
-            this.shouldScrollSelectedItemIntoViewAfterDispatch = !0,
+            this.shouldScrollSelectedItemIntoViewAfterDispatch = true,
             this.needsFakeKeypad() || F$(this),
             xe(
               e.minimized
@@ -102400,7 +102400,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "keypad/type-text":
           this.layoutModel = {
             ...this.layoutModel,
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           },
             this.runAfterDispatch(() => {
               let x = Fe.getFocusedMathquill();
@@ -102416,7 +102416,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "keypad/press-key":
           this.layoutModel = {
             ...this.layoutModel,
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           },
             this.runAfterDispatch(() => {
               let x = Fe.getFocusedMathquill();
@@ -102432,7 +102432,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "keypad/custom-command":
           this.layoutModel = {
             ...this.layoutModel,
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           },
             this.runAfterDispatch(() => {
               let x = Fe.getFocusedMathquill();
@@ -102447,14 +102447,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.layoutModel = {
             ...this.layoutModel,
             keypadLayout: Q$(this.getKeypadLayout()),
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           };
           break;
         case "keypad/123":
           this.layoutModel = {
             ...this.layoutModel,
             keypadLayout: "mainNumbers",
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           };
           break;
         case "keypad/abc":
@@ -102462,20 +102462,20 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ? this.layoutModel = {
               ...this.layoutModel,
               keypadLayout: "letters",
-              keypadFunctionsOpen: !1,
+              keypadFunctionsOpen: false,
             }
             : this.layoutModel = {
               ...this.layoutModel,
               keypadLayout: "noQwertyLetters",
-              keypadFunctionsOpen: !1,
+              keypadFunctionsOpen: false,
             };
           break;
         case "keypad/audio":
           this.layoutModel = {
             ...this.layoutModel,
-            keypadMinimized: !1,
+            keypadMinimized: false,
             keypadLayout: "audio",
-            keypadFunctionsOpen: !1,
+            keypadFunctionsOpen: false,
           };
           break;
         case "keypad/functions":
@@ -102497,13 +102497,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.listModel.openItemMenu = void 0,
             this.layoutModel = {
               ...this.layoutModel,
-              isFileDraggedOver: !0,
+              isFileDraggedOver: true,
             };
           break;
         case "file-is-not-dragged-over":
           this.layoutModel = {
             ...this.layoutModel,
-            isFileDraggedOver: !1,
+            isFileDraggedOver: false,
           };
           break;
         case "zoom":
@@ -102587,7 +102587,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             __dcg_shared_module_exports__["Dc"](e.tool) ||
             e.tool === "selection" || Nr(this.listModel, void 0),
             e.focusGraphPaper &&
-            this.setGraphPaperFocus({ isFocused: !0 }),
+            this.setGraphPaperFocus({ isFocused: true }),
             this.closeToast();
           break;
         case "cancel-geo-toolplay":
@@ -102615,7 +102615,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               },
               M = [],
               F = lV(e.committed, {
-                isBeingCommitted: !0,
+                isBeingCommitted: true,
                 getVariableNameForId: N,
               });
             for (let se in e.committed) {
@@ -102654,7 +102654,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   ? (oe.latex = q.latex,
                     oe.color = q.color,
                     oe.showLabel = !!q.showLabel,
-                    oe.showAngleLabel = q.showAngleLabel !== !1,
+                    oe.showAngleLabel = q.showAngleLabel !== false,
                     se && (oe.folderId = se.id))
                   : oe = this.createItemModel({
                     id: this.generateId(),
@@ -102691,8 +102691,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   latex: se.latex,
                   color: se.color,
                   slider: {
-                    hardMin: !0,
-                    hardMax: !0,
+                    hardMin: true,
+                    hardMax: true,
                     min: se.sliderInfo.min,
                     max: se.sliderInfo.max,
                   },
@@ -102761,7 +102761,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.closeExpressionsSearch();
           break;
         case "open-expression-search":
-          this.expressionSearchOpen = !0,
+          this.expressionSearchOpen = true,
             this.focusLocation = { type: "search-expressions" };
           let O = e.latex;
           e.rename && !ya(O) && (O = "");
@@ -102773,13 +102773,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.updateExpressionSearchStr(U);
           break;
         case "open-ticker":
-          this.listModel.ticker.open = !0,
+          this.listModel.ticker.open = true,
             this.focusLocation = { type: "ticker", location: "handler" },
             this._closeAddExpression();
           break;
         case "close-ticker":
-          this.listModel.ticker.open = !1,
-            this.listModel.ticker.playing = !1,
+          this.listModel.ticker.open = false,
+            this.listModel.ticker.playing = false,
             this.listModel.ticker.minStepLatex = "",
             this.listModel.ticker.handlerLatex = "";
           break;
@@ -102838,17 +102838,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "mark-too-complex-for-gl": {
           for (let x of e.errors) {
             let L = this.getItemModel(x);
-            L && L.type === "expression" && (L.expressionTooComplex = !0);
+            L && L.type === "expression" && (L.expressionTooComplex = true);
           }
           for (let x of e.fixed) {
             let L = this.getItemModel(x);
-            L && L.type === "expression" && (L.expressionTooComplex = !1);
+            L && L.type === "expression" && (L.expressionTooComplex = false);
           }
           break;
         }
         case "update-legacy-random-seed-behavior": {
-          this.setIncludeFunctionParametersInRandomSeed(!0),
-            this.setState(this.getState(), { allowUndo: !0 });
+          this.setIncludeFunctionParametersInRandomSeed(true),
+            this.setState(this.getState(), { allowUndo: true });
           break;
         }
         case "add-poi-expression": {
@@ -102860,7 +102860,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             latex: e.latex,
             color: x,
           });
-          this.setEditListMode(!1), ol(this.listModel, L), bi(this, L.id);
+          this.setEditListMode(false), ol(this.listModel, L), bi(this, L.id);
           break;
         }
         case "create-table-regression": {
@@ -102881,7 +102881,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               id: this.generateId(),
               color: this.getNextColor(),
               lineStyle: "SOLID",
-              hidden: !1,
+              hidden: false,
               isLogMode: this.areLogModeRegressionsDefault() ||
                 this.areLogModeRegressionsForced(),
               residualVariable: void 0,
@@ -102938,7 +102938,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     switchAxisScale(e, t) {
       var i;
       if (!t || t === this.graphSettings[e]) return;
-      this.graphSettings.setProperty("polarMode", !1);
+      this.graphSettings.setProperty("polarMode", false);
       let o;
       this.getAllItemModels().forEach((n) => {
         if (this.isExpressionZoomFit(n)) {
@@ -102951,9 +102951,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         i.getProjection().updateScalePairs(),
         !(o &&
           this._expressionZoomFit(o, {
-            focusAfterTap: !1,
-            synchronous: !0,
-            justResiduals: !1,
+            focusAfterTap: false,
+            synchronous: true,
+            justResiduals: false,
           })) && this.enforceAxisLimitsForScale(e);
     }
     enforceAxisLimitsForScale(e) {
@@ -103040,7 +103040,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           a = AU(t);
           break;
       }
-      if (n && this.setEditListMode(!1), !o || !a) {
+      if (n && this.setEditListMode(false), !o || !a) {
         this._showToast({
           message: this.s(
             "graphing-calculator-text-table-creation-error",
@@ -103076,15 +103076,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let p = t.formula.function_definition;
           for (; this.isBaseCaseItem(d, p);) d++;
         }
-        this._toplevelInsertItemAt(d, l, !0, t.folderId);
-      } else this._toplevelReplaceItemAt(t.index, l, !0);
+        this._toplevelInsertItemAt(d, l, true, t.folderId);
+      } else this._toplevelReplaceItemAt(t.index, l, true);
       let c = () => {
         this.dispatch({ type: "undo" }),
           n &&
           this.dispatch({
             type: "set-edit-list-mode",
-            isEditListMode: !0,
-            focusExpressionList: !1,
+            isEditListMode: true,
+            focusExpressionList: false,
           });
       };
       this._showToast({
@@ -103096,7 +103096,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       var i;
       let o = this.getItemModelByIndex(e);
       return !o || o.type !== "expression" || !t
-        ? !1
+        ? false
         : ((i = o.formula.recursion_base_case) == null ? void 0 : i.symbol) ===
           t;
     }
@@ -103145,7 +103145,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             folderId: n && n.id,
             color: p.color,
           });
-        s[E.id] = !0,
+        s[E.id] = true,
           n ? (_s(this.listModel, E, a), a += 1) : ol(this.listModel, E);
       }
       let l = Object.keys(s);
@@ -103158,7 +103158,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 calcId: p,
                 listIndex: void 0,
                 polygonEdge: void 0,
-              }, { describe: !1 });
+              }, { describe: false });
         });
       }
     }
@@ -103191,18 +103191,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isGeoToolVisible(
       e,
-      { ignoreAuthorMode: t } = { ignoreAuthorMode: !1 },
+      { ignoreAuthorMode: t } = { ignoreAuthorMode: false },
     ) {
       return !t && this.shouldShowAuthorFeatures()
-        ? !0
+        ? true
         : Tg(this.geometryToolbarModel, e);
     }
     isGeoToolEnabled(
       e,
-      { ignoreAuthorMode: t } = { ignoreAuthorMode: !1 },
+      { ignoreAuthorMode: t } = { ignoreAuthorMode: false },
     ) {
       return !t && this.shouldShowAuthorFeatures()
-        ? !0
+        ? true
         : $f(this.geometryToolbarModel, e);
     }
     setGeoTool(e) {
@@ -103228,7 +103228,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.toolPreviewJSONState = e;
       let t = this.listModel.__toolPreviewIdToModel;
       this.listModel.__toolPreviewIdToModel = {};
-      let o = lV(e, { isBeingCommitted: !1 });
+      let o = lV(e, { isBeingCommitted: false });
       for (let n in e) {
         let a = e[n], s = o[n];
         if (!s || s.type !== "assignment") continue;
@@ -103250,7 +103250,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               ? this.getSelectedItem()
               : void 0,
             d = (c == null ? void 0 : c.type) === "expression"
-              ? Mw(c, { stripDefaults: !0 })
+              ? Mw(c, { stripDefaults: true })
               : void 0;
           l = zE({
             ...d,
@@ -103283,7 +103283,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     isItemInGeoFolder(e) {
       let t = this.getItemModel(e);
       return !t || t.type === "folder"
-        ? !1
+        ? false
         : t.folderId === __dcg_shared_module_exports__["xd"];
     }
     isGeoFolder(e) {
@@ -103295,7 +103295,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     pauseAllSliders() {
       this.getPlayingSliders().forEach((e) => {
-        As(e, !1);
+        As(e, false);
       });
     }
     countGlobalIdentifierOccurences(e) {
@@ -103314,9 +103314,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (
           (t == null ? void 0 : t.type) === "expression" &&
             t.id === i.id || Hq(i)
-        ) return !0;
+        ) return true;
       }
-      return !1;
+      return false;
     }
     getItemsByIdentifier(e) {
       return Nu(this.listModel, e);
@@ -103325,9 +103325,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let e = this.getAllSelectedItems();
       for (let t = 0; t < e.length; t++) {
         let o = e[t];
-        if (o.type === "expression" && mc(o)) return !0;
+        if (o.type === "expression" && mc(o)) return true;
       }
-      return !1;
+      return false;
     }
     toggleLabelForAllSelectedObjects() {
       let e = [], t = [];
@@ -103359,19 +103359,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 c = l > 0 ? l + "" : "";
               yd(n, s + c);
             }
-            Ku(n, !0);
+            Ku(n, true);
           });
       } else if (t === "measurement") {
-        for (let i of e) yd(i, ""), Ku(i, !0);
+        for (let i of e) yd(i, ""), Ku(i, true);
       } else if (t === "none") {
-        for (let i of e) o.test(i.label) && yd(i, ""), Ku(i, !1);
+        for (let i of e) o.test(i.label) && yd(i, ""), Ku(i, false);
       }
     }
     updateLatexForIdentifier(e, t) {
       let o = Nu(this.listModel, e);
       if (o.length === 1) {
         let i = o[0];
-        i.slider.isPlaying ? (As(i, !1), $a(i, t), As(i, !0)) : $a(i, t);
+        i.slider.isPlaying ? (As(i, false), $a(i, t), As(i, true)) : $a(i, t);
       }
     }
     updateExpressionSearchStr(e) {
@@ -103388,7 +103388,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ),
             this.updateExpressionReplaceStr(i[1]))
           : (this.expressionSearchStr = i[0],
-            this.isExpressionSearchStrValidForReplace = !1,
+            this.isExpressionSearchStrValidForReplace = false,
             this.updateExpressionReplaceStr(""));
         let n = z4(this.listModel, this.getExpressionSearchStr());
         this.expressionSearchCount = this.expressionSearchOpen ? n : 0;
@@ -103396,14 +103396,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           e.length > 1 && "rename".indexOf(e) === 0
             ? ""
             : e,
-          this.isExpressionSearchStrValidForReplace = !1,
+          this.isExpressionSearchStrValidForReplace = false,
           this.updateExpressionReplaceStr(""),
           this.filterItemsBySearch();}
     }
     closeExpressionsSearch() {
       var o;
       if (
-        this.expressionSearchOpen = !1,
+        this.expressionSearchOpen = false,
           this.updateExpressionSearchStr(""),
           ((o = this.getFocusLocation()) == null ? void 0 : o.type) ===
             "ticker"
@@ -103414,7 +103414,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         e && this.getSelectedItem() && !this.getFocusedItem() &&
         bi(this, e.id, "end"),
         (e || t) &&
-        (this.shouldScrollSelectedItemIntoViewAfterDispatch = !0);
+        (this.shouldScrollSelectedItemIntoViewAfterDispatch = true);
     }
     filterItemsBySearch() {
       if (!this.getExpressionReplaceStr()) {
@@ -103607,7 +103607,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           var k;
           let S = (k = pi(w)) == null ? void 0 : k.identifier;
           S && (S[0] === "$" || w.formula.geometry) && S &&
-            (o[S] ? o[S].multiple = !0 : o[S] = { model: w, multiple: !1 });
+            (o[S] ? o[S].multiple = true : o[S] = { model: w, multiple: false });
         };
       for (let w of this.getAllToolPreviewItems()) bL(w), i(w);
       for (let w of this.getAllItemModels()) {
@@ -103638,18 +103638,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           _ = "blue",
           A = "unknown",
           P = "unknown",
-          O = !1,
-          U = !1,
-          z = !1,
+          O = false,
+          U = false,
+          z = false,
           x = Hi(k);
         !S && k
           ? (_ = Fu(k),
             O = Bq(k),
             P = qq(k),
             A = fL(k),
-            k.error && (U = !0, _ = "#"))
-          : (A = "error", U = !0),
-          A && k ? this.isItemSelected(k.id) && (z = !0) : U = !0;
+            k.error && (U = true, _ = "#"))
+          : (A = "error", U = true),
+          A && k ? this.isItemSelected(k.id) && (z = true) : U = true;
         let L = (k == null ? void 0 : k.label) || "";
         this.cachedGeoTokenInfo[w] = {
           groupType: A,
@@ -103712,7 +103712,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.isKeypadOpen() ||
         (this.layoutModel = {
           ...this.layoutModel,
-          keypadFunctionsOpen: !1,
+          keypadFunctionsOpen: false,
         }),
         yq(this.listModel),
         this.isGeometry() && l && l.type === "expression"
@@ -103808,7 +103808,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (this.isItemReadonly(n)) i.add(n);
         else {
           let a = Ag(this.listModel, n);
-          for (let s of a) t[s.id] || (t[s.id] = !0, o.push(s));
+          for (let s of a) t[s.id] || (t[s.id] = true, o.push(s));
         }
       }),
         { deletedItems: o, readonlyItemsNotDeleted: i.size };
@@ -103869,9 +103869,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     }
     tryInsertTokenIntoMathquill(e, t) {
-      if (!this.isGeometry() || !e) return !1;
+      if (!this.isGeometry() || !e) return false;
       let o = this.getItemModel(e);
-      if (!o || o.type !== "expression") return !1;
+      if (!o || o.type !== "expression") return false;
       let i = o.formula.typed_constant_value;
       t === 0 &&
         (!i || !__dcg_shared_module_exports__["wb"](i.valueType)) &&
@@ -103880,39 +103880,39 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (
         s ? a = __dcg_shared_module_exports__["ma"](s) : o.formula.geometry &&
           (a = this.getAutonameLatexForExpression(o), n = a), !a
-      ) return !1;
+      ) return false;
       t !== void 0 && (a += "\\left[" + (t + 1) + "\\right]");
       let l = this.getFocusLocation();
       return !l ||
           !this.seemsLikeInsertingTokenWillImproveThings(
             i == null ? void 0 : i.valueType,
           )
-        ? !1
+        ? false
         : l.type === "expression"
         ? (n &&
           (Ro(o) === "NONE" && o.dragMode === "AUTO" && Mg(o, "NONE"),
             $a(o, n + "=" + o.latex)),
           this.writeIdentifierIntoCurrentMathquill(a),
-          !0)
-        : !1;
+          true)
+        : false;
     }
     seemsLikeInsertingTokenWillImproveThings(e) {
       let t = this.getValidCursorContext();
       if (t) {
-        if (!e) return !1;
+        if (!e) return false;
         let o = __dcg_shared_module_exports__["wb"](e)
           ? __dcg_shared_module_exports__["xb"](e)
           : e;
         return t.type === "empty" &&
             __dcg_shared_module_exports__["yb"](o)
-          ? !1
+          ? false
           : (t.type === "expression-arguments"
             ? t.allowedTypesForInsertedArg
             : t.allowedTypes).some((n) =>
               __dcg_shared_module_exports__["ua"](o, n)
             );
       }
-      return !1;
+      return false;
     }
     writeIdentifierIntoCurrentMathquill(e) {
       this.runAfterDispatch(() => {
@@ -103929,7 +103929,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ? n = ","
             : (i == null ? void 0 : i.positionWithinArg) === "start" &&
               (a = ","));
-        let s = `${n}${e}${a}`, l = !1;
+        let s = `${n}${e}${a}`, l = false;
         if (
           (i == null ? void 0 : i.type) === "expression-arguments" &&
           i.polygonVertices
@@ -103937,7 +103937,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let { argIndex: c, polygonVertices: d, positionWithinArg: p } = i;
           (e === d.firstLatex || e === d.lastLatex) &&
             (p === "end" || p === "start-to-end") &&
-            c === i.argCount - 1 && (s = "", l = !0);
+            c === i.argCount - 1 && (s = "", l = true);
         } else {(i == null ? void 0 : i.type) ===
               "expression-arguments" && (l = i.isLastValidArg);}
         Fe.canAcceptText(t, this.getCapExpressionSize(), s) &&
@@ -103956,7 +103956,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.__lastSelectedIdsForPropagation;
     }
     areParsableObjectsEqual(e, t) {
-      return e === t ? !0 : __dcg_shared_module_exports__["E"]({
+      return e === t ? true : __dcg_shared_module_exports__["E"]({
         ...e,
         regressionParameters: void 0,
       }, { ...t, regressionParameters: void 0 });
@@ -104078,12 +104078,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return t ||
         (t = {
           iconType: "unknown",
-          isList: !1,
-          hasError: !0,
-          isSelected: !1,
+          isList: false,
+          hasError: true,
+          isSelected: false,
           groupType: "unknown",
           color: "",
-          isHidden: !1,
+          isHidden: false,
           label: "",
           calcId: "",
         }),
@@ -104186,10 +104186,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     }
     isExpressionZoomFit(e) {
-      if (this.isThreeDMode()) return !1;
+      if (this.isThreeDMode()) return false;
       let t = this.getBoundingBoxesForZoomFit(e),
         o = this.get2dProjection();
-      return !o || !t ? !1 : !eA(t, o) && !!c1(t, o);
+      return !o || !t ? false : !eA(t, o) && !!c1(t, o);
     }
     viewportIsLocked() {
       return this.getLockViewportConfigSetting() ||
@@ -104198,7 +104198,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     showExpressionZoomFitButton(e) {
       if (
         this.viewportIsLocked() || this.isGeometry() || this.is3dProduct()
-      ) return !1;
+      ) return false;
       let t = this.getBoundingBoxesForZoomFit(e),
         o = this.get2dProjection();
       return !!(o && t && eA(t, o));
@@ -104206,7 +104206,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     showResidualsZoomFitButton(e) {
       if (
         this.viewportIsLocked() || this.isGeometry() || this.is3dProduct()
-      ) return !1;
+      ) return false;
       let t = this.getBoundingBoxForResidualsZoomFit(e),
         o = this.get2dProjection();
       return !!(o && t && eA(t, o));
@@ -104310,13 +104310,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isItemSecret(e) {
       let t = this.getItemModel(e);
-      return t ? Xf(t) : !1;
+      return t ? Xf(t) : false;
     }
     isItemMarkedReadonly(e) {
       let t = this.getItemModel(e);
       return t
-        ? !this.isListEnabled() && !this.isItemInGeoFolder(e) ? !0 : R4(t)
-        : !1;
+        ? !this.isListEnabled() && !this.isItemInGeoFolder(e) ? true : R4(t)
+        : false;
     }
     isItemReadonly(e) {
       return this.isItemMarkedReadonly(e) &&
@@ -104343,7 +104343,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isItemSelectable(e) {
       let t = this.getItemModel(e);
-      return t ? tb(t) : !1;
+      return t ? tb(t) : false;
     }
     anyItemDependsOnRandomSeed() {
       return hq(this.listModel);
@@ -104380,15 +104380,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     canAudioTrace() {
       let e = this.getAudioGraph();
-      return e ? e.canAudioTraceCurrentExp() : !1;
+      return e ? e.canAudioTraceCurrentExp() : false;
     }
     isAudioTracing() {
       let e = this.getAudioGraph();
-      return e ? e.isAudioTracing() : !1;
+      return e ? e.isAudioTracing() : false;
     }
     expressionsAreFullWidth() {
       return this.isNarrow() ||
-        this.graphSettings.config.graphpaper === !1;
+        this.graphSettings.config.graphpaper === false;
     }
     getExpListWidthString() {
       return this.expressionsAreFullWidth()
@@ -104423,8 +104423,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ) return;
       this.lastInfiniteScrollFirstDOM = o,
         this.lastInfiniteScrollLastDOM = i,
-        this.hasDispatchSinceLastInfiniteScrollUpdate = !1;
-      let n = !1,
+        this.hasDispatchSinceLastInfiniteScrollUpdate = false;
+      let n = false,
         a = e ? e.index : 1 / 0,
         s = t ? t.index : 1 / 0,
         l = this.listModel.dragState &&
@@ -104440,9 +104440,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let h = (p.index < a || p.index > s || p.isHiddenFromUI) &&
           !(p.type === "expression" && p.sliderDragging);
         if (
-          l == p.id && (h = !1),
-            c === p.id && (h = !1),
-            p.renderShell !== h && (p.renderShell = h, n = !0, h)
+          l == p.id && (h = false),
+            c === p.id && (h = false),
+            p.renderShell !== h && (p.renderShell = h, n = true, h)
         ) {
           let u = this.getItemRootNodeById(p.id);
           if (u) {
@@ -104455,18 +104455,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     updateRenderShellsBeforePaint() {
       if (
-        this.hasDispatchSinceLastInfiniteScrollUpdate = !0, this.inPrintMode
+        this.hasDispatchSinceLastInfiniteScrollUpdate = true, this.inPrintMode
       ) {
-        for (let t of this.getAllItemModels()) t.renderShell = !1;
+        for (let t of this.getAllItemModels()) t.renderShell = false;
         return;
       }
       for (let t of this.getAllItemModels()) {
-        t.isHiddenFromUI && (t.renderShell = !0),
+        t.isHiddenFromUI && (t.renderShell = true),
           t.type === "expression" && t.sliderDragging &&
-          (t.renderShell = !1);
+          (t.renderShell = false);
       }
       let e = this.getSelectedItem();
-      e && !this.isGeoItem(e.id) && (e.renderShell = !1);
+      e && !this.isGeoItem(e.id) && (e.renderShell = false);
     }
     updateDragDrop() {
       let e = this.listModel.dragState;
@@ -104492,7 +104492,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     stopAllSliders() {
       for (let e of this.getAllItemModels()) {
-        e.type === "expression" && e.slider.isPlaying && As(e, !1);
+        e.type === "expression" && e.slider.isPlaying && As(e, false);
       }
     }
     getPlayingSliders() {
@@ -104686,11 +104686,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     shouldShowEvaluationForItem(e) {
       let t = this.getItemModel(e);
-      return !t || t.type !== "expression" ? !1 : lL(t);
+      return !t || t.type !== "expression" ? false : lL(t);
     }
     shouldShowCDFEvaluationForItem(e) {
       let t = this.getItemModel(e);
-      return !t || t.type !== "expression" ? !1 : JE(t);
+      return !t || t.type !== "expression" ? false : JE(t);
     }
     getEvaluationValueForItem(e) {
       let t = this.getItemModel(e);
@@ -104706,16 +104706,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     }
     canDisplayEvaluationForItemAsFraction(e) {
-      if (!this.isDecimalToFractionEnabled()) return !1;
+      if (!this.isDecimalToFractionEnabled()) return false;
       let t = this.getItemModel(e);
-      if (!t || t.type !== "expression" || qw(t)) return !1;
+      if (!t || t.type !== "expression" || qw(t)) return false;
       let o = this.getEvaluationValueForItem(e);
-      return typeof o != "number" ? !1 : __dcg_shared_module_exports__["ia"](o);
+      return typeof o != "number" ? false : __dcg_shared_module_exports__["ia"](o);
     }
     shouldEvaluationForItemDisplayAsFraction(e) {
-      if (!this.isDecimalToFractionEnabled()) return !1;
+      if (!this.isDecimalToFractionEnabled()) return false;
       let t = this.getItemModel(e);
-      return !t || t.type !== "expression" ? !1 : Hu(t);
+      return !t || t.type !== "expression" ? false : Hu(t);
     }
     getEvaluationLabelOptionsForItem(e) {
       return {
@@ -104736,12 +104736,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         !!this.graphSettings.config.authorMode;
     }
     shouldIgnoreGraphInteractions(e) {
-      return this.shouldShowAuthorFeatures() ? !1 : Ds(e);
+      return this.shouldShowAuthorFeatures() ? false : Ds(e);
     }
     toolWillBeHiddenOrDisabled(e) {
       return this.shouldShowAuthorFeatures() &&
-        (!this.isGeoToolVisible(e, { ignoreAuthorMode: !0 }) ||
-          !this.isGeoToolEnabled(e, { ignoreAuthorMode: !0 }));
+        (!this.isGeoToolVisible(e, { ignoreAuthorMode: true }) ||
+          !this.isGeoToolEnabled(e, { ignoreAuthorMode: true }));
     }
     setAuthorMode(e) {
       this.graphSettings.config.setProperty("authorMode", e);
@@ -104793,7 +104793,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     setAllRegressionsToLogMode() {
       for (let e of this.getAllItemModels()) {
         e.type === "expression" && e.formula && e.formula.is_regression &&
-          yL(e, !0);
+          yL(e, true);
       }
     }
     isGraphSettingsOpen() {
@@ -104803,25 +104803,25 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.layoutModel.addExpressionOpen;
     }
     shouldRenderList() {
-      if (this.layoutModel.expressionsVisible) return !0;
+      if (this.layoutModel.expressionsVisible) return true;
       let e = this.layoutModel.expressionsHiddenTime;
-      return e === void 0 ? !1 : Date.now() - e <= 500;
+      return e === void 0 ? false : Date.now() - e <= 500;
     }
     isListVisible() {
       return this.layoutModel.expressionsVisible;
     }
     isGrapherEnabled() {
-      return this.graphSettings.config.graphpaper !== !1;
+      return this.graphSettings.config.graphpaper !== false;
     }
     isListEnabled() {
-      return this.graphSettings.config.expressions !== !1;
+      return this.graphSettings.config.expressions !== false;
     }
     areDistributionsEnabled() {
-      return this.graphSettings.config.distributions === !0;
+      return this.graphSettings.config.distributions === true;
     }
     isExpressionListFocused() {
       let e = this.getFocusLocation();
-      if (!e) return !1;
+      if (!e) return false;
       switch (e.type) {
         case "settings":
         case "generic-menu":
@@ -104849,7 +104849,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "global-mute-button":
         case "color-picker-option":
         case "multi-select-label-menu-label-input":
-          return !1;
+          return false;
         case "distribution-param":
         case "cdf-limit":
         case "slider-limit":
@@ -104889,15 +104889,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "hide-expression-list-btn":
         case "show-expression-list-btn":
         case "top-level-icon":
-          return !0;
+          return true;
         default:
           return e;
       }
     }
     needsFakeKeypad() {
-      if (this.inAudioTraceMode() && this.isKeypadEnabled()) return !0;
+      if (this.inAudioTraceMode() && this.isKeypadEnabled()) return true;
       let e = this.getFocusLocation();
-      if (!e || this.getBrailleMode() !== "none" && os()) return !1;
+      if (!e || this.getBrailleMode() !== "none" && os()) return false;
       switch (e.type) {
         case "settings":
           return rj(e.location);
@@ -104911,7 +104911,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "search-expressions":
         case "replace-expressions":
         case "ticker":
-          return !0;
+          return true;
         case "expression-menu":
           return e.location === "opacity" || e.location === "linewidth" ||
             e.location === "lineopacity" ||
@@ -104919,13 +104919,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             e.location === "labelsize" || e.location === "labelangle" ||
             e.location === "updaterule";
         case "table": {
-          if (this.isInEditListMode()) return !1;
+          if (this.isInEditListMode()) return false;
           let o = e.location;
-          if (o.row === 0) return !0;
+          if (o.row === 0) return true;
           let i = this.getItemModel(e.id);
-          if (!i || i.type !== "table") return !1;
+          if (!i || i.type !== "table") return false;
           let n = i.columnModels[o.column];
-          return n ? !Uf(n) : !1;
+          return n ? !Uf(n) : false;
         }
         case "image":
           return e.location !== "name";
@@ -104969,7 +104969,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "global-mute-button":
         case "color-picker-option":
         case "multi-select-label-menu-label-input":
-          return !1;
+          return false;
         case "expression-icon":
         case "expression-evaluation":
         case "image-icon":
@@ -104980,7 +104980,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "table-icon":
         case "table-regression-icon":
         case "top-level-icon":
-          return !1;
+          return false;
         case "editable-label":
           return this.getItemEditableLabelMode(e.id) === "MATH";
         default:
@@ -104988,7 +104988,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     }
     isIdentifierRenameValid(e) {
-      return ya(e) ? !B4(this.listModel, e) : !1;
+      return ya(e) ? !B4(this.listModel, e) : false;
     }
     getBrandingMode() {
       return this.getEditLink()
@@ -105007,21 +105007,21 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         !this.isZoomFitEnabled() || !o ||
         o.type !== "expression" && o.type !== "table" ||
         (!o.boundingBoxes || !o.boundingBoxes.length) && !t.justResiduals
-      ) return !1;
+      ) return false;
       let i = this.grapher2d.viewportController;
-      if (!("zoomCustom" in i)) return !1;
+      if (!("zoomCustom" in i)) return false;
       let n = o.boundingBoxes;
       if (t.justResiduals) {
         let s = this.getBoundingBoxForResidualsZoomFit(o);
         s !== void 0 && (n = s);
       }
-      if (n === void 0) return !1;
+      if (n === void 0) return false;
       let a = c1(n, i.getProjection());
       return a
         ? (t.synchronous ? i.setViewport(Br.fromObject(a)) : i.zoomCustom(a),
           t.focusAfterTap && qr(this, { type: "zoom-restore-btn" }),
-          !0)
-        : !1;
+          true)
+        : false;
     }
     _deleteItemAndAnimateOut(e, t) {
       let i = this.getItemNodeById(e);
@@ -105091,7 +105091,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         (Nr(this.listModel, void 0),
           this.layoutModel = {
             ...this.layoutModel,
-            expressionsVisible: !1,
+            expressionsVisible: false,
             expressionsHiddenTime: Date.now(),
           },
           e ? qr(this, { type: "show-expression-list-btn" }) : Jr());
@@ -105100,7 +105100,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.graphSettings.config.expressions &&
         (this.layoutModel = {
           ...this.layoutModel,
-          expressionsVisible: !0,
+          expressionsVisible: true,
         },
           e ? qr(this, { type: "hide-expression-list-btn" }) : Jr());
     }
@@ -105120,7 +105120,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (o.type === "table" && t.columns) {
           t = __dcg_shared_module_exports__["Jc"](t);
           let i = cz(o, t), n = Qf(this.listModel, i);
-          this._toplevelReplaceItemAt(o.index, n, !1);
+          this._toplevelReplaceItemAt(o.index, n, false);
         } else if (o.type === "text") {
           let i = this.getItemModel(e);
           if (!i) return;
@@ -105377,13 +105377,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     _isParentFolderHidden(e) {
       let t = this.getItemModel(e);
-      if (!t) return !1;
+      if (!t) return false;
       let o = Ca(t);
-      return o ? o.hidden : !1;
+      return o ? o.hidden : false;
     }
     _toggleItemHidden(e) {
       var t;
-      if (this._isParentFolderHidden(e)) this._setItemHidden(e, !1);
+      if (this._isParentFolderHidden(e)) this._setItemHidden(e, false);
       else {
         let o = this.getItemModel(e);
         if (!o) return;
@@ -105412,7 +105412,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     _toggleTableColumnHidden(e, t) {
       if (this._isParentFolderHidden(e)) {
-        this._setTableColumnHidden(e, t, !1);
+        this._setTableColumnHidden(e, t, false);
       } else {
         let o = this.getItemModel(e);
         if (!o || o.type !== "table") return;
@@ -105426,15 +105426,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (!i || i.type !== "table") return;
       let n = cE(i, t);
       !o && this._isParentFolderHidden(e) &&
-      this._setItemHidden(i.folderId, !1),
+      this._setItemHidden(i.folderId, false),
         yz(i, t, o),
-        !o && n && NG(i, t, !0);
+        !o && n && NG(i, t, true);
     }
     _setItemHidden(e, t) {
       let o = this.getItemModel(e);
       if (!o) return;
       !t && o.type !== "folder" && this._isParentFolderHidden(o.id) &&
-        this._setItemHidden(o.folderId, !1);
+        this._setItemHidden(o.folderId, false);
       let i;
       switch (o.type) {
         case "expression": {
@@ -105469,7 +105469,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       ib(this.listModel, t.index), ol(this.listModel, e);
     }
     copyExpressionToIndex(e, t, o) {
-      let i = { stripDefaults: !1 }, n;
+      let i = { stripDefaults: false }, n;
       switch (e.type) {
         case "expression":
           n = Mw(e, i);
@@ -105501,7 +105501,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           return;
       }
       let a = this.createItemModel({ ...n, id: this.generateId() });
-      this._toplevelInsertItemAt(t, a, !1, o || e.folderId);
+      this._toplevelInsertItemAt(t, a, false, o || e.folderId);
     }
     _toplevelInsertItemAt(e, t, o, i) {
       let n = t;
@@ -105599,7 +105599,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let o = OE(this.listModel),
         i = FG(o, e, this),
         n = this.createItemModel(i);
-      this._toplevelNewItemAtSelection(n, { shouldFocus: !0 }),
+      this._toplevelNewItemAtSelection(n, { shouldFocus: true }),
         this._closeAddExpression();
       let a = t.getProjection(),
         s = a.viewport,
@@ -105644,7 +105644,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     _insertSeveralExpressions(e) {
       for (let t = 0; t < e.length; t++) {
         let o = this.createItemModel(e[t]);
-        this._toplevelNewItemAtSelection(o, { shouldFocus: !0 });
+        this._toplevelNewItemAtSelection(o, { shouldFocus: true });
       }
     }
     _appendNumberList(e) {
@@ -105656,7 +105656,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             id: this.generateId(),
             latex: o + e,
           });
-        return this._toplevelReplaceItemAt(t.index, i, !0);
+        return this._toplevelReplaceItemAt(t.index, i, true);
       }
     }
     _openOnWeb() {
@@ -105747,13 +105747,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           type: "expression",
           latex: s + "=" + n,
           dragMode: "XY",
-          hidden: !0,
+          hidden: true,
         });
       _s(this.listModel, l, i),
         o && _n(l, o),
         ks(t, "center", s),
-        KG(t, !0),
-        WG(t, !0);
+        KG(t, true),
+        WG(t, true);
     }
     createSlidersForItem(e, t) {
       let o = this.getItemModel(e);
@@ -105768,9 +105768,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     createSlidersForTicker(e) {
       return this.createSliders({
         model: this.listModel.ticker,
-        folderId: !1,
+        folderId: false,
         index: 0,
-        doNotChangeFocus: !0,
+        doNotChangeFocus: true,
       }, e);
     }
     createSliders(
@@ -105806,11 +105806,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           return h &&
             (h.min !== void 0 &&
               (C.slider || (C.slider = {}),
-                C.slider.hardMin = !0,
+                C.slider.hardMin = true,
                 C.slider.min = h.min),
               h.max !== void 0 &&
               (C.slider || (C.slider = {}),
-                C.slider.hardMax = !0,
+                C.slider.hardMax = true,
                 C.slider.max = h.max),
               h.step !== void 0 &&
               (C.slider || (C.slider = {}), C.slider.step = h.step)),
@@ -105844,7 +105844,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       let i = d4({ controller: this, files: t, id: o }), n = i.errors[0];
       n && this._showToast({ message: n });
-      for (let a of i.tokens) this.__pendingImageUploads[a] = !0;
+      for (let a of i.tokens) this.__pendingImageUploads[a] = true;
       this.isUploadingImages() &&
         this._showToast({
           message: this.s(
@@ -105895,7 +105895,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isItemSettingsMenuOpen(e) {
       let t = this.listModel.openItemMenu;
-      return t ? t.guid === e : !1;
+      return t ? t.guid === e : false;
     }
     closeItemSettingsMenu() {
       let e = this.getOpenItemMenu();
@@ -105974,12 +105974,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isFocusLocationFocused(e) {
       let t = this.focusLocation, o = e;
-      return !t || !o ? !1 : __dcg_shared_module_exports__["E"](t, o);
+      return !t || !o ? false : __dcg_shared_module_exports__["E"](t, o);
     }
     isCurrentFocusLocationValid() {
       var i;
       let e = this.focusLocation;
-      if (!e) return !0;
+      if (!e) return true;
       if (e.type === "settings") {
         return e.location === "icon" || this.isGraphSettingsOpen();
       }
@@ -106008,7 +106008,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.areImagesEnabled();
       }
       if (e.type === "zoom-in-btn" || e.type === "zoom-restore-btn") {
-        return !0;
+        return true;
       }
       if (
         e.type === "search-expressions" ||
@@ -106069,13 +106069,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return !!((i = this.toneController) != null &&
           i.someExpressionsShouldPlayTones());
       }
-      if (e.type === "color-picker-option") return !0;
+      if (e.type === "color-picker-option") return true;
       let o;
       if (
         t && t.type === "table-column"
           ? o = t.model.table
           : o = this.getItemModel(e.id), !o
-      ) return !1;
+      ) return false;
       if (e.type === "change-image-btn") {
         return this.listModel && o.type === "image" &&
           this.areImagesEnabled();
@@ -106086,15 +106086,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           !n ||
           (n.type === "expression" || n.type === "image" ||
               n.type === "table-column") && n.model.id !== e.id
-        ) return !1;
+        ) return false;
         if (
           e.location === "start" || e.location === "end" ||
           e.location === "updaterule" || e.location === "anywhere" ||
           o.type === "table"
-        ) return !0;
-        if (o.type !== "expression") return !1;
+        ) return true;
+        if (o.type !== "expression") return false;
         let { points: a, lines: s, fill: l } = o;
-        wd(o) && (l = !0);
+        wd(o) && (l = true);
         let c = __dcg_shared_module_exports__["Zc"](
           o.formula.expression_type,
           { points: a, lines: s, fill: l },
@@ -106121,14 +106121,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           !!o.regression;
       }
       if (!this.isItemSelected(e.id) && e.type !== "editable-label") {
-        return !1;
+        return false;
       }
       switch (e.type) {
         case "domain-limit":
           return !(o.type !== "expression" || !Wu(o) && !Dp(o));
         case "expression-icon":
         case "top-level-icon":
-          return !0;
+          return true;
         case "expression-evaluation":
           return this.shouldShowEvaluationForItem(o.id) ||
             this.shouldShowCDFEvaluationForItem(o.id);
@@ -106151,11 +106151,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         case "visualization-prop":
           return !(o.type !== "expression" || !pT(o));
         case "distribution-param":
-          if (o.type !== "expression") return !1;
+          if (o.type !== "expression") return false;
           let n = sl(o);
-          return n ? e.location in n.values : !1;
+          return n ? e.location in n.values : false;
         case "cdf-limit":
-          return o.type !== "expression" ? !1 : vd(o);
+          return o.type !== "expression" ? false : vd(o);
         case "image":
           return o.type === "image";
         case "folder":
@@ -106169,11 +106169,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           return this.isItemReadonly(o.id) ||
             o.type === "expression" && this.isInEditListMode();
         case "table":
-          return o.type !== "table" ? !1 : Cz(o, e.location);
+          return o.type !== "table" ? false : Cz(o, e.location);
         case "table-container":
           return o.type === "table" && this.isInEditListMode();
         case "editable-label":
-          return o.type !== "expression" ? !1 : xb(o);
+          return o.type !== "expression" ? false : xb(o);
         default:
           return e;
       }
@@ -106191,16 +106191,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     shouldRenderDraggedItemAsToken() {
       let e = this.listModel.dragState;
-      return e ? e.renderType === "token" : !1;
+      return e ? e.renderType === "token" : false;
     }
     canDraggedItemBeMovedIntoTokenPane() {
       var i, n, a;
       let e = this.getDraggedItemId();
-      if (!e) return !1;
+      if (!e) return false;
       let t = this.getItemModel(e);
       if (
         !t || t.type !== "expression" || this.isItemMarkedReadonly(t.id)
-      ) return !1;
+      ) return false;
       let o = (i = t.formula.geometry) == null ? void 0 : i.valueType;
       return o === void 0 ||
           (n = t.formula.geometry) != null && n.unconstructable ||
@@ -106210,7 +106210,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               o,
               __dcg_shared_module_exports__["Za"],
             )
-        ? !1
+        ? false
         : !!((a = t.formula.geometry) != null && a.parentDependencies);
     }
     getDraggedItemId() {
@@ -106270,7 +106270,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     getState(e) {
       var a, s;
-      let t = { stripDefaults: !0 };
+      let t = { stripDefaults: true };
       e && e.hasOwnProperty("stripDefaults") &&
         (t.stripDefaults = !!e.stripDefaults);
       let o =
@@ -106323,7 +106323,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : this.is3dProduct()
           ? WO(e)
           : AI(e)
-        : !1;
+        : false;
     }
     getBlankState(e) {
       if (this.isGeometry()) return nf;
@@ -106333,7 +106333,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         ? t = e.degreeMode
         : t = this.graphSettings.config.clearIntoDegreeMode;
       let o = { ...Bx.graph };
-      return t && (o.degreeMode = !0), { ...Bx, graph: o };
+      return t && (o.degreeMode = true), { ...Bx, graph: o };
     }
     externalSetState(e, t) {
       var s;
@@ -106347,7 +106347,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let o = dc(e);
       !this.canEnableComplexMode() &&
         ((s = o == null ? void 0 : o.graph) != null && s.complex) &&
-        (o.graph.complex = !1, o.graph.degreeMode = e.graph.degreeMode);
+        (o.graph.complex = false, o.graph.degreeMode = e.graph.degreeMode);
       let i = this.graphSettings.config.product, n;
       if (
         !o.graph || o.graph.product === void 0
@@ -106358,7 +106358,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           `Data Error: state appears to have been saved in the '${n}' product and cannot be opened in the '${i}' product.`,
         );
       }
-      i === "geometry-calculator" && (this.showConstructionsOpen = !1),
+      i === "geometry-calculator" && (this.showConstructionsOpen = false),
         Z5 && i === "graphing-3d" && o.graph.speed3D &&
         delete o.graph.speed3D;
       let a = this.layoutModel;
@@ -106382,7 +106382,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     setState(e, t) {
       var o;
       if (
-        this.isCurrentlyDoingSetState = !0, "graph" in e && e.graph !== void 0
+        this.isCurrentlyDoingSetState = true, "graph" in e && e.graph !== void 0
       ) {
         if (
           "threeDMode" in e.graph && e.graph.threeDMode && this.grapher3d
@@ -106443,13 +106443,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     updateToState(e) {
       if (
-        this.isCurrentlyDoingRestoreState = !0,
+        this.isCurrentlyDoingRestoreState = true,
           "graph" in e &&
           (e.graph.threeDMode
             ? this.grapher3d && this.grapher3d.setGrapherState(e.graph)
             : this.grapher2d &&
               this.grapher2d.setGrapherState(e.graph, {
-                doNotClear: !0,
+                doNotClear: true,
               })),
           "expressions" in e && aq(this.listModel, e.expressions),
           e.layoutModel && (this.layoutModel = e.layoutModel),
@@ -106485,7 +106485,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.closeToast(), this.stateStack.undo();
       let e = this.stateStack.getState().fullState;
       e.wasCompleteSetState
-        ? this.setState(e, { allowUndo: !0 })
+        ? this.setState(e, { allowUndo: true })
         : this.updateToState(e), this.enqueueEvent("change", { type: "undo" });
     }
     redo() {
@@ -106493,7 +106493,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.stateStack.redo();
       let e = this.stateStack.getState().fullState;
       e.wasCompleteSetState
-        ? this.setState(e, { allowUndo: !0 })
+        ? this.setState(e, { allowUndo: true })
         : this.updateToState(e), this.enqueueEvent("change", { type: "undo" });
     }
     clearUndoRedoHistory() {
@@ -106510,7 +106510,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       e && this.runAfterDispatch(e), this.toastData = {};
     }
     _closeAddExpression() {
-      this.layoutModel = { ...this.layoutModel, addExpressionOpen: !1 };
+      this.layoutModel = { ...this.layoutModel, addExpressionOpen: false };
     }
     doesDOMHaveSize() {
       return this.layoutMeasurements.width > 0 &&
@@ -106546,7 +106546,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return !!this.graphSettings.config.keypad;
     }
     isKeypadOpen() {
-      if (!this.isKeypadEnabled()) return !1;
+      if (!this.isKeypadEnabled()) return false;
       let e = this.layoutModel.keypadMinimized && !this.isNarrow();
       return this.needsFakeKeypad() && !e;
     }
@@ -106650,7 +106650,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       switch (e) {
         case "on":
           this.runAfterDispatch(() => {
-            t.enterAudioTrace({ fromKeypad: !0 });
+            t.enterAudioTrace({ fromKeypad: true });
           });
           break;
         case "off":
@@ -106747,7 +106747,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return e
         ? !!(e.type === "graph-paper" ||
           e.type === "expression" && e.isFakeGraphFocus)
-        : !1;
+        : false;
     }
     isVirtualMouseAllowed() {
       return !(!this.isGeometry() || !this.isGraphPaperFocused() ||
@@ -106848,7 +106848,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     toneItemsExist() {
       return this.toneEnabled()
         ? this.getAllItemModels().some((e) => Is(e))
-        : !1;
+        : false;
     }
     toneAllowed() {
       return !!(this.graphSettings.config.audio &&
@@ -106874,22 +106874,22 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.adaptiveDepthPeelingInfo;
     }
     handleEvaluatorProgressUpdates() {
-      this.checkSlowAnalysis = !0, this.requestedEvaluatorRestart = !1;
+      this.checkSlowAnalysis = true, this.requestedEvaluatorRestart = false;
     }
     clearSlowEvaluatorTracking() {
       this.expressionActionsToRestartIfSlow = [],
-        this.checkSlowAnalysis = !1,
-        this.requestedEvaluatorRestart = !1;
+        this.checkSlowAnalysis = false,
+        this.requestedEvaluatorRestart = false;
     }
     handlePossiblySlowEvaluator() {
-      if (!this.isEvaluatorSlow()) return !1;
-      let e = !1;
+      if (!this.isEvaluatorSlow()) return false;
+      let e = false;
       return this.expressionActionsToRestartIfSlow.some((
           { action: t, id: o },
         ) => this.shouldRestartForAction(t, o)
         )
-        ? (this.requestEvaluatorRestart(), e = !0)
-        : this.checkSlowAnalysis && (e = !0, this.checkSlowAnalysis = !1),
+        ? (this.requestEvaluatorRestart(), e = true)
+        : this.checkSlowAnalysis && (e = true, this.checkSlowAnalysis = false),
         e;
     }
     shouldRestartForAction(e, t) {
@@ -106910,7 +106910,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     requestEvaluatorRestart() {
       this.evaluator.requestRestartWorker(),
         this.clearSlowEvaluatorTracking(),
-        this.requestedEvaluatorRestart = !0;
+        this.requestedEvaluatorRestart = true;
     }
     shouldShowProgressUpdateLegend() {
       return this.getGraphSettings().config.debugProgressUpdates &&
@@ -106940,15 +106940,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     shouldShowSliderPrompt(e) {
       let t = Ep(e);
       return t.length > 0 && t.length <= 4
-        ? !0
+        ? true
         : this.areSlidersEnabled()
         ? ab(e).length > 0
-        : !1;
+        : false;
     }
     shouldShowRegressionButton(e) {
       return this.is3dProduct() || !this.areTableRegressionsEnabled() ||
           e.type !== "table" || e.regression || e.columnModels.length < 2
-        ? !1
+        ? false
         : Cp(e.columnModels[0]) && Ru(e.columnModels[0]) &&
           e.columnModels.slice(1).some((t) => Cp(t) && Ru(t));
     }
@@ -106960,10 +106960,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let a = n.latex;
         if (!ya(a)) continue;
         let s = __dcg_shared_module_exports__["na"](a);
-        if (o.isMultiplyDefined(s, { includeRegressionExports: !0 })) {
+        if (o.isMultiplyDefined(s, { includeRegressionExports: true })) {
           let l = s.split("_")[0],
             c = o.getLastSubscriptForName(l, {
-              includeRegressionExports: !0,
+              includeRegressionExports: true,
             }),
             d = `${l}_{${c + 1}}`;
           fd(this.listModel, a, d, { limitToItem: e.id }),
@@ -106994,12 +106994,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let p = __dcg_shared_module_exports__["oe"](n),
           h = oL(this.listModel),
           u;
-        p.some((f) => h.isDefined(f, { includeRegressionExports: !1 })) &&
+        p.some((f) => h.isDefined(f, { includeRegressionExports: false })) &&
         (u = 1 +
           Math.max(
             ...p.map((f) =>
               h.getLastSubscriptForName(f, {
-                includeRegressionExports: !1,
+                includeRegressionExports: false,
               })
             ),
           )),
@@ -107026,10 +107026,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           id: this.generateId(),
           latex: Fe.normalizeLatex(n, this.getMathquillConfig({})),
           color: this.getNextColor(),
-          hidden: !1,
+          hidden: false,
         }),
         s = 1 + o.index;
-      _s(this.listModel, a, s), this.setEditListMode(!1), bi(this, a.id);
+      _s(this.listModel, a, s), this.setEditListMode(false), bi(this, a.id);
     }
     getExportedVariables() {
       return oL(this.listModel);
@@ -107060,7 +107060,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       init() {
         this.model = this.props.table(),
           this.controller = this.props.controller(),
-          this.dropdownOpen = !1;
+          this.dropdownOpen = false;
       }
       customRegressionsEnabled() {
         return this.controller.getGraphSettings().config
@@ -107074,8 +107074,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-table-regression": !0,
-                  "dcg-do-not-blur": !0,
+                  "dcg-table-regression": true,
+                  "dcg-do-not-blur": true,
                 }),
                 handleEvent: je.const("true"),
                 onKeyDown: this.bindFn(this.handleKeyDown),
@@ -107084,7 +107084,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "div",
                 {
                   class: () => ({
-                    "dcg-dropdown-row": !0,
+                    "dcg-dropdown-row": true,
                     "dcg-dropdown-row__has-column-picker": this
                       .shouldShowColumnDropdown(),
                   }),
@@ -107098,7 +107098,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     rpe("status", () => e().evaluated)({
                       error: (t) =>
                         je.createElement(Di, {
-                          instant: this.const(!0),
+                          instant: this.const(true),
                           error: () => this.controller.unpack(t().error),
                         }),
                       success: () =>
@@ -107148,7 +107148,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                                 value: (t = e().spec.color) != null ? t : "",
                               };
                             },
-                            whiteIcon: this.const(!1),
+                            whiteIcon: this.const(false),
                             foregroundColor: this.const(""),
                             iconModifier: this.const("none"),
                             backgroundOpacity: this.const(1),
@@ -107328,7 +107328,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                                   id: this.model.id,
                                   parameter: "model",
                                 }),
-                                tabbable: this.const(!1),
+                                tabbable: this.const(false),
                               }),
                             ),
                             xR(() => this.getExportErrorReason(), (t) =>
@@ -107380,7 +107380,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                                   "dcg-btn-red dcg-regression-popover__delete",
                                 ),
                                 onTap: () => {
-                                  this.setDropdownOpen(!1),
+                                  this.setDropdownOpen(false),
                                     this.controller.dispatch({
                                       type: "remove-table-regression",
                                       tableId: this.model.id,
@@ -107503,7 +107503,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         id: this.model.id,
                         parameter: "equation",
                       }),
-                      tabbable: this.const(!0),
+                      tabbable: this.const(true),
                     }),
                   ),
                   xR(() => this.getRegressionDetails(), (t) =>
@@ -107511,9 +107511,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       controller: () =>
                         this.controller,
                       model: () => this.model,
-                      hideParameters: this.const(!0),
+                      hideParameters: this.const(true),
                       regression: t,
-                      suppressRMSE: this.const(!0),
+                      suppressRMSE: this.const(true),
                       suppressLogModeCheckbox: () =>
                         !__dcg_shared_module_exports__["le"](
                           this.getRegressionType(),
@@ -107612,7 +107612,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       hasAnyNonPositiveXValues() {
         let e = this.model.regression;
-        if (!e) return !1;
+        if (!e) return false;
         let t = Eo(this.model, e.columnIds.x);
         return __dcg_shared_module_exports__["k"](
           (t == null ? void 0 : t.computedValues) || [],
@@ -107713,7 +107713,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         }];
       }
       copyToExpressionList(e) {
-        this.setDropdownOpen(!1),
+        this.setDropdownOpen(false),
           this.controller.dispatch({
             type: "export-table-regression",
             tableId: this.model.id,
@@ -107731,7 +107731,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             type: "table-regression",
             model: this.model,
             guid: this.getGuid(),
-            focusFirstOption: !0,
+            focusFirstOption: true,
           },
         });
       }
@@ -107775,7 +107775,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               type: "table-regression",
               model: this.model,
               guid: this.getGuid(),
-              focusFirstOption: !0,
+              focusFirstOption: true,
             },
           });
         }
@@ -107795,8 +107795,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "td",
           {
             class: () => ({
-              "dcg-cell": !0,
-              "dcg-do-not-blur": !0,
+              "dcg-cell": true,
+              "dcg-do-not-blur": true,
               "dcg-empty": this.isEmpty(),
               "dcg-non-editable": !!this.isDisabled(),
               "dcg-computed-cell": this.isComputed(),
@@ -107846,7 +107846,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         onBrailleKeydown: this.bindFn(
                           this.handleKeydownOnBrailleInput,
                         ),
-                        selectOnFocus: this.const(!0),
+                        selectOnFocus: this.const(true),
                         ...ui(this.props.controller()),
                       },
                       bn.createElement(Fe, {
@@ -107857,13 +107857,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         capExpressionSize: () =>
                           this.controller.getCapExpressionSize(),
                         tokenController: this.props.controller,
-                        noFadeout: this.const(!0),
+                        noFadeout: this.const(true),
                         config: this.bindFn(this.getMQConfig),
                         getAriaLabel: () => this.getAriaLabel("speech"),
                         getAriaPostLabel: this.bindFn(
                           this.getErrorMessage,
                         ),
-                        hasError: this.const(!1),
+                        hasError: this.const(false),
                         onUserPressedKey: (t, o) => this.handlePressedKey(t, o),
                         onUserChangedLatex: (t) => this.handleLatexChanged(t),
                         onExpressionSizeExceeded: () =>
@@ -107873,7 +107873,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         onFocusedChanged: this.bindFn(
                           this.handleFocusedChanged,
                         ),
-                        selectOnFocus: this.const(!0),
+                        selectOnFocus: this.const(true),
                         needsSystemKeypad: () =>
                           !this.controller.isKeypadEnabled(),
                       }),
@@ -107887,7 +107887,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       brailleAriaLabel: () => this.getAriaLabel("braille"),
                       onKeypress: (
                         t,
-                      ) => (this.handleKeydownOnReadonlyCell(t), !0),
+                      ) => (this.handleKeydownOnReadonlyCell(t), true),
                       tabbable: () => e === "tabbable",
                       focusLocation: this.const({
                         type: "table",
@@ -107981,11 +107981,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               id: this.table.id,
               key: t,
             }),
-              !0;
+              true;
           case "Esc":
-            return Jr(), !0;
+            return Jr(), true;
         }
-        return !1;
+        return false;
       }
       handleLatexChanged(e) {
         this.getValue() !== e &&
@@ -108012,9 +108012,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return !this.isDisabled() && this.shouldFocus();
       }
       isNodeWithinTableCell(e) {
-        if (!e || !e.closest(".dcg-cell")) return !1;
+        if (!e || !e.closest(".dcg-cell")) return false;
         let t = this.controller.getItemRootNodeById(this.table.id);
-        return t ? ee.contains(t, e) : !1;
+        return t ? ee.contains(t, e) : false;
       }
       handleFocusedChanged(e, t) {
         e
@@ -108171,7 +108171,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             type: "table-column",
             model: this.model,
             guid: this.getMenuGUID(),
-            focusFirstOption: !1,
+            focusFirstOption: false,
           },
         });
       }
@@ -108250,9 +108250,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "th",
           {
             class: () => ({
-              "dcg-cell": !0,
-              "dcg-table-header": !0,
-              "dcg-do-not-blur": !0,
+              "dcg-cell": true,
+              "dcg-table-header": true,
+              "dcg-do-not-blur": true,
               "dcg-left": this.model.index === 0,
               "dcg-right": this.isRightSide(),
               "dcg-selected": this.shouldFocus() && !this.table.readonly,
@@ -108296,7 +108296,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   onBrailleFocusedChanged: this.bindFn(
                     this.handleMQFocusedChanged,
                   ),
-                  selectOnFocus: this.const(!0),
+                  selectOnFocus: this.const(true),
                   onBrailleKeydown: this.bindFn(
                     this.handleKeydownOnBrailleInput,
                   ),
@@ -108310,11 +108310,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   capExpressionSize: () =>
                     this.controller.getCapExpressionSize(),
                   tokenController: this.props.controller,
-                  noFadeout: this.const(!0),
+                  noFadeout: this.const(true),
                   config: this.bindFn(this.getMQConfig),
                   getAriaLabel: () => this.getAriaLabel("speech"),
                   getAriaPostLabel: this.bindFn(this.getAriaPostLabel),
-                  hasError: this.const(!1),
+                  hasError: this.const(false),
                   onUserPressedKey: (e, t) => this.handlePressedKey(e, t),
                   onUserChangedLatex: (e) => this.handleLatexChanged(e),
                   onExpressionSizeExceeded: () =>
@@ -108324,7 +108324,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   onFocusedChanged: this.bindFn(
                     this.handleMQFocusedChanged,
                   ),
-                  selectOnFocus: this.const(!0),
+                  selectOnFocus: this.const(true),
                   needsSystemKeypad: () => !this.controller.isKeypadEnabled(),
                 }),
               )),
@@ -108341,7 +108341,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   ariaLabel: () => this.getAriaLabel("braille"),
                   onBrailleInput: (e) => this.handleLatexChanged(e),
                   tabIndex: this.const(-1),
-                  isStatic: this.const(!0),
+                  isStatic: this.const(true),
                   brailleShouldFocus: this.bindFn(
                     this.shouldFocusReadonlyCell,
                   ),
@@ -108417,7 +108417,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (
           this.model.error || this.controller.is3dProduct() ||
           this.model.suppressIcon
-        ) return !1;
+        ) return false;
         let { column: e } = this.lookupCellPosition(), t = gw(this.table);
         return e > 0 && e < t - 1;
       }
@@ -108543,9 +108543,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
       isNodeWithinTableCell(e) {
-        if (!e || !e.closest(".dcg-cell")) return !1;
+        if (!e || !e.closest(".dcg-cell")) return false;
         let t = this.controller.getItemRootNodeById(this.table.id);
-        return t ? ee.contains(t, e) : !1;
+        return t ? ee.contains(t, e) : false;
       }
       handleMQFocusedChanged(e, t) {
         e
@@ -108584,8 +108584,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-expressionitem": !0,
-              "dcg-expressiontable": !0,
+              "dcg-expressionitem": true,
+              "dcg-expressiontable": true,
               "dcg-readonly": this.controller.isItemReadonly(this.id),
               "dcg-inFolder": !!this.model.folderId,
               "dcg-selected": !!this.controller.isItemSelected(this.id),
@@ -109002,10 +109002,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         "div",
         {
           class: () => ({
-            "dcg-do-not-blur": !0,
-            "dcg-expressionitem": !0,
+            "dcg-do-not-blur": true,
+            "dcg-expressionitem": true,
             "dcg-readonly": this.controller.isItemReadonly(this.id),
-            "dcg-expressiontext": !0,
+            "dcg-expressiontext": true,
             "dcg-inFolder": !!this.model.folderId,
             "dcg-selected": !!this.controller.isItemSelected(this.id),
             "dcg-dragging": !!this.controller.isItemBeingDragged(this.id),
@@ -109115,7 +109115,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-ticker": !0,
+              "dcg-ticker": true,
               "dcg-expressions-scrolled": this.props.expsScrolled(),
             }),
           },
@@ -109161,7 +109161,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       return e ? this.controller.unpack(e) : "";
                     },
                     tokenController: this.props.controller,
-                    capExpressionSize: this.const(!1),
+                    capExpressionSize: this.const(false),
                     onUserChangedLatex: (e) =>
                       this.dispatchHandlerLatexIfChanged(e),
                     latex: () => this.getHandlerLatex(),
@@ -109173,8 +109173,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     config: () => this.getMQConfig(),
                     onFocusedChanged: (e) =>
                       this.handleFocusedChanged("handler", e),
-                    selectOnFocus: this.const(!0),
-                    noFadeout: this.const(!0),
+                    selectOnFocus: this.const(true),
+                    noFadeout: this.const(true),
                     onUserPressedKey: (e, t) => {
                       this.handlePressedKey("handler", e, t);
                     },
@@ -109232,7 +109232,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       let e = this.getMinStepErrorString();
                       return e ? this.controller.unpack(e) : "";
                     },
-                    capExpressionSize: this.const(!1),
+                    capExpressionSize: this.const(false),
                     onUserChangedLatex: (e) =>
                       this.dispatchMinStepLatexIfChanged(e),
                     latex: () => this.getMinStepLatex(),
@@ -109245,9 +109245,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     onFocusedChanged: (e) =>
                       this.handleFocusedChanged("minstep", e),
                     tokenController: this.props.controller,
-                    selectOnFocus: this.const(!0),
+                    selectOnFocus: this.const(true),
                     placeholder: this.const("0"),
-                    noFadeout: this.const(!0),
+                    noFadeout: this.const(true),
                     onUserPressedKey: (e, t) => {
                       this.handlePressedKey("minstep", e, t);
                     },
@@ -109295,7 +109295,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-circular-icon-container": !0,
+                  "dcg-circular-icon-container": true,
                   "dcg-disabled": this.iconDisabled(),
                 }),
                 "aria-label": this.bindFn(this.getIconAriaLabel),
@@ -109313,7 +109313,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               Xt.createElement($o, { iconType: this.const("metronome") }),
               Xt.createElement("div", {
                 class: () => ({
-                  "dcg-metronome-bar": !0,
+                  "dcg-metronome-bar": true,
                   "dcg-metronome-playing": this.controller.getTickerPlaying() &&
                     !this.iconDisabled(),
                 }),
@@ -109402,10 +109402,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               });
             }
             if (t === "Right") {
-              this.handleFocusedChanged("minstep", !0);
+              this.handleFocusedChanged("minstep", true);
               return;
             } else if (t === "Left") {
-              this.handleFocusedChanged("handler", !0);
+              this.handleFocusedChanged("handler", true);
               return;
             }
           }
@@ -109463,7 +109463,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       shouldShowSliderPrompt() {
         return this.controller.areSlidersEnabled()
           ? Sw(this.controller.getTicker()).length > 0
-          : !1;
+          : false;
       }
     };
   var {
@@ -109510,7 +109510,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 class: () => {
                   var e;
                   return {
-                    "dcg-exppanel-container": !0,
+                    "dcg-exppanel-container": true,
                     "dcg-add-shadow": this.controller.shouldRenderList(),
                     "dcg-global-mute-on":
                       !!((e = this.controller.toneController) != null &&
@@ -109558,8 +109558,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   "div",
                   {
                     class: () => ({
-                      "dcg-exppanel": !0,
-                      "dcg-disable-horizontal-scroll-to-cursor": !0,
+                      "dcg-exppanel": true,
+                      "dcg-disable-horizontal-scroll-to-cursor": true,
                       "dcg-isDragging": this.controller
                         .isDragDropActive(),
                       "dcg-has-background-color": this.controller
@@ -109830,7 +109830,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ),
           ),
           focusOnOpen: this.bindFn(this.optionsViewFocusLocation),
-          shouldHandleTabAndEscape: this.const(!0),
+          shouldHandleTabAndEscape: this.const(true),
           controller: this.props.controller,
         };
       }
@@ -109885,7 +109885,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           controller: this.props.controller,
           model: () => e,
           onDragPending: () => {},
-          isDragCopy: () => !1,
+          isDragCopy: () => false,
         });
       }
       computeExppanelOuterStyle() {
@@ -109904,9 +109904,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           };
       }
       makeDragCopyViewForModel(e) {
-        return this.makeViewForModel(e, !0);
+        return this.makeViewForModel(e, true);
       }
-      makeViewForModel(e, t = !1) {
+      makeViewForModel(e, t = false) {
         let o;
         if (e.type === "table") {
           o = tt.createElement(g1, {
@@ -109946,12 +109946,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           }, (i) =>
             i
               ? tt.createElement(Ad, {
-                showParentChildrenHover: this.const(!1),
+                showParentChildrenHover: this.const(false),
                 controller: this.props.controller,
                 identifier: () => this.controller.getDraggedIdentifier(),
-                insideMQ: this.const(!1),
-                insideGroup: this.const(!1),
-                putInTabOrder: () => !1,
+                insideMQ: this.const(false),
+                insideGroup: this.const(false),
+                putInTabOrder: () => false,
               })
               : tt.createElement(Wg, {
                 controller: this.props.controller,
@@ -110063,7 +110063,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   type: "expression",
                   model: i,
                   guid: i.guid,
-                  focusFirstOption: !0,
+                  focusFirstOption: true,
                   previousFocusLocation: n,
                 },
                   this.controller.dispatch({
@@ -110075,7 +110075,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     type: "slider",
                     model: i,
                     guid: "slider-" + i.guid,
-                    focusFirstOption: !0,
+                    focusFirstOption: true,
                     previousFocusLocation: n,
                   },
                     this.controller.dispatch({
@@ -110090,7 +110090,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 type: "image",
                 model: i,
                 guid: i.guid,
-                focusFirstOption: !0,
+                focusFirstOption: true,
                 previousFocusLocation: n,
               },
                 this.controller.dispatch({
@@ -110116,7 +110116,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 type: "table-column",
                 model: l,
                 guid: l.guid,
-                focusFirstOption: !0,
+                focusFirstOption: true,
                 previousFocusLocation: n,
               },
                 this.controller.dispatch({
@@ -110144,7 +110144,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.controller.dispatch({
                 type: "delete-item-and-animate-out",
                 id: i.id,
-                setFocusAfterDelete: !0,
+                setFocusAfterDelete: true,
               });
             return;
           }
@@ -110405,10 +110405,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let e = this.props.controller(),
           t = e.getAdaptiveDepthPeelingInfo();
         (t == null ? void 0 : t.status) === 1 && t.peelLayers === zy &&
-          (this.visible = !0,
+          (this.visible = true,
             clearTimeout(this.timeout),
             this.timeout = setTimeout(() => {
-              this.visible = !1, e.dispatch({ type: "render" });
+              this.visible = false, e.dispatch({ type: "render" });
             }, hpe));
       }
       template() {
@@ -110458,7 +110458,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       handleEvent(e) {
         if (!e.isDefaultPrevented() && this.handlers.length) {
-          let t = !1, o = () => t = !0;
+          let t = false, o = () => t = true;
           for (let { handler: i } of this.handlers.slice().reverse()) {
             if (i(e, o), t) return;
           }
@@ -110474,15 +110474,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       constructor() {
         super(...arguments),
           this.i18n = this.props.i18n(),
-          this.isMounted = !1,
-          this.isTitleStuck = !1;
+          this.isMounted = false,
+          this.isTitleStuck = false;
       }
       template() {
         return br.createElement(
           "div",
           {
             class: () => ({
-              "dcg-shared-modal-container": !0,
+              "dcg-shared-modal-container": true,
               [this.props.class ? this.props.class() : ""]: !!this.props
                 .class,
             }),
@@ -110492,7 +110492,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-shared-modal-cover": !0,
+                "dcg-shared-modal-cover": true,
                 "dcg-shared-has-close-button": this.showX(),
                 "dcg-shared-modal-fullscreen":
                   this.props.size() === "fullscreen",
@@ -110574,7 +110574,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         class: () => {
                           var e, t;
                           return {
-                            "dcg-shared-modal-title": !0,
+                            "dcg-shared-modal-title": true,
                             "dcg-shared-left-align-title": this
                               .leftAlignTitle(),
                             "dcg-shared-modal-title--sticky":
@@ -110630,7 +110630,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       didMountRoot(e) {
         var h, u, f, y;
         if (this.isMounted) return;
-        this.isMounted = !0;
+        this.isMounted = true;
         let t = e.querySelector(".dcg-shared-modal-contents-wrapper"),
           o = e.querySelector(".dcg-shared-modal-title");
         if (
@@ -110694,7 +110694,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       didUnmount() {
         var e, t;
         this.isMounted &&
-          (this.isMounted = !1,
+          (this.isMounted = false,
             (e = this.intersectionObserver) == null || e.disconnect(),
             (t = this.resizeObserver) == null || t.disconnect(),
             this.unsub());
@@ -110792,8 +110792,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                               class: () => ({
                                 "dcg-disabled": !this.getToolInfo(t).visible ||
                                   !this.isToolCustomizable(t),
-                                "dcg-mathquill-condition-container": !0,
-                                "dcg-second-column": !0,
+                                "dcg-mathquill-condition-container": true,
+                                "dcg-second-column": true,
                               }),
                             },
                             fr.createElement(cA, {
@@ -110849,7 +110849,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                                 fr.createElement(Fe, {
                                   latex: () => this.getToolLatex(t),
                                   getAriaLabel: () => this.getToolAria(t),
-                                  noFadeout: this.const(!0),
+                                  noFadeout: this.const(true),
                                   getAriaPostLabel: () =>
                                     this.getToolLatexError(t) || "",
                                   isFocused: () => this.focusedLatexTool === t,
@@ -110913,8 +110913,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                                       this.autoOperatorNames,
                                     ),
                                     ariaLabel: () => this.getToolAria(t),
-                                    isStatic: this.const(!0),
-                                    brailleShouldFocus: this.const(!1),
+                                    isStatic: this.const(true),
+                                    brailleShouldFocus: this.const(false),
                                     onBrailleFocusedChanged: () => {},
                                     ...ui(this.controller),
                                   },
@@ -111047,7 +111047,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   Ui.createElement(dA, {
                     controller: this.props.controller,
                     onClose: () => {
-                      this.customGeometryToolsSettingsModal = !1,
+                      this.customGeometryToolsSettingsModal = false,
                         this.controller.dispatch({ type: "render" });
                     },
                     visible: () => this.customGeometryToolsSettingsModal,
@@ -111060,7 +111060,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.getGeometryToolbarModel().toolbar;
       }
       setToolbar(e) {
-        e === "custom" && (this.customGeometryToolsSettingsModal = !0),
+        e === "custom" && (this.customGeometryToolsSettingsModal = true),
           this.controller.dispatch({
             type: "set-geometry-toolbar",
             toolbar: e,
@@ -111101,11 +111101,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-geometry-settings-container": !0,
-              "dcg-popover": !0,
-              "dcg-left": !0,
-              "dcg-constrained-height-popover": !0,
-              "dcg-generic-options-menu": !0,
+              "dcg-geometry-settings-container": true,
+              "dcg-popover": true,
+              "dcg-left": true,
+              "dcg-constrained-height-popover": true,
+              "dcg-generic-options-menu": true,
               "dcg-no-geometry-header": !this.controller
                 .shouldShowGeoToolbar(),
             }),
@@ -111261,7 +111261,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               o === "Esc" &&
               this.controller.dispatch({
                 type: "close-graph-settings",
-                focusIconAfterClose: !0,
+                focusIconAfterClose: true,
               }),
                 this.controller.isGraphSettingsOpen() && o === "Tab" &&
                 !t.altKey && !t.metaKey && !t.ctrlKey
@@ -111438,7 +111438,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let e = (t = this.props.controller().getGrapher3d()) == null
           ? void 0
           : t.webglLayer;
-        e && (e.debugOnlyMeasureGPUTiming = !0,
+        e && (e.debugOnlyMeasureGPUTiming = true,
           e.onRenderSpy = () => {
             this.frame();
           });
@@ -111588,7 +111588,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-container": !0,
+                "dcg-container": true,
                 "dcg-fullscreen": !this.controller.isListVisible(),
                 "dcg-narrow": this.controller.isNarrow(),
                 "dcg-projector-mode": this.settings().config.projectorMode,
@@ -111659,7 +111659,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "div",
                 {
                   class: () => ({
-                    "dcg-overgraph-icon-container": !0,
+                    "dcg-overgraph-icon-container": true,
                     "dcg-bottom-right": this.controller.isNarrow(),
                   }),
                 },
@@ -111676,8 +111676,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     "div",
                     {
                       class: () => ({
-                        "dcg-show-expressions-tab": !0,
-                        "dcg-overgraph-icon": !0,
+                        "dcg-show-expressions-tab": true,
+                        "dcg-overgraph-icon": true,
                         "dcg-rotated": this.controller.isNarrow(),
                       }),
                       "aria-label": () =>
@@ -111821,7 +111821,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       showHamburger() {
         return !this.controller.getGraphSettings().config.showHamburger ||
             this.controller.isGeometry()
-          ? !1
+          ? false
           : this.controller.isNarrow();
       }
       didMountRoot(e) {
@@ -111905,7 +111905,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       try {
         let e = __dcg_worker_source_exports__["createWorker"]();
         return e.__connections = {},
-          e.__isFake = !1,
+          e.__isFake = false,
           e.onerror = function (t) {
             __dcg_shared_module_exports__["qe"].log(t);
           },
@@ -111930,7 +111930,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let o = __dcg_shared_module_exports__["C"](e.__connections)[0];
         o && o.onResponse(t);
       }));
-      return e.__isFake = !0, e.__connections = {}, e;
+      return e.__isFake = true, e.__connections = {}, e;
     }
     findLeastUsedWorker() {
       let e = function (o) {
@@ -111978,7 +111978,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.onChangeSetChanged = e;
       this.changeSet = null;
       this.cumulativeChangeSet = {};
-      this.changed = !1;
+      this.changed = false;
     }
     hasPendingChanges() {
       return !!this.changeSet;
@@ -111992,10 +111992,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     popChangeSet() {
       let e = this.changeSet;
-      return this.changeSet = null, this.changed = !1, e;
+      return this.changeSet = null, this.changed = false, e;
     }
     applyToChangeSets(e) {
-      this.changed = !0,
+      this.changed = true,
         this.changeSet || (this.changeSet = {}),
         this.cumulativeChangeSet || (this.cumulativeChangeSet = {}),
         e(this.changeSet),
@@ -112004,18 +112004,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     _clearStatementsAndStartCompleteState() {
       this.applyToChangeSets((e) => {
-        e.isCompleteState = !0, delete e.statements;
+        e.isCompleteState = true, delete e.statements;
       });
     }
     markDroppedJob() {
       this.changeSet = __dcg_shared_module_exports__["Jc"](
         this.cumulativeChangeSet,
-      ), this.changed = !0;
+      ), this.changed = true;
     }
     markWorkerKilledWhileIdle() {
       this.changeSet = __dcg_shared_module_exports__["Jc"](
         this.cumulativeChangeSet,
-      ), this.changed = !1;
+      ), this.changed = false;
     }
     markSyncId(e) {
       this.applyToChangeSets((t) => {
@@ -112024,7 +112024,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     markUndoRedoState() {
       this.applyToChangeSets((e) => {
-        e.isUndoRedoState = !0;
+        e.isUndoRedoState = true;
       });
     }
     addStatement(e) {
@@ -112038,7 +112038,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         t.statements || (t.statements = {}),
           t.removes || (t.removes = {}),
           delete t.statements[e],
-          t.removes[e] = !0;
+          t.removes[e] = true;
       });
     }
     addActionStepEvent(e) {
@@ -112075,22 +112075,22 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     Nh = class extends yA {
       constructor(t) {
         super(() => this.processChangeSet());
-        this.droppedMessage = !1;
-        this.__hasBufferedProgressUpdates = !1;
+        this.droppedMessage = false;
+        this.__hasBufferedProgressUpdates = false;
         this.evaluationProgressById = new Map();
         this.lastProgressUpdateTime = -1;
-        this.requestedIntentionalRestart = !1;
+        this.requestedIntentionalRestart = false;
         this.debouncedRestart = __dcg_shared_module_exports__["A"](() => {
-          this.requestedIntentionalRestart = !0, this.restartWorker();
+          this.requestedIntentionalRestart = true, this.restartWorker();
         }, fpe);
-        this.__ticksEnabled = !0;
+        this.__ticksEnabled = true;
         this.listeners = {
           evaluatorProgressUpdate(t) {
             this.lastProgressUpdateTime = Date.now(),
               t.ids.forEach((o) =>
                 this.evaluationProgressById.set(o, t.update)
               ),
-              this.__hasBufferedProgressUpdates = !0;
+              this.__hasBufferedProgressUpdates = true;
           },
           processChangeSet(t) {
             this.clearProgressUpdates();
@@ -112098,7 +112098,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             for (let l in t.graphChanges) {
               let c = t.graphChanges[l];
               c === void 0
-                ? i[l] = !0
+                ? i[l] = true
                 : (__dcg_shared_module_exports__["uc"](c), o[l] = c);
             }
             let n = {};
@@ -112160,7 +112160,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 : this.markWorkerKilledWhileIdle(),
               this.clearProgressUpdates(),
               this.processChangeSet(),
-              this.requestedIntentionalRestart = !1;
+              this.requestedIntentionalRestart = false;
           };
       }
       destroy() {
@@ -112181,9 +112181,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       shouldIgnoreWorkerMessage(t) {
         return this.__suspendUntilSyncId
           ? !t || !t.payload
-            ? !0
+            ? true
             : !(t.payload.syncId >= this.__suspendUntilSyncId)
-          : !1;
+          : false;
       }
       suspend() {
         this.clearProgressUpdates(),
@@ -112192,7 +112192,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.__suspendUntilSyncId = this.pendingChangesSyncId();
       }
       markJobFinished() {
-        this.droppedMessage = !1,
+        this.droppedMessage = false,
           this.__jobStartTime = -1,
           this.__suspendUntilSyncId = void 0;
       }
@@ -112214,11 +112214,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           (this.__hasBufferedProgressUpdates &&
             ((t = this.onEvaluatorProgressUpdate) == null ||
               t.call(this)),
-            this.__hasBufferedProgressUpdates = !1,
+            this.__hasBufferedProgressUpdates = false,
             this._processChangeSet());
       }
       processChangeSet() {
-        this.__processChangeSetRequested = !0;
+        this.__processChangeSetRequested = true;
       }
       _processChangeSet() {
         var o;
@@ -112240,7 +112240,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 this.workerPoolConnection.sendMessage(
                   this.popChangeSet(),
                 ),
-                this.__processChangeSetRequested = !1,
+                this.__processChangeSetRequested = false,
                 (o = this.clearSlowEvaluatorTracking) == null ||
                 o.call(this)));
       }
@@ -112267,7 +112267,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       clearProgressUpdates() {
         this.evaluationProgressById = new Map(),
-          this.__hasBufferedProgressUpdates = !1;
+          this.__hasBufferedProgressUpdates = false;
       }
       isCurrentlySlow() {
         return this.lastProgressUpdateTime > -1 &&
@@ -112303,7 +112303,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.controller.dispatch({
               type: "expression-zoom-fit",
               id: l.id,
-              focusAfterTap: !1,
+              focusAfterTap: false,
             }));
       } else if (
         e.altKey !== Zo && e.metaKey === Zo && !e.ctrlKey && e.shiftKey &&
@@ -112354,7 +112354,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.controller.dispatch({
                 type: "set-folder-collapsed",
                 id: l.id,
-                isCollapsed: !0,
+                isCollapsed: true,
               }),
               xe(
                 this.controller.s(
@@ -112368,7 +112368,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.controller.dispatch({
                 type: "set-folder-collapsed",
                 id: l.id,
-                isCollapsed: !1,
+                isCollapsed: false,
               }),
               xe(
                 this.controller.s(
@@ -112383,7 +112383,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.markKeyDownAsHandled(e),
             this.controller.dispatch({
               type: "set-all-folders-collapsed",
-              isCollapsed: !0,
+              isCollapsed: true,
             }),
             xe(
               this.controller.s(
@@ -112394,7 +112394,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.markKeyDownAsHandled(e),
             this.controller.dispatch({
               type: "set-all-folders-collapsed",
-              isCollapsed: !1,
+              isCollapsed: false,
             }),
             xe(
               this.controller.s(
@@ -112443,7 +112443,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.controller.isListVisible()
             ? (this.controller.dispatch({
               type: "hide-expressions-list",
-              focusShowIcon: !1,
+              focusShowIcon: false,
             }),
               xe(
                 this.controller.s(
@@ -112452,7 +112452,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               ))
             : (this.controller.dispatch({
               type: "show-expressions-list",
-              focusHideIcon: !1,
+              focusHideIcon: false,
             }),
               this.focusExpressionList()), this.markKeyDownAsHandled(e);
         }
@@ -112511,7 +112511,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.markKeyDownAsHandled(e),
             this.controller.dispatch({
               type: "toggle-add-expression",
-              focusOnOpen: !1,
+              focusOnOpen: false,
             }),
             this.controller.runAfterDispatch(() => {
               let l = this.controller.findEl(
@@ -112593,15 +112593,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.controller.getGeometryTokenCount() > 0
               ? this.controller.dispatch({
                 type: "set-show-constructions-open",
-                open: !0,
-                setFocus: !0,
+                open: true,
+                setFocus: true,
               })
               : xe(this.controller.raw("Object navigator has no items."));
         } else if (t === "G") {
           this.markKeyDownAsHandled(e),
             this.controller.dispatch({
               type: "toggle-graph-settings",
-              focusOnOpen: !0,
+              focusOnOpen: true,
             });
         } else if (t === "P") {
           if (
@@ -112615,7 +112615,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 location: {
                   type: "expression",
                   id: l.id,
-                  isFakeGraphFocus: !0,
+                  isFakeGraphFocus: true,
                 },
               }),
                 (i = (o = this.controller.getGrapher2d()) == null
@@ -112635,7 +112635,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             this.controller.dispatch({
               type: "expression-zoom-fit",
               id: l.id,
-              focusAfterTap: !1,
+              focusAfterTap: false,
             });
         } else if (t === "D" && this.controller.canUserAddExpressions()) {
           this.markKeyDownAsHandled(e);
@@ -112643,7 +112643,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.controller.dispatch({
             type: "set-edit-list-mode",
             isEditListMode: l,
-            focusExpressionList: !0,
+            focusExpressionList: true,
           });
         }
       } else if (gG(e) && this.controller.getQuestIsActive()) {
@@ -112677,10 +112677,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           !this.controller.isGraphSettingsOpen()
         ) {
           if (this.controller.isGeoUIActive()) {
-            let l = !1, c = this.controller.getGeoModel();
+            let l = false, c = this.controller.getGeoModel();
             if (
               this.controller.hasAnyItemsSelected() &&
-              (this.controller.dispatch({ type: "set-none-selected" }), l = !0),
+              (this.controller.dispatch({ type: "set-none-selected" }), l = true),
                 c.isToolplayActive() &&
                 (this.controller.dispatch({
                   type: "cancel-geo-toolplay",
@@ -112690,7 +112690,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "graphing-calculator-narration-geometry-tool-cancelled",
                     ),
                   ),
-                  l = !0),
+                  l = true),
                 this.controller.isGraphPaperFocused() &&
                 (this.controller.dispatch({
                   type: "set-focus-location",
@@ -112699,7 +112699,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     tool: this.controller.getActiveTool(),
                   },
                 }),
-                  l = !0),
+                  l = true),
                 this.controller.getActiveTool() !== "selection" && !l
             ) {
               this.controller.dispatch({
@@ -112714,7 +112714,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   type: "geo-basic-tool",
                   tool: this.controller.getActiveTool(),
                 },
-              }), l = !0;
+              }), l = true;
             }
             if (l) {
               this.markKeyDownAsHandled(e);
@@ -112726,8 +112726,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             (this.markKeyDownAsHandled(e),
               this.controller.dispatch({
                 type: "set-edit-list-mode",
-                isEditListMode: !1,
-                focusExpressionList: !0,
+                isEditListMode: false,
+                focusExpressionList: true,
               }));
         }
       } else if (
@@ -112959,8 +112959,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     this.controller.getGrapher2d()
                   : this.controller.getGrapher2d(),
                 this.grapher.update());
-            let u = !1;
-            h() && (u = !0),
+            let u = false;
+            h() && (u = true),
               u && this.controller.doesDOMHaveSize() &&
               (this.view.update(), this.grapher.update());
           });
@@ -112977,7 +112977,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
         this.graphpaperBounds = p;
         let h = () => {
-          let u = !1,
+          let u = false,
             f = s.computeMajorLayout(),
             y = {
               left: f.grapher.left,
@@ -113001,10 +113001,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           return __dcg_shared_module_exports__["E"](
             E,
             p.mathCoordinates,
-          ) || (p.setProperty("mathCoordinates", E), u = !0),
+          ) || (p.setProperty("mathCoordinates", E), u = true),
             y.height > 0 && y.width > 0 &&
             !__dcg_shared_module_exports__["E"](y, p.pixelCoordinates) &&
-            (p.setProperty("pixelCoordinates", y), u = !0),
+            (p.setProperty("pixelCoordinates", y), u = true),
             u;
         };
         ee(this.rootElt).on("keydown.calculator-" + this.__id, (u) => {
@@ -113036,8 +113036,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 (!y || S) &&
                   s.dispatch({
                     type: "set-edit-list-mode",
-                    isEditListMode: !1,
-                    focusExpressionList: !1,
+                    isEditListMode: false,
+                    focusExpressionList: false,
                   });
               }
             },
@@ -113048,9 +113048,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             degreeMode: !!o.degreeMode,
           }),
           a.config.expressionsCollapsed &&
-          this.setOptions({ expressionsCollapsed: !0 }),
+          this.setOptions({ expressionsCollapsed: true }),
           a.config.capExpressionSize &&
-          this.setOptions({ capExpressionSize: !0 }),
+          this.setOptions({ capExpressionSize: true }),
           a.config.hasOwnProperty("pointsOfInterest") &&
           this.setOptions({
             pointsOfInterest: a.config.pointsOfInterest,
@@ -113116,62 +113116,62 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "Deprecated option: singleVariableSolutions has been removed.",
           ),
             delete i.singleVariableSolutions),
-          e.graphpaper === !1 &&
+          e.graphpaper === false &&
           (e.expressionsCollapsed &&
-            (i.expressionsCollapsed = !1,
+            (i.expressionsCollapsed = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Cannot set graphpaper: false with expressionsCollapsed: true. Proceeding with expressionsCollapsed: false.",
               )),
             o.expressionsCollapsed &&
-            (i.expressionsCollapsed = !1,
+            (i.expressionsCollapsed = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Disabling the graphpaper with the expressions list collapsed is not supported.Setting expressionsCollapsed: false.",
               )),
             e.zoomButtons &&
-            (i.zoomButtons = !1,
+            (i.zoomButtons = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Cannot set graphpaper: false with zoomButtons: true. Proceeding with zoomButtons: false.",
               )),
             e.showResetButtonOnGraphpaper &&
-            (i.showResetButtonOnGraphpaper = !1,
+            (i.showResetButtonOnGraphpaper = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Cannot set graphpaper: false with showResetButtonOnGraphpaper: true. Proceeding with showResetButtonOnGraphpaper: false.",
               )),
             o.zoomButtons &&
-            (i.zoomButtons = !1,
+            (i.zoomButtons = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Disabling the graphpaper with the zoomButtons visible is not supported. Setting zoomButtons: false.",
               )),
             o.showResetButtonOnGraphpaper &&
-            (i.showResetButtonOnGraphpaper = !1,
+            (i.showResetButtonOnGraphpaper = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Disabling the graphpaper with the reset button visible is not supported. Setting showResetButtonOnGraphpaper: false.",
               ))),
-          o.graphpaper === !1 &&
+          o.graphpaper === false &&
           (e.expressionsCollapsed || e.zoomButtons ||
             e.showResetButtonOnGraphpaper) &&
-          (i.graphpaper = !0,
+          (i.graphpaper = true,
             __dcg_shared_module_exports__["qe"].warn(
               "Must have visible graphpaper to proceed. Setting graphpaper: true.",
             )),
           e.lockViewport && e.zoomButtons &&
-          (i.zoomButtons = !1,
+          (i.zoomButtons = false,
             __dcg_shared_module_exports__["qe"].warn(
               "Cannot set zoomButtons: true and lockViewport: true. Proceeding with zoomButtons: false.",
             )),
           o.lockViewport && e.zoomButtons &&
-          (i.lockViewport = !1,
+          (i.lockViewport = false,
             __dcg_shared_module_exports__["qe"].warn(
               "Cannot set zoomButtons: true while the viewport is locked. Setting lockViewport: false.",
             )),
           o.zoomButtons && e.lockViewport &&
-          (i.zoomButtons = !1,
+          (i.zoomButtons = false,
             __dcg_shared_module_exports__["qe"].warn(
               "Cannot lock the viewport without hiding the zoom buttons. Setting zoomButtons: false.",
             ));
         function n(d) {
           let { notes: p, folders: h, images: u } = d;
-          return p === !1 || h === !1 || u === !1;
+          return p === false || h === false || u === false;
         }
         let a = n(e),
           s = n({ ...o, ...e }),
@@ -113179,14 +113179,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           c = e.pasteGraphLink;
         a
           ? (c || l) &&
-            (i.pasteGraphLink = !1,
+            (i.pasteGraphLink = false,
               __dcg_shared_module_exports__["qe"].warn(
                 "Cannot disable creating note, folder, or image expressions without disabling graph link pasting. Setting pasteGraphLink: false.",
               ))
           : c && s &&
-            (i.notes = !0,
-              i.folders = !0,
-              i.images = !0,
+            (i.notes = true,
+              i.folders = true,
+              i.images = true,
               __dcg_shared_module_exports__["qe"].warn(
                 "Cannot enable graph link pasting while the creation of notes, folders, or images is disable. Setting notes: true, folders: true, images: true.",
               )),
@@ -113213,11 +113213,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   i.expressionsCollapsed
                     ? this.controller.dispatch({
                       type: "hide-expressions-list",
-                      focusShowIcon: !1,
+                      focusShowIcon: false,
                     })
                     : this.controller.dispatch({
                       type: "show-expressions-list",
-                      focusHideIcon: !1,
+                      focusHideIcon: false,
                     });
                 break;
               case "qwertyKeyboard":
@@ -113239,7 +113239,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   p === this.controller.getGraphSettings().config.actions
                 ) break;
                 this.setOption(t, p),
-                  this.setState(this.getState(), { allowUndo: !0 });
+                  this.setState(this.getState(), { allowUndo: true });
                 break;
               }
               case "substitutions": {
@@ -113251,7 +113251,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       .substitutions
                 ) break;
                 this.setOption(t, p),
-                  this.setState(this.getState(), { allowUndo: !0 });
+                  this.setState(this.getState(), { allowUndo: true });
                 break;
               }
               case "intervalComprehensions": {
@@ -113263,7 +113263,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       .intervalComprehensions
                 ) break;
                 this.setOption(t, p),
-                  this.setState(this.getState(), { allowUndo: !0 });
+                  this.setState(this.getState(), { allowUndo: true });
                 break;
               }
               case "recursion": {
@@ -113274,7 +113274,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     this.controller.getGraphSettings().config.recursion
                 ) break;
                 this.setOption(t, p),
-                  this.setState(this.getState(), { allowUndo: !0 });
+                  this.setState(this.getState(), { allowUndo: true });
                 break;
               }
               case "product":
@@ -113287,7 +113287,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               case "logScales": {
                 let p = i[t];
                 p !== void 0 &&
-                  (p === !1 &&
+                  (p === false &&
                     this.controller.dispatch({
                       type: "set-graph-settings",
                       xAxisScale: "linear",
@@ -113514,7 +113514,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       e.hasOwnProperty("y") && (t.y = r.mapY(e.y)),
       t;
   }
-  var Tj = [], IR = !1, Ej = new Map();
+  var Tj = [], IR = false, Ej = new Map();
   function vpe(r) {
     let e = Ej.get(r);
     return e || (e = new r(), Ej.set(r, e)), e;
@@ -113525,7 +113525,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     for (; (e = Tj.shift()) && e.api._destroyed;);
     if (!e) return;
     let t = e;
-    IR = !0;
+    IR = true;
     let { options: o, mathBounds: i, state: n, callback: a, api: s } = t,
       l = vpe(r),
       c = s._calc.controller.getGraphSettings().config,
@@ -113540,7 +113540,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let p = l._calc.evaluator,
       h = () => {
         l._calc.grapher.asyncScreenshot(o, (y) => {
-          IR = !1, Dj(r), a(y);
+          IR = false, Dj(r), a(y);
         });
       },
       u = t.api._calc.controller,
@@ -113552,9 +113552,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     constructor(t, o, i) {
       super();
       this._eventBus = new Kl();
-      this._destroyed = !1;
-      this.isOffscreen = !1;
-      let n = Cj(o || {}, !0),
+      this._destroyed = false;
+      this.isOffscreen = false;
+      let n = Cj(o || {}, true),
         a = DD(n.configOptions),
         s = n.settingsOptions;
       this._calc = new C1(t, cx, a),
@@ -113629,7 +113629,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       let o = {}, i = this;
       for (; i;) {
-        Object.getOwnPropertyNames(i).forEach((a) => o[a] = !0),
+        Object.getOwnPropertyNames(i).forEach((a) => o[a] = true),
           i = Object.getPrototypeOf(i);
       }
       for (let n in o) {
@@ -113637,7 +113637,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           ? this[n] = t.bind(this, n)
           : this.hasOwnProperty(n) && delete this[n];
       }
-      this.destroy = function () {}, this._destroyed = !0;
+      this.destroy = function () {}, this._destroyed = true;
     }
     withHistoryReplacement(t) {
       try {
@@ -113691,7 +113691,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     updateSettings(t) {
       return this.withControllerInAPIMode(() => {
-        let o = Cj(t, !1), i = o.configOptions, n = o.settingsOptions;
+        let o = Cj(t, false), i = o.configOptions, n = o.settingsOptions;
         __dcg_shared_module_exports__["F"](i) || this._calc.setOptions(i),
           __dcg_shared_module_exports__["F"](n) ||
           this.controller.dispatch({
@@ -113810,10 +113810,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           d,
           p;
         l === void 0 && c === void 0
-          ? (d = !0, p = !1)
+          ? (d = true, p = false)
           : l === void 0 || c === void 0
-          ? (d = !1, p = !0)
-          : (d = l < c, p = !0),
+          ? (d = false, p = true)
+          : (d = l < c, p = true),
           i < n && a < s && d
             ? (this._calc.setViewport({
               xmin: i,
@@ -113862,7 +113862,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     getExpressions() {
       return this.withControllerInAPIMode(() =>
-        this.getState({ stripDefaults: !1 }).expressions.list.map(pD)
+        this.getState({ stripDefaults: false }).expressions.list.map(pD)
       );
     }
     setBlank(t) {
@@ -114077,7 +114077,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.withControllerInAPIMode(() => {
         this.controller.dispatch({
           type: "keypad/set-minimized",
-          minimized: !1,
+          minimized: false,
         });
       });
     }
@@ -114137,11 +114137,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             latex: "",
             braille: "",
             type: "latex",
-            displayAsFraction: !1,
+            displayAsFraction: false,
           },
         },
         order: ["1"],
-        settings: { degreeMode: !1, complex: !1 },
+        settings: { degreeMode: false, complex: false },
         ui: { focus: void 0 },
       });
       this.evaluationMode = e,
@@ -114178,10 +114178,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     }
     clearShouldDebounceUndoRedo() {
-      this._shouldDebounceUndoRedo = !1;
+      this._shouldDebounceUndoRedo = false;
     }
     markShouldDebounceUndoRedo() {
-      this._shouldDebounceUndoRedo = !0;
+      this._shouldDebounceUndoRedo = true;
     }
     getShouldDebounceUndoRedo() {
       return this._shouldDebounceUndoRedo;
@@ -114215,7 +114215,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     setStateFromAPI(e) {
       let t = [], o = {}, { settings: i } = e;
-      i.complex && i.degreeMode && (i = { ...i, degreeMode: !1 }),
+      i.complex && i.degreeMode && (i = { ...i, degreeMode: false }),
         e.expressions.list.forEach(
           ({ id: n, latex: a, displayAsFraction: s }) => {
             t.push(n),
@@ -114236,7 +114236,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
     }
     canClear() {
-      if (this.getNumberOfExpressions() > 1) return !0;
+      if (this.getNumberOfExpressions() > 1) return true;
       let e = this.getExpressionOrder()[0];
       return this.getExpressionLatex(e) !== "";
     }
@@ -114248,7 +114248,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             type: "latex",
             latex: "",
             braille: "",
-            displayAsFraction: !1,
+            displayAsFraction: false,
           },
         },
         ui: { focus: void 0 },
@@ -114303,11 +114303,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             latex: "",
             braille: "",
             type: "latex",
-            displayAsFraction: !1,
+            displayAsFraction: false,
           };
         }),
         this._updateIndexes(),
-        this.setFocusedById(o, !0);
+        this.setFocusedById(o, true);
     }
     conditionallyCopyPrevious(e) {
       let t = this._getPreviousExpById(e), o = this.getExpressionById(e);
@@ -114327,18 +114327,18 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           delete i[e];
         }),
         this._updateIndexes(),
-        this._setFocusedByIndex(Math.max(o - 1, 0), !0);
+        this._setFocusedByIndex(Math.max(o - 1, 0), true);
     }
     setLatexById(e, t) {
       this.store.set(["expressions", e, "latex"], t),
         this.store.set(["expressions", e, "braille"], ""),
-        t === "" && this.setFractionEvaluation(e, !1),
+        t === "" && this.setFractionEvaluation(e, false),
         this._evaluate();
     }
     setLatexAndBrailleById(e, t, o) {
       this.store.set(["expressions", e, "latex"], t),
         this.store.set(["expressions", e, "braille"], o),
-        t === "" && this.setFractionEvaluation(e, !1),
+        t === "" && this.setFractionEvaluation(e, false),
         this._evaluate();
     }
     setFractionEvaluation(e, t) {
@@ -114383,16 +114383,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     shouldShowEvaluationForExpression(e) {
       let t = this._evaluations[e];
-      return t ? t.showEvaluation : !1;
+      return t ? t.showEvaluation : false;
     }
     isRationalizableConstant(e) {
       let t = this._evaluations[e];
-      return t ? t.isRationalizableConstant : !1;
+      return t ? t.isRationalizableConstant : false;
     }
     canDisplayEvaluationAsFraction(e) {
       let t = this.getExpressionValue(e);
       return !t || typeof t != "number"
-        ? !1
+        ? false
         : __dcg_shared_module_exports__["ia"](t);
     }
     isEvaluationList(e) {
@@ -114427,12 +114427,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     focusPrevById(e) {
       let t = this.getExpressionIndex(e) - 1;
-      t >= 0 && this._setFocusedByIndex(t, !0);
+      t >= 0 && this._setFocusedByIndex(t, true);
     }
     focusNextById(e) {
       let t = this.getExpressionIndex(e) + 1;
       t < this.getNumberOfExpressions()
-        ? this._setFocusedByIndex(t, !0)
+        ? this._setFocusedByIndex(t, true)
         : this.createAtEnd();
     }
     getFocusedExpression() {
@@ -114448,7 +114448,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       e && this.setLatexById(e.id, "");
     }
     shouldShowClear() {
-      if (this.getNumberOfExpressions() === 1) return !1;
+      if (this.getNumberOfExpressions() === 1) return false;
       let e = this.getFocusedExpression();
       return !!e && !!e.latex;
     }
@@ -114464,10 +114464,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.createBlankAfterId(this.getLastExpression().id);
     }
     focusLastExpression() {
-      this._setFocusedByIndex(this.getNumberOfExpressions() - 1, !0);
+      this._setFocusedByIndex(this.getNumberOfExpressions() - 1, true);
     }
     focusFirstExpression() {
-      this._setFocusedByIndex(0, !0);
+      this._setFocusedByIndex(0, true);
     }
     getDegreeMode() {
       return this.getState().settings.degreeMode;
@@ -114481,7 +114481,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     setComplexMode(e) {
       this.store.set(["settings", "complex"], e),
-        e && this.store.set(["settings", "degreeMode"], !1),
+        e && this.store.set(["settings", "degreeMode"], false),
         this._evaluate();
     }
     _cleanupLatex(e) {
@@ -114496,7 +114496,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             id: e,
             index: this.getExpressionIndex(e),
             latex: this._cleanupLatex(this.getExpressionLatex(e)),
-            shouldGraph: !1,
+            shouldGraph: false,
             type: "statement",
           })
         );
@@ -114519,7 +114519,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           functionDefinition: this.functionDefinition,
           replaceRoundWithReciprocal: this.replaceRoundWithReciprocal,
           complex: this.getComplexMode(),
-          actions: !1,
+          actions: false,
         }),
         this._evaluator.onEvaluatorResults = (e) => {
           var i;
@@ -114558,40 +114558,40 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return !!this.functionDefinition;
     }
     enableFunctionDefinition() {
-      this.functionDefinition = !0, this.reloadState();
+      this.functionDefinition = true, this.reloadState();
     }
     disableFunctionDefinition() {
-      this.functionDefinition = !1, this.reloadState();
+      this.functionDefinition = false, this.reloadState();
     }
     getReplaceRoundWithReciprocal() {
       return !!this.replaceRoundWithReciprocal;
     }
     enableReplaceRoundWithReciprocal() {
-      this.replaceRoundWithReciprocal = !0, this.reloadState();
+      this.replaceRoundWithReciprocal = true, this.reloadState();
     }
     disableReplaceRoundWithReciprocal() {
-      this.replaceRoundWithReciprocal = !1, this.reloadState();
+      this.replaceRoundWithReciprocal = false, this.reloadState();
     }
   };
   var E1 = class {
     constructor(e, t) {
       this.keyboardMode = "main";
       this.fontSize = 16;
-      this.invertedColors = !1;
+      this.invertedColors = false;
       this.backgroundColor = "";
       this.textColor = "";
-      this.projectorMode = !1;
-      this.capExpressionSize = !1;
-      this.decimalToFraction = !0;
-      this.settingsMenu = !0;
-      this.settingsMenuOpen = !1;
+      this.projectorMode = false;
+      this.capExpressionSize = false;
+      this.decimalToFraction = true;
+      this.settingsMenu = true;
+      this.settingsMenuOpen = false;
       this.language = "en";
       this.brailleMode = "none";
-      this.sixKeyInput = !1;
-      this.brailleControls = !0;
-      this.brailleExpressionDownload = !0;
-      this.replaceCommaWith10Exp = !1;
-      this.typingAsteriskWritesTimesSymbol = !1;
+      this.sixKeyInput = false;
+      this.brailleControls = true;
+      this.brailleExpressionDownload = true;
+      this.replaceCommaWith10Exp = false;
+      this.typingAsteriskWritesTimesSymbol = false;
       this.stateStack = new su();
       this.dispatcher = new U0();
       this.s = Ip(() => this.language);
@@ -114817,13 +114817,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.model.shouldShowClear();
     }
     enableSettingsMenu() {
-      this.settingsMenu = !0;
+      this.settingsMenu = true;
     }
     disableSettingsMenu() {
-      this.closeSettingsMenu(), this.settingsMenu = !1;
+      this.closeSettingsMenu(), this.settingsMenu = false;
     }
     closeSettingsMenu() {
-      this.settingsMenuOpen = !1;
+      this.settingsMenuOpen = false;
     }
     toggleSettingsMenu() {
       this.settingsMenuOpen = !this.settingsMenuOpen;
@@ -114952,9 +114952,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     attemptToMoveFocusWithBackspace() {
       let e = this.model.getFocusedExpression();
-      if (!e) return !1;
+      if (!e) return false;
       let { latex: t, id: o } = e;
-      return t === "" ? (this.backspaceAtFrontOfId(o), !0) : !1;
+      return t === "" ? (this.backspaceAtFrontOfId(o), true) : false;
     }
     executeCommandInFocusedMathquill(e) {
       let t = this.ensureMathquillIsFocusedAndReturnFocusedMathquill();
@@ -115029,7 +115029,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     hookUpDispatcher() {
       this.dispatcher.register((e) => {
         this.enqueueEvent("render");
-        let t = !1, o = this.getRestrictedEditing();
+        let t = false, o = this.getRestrictedEditing();
         switch (e.type) {
           case "update-options": {
             this.options = { ...this.options, ...e.options };
@@ -115062,14 +115062,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               (this.undo({
                 restoreFocus: e.source === "keyboard-shortcut",
               }),
-                t = !0);
+                t = true);
             break;
           case "redo":
             o ||
               (this.redo({
                 restoreFocus: e.source === "keyboard-shortcut",
               }),
-                t = !0);
+                t = true);
             break;
           case "clear-history":
             this.clearHistory();
@@ -115167,10 +115167,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.setLatexAndBrailleById(e.id, e.latex, e.braille);
             break;
           case "focusin":
-            this.model.setFocusedById(e.id, !0);
+            this.model.setFocusedById(e.id, true);
             break;
           case "focusout":
-            this.model.setFocusedById(e.id, !1);
+            this.model.setFocusedById(e.id, false);
             break;
           case "focus-first-expression":
             this.model.focusFirstExpression();
@@ -115503,7 +115503,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       forceModelFocus() {
         document.activeElement !== this.brailleInputNode &&
-          this.onFocusedChanged(!0);
+          this.onFocusedChanged(true);
       }
       getPostLabel() {
         let e = this.props.id(),
@@ -115561,7 +115561,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-basic-expression": !0,
+              "dcg-basic-expression": true,
               "dcg-focused": this.getIsFocused(),
               "dcg-braille-io": this.controller.renderAsBraille(),
             }),
@@ -115590,7 +115590,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 onInput: this.bindFn(this.onBrailleInput),
                 sixKeyInput: () => this.controller.getSixKeyInput(),
                 value: () => this.getBraille(),
-                isStatic: this.const(!1),
+                isStatic: this.const(false),
               }),
             )),
           $t.createElement(
@@ -115608,7 +115608,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "div",
                       { class: $t.const("dcg-braille-evaluation") },
                       $t.createElement(Cpe, {
-                        readOnly: this.const(!0),
+                        readOnly: this.const(true),
                         class: this.const("dcg-braille-evaluation-inner"),
                         value: () => this.getEvaluationBraille(),
                         onFocus: this.bindFn(this.handleBrailleFocus),
@@ -115633,7 +115633,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         }),
                       ),
                       $t.createElement(Spe, {
-                        readOnly: this.const(!0),
+                        readOnly: this.const(true),
                         class: this.const("dcg-braille-error-inner"),
                         value: () => this.getError(),
                         onFocus: this.bindFn(this.handleBrailleFocus),
@@ -115681,7 +115681,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   config: this.bindFn(this.getMQConfig),
                   getAriaLabel: () => this.getAriaLabel(),
                   getAriaPostLabel: () => this.getPostLabel(),
-                  hasError: () => !1,
+                  hasError: () => false,
                   onUserPressedKey: (e, t) => {
                     this.controller.isSettingsMenuOpen() &&
                     this.controller.dispatch({
@@ -115731,7 +115731,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   "div",
                   {
                     class: () => ({
-                      "dcg-basic-expression-value": !0,
+                      "dcg-basic-expression-value": true,
                       "dcg-basic-evaluation-gray": this.model
                         .isEvaluationList(this.props.id()),
                     }),
@@ -115761,7 +115761,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                             this.getFractionDisplayAriaLabel,
                           ),
                           class: () => ({
-                            "dcg-basic-fraction-toggle": !0,
+                            "dcg-basic-fraction-toggle": true,
                             "dcg-selected": this.isFractionEvaluation(),
                           }),
                           onTap: this.bindFn(
@@ -115787,8 +115787,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     D1 = class extends nr {
       constructor() {
         super(...arguments),
-          this.didShowAnswerHint = !1,
-          this.didHideAnswerHint = !1;
+          this.didShowAnswerHint = false,
+          this.didHideAnswerHint = false;
       }
       template() {
         return ma.createElement(
@@ -115824,7 +115824,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "div",
             {
               class: () => ({
-                "dcg-basic-list": !0,
+                "dcg-basic-list": true,
                 "dcg-projector-mode": this.controller.isProjectorMode(),
               }),
             },
@@ -115842,16 +115842,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         ee(e).on("dcg-tap", Jr);
       }
       showAnswerHint() {
-        if (this.didHideAnswerHint) return !1;
+        if (this.didHideAnswerHint) return false;
         let e = this.model.getExpressionOrder()[0];
         return this.model.shouldShowEvaluationForExpression(e) ||
             this.didShowAnswerHint
-          ? (this.didShowAnswerHint = !0,
+          ? (this.didShowAnswerHint = true,
             this.model.getNumberOfExpressions() > 1 ||
               this.model.getExpressionLatex(e) === ""
-              ? (this.didHideAnswerHint = !0, !1)
-              : !0)
-          : !1;
+              ? (this.didHideAnswerHint = true, false)
+              : true)
+          : false;
       }
       didUpdate() {
         if (!this.container) return;
@@ -115918,7 +115918,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         "div",
         {
           class: () => ({
-            "dcg-braille-io-keypad-container": !0,
+            "dcg-braille-io-keypad-container": true,
             "dcg-has-background-color": this.controller
               .hasBackgroundColor(),
           }),
@@ -116043,7 +116043,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       template() {
         return ux.createElement("div", {
           class: () => ({
-            "dcg-keypad-control-btn": !0,
+            "dcg-keypad-control-btn": true,
             "dcg-disabled": this.isDisabled(),
             "dcg-selected": !this.isDisabled() && this.isSelected(),
             "dcg-selectable-btn": !this.isDisabled() &&
@@ -116105,9 +116105,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   var lo = __dcg_shared_module_exports__["e"](ne());
   var Yd = __dcg_shared_module_exports__["e"](ne());
   function kpe() {
-    if (!NS) return !1;
+    if (!NS) return false;
     let r = navigator.userAgent.match(/Version\/(\d+)/);
-    return !r || !r[1] ? !1 : parseFloat(r[1]) < 11;
+    return !r || !r[1] ? false : parseFloat(r[1]) < 11;
   }
   function _j() {
     return !Y5 && !kpe() &&
@@ -116126,11 +116126,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         {
           role: Yd.const("button"),
           tabIndex: () => this.props.enabled() ? 0 : -1,
-          "aria-disabled": () => this.props.enabled() ? void 0 : !0,
+          "aria-disabled": () => this.props.enabled() ? void 0 : true,
           class: () => {
             var e, t, o, i, n, a;
             return {
-              "dcg-download-button": !0,
+              "dcg-download-button": true,
               "dcg-btn-blue":
                 ((t = (e = this.props).buttonType) == null
                   ? void 0
@@ -116191,7 +116191,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   };
   qt();
-  function xA(r, e, t = !1) {
+  function xA(r, e, t = false) {
     if (t && (r = r.replace(/ /g, "\\ ")), e === "none") return r;
     let o = e === "nemeth" ? lp(r) : cp(r);
     return o.isError ? "" : sa.toBrailleAscii(o.value);
@@ -116199,21 +116199,21 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function Aj(r, e) {
     if (e === "none") return "";
     let t = [];
-    t.push(xA("Expression List", e, !0)), t.push(""), t.push("");
+    t.push(xA("Expression List", e, true)), t.push(""), t.push("");
     for (let o of r.getExpressionOrder()) {
       let i = _pe("" + (r.getExpressionIndex(o) + 1), e),
         n = r.getExpressionLatex(o),
         a = r.getExpressionValue(o);
-      a !== void 0 && (n += `=${a}`), t.push(`${i}  ${xA(n, e, !1)}`);
+      a !== void 0 && (n += `=${a}`), t.push(`${i}  ${xA(n, e, false)}`);
     }
     return t.join(`
 `);
   }
   function _pe(r, e) {
     return e === "nemeth"
-      ? `${xA(r, e, !1)}_4`
+      ? `${xA(r, e, false)}_4`
       : e === "ueb"
-      ? xA(`${r}.`, e, !1)
+      ? xA(`${r}.`, e, false)
       : "";
   }
   var { If: _1 } = lo.Components,
@@ -116223,8 +116223,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "div",
           {
             class: () => ({
-              "dcg-settings-dropdown": !0,
-              "dcg-popover": !0,
+              "dcg-settings-dropdown": true,
+              "dcg-popover": true,
               "dcg-point-left": this.controller.containerSize.height <= 420,
             }),
             role: lo.const("region"),
@@ -116239,8 +116239,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               "div",
               {
                 class: () => ({
-                  "dcg-settings-menu-option": !0,
-                  "dcg-displaysize-container": !0,
+                  "dcg-settings-menu-option": true,
+                  "dcg-displaysize-container": true,
                 }),
               },
               lo.createElement(vo, {
@@ -116296,12 +116296,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                     "div",
                     {
                       class: () => ({
-                        "dcg-settings-menu-option": !0,
-                        "dcg-braille-container": !0,
+                        "dcg-settings-menu-option": true,
+                        "dcg-braille-container": true,
                       }),
                     },
                     lo.createElement(Gh, {
-                      showBrailleNote: this.const(!1),
+                      showBrailleNote: this.const(false),
                       controller: this.props.controller,
                     }),
                     lo.createElement(
@@ -116322,7 +116322,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                             );
                             return new Blob([e], { type: "text/plain" });
                           },
-                          enabled: this.const(!0),
+                          enabled: this.const(true),
                           filename: this.const("desmos-equations.brl"),
                           text: () =>
                             this.controller.s(
@@ -116365,7 +116365,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ),
           class: () => "dcg-displaysize-default",
           selected: () => !this.getProjectorMode(),
-          onSelect: () => this.onSelectProjectorModeOption(!1),
+          onSelect: () => this.onSelectProjectorModeOption(false),
         }, {
           key: "large",
           label: () => "A",
@@ -116375,7 +116375,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ),
           class: () => "dcg-displaysize-large",
           selected: () => this.getProjectorMode(),
-          onSelect: () => this.onSelectProjectorModeOption(!0),
+          onSelect: () => this.onSelectProjectorModeOption(true),
         }];
       }
       onSelectProjectorModeOption(e) {
@@ -116457,7 +116457,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 r.s("basic-calculator-narration-controlbar-settings"),
               onTap: this.bindFn(this.onToggleSettingsMenu),
               selected: () => this.controller.isSettingsMenuOpen(),
-              ariaPopup: this.const(!0),
+              ariaPopup: this.const(true),
             },
             ic.createElement("i", {
               class: ic.const("dcg-icon-wrench"),
@@ -116555,7 +116555,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   onTap: () =>
                     r.dispatch({
                       type: "set-blank",
-                      opts: { allowUndo: !0 },
+                      opts: { allowUndo: true },
                     }),
                 },
                 () => r.s("basic-calculator-button-controlbar-clear-all"),
@@ -116733,7 +116733,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             command: this.const("main"),
             selected: () => r.getKeyboardMode() === "main",
             disabled: () => this.controller.renderAsBraille(),
-            selectable: this.const(!0),
+            selectable: this.const(true),
             onTap: () => r.dispatch({ type: "main" }),
             ariaLabel: () => r.s("basic-calculator-narration-controlbar-main"),
           }, () => r.s("basic-calculator-button-controlbar-main")),
@@ -116744,7 +116744,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 r.getKeyboardMode(),
               ) !== -1,
             disabled: () => this.controller.renderAsBraille(),
-            selectable: this.const(!0),
+            selectable: this.const(true),
             ariaLabel: () => r.s("basic-calculator-narration-controlbar-abc"),
             onTap: () => r.dispatch({ type: "ABC" }),
           }, () => r.s("basic-calculator-button-controlbar-abc")),
@@ -116757,7 +116757,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             ariaLabel: () =>
               r.s("basic-calculator-narration-controlbar-functions"),
             disabled: () => this.controller.renderAsBraille(),
-            selectable: this.const(!0),
+            selectable: this.const(true),
             onTap: () => r.dispatch({ type: "functions" }),
           }, () => r.s("basic-calculator-button-controlbar-func")),
           Gi.createElement(rc, {
@@ -116833,7 +116833,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                   onTap: () =>
                     r.dispatch({
                       type: "set-blank",
-                      opts: { allowUndo: !0 },
+                      opts: { allowUndo: true },
                     }),
                 },
                 () => r.s("basic-calculator-button-controlbar-clear-all"),
@@ -117620,7 +117620,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             )),
           si.createElement("div", { class: si.const("dcg-spacer") }),
           si.createElement(_o, {
-            narrowButton: this.const(!0),
+            narrowButton: this.const(true),
             command: this.const("clear"),
             ariaLabel: () => r.s("basic-calculator-narration-controlbar-clear"),
             onTap: () => r.dispatch({ type: "clear" }),
@@ -117628,7 +117628,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           si.createElement(
             _o,
             {
-              narrowButton: this.const(!0),
+              narrowButton: this.const(true),
               command: this.const("backspace"),
               ariaLabel: () =>
                 r.s("basic-calculator-narration-controlbar-backspace"),
@@ -117745,7 +117745,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 "div",
                 {
                   class: () => ({
-                    "dcg-calc-basic-main-wrapper": !0,
+                    "dcg-calc-basic-main-wrapper": true,
                     "dcg-narrow": this.controller.containerSize.width < 570,
                     "dcg-narrower": this.controller.containerSize.width < 380,
                     "dcg-short": this.controller.containerSize.height <= 540,
@@ -117753,7 +117753,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       .isScientificCalc(),
                     "dcg-four-function-calculator": this.controller
                       .isFourFunctionCalc(),
-                    "dcg-container": !0,
+                    "dcg-container": true,
                   }),
                   onKeyDown: this.bindFn(this.handleRootKeydown),
                   didMount: this.bindFn(this.didMountRoot),
@@ -117783,7 +117783,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         )
                         : "",
                     class: () => ({
-                      "dcg-calc-basic-main": !0,
+                      "dcg-calc-basic-main": true,
                       "dcg-inverted-colors": this.controller
                         .getInvertedColors(),
                       "dcg-projector-mode": this.controller
@@ -117923,14 +117923,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             type: "undo",
             source: "keyboard-shortcut",
           }),
-            !1;
+            false;
         }
         if (ew(e)) {
           return this.dispatch({
             type: "redo",
             source: "keyboard-shortcut",
           }),
-            !1;
+            false;
         }
         if (
           e.altKey !== Zo && e.metaKey === Zo && !e.ctrlKey &&
@@ -117963,7 +117963,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             if (
               !document.activeElement || wp(document.activeElement)
             ) {
-              return !1;
+              return false;
             }
           } else if (e.ctrlKey === Zo && e.altKey === !Zo) {
             if (t === "N") {
@@ -117977,7 +117977,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "shared-calculator-narration-hotkey-braille-mode-nemeth",
                     ),
                   ),
-                  !1)
+                  false)
                 : void 0;
             }
             if (t === "U") {
@@ -117991,7 +117991,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "shared-calculator-narration-hotkey-braille-mode-ueb",
                     ),
                   ),
-                  !1)
+                  false)
                 : void 0;
             }
             if (t === "Q" || t === "X") {
@@ -118005,7 +118005,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "shared-calculator-narration-hotkey-braille-mode-off",
                     ),
                   ),
-                  !1)
+                  false)
                 : void 0;
             }
             if (t === "6") {
@@ -118024,7 +118024,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                       "basic-calculator-narration-hotkey-six-key-input-off",
                     ),
                 ),
-                !1;
+                false;
             } else if (t === "D") {
               return this.controller.isScientificCalc()
                 ? (e.preventDefault(),
@@ -118038,12 +118038,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         "basic-calculator-narration-controlbar-radians",
                       ),
                   ),
-                  !1)
+                  false)
                 : void 0;
             }
           }
         }
-        return !0;
+        return true;
       }
     };
   var bx = __dcg_shared_module_exports__["e"](ne());
@@ -118070,7 +118070,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               break;
           }
         }),
-        this.autoSize !== !1
+        this.autoSize !== false
           ? this.domChangeDetector.startWatching()
           : this.domChangeDetector.checkForChanges();
     }
@@ -118089,7 +118089,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       let t = {}, o = this;
       for (; o;) {
-        Object.getOwnPropertyNames(o).forEach((n) => t[n] = !0),
+        Object.getOwnPropertyNames(o).forEach((n) => t[n] = true),
           o = Object.getPrototypeOf(o);
       }
       for (let i in t) {
@@ -118117,35 +118117,35 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   };
   var Rpe = {
-      allowComplex: !0,
-      autosize: !0,
+      allowComplex: true,
+      autosize: true,
       backgroundColor: "#fff",
-      brailleControls: !0,
-      brailleExpressionDownload: !0,
+      brailleControls: true,
+      brailleExpressionDownload: true,
       brailleMode: "none",
-      capExpressionSize: !1,
-      complex: !1,
-      decimalToFraction: !0,
-      degreeMode: !1,
-      functionDefinition: !0,
-      invertedColors: !1,
+      capExpressionSize: false,
+      complex: false,
+      decimalToFraction: true,
+      degreeMode: false,
+      functionDefinition: true,
+      invertedColors: false,
       language: "en",
-      links: !0,
-      projectorMode: !1,
-      qwertyKeyboard: !0,
-      replaceCommaWith10Exp: !1,
-      replaceRoundWithReciprocal: !1,
-      settingsMenu: !0,
-      sixKeyInput: !1,
+      links: true,
+      projectorMode: false,
+      qwertyKeyboard: true,
+      replaceCommaWith10Exp: false,
+      replaceRoundWithReciprocal: false,
+      settingsMenu: true,
+      sixKeyInput: false,
       textColor: "#000",
     },
     Fpe = {
       additionalFunctions: ["sqrt"],
-      disableParentheses: !1,
+      disableParentheses: false,
       evaluationMode: "scientific",
-      restrictedEditing: !1,
-      typingAsteriskWritesTimesSymbol: !1,
-      typingSlashWritesDivisionSymbol: !1,
+      restrictedEditing: false,
+      typingAsteriskWritesTimesSymbol: false,
+      typingSlashWritesDivisionSymbol: false,
     },
     Npe = [
       "allowComplex",
@@ -118219,7 +118219,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     setState(e, t) {
       t || (t = {}),
         !this.controller.isComplexModeAllowed() && e.settings.complex &&
-        (e = { ...e, settings: { ...e.settings, complex: !1 } }),
+        (e = { ...e, settings: { ...e.settings, complex: false } }),
         this.controller.dispatch({
           type: "set-state-from-api",
           state: e,
@@ -118476,9 +118476,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     if (
       r = __dcg_shared_module_exports__["Jc"](r),
         r.hasOwnProperty("typingSlashWritesDivisionSymbol") ||
-        (r.typingSlashWritesDivisionSymbol = !0),
+        (r.typingSlashWritesDivisionSymbol = true),
         r.hasOwnProperty("typingAsteriskWritesTimesSymbol") ||
-        (r.typingAsteriskWritesTimesSymbol = !0),
+        (r.typingAsteriskWritesTimesSymbol = true),
         r.exponentButtonForSquareRoot &&
         (__dcg_shared_module_exports__["qe"].warn(
           `As of API version 1.0, the 'exponentButtonForSquareRoot' option is deprecated.Use 'additionalFunctions: "exponent"' instead.`,
@@ -118493,7 +118493,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           "additionalFunctions can only take up to 2 new functions. Using the first two.",
         ),
           e = e.slice(0, 2));
-      let t = !0;
+      let t = true;
       for (let o = 0; o < e.length; o++) {
         ["sqrt", "exponent", "percent", "fraction"].indexOf(e[o]) ===
             -1 &&
@@ -118501,7 +118501,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             "Unrecognized value: '" + e[o] +
               `' for 'additionalFunction'. Valid values are 'sqrt', 'percent', 'exponent', or 'fraction'. Using default ("sqrt")`,
           ),
-            t = !1);
+            t = false);
       }
       r.additionalFunctions = t ? e : ["sqrt"];
     }
@@ -118516,7 +118516,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             )))
         : r.evaluationMode = "fourFunction",
       delete r.singleExpression,
-      r.hasOwnProperty("decimalToFraction") || (r.decimalToFraction = !1),
+      r.hasOwnProperty("decimalToFraction") || (r.decimalToFraction = false),
       r.language && (r.language = Ld(r.language)),
       delete r.allowComplex,
       delete r.complex,
@@ -118526,7 +118526,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     constructor(e, t, o) {
       super(
         e,
-        { ...t, allowComplex: !1, product: "geometry-calculator" },
+        { ...t, allowComplex: false, product: "geometry-calculator" },
         o,
       ),
         this.setState(nf),
@@ -118623,7 +118623,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       let t = {}, o = this;
       for (; o;) {
-        Object.getOwnPropertyNames(o).forEach((n) => t[n] = !0),
+        Object.getOwnPropertyNames(o).forEach((n) => t[n] = true),
           o = Object.getPrototypeOf(o);
       }
       for (let i in t) {
@@ -118667,7 +118667,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.controller.getState(e);
     }
     getExpressions() {
-      return this.getState({ stripDefaults: !1 }).expressions.list.map(
+      return this.getState({ stripDefaults: false }).expressions.list.map(
         pD,
       );
     }
@@ -118837,7 +118837,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   qt();
   typeof Desmos == "undefined" && (Desmos = {});
   function Rj() {
-    Desmos.$ = ee, Desmos.$.noConflict(!0);
+    Desmos.$ = ee, Desmos.$.noConflict(true);
   }
   typeof Desmos == "undefined" && (Desmos = {});
   Rj();
