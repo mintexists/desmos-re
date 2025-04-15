@@ -5204,31 +5204,31 @@
     distance: () => distance,
     distanceThreeD: () => distanceThreeD,
     elementsAt: () => elementsAt,
-    erf: () => N3,
-    erfcx: () => Za,
-    executeRecursiveFunction: () => HB,
-    expm1: () => LB,
-    factorial: () => ma,
-    frequency: () => AG,
-    gcd: () => lg,
-    getArcDetails: () => Rg,
-    getBroadcastTargetElements: () => BB,
-    getRecursiveDepthLimit: () => VB,
-    handleRecursionLimitExceeded: () => ev,
-    hsv: () => X3,
-    hypot: () => Ts,
-    identity: () => f2,
-    imag: () => BG,
-    invBinom: () => cv,
-    invNorm: () => BE,
-    invPoisson: () => uv,
-    invT: () => lv,
-    invUniform: () => A3,
-    invertTransformation: () => xG,
-    isDegenerateArc: () => YE,
-    itscore: () => dv,
-    ittest: () => kE,
-    lcm: () => xE,
+    erf: () => erf,
+    erfcx: () => erfcx,
+    executeRecursiveFunction: () => executeRecursiveFunction,
+    expm1: () => expm1,
+    factorial: () => factorial,
+    frequency: () => frequency,
+    gcd: () => gcd,
+    getArcDetails: () => getArcDetails,
+    getBroadcastTargetElements: () => getBroadcastTargetElements,
+    getRecursiveDepthLimit: () => getRecursiveDepthLimit,
+    handleRecursionLimitExceeded: () => handleRecursionLimitExceeded,
+    hsv: () => hsv,
+    hypot: () => hypot,
+    identity: () => identity,
+    imag: () => imag,
+    invBinom: () => invBinom,
+    invNorm: () => invNorm,
+    invPoisson: () => invPoisson,
+    invT: () => invT,
+    invUniform: () => invUniform,
+    invertTransformation: () => invertTransformation,
+    isDegenerateArc: () => isDegenerateArc,
+    itscore: () => itscore,
+    ittest: () => ittest,
+    lcm: () => lcm,
     line: () => i2,
     lineArcIntersection: () => vv,
     lineCircleIntersection: () => jE,
@@ -7085,13 +7085,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       acosh: acosh,
       asinh: asinh,
       atanh: atanh,
-      expm1: LB,
+      expm1: expm1,
       log1p: mp,
       sign: NE,
-      hypot: Ts,
+      hypot: hypot,
     } = Math,
     wB = Ba,
-    lg = zc,
+    gcd = zc,
     FB = Uc,
     SYMBOL_DIVERGES = Symbol("DIVERGES"),
     RecursiveFunctionResult = ((
@@ -7122,7 +7122,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     };
   Tg.defaultLimit = 1e5;
   var LruCache = Tg, RECURSIVE_DEPTH_LIMIT = 1e4, RECURSIVE_COMPUTATION_LIMIT = RECURSIVE_DEPTH_LIMIT * 2;
-  function VB() {
+  function getRecursiveDepthLimit() {
     return RECURSIVE_DEPTH_LIMIT;
   }
   function RE(e) {
@@ -7137,12 +7137,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     if (io(t)) return e.recursionTerminationStatus = 0, ls(t);
     throw Rx();
   }
-  function ev(e, t) {
+  function handleRecursionLimitExceeded(e, t) {
     if (io(t)) return e.recursionTerminationStatus = 1, ls(t);
     throw Ax();
   }
   var LS = new WeakMap();
-  function BB(e) {
+  function getBroadcastTargetElements(e) {
     let t = LS.get(e);
     return t || (t = new Set(e), LS.set(e, t)), t;
   }
@@ -7155,12 +7155,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function kB(e) {
     return { status: 1, stackFrame: e };
   }
-  function HB(e, t, n, r) {
+  function executeRecursiveFunction(e, t, n, r) {
     let s = e.recursiveFunctionCache || new LruCache(), i = [];
     i.push(r);
     let o = 0;
     for (; i.length > 0;) {
-      if (i.length > RECURSIVE_DEPTH_LIMIT || o++ > RECURSIVE_COMPUTATION_LIMIT) return ev(e, n);
+      if (i.length > RECURSIVE_DEPTH_LIMIT || o++ > RECURSIVE_COMPUTATION_LIMIT) return handleRecursionLimitExceeded(e, n);
       let a = i.pop(), { fn: u, args: c } = a, l = t[u](s, ...c);
       if (l === SYMBOL_DIVERGES) return KS(e, n);
       if ((l == null ? void 0 : l.status) === 1) {
@@ -7187,26 +7187,26 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n = e % t;
     return e * t < 0 && n !== 0 ? n + t : n;
   }
-  function xE(e, t) {
+  function lcm(e, t) {
     if (e = Math.round(e), t = Math.round(t), !isFinite(e) || !isFinite(t)) {
       return NaN;
     }
     if (e === 0 && t === 0) return 0;
-    let n = lg(e, t);
+    let n = gcd(e, t);
     return Math.abs(e / n * t);
   }
   function qB(e) {
     if (e.length === 0) return NaN;
-    if (e.length === 1) return lg(e[0], 0);
+    if (e.length === 1) return gcd(e[0], 0);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = lg(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = gcd(t, e[n]);
     return t;
   }
   function $B(e) {
     if (e.length === 0) return NaN;
-    if (e.length === 1) return xE(e[0], 1);
+    if (e.length === 1) return lcm(e[0], 1);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = xE(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = lcm(t, e[n]);
     return t;
   }
   function complexListGCD(e) {
@@ -7250,7 +7250,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     if (e > 0 && t > 0 && e - t < 0) return Bi(e - t) / Pu(t, e);
     if (e < 0 || t < 0 || e - t < 0 || e < 15 && t < 15 && e - t < 15) {
-      return pg(e, t) / ma(t);
+      return pg(e, t) / factorial(t);
     }
     let s = Ti(e) - Ti(t) - Ti(e - t) - (e - t) * mp(-t / e),
       i = Math.sqrt(e / (2 * Math.PI * t * (e - t))) * Math.pow(e / t, t) *
@@ -7262,8 +7262,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     if (isNaN(t)) return t;
     if (!isFinite(e) && !isFinite(t)) return NaN;
     if (t === 0) return 1;
-    if (e === 0) return 1 / ma(-t);
-    if (e === t) return ma(e);
+    if (e === 0) return 1 / factorial(-t);
+    if (e === t) return factorial(e);
     let n = isFinite(e) && e === Math.round(e),
       r = isFinite(t) && t === Math.round(t);
     if (e < 0 && e - t < 0) {
@@ -7271,12 +7271,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         ? Math.pow(-1, t) * pg(t - e - 1, t)
         : Bi(e - t) / Bi(e) * pg(-(e - t), t);
     }
-    if (e < 0 || e - t < 0 || e < 15 && e - t < 15) return ma(e) / ma(e - t);
+    if (e < 0 || e - t < 0 || e < 15 && e - t < 15) return factorial(e) / factorial(e - t);
     let s = Ti(e) - Ti(e - t) - (e - t) * mp(-t / e),
       i = Math.sqrt(e / (e - t)) * Ig(e, t) * Math.exp(s);
     return n && r && e > 0 && t > 0 && e - t > 0 ? Math.round(i) : i;
   }
-  function ma(e) {
+  function factorial(e) {
     if (e === -1 / 0) return NaN;
     let t = Math.round(e) === e;
     if (e < 0) return t ? 1 / 0 : 1 / (Bi(e) * wS(-e));
@@ -7368,7 +7368,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     if (t < 0) {
       return -n * rv(e, 1 - t) - Math.pow(Math.PI, e + 1) * cotDerivative(e, Math.PI * t);
     }
-    let r = ma(e), s = 0, i = Math.pow(t, -(e + 1));
+    let r = factorial(e), s = 0, i = Math.pow(t, -(e + 1));
     for (; t < 10;) s += i, t++, i = Math.pow(t, -(e + 1));
     s += e === 0 ? -Math.log(t) : i * t / e, s += .5 * i;
     let o = bernoulliTable, a = e + 1, u = 2, c = i * t * a / u, l = 1 / (t * t);
@@ -7498,7 +7498,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         .5 * ((1 - e) * mp(-1 / (e - 1)) - 1) + Ti(.5 * (e - 1)) -
           Ti(.5 * (e - 2)),
       ) * Math.sqrt((1 - 1 / e) / (2 * Math.PI))
-      : e / (e + 1) * ma((e + 1) / 2) / (ma(e / 2) * Math.sqrt(e * Math.PI));
+      : e / (e + 1) * factorial((e + 1) / 2) / (factorial(e / 2) * Math.sqrt(e * Math.PI));
   }
   function cp(e, t, n = e - t) {
     if (Math.abs(n) < .1 * (e + t)) {
@@ -7537,7 +7537,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       ? NaN
       : e === Math.floor(e)
       ? y3[e]
-      : Math.log(ma(e) / (Ig(e, e) * Math.sqrt(2 * Math.PI * e)));
+      : Math.log(factorial(e) / (Ig(e, e) * Math.sqrt(2 * Math.PI * e)));
   }
   function ov(e) {
     let t = .08333333333333333,
@@ -7730,11 +7730,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     if (c = e / (e + o) * c, t < e) {
       let l = Math.exp(-.5 * e * r * r) *
-        (.5 * Za(-r * Math.sqrt(e / 2)) - c / Math.sqrt(2 * Math.PI * e));
+        (.5 * erfcx(-r * Math.sqrt(e / 2)) - c / Math.sqrt(2 * Math.PI * e));
       return isFinite(l) ? 1 - l : 1;
     } else {
       let l = Math.exp(-.5 * e * r * r) *
-        (.5 * Za(r * Math.sqrt(e / 2)) + c / Math.sqrt(2 * Math.PI * e));
+        (.5 * erfcx(r * Math.sqrt(e / 2)) + c / Math.sqrt(2 * Math.PI * e));
       return isFinite(l) ? l : 0;
     }
   }
@@ -7743,8 +7743,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function Pf(e) {
     return e < 0
-      ? .5 * Math.exp(-e * e) * Za(-e)
-      : 1 - .5 * Math.exp(-e * e) * Za(e);
+      ? .5 * Math.exp(-e * e) * erfcx(-e)
+      : 1 - .5 * Math.exp(-e * e) * erfcx(e);
   }
   function I3(e, t, n, r) {
     let s = VS(t, n, r);
@@ -7812,10 +7812,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function binomSample(e, t, n) {
     return t = clamp(Math.round(t), 0, 1 / 0),
-      t === 1 / 0 ? NaN : (n = clamp(n, 0, 1), cv(Mu(e, 0, 1), t, n));
+      t === 1 / 0 ? NaN : (n = clamp(n, 0, 1), invBinom(Mu(e, 0, 1), t, n));
   }
   function D3(e, t) {
-    return t < 0 ? NaN : uv(Mu(e, 0, 1), t);
+    return t < 0 ? NaN : invPoisson(Mu(e, 0, 1), t);
   }
   function cg(e, t, n) {
     return e >= t
@@ -7899,14 +7899,14 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function O3(e, t, n, r) {
     return GS(t, n, r) - GS(e, n, r);
   }
-  function N3(e) {
+  function erf(e) {
     let t = -e * e;
     return t < -750
       ? e >= 0 ? 1 : -1
       : e >= .065
-      ? 1 - Math.exp(t) * Za(e)
+      ? 1 - Math.exp(t) * erfcx(e)
       : e <= -.065
-      ? Math.exp(t) * Za(-e) - 1
+      ? Math.exp(t) * erfcx(-e) - 1
       : e *
         (1.1283791670955126 +
           t *
@@ -7915,7 +7915,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
                 (.11283791670955126 +
                   t * (.026866170645131252 + t * .005223977625442188))));
   }
-  function Za(e) {
+  function erfcx(e) {
     let t = .9999999999999999,
       n = 2.224574423459406,
       r = 2.444115549920689,
@@ -7938,7 +7938,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       b = .0023889438122503674,
       M = .00012875032817508128;
     if (e < 0) {
-      return e < -6.1 ? 2 * Math.exp(e * e) : 2 * Math.exp(e * e) - Za(-e);
+      return e < -6.1 ? 2 * Math.exp(e * e) : 2 * Math.exp(e * e) - erfcx(-e);
     }
     if (e > 50) {
       let P = .5641895835477563, D = e * e;
@@ -7971,7 +7971,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       return P / D;
     }
   }
-  function BE(e) {
+  function invNorm(e) {
     let t = -39.6968302866538,
       n = 220.946098424521,
       r = -275.928510446969,
@@ -7998,7 +7998,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       S,
       O;
     return e > .5
-      ? -BE(1 - e)
+      ? -invNorm(1 - e)
       : e === .5
       ? 0
       : e < 0
@@ -8015,9 +8015,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
             (((((a * S + u) * S + c) * S + l) * S + p) * S + 1)),
         O -
         Math.sqrt(2 * Math.PI) *
-          (.5 * Za(-O / Math.SQRT2) - Math.exp(.5 * O * O) * e));
+          (.5 * erfcx(-O / Math.SQRT2) - Math.exp(.5 * O * O) * e));
   }
-  function uv(e, t) {
+  function invPoisson(e, t) {
     if (t < 0 || e < 0 || e > 1) return NaN;
     if (t === 0 || e === 0) return 0;
     if (e === 1) return 1 / 0;
@@ -8029,7 +8029,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return r;
   }
-  function cv(e, t, n) {
+  function invBinom(e, t, n) {
     if (t !== Math.round(t)) return NaN;
     if (n < 0 || n > 1) return NaN;
     if (e < 0 || e > 1) return NaN;
@@ -8044,7 +8044,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return s;
   }
-  function lv(e, t) {
+  function invT(e, t) {
     if (isNaN(t) || t <= 0 || e < 0 || e > 1) return NaN;
     if (e === 0) return -1 / 0;
     if (e === 1) return 1 / 0;
@@ -8052,11 +8052,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n, r;
     if (e === .5) return 0;
     if (e > .5) {
-      n = t > 1 ? BE(e) : gE(1, e),
+      n = t > 1 ? invNorm(e) : gE(1, e),
         r = t > 1
           ? gE(1, e)
           : Math.pow(Mg(0, t) * Math.pow(t, (t - 1) / 2) / (1 - e), 1 / t);
-    } else return -lv(1 - e, t);
+    } else return -invT(1 - e, t);
     return R3(t, e, n, r);
   }
   function gE(e, t) {
@@ -8082,7 +8082,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       a < t ? s = o : i = o;
     }
   }
-  function A3(e, t, n) {
+  function invUniform(e, t, n) {
     return e < 0 || e > 1 || n <= t
       ? NaN
       : e === 0
@@ -8095,7 +8095,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n = fg(e);
     return (ya(e) - t) * Math.sqrt(e.length) / n;
   }
-  function dv(e, t) {
+  function itscore(e, t) {
     let n = e.length,
       r = ya(e),
       s = fg(e),
@@ -8121,8 +8121,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       notEqual: op(n, r, 0),
     };
   }
-  function kE(e, t) {
-    let n = dv(e, t), r = e.length + t.length - 2;
+  function ittest(e, t) {
+    let n = itscore(e, t), r = e.length + t.length - 2;
     return {
       lessThan: op(n, r, -1),
       greaterThan: op(n, r, 1),
@@ -8340,10 +8340,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   var $3 = yf;
   function distance(e, t) {
-    return Ts(t[0] - e[0], t[1] - e[1]);
+    return hypot(t[0] - e[0], t[1] - e[1]);
   }
   function distanceThreeD(e, t) {
-    return Ts(t[0] - e[0], Ts(t[1] - e[1], t[2] - e[2]));
+    return hypot(t[0] - e[0], hypot(t[1] - e[1], t[2] - e[2]));
   }
   function xv(e, t, n) {
     return [
@@ -8352,7 +8352,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       clamp(Math.round(n), 0, 255),
     ];
   }
-  function X3(e, t, n) {
+  function hsv(e, t, n) {
     isFinite(e) || (e = 0), t = clamp(t, 0, 1), n = clamp(n, 0, 1);
     let r = n * (1 - t / 2);
     r === 0 || r === 1 ? t = 0 : t = (n - r) / Math.min(r, 1 - r);
@@ -8464,7 +8464,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function basePointFromVectorThreeD(e) {
     return e[1];
   }
-  function f2(e) {
+  function identity(e) {
     return e;
   }
   function circle(e, t) {
@@ -8509,7 +8509,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       l = o - s;
     return 2 * Math.atan2(a * l - c * u, a * c + u * l);
   }
-  function YE(e) {
+  function isDegenerateArc(e) {
     let t = Math.abs(arcOmega(e));
     return t < 1e-9 || t > 2 * Math.PI - 1e-9;
   }
@@ -8659,7 +8659,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     ];
   }
   function arcGlider(e, t) {
-    let n = Rg(e);
+    let n = getArcDetails(e);
     if (!n) return [NaN, NaN];
     if (n.type === "segment") return WE([e[0], e[2]], t);
     if (n.type === "rays") {
@@ -8689,13 +8689,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n = Math.floor(t);
     return WE([e[n], e[(n + 1) % e.length]], t - n);
   }
-  function Rg(e) {
+  function getArcDetails(e) {
     let [t, n, r] = e, [[s, i], [o, a], [u, c]] = [t, n, r];
     if (isNaN(s) || isNaN(i) || isNaN(o) || isNaN(a) || isNaN(u) || isNaN(c)) {
       return;
     }
     let l = arcCenter([t, n, r]), p = distance(l, t);
-    if (isFinite(p) && !YE([t, n, r])) {
+    if (isFinite(p) && !isDegenerateArc([t, n, r])) {
       let f = Math.atan2(t[1] - l[1], t[0] - l[0]), d = f + arcOmega([t, n, r]);
       return { type: "arc", center: l, radius: p, startAngle: f, endAngle: d };
     } else {
@@ -8720,7 +8720,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function circleCircleIntersection(e, t) {
     let [[n, r], s] = e,
       [[i, o], a] = t,
-      u = Ts(i - n, o - r),
+      u = hypot(i - n, o - r),
       c = u * u,
       l = s * s,
       p = a * a,
@@ -8750,7 +8750,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       y = u - o,
       g = c - a,
       m = y * y + g * g,
-      h = Ts(y, g),
+      h = hypot(y, g),
       x = l * d - p * f,
       T = i * h,
       b = T + x,
@@ -8774,7 +8774,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       y = l * n + p * r,
       g = f * o + d * a,
       m = l * d - f * p,
-      h = m / (Ts(l, p) * Ts(f, d));
+      h = m / (hypot(l, p) * hypot(f, d));
     return m === 0 || 1 + .1 * h === 1
       ? [NaN, NaN]
       : [(d * y - p * g) / m, (l * g - f * y) / m];
@@ -8860,7 +8860,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function gg(e) {
     let t = arcCenter(e), n = distance(t, arcGlider(e, 0));
-    return isFinite(n) && !YE(e) ? [t, n] : [e[0], e[2]];
+    return isFinite(n) && !isDegenerateArc(e) ? [t, n] : [e[0], e[2]];
   }
   function hg(e) {
     return Array.isArray(e[1]);
@@ -8946,7 +8946,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n = e[2], [r, s, i] = t;
     return [e0(e, r), oo(e, s), i !== n];
   }
-  function xG(e) {
+  function invertTransformation(e) {
     let [[t, n], [r, s], i] = e,
       o = t * t + n * n,
       a = t / o,
@@ -8974,7 +8974,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function MG(e, t) {
     let [n, r] = t, [[s, i]] = e;
-    return [oo(e, n), Ts(s, i) * r];
+    return [oo(e, n), hypot(s, i) * r];
   }
   function CG(e, t) {
     let [n, r, s] = t;
@@ -9015,7 +9015,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function RG(e, t) {
     return [e, t];
   }
-  function AG(e) {
+  function frequency(e) {
     return e[0];
   }
   function _G(e) {
@@ -9063,7 +9063,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function VG([e, t]) {
     return e;
   }
-  function BG([e, t]) {
+  function imag([e, t]) {
     return t;
   }
   function arg([e, t]) {
@@ -9089,9 +9089,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return Wc(e, t);
   }
   function Wc(e, t) {
-    let n = Math.sqrt(.5 * (Math.abs(e) + Ts(e, t)));
+    let n = Math.sqrt(.5 * (Math.abs(e) + hypot(e, t)));
     return n === 1 / 0 &&
-      (n = 2 * Math.sqrt(.5 * (Math.abs(.25 * e) + Ts(.25 * e, .25 * t)))),
+      (n = 2 * Math.sqrt(.5 * (Math.abs(.25 * e) + hypot(.25 * e, .25 * t)))),
       n === 0 || !isFinite(t)
         ? complex(n, t)
         : e > 0
@@ -9144,7 +9144,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     if (r === 0) return complexPowReal(e, n);
     let [s, i] = e;
     if (isNaN(s) || isNaN(i) || isNaN(n) || isNaN(r)) return complex(NaN, NaN);
-    let o = Ts(s, i),
+    let o = hypot(s, i),
       a = vf(i, s),
       u = Math.pow(o, n) * Math.exp(-a * r),
       c = Math.log(o) * r + a * n;
@@ -30869,7 +30869,7 @@ return accum;
       return G[o] = F, G[d] = Y, G;
     }
     function _(w) {
-      let G = w.slice(), k = w[o], Z = w[d], F = Ts(k, Z), Y = Math.atan2(Z, k);
+      let G = w.slice(), k = w[o], Z = w[d], F = hypot(k, Z), Y = Math.atan2(Z, k);
       return G[o] = F, G[d] = Y, a.reverseParameterMap(G);
     }
     let L = a.replacementMask.slice();
@@ -36433,7 +36433,7 @@ return accum;
         });
       case 21:
         return p({ color: true, lineWidth: true, lineOpacity: true }, (x, T) => {
-          let b = Rg(x.asValue());
+          let b = getArcDetails(x.asValue());
           if (!b) return [];
           let M = [];
           return b.type === "arc"
@@ -37436,8 +37436,8 @@ return accum;
           Y = (w - b) / l,
           re = (M - _) / p,
           Ee = (G - M) / p,
-          he = Ts(k, F, re),
-          K = Ts(Z, Y, Ee);
+          he = hypot(k, F, re),
+          K = hypot(Z, Y, Ee);
         if ((Z * k + Y * F + Ee * re) / (he * K) < .7 && he > f && K > f) {
           let te = .5 * (f / he),
             Ze = .5 * (f / K),
@@ -41845,7 +41845,7 @@ return accum;
     };
   }
   C.TTest.prototype.analyze = qw(GE);
-  C.IndependentTTest.prototype.analyze = qw(kE);
+  C.IndependentTTest.prototype.analyze = qw(ittest);
   C.Stats.prototype.analyze = function (e, t) {
     if (hs(this)) return bs(e, t, this);
     let n = this.tryGetConcreteTree(e, t), r = n.getDependencies();
@@ -45955,7 +45955,7 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "Wa", { get: () => ListOfAngleMarker });
   Object.defineProperty(__dcg_chunk_exports__, "Xa", { get: () => DirectedAngleMarker });
   Object.defineProperty(__dcg_chunk_exports__, "Ya", { get: () => ListOfDirectedAngleMarker });
-  Object.defineProperty(__dcg_chunk_exports__, "Za", { get: () => Transformation });
+  Object.defineProperty(__dcg_chunk_exports__, "erfcx", { get: () => Transformation });
   Object.defineProperty(__dcg_chunk_exports__, "_a", { get: () => ListOfTransformation });
   Object.defineProperty(__dcg_chunk_exports__, "$a", { get: () => Vector });
   Object.defineProperty(__dcg_chunk_exports__, "ab", { get: () => ListOfVector });
@@ -46000,10 +46000,10 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "Nb", { get: () => Tn });
   Object.defineProperty(__dcg_chunk_exports__, "Ob", { get: () => bX });
   Object.defineProperty(__dcg_chunk_exports__, "Pb", { get: () => ls });
-  Object.defineProperty(__dcg_chunk_exports__, "Qb", { get: () => Ts });
+  Object.defineProperty(__dcg_chunk_exports__, "Qb", { get: () => hypot });
   Object.defineProperty(__dcg_chunk_exports__, "Rb", { get: () => wB });
   Object.defineProperty(__dcg_chunk_exports__, "Sb", { get: () => clamp });
-  Object.defineProperty(__dcg_chunk_exports__, "Tb", { get: () => xE });
+  Object.defineProperty(__dcg_chunk_exports__, "Tb", { get: () => lcm });
   Object.defineProperty(__dcg_chunk_exports__, "Ub", { get: () => distance });
   Object.defineProperty(__dcg_chunk_exports__, "Vb", { get: () => arcCenter });
   Object.defineProperty(__dcg_chunk_exports__, "Wb", { get: () => arcOmega });
@@ -46013,7 +46013,7 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "_b", { get: () => circleGlider });
   Object.defineProperty(__dcg_chunk_exports__, "$b", { get: () => arcGlider });
   Object.defineProperty(__dcg_chunk_exports__, "ac", { get: () => j2 });
-  Object.defineProperty(__dcg_chunk_exports__, "bc", { get: () => Rg });
+  Object.defineProperty(__dcg_chunk_exports__, "bc", { get: () => getArcDetails });
   Object.defineProperty(__dcg_chunk_exports__, "cc", { get: () => circleCircleIntersection });
   Object.defineProperty(__dcg_chunk_exports__, "dc", { get: () => jE });
   Object.defineProperty(__dcg_chunk_exports__, "ec", { get: () => circleLineIntersection });
@@ -46025,7 +46025,7 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "kc", { get: () => arcArcIntersection });
   Object.defineProperty(__dcg_chunk_exports__, "lc", { get: () => dilation });
   Object.defineProperty(__dcg_chunk_exports__, "mc", { get: () => composeTransformation });
-  Object.defineProperty(__dcg_chunk_exports__, "nc", { get: () => xG });
+  Object.defineProperty(__dcg_chunk_exports__, "nc", { get: () => invertTransformation });
   Object.defineProperty(__dcg_chunk_exports__, "oc", { get: () => oo });
   Object.defineProperty(__dcg_chunk_exports__, "pc", { get: () => Et });
   Object.defineProperty(__dcg_chunk_exports__, "qc", { get: () => tt });
