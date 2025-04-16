@@ -1,5 +1,10 @@
 (() => {
   const __dcg_chunk_exports__ = {};
+  var AF = Object.create;
+  var sx = Object.defineProperty;
+  var _F = Object.getOwnPropertyDescriptor;
+  var LF = Object.getOwnPropertyNames;
+  var wF = Object.getPrototypeOf, FF = Object.prototype.hasOwnProperty;
   var _5 =
     ((e) =>
       typeof require != "undefined"
@@ -18,14 +23,14 @@
   var w5 =
       (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports),
     ia = (e, t) => {
-      for (var n in t) Object.defineProperty(e, n, { get: t[n], enumerable: true });
+      for (var n in t) sx(e, n, { get: t[n], enumerable: !0 });
     },
     VF = (e, t, n, r) => {
       if (t && typeof t == "object" || typeof t == "function") {
-        for (let s of Object.getOwnPropertyNames(t)) {
-          !Object.prototype.hasOwnProperty.call(e, s) && s !== n && Object.defineProperty(e, s, {
+        for (let s of LF(t)) {
+          !FF.call(e, s) && s !== n && sx(e, s, {
             get: () => t[s],
-            enumerable: !(r = Object.getOwnPropertyDescriptor(t, s)) || r.enumerable,
+            enumerable: !(r = _F(t, s)) || r.enumerable,
           });
         }
       }
@@ -35,10 +40,10 @@
     e,
     t,
     n,
-  ) => (n = e != null ? Object.create(Object.getPrototypeOf(e)) : {},
+  ) => (n = e != null ? AF(wF(e)) : {},
     VF(
       t || !e || !e.__esModule
-        ? Object.defineProperty(n, "default", { value: e, enumerable: true })
+        ? sx(n, "default", { value: e, enumerable: !0 })
         : n,
       e,
     ));
@@ -119,22 +124,22 @@
     } = Z1;
   var Oo = {};
   ia(Oo, {
-    DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS: () => DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS,
-    DEFAULT_EVALUATION_LABEL_OPTIONS: () => DEFAULT_EVALUATION_LABEL_OPTIONS,
-    canDisplayAsFraction: () => canDisplayAsFraction,
-    complexNumberLabel: () => complexNumberLabel,
-    complexPlainMathNumberLabel: () => complexPlainMathNumberLabel,
-    formatSymbol: () => formatSymbol,
-    identifierToHTML: () => identifierToHTML,
-    identifierToLatex: () => identifierToLatex,
-    latexToIdentifier: () => latexToIdentifier,
-    numericLabel: () => numericLabel,
-    point: () => point,
-    trimLatex: () => trimLatex,
-    truncatedHTMLLabel: () => truncatedHTMLLabel,
-    truncatedLatexLabel: () => truncatedLatexLabel,
-    truncatedPlainmathLabel: () => truncatedPlainmathLabel,
-    value: () => value,
+    DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS: () => yx,
+    DEFAULT_EVALUATION_LABEL_OPTIONS: () => CD,
+    canDisplayAsFraction: () => SD,
+    complexNumberLabel: () => Ic,
+    complexPlainMathNumberLabel: () => gx,
+    formatSymbol: () => X,
+    identifierToHTML: () => OV,
+    identifierToLatex: () => qr,
+    latexToIdentifier: () => no,
+    numericLabel: () => Zm,
+    point: () => PV,
+    trimLatex: () => oa,
+    truncatedHTMLLabel: () => vD,
+    truncatedLatexLabel: () => kl,
+    truncatedPlainmathLabel: () => Gl,
+    value: () => fx,
   });
   function W1(e, t, n) {
     if (e = _l(e), n > 0) {
@@ -218,8 +223,8 @@
     if (Bm(a, i, o - i)) return [s * Math.cos(a) + n, s * Math.sin(a) + r];
   }
   function si(e, t, n = 1) {
-    if (e === t) return true;
-    if (!isFinite(e) || !isFinite(t)) return false;
+    if (e === t) return !0;
+    if (!isFinite(e) || !isFinite(t)) return !1;
     if (n > 50) {
       throw new Error(
         "Within " + (52 - n) + " bits isn't really approximate any more",
@@ -400,17 +405,17 @@
     t = vo(t, n);
     for (var r = !Ri(e) && gi(e), s = (r || e).length, i = 0; i < s; i++) {
       var o = r ? r[i] : i;
-      if (!t(e[o], o, e)) return false;
+      if (!t(e[o], o, e)) return !1;
     }
-    return true;
+    return !0;
   }
   function dY(e, t, n) {
     t = vo(t, n);
     for (var r = !Ri(e) && gi(e), s = (r || e).length, i = 0; i < s; i++) {
       var o = r ? r[i] : i;
-      if (t(e[o], o, e)) return true;
+      if (t(e[o], o, e)) return !0;
     }
-    return false;
+    return !1;
   }
   function Ll(e, t, n, r) {
     return Ri(e) || (e = Md(e)),
@@ -519,7 +524,7 @@
   }
   var IY = $m(function (e, t, n) {
     e[n ? 0 : 1].push(t);
-  }, true);
+  }, !0);
   function Tc(e, t, n, r) {
     r = r || [];
     for (var s = r.length, i = 0, o = du(e); i < o; i++) {
@@ -533,13 +538,13 @@
     return r;
   }
   function PY(e, t) {
-    return Tc(e, t, false);
+    return Tc(e, t, !1);
   }
   var EY = Ni(function (e, t) {
     return cx(e, t);
   });
   function ux(e, t, n, r) {
-    hV(t) || (r = n, n = t, t = false), n != null && (n = vo(n, r));
+    hV(t) || (r = n, n = t, t = !1), n != null && (n = vo(n, r));
     for (var s = [], i = [], o = 0, a = du(e); o < a; o++) {
       var u = e[o], c = n ? n(u, o, e) : u;
       t && !n
@@ -551,10 +556,10 @@
     return s;
   }
   var MY = Ni(function (e) {
-    return ux(Tc(e, true, true));
+    return ux(Tc(e, !0, !0));
   });
   var cx = Ni(function (e, t) {
-    return t = Tc(t, true, true),
+    return t = Tc(t, !0, !0),
       XF(e, function (n) {
         return !Ll(t, n);
       });
@@ -630,7 +635,7 @@
     });
   Ym.placeholder = Nr;
   var vY = Ni(function (e, t) {
-    t = Tc(t, false, false);
+    t = Tc(t, !1, !1);
     var n = t.length;
     if (n < 1) throw new Error("bindAll must be passed function names");
     for (; n--;) {
@@ -648,14 +653,14 @@
     var r, s, i, o, a = 0;
     n || (n = {});
     var u = function () {
-        a = n.leading === false ? 0 : rD(),
+        a = n.leading === !1 ? 0 : rD(),
           r = null,
           o = e.apply(s, i),
           r || (s = i = null);
       },
       c = function () {
         var l = rD();
-        !a && n.leading === false && (a = l);
+        !a && n.leading === !1 && (a = l);
         var p = t - (l - a);
         return s = this,
           i = arguments,
@@ -664,7 +669,7 @@
               a = l,
               o = e.apply(s, i),
               r || (s = i = null))
-            : !r && n.trailing !== false && (r = setTimeout(u, p)),
+            : !r && n.trailing !== !1 && (r = setTimeout(u, p)),
           o;
       };
     return c.cancel = function () {
@@ -767,7 +772,7 @@
       if (e == null) return n;
       Ga(r)
         ? (t.length > 1 && (r = Um(r, t[1])), t = lx(e))
-        : (r = aV, t = Tc(t, false, false), e = Object(e));
+        : (r = aV, t = Tc(t, !1, !1), e = Object(e));
       for (var s = 0, i = t.length; s < i; s++) {
         var o = t[s], a = e[o];
         r(a, o, e) && (n[o] = a);
@@ -778,13 +783,13 @@
       var n = t[0], r;
       return Ga(n)
         ? (n = nV(n), t.length > 1 && (r = t[1]))
-        : (t = qm(Tc(t, false, false), String),
+        : (t = qm(Tc(t, !1, !1), String),
           n = function (s, i) {
             return !Ll(t, i);
           }),
         uV(e, n, r);
     }),
-    LY = px(lx, true);
+    LY = px(lx, !0);
   function cV(e) {
     return Bl(e) ? Vl(e) ? e.slice() : iV({}, e) : e;
   }
@@ -793,23 +798,23 @@
     if (e == null) return !r;
     for (var s = Object(e), i = 0; i < r; i++) {
       var o = n[i];
-      if (t[o] !== s[o] || !(o in s)) return false;
+      if (t[o] !== s[o] || !(o in s)) return !1;
     }
-    return true;
+    return !0;
   }
   function ox(e, t, n, r) {
     if (e === t) return e !== 0 || 1 / e === 1 / t;
-    if (e == null || t == null) return false;
+    if (e == null || t == null) return !1;
     if (e !== e) return t !== t;
     var s = typeof e;
     return s !== "function" && s !== "object" && typeof t != "object"
-      ? false
+      ? !1
       : pV(e, t, n, r);
   }
   function pV(e, t, n, r) {
     e instanceof Nr && (e = e._wrapped), t instanceof Nr && (t = t._wrapped);
     var s = km.call(e);
-    if (s !== km.call(t)) return false;
+    if (s !== km.call(t)) return !1;
     switch (s) {
       case "[object RegExp]":
       case "[object String]":
@@ -824,31 +829,31 @@
     }
     var i = s === "[object Array]";
     if (!i) {
-      if (typeof e != "object" || typeof t != "object") return false;
+      if (typeof e != "object" || typeof t != "object") return !1;
       var o = e.constructor, a = t.constructor;
       if (
         o !== a && !(Ga(o) && o instanceof o && Ga(a) && a instanceof a) &&
         "constructor" in e && "constructor" in t
-      ) return false;
+      ) return !1;
     }
     n = n || [], r = r || [];
     for (var u = n.length; u--;) if (n[u] === e) return r[u] === t;
     if (n.push(e), r.push(t), i) {
-      if (u = e.length, u !== t.length) return false;
-      for (; u--;) if (!ox(e[u], t[u], n, r)) return false;
+      if (u = e.length, u !== t.length) return !1;
+      for (; u--;) if (!ox(e[u], t[u], n, r)) return !1;
     } else {
       var c = gi(e), l;
-      if (u = c.length, gi(t).length !== u) return false;
-      for (; u--;) if (l = c[u], !(wl(t, l) && ox(e[l], t[l], n, r))) return false;
+      if (u = c.length, gi(t).length !== u) return !1;
+      for (; u--;) if (l = c[u], !(wl(t, l) && ox(e[l], t[l], n, r))) return !1;
     }
-    return n.pop(), r.pop(), true;
+    return n.pop(), r.pop(), !0;
   }
   function ws(e, t) {
     return ox(e, t);
   }
   function wY(e) {
     return e == null
-      ? true
+      ? !0
       : Ri(e) && (Vl(e) || dV(e) || Hm(e))
       ? e.length === 0
       : gi(e).length === 0;
@@ -883,7 +888,7 @@
   var yV = Gm.document && Gm.document.childNodes;
   typeof /./ != "function" && typeof Int8Array != "object" &&
     typeof yV != "function" && (Ga = function (e) {
-      return typeof e == "function" || false;
+      return typeof e == "function" || !1;
     });
   function UY(e) {
     return !mV(e) && qF(e) && !iD(parseFloat(e));
@@ -892,7 +897,7 @@
     return fV(e) && iD(e);
   }
   function hV(e) {
-    return e === true || e === false || km.call(e) === "[object Boolean]";
+    return e === !0 || e === !1 || km.call(e) === "[object Boolean]";
   }
   function bV(e) {
     return e;
@@ -975,7 +980,7 @@
   Nr.prototype.toString = function () {
     return String(this._wrapped);
   };
-  function value(e, t = e, n = false) {
+  function fx(e, t = e, n = !1) {
     if (isNaN(e) || !isFinite(e)) {
       return { string: "undefined", latex: "undefined", value: e };
     }
@@ -1020,8 +1025,8 @@
         };
     }
   }
-  function point(e, t, n, r) {
-    let s = value(e, t), i = value(r(s.value), n);
+  function PV(e, t, n, r) {
+    let s = fx(e, t), i = fx(r(s.value), n);
     return [s, i];
   }
   var EV = /\.?0+$/;
@@ -1052,30 +1057,30 @@
       smallCutoff: .001,
       bigCutoff: 1e6,
       digits: 10,
-      displayAsFraction: false,
-      addEllipses: false,
-      alwaysEmitImaginary: false,
-      spaceConstrained: false,
+      displayAsFraction: !1,
+      addEllipses: !1,
+      alwaysEmitImaginary: !1,
+      spaceConstrained: !1,
     },
-    DEFAULT_EVALUATION_LABEL_OPTIONS = { smallCutoff: 1e-6, bigCutoff: 1e9, digits: 12 },
-    DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS = {
-      ...DEFAULT_EVALUATION_LABEL_OPTIONS,
+    CD = { smallCutoff: 1e-6, bigCutoff: 1e9, digits: 12 },
+    yx = {
+      ...CD,
       smallCutoff: 1e-4,
       bigCutoff: 1e6,
       digits: 9,
       scientificNotationDigits: 4,
-      spaceConstrained: true,
+      spaceConstrained: !0,
     };
   function DD(e) {
     return 1e6 / Math.sqrt(Math.abs(e));
   }
-  function canDisplayAsFraction(e) {
+  function SD(e) {
     let t = DD(e);
-    if (t < 1 || t > 1e12) return false;
+    if (t < 1 || t > 1e12) return !1;
     let { n, d: r } = Ba(e, t);
-    return r === 1 ? false : e === e + Math.pow(2, -3) * Math.abs(n / r - e);
+    return r === 1 ? !1 : e === e + Math.pow(2, -3) * Math.abs(n / r - e);
   }
-  function numericLabel(e, t) {
+  function Zm(e, t) {
     var g;
     let {
         zeroCutoff: n,
@@ -1094,7 +1099,7 @@
     let p = mx(e.toExponential(c)).match(/([\d\.\-]+)e\+?([\d\-]+)/);
     if (!p) return { type: "undefined" };
     let f = parseInt(p[2], 10), d = f >= i;
-    if (canDisplayAsFraction(e) && o) {
+    if (SD(e) && o) {
       let m = Ba(e, DD(e));
       return {
         type: "fraction",
@@ -1107,13 +1112,13 @@
       }
       {
         let m = ED(e.toPrecision(u && f < 0 ? i + f : i));
-        return e !== window.Number(m) && a && (m += "..."),
+        return e !== Number(m) && a && (m += "..."),
           { type: "decimal", value: m };
       }
     }
   }
-  function truncatedHTMLLabel(e, t) {
-    let n = numericLabel(e, t);
+  function vD(e, t) {
+    let n = Zm(e, t);
     switch (n.type) {
       case "undefined":
         return "undefined";
@@ -1130,8 +1135,8 @@
         return n;
     }
   }
-  function truncatedPlainmathLabel(e, t) {
-    let n = numericLabel(e, t);
+  function Gl(e, t) {
+    let n = Zm(e, t);
     switch (n.type) {
       case "undefined":
         return "undefined";
@@ -1147,8 +1152,8 @@
         return n;
     }
   }
-  function truncatedLatexLabel(e, t) {
-    let n = numericLabel(e, t);
+  function kl(e, t) {
+    let n = Zm(e, t);
     switch (n.type) {
       case "undefined":
         return "undefined";
@@ -1166,14 +1171,14 @@
         return n;
     }
   }
-  function formatSymbol(e) {
+  function X(e) {
     if (e.startsWith("_base_case")) {
       let [n, r, s] = e.split(":"), i = [];
       for (let o of s.split(",")) {
         let a = parseFloat(o);
-        isNaN(a) ? i.push(formatSymbol(o)) : i.push(truncatedPlainmathLabel(a));
+        isNaN(a) ? i.push(X(o)) : i.push(Gl(a));
       }
-      return `${formatSymbol(r)}(${i.join(",")})`;
+      return `${X(r)}(${i.join(",")})`;
     }
     e = e.replace("\\", "");
     let t = {
@@ -1233,7 +1238,7 @@
     };
     return t.hasOwnProperty(e) ? t[e] : e;
   }
-  function identifierToLatex(e) {
+  function qr(e) {
     let t = e.match(/^\$(\d+)$/);
     if (t) return `\\token{${t[1]}}`;
     let n = e.split("_"), r = "";
@@ -1242,30 +1247,30 @@
       n[1] && (r += "_{" + n[1] + "}"),
       r;
   }
-  function identifierToHTML(e) {
+  function OV(e) {
     if (!e) return "";
     let t = e.split("_");
-    t[0] = formatSymbol(t[0]);
+    t[0] = X(t[0]);
     let n = t.map(ID);
     return n[1] && (n[1] = "<sub>" + n[1] + "</sub>"), n.join("");
   }
-  function latexToIdentifier(e) {
+  function no(e) {
     let t = e.match(/\\token\{(\d+)\}/);
     return t
       ? `$${t[1]}`
       : (e = e.replace(/\\operatorname\{(.*)\}/, "$1"),
         e.replace(/[{}\\]/g, ""));
   }
-  function trimLatex(e) {
+  function oa(e) {
     return e.replace(/^(\\ |\s|\\space(?![a-zA-Z]))+/, "").replace(
       /(\\ |\s|\\space(?![a-zA-Z]))+$/,
       "",
     );
   }
-  function complexNumberLabel(e, t = {}, n = "latex") {
+  function Ic(e, t = {}, n = "latex") {
     let r = { ...MD, ...t },
       { alwaysEmitImaginary: s } = r,
-      i = n === "latex" ? truncatedLatexLabel : truncatedHTMLLabel,
+      i = n === "latex" ? kl : vD,
       [o, a] = [
         e[0] !== 0 ? i(e[0], r) : void 0,
         e[1] !== 0 || s ? i(Math.abs(e[1]), r) : void 0,
@@ -1280,10 +1285,10 @@
       ? o
       : "0";
   }
-  function complexPlainMathNumberLabel(e, t = {}) {
+  function gx(e, t = {}) {
     let [n, r] = [
-      e[0] !== 0 ? truncatedPlainmathLabel(e[0], t) : void 0,
-      e[1] !== 0 ? truncatedPlainmathLabel(Math.abs(e[1]), t) : void 0,
+      e[0] !== 0 ? Gl(e[0], t) : void 0,
+      e[1] !== 0 ? Gl(Math.abs(e[1]), t) : void 0,
     ];
     if (n === "undefined" || r === "undefined") return "undefined";
     let s = r != null && r.includes(" * ") || r != null && r.includes("/")
@@ -1600,7 +1605,7 @@
     zeroArgReducer: () => jT,
   });
   function Cd(e) {
-    return { __isLocalizableNumericValue: true, value: e };
+    return { __isLocalizableNumericValue: !0, value: e };
   }
   function WY(e) {
     return e && e.__isLocalizableNumericValue;
@@ -1611,8 +1616,8 @@
   var ka = () => ({ type: "empty" }),
     dr = () => NV([-1 / 0, 1 / 0]),
     aa = () => bi([-1 / 0, 1 / 0]),
-    bi = (e) => Wm(e, true),
-    NV = (e) => Wm(e, false),
+    bi = (e) => Wm(e, !0),
+    NV = (e) => Wm(e, !1),
     Wm = (e, t) =>
       isNaN(e[0]) || isNaN(e[1]) || e[1] < e[0]
         ? ka()
@@ -1646,7 +1651,7 @@
         ],
         r;
       return !hi(e) && !hi(t)
-        ? r = false
+        ? r = !1
         : hi(e) && !hi(t)
         ? r = e.bounds[0] <= t.bounds[0] && e.bounds[1] >= t.bounds[1]
         : !hi(e) && hi(t)
@@ -1683,78 +1688,78 @@
   }
   var Ie = {};
   ia(Ie, {
-    Action: () => Action,
-    AngleMarker: () => AngleMarker,
-    Any: () => Any,
-    Arc: () => Arc,
-    Bool: () => Bool,
+    Action: () => ut,
+    AngleMarker: () => Le,
+    Any: () => Qt,
+    Arc: () => ie,
+    Bool: () => De,
     BroadcastableArg: () => ey,
-    Circle: () => Circle,
-    Complex: () => Complex,
-    DirectedAngleMarker: () => DirectedAngleMarker,
-    Distribution: () => Distribution,
-    EmptyList: () => EmptyList,
-    ErrorType: () => ErrorType,
-    Line: () => Line,
+    Circle: () => ce,
+    Complex: () => R,
+    DirectedAngleMarker: () => ye,
+    Distribution: () => Lt,
+    EmptyList: () => $e,
+    ErrorType: () => Ro,
+    Line: () => fe,
     ListArgType: () => Km,
-    ListOfAngleMarker: () => ListOfAngleMarker,
-    ListOfAny: () => ListOfAny,
-    ListOfArc: () => ListOfArc,
-    ListOfBool: () => ListOfBool,
-    ListOfCircle: () => ListOfCircle,
-    ListOfColor: () => ListOfColor,
-    ListOfComplex: () => ListOfComplex,
-    ListOfDirectedAngleMarker: () => ListOfDirectedAngleMarker,
-    ListOfDistribution: () => ListOfDistribution,
-    ListOfLine: () => ListOfLine,
-    ListOfMapInterval2DComplex: () => ListOfMapInterval2ToComplex,
-    ListOfMapInterval2DPoint: () => ListOfMapInterval2ToPoint,
-    ListOfMapInterval2DPoint3D: () => ListOfMapInterval2DPoint3D,
-    ListOfMapIntervalComplex: () => ListOfMapIntervalComplex,
-    ListOfMapIntervalPoint: () => ListOfMapIntervalPoint,
-    ListOfMapIntervalPoint3D: () => ListOfMapIntervalPoint3D,
-    ListOfNumber: () => ListOfNumber,
+    ListOfAngleMarker: () => On,
+    ListOfAny: () => pn,
+    ListOfArc: () => Fn,
+    ListOfBool: () => Xn,
+    ListOfCircle: () => Wn,
+    ListOfColor: () => rr,
+    ListOfComplex: () => Ue,
+    ListOfDirectedAngleMarker: () => Nn,
+    ListOfDistribution: () => Zn,
+    ListOfLine: () => jn,
+    ListOfMapInterval2DComplex: () => jr,
+    ListOfMapInterval2DPoint: () => Xr,
+    ListOfMapInterval2DPoint3D: () => Zr,
+    ListOfMapIntervalComplex: () => Wr,
+    ListOfMapIntervalPoint: () => $r,
+    ListOfMapIntervalPoint3D: () => Yr,
+    ListOfNumber: () => ne,
     ListOfNumberNC: () => ro,
-    ListOfPoint: () => ListOfPoint,
-    ListOfPoint3D: () => ListOfPoint3D,
-    ListOfPolygon: () => ListOfPolygon,
-    ListOfRay: () => ListOfRay,
-    ListOfRestriction: () => ListOfRestriction,
-    ListOfSegment: () => ListOfSegment,
-    ListOfSegment3D: () => ListOfSegment3D,
-    ListOfSphere3D: () => ListOfSphere3D,
-    ListOfTone: () => ListOfTone,
-    ListOfTransformation: () => ListOfTransformation,
-    ListOfTriangle3D: () => ListOfTriangle3D,
-    ListOfVector: () => ListOfVector,
-    ListOfVector3D: () => ListOfVector3D,
-    MapInterval2DComplex: () => MapInterval2ToComplex,
-    MapInterval2DPoint: () => MapInterval2ToPoint,
-    MapInterval2DPoint3D: () => MapInterval2DPoint3D,
-    MapIntervalComplex: () => MapIntervalComplex,
-    MapIntervalPoint: () => MapIntervalPoint,
-    MapIntervalPoint3D: () => MapIntervalPoint3D,
+    ListOfPoint: () => Pt,
+    ListOfPoint3D: () => fr,
+    ListOfPolygon: () => In,
+    ListOfRay: () => Vn,
+    ListOfRestriction: () => Gs,
+    ListOfSegment: () => xn,
+    ListOfSegment3D: () => mr,
+    ListOfSphere3D: () => Ar,
+    ListOfTone: () => cs,
+    ListOfTransformation: () => Rr,
+    ListOfTriangle3D: () => yr,
+    ListOfVector: () => Jn,
+    ListOfVector3D: () => gr,
+    MapInterval2DComplex: () => Mr,
+    MapInterval2DPoint: () => Pr,
+    MapInterval2DPoint3D: () => Er,
+    MapIntervalComplex: () => or,
+    MapIntervalPoint: () => sr,
+    MapIntervalPoint3D: () => ir,
     NoCoerceComplexToReal: () => Nd,
-    Number: () => Number,
+    Number: () => I,
     NumberNC: () => Te,
-    Point: () => Point,
-    Point3D: () => Point3D,
-    Polygon: () => Polygon,
-    RGBColor: () => RGBColor,
-    Ray: () => Ray,
-    Restriction: () => Restriction,
-    SeedType: () => SeedType,
-    Segment: () => Segment,
-    Segment3D: () => Segment3D,
-    Sphere3D: () => Sphere3D,
-    Tone: () => Tone,
-    Transformation: () => Transformation,
-    Triangle3D: () => Triangle3D,
+    Point: () => N,
+    Point3D: () => z,
+    Polygon: () => xe,
+    RGBColor: () => Kt,
+    Ray: () => Ne,
+    Restriction: () => Gt,
+    SeedType: () => ft,
+    Segment: () => de,
+    Segment3D: () => wt,
+    Sphere3D: () => Hn,
+    Tone: () => Pn,
+    Transformation: () => Re,
+    Triangle3D: () => Rn,
     TupleTypeMap: () => zl,
     UNKNOWN_RETURN_TYPE: () => FV,
     Union: () => Qn,
-    Vector: () => Vector,
-    Vector3D: () => Vector3D,
+    Vector: () => le,
+    Vector3D: () => ke,
     allListTypes: () => ii,
     allTupleTypes: () => hx,
     allValueTypes: () => RV,
@@ -1799,40 +1804,40 @@
     return t ? vn(e) : e;
   }
   function _i(e, t) {
-    return e === EmptyList && j(t) || t === ListOfAny && j(e) || t === Any && !j(e)
-      ? true
+    return e === $e && j(t) || t === pn && j(e) || t === Qt && !j(e)
+      ? !0
       : e === t;
   }
   function kn(e, t) {
-    if (e === void 0) return false;
-    if (_i(e, t)) return true;
-    j(e) && j(t) && t !== EmptyList && (e = Ve(e), t = Ve(t));
+    if (e === void 0) return !1;
+    if (_i(e, t)) return !0;
+    j(e) && j(t) && t !== $e && (e = Ve(e), t = Ve(t));
     let n = t;
     switch (e) {
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Restriction:
-      case Number:
-      case Complex:
-        return n === Number || n === Complex;
+      case Le:
+      case ye:
+      case Gt:
+      case I:
+      case R:
+        return n === I || n === R;
       default:
-        return false;
+        return !1;
     }
   }
   function Ec(e, t) {
-    return t === Number && e === Complex || t === ListOfNumber && e === ListOfComplex ? false : kn(e, t);
+    return t === I && e === R || t === ne && e === Ue ? !1 : kn(e, t);
   }
   function fu(e, t) {
     if (_i(e, t)) return t;
     if (_i(t, e)) return e;
     let n = j(e);
     if (n != j(t)) return;
-    let r = jm(Complex, n);
+    let r = jm(R, n);
     if (e === r && kn(t, r)) return r;
     if (t === r && kn(e, r)) return r;
-    let s = jm(Number, n);
+    let s = jm(I, n);
     if (kn(e, s) && kn(t, s)) {
-      let i = jm(AngleMarker, n), o = jm(DirectedAngleMarker, n);
+      let i = jm(Le, n), o = jm(ye, n);
       return e === i && t === o || e === o && t === i ? void 0 : s;
     }
   }
@@ -1843,143 +1848,143 @@
       ? fu(vn(e), t)
       : fu(e, t);
   }
-  var Any = 0,
-    Number = 1,
-    Bool = 2,
-    Point = 3,
-    Distribution = 4,
-    Action = 5,
-    ListOfAny = 6,
-    ListOfNumber = 7,
-    ListOfBool = 8,
-    ListOfPoint = 9,
-    ListOfDistribution = 10,
-    EmptyList = 11,
-    ErrorType = 12,
-    SeedType = 13,
-    RGBColor = 14,
-    ListOfColor = 15,
-    Polygon = 16,
-    ListOfPolygon = 17,
-    Segment = 18,
-    ListOfSegment = 19,
-    Circle = 20,
-    ListOfCircle = 21,
-    Arc = 22,
-    ListOfArc = 23,
-    Line = 24,
-    ListOfLine = 25,
-    Ray = 26,
-    ListOfRay = 27,
-    AngleMarker = 28,
-    ListOfAngleMarker = 29,
-    DirectedAngleMarker = 30,
-    ListOfDirectedAngleMarker = 31,
-    Transformation = 32,
-    ListOfTransformation = 33,
-    Vector = 34,
-    ListOfVector = 35,
-    Restriction = 36,
-    ListOfRestriction = 37,
-    Complex = 38,
-    ListOfComplex = 39,
-    Tone = 50,
-    ListOfTone = 51,
-    Point3D = 100,
-    ListOfPoint3D = 101,
-    Segment3D = 102,
-    ListOfSegment3D = 103,
-    Triangle3D = 104,
-    ListOfTriangle3D = 105,
-    Sphere3D = 106,
-    ListOfSphere3D = 107,
-    Vector3D = 108,
-    ListOfVector3D = 109,
-    MapIntervalPoint = 200,
-    MapIntervalPoint3D = 201,
-    MapInterval2ToPoint = 202,
-    MapInterval2DPoint3D = 203,
-    ListOfMapIntervalPoint = 204,
-    ListOfMapIntervalPoint3D = 205,
-    ListOfMapInterval2ToPoint = 206,
-    ListOfMapInterval2DPoint3D = 207,
-    MapIntervalComplex = 208,
-    MapInterval2ToComplex = 209,
-    ListOfMapIntervalComplex = 210,
-    ListOfMapInterval2ToComplex = 211,
+  var Qt = 0,
+    I = 1,
+    De = 2,
+    N = 3,
+    Lt = 4,
+    ut = 5,
+    pn = 6,
+    ne = 7,
+    Xn = 8,
+    Pt = 9,
+    Zn = 10,
+    $e = 11,
+    Ro = 12,
+    ft = 13,
+    Kt = 14,
+    rr = 15,
+    xe = 16,
+    In = 17,
+    de = 18,
+    xn = 19,
+    ce = 20,
+    Wn = 21,
+    ie = 22,
+    Fn = 23,
+    fe = 24,
+    jn = 25,
+    Ne = 26,
+    Vn = 27,
+    Le = 28,
+    On = 29,
+    ye = 30,
+    Nn = 31,
+    Re = 32,
+    Rr = 33,
+    le = 34,
+    Jn = 35,
+    Gt = 36,
+    Gs = 37,
+    R = 38,
+    Ue = 39,
+    Pn = 50,
+    cs = 51,
+    z = 100,
+    fr = 101,
+    wt = 102,
+    mr = 103,
+    Rn = 104,
+    yr = 105,
+    Hn = 106,
+    Ar = 107,
+    ke = 108,
+    gr = 109,
+    sr = 200,
+    ir = 201,
+    Pr = 202,
+    Er = 203,
+    $r = 204,
+    Yr = 205,
+    Xr = 206,
+    Zr = 207,
+    or = 208,
+    Mr = 209,
+    Wr = 210,
+    jr = 211,
     RD = {
-      Any: Any,
-      Number: Number,
-      Bool: Bool,
-      Complex: Complex,
-      ListOfComplex: ListOfComplex,
-      Point: Point,
-      Point3D: Point3D,
-      Distribution: Distribution,
-      Action: Action,
-      ListOfAny: ListOfAny,
-      ListOfNumber: ListOfNumber,
-      ListOfBool: ListOfBool,
-      ListOfPoint: ListOfPoint,
-      ListOfPoint3D: ListOfPoint3D,
-      ListOfDistribution: ListOfDistribution,
-      EmptyList: EmptyList,
-      ErrorType: ErrorType,
-      SeedType: SeedType,
-      RGBColor: RGBColor,
-      ListOfColor: ListOfColor,
-      Polygon: Polygon,
-      ListOfPolygon: ListOfPolygon,
-      Segment: Segment,
-      ListOfSegment: ListOfSegment,
-      Circle: Circle,
-      ListOfCircle: ListOfCircle,
-      Arc: Arc,
-      ListOfArc: ListOfArc,
-      Line: Line,
-      ListOfLine: ListOfLine,
-      Ray: Ray,
-      ListOfRay: ListOfRay,
-      Vector: Vector,
-      ListOfVector: ListOfVector,
-      Restriction: Restriction,
-      ListOfRestriction: ListOfRestriction,
-      AngleMarker: AngleMarker,
-      ListOfAngleMarker: ListOfAngleMarker,
-      DirectedAngleMarker: DirectedAngleMarker,
-      ListOfDirectedAngleMarker: ListOfDirectedAngleMarker,
-      Transformation: Transformation,
-      ListOfTransformation: ListOfTransformation,
-      Segment3D: Segment3D,
-      ListOfSegment3D: ListOfSegment3D,
-      Triangle3D: Triangle3D,
-      ListOfTriangle3D: ListOfTriangle3D,
-      Sphere3D: Sphere3D,
-      ListOfSphere3D: ListOfSphere3D,
-      Vector3D: Vector3D,
-      ListOfVector3D: ListOfVector3D,
-      Tone: Tone,
-      ListOfTone: ListOfTone,
-      MapIntervalPoint: MapIntervalPoint,
-      MapIntervalComplex: MapIntervalComplex,
-      MapIntervalPoint3D: MapIntervalPoint3D,
-      MapInterval2ToPoint: MapInterval2ToPoint,
-      MapInterval2ToComplex: MapInterval2ToComplex,
-      MapInterval2DPoint3D: MapInterval2DPoint3D,
-      ListOfMapIntervalPoint: ListOfMapIntervalPoint,
-      ListOfMapIntervalComplex: ListOfMapIntervalComplex,
-      ListOfMapIntervalPoint3D: ListOfMapIntervalPoint3D,
-      ListOfMapInterval2ToPoint: ListOfMapInterval2ToPoint,
-      ListOfMapInterval2ToComplex: ListOfMapInterval2ToComplex,
-      ListOfMapInterval2DPoint3D: ListOfMapInterval2DPoint3D,
+      Any: Qt,
+      Number: I,
+      Bool: De,
+      Complex: R,
+      ListOfComplex: Ue,
+      Point: N,
+      Point3D: z,
+      Distribution: Lt,
+      Action: ut,
+      ListOfAny: pn,
+      ListOfNumber: ne,
+      ListOfBool: Xn,
+      ListOfPoint: Pt,
+      ListOfPoint3D: fr,
+      ListOfDistribution: Zn,
+      EmptyList: $e,
+      ErrorType: Ro,
+      SeedType: ft,
+      RGBColor: Kt,
+      ListOfColor: rr,
+      Polygon: xe,
+      ListOfPolygon: In,
+      Segment: de,
+      ListOfSegment: xn,
+      Circle: ce,
+      ListOfCircle: Wn,
+      Arc: ie,
+      ListOfArc: Fn,
+      Line: fe,
+      ListOfLine: jn,
+      Ray: Ne,
+      ListOfRay: Vn,
+      Vector: le,
+      ListOfVector: Jn,
+      Restriction: Gt,
+      ListOfRestriction: Gs,
+      AngleMarker: Le,
+      ListOfAngleMarker: On,
+      DirectedAngleMarker: ye,
+      ListOfDirectedAngleMarker: Nn,
+      Transformation: Re,
+      ListOfTransformation: Rr,
+      Segment3D: wt,
+      ListOfSegment3D: mr,
+      Triangle3D: Rn,
+      ListOfTriangle3D: yr,
+      Sphere3D: Hn,
+      ListOfSphere3D: Ar,
+      Vector3D: ke,
+      ListOfVector3D: gr,
+      Tone: Pn,
+      ListOfTone: cs,
+      MapIntervalPoint: sr,
+      MapIntervalComplex: or,
+      MapIntervalPoint3D: ir,
+      MapInterval2ToPoint: Pr,
+      MapInterval2ToComplex: Mr,
+      MapInterval2DPoint3D: Er,
+      ListOfMapIntervalPoint: $r,
+      ListOfMapIntervalComplex: Wr,
+      ListOfMapIntervalPoint3D: Yr,
+      ListOfMapInterval2ToPoint: Xr,
+      ListOfMapInterval2ToComplex: jr,
+      ListOfMapInterval2DPoint3D: Zr,
     },
-    zl = { [Point]: [Number, Number], [Point3D]: [Number, Number, Number], [Complex]: [Number, Number] },
+    zl = { [N]: [I, I], [z]: [I, I, I], [R]: [I, I] },
     Qn = class e {
       constructor(t, { coerceComplexToReal: n }) {
         this.types = t;
         this.coerceComplexToReal = n;
       }
-      static of(t, n = { coerceComplexToReal: true }) {
+      static of(t, n = { coerceComplexToReal: !0 }) {
         return new e(t, n);
       }
       getTypes() {
@@ -1991,133 +1996,133 @@
     hx = Qn.of(AV);
   function at(e) {
     switch (e) {
-      case Any:
+      case Qt:
         return "Any";
-      case Number:
+      case I:
         return "Number";
-      case Bool:
+      case De:
         return "Bool";
-      case Complex:
+      case R:
         return "Complex";
-      case Point:
+      case N:
         return "Point";
-      case Point3D:
+      case z:
         return "Point3D";
-      case Distribution:
+      case Lt:
         return "Distribution";
-      case Action:
+      case ut:
         return "Action";
-      case ListOfAny:
+      case pn:
         return "ListOfAny";
-      case ListOfNumber:
+      case ne:
         return "ListOfNumber";
-      case ListOfBool:
+      case Xn:
         return "ListOfBool";
-      case ListOfComplex:
+      case Ue:
         return "ListOfComplex";
-      case ListOfPoint:
+      case Pt:
         return "ListOfPoint";
-      case ListOfPoint3D:
+      case fr:
         return "ListOfPoint3D";
-      case ListOfDistribution:
+      case Zn:
         return "ListOfDistribution";
-      case EmptyList:
+      case $e:
         return "EmptyList";
-      case ErrorType:
+      case Ro:
         return "ErrorType";
-      case SeedType:
+      case ft:
         return "SeedType";
-      case RGBColor:
+      case Kt:
         return "RGBColor";
-      case ListOfColor:
+      case rr:
         return "ListOfColor";
-      case Polygon:
+      case xe:
         return "Polygon";
-      case ListOfPolygon:
+      case In:
         return "ListOfPolygon";
-      case Segment:
+      case de:
         return "Segment";
-      case ListOfSegment:
+      case xn:
         return "ListOfSegment";
-      case Circle:
+      case ce:
         return "Circle";
-      case ListOfCircle:
+      case Wn:
         return "ListOfCircle";
-      case Arc:
+      case ie:
         return "Arc";
-      case ListOfArc:
+      case Fn:
         return "ListOfArc";
-      case Line:
+      case fe:
         return "Line";
-      case ListOfLine:
+      case jn:
         return "ListOfLine";
-      case Ray:
+      case Ne:
         return "Ray";
-      case ListOfRay:
+      case Vn:
         return "ListOfRay";
-      case Vector:
+      case le:
         return "Vector";
-      case ListOfVector:
+      case Jn:
         return "ListOfVector";
-      case Restriction:
+      case Gt:
         return "Restriction";
-      case ListOfRestriction:
+      case Gs:
         return "ListOfRestriction";
-      case AngleMarker:
+      case Le:
         return "Angle";
-      case ListOfAngleMarker:
+      case On:
         return "ListOfAngle";
-      case DirectedAngleMarker:
+      case ye:
         return "DirectedAngle";
-      case ListOfDirectedAngleMarker:
+      case Nn:
         return "ListOfDirectedAngle";
-      case Transformation:
+      case Re:
         return "Transformation";
-      case ListOfTransformation:
+      case Rr:
         return "ListOfTransformation";
-      case Segment3D:
+      case wt:
         return "Segment3D";
-      case ListOfSegment3D:
+      case mr:
         return "ListOfSegment3D";
-      case Vector3D:
+      case ke:
         return "Vector3D";
-      case ListOfVector3D:
+      case gr:
         return "ListOfVector3D";
-      case Triangle3D:
+      case Rn:
         return "Triangle3D";
-      case ListOfTriangle3D:
+      case yr:
         return "ListOfTriangle3D";
-      case Sphere3D:
+      case Hn:
         return "Sphere3D";
-      case ListOfSphere3D:
+      case Ar:
         return "ListOfSphere3D";
-      case Tone:
+      case Pn:
         return "Tone";
-      case ListOfTone:
+      case cs:
         return "ListOfTone";
-      case MapIntervalPoint:
+      case sr:
         return "MapIntervalPoint";
-      case MapIntervalComplex:
+      case or:
         return "MapIntervalComplex";
-      case MapIntervalPoint3D:
+      case ir:
         return "MapIntervalPoint3D";
-      case MapInterval2ToPoint:
+      case Pr:
         return "MapInterval2ToPoint";
-      case MapInterval2ToComplex:
+      case Mr:
         return "MapInterval2ToComplex";
-      case MapInterval2DPoint3D:
+      case Er:
         return "MapInterval2DPoint3D";
-      case ListOfMapIntervalPoint:
+      case $r:
         return "ListOfMapIntervalPoint";
-      case ListOfMapIntervalComplex:
+      case Wr:
         return "ListOfMapIntervalComplex";
-      case ListOfMapIntervalPoint3D:
+      case Yr:
         return "ListOfMapIntervalPoint3D";
-      case ListOfMapInterval2ToPoint:
+      case Xr:
         return "ListOfMapInterval2ToPoint";
-      case ListOfMapInterval2ToComplex:
+      case jr:
         return "ListOfMapInterval2ToComplex";
-      case ListOfMapInterval2DPoint3D:
+      case Zr:
         return "ListOfMapInterval2DPoint3D";
       default:
         let t = e;
@@ -2128,133 +2133,133 @@
     var r;
     let n = (r = t == null ? void 0 : t.specifyPointDimensions) != null
       ? r
-      : false;
+      : !1;
     switch (e) {
-      case Any:
+      case Qt:
         return E("shared-calculator-label-value-type-any");
-      case Number:
+      case I:
         return E("shared-calculator-label-value-type-number");
-      case Bool:
+      case De:
         return E("shared-calculator-label-value-type-bool");
-      case Complex:
+      case R:
         return E("shared-calculator-label-value-type-complex");
-      case Point:
+      case N:
         return n
           ? E("shared-calculator-label-value-type-point2d")
           : E("shared-calculator-label-value-type-point");
-      case Point3D:
+      case z:
         return E("shared-calculator-label-value-type-point3d");
-      case Distribution:
+      case Lt:
         return E("shared-calculator-label-value-type-distribution");
-      case Action:
+      case ut:
         return E("shared-calculator-label-value-type-action");
-      case ListOfAny:
+      case pn:
         return E("shared-calculator-label-value-type-list-of-any");
-      case ListOfNumber:
+      case ne:
         return E("shared-calculator-label-value-type-list-of-numbers");
-      case ListOfBool:
+      case Xn:
         return E("shared-calculator-label-value-type-list-of-bool");
-      case ListOfComplex:
+      case Ue:
         return E("shared-calculator-label-value-type-list-of-complex");
-      case ListOfPoint:
+      case Pt:
         return n
           ? E("shared-calculator-label-value-type-list-of-2d-points")
           : E("shared-calculator-label-value-type-list-of-points");
-      case ListOfPoint3D:
+      case fr:
         return E("shared-calculator-label-value-type-list-of-3d-points");
-      case ListOfDistribution:
+      case Zn:
         return E("shared-calculator-label-value-type-list-of-distributions");
-      case EmptyList:
+      case $e:
         return E("shared-calculator-label-value-type-empty-list");
-      case ErrorType:
+      case Ro:
         return E("shared-calculator-label-value-type-error");
-      case SeedType:
+      case ft:
         return E("shared-calculator-label-value-type-seed");
-      case RGBColor:
+      case Kt:
         return E("shared-calculator-label-value-type-color");
-      case ListOfColor:
+      case rr:
         return E("shared-calculator-label-value-type-list-of-colors");
-      case Polygon:
+      case xe:
         return E("shared-calculator-label-value-type-polygon");
-      case ListOfPolygon:
+      case In:
         return E("shared-calculator-label-value-type-list-of-polygons");
-      case Segment:
+      case de:
         return E("shared-calculator-label-value-type-segment");
-      case ListOfSegment:
+      case xn:
         return E("shared-calculator-label-value-type-list-of-segments");
-      case Circle:
+      case ce:
         return E("shared-calculator-label-value-type-circle");
-      case ListOfCircle:
+      case Wn:
         return E("shared-calculator-label-value-type-list-of-circles");
-      case Arc:
+      case ie:
         return E("shared-calculator-label-value-type-arc");
-      case ListOfArc:
+      case Fn:
         return E("shared-calculator-label-value-type-list-of-arcs");
-      case Line:
+      case fe:
         return E("shared-calculator-label-value-type-line");
-      case ListOfLine:
+      case jn:
         return E("shared-calculator-label-value-type-list-of-lines");
-      case Ray:
+      case Ne:
         return E("shared-calculator-label-value-type-ray");
-      case ListOfRay:
+      case Vn:
         return E("shared-calculator-label-value-type-list-of-rays");
-      case Vector:
+      case le:
         return E("shared-calculator-label-value-type-vector");
-      case ListOfVector:
+      case Jn:
         return E("shared-calculator-label-value-type-list-of-vectors");
-      case Restriction:
+      case Gt:
         return E("shared-calculator-label-value-type-restriction");
-      case ListOfRestriction:
+      case Gs:
         return E("shared-calculator-label-value-type-list-of-restrictions");
-      case AngleMarker:
+      case Le:
         return E("shared-calculator-label-value-type-angle");
-      case ListOfAngleMarker:
+      case On:
         return E("shared-calculator-label-value-type-list-of-angles");
-      case DirectedAngleMarker:
+      case ye:
         return E("shared-calculator-label-value-type-directed-angle");
-      case ListOfDirectedAngleMarker:
+      case Nn:
         return E("shared-calculator-label-value-type-list-of-directed-angles");
-      case Transformation:
+      case Re:
         return E("shared-calculator-label-value-type-transformation");
-      case ListOfTransformation:
+      case Rr:
         return E("shared-calculator-label-value-type-list-of-transformations");
-      case Segment3D:
+      case wt:
         return E("shared-calculator-label-value-type-segment3d");
-      case ListOfSegment3D:
+      case mr:
         return E("shared-calculator-label-value-type-list-of-segment3d");
-      case Vector3D:
+      case ke:
         return E("shared-calculator-label-value-type-vector3d");
-      case ListOfVector3D:
+      case gr:
         return E("shared-calculator-label-value-type-list-of-vector3d");
-      case Triangle3D:
+      case Rn:
         return E("shared-calculator-label-value-type-triangle3d");
-      case ListOfTriangle3D:
+      case yr:
         return E("shared-calculator-label-value-type-list-of-triangle3d");
-      case Sphere3D:
+      case Hn:
         return E("shared-calculator-label-value-type-sphere3d");
-      case ListOfSphere3D:
+      case Ar:
         return E("shared-calculator-label-value-type-list-of-sphere3d");
-      case Tone:
+      case Pn:
         return E("shared-calculator-label-value-type-tone");
-      case ListOfTone:
+      case cs:
         return E("shared-calculator-label-value-type-list-of-tone");
-      case MapIntervalPoint:
-      case MapInterval2ToPoint:
+      case sr:
+      case Pr:
         return E("shared-calculator-label-value-type-lambda-point");
-      case MapIntervalComplex:
-      case MapInterval2ToComplex:
+      case or:
+      case Mr:
         return E("shared-calculator-label-value-type-lambda-complex");
-      case MapIntervalPoint3D:
-      case MapInterval2DPoint3D:
+      case ir:
+      case Er:
         return E("shared-calculator-label-value-type-lambda-point3d");
-      case ListOfMapIntervalPoint:
-      case ListOfMapInterval2ToPoint:
+      case $r:
+      case Xr:
         return E("shared-calculator-label-value-type-list-of-lambda-point");
-      case ListOfMapIntervalComplex:
-      case ListOfMapInterval2ToComplex:
+      case Wr:
+      case jr:
         return E("shared-calculator-label-value-type-list-of-lambda-complex");
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2DPoint3D:
+      case Yr:
+      case Zr:
         return E("shared-calculator-label-value-type-list-of-lambda-point3d");
       default:
         let s = e;
@@ -2262,243 +2267,243 @@
     }
   }
   var _V = [
-      ListOfAny,
-      ListOfNumber,
-      ListOfBool,
-      ListOfComplex,
-      ListOfRestriction,
-      ListOfPoint,
-      ListOfPoint3D,
-      ListOfDistribution,
-      EmptyList,
-      ListOfColor,
-      ListOfPolygon,
-      ListOfSegment,
-      ListOfCircle,
-      ListOfArc,
-      ListOfLine,
-      ListOfRay,
-      ListOfVector,
-      ListOfAngleMarker,
-      ListOfDirectedAngleMarker,
-      ListOfTransformation,
-      ListOfSegment3D,
-      ListOfVector3D,
-      ListOfTriangle3D,
-      ListOfSphere3D,
-      ListOfTone,
-      ListOfMapIntervalPoint,
-      ListOfMapIntervalComplex,
-      ListOfMapIntervalPoint3D,
-      ListOfMapInterval2ToPoint,
-      ListOfMapInterval2ToComplex,
-      ListOfMapInterval2DPoint3D,
+      pn,
+      ne,
+      Xn,
+      Ue,
+      Gs,
+      Pt,
+      fr,
+      Zn,
+      $e,
+      rr,
+      In,
+      xn,
+      Wn,
+      Fn,
+      jn,
+      Vn,
+      Jn,
+      On,
+      Nn,
+      Rr,
+      mr,
+      gr,
+      yr,
+      Ar,
+      cs,
+      $r,
+      Wr,
+      Yr,
+      Xr,
+      jr,
+      Zr,
     ],
-    ii = Qn.of(_V, { coerceComplexToReal: false }),
+    ii = Qn.of(_V, { coerceComplexToReal: !1 }),
     eX = {
-      [ListOfAny]: Any,
-      [EmptyList]: Number,
-      [ListOfNumber]: Number,
-      [ListOfBool]: Bool,
-      [ListOfComplex]: Complex,
-      [ListOfRestriction]: Restriction,
-      [ListOfPoint]: Point,
-      [ListOfPoint3D]: Point3D,
-      [ListOfDistribution]: Distribution,
-      [ListOfColor]: RGBColor,
-      [ListOfPolygon]: Polygon,
-      [ListOfSegment]: Segment,
-      [ListOfCircle]: Circle,
-      [ListOfArc]: Arc,
-      [ListOfLine]: Line,
-      [ListOfRay]: Ray,
-      [ListOfVector]: Vector,
-      [ListOfAngleMarker]: AngleMarker,
-      [ListOfDirectedAngleMarker]: DirectedAngleMarker,
-      [ListOfTransformation]: Transformation,
-      [ListOfSegment3D]: Segment3D,
-      [ListOfVector3D]: Vector3D,
-      [ListOfTriangle3D]: Triangle3D,
-      [ListOfSphere3D]: Sphere3D,
-      [ListOfTone]: Tone,
-      [ListOfMapIntervalPoint]: MapIntervalPoint,
-      [ListOfMapIntervalComplex]: MapIntervalComplex,
-      [ListOfMapIntervalPoint3D]: MapIntervalPoint3D,
-      [ListOfMapInterval2ToPoint]: MapInterval2ToPoint,
-      [ListOfMapInterval2ToComplex]: MapInterval2ToComplex,
-      [ListOfMapInterval2DPoint3D]: MapInterval2DPoint3D,
+      [pn]: Qt,
+      [$e]: I,
+      [ne]: I,
+      [Xn]: De,
+      [Ue]: R,
+      [Gs]: Gt,
+      [Pt]: N,
+      [fr]: z,
+      [Zn]: Lt,
+      [rr]: Kt,
+      [In]: xe,
+      [xn]: de,
+      [Wn]: ce,
+      [Fn]: ie,
+      [jn]: fe,
+      [Vn]: Ne,
+      [Jn]: le,
+      [On]: Le,
+      [Nn]: ye,
+      [Rr]: Re,
+      [mr]: wt,
+      [gr]: ke,
+      [yr]: Rn,
+      [Ar]: Hn,
+      [cs]: Pn,
+      [$r]: sr,
+      [Wr]: or,
+      [Yr]: ir,
+      [Xr]: Pr,
+      [jr]: Mr,
+      [Zr]: Er,
     };
   function j(e) {
     switch (e) {
       case void 0:
-        return false;
-      case ListOfAny:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfRestriction:
-      case ListOfPoint:
-      case ListOfPoint3D:
-      case ListOfDistribution:
-      case ListOfColor:
-      case ListOfPolygon:
-      case ListOfSegment:
-      case ListOfCircle:
-      case ListOfArc:
-      case ListOfLine:
-      case ListOfRay:
-      case ListOfVector:
-      case ListOfAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case ListOfTransformation:
-      case ListOfSegment3D:
-      case ListOfVector3D:
-      case ListOfTriangle3D:
-      case ListOfSphere3D:
-      case ListOfTone:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapInterval2DPoint3D:
-        return true;
-      case EmptyList:
-        return true;
-      case Any:
-      case Number:
-      case Bool:
-      case Complex:
-      case Restriction:
-      case Point:
-      case Point3D:
-      case Distribution:
-      case ErrorType:
-      case SeedType:
-      case RGBColor:
-      case Action:
-      case Polygon:
-      case Segment:
-      case Circle:
-      case Arc:
-      case Line:
-      case Ray:
-      case Vector:
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Transformation:
-      case Segment3D:
-      case Vector3D:
-      case Triangle3D:
-      case Tone:
-      case Sphere3D:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
-        return false;
+        return !1;
+      case pn:
+      case ne:
+      case Xn:
+      case Ue:
+      case Gs:
+      case Pt:
+      case fr:
+      case Zn:
+      case rr:
+      case In:
+      case xn:
+      case Wn:
+      case Fn:
+      case jn:
+      case Vn:
+      case Jn:
+      case On:
+      case Nn:
+      case Rr:
+      case mr:
+      case gr:
+      case yr:
+      case Ar:
+      case cs:
+      case $r:
+      case Wr:
+      case Yr:
+      case Xr:
+      case jr:
+      case Zr:
+        return !0;
+      case $e:
+        return !0;
+      case Qt:
+      case I:
+      case De:
+      case R:
+      case Gt:
+      case N:
+      case z:
+      case Lt:
+      case Ro:
+      case ft:
+      case Kt:
+      case ut:
+      case xe:
+      case de:
+      case ce:
+      case ie:
+      case fe:
+      case Ne:
+      case le:
+      case Le:
+      case ye:
+      case Re:
+      case wt:
+      case ke:
+      case Rn:
+      case Pn:
+      case Hn:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
+        return !1;
       default:
         throw new Error(`Invalid type: ${e}`);
     }
   }
   function Ve(e) {
     switch (e) {
-      case EmptyList:
-      case ListOfNumber:
-        return Number;
-      case ListOfBool:
-        return Bool;
-      case ListOfComplex:
-        return Complex;
-      case ListOfRestriction:
-        return Restriction;
-      case ListOfPoint:
-        return Point;
-      case ListOfPoint3D:
-        return Point3D;
-      case ListOfDistribution:
-        return Distribution;
-      case ListOfColor:
-        return RGBColor;
-      case ListOfPolygon:
-        return Polygon;
-      case ListOfSegment3D:
-        return Segment3D;
-      case ListOfVector3D:
-        return Vector3D;
-      case ListOfTriangle3D:
-        return Triangle3D;
-      case ListOfSphere3D:
-        return Sphere3D;
-      case ListOfAny:
-        return Any;
-      case ListOfSegment:
-        return Segment;
-      case ListOfCircle:
-        return Circle;
-      case ListOfArc:
-        return Arc;
-      case ListOfLine:
-        return Line;
-      case ListOfRay:
-        return Ray;
-      case ListOfVector:
-        return Vector;
-      case ListOfAngleMarker:
-        return AngleMarker;
-      case ListOfDirectedAngleMarker:
-        return DirectedAngleMarker;
-      case ListOfTransformation:
-        return Transformation;
-      case ListOfTone:
-        return Tone;
-      case ListOfMapIntervalPoint:
-        return MapIntervalPoint;
-      case ListOfMapIntervalComplex:
-        return MapIntervalComplex;
-      case ListOfMapIntervalPoint3D:
-        return MapIntervalPoint3D;
-      case ListOfMapInterval2ToPoint:
-        return MapInterval2ToPoint;
-      case ListOfMapInterval2ToComplex:
-        return MapInterval2ToComplex;
-      case ListOfMapInterval2DPoint3D:
-        return MapInterval2DPoint3D;
-      case Any:
-      case Number:
-      case Bool:
-      case Complex:
-      case Point:
-      case Point3D:
-      case Distribution:
-      case ErrorType:
-      case SeedType:
-      case RGBColor:
-      case Action:
-      case Polygon:
-      case Segment:
-      case Circle:
-      case Arc:
-      case Line:
-      case Ray:
-      case Vector:
-      case Restriction:
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Transformation:
-      case Segment3D:
-      case Vector3D:
-      case Triangle3D:
-      case Sphere3D:
-      case Tone:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
+      case $e:
+      case ne:
+        return I;
+      case Xn:
+        return De;
+      case Ue:
+        return R;
+      case Gs:
+        return Gt;
+      case Pt:
+        return N;
+      case fr:
+        return z;
+      case Zn:
+        return Lt;
+      case rr:
+        return Kt;
+      case In:
+        return xe;
+      case mr:
+        return wt;
+      case gr:
+        return ke;
+      case yr:
+        return Rn;
+      case Ar:
+        return Hn;
+      case pn:
+        return Qt;
+      case xn:
+        return de;
+      case Wn:
+        return ce;
+      case Fn:
+        return ie;
+      case jn:
+        return fe;
+      case Vn:
+        return Ne;
+      case Jn:
+        return le;
+      case On:
+        return Le;
+      case Nn:
+        return ye;
+      case Rr:
+        return Re;
+      case cs:
+        return Pn;
+      case $r:
+        return sr;
+      case Wr:
+        return or;
+      case Yr:
+        return ir;
+      case Xr:
+        return Pr;
+      case jr:
+        return Mr;
+      case Zr:
+        return Er;
+      case Qt:
+      case I:
+      case De:
+      case R:
+      case N:
+      case z:
+      case Lt:
+      case Ro:
+      case ft:
+      case Kt:
+      case ut:
+      case xe:
+      case de:
+      case ce:
+      case ie:
+      case fe:
+      case Ne:
+      case le:
+      case Gt:
+      case Le:
+      case ye:
+      case Re:
+      case wt:
+      case ke:
+      case Rn:
+      case Hn:
+      case Pn:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
         throw new Error("Type " + at(e) + " does not implement elementType.");
       default:
         let t = e;
@@ -2507,100 +2512,100 @@
   }
   function vn(e) {
     switch (e) {
-      case Any:
-        return ListOfAny;
-      case Number:
-        return ListOfNumber;
-      case Bool:
-        return ListOfBool;
-      case Complex:
-        return ListOfComplex;
-      case Restriction:
-        return ListOfRestriction;
-      case Point:
-        return ListOfPoint;
-      case Point3D:
-        return ListOfPoint3D;
-      case Distribution:
-        return ListOfDistribution;
-      case RGBColor:
-        return ListOfColor;
-      case Polygon:
-        return ListOfPolygon;
-      case Segment:
-        return ListOfSegment;
-      case Circle:
-        return ListOfCircle;
-      case Arc:
-        return ListOfArc;
-      case Line:
-        return ListOfLine;
-      case Ray:
-        return ListOfRay;
-      case Vector:
-        return ListOfVector;
-      case AngleMarker:
-        return ListOfAngleMarker;
-      case DirectedAngleMarker:
-        return ListOfDirectedAngleMarker;
-      case Transformation:
-        return ListOfTransformation;
-      case Segment3D:
-        return ListOfSegment3D;
-      case Vector3D:
-        return ListOfVector3D;
-      case Triangle3D:
-        return ListOfTriangle3D;
-      case Sphere3D:
-        return ListOfSphere3D;
-      case Tone:
-        return ListOfTone;
-      case MapIntervalPoint:
-        return ListOfMapIntervalPoint;
-      case MapIntervalComplex:
-        return ListOfMapIntervalComplex;
-      case MapIntervalPoint3D:
-        return ListOfMapIntervalPoint3D;
-      case MapInterval2ToPoint:
-        return ListOfMapInterval2ToPoint;
-      case MapInterval2ToComplex:
-        return ListOfMapInterval2ToComplex;
-      case MapInterval2DPoint3D:
-        return ListOfMapInterval2DPoint3D;
-      case EmptyList:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfRestriction:
-      case ListOfPoint:
-      case ListOfPoint3D:
-      case ListOfDistribution:
-      case ListOfColor:
-      case ListOfPolygon:
-      case ListOfSegment:
-      case ListOfCircle:
-      case ListOfArc:
-      case ListOfLine:
-      case ListOfRay:
-      case ListOfVector:
-      case ListOfAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case ListOfTransformation:
-      case ListOfSegment3D:
-      case ListOfVector3D:
-      case ListOfTriangle3D:
-      case ListOfSphere3D:
-      case ListOfAny:
-      case ListOfTone:
-      case ErrorType:
-      case SeedType:
-      case Action:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapInterval2DPoint3D:
+      case Qt:
+        return pn;
+      case I:
+        return ne;
+      case De:
+        return Xn;
+      case R:
+        return Ue;
+      case Gt:
+        return Gs;
+      case N:
+        return Pt;
+      case z:
+        return fr;
+      case Lt:
+        return Zn;
+      case Kt:
+        return rr;
+      case xe:
+        return In;
+      case de:
+        return xn;
+      case ce:
+        return Wn;
+      case ie:
+        return Fn;
+      case fe:
+        return jn;
+      case Ne:
+        return Vn;
+      case le:
+        return Jn;
+      case Le:
+        return On;
+      case ye:
+        return Nn;
+      case Re:
+        return Rr;
+      case wt:
+        return mr;
+      case ke:
+        return gr;
+      case Rn:
+        return yr;
+      case Hn:
+        return Ar;
+      case Pn:
+        return cs;
+      case sr:
+        return $r;
+      case or:
+        return Wr;
+      case ir:
+        return Yr;
+      case Pr:
+        return Xr;
+      case Mr:
+        return jr;
+      case Er:
+        return Zr;
+      case $e:
+      case ne:
+      case Xn:
+      case Ue:
+      case Gs:
+      case Pt:
+      case fr:
+      case Zn:
+      case rr:
+      case In:
+      case xn:
+      case Wn:
+      case Fn:
+      case jn:
+      case Vn:
+      case Jn:
+      case On:
+      case Nn:
+      case Rr:
+      case mr:
+      case gr:
+      case yr:
+      case Ar:
+      case pn:
+      case cs:
+      case Ro:
+      case ft:
+      case ut:
+      case $r:
+      case Wr:
+      case Yr:
+      case Xr:
+      case jr:
+      case Zr:
         throw new Error("Type " + at(e) + " does not implement listType.");
       default:
         let t = e;
@@ -2609,194 +2614,194 @@
   }
   function wn(e) {
     switch (e) {
-      case Any:
-      case Number:
-      case Bool:
-      case Complex:
-      case Restriction:
-      case Point:
-      case Point3D:
-      case Distribution:
-      case RGBColor:
-      case Polygon:
-      case Segment:
-      case Circle:
-      case Arc:
-      case Line:
-      case Ray:
-      case Vector:
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Transformation:
-      case Segment3D:
-      case Vector3D:
-      case Triangle3D:
-      case Sphere3D:
-      case Tone:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
-        return true;
-      case EmptyList:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfRestriction:
-      case ListOfPoint:
-      case ListOfPoint3D:
-      case ListOfDistribution:
-      case ListOfColor:
-      case ListOfPolygon:
-      case ListOfSegment:
-      case ListOfCircle:
-      case ListOfArc:
-      case ListOfLine:
-      case ListOfRay:
-      case ListOfVector:
-      case ListOfAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case ListOfTransformation:
-      case ListOfSegment3D:
-      case ListOfVector3D:
-      case ListOfTriangle3D:
-      case ListOfSphere3D:
-      case ListOfAny:
-      case ListOfTone:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapInterval2DPoint3D:
-      case SeedType:
-      case Action:
-      case ErrorType:
-        return false;
+      case Qt:
+      case I:
+      case De:
+      case R:
+      case Gt:
+      case N:
+      case z:
+      case Lt:
+      case Kt:
+      case xe:
+      case de:
+      case ce:
+      case ie:
+      case fe:
+      case Ne:
+      case le:
+      case Le:
+      case ye:
+      case Re:
+      case wt:
+      case ke:
+      case Rn:
+      case Hn:
+      case Pn:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
+        return !0;
+      case $e:
+      case ne:
+      case Xn:
+      case Ue:
+      case Gs:
+      case Pt:
+      case fr:
+      case Zn:
+      case rr:
+      case In:
+      case xn:
+      case Wn:
+      case Fn:
+      case jn:
+      case Vn:
+      case Jn:
+      case On:
+      case Nn:
+      case Rr:
+      case mr:
+      case gr:
+      case yr:
+      case Ar:
+      case pn:
+      case cs:
+      case $r:
+      case Wr:
+      case Yr:
+      case Xr:
+      case jr:
+      case Zr:
+      case ft:
+      case ut:
+      case Ro:
+        return !1;
       default:
         throw new Error(`Invalid type: ${e}`);
     }
   }
   function vd(e) {
-    if (e === void 0) return false;
+    if (e === void 0) return !1;
     switch (e) {
-      case Point:
-      case Polygon:
-      case Segment:
-      case Circle:
-      case Arc:
-      case Line:
-      case Ray:
-      case Vector:
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Transformation:
-        return true;
+      case N:
+      case xe:
+      case de:
+      case ce:
+      case ie:
+      case fe:
+      case Ne:
+      case le:
+      case Le:
+      case ye:
+      case Re:
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function Ul(e) {
     switch (e) {
-      case Number:
-      case Any:
-      case Bool:
-      case Complex:
-      case Restriction:
-      case Point:
-      case Distribution:
-      case Action:
-      case ListOfAny:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfRestriction:
-      case ListOfPoint:
-      case ListOfDistribution:
-      case EmptyList:
-      case ErrorType:
-      case SeedType:
-      case RGBColor:
-      case ListOfColor:
-      case Tone:
-      case ListOfTone:
-        return true;
-      case Point3D:
-      case ListOfPoint3D:
-      case Segment3D:
-      case ListOfSegment3D:
-      case Vector3D:
-      case ListOfVector3D:
-      case Triangle3D:
-      case ListOfTriangle3D:
-      case Sphere3D:
-      case ListOfSphere3D:
-      case Polygon:
-      case ListOfPolygon:
-      case Segment:
-      case ListOfSegment:
-      case Circle:
-      case ListOfCircle:
-      case Arc:
-      case ListOfArc:
-      case Line:
-      case ListOfLine:
-      case Ray:
-      case ListOfRay:
-      case Vector:
-      case ListOfVector:
-      case AngleMarker:
-      case ListOfAngleMarker:
-      case DirectedAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case Transformation:
-      case ListOfTransformation:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapInterval2DPoint3D:
-        return false;
+      case I:
+      case Qt:
+      case De:
+      case R:
+      case Gt:
+      case N:
+      case Lt:
+      case ut:
+      case pn:
+      case ne:
+      case Xn:
+      case Ue:
+      case Gs:
+      case Pt:
+      case Zn:
+      case $e:
+      case Ro:
+      case ft:
+      case Kt:
+      case rr:
+      case Pn:
+      case cs:
+        return !0;
+      case z:
+      case fr:
+      case wt:
+      case mr:
+      case ke:
+      case gr:
+      case Rn:
+      case yr:
+      case Hn:
+      case Ar:
+      case xe:
+      case In:
+      case de:
+      case xn:
+      case ce:
+      case Wn:
+      case ie:
+      case Fn:
+      case fe:
+      case jn:
+      case Ne:
+      case Vn:
+      case le:
+      case Jn:
+      case Le:
+      case On:
+      case ye:
+      case Nn:
+      case Re:
+      case Rr:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
+      case $r:
+      case Wr:
+      case Yr:
+      case Xr:
+      case jr:
+      case Zr:
+        return !1;
       default:
         let t = e;
         throw new Error(`Invalid type: ${t}`);
     }
   }
   function Od(e, t) {
-    for (let n of t) if (e === n) return true;
-    return false;
+    for (let n of t) if (e === n) return !0;
+    return !1;
   }
-  var ql = [Number, Complex, Point, Point3D];
+  var ql = [I, R, N, z];
   function $l(e) {
     return ql.includes(e);
   }
-  var Jm = [Number, Complex];
+  var Jm = [I, R];
   function bx(e) {
     return Jm.includes(e);
   }
-  var Qm = Qn.of([Line, Ray, Segment, Vector]), xx = Qn.of([Vector, Vector3D]), Tx = Qn.of([AngleMarker, DirectedAngleMarker]);
+  var Qm = Qn.of([fe, Ne, de, le]), xx = Qn.of([le, ke]), Tx = Qn.of([Le, ye]);
   function se(e, t) {
     return e === void 0
-      ? false
+      ? !1
       : e === t
-      ? true
+      ? !0
       : j(e)
-      ? e === EmptyList ? true : Ve(e) === t
-      : false;
+      ? e === $e ? !0 : Ve(e) === t
+      : !1;
   }
   function ua(e) {
-    return Od(e, [MapIntervalPoint, MapIntervalComplex, MapIntervalPoint3D, MapInterval2ToPoint, MapInterval2ToComplex, MapInterval2DPoint3D, ListOfMapIntervalPoint, ListOfMapIntervalComplex, ListOfMapIntervalPoint3D, ListOfMapInterval2ToPoint, ListOfMapInterval2ToComplex, ListOfMapInterval2DPoint3D]);
+    return Od(e, [sr, or, ir, Pr, Mr, Er, $r, Wr, Yr, Xr, jr, Zr]);
   }
-  var AD = { [Point]: MapIntervalPoint, [Complex]: MapIntervalComplex, [Point3D]: MapIntervalPoint3D }, LV = { [Point]: MapInterval2ToPoint, [Complex]: MapInterval2ToComplex, [Point3D]: MapInterval2DPoint3D };
+  var AD = { [N]: sr, [R]: or, [z]: ir }, LV = { [N]: Pr, [R]: Mr, [z]: Er };
   function Ix(e) {
     return AD[e] !== void 0;
   }
@@ -2868,28 +2873,28 @@
     };
   function LD(e, t) {
     return e.maxArity !== void 0 && e.maxArity < t.length
-      ? false
+      ? !1
       : !!t.every((n, r) => {
-        if (n === void 0) return true;
+        if (n === void 0) return !0;
         let s = e.argTypeAtIndex(r);
-        return s === void 0 ? false : ny(n, s);
+        return s === void 0 ? !1 : ny(n, s);
       });
   }
   var Nd = class {
       constructor(t) {
         this.arg = t;
-        this.coerceComplexToReal = false;
+        this.coerceComplexToReal = !1;
       }
       getTypes() {
         return typeof this.arg == "number" ? [this.arg] : this.arg.getTypes();
       }
     },
-    Te = new Nd(Number),
-    ro = new Nd(ListOfNumber),
+    Te = new Nd(I),
+    ro = new Nd(ne),
     Km = class {
       constructor(t) {
         typeof t == "number"
-          ? (this.coerceComplexToReal = t === Number, this.nodeTypes = [vn(t)])
+          ? (this.coerceComplexToReal = t === I, this.nodeTypes = [vn(t)])
           : (this.coerceComplexToReal = t.coerceComplexToReal,
             this.nodeTypes = t.getTypes().map(vn));
       }
@@ -2903,7 +2908,7 @@
   var ey = class {
     constructor(t) {
       if (typeof t == "number") {
-        this.coerceComplexToReal = t === Number, this.nodeTypes = [t, vn(t)];
+        this.coerceComplexToReal = t === I, this.nodeTypes = [t, vn(t)];
       } else {
         this.coerceComplexToReal = t.coerceComplexToReal, this.nodeTypes = [];
         for (let n of t.getTypes()) this.nodeTypes.push(n, vn(n));
@@ -2918,13 +2923,13 @@
       ? wn(e)
       : e instanceof Qn
       ? e.types.every(ty)
-      : false;
+      : !1;
   }
   function oi(e) {
     return new ey(e);
   }
   function kt(e, t = {}) {
-    let n = { geometry: true, "3d": true, graphing: true, ...t };
+    let n = { geometry: !0, "3d": !0, graphing: !0, ...t };
     return _D(e) ? new Mx(e, n) : new Ex(e, n);
   }
   function Ae(e, t = {}) {
@@ -3015,7 +3020,7 @@
       return this._inputSpan;
     }
     shouldExportAns() {
-      return false;
+      return !1;
     }
     getAnsVariable() {
       return this.shouldExportAns() && this.userData &&
@@ -3152,21 +3157,21 @@
       return this.operator || "=";
     }
     isInequality() {
-      return false;
+      return !1;
     }
     isShadeBetween() {
-      return false;
+      return !1;
     }
     getEvaluationInfo() {
-      return false;
+      return !1;
     }
     shouldPromoteToSlider(t) {
-      return false;
+      return !1;
     }
     getSliderVariables(t, n, r) {
       let s = t.sliderVariables(r != null ? r : n.getDependencies());
-      return n.valueType === Point || n.valueType === ListOfPoint || n.valueType === Point3D ||
-          n.valueType === ListOfPoint3D || n.valueType === Complex || n.valueType === ListOfComplex
+      return n.valueType === N || n.valueType === Pt || n.valueType === z ||
+          n.valueType === fr || n.valueType === R || n.valueType === Ue
         ? t.is3dPolicy()
           ? s.includes("t") && !s.includes("u") && !s.includes("v")
             ? s.filter((i) => i != "t")
@@ -3204,8 +3209,8 @@
   var v = class extends Yt {
     constructor(n) {
       super();
-      this.isError = true;
-      this._msg = n, this.blocksExport = true;
+      this.isError = !0;
+      this._msg = n, this.blocksExport = !0;
     }
     evaluateOnce(n) {
       return this._msg;
@@ -3220,7 +3225,7 @@
       this.actionValue = n;
     }
     allowExport() {
-      return this.blocksExport = false, this;
+      return this.blocksExport = !1, this;
     }
     setCursorContext(n) {
       this.cursorContext = n;
@@ -3229,49 +3234,49 @@
       return this.cursorContext;
     }
   };
-  var _d = { real: true, imag: true, conj: true, arg: true }, FD = Object.keys(_d);
+  var _d = { real: !0, imag: !0, conj: !0, arg: !0 }, FD = Object.keys(_d);
   var Cc = class {
     constructor(t) {
       this.singleExpression = t.singleExpression;
     }
     isGeometryEnabled() {
-      return false;
+      return !1;
     }
     is3dProduct() {
-      return false;
+      return !1;
     }
     is3dPolicy() {
-      return false;
+      return !1;
     }
     isComplexEnabled() {
-      return false;
+      return !1;
     }
     isRecursionEnabled() {
-      return false;
+      return !1;
     }
     polygonUnsupportedPreferTriangle() {
-      return false;
+      return !1;
     }
     areAllScalesLinear() {
-      return true;
+      return !0;
     }
     assignmentForbidden(t) {
       return t.slice(0, 3) !== "ans";
     }
     isValidSlider(t) {
-      return false;
+      return !1;
     }
     sliderVariables() {
       return [];
     }
     graphingEnabled() {
-      return false;
+      return !1;
     }
     ansEnabled() {
       return !this.singleExpression;
     }
     dimensionVarsEnabled() {
-      return false;
+      return !1;
     }
     disabledFeatures() {
       return [
@@ -3289,10 +3294,10 @@
       ];
     }
     shouldIncludeFunctionParametersInRandomSeed() {
-      return true;
+      return !0;
     }
   };
-  var iy = false;
+  var iy = !1;
   function Dx(e) {
     iy = e;
   }
@@ -3315,8 +3320,8 @@
     return new v(
       E("shared-calculator-error-recursion-missing-base-case", {
         count: Cd(t),
-        lastSymbol: formatSymbol(n),
-        symbols: e.slice(1).map((r) => formatSymbol(r)).join("', '"),
+        lastSymbol: X(n),
+        symbols: e.slice(1).map((r) => X(r)).join("', '"),
       }),
     );
   }
@@ -3327,14 +3332,14 @@
   function vx(e) {
     return new v(
       E("shared-calculator-error-recursion-base-case-free-variable", {
-        freeVariable: formatSymbol(e),
+        freeVariable: X(e),
       }),
     );
   }
   function Ox(e) {
     return new v(
       E("shared-calculator-error-recursion-base-case-free-variable", {
-        freeVariable: formatSymbol(e),
+        freeVariable: X(e),
       }),
     );
   }
@@ -3364,7 +3369,7 @@
   function _x(e, t) {
     return new v(
       E("shared-calculator-error-recursion-wrong-arity", {
-        fnSymbol: formatSymbol(e),
+        fnSymbol: X(e),
         count: Cd(t),
       }),
     );
@@ -3383,7 +3388,7 @@
     return new v(E("shared-calculator-error-parse-error"));
   }
   function uy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-unrecognized-symbol", { symbol: e }));
   }
   function cy() {
@@ -3393,7 +3398,7 @@
     return new v(E("shared-calculator-error-unexpected-equality"));
   }
   function ks(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-unexpected-symbol", { symbol: e }));
   }
   function Fx(e, { blockExport: t }) {
@@ -3521,7 +3526,7 @@
     let n = new v(
       E("shared-calculator-error-point-type-error", {
         symbol1: e,
-        symbol2: oe(Point),
+        symbol2: oe(N),
       }),
     );
     return t || n.allowExport(), n;
@@ -3550,7 +3555,7 @@
       case 1:
         r = new v(
           E("shared-calculator-error-function-type-error-1", {
-            fn: formatSymbol(e),
+            fn: X(e),
             arg: t[0],
           }),
         );
@@ -3558,7 +3563,7 @@
       case 2:
         r = new v(
           E("shared-calculator-error-function-type-error-2", {
-            fn: formatSymbol(e),
+            fn: X(e),
             arg1: t[0],
             arg2: t[1],
           }),
@@ -3566,7 +3571,7 @@
         break;
       default:
         r = new v(
-          E("shared-calculator-error-function-type-error-many", { fn: formatSymbol(e) }),
+          E("shared-calculator-error-function-type-error-many", { fn: X(e) }),
         );
         break;
     }
@@ -3612,7 +3617,7 @@
             t.length < s.length
               ? "shared-calculator-error-transformation-definition-type-error-use-more-1"
               : "shared-calculator-error-transformation-definition-type-error-1",
-            { fn: formatSymbol(Cx[e]), arg: t[0], expectedTypeMessage: i },
+            { fn: X(Cx[e]), arg: t[0], expectedTypeMessage: i },
           ),
         );
         break;
@@ -3622,7 +3627,7 @@
             t.length < s.length
               ? "shared-calculator-error-transformation-definition-type-error-use-more-2"
               : "shared-calculator-error-transformation-definition-type-error-2",
-            { fn: formatSymbol(Cx[e]), arg1: t[0], arg2: t[1], expectedTypeMessage: i },
+            { fn: X(Cx[e]), arg1: t[0], arg2: t[1], expectedTypeMessage: i },
           ),
         );
         break;
@@ -3630,7 +3635,7 @@
         o = new v(
           E(
             "shared-calculator-error-transformation-definition-type-error-many",
-            { fn: formatSymbol(Cx[e]) },
+            { fn: X(Cx[e]) },
           ),
         );
         break;
@@ -3643,7 +3648,7 @@
       case 1:
         r = new v(
           E("shared-calculator-error-transformation-type-error-1", {
-            fn: formatSymbol(e),
+            fn: X(e),
             arg: t[0],
           }),
         );
@@ -3651,7 +3656,7 @@
       case 2:
         r = new v(
           E("shared-calculator-error-transformation-type-error-2", {
-            fn: formatSymbol(e),
+            fn: X(e),
             arg1: t[0],
             arg2: t[1],
           }),
@@ -3660,7 +3665,7 @@
       default:
         r = new v(
           E("shared-calculator-error-transformation-type-error-many", {
-            fn: formatSymbol(e),
+            fn: X(e),
           }),
         );
         break;
@@ -3668,8 +3673,8 @@
     return n || r.allowExport(), r;
   }
   function Kx(e, t, { blockExport: n }) {
-    let r = formatSymbol(e),
-      s = formatSymbol("count"),
+    let r = X(e),
+      s = X("count"),
       i = new v(
         E("shared-calculator-error-geometry-length-type-error", {
           fn: r,
@@ -3680,8 +3685,8 @@
     return n || i.allowExport(), i;
   }
   function eT(e, t, { blockExport: n }) {
-    let r = formatSymbol(e),
-      s = formatSymbol("count"),
+    let r = X(e),
+      s = X("count"),
       i = new v(
         E("shared-calculator-error-3d-length-type-error", {
           fn: r,
@@ -3693,13 +3698,13 @@
   }
   function Gd(e) {
     return new v(
-      E("shared-calculator-error-illegal-dot-call", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-illegal-dot-call", { symbol: X(e) }),
     );
   }
   function tT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-dot-lhs-type-error", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
         type: t,
       }),
     );
@@ -3710,7 +3715,7 @@
   }
   function nT(e) {
     return new v(
-      E("shared-calculator-error-dot-rhs-property-error", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-dot-rhs-property-error", { symbol: X(e) }),
     );
   }
   function rT(e, { blockExport: t }) {
@@ -3805,7 +3810,7 @@
   function mT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-derivative-variable-type-error", {
-        symbol1: formatSymbol(e),
+        symbol1: X(e),
         symbol2: t[0],
       }),
     );
@@ -3814,7 +3819,7 @@
   function yT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-prime-variable-type-error", {
-        symbol1: formatSymbol(e),
+        symbol1: X(e),
         symbol2: t[0],
       }),
     );
@@ -3823,7 +3828,7 @@
   function fy(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-piecewise-condition-type-error", {
-        symbol1: oe(Bool),
+        symbol1: oe(De),
         symbol2: e[0],
       }),
     );
@@ -3887,34 +3892,34 @@
   }
   function CT(e) {
     return new v(
-      E("shared-calculator-error-duplicate-update-rules", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-duplicate-update-rules", { symbol: X(e) }),
     );
   }
   function DT(e) {
     return new v(
-      E("shared-calculator-error-update-rule-undefined-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-update-rule-undefined-lhs", { symbol: X(e) }),
     );
   }
   function ST(e) {
     return new v(
-      E("shared-calculator-error-update-rule-illegal-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-update-rule-illegal-lhs", { symbol: X(e) }),
     );
   }
   function vT(e) {
     return new v(
-      E("shared-calculator-error-update-rule-function-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-update-rule-function-lhs", { symbol: X(e) }),
     );
   }
   function my(e) {
     return new v(
-      E("shared-calculator-error-update-rule-local-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-update-rule-local-lhs", { symbol: X(e) }),
     );
   }
   function OT(e) {
     let t = e.filter((n) => n.scope === "free").map((n) => n.symbol);
     return new v(
       E("shared-calculator-error-action-merge-free-variable", {
-        symbol: formatSymbol(t[0] || ""),
+        symbol: X(t[0] || ""),
       }),
     ).setDependencies(t).allowExport();
   }
@@ -3970,25 +3975,25 @@
   function mu(e) {
     return new v(
       E("shared-calculator-error-gpu-variable-list-length", {
-        symbol: formatSymbol(e.filter((t) => t.symbol !== "globalRandomSeed")[0].symbol),
+        symbol: X(e.filter((t) => t.symbol !== "globalRandomSeed")[0].symbol),
       }),
     );
   }
   function gy(e) {
     return new v(
-      E("shared-calculator-error-gpu-variable-sum", { symbol: formatSymbol(e[0].symbol) }),
+      E("shared-calculator-error-gpu-variable-sum", { symbol: X(e[0].symbol) }),
     );
   }
   function hy(e) {
     return new v(
       E("shared-calculator-error-gpu-variable-product", {
-        symbol: formatSymbol(e[0].symbol),
+        symbol: X(e[0].symbol),
       }),
     );
   }
   function Xl(e) {
     return new v(
-      E("shared-calculator-error-gpu-function-unsupported", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-gpu-function-unsupported", { symbol: X(e) }),
     );
   }
   function FT() {
@@ -4067,7 +4072,7 @@
   function XT(e) {
     let t = e === "rgb" ? [150, 30, 100] : [180, .5, .5],
       n = E("shared-calculator-error-color-arity-recommendation", {
-        recommendation: formatSymbol(e) + "(" + t.join(", ") + ")",
+        recommendation: X(e) + "(" + t.join(", ") + ")",
       }),
       r = E("shared-calculator-error-color-arity", {
         symbol: e,
@@ -4076,7 +4081,7 @@
     return new v(r);
   }
   function Ao(e, t, n, r) {
-    e = formatSymbol(e);
+    e = X(e);
     let s, i;
     if (t === 1) {
       i = r.includeUsageExample
@@ -4097,7 +4102,7 @@
       let o = [], a = r.usageExample;
       if (!a) {
         for (let u = 0; u < t; u++) o[u] = u + 1;
-        a = formatSymbol(e) + "(" + o.join(", ") + ")";
+        a = X(e) + "(" + o.join(", ") + ")";
       }
       i = r.includeUsageExample
         ? E("shared-calculator-error-wrong-arity-supplement", {
@@ -4125,16 +4130,16 @@
   function WT(e) {
     return new v(
       E("shared-calculator-error-wrong-two-arg-arity", {
-        symbol: formatSymbol(e),
-        recommendation: formatSymbol(e) + "([1,2,3], 1)",
+        symbol: X(e),
+        recommendation: X(e) + "([1,2,3], 1)",
       }),
     );
   }
   function qd(e) {
     return new v(
       E("shared-calculator-error-wrong-two-arg-arity", {
-        symbol: formatSymbol(e),
-        recommendation: formatSymbol(e) + "([1,2,3], [3,2,1])",
+        symbol: X(e),
+        recommendation: X(e) + "([1,2,3], [3,2,1])",
       }),
     );
   }
@@ -4143,7 +4148,7 @@
   }
   function jT(e) {
     return new v(
-      E("shared-calculator-error-zero-arg-reducer", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-zero-arg-reducer", { symbol: X(e) }),
     );
   }
   function JT() {
@@ -4158,7 +4163,7 @@
     );
   }
   function xy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-bad-implicit-call", { symbol: e }));
   }
   function eI(e, t) {
@@ -4175,17 +4180,17 @@
     return new v(E("shared-calculator-error-token-with-subscript"));
   }
   function Iy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-identifier-as-function", { symbol: e }));
   }
   function Py(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-identifier-is-not-function", { symbol: e }),
       );
   }
   function $d(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       e === "%" && (e = "% of"),
       new v(
         E("shared-calculator-error-binary-operator-missing-operand", {
@@ -4194,13 +4199,13 @@
       );
   }
   function nI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-unary-operator-missing-left", { symbol: e }),
       );
   }
   function rI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-unary-operator-missing-right", {
           symbol: e,
@@ -4223,7 +4228,7 @@
     return new v(E("shared-calculator-error-empty-superscript"));
   }
   function uI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-invalid-subscript", { symbol: e }));
   }
   function cI() {
@@ -4277,16 +4282,16 @@
   }
   function Xd() {
     let e = new v(E("shared-calculator-error-blank-expression"));
-    return e.silent = true, e;
+    return e.silent = !0, e;
   }
   function Dy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-function-not-defined", { dependency: e }),
       );
   }
   function Sy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-parameter-already-defined", {
           dependency: e,
@@ -4294,7 +4299,7 @@
       );
   }
   function II(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-duplicate-function-parameter", {
           dependency: e,
@@ -4302,7 +4307,7 @@
       );
   }
   function PI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-function-name-as-parameter", {
           dependency: e,
@@ -4310,7 +4315,7 @@
       );
   }
   function Zl(e, t) {
-    return e = formatSymbol(e),
+    return e = X(e),
       t === void 0
         ? new v(E("shared-calculator-error-cannot-redefine", { symbol: e }))
         : new v(
@@ -4321,19 +4326,19 @@
         );
   }
   function EI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-cannot-subscript", { symbol: e }));
   }
   function Wl(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-multiply-defined", { dependency: e }));
   }
   function vy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-shadowed-index", { symbol: e }));
   }
   function MI(e) {
-    e = e.map(formatSymbol);
+    e = e.map(X);
     let t = e.pop() || "",
       n = new v(
         E("shared-calculator-error-dependency-cycle", {
@@ -4341,27 +4346,27 @@
           lastSymbol: t,
         }),
       );
-    return n.isCyclicDependencyError = true, n;
+    return n.isCyclicDependencyError = !0, n;
   }
   function Rc(e, t) {
     let n = e.length, r = e[0];
     return t.suggestAlternativeFunctionName && n == 1
       ? new v(
         E("shared-calculator-error-self-referential-suggest-alternative", {
-          symbol: formatSymbol(r),
+          symbol: X(r),
         }),
       )
       : new v(
         E("shared-calculator-error-self-referential-functions", {
-          symbols: e.slice(1).map((s) => formatSymbol(s)).join("', '"),
-          lastSymbol: formatSymbol(r),
+          symbols: e.slice(1).map((s) => X(s)).join("', '"),
+          lastSymbol: X(r),
           count: Cd(n),
         }),
       );
   }
   function CI(e) {
     return new v(
-      E("shared-calculator-error-self-referential-base-case", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-self-referential-base-case", { symbol: X(e) }),
     );
   }
   function DI() {
@@ -4370,7 +4375,7 @@
   function SI(e) {
     return new v(
       E("shared-calculator-error-slider-limit-references-export", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4420,7 +4425,7 @@
     );
   }
   function rn(e) {
-    if (e = e.map(formatSymbol), e.length === 0) {
+    if (e = e.map(X), e.length === 0) {
       return new v(E("shared-calculator-error-too-many-variables-no-symbols"));
     }
     let t = e.pop() || "";
@@ -4439,23 +4444,23 @@
   }
   function kI(e) {
     return new v(
-      E("shared-calculator-error-cannot-restrict", { variable: formatSymbol(e) }),
+      E("shared-calculator-error-cannot-restrict", { variable: X(e) }),
     );
   }
   function HI(e) {
     return new v(
-      E("shared-calculator-error-cannot-assign-color", { variable: formatSymbol(e) }),
+      E("shared-calculator-error-cannot-assign-color", { variable: X(e) }),
     );
   }
   function zI(e) {
     return new v(
       E("shared-calculator-error-cannot-restrict-with-equality", {
-        variable: formatSymbol(e),
+        variable: X(e),
       }),
     );
   }
   function Zd(e, t, n) {
-    e = e.map(formatSymbol), t = formatSymbol(t), n = n.map(formatSymbol);
+    e = e.map(X), t = X(t), n = n.map(X);
     let r = t + "(" + n.join(",") + "," + e.join(",") + ")",
       s = e.pop() || "",
       i = { symbols: e.join("', '"), lastSymbol: s, newSignature: r };
@@ -4464,7 +4469,7 @@
       : new v(E("shared-calculator-error-add-arguments-to-definition-one", i));
   }
   function UI(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-invalid-lhs", { symbol: e }));
   }
   function qI() {
@@ -4492,10 +4497,10 @@
       e === "="
         ? E("graphing-calculator-error-nan-blame-complex-coercion")
         : E("shared-calculator-error-complex-operation-undefined", {
-          symbol: formatSymbol(e),
+          symbol: X(e),
         }),
     );
-    return t.warning = t.getError(), t.silent = true, t;
+    return t.warning = t.getError(), t.silent = !0, t;
   }
   function zV() {
     return new v(E("shared-calculator-error-complex-table-point-coordinate"));
@@ -4532,7 +4537,7 @@
   }
   function wy(e) {
     return e
-      ? (e = formatSymbol(e),
+      ? (e = X(e),
         new v(
           E("shared-calculator-error-equation-required-symbol", {
             lhs: e + "=",
@@ -4541,13 +4546,13 @@
       : new v(E("shared-calculator-error-equation-required"));
   }
   function Fy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-variable-as-function", { dependency: e }),
       );
   }
   function Vy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-distribution-as-function", { symbol: e }),
       );
@@ -4578,7 +4583,7 @@
   function tP(e) {
     return new v(
       E("shared-calculator-error-invalid-regression-parameter", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4588,8 +4593,8 @@
   function jd(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-non-list-double-reducer", {
-        symbol: formatSymbol(e),
-        recommendation: formatSymbol(e) + "([1,2,3], [3,2,1])",
+        symbol: X(e),
+        recommendation: X(e) + "([1,2,3], [3,2,1])",
       }),
     );
     return t || n.allowExport(), n;
@@ -4597,8 +4602,8 @@
   function rP(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-non-list-parameterized-reducer", {
-        symbol: formatSymbol(e),
-        recommendation: formatSymbol(e) + "([1,2,3], 1)",
+        symbol: X(e),
+        recommendation: X(e) + "([1,2,3], 1)",
       }),
     );
     return t || n.allowExport(), n;
@@ -4606,8 +4611,8 @@
   function so(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-method-requires-list", {
-        symbol: formatSymbol(e),
-        recommendation: formatSymbol(e) + "([1,2,3])",
+        symbol: X(e),
+        recommendation: X(e) + "([1,2,3])",
       }),
     );
     return t || n.allowExport(), n;
@@ -4633,13 +4638,13 @@
   }
   function cP(e) {
     return new v(
-      E("shared-calculator-error-bad-sum-bound-dependency", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-bad-sum-bound-dependency", { symbol: X(e) }),
     );
   }
   function lP(e) {
     return new v(
       E("shared-calculator-error-bad-product-bound-dependency", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4665,8 +4670,8 @@
     return new v(E("shared-calculator-error-derivative-missing-body"));
   }
   function bP(e, t) {
-    return e = formatSymbol(e),
-      t = formatSymbol(t),
+    return e = X(e),
+      t = X(t),
       new v(
         E("shared-calculator-error-mismatched-braces", {
           symbol1: e,
@@ -4677,14 +4682,14 @@
   function By(e) {
     return new v(
       E("shared-calculator-error-shadowed-integration-variable", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
   function xP(e) {
     return new v(
       E("shared-calculator-error-bad-integral-bound-dependency", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4692,11 +4697,11 @@
     return new v(E("shared-calculator-error-percent-missing-of"));
   }
   function Qd(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-illegal-bin-width", { symbol: e }));
   }
   function jl(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(E("shared-calculator-error-ttest-list-too-short", { symbol: e }));
   }
   function IP() {
@@ -4704,13 +4709,13 @@
   }
   function PP(e) {
     return new v(
-      E("shared-calculator-error-variable-seed", { symbol: formatSymbol(e[0].symbol) }),
+      E("shared-calculator-error-variable-seed", { symbol: X(e[0].symbol) }),
     ).setDependencies(e.filter((t) => t.scope === "free").map((t) => t.symbol))
       .allowExport();
   }
   function Kd(e) {
     return new v(
-      E("shared-calculator-error-bad-symbol-context", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-bad-symbol-context", { symbol: X(e) }),
     );
   }
   function Gy() {
@@ -4726,7 +4731,7 @@
   }
   function ef(e) {
     return new v(
-      E("shared-calculator-error-variables-unsupported", { variable: formatSymbol(e) }),
+      E("shared-calculator-error-variables-unsupported", { variable: X(e) }),
     );
   }
   function ky() {
@@ -4735,7 +4740,7 @@
   function VD(e) {
     return new v(
       E("shared-calculator-error-function-only-works-in-complex", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4746,7 +4751,7 @@
           !t.isComplexEnabled() && FD.indexOf(e) !== -1
       ? VD(e)
       : new v(
-        E("shared-calculator-error-function-unsupported", { symbol: formatSymbol(e) }),
+        E("shared-calculator-error-function-unsupported", { symbol: X(e) }),
       );
   }
   function MP() {
@@ -4754,18 +4759,18 @@
   }
   function _c(e) {
     return new v(
-      E("shared-calculator-error-constant-unsupported", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-constant-unsupported", { symbol: X(e) }),
     );
   }
   function Hy(e) {
     return new v(
-      E("shared-calculator-error-variable-unsupported", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-variable-unsupported", { symbol: X(e) }),
     );
   }
   function zy(e) {
     return new v(
       E("shared-calculator-error-variable-invalid-function-name", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4858,7 +4863,7 @@
   }
   function iB(e) {
     return new v(
-      E("shared-calculator-error-matrix-invalid-variable", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-matrix-invalid-variable", { symbol: X(e) }),
     );
   }
   function SP(e, t, n, { blockExport: r }) {
@@ -4879,7 +4884,7 @@
     );
   }
   function qy(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-shadowed-list-comprehension-input", {
           symbol: e,
@@ -4887,7 +4892,7 @@
       );
   }
   function OP(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-bad-for-input-list-dependency", {
           symbol: e,
@@ -4895,7 +4900,7 @@
       );
   }
   function NP(e) {
-    return e = formatSymbol(e),
+    return e = X(e),
       new v(
         E("shared-calculator-error-bad-for-interval-dependency", { symbol: e }),
       );
@@ -4904,7 +4909,7 @@
     let t = e.filter((n) => n.scope === "free").map((n) => n.symbol);
     return new v(
       E("shared-calculator-error-variable-length-top-level-list", {
-        symbol: formatSymbol(t[0] || ""),
+        symbol: X(t[0] || ""),
       }),
     ).setDependencies(t).allowExport();
   }
@@ -4951,24 +4956,24 @@
   }
   function wP(e) {
     return new v(
-      E("shared-calculator-error-substitution-local-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-substitution-local-lhs", { symbol: X(e) }),
     );
   }
   function af(e) {
     return new v(
-      E("shared-calculator-error-substitution-illegal-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-substitution-illegal-lhs", { symbol: X(e) }),
     );
   }
   function uf(e) {
     return new v(
-      E("shared-calculator-error-substitution-function-lhs", { symbol: formatSymbol(e) }),
+      E("shared-calculator-error-substitution-function-lhs", { symbol: X(e) }),
     );
   }
   function FP(e, t, n) {
     return new v(
       E(
         "shared-calculator-error-substitution-body-regression-parameter-dependency",
-        { globalVariable: formatSymbol(e), regressionParameter: formatSymbol(t), operator: n },
+        { globalVariable: X(e), regressionParameter: X(t), operator: n },
       ),
     );
   }
@@ -4988,7 +4993,7 @@
   function VP(e) {
     return new v(
       E("shared-calculator-error-substitution-duplicate-assignment", {
-        symbol: formatSymbol(e),
+        symbol: X(e),
       }),
     );
   }
@@ -4996,8 +5001,8 @@
     return new v(
       E("shared-calculator-error-substitution-recursive-call-lhs", {
         operator: e,
-        globalVariable: formatSymbol(t),
-        fnSymbol: formatSymbol(n),
+        globalVariable: X(t),
+        fnSymbol: X(n),
       }),
     );
   }
@@ -5070,304 +5075,304 @@
     e[BD] = t;
   }
   function gu(e) {
-    return typeof e != "object" || !e ? false : e.type === "Action";
+    return typeof e != "object" || !e ? !1 : e.type === "Action";
   }
   function bX(e) {
     return j(e.valueType);
   }
   var Gi = {};
   ia(Gi, {
-    LruCache: () => LruCache,
-    RECURSIVE_COMPUTATION_LIMIT: () => RECURSIVE_COMPUTATION_LIMIT,
-    RECURSIVE_DEPTH_LIMIT: () => RECURSIVE_DEPTH_LIMIT,
-    RecursiveFunctionResult: () => RecursiveFunctionResult,
-    SYMBOL_DIVERGES: () => SYMBOL_DIVERGES,
-    TerminationStatus: () => TerminationStatus,
-    _complexGCD: () => _complexGCD,
-    acosh: () => acosh,
-    acot: () => acot,
-    acoth: () => acoth,
-    acsc: () => acsc,
-    acsch: () => acsch,
-    addTangentAngle: () => addTangentAngle,
-    addTangentArc: () => addTangentArc,
-    addTangentCircle: () => addTangentCircle,
-    addTangentLine: () => addTangentLine,
-    addTangentPolygon: () => addTangentPolygon,
-    addTangentRay: () => addTangentRay,
-    addTangentSegment: () => addTangentSegment,
-    addTangentSegmentThreeD: () => addTangentSegmentThreeD,
-    addTangentTransformation: () => addTangentTransformation,
-    addTangentVector: () => addTangentVector,
-    angleMarkerMultiplier: () => angleMarkerMultiplier,
-    angleMarkerRawDelta: () => angleMarkerRawDelta,
-    angleStart: () => angleStart,
-    angleVertex: () => angleVertex,
-    anglebisector: () => anglebisector,
-    arc: () => arc,
-    arcArcIntersection: () => arcArcIntersection,
-    arcCenter: () => arcCenter,
-    arcCircleIntersection: () => arcCircleIntersection,
-    arcFirstPoint: () => arcFirstPoint,
-    arcGlider: () => arcGlider,
-    arcLineIntersection: () => arcLineIntersection,
-    arcMiddlePoint: () => arcMiddlePoint,
-    arcOmega: () => arcOmega,
-    arcThirdPoint: () => arcThirdPoint,
-    arg: () => arg,
-    argMax: () => argMax,
-    argMin: () => argMin,
-    asec: () => asec,
-    asech: () => asech,
-    asinh: () => asinh,
-    atanh: () => atanh,
-    basePointFromVector: () => basePointFromVector,
-    basePointFromVectorThreeD: () => basePointFromVectorThreeD,
-    bernoulliTable: () => bernoulliTable,
-    binomSample: () => binomSample,
-    binomcdf: () => binomcdf,
-    binompdf: () => binompdf,
-    center: () => center,
-    chooseNonIncidentPoint: () => chooseNonIncidentPoint,
-    circle: () => circle,
-    circleArcIntersection: () => circleArcIntersection,
-    circleCircleIntersection: () => circleCircleIntersection,
-    circleGlider: () => circleGlider,
-    circleLineIntersection: () => circleLineIntersection,
-    clamp: () => clamp,
-    coerceComplexToReal: () => coerceComplexToReal,
-    coerceRealToComplex: () => coerceRealToComplex,
-    common_log: () => common_log,
-    compareComplexLexicographic: () => compareComplexLexicographic,
-    complex: () => complex,
-    complexAcos: () => complexAcos,
-    complexAcosh: () => complexAcosh,
-    complexAcot: () => complexAcot,
-    complexAcoth: () => complexAcoth,
-    complexAcsc: () => complexAcsc,
-    complexAcsch: () => complexAcsch,
-    complexAsec: () => complexAsec,
-    complexAsech: () => complexAsech,
-    complexAsin: () => complexAsin,
-    complexAsinh: () => complexAsinh,
-    complexAtan: () => complexAtan,
-    complexAtanh: () => complexAtanh,
-    complexCeil: () => complexCeil,
-    complexCommonLog: () => complexCommonLog,
-    complexCos: () => complexCos,
-    complexCosh: () => complexCosh,
-    complexCot: () => complexCot,
-    complexCoth: () => complexCoth,
-    complexCsc: () => complexCsc,
-    complexCsch: () => complexCsch,
-    complexDivide: () => complexDivide,
-    complexExp: () => complexExp,
-    complexFloor: () => complexFloor,
-    complexFromPolarRounded: () => complexFromPolarRounded,
-    complexGCD: () => complexGCD,
-    complexLCM: () => complexLCM,
-    complexListGCD: () => complexListGCD,
-    complexListLCM: () => complexListLCM,
-    complexLog: () => complexLog,
-    complexLogbase: () => complexLogbase,
-    complexMod: () => complexMod,
-    complexMultiplyPoints: () => complexMultiplyPoints,
-    complexPow: () => complexPow,
-    complexPowReal: () => complexPowReal,
-    complexReciprocal: () => complexReciprocal,
-    complexRound: () => complexRound,
-    complexSec: () => complexSec,
-    complexSech: () => complexSech,
-    complexSin: () => complexSin,
-    complexSinh: () => complexSinh,
-    complexSortPerm: () => complexSortPerm,
-    complexSqrt: () => complexSqrt,
-    complexTan: () => complexTan,
-    complexTanh: () => complexTanh,
-    composeTransformation: () => composeTransformation,
-    conj: () => conj,
-    corr: () => corr,
-    cos: () => cos,
-    cosh: () => cosh,
-    cot: () => cot,
-    cotDerivative: () => cotDerivative,
-    coth: () => coth,
-    cov: () => cov,
-    covp: () => covp,
-    csc: () => csc,
-    csch: () => csch,
-    dilation: () => dilation,
-    directedAngleMarker: () => directedAngleMarker,
-    directedAngleStart: () => directedAngleStart,
-    directedAngleVertex: () => directedAngleVertex,
-    directedCoterminalAngle: () => directedCoterminalAngle,
-    distance: () => distance,
-    distanceThreeD: () => distanceThreeD,
-    elementsAt: () => elementsAt,
-    erf: () => erf,
-    erfcx: () => erfcx,
-    executeRecursiveFunction: () => executeRecursiveFunction,
-    expm1: () => expm1,
-    factorial: () => factorial,
-    frequency: () => frequency,
-    gcd: () => gcd,
-    getArcDetails: () => getArcDetails,
-    getBroadcastTargetElements: () => getBroadcastTargetElements,
-    getRecursiveDepthLimit: () => getRecursiveDepthLimit,
-    handleRecursionLimitExceeded: () => handleRecursionLimitExceeded,
-    hsv: () => hsv,
-    hypot: () => hypot,
-    identity: () => identity,
-    imag: () => imag,
-    invBinom: () => invBinom,
-    invNorm: () => invNorm,
-    invPoisson: () => invPoisson,
-    invT: () => invT,
-    invUniform: () => invUniform,
-    invertTransformation: () => invertTransformation,
-    isDegenerateArc: () => isDegenerateArc,
-    itscore: () => itscore,
-    ittest: () => ittest,
-    lcm: () => lcm,
-    line: () => line,
-    lineArcIntersection: () => lineArcIntersection,
-    lineCircleIntersection: () => lineCircleIntersection,
-    lineGlider: () => lineGlider,
-    lineLineIntersection: () => lineLineIntersection,
-    listGCD: () => listGCD,
-    listLCM: () => listLCM,
-    listLength: () => listLength,
-    listMax: () => listMax,
-    listMin: () => listMin,
-    log: () => log,
-    log1p: () => log1p,
-    log_base: () => log_base,
-    lowerQuantileIndex: () => lowerQuantileIndex,
-    lowerQuartileIndex: () => lowerQuartileIndex,
-    mad: () => mad,
-    mathVector: () => mathVector,
-    mathVectorThreeD: () => mathVectorThreeD,
-    md5Spyable: () => md5Spyable,
-    mean: () => mean,
-    median: () => median,
-    mod: () => mod,
-    nCr: () => nCr,
-    nPr: () => nPr,
-    normalSample: () => normalSample,
-    normalcdf: () => normalcdf,
-    normalpdf: () => normalpdf,
-    parallel: () => parallel,
-    peelableCoerceComplexToReal: () => peelableCoerceComplexToReal,
-    perpendicular: () => perpendicular,
-    pointDet: () => pointDet,
-    pointDot: () => pointDot,
-    pointPerp: () => pointPerp,
-    poissonSample: () => poissonSample,
-    poissoncdf: () => poissoncdf,
-    poissonpdf: () => poissonpdf,
-    polyGamma: () => polyGamma,
-    polygon: () => polygon,
-    polygonArea: () => polygonArea,
-    polygonEdgeByParameter: () => polygonEdgeByParameter,
-    polygonEdges: () => polygonEdges,
-    polygonGlider: () => polygonGlider,
-    polygonInteriorDirectedAngles: () => polygonInteriorDirectedAngles,
-    polygonInteriorUndirectedAngles: () => polygonInteriorUndirectedAngles,
-    polygonPerimeter: () => polygonPerimeter,
-    pow: () => pow,
-    quad: () => quad,
-    quantile: () => quantile,
-    quartile: () => quartile,
-    quartileIndex: () => quartileIndex,
-    radius: () => radius,
-    random: () => random,
-    randomPerm: () => randomPerm,
-    rank: () => rank,
-    rawTransform: () => rawTransform,
-    rawTransformConj: () => rawTransformConj,
-    ray: () => ray,
-    rayGlider: () => rayGlider,
-    real: () => real,
-    recursionCacheKey: () => recursionCacheKey,
-    recursionDiverges: () => recursionDiverges,
-    recursionMissingCacheEntry: () => recursionMissingCacheEntry,
-    recursionSuccess: () => recursionSuccess,
-    reflection: () => reflection,
-    restriction: () => restriction,
-    restrictionToBoolean: () => restrictionToBoolean,
-    rgb: () => rgb,
-    rotation: () => rotation,
-    scaleTangentAngle: () => scaleTangentAngle,
-    scaleTangentArc: () => scaleTangentArc,
-    scaleTangentCircle: () => scaleTangentCircle,
-    scaleTangentLine: () => scaleTangentLine,
-    scaleTangentPolygon: () => scaleTangentPolygon,
-    scaleTangentRay: () => scaleTangentRay,
-    scaleTangentSegment: () => scaleTangentSegment,
-    scaleTangentTransformation: () => scaleTangentTransformation,
-    sec: () => sec,
-    sech: () => sech,
-    segment: () => segment,
-    segmentGlider: () => segmentGlider,
-    segmentThreeD: () => segmentThreeD,
-    segmentThreeDGlider: () => segmentThreeDGlider,
-    select: () => select,
-    serializeNonNumericSeedPart: () => serializeNonNumericSeedPart,
-    shuffle: () => shuffle,
-    sign: () => sign,
-    sin: () => sin,
-    sinh: () => sinh,
-    sortPerm: () => sortPerm,
-    spearman: () => spearman,
-    sphere: () => sphere,
-    sqrtxsqm1: () => sqrtxsqm1,
-    sqrtxsqp1: () => sqrtxsqp1,
-    stats: () => stats,
-    stdev: () => stdev,
-    stdevp: () => stdevp,
-    supplementAngle: () => supplementAngle,
-    tSample: () => tSample,
-    tan: () => tan,
-    tanh: () => tanh,
-    tcdf: () => tcdf,
-    testingOnlySetRecursiveDepthLimit: () => testingOnlySetRecursiveDepthLimit,
-    toFraction: () => toFraction,
-    tone: () => tone,
-    total: () => total,
-    tpdf: () => tpdf,
-    transformAngleMarker: () => transformAngleMarker,
-    transformArc: () => transformArc,
-    transformCircle: () => transformCircle,
-    transformLine: () => transformLine,
-    transformPoint: () => transformPoint,
-    transformPolygon: () => transformPolygon,
-    transformRay: () => transformRay,
-    transformScaleFactor: () => transformScaleFactor,
-    transformSegment: () => transformSegment,
-    transformVector: () => transformVector,
-    transformWithoutTranslation: () => transformWithoutTranslation,
-    translation: () => translation,
-    triangle: () => triangle,
-    tscore: () => tscore,
-    ttest: () => ttest,
-    undirectedAngleMarker: () => undirectedAngleMarker,
-    undirectedCoterminalAngle: () => undirectedCoterminalAngle,
-    uniformSample: () => uniformSample,
-    uniformcdf: () => uniformcdf,
-    uniformpdf: () => uniformpdf,
-    uniquePerm: () => uniquePerm,
-    upperQuantileIndex: () => upperQuantileIndex,
-    upperQuartileIndex: () => upperQuartileIndex,
-    validateRangeLength: () => validateRangeLength,
-    validateSampleCount: () => validateSampleCount,
-    variance: () => variance,
-    varp: () => varp,
-    vector: () => vector,
-    vectorDisplacementAsPoint: () => vectorDisplacementAsPoint,
-    vectorThreeD: () => vectorThreeD,
-    vectorThreeDDisplacementAsPoint: () => vectorThreeDDisplacementAsPoint,
-    vertices: () => vertices,
-    volume: () => volume,
+    LruCache: () => up,
+    RECURSIVE_COMPUTATION_LIMIT: () => JS,
+    RECURSIVE_DEPTH_LIMIT: () => Df,
+    RecursiveFunctionResult: () => jS,
+    SYMBOL_DIVERGES: () => WS,
+    TerminationStatus: () => QS,
+    _complexGCD: () => i0,
+    acosh: () => YS,
+    acot: () => s3,
+    acoth: () => d3,
+    acsc: () => i3,
+    acsch: () => p3,
+    addTangentAngle: () => $2,
+    addTangentArc: () => q2,
+    addTangentCircle: () => U2,
+    addTangentLine: () => k2,
+    addTangentPolygon: () => B2,
+    addTangentRay: () => H2,
+    addTangentSegment: () => Ng,
+    addTangentSegmentThreeD: () => G2,
+    addTangentTransformation: () => Y2,
+    addTangentVector: () => z2,
+    angleMarkerMultiplier: () => S2,
+    angleMarkerRawDelta: () => D2,
+    angleStart: () => P2,
+    angleVertex: () => I2,
+    anglebisector: () => aG,
+    arc: () => h2,
+    arcArcIntersection: () => tG,
+    arcCenter: () => yp,
+    arcCircleIntersection: () => eG,
+    arcFirstPoint: () => b2,
+    arcGlider: () => Dv,
+    arcLineIntersection: () => Ov,
+    arcMiddlePoint: () => x2,
+    arcOmega: () => gp,
+    arcThirdPoint: () => T2,
+    arg: () => GG,
+    argMax: () => k3,
+    argMin: () => G3,
+    asec: () => o3,
+    asech: () => l3,
+    asinh: () => XS,
+    atanh: () => ZS,
+    basePointFromVector: () => c2,
+    basePointFromVectorThreeD: () => d2,
+    bernoulliTable: () => tv,
+    binomSample: () => C3,
+    binomcdf: () => S3,
+    binompdf: () => Cg,
+    center: () => y2,
+    chooseNonIncidentPoint: () => J2,
+    circle: () => m2,
+    circleArcIntersection: () => K2,
+    circleCircleIntersection: () => Mf,
+    circleGlider: () => Z2,
+    circleLineIntersection: () => JE,
+    clamp: () => hr,
+    coerceComplexToReal: () => s0,
+    coerceRealToComplex: () => rk,
+    common_log: () => KB,
+    compareComplexLexicographic: () => mv,
+    complex: () => zt,
+    complexAcos: () => Hv,
+    complexAcosh: () => Uv,
+    complexAcot: () => QG,
+    complexAcoth: () => tk,
+    complexAcsc: () => JG,
+    complexAcsch: () => ek,
+    complexAsec: () => jG,
+    complexAsech: () => KG,
+    complexAsin: () => r0,
+    complexAsinh: () => zv,
+    complexAtan: () => CE,
+    complexAtanh: () => xg,
+    complexCeil: () => sk,
+    complexCommonLog: () => e3,
+    complexCos: () => Vv,
+    complexCosh: () => kv,
+    complexCot: () => YG,
+    complexCoth: () => WG,
+    complexCsc: () => $G,
+    complexCsch: () => ZG,
+    complexDivide: () => Du,
+    complexExp: () => HG,
+    complexFloor: () => qv,
+    complexFromPolarRounded: () => Eu,
+    complexGCD: () => SE,
+    complexLCM: () => vE,
+    complexListGCD: () => YB,
+    complexListLCM: () => XB,
+    complexLog: () => ME,
+    complexLogbase: () => sv,
+    complexMod: () => ik,
+    complexMultiplyPoints: () => Av,
+    complexPow: () => UG,
+    complexPowReal: () => wv,
+    complexReciprocal: () => Is,
+    complexRound: () => ap,
+    complexSec: () => qG,
+    complexSech: () => XG,
+    complexSin: () => Fv,
+    complexSinh: () => Gv,
+    complexSortPerm: () => L3,
+    complexSqrt: () => Lv,
+    complexTan: () => Bv,
+    complexTanh: () => n0,
+    composeTransformation: () => bG,
+    conj: () => Zc,
+    corr: () => Og,
+    cos: () => Mn,
+    cosh: () => fp,
+    cot: () => r3,
+    cotDerivative: () => nv,
+    coth: () => c3,
+    cov: () => z3,
+    covp: () => bv,
+    csc: () => n3,
+    csch: () => u3,
+    dilation: () => yG,
+    directedAngleMarker: () => Mv,
+    directedAngleStart: () => M2,
+    directedAngleVertex: () => E2,
+    directedCoterminalAngle: () => Cv,
+    distance: () => pp,
+    distanceThreeD: () => Y3,
+    elementsAt: () => OG,
+    erf: () => N3,
+    erfcx: () => Za,
+    executeRecursiveFunction: () => HB,
+    expm1: () => LB,
+    factorial: () => ma,
+    frequency: () => AG,
+    gcd: () => lg,
+    getArcDetails: () => Rg,
+    getBroadcastTargetElements: () => BB,
+    getRecursiveDepthLimit: () => VB,
+    handleRecursionLimitExceeded: () => ev,
+    hsv: () => X3,
+    hypot: () => Ts,
+    identity: () => f2,
+    imag: () => BG,
+    invBinom: () => cv,
+    invNorm: () => BE,
+    invPoisson: () => uv,
+    invT: () => lv,
+    invUniform: () => A3,
+    invertTransformation: () => xG,
+    isDegenerateArc: () => YE,
+    itscore: () => dv,
+    ittest: () => kE,
+    lcm: () => xE,
+    line: () => i2,
+    lineArcIntersection: () => vv,
+    lineCircleIntersection: () => jE,
+    lineGlider: () => ZE,
+    lineLineIntersection: () => Sv,
+    listGCD: () => qB,
+    listLCM: () => $B,
+    listLength: () => _3,
+    listMax: () => Sg,
+    listMin: () => Dg,
+    log: () => QB,
+    log1p: () => mp,
+    log_base: () => dg,
+    lowerQuantileIndex: () => F3,
+    lowerQuartileIndex: () => B3,
+    mad: () => H3,
+    mathVector: () => Iv,
+    mathVectorThreeD: () => Pv,
+    md5Spyable: () => $S,
+    mean: () => ya,
+    median: () => gv,
+    mod: () => Yc,
+    nCr: () => Pu,
+    nPr: () => pg,
+    normalSample: () => E3,
+    normalcdf: () => I3,
+    normalpdf: () => _E,
+    parallel: () => iG,
+    peelableCoerceComplexToReal: () => nk,
+    perpendicular: () => oG,
+    pointDet: () => _v,
+    pointDot: () => uG,
+    pointPerp: () => cG,
+    poissonSample: () => D3,
+    poissoncdf: () => v3,
+    poissonpdf: () => lp,
+    polyGamma: () => rv,
+    polygon: () => Z3,
+    polygonArea: () => qE,
+    polygonEdgeByParameter: () => W2,
+    polygonEdges: () => K3,
+    polygonGlider: () => j2,
+    polygonInteriorDirectedAngles: () => s2,
+    polygonInteriorUndirectedAngles: () => r2,
+    polygonPerimeter: () => e2,
+    pow: () => FB,
+    quad: () => $3,
+    quantile: () => fv,
+    quartile: () => Xc,
+    quartileIndex: () => vg,
+    radius: () => g2,
+    random: () => wE,
+    randomPerm: () => FE,
+    rank: () => PE,
+    rawTransform: () => lG,
+    rawTransformConj: () => pG,
+    ray: () => o2,
+    rayGlider: () => EE,
+    real: () => VG,
+    recursionCacheKey: () => bE,
+    recursionDiverges: () => KS,
+    recursionMissingCacheEntry: () => kB,
+    recursionSuccess: () => GB,
+    reflection: () => hG,
+    restriction: () => wG,
+    restrictionToBoolean: () => FG,
+    rgb: () => xv,
+    rotation: () => gG,
+    scaleTangentAngle: () => V2,
+    scaleTangentArc: () => F2,
+    scaleTangentCircle: () => w2,
+    scaleTangentLine: () => _2,
+    scaleTangentPolygon: () => A2,
+    scaleTangentRay: () => L2,
+    scaleTangentSegment: () => XE,
+    scaleTangentTransformation: () => R2,
+    sec: () => t3,
+    sech: () => a3,
+    segment: () => $E,
+    segmentGlider: () => WE,
+    segmentThreeD: () => W3,
+    segmentThreeDGlider: () => X2,
+    select: () => vG,
+    serializeNonNumericSeedPart: () => LE,
+    shuffle: () => P3,
+    sign: () => NE,
+    sin: () => dn,
+    sinh: () => jc,
+    sortPerm: () => Jc,
+    spearman: () => U3,
+    sphere: () => J3,
+    sqrtxsqm1: () => UB,
+    sqrtxsqp1: () => zB,
+    stats: () => HE,
+    stdev: () => fg,
+    stdevp: () => q3,
+    supplementAngle: () => O2,
+    tSample: () => M3,
+    tan: () => AE,
+    tanh: () => OE,
+    tcdf: () => ug,
+    testingOnlySetRecursiveDepthLimit: () => RE,
+    toFraction: () => wB,
+    tone: () => RG,
+    total: () => m3,
+    tpdf: () => Mg,
+    transformAngleMarker: () => SG,
+    transformArc: () => CG,
+    transformCircle: () => MG,
+    transformLine: () => IG,
+    transformPoint: () => oo,
+    transformPolygon: () => DG,
+    transformRay: () => PG,
+    transformScaleFactor: () => fG,
+    transformSegment: () => t0,
+    transformVector: () => EG,
+    transformWithoutTranslation: () => dG,
+    translation: () => mG,
+    triangle: () => j3,
+    tscore: () => pv,
+    ttest: () => GE,
+    undirectedAngleMarker: () => C2,
+    undirectedCoterminalAngle: () => v2,
+    uniformSample: () => Mu,
+    uniformcdf: () => O3,
+    uniformpdf: () => VE,
+    uniquePerm: () => NG,
+    upperQuantileIndex: () => w3,
+    upperQuartileIndex: () => V3,
+    validateRangeLength: () => zE,
+    validateSampleCount: () => UE,
+    variance: () => hv,
+    varp: () => Sf,
+    vector: () => a2,
+    vectorDisplacementAsPoint: () => u2,
+    vectorThreeD: () => l2,
+    vectorThreeDDisplacementAsPoint: () => p2,
+    vertices: () => Q3,
+    volume: () => _G,
   });
   var kD = function () {
     "use strict";
@@ -5605,12 +5610,12 @@
     }
   }
   function ZP(e) {
-    for (let t of e) if (isNaN(t)) return true;
-    return false;
+    for (let t of e) if (isNaN(t)) return !0;
+    return !1;
   }
   function WP(e, t) {
-    for (let n = 0; n < e.length; n++) if (!uB(e[n], t[n])) return false;
-    return true;
+    for (let n = 0; n < e.length; n++) if (!uB(e[n], t[n])) return !1;
+    return !0;
   }
   function uB(e, t) {
     return e <= 0 && t >= 0 || e >= 0 && t <= 0;
@@ -5747,8 +5752,8 @@
       ? r
         ? Math.min(Vi(e(r[0]), t), Vi(e(r[1]), t)) <
           Math.min(Vi(e(n[0]), t), Vi(e(n[1]), t))
-        : false
-      : true;
+        : !1
+      : !0;
   }
   function EX(e, t, n, r, s, i) {
     let o = jP(e, t, n, r, s, i);
@@ -5988,10 +5993,10 @@
     }
   }
   function eE(e) {
-    let t = 0, n = 0, r = false, s = 0;
+    let t = 0, n = 0, r = !1, s = 0;
     for (let { scanlineX: i, isClockwise: o } of e) {
       o ? s += 1 : s -= 1,
-        s !== 0 && !r ? (r = true, n = i) : s === 0 && r && (r = false, t += i - n);
+        s !== 0 && !r ? (r = !0, n = i) : s === 0 && r && (r = !1, t += i - n);
     }
     return t;
   }
@@ -6090,8 +6095,8 @@
       let s = pB(t, n, r);
       if (s === void 0) return;
       n.id < r.id
-        ? n.skipIntersectionWith[r.id] = true
-        : r.skipIntersectionWith[n.id] = true;
+        ? n.skipIntersectionWith[r.id] = !0
+        : r.skipIntersectionWith[n.id] = !0;
       let i = { type: "x", y: s, edge1: n, edge2: r };
       this.events.queue(i);
     }
@@ -6132,7 +6137,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return t[0] !== n[0] || t[1] !== n[1] ? [...e, ...t] : e;
   }
   function vX(e, t) {
-    if (!e) return false;
+    if (!e) return !1;
     let n = dB(e), [r, s] = t, i = 0;
     for (let o = n.length - 1; o >= 3; o -= 2) {
       let a = n[o - 3], u = n[o - 2], c = n[o - 1], l = n[o];
@@ -6256,7 +6261,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let r = Math.abs(e(zs(t, n, bu))),
       s = Math.abs(e(zs(t, n, 2 * bu))),
       i = Math.abs(e(zs(t, n, 4 * bu)));
-    return r < bu || s < bu ? false : r > 1.95 * s && s > 1.95 * i;
+    return r < bu || s < bu ? !1 : r > 1.95 * s && s > 1.95 * i;
   }
   function nE(e, t, n) {
     let r = zs(n, t, _o[0]),
@@ -6985,29 +6990,29 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       : NaN;
   }
   var fE = [
-      Bool,
-      Restriction,
-      Number,
-      Complex,
-      Point,
-      Point3D,
-      Segment3D,
-      Vector3D,
-      Triangle3D,
-      Sphere3D,
-      Action,
-      RGBColor,
-      Polygon,
-      Segment,
-      Circle,
-      Arc,
-      Line,
-      Ray,
-      Vector,
-      AngleMarker,
-      DirectedAngleMarker,
-      Transformation,
-      Tone,
+      De,
+      Gt,
+      I,
+      R,
+      N,
+      z,
+      wt,
+      ke,
+      Rn,
+      Hn,
+      ut,
+      Kt,
+      xe,
+      de,
+      ce,
+      ie,
+      fe,
+      Ne,
+      le,
+      Le,
+      ye,
+      Re,
+      Pn,
     ],
     AB = new Set(fE),
     Tf = Qn.of(fE.filter((e) => wn(e))),
@@ -7026,46 +7031,46 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function AS(e, t) {
     switch (e) {
-      case Number:
+      case I:
         return t;
-      case Point:
+      case N:
         return [t, t];
-      case Point3D:
+      case z:
         return [t, t, t];
-      case Segment3D:
-      case Vector3D:
+      case wt:
+      case ke:
         return [[t, t, t], [t, t, t]];
-      case Triangle3D:
+      case Rn:
         return [[t, t, t], [t, t, t], [t, t, t]];
-      case Sphere3D:
+      case Hn:
         return [[[t, t, t], [t, t, t], [t, t, t]], t];
-      case RGBColor:
+      case Kt:
         return [t, t, t];
-      case Action:
+      case ut:
         return { type: "Action", updateRules: {} };
-      case Segment:
-      case Ray:
-      case Line:
+      case de:
+      case Ne:
+      case fe:
         return [[t, t], [t, t]];
-      case Vector:
+      case le:
         return [[t, t], [t, t]];
-      case Circle:
+      case ce:
         return [[t, t], t];
-      case Arc:
+      case ie:
         return [[t, t], [t, t], [t, t]];
-      case Bool:
-      case Restriction:
-        return false;
-      case Polygon:
+      case De:
+      case Gt:
+        return !1;
+      case xe:
         return [];
-      case Transformation:
-        return [[t, t], [t, t], false];
-      case AngleMarker:
-      case DirectedAngleMarker:
+      case Re:
+        return [[t, t], [t, t], !1];
+      case Le:
+      case ye:
         return [[t, t], t, t, t];
-      case Tone:
+      case Pn:
         return [t, t];
-      case Complex:
+      case R:
         return [t, t];
       default:
         let n = e;
@@ -7077,28 +7082,28 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function _S(e, t) {
     return ws(ls(e), t);
   }
-  var md5Spyable = { spy: kD },
+  var $S = { spy: kD },
     {
-      cosh: cosh,
-      sinh: sinh,
-      tanh: tanh,
-      acosh: acosh,
-      asinh: asinh,
-      atanh: atanh,
-      expm1: expm1,
-      log1p: log1p,
-      sign: sign,
-      hypot: hypot,
+      cosh: fp,
+      sinh: jc,
+      tanh: OE,
+      acosh: YS,
+      asinh: XS,
+      atanh: ZS,
+      expm1: LB,
+      log1p: mp,
+      sign: NE,
+      hypot: Ts,
     } = Math,
-    toFraction = Ba,
-    gcd = zc,
-    pow = Uc,
-    SYMBOL_DIVERGES = Symbol("DIVERGES"),
-    RecursiveFunctionResult = ((
+    wB = Ba,
+    lg = zc,
+    FB = Uc,
+    WS = Symbol("DIVERGES"),
+    jS = ((
       n,
     ) => (n[n.SUCCESS = 0] = "SUCCESS",
       n[n.MISSING_CACHE_ENTRY = 1] = "MISSING_CACHE_ENTRY",
-      n))(RecursiveFunctionResult || {}),
+      n))(jS || {}),
     Tg = class Tg {
       constructor(t = Tg.defaultLimit, n) {
         this.limit = t;
@@ -7121,109 +7126,109 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       }
     };
   Tg.defaultLimit = 1e5;
-  var LruCache = Tg, RECURSIVE_DEPTH_LIMIT = 1e4, RECURSIVE_COMPUTATION_LIMIT = RECURSIVE_DEPTH_LIMIT * 2;
-  function getRecursiveDepthLimit() {
-    return RECURSIVE_DEPTH_LIMIT;
+  var up = Tg, Df = 1e4, JS = Df * 2;
+  function VB() {
+    return Df;
   }
-  function testingOnlySetRecursiveDepthLimit(e) {
-    RECURSIVE_DEPTH_LIMIT = e;
+  function RE(e) {
+    Df = e;
   }
-  var TerminationStatus = ((
+  var QS = ((
     n,
   ) => (n[n.DoesNotTerminate = 0] = "DoesNotTerminate",
     n[n.DepthLimitExceeded = 1] = "DepthLimitExceeded",
-    n))(TerminationStatus || {});
-  function recursionDiverges(e, t) {
+    n))(QS || {});
+  function KS(e, t) {
     if (io(t)) return e.recursionTerminationStatus = 0, ls(t);
     throw Rx();
   }
-  function handleRecursionLimitExceeded(e, t) {
+  function ev(e, t) {
     if (io(t)) return e.recursionTerminationStatus = 1, ls(t);
     throw Ax();
   }
   var LS = new WeakMap();
-  function getBroadcastTargetElements(e) {
+  function BB(e) {
     let t = LS.get(e);
     return t || (t = new Set(e), LS.set(e, t)), t;
   }
-  function recursionCacheKey(e) {
+  function bE(e) {
     return `${e.fn}:${JSON.stringify(e.args)}`;
   }
-  function recursionSuccess(e, t) {
+  function GB(e, t) {
     return { status: 0, result: [e, t] };
   }
-  function recursionMissingCacheEntry(e) {
+  function kB(e) {
     return { status: 1, stackFrame: e };
   }
-  function executeRecursiveFunction(e, t, n, r) {
-    let s = e.recursiveFunctionCache || new LruCache(), i = [];
+  function HB(e, t, n, r) {
+    let s = e.recursiveFunctionCache || new up(), i = [];
     i.push(r);
     let o = 0;
     for (; i.length > 0;) {
-      if (i.length > RECURSIVE_DEPTH_LIMIT || o++ > RECURSIVE_COMPUTATION_LIMIT) return handleRecursionLimitExceeded(e, n);
+      if (i.length > Df || o++ > JS) return ev(e, n);
       let a = i.pop(), { fn: u, args: c } = a, l = t[u](s, ...c);
-      if (l === SYMBOL_DIVERGES) return recursionDiverges(e, n);
+      if (l === WS) return KS(e, n);
       if ((l == null ? void 0 : l.status) === 1) {
         i.push({ fn: u, args: c }), i.push(l.stackFrame);
       } else {
-        let p = recursionCacheKey(a);
+        let p = bE(a);
         s.set(p, l.result);
       }
     }
-    return s.get(recursionCacheKey(r))[0];
+    return s.get(bE(r))[0];
   }
-  var sqrtxsqp1 = function (e) {
+  var zB = function (e) {
       let t = e * e;
       return 1 + t === 1 ? 1 : 1 + t === t ? Math.abs(e) : Math.sqrt(t + 1);
     },
-    sqrtxsqm1 = function (e) {
+    UB = function (e) {
       let t = e * e;
       return t < 1 ? NaN : t - 1 === t ? Math.abs(e) : Math.sqrt(t - 1);
     };
-  function clamp(e, t, n) {
+  function hr(e, t, n) {
     return Math.max(t, Math.min(n, e));
   }
-  function mod(e, t) {
+  function Yc(e, t) {
     let n = e % t;
     return e * t < 0 && n !== 0 ? n + t : n;
   }
-  function lcm(e, t) {
+  function xE(e, t) {
     if (e = Math.round(e), t = Math.round(t), !isFinite(e) || !isFinite(t)) {
       return NaN;
     }
     if (e === 0 && t === 0) return 0;
-    let n = gcd(e, t);
+    let n = lg(e, t);
     return Math.abs(e / n * t);
   }
-  function listGCD(e) {
+  function qB(e) {
     if (e.length === 0) return NaN;
-    if (e.length === 1) return gcd(e[0], 0);
+    if (e.length === 1) return lg(e[0], 0);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = gcd(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = lg(t, e[n]);
     return t;
   }
-  function listLCM(e) {
+  function $B(e) {
     if (e.length === 0) return NaN;
-    if (e.length === 1) return lcm(e[0], 1);
+    if (e.length === 1) return xE(e[0], 1);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = lcm(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = xE(t, e[n]);
     return t;
   }
-  function complexListGCD(e) {
+  function YB(e) {
     if (e.length === 0) return [NaN, NaN];
-    if (e.length === 1) return complexGCD(e[0], [0, 0]);
+    if (e.length === 1) return SE(e[0], [0, 0]);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = complexGCD(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = SE(t, e[n]);
     return t;
   }
-  function complexListLCM(e) {
+  function XB(e) {
     if (e.length === 0) return [NaN, NaN];
-    if (e.length === 1) return complexLCM(e[0], [1, 0]);
+    if (e.length === 1) return vE(e[0], [1, 0]);
     let t = e[0];
-    for (let n = 1; n < e.length; n++) t = complexLCM(t, e[n]);
+    for (let n = 1; n < e.length; n++) t = vE(t, e[n]);
     return t;
   }
-  function nCr(e, t) {
+  function Pu(e, t) {
     if (isNaN(e)) return e;
     if (isNaN(t)) return t;
     if (!isFinite(e) && !isFinite(t)) return NaN;
@@ -7232,51 +7237,51 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n = isFinite(e) && e === Math.round(e),
       r = isFinite(t) && t === Math.round(t);
     if (e < 0 && t < 0 && e - t < 0) {
-      return n && r ? 0 : Bi(e - t) * Bi(t) / (Bi(e) * nCr(-e, -t));
+      return n && r ? 0 : Bi(e - t) * Bi(t) / (Bi(e) * Pu(-e, -t));
     }
     if (e < 0 && t > 0 && e - t < 0) {
       return n && r
-        ? Math.pow(-1, t) * nCr(t - e - 1, t)
-        : Bi(e - t) / Bi(e) * nCr(-(e - t), t);
+        ? Math.pow(-1, t) * Pu(t - e - 1, t)
+        : Bi(e - t) / Bi(e) * Pu(-(e - t), t);
     }
     if (e < 0 && t < 0 && e - t > 0) {
       return n && r
-        ? Math.pow(-1, e - t) * nCr(-t - 1, e - t)
-        : Bi(t) / Bi(e) * nCr(-t, -e);
+        ? Math.pow(-1, e - t) * Pu(-t - 1, e - t)
+        : Bi(t) / Bi(e) * Pu(-t, -e);
     }
     if (e > 0 && t < 0 && e - t > 0) {
       let a = Math.abs(e) > Math.abs(t) ? -t : e;
-      return Bi(t) / nCr(e - t, a);
+      return Bi(t) / Pu(e - t, a);
     }
-    if (e > 0 && t > 0 && e - t < 0) return Bi(e - t) / nCr(t, e);
+    if (e > 0 && t > 0 && e - t < 0) return Bi(e - t) / Pu(t, e);
     if (e < 0 || t < 0 || e - t < 0 || e < 15 && t < 15 && e - t < 15) {
-      return nPr(e, t) / factorial(t);
+      return pg(e, t) / ma(t);
     }
-    let s = Ti(e) - Ti(t) - Ti(e - t) - (e - t) * log1p(-t / e),
+    let s = Ti(e) - Ti(t) - Ti(e - t) - (e - t) * mp(-t / e),
       i = Math.sqrt(e / (2 * Math.PI * t * (e - t))) * Math.pow(e / t, t) *
         Math.exp(s);
     return n && r && e > 0 && t > 0 && e - t > 0 ? Math.round(i) : i;
   }
-  function nPr(e, t) {
+  function pg(e, t) {
     if (isNaN(e)) return e;
     if (isNaN(t)) return t;
     if (!isFinite(e) && !isFinite(t)) return NaN;
     if (t === 0) return 1;
-    if (e === 0) return 1 / factorial(-t);
-    if (e === t) return factorial(e);
+    if (e === 0) return 1 / ma(-t);
+    if (e === t) return ma(e);
     let n = isFinite(e) && e === Math.round(e),
       r = isFinite(t) && t === Math.round(t);
     if (e < 0 && e - t < 0) {
       return n && r
-        ? Math.pow(-1, t) * nPr(t - e - 1, t)
-        : Bi(e - t) / Bi(e) * nPr(-(e - t), t);
+        ? Math.pow(-1, t) * pg(t - e - 1, t)
+        : Bi(e - t) / Bi(e) * pg(-(e - t), t);
     }
-    if (e < 0 || e - t < 0 || e < 15 && e - t < 15) return factorial(e) / factorial(e - t);
-    let s = Ti(e) - Ti(e - t) - (e - t) * log1p(-t / e),
+    if (e < 0 || e - t < 0 || e < 15 && e - t < 15) return ma(e) / ma(e - t);
+    let s = Ti(e) - Ti(e - t) - (e - t) * mp(-t / e),
       i = Math.sqrt(e / (e - t)) * Ig(e, t) * Math.exp(s);
     return n && r && e > 0 && t > 0 && e - t > 0 ? Math.round(i) : i;
   }
-  function factorial(e) {
+  function ma(e) {
     if (e === -1 / 0) return NaN;
     let t = Math.round(e) === e;
     if (e < 0) return t ? 1 / 0 : 1 / (Bi(e) * wS(-e));
@@ -7322,7 +7327,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function JB(e) {
     return Ig(e, e) * Math.sqrt(2 * Math.PI * e) * Math.exp(ov(e));
   }
-  var bernoulliTable = [
+  var tv = [
     1 / 6,
     -1 / 30,
     1 / 42,
@@ -7338,13 +7343,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     8553103 / 6,
     -23749461029 / 870,
   ];
-  function cotDerivative(e, t) {
+  function nv(e, t) {
     if (e !== Math.floor(e)) return NaN;
     if (e < 0) return NaN;
-    if (e === 0) return 1 / tan(t);
-    let n = sin(t);
+    if (e === 0) return 1 / AE(t);
+    let n = dn(t);
     if (e === 1) return -1 / (n * n);
-    let r = cos(t);
+    let r = Mn(t);
     if (e === 2) return 2 * r / (n * n * n);
     let s = [0, 2], i = [];
     for (let a = 3; a <= e; a++) {
@@ -7361,23 +7366,23 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     for (let a = e - 1; a >= 0; a--) o = i[a] + r * o;
     return o / Math.pow(n, e + 1);
   }
-  function polyGamma(e, t) {
+  function rv(e, t) {
     if (e < 0) return NaN;
     if (e !== Math.floor(e)) return NaN;
     let n = e % 2 === 0 ? -1 : 1;
     if (t < 0) {
-      return -n * polyGamma(e, 1 - t) - Math.pow(Math.PI, e + 1) * cotDerivative(e, Math.PI * t);
+      return -n * rv(e, 1 - t) - Math.pow(Math.PI, e + 1) * nv(e, Math.PI * t);
     }
-    let r = factorial(e), s = 0, i = Math.pow(t, -(e + 1));
+    let r = ma(e), s = 0, i = Math.pow(t, -(e + 1));
     for (; t < 10;) s += i, t++, i = Math.pow(t, -(e + 1));
     s += e === 0 ? -Math.log(t) : i * t / e, s += .5 * i;
-    let o = bernoulliTable, a = e + 1, u = 2, c = i * t * a / u, l = 1 / (t * t);
+    let o = tv, a = e + 1, u = 2, c = i * t * a / u, l = 1 / (t * t);
     for (let p = 1; p <= 14; p++) {
       c *= l, s += c * o[p - 1], a++, u++, c *= a / u, a++, u++, c *= a / u;
     }
     return r * n * s;
   }
-  function log(e) {
+  function QB(e) {
     let t = Math.log(e);
     return Math.exp(Math.round(t)) === e ? Math.round(t) : t;
   }
@@ -7393,77 +7398,77 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       : n = Math.log(e) / Math.log(t),
       Math.pow(t, Math.round(n)) === e ? Math.round(n) : n;
   }
-  function common_log(e) {
+  function KB(e) {
     return dg(e, 10);
   }
-  function complexLogbase(e, t) {
+  function sv(e, t) {
     let [n, r] = e, [s, i] = t;
     return i === 0 && s === 0
       ? [NaN, NaN]
       : n === 0 && r === 0
       ? [-1 / 0, 0]
       : i === 0 && r === 0 && s > 0
-      ? n > 0 ? complex(dg(n, s), 0) : complex(dg(-n, s), Math.PI / Math.log(s))
-      : complexDivide(complexLog(e), complexLog(t));
+      ? n > 0 ? zt(dg(n, s), 0) : zt(dg(-n, s), Math.PI / Math.log(s))
+      : Du(ME(e), ME(t));
   }
-  function complexCommonLog(e) {
-    return complexLogbase(e, [10, 0]);
+  function e3(e) {
+    return sv(e, [10, 0]);
   }
   var iv = 1 / Math.PI;
   function Pg(e) {
-    return e > 1e12 ? false : Math.round(iv * e) * Math.PI === e;
+    return e > 1e12 ? !1 : Math.round(iv * e) * Math.PI === e;
   }
   function Eg(e) {
-    if (e > 1e12) return false;
+    if (e > 1e12) return !1;
     let t = Math.round(2 * iv * e);
     return t % 2 === 1 && t * Math.PI === 2 * e;
   }
-  function sin(e) {
+  function dn(e) {
     return Pg(Math.abs(e)) ? 0 : Math.sin(e);
   }
-  function cos(e) {
+  function Mn(e) {
     return Eg(Math.abs(e)) ? 0 : Math.cos(e);
   }
-  function tan(e) {
+  function AE(e) {
     let t = Math.abs(e);
     return Pg(t) ? 0 : Eg(t) ? 1 / 0 : Math.tan(e);
   }
-  function sec(e) {
+  function t3(e) {
     return Eg(Math.abs(e)) ? 1 / 0 : 1 / Math.cos(e);
   }
-  function csc(e) {
+  function n3(e) {
     return Pg(Math.abs(e)) ? 1 / 0 : 1 / Math.sin(e);
   }
-  function cot(e) {
+  function r3(e) {
     let t = Math.abs(e);
     return Pg(t) ? 1 / 0 : Eg(t) ? 0 : 1 / Math.tan(e);
   }
-  function acot(e) {
+  function s3(e) {
     return e > 0 ? Math.atan(1 / e) : Math.PI / 2 - Math.atan(e);
   }
-  function acsc(e) {
+  function i3(e) {
     return Math.asin(1 / e);
   }
-  function asec(e) {
+  function o3(e) {
     return Math.acos(1 / e);
   }
-  function sech(e) {
-    return 1 / cosh(e);
+  function a3(e) {
+    return 1 / fp(e);
   }
-  function csch(e) {
-    return 1 / sinh(e);
+  function u3(e) {
+    return 1 / jc(e);
   }
-  function coth(e) {
-    return 1 / tanh(e);
+  function c3(e) {
+    return 1 / OE(e);
   }
-  function asech(e) {
-    return acosh(1 / e);
+  function l3(e) {
+    return YS(1 / e);
   }
-  function acsch(e) {
-    return asinh(1 / e);
+  function p3(e) {
+    return XS(1 / e);
   }
-  function acoth(e) {
-    return atanh(1 / e);
+  function d3(e) {
+    return ZS(1 / e);
   }
   function f3(e) {
     if (e === 0 || isNaN(e)) return e;
@@ -7482,12 +7487,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       ? 1
       : f3(e) / (Math.PI * e);
   }
-  function mean(e) {
+  function ya(e) {
     let t = 0;
     for (let n = 0; n < e.length; n++) t += e[n];
     return t / e.length;
   }
-  function total(e) {
+  function m3(e) {
     let t = 0;
     for (let n = 0; n < e.length; n++) t += e[n];
     return t;
@@ -7495,10 +7500,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function TE(e) {
     return e > 50
       ? Math.exp(
-        .5 * ((1 - e) * log1p(-1 / (e - 1)) - 1) + Ti(.5 * (e - 1)) -
+        .5 * ((1 - e) * mp(-1 / (e - 1)) - 1) + Ti(.5 * (e - 1)) -
           Ti(.5 * (e - 2)),
       ) * Math.sqrt((1 - 1 / e) / (2 * Math.PI))
-      : e / (e + 1) * factorial((e + 1) / 2) / (factorial(e / 2) * Math.sqrt(e * Math.PI));
+      : e / (e + 1) * ma((e + 1) / 2) / (ma(e / 2) * Math.sqrt(e * Math.PI));
   }
   function cp(e, t, n = e - t) {
     if (Math.abs(n) < .1 * (e + t)) {
@@ -7537,7 +7542,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       ? NaN
       : e === Math.floor(e)
       ? y3[e]
-      : Math.log(factorial(e) / (Ig(e, e) * Math.sqrt(2 * Math.PI * e)));
+      : Math.log(ma(e) / (Ig(e, e) * Math.sqrt(2 * Math.PI * e)));
   }
   function ov(e) {
     let t = .08333333333333333,
@@ -7548,7 +7553,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       o = e * e;
     return (t - (n - (r - (s - i / o) / o) / o) / o) / e;
   }
-  function tpdf(e, t) {
+  function Mg(e, t) {
     return t <= 0 ? NaN : TE(t) * Math.pow(1 + e * e / t, -((t + 1) / 2));
   }
   function qc(e, t) {
@@ -7573,7 +7578,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return s;
   }
-  function tcdf(e, t, n) {
+  function ug(e, t, n) {
     return n <= 0
       ? NaN
       : e === -1 / 0
@@ -7690,7 +7695,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function T3(e, t) {
     let n = t / e,
-      r = sign(t - e) * Math.sqrt(2 * cp(1, n)),
+      r = NE(t - e) * Math.sqrt(2 * cp(1, n)),
       s = [
         1,
         -.3333333333333333,
@@ -7730,11 +7735,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     if (c = e / (e + o) * c, t < e) {
       let l = Math.exp(-.5 * e * r * r) *
-        (.5 * erfcx(-r * Math.sqrt(e / 2)) - c / Math.sqrt(2 * Math.PI * e));
+        (.5 * Za(-r * Math.sqrt(e / 2)) - c / Math.sqrt(2 * Math.PI * e));
       return isFinite(l) ? 1 - l : 1;
     } else {
       let l = Math.exp(-.5 * e * r * r) *
-        (.5 * erfcx(r * Math.sqrt(e / 2)) + c / Math.sqrt(2 * Math.PI * e));
+        (.5 * Za(r * Math.sqrt(e / 2)) + c / Math.sqrt(2 * Math.PI * e));
       return isFinite(l) ? l : 0;
     }
   }
@@ -7743,79 +7748,79 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function Pf(e) {
     return e < 0
-      ? .5 * Math.exp(-e * e) * erfcx(-e)
-      : 1 - .5 * Math.exp(-e * e) * erfcx(e);
+      ? .5 * Math.exp(-e * e) * Za(-e)
+      : 1 - .5 * Math.exp(-e * e) * Za(e);
   }
-  function normalcdf(e, t, n, r) {
+  function I3(e, t, n, r) {
     let s = VS(t, n, r);
     if (e === -1 / 0) return Pf(s);
     let i = VS(e, n, r);
     return i > 0 && s > 0 ? Pf(-i) - Pf(-s) : Pf(s) - Pf(i);
   }
-  function normalpdf(e, t, n) {
+  function _E(e, t, n) {
     return 1 / Math.sqrt(2 * Math.PI * n * n) *
       Math.exp(-(e - t) * (e - t) / (2 * n * n));
   }
-  function serializeNonNumericSeedPart(e, t) {
+  function LE(e, t) {
     return `t${e}:${bg(t)}`;
   }
-  function random(e) {
-    let t = md5Spyable.spy(e),
+  function wE(e) {
+    let t = $S.spy(e),
       n = parseInt(t.slice(0, 8), 16) & 2097151,
       r = parseInt(t.slice(8, 16), 16);
     return (n * 4294967296 + r) / 9007199254740992;
   }
   function av(e, t) {
     for (let n = t.length - 1; n > 0; n--) {
-      let r = e + "::sc" + n, s = Math.floor(random(r) * (n + 1)), i = t[n];
+      let r = e + "::sc" + n, s = Math.floor(wE(r) * (n + 1)), i = t[n];
       t[n] = t[s], t[s] = i;
     }
   }
-  function shuffle(e, t) {
+  function P3(e, t) {
     let n = t.slice();
     return av(e, n), n;
   }
-  function randomPerm(e, t) {
+  function FE(e, t) {
     let n = [];
     for (let r = 0; r < t; r++) n.push(r);
     return av(e, n), n;
   }
-  function uniformSample(e, t, n) {
-    return random(e) * (n - t) + t;
+  function Mu(e, t, n) {
+    return wE(e) * (n - t) + t;
   }
-  function normalSample(e, t, n) {
+  function E3(e, t, n) {
     let r = 0, s, i, o, a;
     do s = e + "::sc" + r,
       r += 1,
-      i = uniformSample(s, 0, 1) * 2 - 1,
+      i = Mu(s, 0, 1) * 2 - 1,
       s = e + "::sc" + r,
       r += 1,
-      o = uniformSample(s, 0, 1) * 2 - 1,
+      o = Mu(s, 0, 1) * 2 - 1,
       a = i * i + o * o; while (a >= 1 || a === 0);
     let u = Math.sqrt(-2 * Math.log(a) / a);
     return t + n * i * u;
   }
-  function tSample(e, t) {
+  function M3(e, t) {
     if (t <= 0) return NaN;
     let n = 0, r, s, i, o;
     do r = e + "::sc" + n,
       n += 1,
-      s = uniformSample(r, 0, 1) * 2 - 1,
+      s = Mu(r, 0, 1) * 2 - 1,
       r = e + "::sc" + n,
       n += 1,
-      i = uniformSample(r, 0, 1) * 2 - 1,
+      i = Mu(r, 0, 1) * 2 - 1,
       o = s * s + i * i; while (o > 1);
     let a = s * s / o, u = t * (Math.pow(o, -2 / t) - 1);
     return r = e + "::sc" + n,
       n += 1,
-      (uniformSample(r, 0, 1) < .5 ? -1 : 1) * Math.sqrt(a * u);
+      (Mu(r, 0, 1) < .5 ? -1 : 1) * Math.sqrt(a * u);
   }
-  function binomSample(e, t, n) {
-    return t = clamp(Math.round(t), 0, 1 / 0),
-      t === 1 / 0 ? NaN : (n = clamp(n, 0, 1), invBinom(uniformSample(e, 0, 1), t, n));
+  function C3(e, t, n) {
+    return t = hr(Math.round(t), 0, 1 / 0),
+      t === 1 / 0 ? NaN : (n = hr(n, 0, 1), cv(Mu(e, 0, 1), t, n));
   }
-  function poissonSample(e, t) {
-    return t < 0 ? NaN : invPoisson(uniformSample(e, 0, 1), t);
+  function D3(e, t) {
+    return t < 0 ? NaN : uv(Mu(e, 0, 1), t);
   }
   function cg(e, t, n) {
     return e >= t
@@ -7827,35 +7832,35 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       : 1 - BS(t - e - 1, t, 1 - n);
   }
   function BS(e, t, n) {
-    let r = (1 - n) / n, s = binompdf(e, t, n), i = s;
+    let r = (1 - n) / n, s = Cg(e, t, n), i = s;
     for (; e > 0 && (s *= e / (t - e + 1) * r, i + s !== i); e--) i += s;
     return i;
   }
-  function binomcdf(e, t, n, r) {
-    return n = clamp(Math.round(n), 0, 1 / 0),
+  function S3(e, t, n, r) {
+    return n = hr(Math.round(n), 0, 1 / 0),
       n === 1 / 0
         ? NaN
-        : (r = clamp(r, 0, 1),
+        : (r = hr(r, 0, 1),
           t < 0
             ? 0
             : (e = Math.ceil(e),
               t = Math.floor(t),
               e === -1 / 0 ? cg(t, n, r) : cg(t, n, r) - cg(e - 1, n, r)));
   }
-  function binompdf(e, t, n) {
-    if (e = Math.round(e), t = clamp(Math.round(t), 0, 1 / 0), t === 1 / 0) {
+  function Cg(e, t, n) {
+    if (e = Math.round(e), t = hr(Math.round(t), 0, 1 / 0), t === 1 / 0) {
       return NaN;
     }
-    if (n = clamp(n, 0, 1), e < 0 || e > t) return 0;
+    if (n = hr(n, 0, 1), e < 0 || e > t) return 0;
     if (n === 0) return e === 0 ? 1 : 0;
     if (n === 1) return e === t ? 1 : 0;
-    if (e === 0) return Math.exp(t * log1p(-n));
+    if (e === 0) return Math.exp(t * mp(-n));
     if (e === t) return Math.pow(n, t);
     let r = Ti(t) - Ti(e) - Ti(t - e) - cp(e, t * n) -
       cp(t - e, t * (1 - n), t * n - e);
     return Math.exp(r) * Math.sqrt(t / (2 * Math.PI * e * (t - e)));
   }
-  function poissonpdf(e, t) {
+  function lp(e, t) {
     return t < 0
       ? NaN
       : (e = Math.round(e),
@@ -7877,36 +7882,36 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     if (e + 1 >= t) {
       let n = b3(e + 1, t);
-      return isFinite(n) ? 1 - t * poissonpdf(e, t) * n : 1;
+      return isFinite(n) ? 1 - t * lp(e, t) * n : 1;
     } else {
       let n = x3(e + 1, t);
-      return isFinite(n) ? t * poissonpdf(e, t) * n : 0;
+      return isFinite(n) ? t * lp(e, t) * n : 0;
     }
   }
-  function poissoncdf(e, t, n) {
+  function v3(e, t, n) {
     return n < 0
       ? NaN
       : (e = Math.ceil(e),
         t = Math.floor(t),
         t < 0 ? 0 : e === -1 / 0 ? Ef(t, n) : Ef(t, n) - Ef(e - 1, n));
   }
-  function uniformpdf(e, t, n) {
+  function VE(e, t, n) {
     return n <= t ? NaN : e < t || e > n ? 0 : 1 / (n - t);
   }
   function GS(e, t, n) {
     return n <= t ? NaN : e < t ? 0 : e > n ? 1 : (e - t) / (n - t);
   }
-  function uniformcdf(e, t, n, r) {
+  function O3(e, t, n, r) {
     return GS(t, n, r) - GS(e, n, r);
   }
-  function erf(e) {
+  function N3(e) {
     let t = -e * e;
     return t < -750
       ? e >= 0 ? 1 : -1
       : e >= .065
-      ? 1 - Math.exp(t) * erfcx(e)
+      ? 1 - Math.exp(t) * Za(e)
       : e <= -.065
-      ? Math.exp(t) * erfcx(-e) - 1
+      ? Math.exp(t) * Za(-e) - 1
       : e *
         (1.1283791670955126 +
           t *
@@ -7915,7 +7920,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
                 (.11283791670955126 +
                   t * (.026866170645131252 + t * .005223977625442188))));
   }
-  function erfcx(e) {
+  function Za(e) {
     let t = .9999999999999999,
       n = 2.224574423459406,
       r = 2.444115549920689,
@@ -7938,7 +7943,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       b = .0023889438122503674,
       M = .00012875032817508128;
     if (e < 0) {
-      return e < -6.1 ? 2 * Math.exp(e * e) : 2 * Math.exp(e * e) - erfcx(-e);
+      return e < -6.1 ? 2 * Math.exp(e * e) : 2 * Math.exp(e * e) - Za(-e);
     }
     if (e > 50) {
       let P = .5641895835477563, D = e * e;
@@ -7971,7 +7976,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       return P / D;
     }
   }
-  function invNorm(e) {
+  function BE(e) {
     let t = -39.6968302866538,
       n = 220.946098424521,
       r = -275.928510446969,
@@ -7998,7 +8003,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       S,
       O;
     return e > .5
-      ? -invNorm(1 - e)
+      ? -BE(1 - e)
       : e === .5
       ? 0
       : e < 0
@@ -8015,9 +8020,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
             (((((a * S + u) * S + c) * S + l) * S + p) * S + 1)),
         O -
         Math.sqrt(2 * Math.PI) *
-          (.5 * erfcx(-O / Math.SQRT2) - Math.exp(.5 * O * O) * e));
+          (.5 * Za(-O / Math.SQRT2) - Math.exp(.5 * O * O) * e));
   }
-  function invPoisson(e, t) {
+  function uv(e, t) {
     if (t < 0 || e < 0 || e > 1) return NaN;
     if (t === 0 || e === 0) return 0;
     if (e === 1) return 1 / 0;
@@ -8029,7 +8034,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return r;
   }
-  function invBinom(e, t, n) {
+  function cv(e, t, n) {
     if (t !== Math.round(t)) return NaN;
     if (n < 0 || n > 1) return NaN;
     if (e < 0 || e > 1) return NaN;
@@ -8044,7 +8049,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return s;
   }
-  function invT(e, t) {
+  function lv(e, t) {
     if (isNaN(t) || t <= 0 || e < 0 || e > 1) return NaN;
     if (e === 0) return -1 / 0;
     if (e === 1) return 1 / 0;
@@ -8052,11 +8057,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let n, r;
     if (e === .5) return 0;
     if (e > .5) {
-      n = t > 1 ? invNorm(e) : gE(1, e),
+      n = t > 1 ? BE(e) : gE(1, e),
         r = t > 1
           ? gE(1, e)
-          : Math.pow(tpdf(0, t) * Math.pow(t, (t - 1) / 2) / (1 - e), 1 / t);
-    } else return -invT(1 - e, t);
+          : Math.pow(Mg(0, t) * Math.pow(t, (t - 1) / 2) / (1 - e), 1 / t);
+    } else return -lv(1 - e, t);
     return R3(t, e, n, r);
   }
   function gE(e, t) {
@@ -8068,7 +8073,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         return 2 * (t - .5) * Math.sqrt(2 / n);
       case 4:
         let r = Math.cos(Math.acos(Math.sqrt(n)) / 3) / Math.sqrt(n);
-        return sign(t - .5) * 2 * Math.sqrt(r - 1);
+        return NE(t - .5) * 2 * Math.sqrt(r - 1);
       default:
         throw new Error("_invTSimple() must be called with 1, 2, or 4 df.");
     }
@@ -8082,7 +8087,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       a < t ? s = o : i = o;
     }
   }
-  function invUniform(e, t, n) {
+  function A3(e, t, n) {
     return e < 0 || e > 1 || n <= t
       ? NaN
       : e === 0
@@ -8091,57 +8096,57 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       ? n
       : t + e * (n - t);
   }
-  function tscore(e, t) {
-    let n = stdev(e);
-    return (mean(e) - t) * Math.sqrt(e.length) / n;
+  function pv(e, t) {
+    let n = fg(e);
+    return (ya(e) - t) * Math.sqrt(e.length) / n;
   }
-  function itscore(e, t) {
+  function dv(e, t) {
     let n = e.length,
-      r = mean(e),
-      s = stdev(e),
+      r = ya(e),
+      s = fg(e),
       i = t.length,
-      o = mean(t),
-      a = stdev(t),
+      o = ya(t),
+      a = fg(t),
       u = Math.sqrt(((n - 1) * s * s + (i - 1) * a * a) / (n + i - 2));
     return (r - o) / (u * Math.sqrt(1 / n + 1 / i));
   }
   function op(e, t, n) {
     return n < 0
-      ? tcdf(-1 / 0, e, t)
+      ? ug(-1 / 0, e, t)
       : n > 0
-      ? tcdf(-1 / 0, -e, t)
-      : 2 * tcdf(-1 / 0, -Math.abs(e), t);
+      ? ug(-1 / 0, -e, t)
+      : 2 * ug(-1 / 0, -Math.abs(e), t);
   }
-  function ttest(e, t) {
+  function GE(e, t) {
     arguments.length === 1 && (t = 0);
-    let n = tscore(e, t), r = e.length - 1;
+    let n = pv(e, t), r = e.length - 1;
     return {
       lessThan: op(n, r, -1),
       greaterThan: op(n, r, 1),
       notEqual: op(n, r, 0),
     };
   }
-  function ittest(e, t) {
-    let n = itscore(e, t), r = e.length + t.length - 2;
+  function kE(e, t) {
+    let n = dv(e, t), r = e.length + t.length - 2;
     return {
       lessThan: op(n, r, -1),
       greaterThan: op(n, r, 1),
       notEqual: op(n, r, 0),
     };
   }
-  function stats(e) {
+  function HE(e) {
     return {
-      min: listMin(e),
-      q1: quartile(e, 1),
-      median: median(e),
-      q3: quartile(e, 3),
-      max: listMax(e),
+      min: Dg(e),
+      q1: Xc(e, 1),
+      median: gv(e),
+      q3: Xc(e, 3),
+      max: Sg(e),
     };
   }
-  function listLength(e) {
+  function _3(e) {
     return e.length;
   }
-  function listMin(e) {
+  function Dg(e) {
     if (e.length < 1) return NaN;
     let t = e[0];
     if (isNaN(t)) return NaN;
@@ -8151,7 +8156,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return t;
   }
-  function listMax(e) {
+  function Sg(e) {
     if (e.length < 1) return NaN;
     let t = e[0];
     if (isNaN(t)) return NaN;
@@ -8161,27 +8166,27 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return t;
   }
-  function quantile(e, t) {
+  function fv(e, t) {
     if (!isFinite(t) || t < 0 || t > 1) return NaN;
     if (e.some(isNaN)) return NaN;
     if (e.length === 0) return NaN;
-    let n = e.length, r = sortPerm(e), s = t * (n - 1);
+    let n = e.length, r = Jc(e), s = t * (n - 1);
     return Math.floor(s) === s
       ? e[r[s]]
       : (Math.ceil(s) - s) * e[r[Math.floor(s)]] +
         (s - Math.floor(s)) * e[r[Math.ceil(s)]];
   }
-  function quartile(e, t) {
+  function Xc(e, t) {
     if (!isFinite(t) || t < 0 || t > 4) return NaN;
     if (e.some(isNaN)) return NaN;
-    let n = sortPerm(e), r = quartileIndex(e, t), s = Math.floor(r), i = Math.ceil(r);
+    let n = Jc(e), r = vg(e, t), s = Math.floor(r), i = Math.ceil(r);
     return (e[n[s]] + e[n[i]]) / 2;
   }
   function IE(e, t) {
     let n = e - t;
     return Number.isNaN(n) ? +Number.isNaN(e) - +Number.isNaN(t) : n;
   }
-  function compareComplexLexicographic(e, t) {
+  function mv(e, t) {
     return IE(e[0], t[0]) || IE(e[1], t[1]);
   }
   function yv(e) {
@@ -8189,13 +8194,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     for (let n = 0; n < e; n++) t.push(n);
     return t;
   }
-  function sortPerm(e) {
+  function Jc(e) {
     return yv(e.length).sort((t, n) => IE(e[t], e[n]));
   }
-  function complexSortPerm(e) {
-    return yv(e.length).sort((t, n) => compareComplexLexicographic(e[t], e[n]));
+  function L3(e) {
+    return yv(e.length).sort((t, n) => mv(e[t], e[n]));
   }
-  function quartileIndex(e, t) {
+  function vg(e, t) {
     t = Math.round(t);
     let n = e.length, r = n % 2 === 1, s;
     return n === 1
@@ -8207,22 +8212,22 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         t === 3 && (s = r ? (3 * n + 3) / 4 - 1 : (3 * n + 2) / 4 - 1),
         s === void 0 ? NaN : s);
   }
-  function upperQuantileIndex(e, t) {
-    return sortPerm(e)[Math.ceil(t * (e.length - 1))] + 1;
+  function w3(e, t) {
+    return Jc(e)[Math.ceil(t * (e.length - 1))] + 1;
   }
-  function lowerQuantileIndex(e, t) {
-    return sortPerm(e)[Math.floor(t * (e.length - 1))] + 1;
+  function F3(e, t) {
+    return Jc(e)[Math.floor(t * (e.length - 1))] + 1;
   }
-  function upperQuartileIndex(e, t) {
-    return sortPerm(e)[Math.ceil(quartileIndex(e, t))] + 1;
+  function V3(e, t) {
+    return Jc(e)[Math.ceil(vg(e, t))] + 1;
   }
-  function lowerQuartileIndex(e, t) {
-    return sortPerm(e)[Math.floor(quartileIndex(e, t))] + 1;
+  function B3(e, t) {
+    return Jc(e)[Math.floor(vg(e, t))] + 1;
   }
-  function median(e) {
-    return quantile(e, .5);
+  function gv(e) {
+    return fv(e, .5);
   }
-  function argMin(e) {
+  function G3(e) {
     if (e.length < 1) return 0;
     let t = e[0];
     if (isNaN(t)) return 0;
@@ -8233,7 +8238,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return n + 1;
   }
-  function argMax(e) {
+  function k3(e) {
     if (e.length < 1) return 0;
     let t = e[0];
     if (isNaN(t)) return 0;
@@ -8246,47 +8251,47 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return n + 1;
   }
-  function varp(e) {
-    let t = mean(e), n = 0;
+  function Sf(e) {
+    let t = ya(e), n = 0;
     for (let r = 0; r < e.length; r++) {
       let s = e[r] - t;
       n += s * s;
     }
     return n / e.length;
   }
-  function mad(e) {
-    let t = mean(e), n = 0;
+  function H3(e) {
+    let t = ya(e), n = 0;
     for (let r = 0; r < e.length; r++) n += Math.abs(e[r] - t);
     return n / e.length;
   }
-  function variance(e) {
+  function hv(e) {
     let t = e.length;
-    return varp(e) * t / (t - 1);
+    return Sf(e) * t / (t - 1);
   }
-  function covp(e, t) {
+  function bv(e, t) {
     let n = Math.min(e.length, t.length);
     e.length !== n && (e = e.slice(0, n)),
       t.length !== n && (t = t.slice(0, n));
-    let r = mean(e), s = mean(t), i = 0;
+    let r = ya(e), s = ya(t), i = 0;
     for (let o = 0; o < n; o++) i += (e[o] - r) * (t[o] - s);
     return i / n;
   }
-  function cov(e, t) {
+  function z3(e, t) {
     let n = Math.min(e.length, t.length);
-    return covp(e, t) * n / (n - 1);
+    return bv(e, t) * n / (n - 1);
   }
-  function corr(e, t) {
+  function Og(e, t) {
     let n = Math.min(e.length, t.length);
     e.length !== n && (e = e.slice(0, n)),
       t.length !== n && (t = t.slice(0, n));
-    let r = mean(e), s = mean(t), i = 0, o = 0, a = 0;
+    let r = ya(e), s = ya(t), i = 0, o = 0, a = 0;
     for (let u = 0; u < n; u++) {
       let c = e[u] - r, l = t[u] - s;
       i += c * c, o += l * l, a += c * l;
     }
     return a / Math.sqrt(i * o);
   }
-  function validateRangeLength(e, t, n, r) {
+  function zE(e, t, n, r) {
     let s = e[0];
     for (let o = 2; o < e.length; o++) {
       let a = V(Ps(ai(e[o], s), n));
@@ -8299,10 +8304,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return !isFinite(i) || i < e.length || i < t.length ? 0 : i;
   }
-  function validateSampleCount(e) {
+  function UE(e) {
     return e < 0 || !isFinite(e) ? 0 : e;
   }
-  function rank(e) {
+  function PE(e) {
     let t = e.length;
     if (t === 0) return [];
     let n = [], r = [];
@@ -8326,66 +8331,66 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return n;
   }
-  function spearman(e, t) {
+  function U3(e, t) {
     let n = Math.min(e.length, t.length);
     return e.length !== n && (e = e.slice(0, n)),
       t.length !== n && (t = t.slice(0, n)),
-      corr(rank(e), rank(t));
+      Og(PE(e), PE(t));
   }
-  function stdev(e) {
-    return Math.sqrt(variance(e));
+  function fg(e) {
+    return Math.sqrt(hv(e));
   }
-  function stdevp(e) {
-    return Math.sqrt(varp(e));
+  function q3(e) {
+    return Math.sqrt(Sf(e));
   }
-  var quad = yf;
-  function distance(e, t) {
-    return hypot(t[0] - e[0], t[1] - e[1]);
+  var $3 = yf;
+  function pp(e, t) {
+    return Ts(t[0] - e[0], t[1] - e[1]);
   }
-  function distanceThreeD(e, t) {
-    return hypot(t[0] - e[0], hypot(t[1] - e[1], t[2] - e[2]));
+  function Y3(e, t) {
+    return Ts(t[0] - e[0], Ts(t[1] - e[1], t[2] - e[2]));
   }
-  function rgb(e, t, n) {
+  function xv(e, t, n) {
     return [
-      clamp(Math.round(e), 0, 255),
-      clamp(Math.round(t), 0, 255),
-      clamp(Math.round(n), 0, 255),
+      hr(Math.round(e), 0, 255),
+      hr(Math.round(t), 0, 255),
+      hr(Math.round(n), 0, 255),
     ];
   }
-  function hsv(e, t, n) {
-    isFinite(e) || (e = 0), t = clamp(t, 0, 1), n = clamp(n, 0, 1);
+  function X3(e, t, n) {
+    isFinite(e) || (e = 0), t = hr(t, 0, 1), n = hr(n, 0, 1);
     let r = n * (1 - t / 2);
     r === 0 || r === 1 ? t = 0 : t = (n - r) / Math.min(r, 1 - r);
     let { r: s, g: i, b: o } = tg(e, t, r).rgb();
-    return rgb(s, i, o);
+    return xv(s, i, o);
   }
-  function polygon(e) {
+  function Z3(e) {
     return e;
   }
-  function segmentThreeD(e, t) {
+  function W3(e, t) {
     return [e, t];
   }
-  function triangle(e, t, n) {
+  function j3(e, t, n) {
     return [e, t, n];
   }
-  function sphere(e, t) {
+  function J3(e, t) {
     return [e, t];
   }
-  function vertices(e) {
+  function Q3(e) {
     return e;
   }
-  function polygonEdges(e) {
+  function K3(e) {
     let t = [];
     if (e.length === 0) return [];
     for (let n = 0; n < e.length - 1; n++) t.push([e[n], e[n + 1]]);
     return t.push([e[e.length - 1], e[0]]), t;
   }
-  function polygonArea(e) {
+  function qE(e) {
     if (e.length == 0) return 0;
     let t = [...e, e[0]];
     return nS(t);
   }
-  function polygonPerimeter(e) {
+  function e2(e) {
     let t = 0;
     for (let n = 0; n < e.length - 1; n++) {
       let [r, s] = e[n], [i, o] = e[n + 1];
@@ -8398,10 +8403,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return t;
   }
   function t2(e) {
-    let t = false;
+    let t = !1;
     for (let n = 0; n < e.length; n++) {
       let r = (n + 1) % e.length;
-      e[n][0] === e[r][0] && e[n][1] === e[r][1] && (t = true);
+      e[n][0] === e[r][0] && e[n][1] === e[r][1] && (t = !0);
     }
     return t
       ? e.filter((n, r) => {
@@ -8428,58 +8433,58 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return s;
   }
-  function polygonInteriorUndirectedAngles(e, t) {
-    return Tv(e, false, t);
+  function r2(e, t) {
+    return Tv(e, !1, t);
   }
-  function polygonInteriorDirectedAngles(e, t) {
-    return Tv(e, true, t);
+  function s2(e, t) {
+    return Tv(e, !0, t);
   }
-  function segment(e, t) {
+  function $E(e, t) {
     return [e, t];
   }
-  var line = segment, ray = segment;
-  function vector(e, t) {
+  var i2 = $E, o2 = $E;
+  function a2(e, t) {
     let n = [t[0] - e[0], t[1] - e[1]], r = [e[0], e[1]];
-    return mathVector(n, r);
+    return Iv(n, r);
   }
-  function mathVector(e, t) {
+  function Iv(e, t) {
     return [e, t];
   }
-  function vectorDisplacementAsPoint(e) {
+  function u2(e) {
     return e[0];
   }
-  function basePointFromVector(e) {
+  function c2(e) {
     return e[1];
   }
-  function vectorThreeD(e, t) {
+  function l2(e, t) {
     let n = [t[0] - e[0], t[1] - e[1], t[2] - e[2]], r = [e[0], e[1], e[2]];
-    return mathVectorThreeD(n, r);
+    return Pv(n, r);
   }
-  function mathVectorThreeD(e, t) {
+  function Pv(e, t) {
     return [e, t];
   }
-  function vectorThreeDDisplacementAsPoint(e) {
+  function p2(e) {
     return e[0];
   }
-  function basePointFromVectorThreeD(e) {
+  function d2(e) {
     return e[1];
   }
-  function identity(e) {
+  function f2(e) {
     return e;
   }
-  function circle(e, t) {
+  function m2(e, t) {
     return [e, t];
   }
-  function center(e) {
+  function y2(e) {
     return e[0];
   }
-  function radius(e) {
+  function g2(e) {
     return e[1];
   }
-  function arc(e, t, n) {
+  function h2(e, t, n) {
     return [e, t, n];
   }
-  function arcCenter([e, t, n]) {
+  function yp([e, t, n]) {
     let [r, s] = e,
       [i, o] = t,
       [a, u] = n,
@@ -8492,16 +8497,16 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       y = ((r - i) * p - (i - a) * l) * f;
     return [d, y];
   }
-  function arcFirstPoint(e) {
+  function b2(e) {
     return e[0];
   }
-  function arcMiddlePoint(e) {
+  function x2(e) {
     return e[1];
   }
-  function arcThirdPoint(e) {
+  function T2(e) {
     return e[2];
   }
-  function arcOmega(e) {
+  function gp(e) {
     let [[t, n], [r, s], [i, o]] = e,
       a = r - t,
       u = s - n,
@@ -8509,50 +8514,50 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       l = o - s;
     return 2 * Math.atan2(a * l - c * u, a * c + u * l);
   }
-  function isDegenerateArc(e) {
-    let t = Math.abs(arcOmega(e));
+  function YE(e) {
+    let t = Math.abs(gp(e));
     return t < 1e-9 || t > 2 * Math.PI - 1e-9;
   }
-  function angleVertex(e) {
+  function I2(e) {
     return e[0];
   }
-  function angleStart(e) {
+  function P2(e) {
     return e[1];
   }
-  function directedAngleVertex(e) {
+  function E2(e) {
     return e[0];
   }
-  function directedAngleStart(e) {
+  function M2(e) {
     return e[1];
   }
   function Ev(e) {
     return Math.abs(e) === Math.PI
       ? Math.PI
-      : mod(e + Math.PI, 2 * Math.PI) - Math.PI;
+      : Yc(e + Math.PI, 2 * Math.PI) - Math.PI;
   }
-  function directedAngleMarker(e, t, n, r) {
+  function Mv(e, t, n, r) {
     return [e, Ev(t), n, r];
   }
-  function undirectedAngleMarker([e, t, n, r]) {
+  function C2([e, t, n, r]) {
     return [e, t, n, r];
   }
-  function angleMarkerRawDelta(e) {
+  function D2(e) {
     return e[2];
   }
-  function angleMarkerMultiplier(e) {
+  function S2(e) {
     return e[3];
   }
-  function directedCoterminalAngle(e) {
+  function Cv(e) {
     let [t, n, r, s] = e,
       i = Math.PI * 2,
       o = r === 0 ? i : r > 0 ? r - i : r + i;
     return [t, n, o, s];
   }
-  function undirectedCoterminalAngle(e) {
-    let [t, n, r, s] = directedCoterminalAngle(e);
+  function v2(e) {
+    let [t, n, r, s] = Cv(e);
     return [t, n, r, s];
   }
-  function supplementAngle(e) {
+  function O2(e) {
     let [t, n, r, s] = e, i = r >= 0 ? Math.PI - r : -Math.PI - r;
     return [t, Ev(n + r), i, s];
   }
@@ -8567,13 +8572,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return r === "clockwise"
       ? l -= l < 0 ? 0 : p
       : r === "counterclockwise" && (l += l < 0 ? p : 0),
-      directedAngleMarker(t, c, l, s);
+      Mv(t, c, l, s);
   }
-  function scaleTangentTransformation(e, t) {
+  function R2(e, t) {
     let [[n, r], [s, i], o] = e;
     return [[n * t, r * t], [s * t, i * t], o];
   }
-  function scaleTangentPolygon(e, t) {
+  function A2(e, t) {
     let n = new Array(e.length);
     for (let r = 0; r < n.length; r++) {
       let s = e[r];
@@ -8581,24 +8586,24 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return n;
   }
-  function scaleTangentSegment(e, t) {
+  function XE(e, t) {
     let [[n, r], [s, i]] = e;
     return [[t * n, t * r], [t * s, t * i]];
   }
-  var scaleTangentLine = scaleTangentSegment, scaleTangentRay = scaleTangentSegment;
-  function scaleTangentCircle(e, t) {
+  var _2 = XE, L2 = XE;
+  function w2(e, t) {
     let [[n, r], s] = e;
     return [[t * n, t * r], t * s];
   }
-  function scaleTangentArc(e, t) {
+  function F2(e, t) {
     let [[n, r], [s, i], [o, a]] = e;
     return [[t * n, t * r], [t * s, t * i], [t * o, t * a]];
   }
-  function scaleTangentAngle(e, t) {
+  function V2(e, t) {
     let [[n, r], s, i, o] = e;
     return [[t * n, t * r], t * s, t * i, o];
   }
-  function addTangentPolygon(e, t) {
+  function B2(e, t) {
     if (e.length !== t.length) {
       throw new Error(
         "Polygon tangent must be added to polygon of same length.",
@@ -8611,92 +8616,92 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     return n;
   }
-  function addTangentSegment(e, t) {
+  function Ng(e, t) {
     let [[n, r], [s, i]] = e, [[o, a], [u, c]] = t;
     return [[n + o, r + a], [s + u, i + c]];
   }
-  function addTangentSegmentThreeD(e, t) {
+  function G2(e, t) {
     let [[n, r, s], [i, o, a]] = e, [[u, c, l], [p, f, d]] = t;
     return [[n + u, r + c, s + l], [i + p, o + f, a + d]];
   }
-  var addTangentLine = addTangentSegment, addTangentRay = addTangentSegment, addTangentVector = addTangentSegment;
-  function addTangentCircle(e, t) {
+  var k2 = Ng, H2 = Ng, z2 = Ng;
+  function U2(e, t) {
     let [[n, r], s] = e, [[i, o], a] = t;
     return [[n + i, r + o], s + a];
   }
-  function addTangentArc(e, t) {
+  function q2(e, t) {
     let [[n, r], [s, i], [o, a]] = e, [[u, c], [l, p], [f, d]] = t;
     return [[n + u, r + c], [s + l, i + p], [o + f, a + d]];
   }
-  function addTangentAngle(e, t) {
+  function $2(e, t) {
     let [[n, r], s, i, o] = e, [[a, u], c, l] = t;
     return [[n + a, r + u], s + c, i + l, o];
   }
-  function addTangentTransformation(e, t) {
+  function Y2(e, t) {
     let [[n, r], [s, i], o] = e, [[a, u], [c, l]] = t;
     return [[n + a, r + u], [s + c, i + l], o];
   }
-  function lineGlider(e, t) {
+  function ZE(e, t) {
     let [[n, r], [s, i]] = e;
     return [(1 - t) * n + t * s, (1 - t) * r + t * i];
   }
-  function segmentGlider(e, t) {
-    return lineGlider(e, clamp(t, 0, 1));
+  function WE(e, t) {
+    return ZE(e, hr(t, 0, 1));
   }
-  function segmentThreeDGlider(e, t) {
-    t = clamp(t, 0, 1);
+  function X2(e, t) {
+    t = hr(t, 0, 1);
     let [[n, r, s], [i, o, a]] = e;
     return [(1 - t) * n + t * i, (1 - t) * r + t * o, (1 - t) * s + t * a];
   }
-  function rayGlider(e, t) {
-    return lineGlider(e, clamp(t, 0, 1 / 0));
+  function EE(e, t) {
+    return ZE(e, hr(t, 0, 1 / 0));
   }
-  function circleGlider(e, t) {
+  function Z2(e, t) {
     let [[n, r], s] = e, i = Math.min(1, Math.max(0, t));
     return [
       n + s * Math.cos(2 * Math.PI * i),
       r + s * Math.sin(2 * Math.PI * i),
     ];
   }
-  function arcGlider(e, t) {
-    let n = getArcDetails(e);
+  function Dv(e, t) {
+    let n = Rg(e);
     if (!n) return [NaN, NaN];
-    if (n.type === "segment") return segmentGlider([e[0], e[2]], t);
+    if (n.type === "segment") return WE([e[0], e[2]], t);
     if (n.type === "rays") {
       return t <= 0
-        ? rayGlider([n.start1, n.end1], -t)
+        ? EE([n.start1, n.end1], -t)
         : t >= 1
-        ? rayGlider([n.start2, n.end2], t - 1)
+        ? EE([n.start2, n.end2], t - 1)
         : [NaN, NaN];
     }
     t = Math.min(1, Math.max(0, t));
-    let r = arcCenter(e),
-      s = arcOmega(e),
+    let r = yp(e),
+      s = gp(e),
       i = Math.atan2(e[0][1] - r[1], e[0][0] - r[0]),
-      o = distance(r, e[0]),
+      o = pp(r, e[0]),
       a = i + t * s;
     return [r[0] + o * Math.cos(a), r[1] + o * Math.sin(a)];
   }
-  function polygonEdgeByParameter(e, t) {
+  function W2(e, t) {
     if (isNaN(t) || e.length === 0) return [[NaN, NaN], [NaN, NaN]];
     if (t < 0 || t >= e.length) return [e[0], e[0]];
     let n = Math.floor(t);
     return [e[n], e[(n + 1) % e.length]];
   }
-  function polygonGlider(e, t) {
+  function j2(e, t) {
     if (isNaN(t) || e.length === 0) return [NaN, NaN];
     if (t < 0 || t >= e.length) return e[0];
     let n = Math.floor(t);
-    return segmentGlider([e[n], e[(n + 1) % e.length]], t - n);
+    return WE([e[n], e[(n + 1) % e.length]], t - n);
   }
-  function getArcDetails(e) {
+  function Rg(e) {
     let [t, n, r] = e, [[s, i], [o, a], [u, c]] = [t, n, r];
     if (isNaN(s) || isNaN(i) || isNaN(o) || isNaN(a) || isNaN(u) || isNaN(c)) {
       return;
     }
-    let l = arcCenter([t, n, r]), p = distance(l, t);
-    if (isFinite(p) && !isDegenerateArc([t, n, r])) {
-      let f = Math.atan2(t[1] - l[1], t[0] - l[0]), d = f + arcOmega([t, n, r]);
+    let l = yp([t, n, r]), p = pp(l, t);
+    if (isFinite(p) && !YE([t, n, r])) {
+      let f = Math.atan2(t[1] - l[1], t[0] - l[0]), d = f + gp([t, n, r]);
       return { type: "arc", center: l, radius: p, startAngle: f, endAngle: d };
     } else {
       let f = to(o, a, 0, s, i, 0, u, c, 0);
@@ -8711,16 +8716,16 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         : { type: "segment", start: [s, i], end: [u, c] };
     }
   }
-  function chooseNonIncidentPoint(e, t, n) {
-    let s = distance(e, t);
+  function J2(e, t, n) {
+    let s = pp(e, t);
     if (s > 1e-9) return t;
-    let i = distance(e, n);
+    let i = pp(e, n);
     return i > 1e-9 ? n : isNaN(s) && isNaN(i) ? [NaN, NaN] : e;
   }
-  function circleCircleIntersection(e, t) {
+  function Mf(e, t) {
     let [[n, r], s] = e,
       [[i, o], a] = t,
-      u = hypot(i - n, o - r),
+      u = Ts(i - n, o - r),
       c = u * u,
       l = s * s,
       p = a * a,
@@ -8750,7 +8755,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       y = u - o,
       g = c - a,
       m = y * y + g * g,
-      h = hypot(y, g),
+      h = Ts(y, g),
       x = l * d - p * f,
       T = i * h,
       b = T + x,
@@ -8774,70 +8779,70 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       y = l * n + p * r,
       g = f * o + d * a,
       m = l * d - f * p,
-      h = m / (hypot(l, p) * hypot(f, d));
+      h = m / (Ts(l, p) * Ts(f, d));
     return m === 0 || 1 + .1 * h === 1
       ? [NaN, NaN]
       : [(d * y - p * g) / m, (l * g - f * y) / m];
   }
-  function lineCircleIntersection(e, t, n = 0) {
+  function jE(e, t, n = 0) {
     let r = mg(t, e, -1);
-    if (Cu(r, e, n, true)) return r;
+    if (Cu(r, e, n, !0)) return r;
     {
       let s = mg(t, e, 1);
-      return Cu(s, e, n, true) ? s : [NaN, NaN];
+      return Cu(s, e, n, !0) ? s : [NaN, NaN];
     }
   }
-  function circleLineIntersection(e, t, n = 0) {
+  function JE(e, t, n = 0) {
     let r = mg(e, t, 1);
-    if (Cu(r, t, n, false)) return r;
+    if (Cu(r, t, n, !1)) return r;
     {
       let s = mg(e, t, -1);
-      return Cu(s, t, n, false) ? s : [NaN, NaN];
+      return Cu(s, t, n, !1) ? s : [NaN, NaN];
     }
   }
-  function lineLineIntersection(e, t, n = 0) {
+  function Sv(e, t, n = 0) {
     let r = Q2(e, t);
-    return !Cu(r, e, n, true) || !Cu(r, t, n, false) ? [NaN, NaN] : r;
+    return !Cu(r, e, n, !0) || !Cu(r, t, n, !1) ? [NaN, NaN] : r;
   }
-  function circleArcIntersection(e, t, n = 0) {
+  function K2(e, t, n = 0) {
     let r = Nv(t, e, n, -1);
-    return dp(r, t, n, false) ? r : [NaN, NaN];
+    return dp(r, t, n, !1) ? r : [NaN, NaN];
   }
-  function lineArcIntersection(e, t, n = 0) {
+  function vv(e, t, n = 0) {
     let r = Rv(t, e, n, -1);
-    return !Cu(r, e, n, true) || !dp(r, t, n, false) ? [NaN, NaN] : r;
+    return !Cu(r, e, n, !0) || !dp(r, t, n, !1) ? [NaN, NaN] : r;
   }
-  function arcCircleIntersection(e, t, n = 0) {
+  function eG(e, t, n = 0) {
     let r = Nv(e, t, n, 1);
-    return dp(r, e, n, true) ? r : [NaN, NaN];
+    return dp(r, e, n, !0) ? r : [NaN, NaN];
   }
-  function arcLineIntersection(e, t, n = 0) {
+  function Ov(e, t, n = 0) {
     let r = Rv(e, t, n, 1);
-    return !dp(r, e, n, true) || !Cu(r, t, n, false) ? [NaN, NaN] : r;
+    return !dp(r, e, n, !0) || !Cu(r, t, n, !1) ? [NaN, NaN] : r;
   }
-  function arcArcIntersection(e, t, n = 0) {
+  function tG(e, t, n = 0) {
     let r = nG(e, t, n);
-    return !dp(r, e, n, true) || !dp(r, t, n, false) ? [NaN, NaN] : r;
+    return !dp(r, e, n, !0) || !dp(r, t, n, !1) ? [NaN, NaN] : r;
   }
   function nG(e, t, n) {
     let r = gg(e);
-    if (hg(r)) return lineArcIntersection(r, t, n);
+    if (hg(r)) return vv(r, t, n);
     let s = gg(t);
     return hg(s)
-      ? arcLineIntersection(e, s, n)
-      : QE(() => circleCircleIntersection(r, s), () => circleCircleIntersection(s, r), (i) => KE(-1, yg(e, i), yg(t, i)));
+      ? Ov(e, s, n)
+      : QE(() => Mf(r, s), () => Mf(s, r), (i) => KE(-1, yg(e, i), yg(t, i)));
   }
   function Nv(e, t, n, r) {
     let s = gg(e);
     return hg(s)
-      ? r > 0 ? circleLineIntersection(t, s, n) : lineCircleIntersection(s, t, n)
-      : QE(() => circleCircleIntersection(s, t), () => circleCircleIntersection(t, s), (i) => KE(r, yg(e, i), rG(t, i)));
+      ? r > 0 ? JE(t, s, n) : jE(s, t, n)
+      : QE(() => Mf(s, t), () => Mf(t, s), (i) => KE(r, yg(e, i), rG(t, i)));
   }
   function Rv(e, t, n, r) {
     let s = gg(e);
     return hg(s)
-      ? lineLineIntersection(s, t, n)
-      : QE(() => circleLineIntersection(s, t, n), () => lineCircleIntersection(t, s, n), (i) => KE(r, yg(e, i), sG(t)));
+      ? Sv(s, t, n)
+      : QE(() => JE(s, t, n), () => jE(t, s, n), (i) => KE(r, yg(e, i), sG(t)));
   }
   function QE(e, t, n) {
     let r = e();
@@ -8846,11 +8851,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return n(s) ? s : [NaN, NaN];
   }
   function KE(e, t, n) {
-    return e * pointDet(t, n) > 0;
+    return e * _v(t, n) > 0;
   }
   function yg(e, [t, n]) {
-    let [r, s] = arcCenter(e);
-    return arcOmega(e) > 0 ? [s - n, t - r] : [n - s, r - t];
+    let [r, s] = yp(e);
+    return gp(e) > 0 ? [s - n, t - r] : [n - s, r - t];
   }
   function rG([[e, t]], [n, r]) {
     return [t - r, n - e];
@@ -8859,16 +8864,16 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return [n - e, r - t];
   }
   function gg(e) {
-    let t = arcCenter(e), n = distance(t, arcGlider(e, 0));
-    return isFinite(n) && !isDegenerateArc(e) ? [t, n] : [e[0], e[2]];
+    let t = yp(e), n = pp(t, Dv(e, 0));
+    return isFinite(n) && !YE(e) ? [t, n] : [e[0], e[2]];
   }
   function hg(e) {
     return Array.isArray(e[1]);
   }
   function dp([e, t], n, r, s) {
-    let [i, o] = arcCenter(n);
+    let [i, o] = yp(n);
     return (s ? (r & 3) === 0 : (r & 12) === 0) ||
-      Bm(Math.atan2(t - o, e - i), Math.atan2(n[0][1] - o, n[0][0] - i), arcOmega(n));
+      Bm(Math.atan2(t - o, e - i), Math.atan2(n[0][1] - o, n[0][0] - i), gp(n));
   }
   function Cu([e, t], [[n, r], [s, i]], o, a) {
     let u = to(e, t, 0, n, r, 0, s, i, 0),
@@ -8877,19 +8882,19 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         : [(o & 4) === 0, (o & 8) === 0];
     return !isNaN(u) && (u >= 0 || c) && (u <= 1 || l);
   }
-  function parallel(e, t) {
+  function iG(e, t) {
     let [[n, r], [s, i]] = e, [o, a] = t;
     return [[o, a], [o + (s - n), a + (i - r)]];
   }
-  function perpendicular(e, t) {
+  function oG(e, t) {
     let [[n, r], [s, i]] = e, [o, a] = t;
     return [[o, a], [o + (i - r), a - (s - n)]];
   }
-  function anglebisector(e) {
-    let [t, n, r] = e, [s, i] = t, o = cos(n + r / 2), a = sin(n + r / 2);
+  function aG(e) {
+    let [t, n, r] = e, [s, i] = t, o = Mn(n + r / 2), a = dn(n + r / 2);
     return [[s, i], [s + o, i + a]];
   }
-  function complexMultiplyPoints(e, t) {
+  function Av(e, t) {
     let [n, r] = e, [s, i] = t;
     return [n * s - r * i, n * i + s * r];
   }
@@ -8898,55 +8903,55 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return s && (u = -u),
       o === 0 ? [i * a, i * u] : [i * a - o * u, i * u + a * o];
   }
-  function pointDet(e, t) {
+  function _v(e, t) {
     let [n, r] = e, [s, i] = t;
     return n * i - s * r;
   }
-  function pointDot(e, t) {
+  function uG(e, t) {
     let [n, r] = e, [s, i] = t;
     return n * s + r * i;
   }
-  function pointPerp(e) {
+  function cG(e) {
     let [t, n] = e;
     return [-n, t];
   }
-  function rawTransform(e, t) {
-    return [e, t, false];
+  function lG(e, t) {
+    return [e, t, !1];
   }
-  function rawTransformConj(e, t) {
-    return [e, t, true];
+  function pG(e, t) {
+    return [e, t, !0];
   }
-  function transformWithoutTranslation(e) {
+  function dG(e) {
     return [e[0], [0, 0], e[2]];
   }
-  function transformScaleFactor(e) {
+  function fG(e) {
     return e[0];
   }
-  function translation(e) {
-    return [[1, 0], e, false];
+  function mG(e) {
+    return [[1, 0], e, !1];
   }
-  function dilation(e, t) {
+  function yG(e, t) {
     let [n, r] = e;
-    return [[t, 0], [(1 - t) * n, (1 - t) * r], false];
+    return [[t, 0], [(1 - t) * n, (1 - t) * r], !1];
   }
-  function rotation(e, t) {
+  function gG(e, t) {
     let [n, r] = e, s = Math.cos(t), i = Math.sin(t);
-    return [[s, i], [n * (1 - s) + r * i, r * (1 - s) - n * i], false];
+    return [[s, i], [n * (1 - s) + r * i, r * (1 - s) - n * i], !1];
   }
-  function reflection(e) {
+  function hG(e) {
     let [[t, n], [r, s]] = e,
       i = r - t,
       o = s - n,
       a = i * i + o * o,
       u = (i * i - o * o) / a,
       c = 2 * i * o / a;
-    return [[u, c], [(1 - u) * t - c * n, (1 + u) * n - c * t], true];
+    return [[u, c], [(1 - u) * t - c * n, (1 + u) * n - c * t], !0];
   }
-  function composeTransformation(e, t) {
+  function bG(e, t) {
     let n = e[2], [r, s, i] = t;
-    return [e0(e, r), transformPoint(e, s), i !== n];
+    return [e0(e, r), oo(e, s), i !== n];
   }
-  function invertTransformation(e) {
+  function xG(e) {
     let [[t, n], [r, s], i] = e,
       o = t * t + n * n,
       a = t / o,
@@ -8955,7 +8960,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       l = -(t / o * s - n / o * r);
     return i && (u = -u, l = -l), [[a, u], [c, l], i];
   }
-  function transformPoint(e, t) {
+  function oo(e, t) {
     let [n, r] = e0(e, t), [s, i] = e[1];
     return [n + s, r + i];
   }
@@ -8963,62 +8968,62 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let [n, r, s] = e;
     return s ? -t : t;
   }
-  function transformSegment(e, t) {
+  function t0(e, t) {
     let [n, r] = t;
-    return [transformPoint(e, n), transformPoint(e, r)];
+    return [oo(e, n), oo(e, r)];
   }
-  var transformLine = transformSegment, transformRay = transformSegment;
-  function transformVector(e, t) {
+  var IG = t0, PG = t0;
+  function EG(e, t) {
     let [n, r] = t;
-    return [e0(e, n), transformPoint(e, r)];
+    return [e0(e, n), oo(e, r)];
   }
-  function transformCircle(e, t) {
+  function MG(e, t) {
     let [n, r] = t, [[s, i]] = e;
-    return [transformPoint(e, n), hypot(s, i) * r];
+    return [oo(e, n), Ts(s, i) * r];
   }
-  function transformArc(e, t) {
+  function CG(e, t) {
     let [n, r, s] = t;
-    return [transformPoint(e, n), transformPoint(e, r), transformPoint(e, s)];
+    return [oo(e, n), oo(e, r), oo(e, s)];
   }
-  function transformPolygon(e, t) {
+  function DG(e, t) {
     let n = [];
-    for (let r of t) n.push(transformPoint(e, r));
+    for (let r of t) n.push(oo(e, r));
     return n;
   }
-  function transformAngleMarker(e, t) {
+  function SG(e, t) {
     let [n, r, s] = t,
-      i = transformPoint(e, n),
+      i = oo(e, n),
       [o, a, u] = e,
-      [c, l] = transformPoint([o, [0, 0], u], [Math.cos(r), Math.sin(r)]),
+      [c, l] = oo([o, [0, 0], u], [Math.cos(r), Math.sin(r)]),
       p = Math.atan2(l, c),
       f = TG(e, s);
     return [i, p, f, t[3]];
   }
-  function select(e, t) {
+  function vG(e, t) {
     let n = [];
     for (let r = 0; r < Math.min(e.length, t.length); r++) t[r] && n.push(e[r]);
     return n;
   }
-  function elementsAt(e, t) {
+  function OG(e, t) {
     let n = [];
     for (let r of t) n.push(e[r]);
     return n;
   }
-  function uniquePerm(e) {
+  function NG(e) {
     let t = [], n = {};
     for (let r = 0; r < e.length; r++) {
       let s = e[r], i = bg(s);
-      n.hasOwnProperty(i) || (n[i] = true, t.push(r));
+      n.hasOwnProperty(i) || (n[i] = !0, t.push(r));
     }
     return t;
   }
-  function tone(e, t) {
+  function RG(e, t) {
     return [e, t];
   }
-  function frequency(e) {
+  function AG(e) {
     return e[0];
   }
-  function volume(e) {
+  function _G(e) {
     return e[1];
   }
   function bg(e) {
@@ -9042,39 +9047,39 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
   }
   function LG(e) {
-    return typeof e != "object" || !e ? false : e.type === "Action";
+    return typeof e != "object" || !e ? !1 : e.type === "Action";
   }
-  function restriction(e) {
+  function wG(e) {
     return e;
   }
-  function restrictionToBoolean(e) {
+  function FG(e) {
     return e;
   }
-  function complex(e, t) {
+  function zt(e, t) {
     return isNaN(e) || isNaN(t) ? [NaN, NaN] : [e, t];
   }
-  function complexFromPolarRounded(e, t) {
+  function Eu(e, t) {
     return isNaN(e) || isNaN(t)
-      ? complex(NaN, NaN)
+      ? zt(NaN, NaN)
       : e === 0
-      ? complex(0, 0)
-      : complex(e * cos(t), e * sin(t));
+      ? zt(0, 0)
+      : zt(e * Mn(t), e * dn(t));
   }
-  function real([e, t]) {
+  function VG([e, t]) {
     return e;
   }
-  function imag([e, t]) {
+  function BG([e, t]) {
     return t;
   }
-  function arg([e, t]) {
+  function GG([e, t]) {
     return vf(t, e);
   }
-  function conj([e, t]) {
+  function Zc([e, t]) {
     return [e, -t];
   }
-  function complexDivide(e, t) {
+  function Du(e, t) {
     let [n, r] = t;
-    return Math.abs(r) <= Math.abs(n) ? HS(e, t) : conj(HS(kS(e), kS(t)));
+    return Math.abs(r) <= Math.abs(n) ? HS(e, t) : Zc(HS(kS(e), kS(t)));
   }
   function kS([e, t]) {
     return [t, e];
@@ -9082,24 +9087,24 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function HS([e, t], [n, r]) {
     let s = r / n, i = 1 / (n + r * s);
     return s === 0
-      ? complex((e + r * (t / n)) * i, (t - r * (e / n)) * i)
-      : complex((e + t * s) * i, (t - e * s) * i);
+      ? zt((e + r * (t / n)) * i, (t - r * (e / n)) * i)
+      : zt((e + t * s) * i, (t - e * s) * i);
   }
-  function complexSqrt([e, t]) {
+  function Lv([e, t]) {
     return Wc(e, t);
   }
   function Wc(e, t) {
-    let n = Math.sqrt(.5 * (Math.abs(e) + hypot(e, t)));
+    let n = Math.sqrt(.5 * (Math.abs(e) + Ts(e, t)));
     return n === 1 / 0 &&
-      (n = 2 * Math.sqrt(.5 * (Math.abs(.25 * e) + hypot(.25 * e, .25 * t)))),
+      (n = 2 * Math.sqrt(.5 * (Math.abs(.25 * e) + Ts(.25 * e, .25 * t)))),
       n === 0 || !isFinite(t)
-        ? complex(n, t)
+        ? zt(n, t)
         : e > 0
-        ? complex(n, .5 * (t / n))
-        : (t < 0 && (n = -n), complex(.5 * (t / n), n));
+        ? zt(n, .5 * (t / n))
+        : (t < 0 && (n = -n), zt(.5 * (t / n), n));
   }
-  function complexReciprocal(e) {
-    return complexDivide(complex(1, 0), e);
+  function Is(e) {
+    return Du(zt(1, 0), e);
   }
   function Cf(e) {
     return 0 + e;
@@ -9116,15 +9121,15 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       return .5 * Math.log1p((r + 1) * (r - 1) + s * s);
     } else return .5 * Math.log(n);
   }
-  function complexLog([e, t]) {
-    return complex(kG(e, t), vf(t, e));
+  function ME([e, t]) {
+    return zt(kG(e, t), vf(t, e));
   }
-  function complexExp([e, t]) {
+  function HG([e, t]) {
     let n = Math.exp(e);
-    return t === 0 ? complex(n, 0) : complexFromPolarRounded(n, t);
+    return t === 0 ? zt(n, 0) : Eu(n, t);
   }
   function zG([e, t]) {
-    return complex((e + t) * (e - t), 2 * e * t);
+    return zt((e + t) * (e - t), 2 * e * t);
   }
   function zS(e, t) {
     t = t >>> 0;
@@ -9137,107 +9142,107 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       let o = n * s - r * i, a = n * i + s * r;
       s = o, i = a, t = t - 1 >>> 0;
     }
-    return complex(s, i);
+    return zt(s, i);
   }
-  function complexPow(e, t) {
+  function UG(e, t) {
     let [n, r] = t;
-    if (r === 0) return complexPowReal(e, n);
+    if (r === 0) return wv(e, n);
     let [s, i] = e;
-    if (isNaN(s) || isNaN(i) || isNaN(n) || isNaN(r)) return complex(NaN, NaN);
-    let o = hypot(s, i),
+    if (isNaN(s) || isNaN(i) || isNaN(n) || isNaN(r)) return zt(NaN, NaN);
+    let o = Ts(s, i),
       a = vf(i, s),
       u = Math.pow(o, n) * Math.exp(-a * r),
       c = Math.log(o) * r + a * n;
-    return isFinite(u) ? complexFromPolarRounded(u, c) : complexFromPolarRounded(Math.exp(n * Math.log(o) - a * r), c);
+    return isFinite(u) ? Eu(u, c) : Eu(Math.exp(n * Math.log(o) - a * r), c);
   }
-  function complexPowReal(e, t) {
+  function wv(e, t) {
     let [n, r] = e;
-    if (isNaN(n) || isNaN(r) || isNaN(t)) return complex(NaN, NaN);
+    if (isNaN(n) || isNaN(r) || isNaN(t)) return zt(NaN, NaN);
     switch (t) {
       case -1:
-        return complexReciprocal(e);
+        return Is(e);
       case 0:
-        return complex(1, 0);
+        return zt(1, 0);
       case .5:
-        return complexSqrt(e);
+        return Lv(e);
       case 1:
         return e;
     }
     return r === 0
       ? Number.isInteger(t) || n >= 0
-        ? complex(Math.pow(n, t), 0)
-        : complexFromPolarRounded(Math.pow(-n, t), Math.PI * t)
+        ? zt(Math.pow(n, t), 0)
+        : Eu(Math.pow(-n, t), Math.PI * t)
       : n === 0
       ? r >= 0
-        ? complexFromPolarRounded(Math.pow(r, t), .5 * Math.PI * t)
-        : complexFromPolarRounded(Math.pow(-r, t), -.5 * Math.PI * t)
+        ? Eu(Math.pow(r, t), .5 * Math.PI * t)
+        : Eu(Math.pow(-r, t), -.5 * Math.PI * t)
       : t === 2
       ? zG(e)
       : t === (t | 0)
-      ? t < 0 ? complexReciprocal(zS(e, -t)) : zS(e, t)
-      : complexFromPolarRounded(Math.pow(Math.hypot(n, r), t), t * vf(r, n));
+      ? t < 0 ? Is(zS(e, -t)) : zS(e, t)
+      : Eu(Math.pow(Math.hypot(n, r), t), t * vf(r, n));
   }
-  function complexSin([e, t]) {
-    return complex(sin(e) * cosh(t), cos(e) * sinh(t));
+  function Fv([e, t]) {
+    return zt(dn(e) * fp(t), Mn(e) * jc(t));
   }
-  function complexCos([e, t]) {
-    return complex(cos(e) * cosh(t), -sin(e) * sinh(t));
+  function Vv([e, t]) {
+    return zt(Mn(e) * fp(t), -dn(e) * jc(t));
   }
-  function complexTan([e, t]) {
-    let [n, r] = complexTanh([-t, e]);
+  function Bv([e, t]) {
+    let [n, r] = n0([-t, e]);
     return [r, -n];
   }
-  function complexSinh([e, t]) {
-    return complex(sinh(e) * cos(t), cosh(e) * sin(t));
+  function Gv([e, t]) {
+    return zt(jc(e) * Mn(t), fp(e) * dn(t));
   }
-  function complexCosh([e, t]) {
-    return complex(cosh(e) * cos(t), sinh(e) * sin(t));
+  function kv([e, t]) {
+    return zt(fp(e) * Mn(t), jc(e) * dn(t));
   }
-  function complexTanh([e, t]) {
-    let n = tan(t), r = tanh(e);
-    if (!isFinite(n)) return complex(1 / r, 1 / n);
-    let s = n * n, i = 1 + s, o = sinh(e), a = o * o, u = r * r;
-    return complex(i * r / (1 + s * u), n / (1 + i * a));
+  function n0([e, t]) {
+    let n = AE(t), r = OE(e);
+    if (!isFinite(n)) return zt(1 / r, 1 / n);
+    let s = n * n, i = 1 + s, o = jc(e), a = o * o, u = r * r;
+    return zt(i * r / (1 + s * u), n / (1 + i * a));
   }
-  function complexSec(e) {
-    return complexReciprocal(complexCos(e));
+  function qG(e) {
+    return Is(Vv(e));
   }
-  function complexCsc(e) {
-    return complexReciprocal(complexSin(e));
+  function $G(e) {
+    return Is(Fv(e));
   }
-  function complexCot(e) {
-    return complexReciprocal(complexTan(e));
+  function YG(e) {
+    return Is(Bv(e));
   }
-  function complexSech(e) {
-    return complexReciprocal(complexCosh(e));
+  function XG(e) {
+    return Is(kv(e));
   }
-  function complexCsch(e) {
-    return complexReciprocal(complexSinh(e));
+  function ZG(e) {
+    return Is(Gv(e));
   }
-  function complexCoth(e) {
-    return complexReciprocal(complexTanh(e));
+  function WG(e) {
+    return Is(n0(e));
   }
-  function complexAsin([e, t]) {
+  function r0([e, t]) {
     let n = Wc(1 - e, -t), r = Wc(1 + e, t);
-    return complex(Math.atan(e / Cf($c(n, r)[0])), Math.asinh($c(conj(n), r)[1]));
+    return zt(Math.atan(e / Cf($c(n, r)[0])), Math.asinh($c(Zc(n), r)[1]));
   }
-  function complexAcos([e, t]) {
+  function Hv([e, t]) {
     let n = Wc(1 - e, -t), r = Wc(1 + e, t);
-    return complex(2 * Math.atan(n[0] / Cf(r[0])), Math.asinh($c(conj(r), n)[1]));
+    return zt(2 * Math.atan(n[0] / Cf(r[0])), Math.asinh($c(Zc(r), n)[1]));
   }
-  function complexAtan([e, t]) {
-    let [n, r] = complexAtanh([-t, e]);
+  function CE([e, t]) {
+    let [n, r] = xg([-t, e]);
     return [r, -n];
   }
-  function complexAsinh([e, t]) {
-    let [n, r] = complexAsin([-t, e]);
+  function zv([e, t]) {
+    let [n, r] = r0([-t, e]);
     return [r, -n];
   }
-  function complexAcosh([e, t]) {
+  function Uv([e, t]) {
     let n = Wc(e - 1, t), r = Wc(e + 1, t);
-    return complex(Math.asinh($c(conj(n), r)[0]), 2 * Math.atan(n[1] / Cf(r[0])));
+    return zt(Math.asinh($c(Zc(n), r)[0]), 2 * Math.atan(n[1] / Cf(r[0])));
   }
-  function complexAtanh([e, t]) {
+  function xg([e, t]) {
     if (e < 0) {
       let [n, r] = qS(-e, -t);
       return [-n, -r];
@@ -9246,45 +9251,45 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var US = Math.sqrt(Number.MAX_VALUE) / 4;
   function qS(e, t) {
     if (e > US || Math.abs(t) > US) {
-      return complex(complexReciprocal([e, t])[0], t <= 0 ? -Math.PI / 2 : Math.PI / 2);
+      return zt(Is([e, t])[0], t <= 0 ? -Math.PI / 2 : Math.PI / 2);
     }
     if (e === 1) {
-      if (t === 0) return complex(1 / 0, 0);
+      if (t === 0) return zt(1 / 0, 0);
       let n = Math.abs(t),
         r = Math.log(Math.sqrt(Math.sqrt(4 + t * t)) / Math.sqrt(n)),
         s = (Math.PI / 2 + Math.atan(n / 2)) / 2;
-      return t < 0 != s < 0 && (s = -s), complex(r, s);
-    } else {return complex(
-        log1p(4 * e / ((1 - e) ** 2 + t ** 2)) / 4,
+      return t < 0 != s < 0 && (s = -s), zt(r, s);
+    } else {return zt(
+        mp(4 * e / ((1 - e) ** 2 + t ** 2)) / 4,
         -vf(-2 * t, (1 - e) * (1 + e) - t ** 2) / 2,
       );}
   }
-  function complexAsec(e) {
-    return complexAcos(complexReciprocal(e));
+  function jG(e) {
+    return Hv(Is(e));
   }
-  function complexAcsc(e) {
-    return complexAsin(complexReciprocal(e));
+  function JG(e) {
+    return r0(Is(e));
   }
-  function complexAcot(e) {
-    if (e[0] > 0) return complexAtan(complexReciprocal(e));
-    let [t, n] = complexAtan(e);
-    return complex(Math.PI / 2 - t, -n);
+  function QG(e) {
+    if (e[0] > 0) return CE(Is(e));
+    let [t, n] = CE(e);
+    return zt(Math.PI / 2 - t, -n);
   }
-  function complexAsech(e) {
+  function KG(e) {
     let [t, n] = e;
-    return t === 0 && n === 0 ? complex(1 / 0, 0) : complexAcosh(complexReciprocal(e));
+    return t === 0 && n === 0 ? zt(1 / 0, 0) : Uv(Is(e));
   }
-  function complexAcsch(e) {
+  function ek(e) {
     let [t, n] = e;
-    return t === 0 && n === 0 ? complex(1 / 0, 0) : complexAsinh(complexReciprocal(e));
+    return t === 0 && n === 0 ? zt(1 / 0, 0) : zv(Is(e));
   }
-  function complexAcoth(e) {
-    return e[0] > 0 ? conj(complexAtanh(conj(complexReciprocal(e)))) : complexAtanh(complexReciprocal(e));
+  function tk(e) {
+    return e[0] > 0 ? Zc(xg(Zc(Is(e)))) : xg(Is(e));
   }
-  function coerceComplexToReal([e, t]) {
+  function s0([e, t]) {
     return t === 0 ? e : NaN;
   }
-  function peelableCoerceComplexToReal([e, t], n) {
+  function nk([e, t], n) {
     var r, s;
     return t === 0
       ? ((r = n.goodCoercionCount) != null || (n.goodCoercionCount = 0),
@@ -9295,23 +9300,23 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
           n.badCoercionCount++),
         NaN);
   }
-  function coerceRealToComplex(e) {
+  function rk(e) {
     return isNaN(e) ? [NaN, NaN] : [e, 0];
   }
-  function complexFloor([e, t]) {
+  function qv([e, t]) {
     let n = Math.floor(e), r = Math.floor(t);
     if (!isFinite(n) || !isFinite(r)) return [n, r];
     let s = e - n, i = t - r;
     return s + i < 1 ? [n, r] : s >= i ? [n + 1, r] : [n, r + 1];
   }
-  function complexCeil([e, t]) {
-    let n = complexFloor([-e, -t]);
+  function sk([e, t]) {
+    let n = qv([-e, -t]);
     return [-n[0], -n[1]];
   }
-  function complexRound(e) {
+  function ap(e) {
     return [Math.round(e[0]), Math.round(e[1])];
   }
-  function complexMod(e, t) {
+  function ik(e, t) {
     let [n, r] = e, [s, i] = t;
     if (!isFinite(n) || !isFinite(r) || isNaN(s) || isNaN(i)) return [NaN, NaN];
     if (!isFinite(s) && !isFinite(i)) return e;
@@ -9329,30 +9334,30 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let o = DE(t),
       a = n * s + r * i,
       u = r * s - n * i,
-      c = mod(a, o),
-      l = mod(u, o);
+      c = Yc(a, o),
+      l = Yc(u, o);
     c + l < o || (c >= l ? c -= o : l -= o);
-    let p = complexDivide([c, l], [s, -i]);
+    let p = Du([c, l], [s, -i]);
     return Number.isInteger(n) && Number.isInteger(r) && Number.isInteger(s) &&
         Number.isInteger(i)
       ? [Math.round(p[0]), Math.round(p[1])]
       : p;
   }
   function og(e, t, n) {
-    return e + t < 0 ? e >= t ? complex(e - n, 1 / 0) : complex(1 / 0, t + n) : [e, t];
+    return e + t < 0 ? e >= t ? zt(e - n, 1 / 0) : zt(1 / 0, t + n) : [e, t];
   }
   function DE([e, t]) {
     return e * e + t * t;
   }
-  function complexGCD(e, t) {
+  function SE(e, t) {
     if (
       !isFinite(e[0]) || !isFinite(e[1]) || !isFinite(t[0]) || !isFinite(t[1])
     ) return [NaN, NaN];
-    e = complexRound(e), t = complexRound(t);
-    let n = _complexGCD(e, t);
+    e = ap(e), t = ap(t);
+    let n = i0(e, t);
     return $v(n);
   }
-  function _complexGCD(e, t) {
+  function i0(e, t) {
     let n = [1, 0];
     for (e = [e[0], e[1]], t = [t[0], t[1]];;) {
       let r = DE(e), s = DE(t);
@@ -9421,7 +9426,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function $c(e, t) {
     let [n, r] = e, [s, i] = t;
-    return complex(n * s - r * i, n * i + s * r);
+    return zt(n * s - r * i, n * i + s * r);
   }
   function ak(e, t) {
     return e[0] == t[0] && e[1] == t[1] || e[0] == -t[0] && e[1] == -t[1] ||
@@ -9437,7 +9442,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       ? [n, -t]
       : e;
   }
-  function complexLCM(e, t) {
+  function vE(e, t) {
     if (
       !isFinite(e[0]) || !isFinite(e[1]) || !isFinite(t[0]) || !isFinite(t[1])
     ) return [NaN, NaN];
@@ -9445,8 +9450,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     if (
       !isFinite(e[0]) || !isFinite(e[1]) || !isFinite(t[0]) || !isFinite(t[1])
     ) return [NaN, NaN];
-    e = complexRound(e), t = complexRound(t);
-    let n = _complexGCD(e, t), r = complexRound(complexDivide(e, n)), s = complexMultiplyPoints(r, t);
+    e = ap(e), t = ap(t);
+    let n = i0(e, t), r = ap(Du(e, n)), s = Av(r, t);
     return $v(s);
   }
   function hp(e, t) {
@@ -9478,7 +9483,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return an(e) ? e.n / e.d : +e;
   }
   function Ii(e) {
-    return an(e) ? false : isNaN(e);
+    return an(e) ? !1 : isNaN(e);
   }
   function Se(e, t) {
     if (
@@ -9545,10 +9550,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function jv(e, t) {
     if (!an(e) || !an(t)) {
       let r = V(e), s = V(t);
-      mod(r, s);
+      Yc(r, s);
     }
     let n = ai(e, wr(t, hp(Math.floor(V(Ps(e, t))), 1)));
-    return an(n) ? n : mod(V(e), V(t));
+    return an(n) ? n : Yc(V(e), V(t));
   }
   function Jv(e) {
     let t = hp(0, 1);
@@ -9567,7 +9572,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         (!n || !n.skipRegisterDependencies) && this.registerDependencies();
     }
     shouldExportAns() {
-      return true;
+      return !0;
     }
     registerDependencies() {
       for (let t = 0; t < this.args.length; t++) {
@@ -9583,7 +9588,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var Et = class extends Q {
     constructor(n) {
       super([]);
-      this.isConstant = true;
+      this.isConstant = !0;
       typeof n == "number" && (n = Se(n, 1)), this._constantValue = n;
     }
     asValue() {
@@ -9612,7 +9617,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         "Programming Error: numeric constants should be rational",
       );
     }
-    return { type: 1, valueType: Number, value: e };
+    return { type: 1, valueType: I, value: e };
   }
   var vu = c0(Se(0, 1)), Kc = c0(Se(1, 1)), Nf = c0(Se(1, 2));
   function pt(e) {
@@ -9635,9 +9640,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     let o = (g = t == null ? void 0 : t.fallthroughUnlessDistribution) != null
         ? g
-        : false,
-      a = (m = t == null ? void 0 : t.allowDotCall) != null ? m : false,
-      u = (h = t == null ? void 0 : t.isSeeded) != null ? h : false,
+        : !1,
+      a = (m = t == null ? void 0 : t.allowDotCall) != null ? m : !1,
+      u = (h = t == null ? void 0 : t.isSeeded) != null ? h : !1,
       c = t == null ? void 0 : t.minArityExampleArgs,
       l = t == null ? void 0 : t.maxArityExampleArgs,
       p = t == null ? void 0 : t.dotMinArityExampleArgs,
@@ -9657,13 +9662,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     };
   }
   function wo() {
-    return ee(pt([{ type: "variadic", initial: [], rest: Any }]), {});
+    return ee(pt([{ type: "variadic", initial: [], rest: Qt }]), {});
   }
-  var Ag = Qn.of([Segment, Circle, Line, Ray, Arc]),
-    o0 = Qn.of([Segment, Line, Ray, Vector]),
-    bp = Qn.of([Point, Segment, Circle, Line, Ray, Vector, Arc, Polygon, AngleMarker, DirectedAngleMarker, Transformation]),
-    a0 = Qn.of([...ii.types.filter((e) => e !== ListOfDistribution), Distribution]),
-    u0 = Qn.of([Any, ListOfAny], { coerceComplexToReal: false });
+  var Ag = Qn.of([de, ce, fe, Ne, ie]),
+    o0 = Qn.of([de, fe, Ne, le]),
+    bp = Qn.of([N, de, ce, fe, Ne, le, ie, xe, Le, ye, Re]),
+    a0 = Qn.of([...ii.types.filter((e) => e !== Zn), Lt]),
+    u0 = Qn.of([Qt, pn], { coerceComplexToReal: !1 });
   function el(e) {
     return !!Fo[e];
   }
@@ -9678,41 +9683,41 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     return [kt([Rd(e), Rd(e)])];
   }
   var Fo = {
-    midpoint: ee([...pt([[Point, Point], [Segment]]), ...pt([[Point3D, Point3D], [Segment3D]])], {
-      allowDotCall: true,
+    midpoint: ee([...pt([[N, N], [de]]), ...pt([[z, z], [wt]])], {
+      allowDotCall: !0,
     }),
-    segment: ee([Ae([Point, Point]), Ae([Point3D, Point3D])]),
-    vector: ee([Ae([Point, Point]), Ae([Point3D, Point3D])]),
-    sphere: ee([Ae([Point, Number]), Ae([Point3D, Number])]),
-    distance: ee(pt([[Point, Point], [Point3D, Point3D]])),
-    glider: ee(pt([[Qn.of([Segment, Circle, Line, Ray, Arc, Polygon]), Number]])),
-    circle: ee(pt([[Point, Segment], [Point, Point], [Point, Number]]), {}),
-    center: ee(pt([[Circle], [Arc]]), { allowDotCall: true }),
-    radius: ee(pt([[Circle], [Arc]]), { allowDotCall: true }),
+    segment: ee([Ae([N, N]), Ae([z, z])]),
+    vector: ee([Ae([N, N]), Ae([z, z])]),
+    sphere: ee([Ae([N, I]), Ae([z, I])]),
+    distance: ee(pt([[N, N], [z, z]])),
+    glider: ee(pt([[Qn.of([de, ce, fe, Ne, ie, xe]), I]])),
+    circle: ee(pt([[N, de], [N, N], [N, I]]), {}),
+    center: ee(pt([[ce], [ie]]), { allowDotCall: !0 }),
+    radius: ee(pt([[ce], [ie]]), { allowDotCall: !0 }),
     intersection: ee(pt([[Ag, Ag]])),
     strictintersection: ee(pt([[Ag, Ag]])),
-    parallel: ee(pt([[o0, Point]])),
-    perpendicular: ee(pt([[o0, Point]])),
+    parallel: ee(pt([[o0, N]])),
+    perpendicular: ee(pt([[o0, N]])),
     anglebisector: ee(pt([[Tx]])),
-    start: ee([Ae([Vector]), Ae([Vector3D])], { allowDotCall: true }),
-    end: ee([Ae([Vector]), Ae([Vector3D])], { allowDotCall: true }),
+    start: ee([Ae([le]), Ae([ke])], { allowDotCall: !0 }),
+    end: ee([Ae([le]), Ae([ke])], { allowDotCall: !0 }),
     length: ee([
-      kt([ii], { geometry: false, "3d": false }),
-      Ae([Segment3D]),
-      Ae([Vector3D]),
-      Ae([Segment]),
-      Ae([Vector]),
-      Ae([Arc]),
-      kt({ type: "variadic", initial: [Any], rest: Any }, {
-        geometry: false,
-        "3d": false,
+      kt([ii], { geometry: !1, "3d": !1 }),
+      Ae([wt]),
+      Ae([ke]),
+      Ae([de]),
+      Ae([le]),
+      Ae([ie]),
+      kt({ type: "variadic", initial: [Qt], rest: Qt }, {
+        geometry: !1,
+        "3d": !1,
       }),
-    ], { allowDotCall: true }),
-    translate: ee(pt([[bp, Vector], [bp, Point, Point]])),
-    dilate: ee(pt([[bp, Point, Number]])),
-    rotate: ee(pt([[bp, Point, Number]])),
+    ], { allowDotCall: !0 }),
+    translate: ee(pt([[bp, le], [bp, N, N]])),
+    dilate: ee(pt([[bp, N, I]])),
+    rotate: ee(pt([[bp, N, I]])),
     reflect: ee(pt([[bp, o0]])),
-    apply: ee(pt([[Transformation, bp]])),
+    apply: ee(pt([[Re, bp]])),
     points: ee([]),
     lines: ee([]),
     circles: ee([]),
@@ -9720,118 +9725,118 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     polygons: ee([]),
     rays: ee([]),
     vectors: ee([]),
-    angle: ee(pt([[Point, Point, Point]])),
-    directedangle: ee(pt([[Point, Point, Point]])),
-    angles: ee(Su([[Polygon]]), { allowDotCall: true }),
-    directedangles: ee(Su([[Polygon]]), { allowDotCall: true }),
-    coterminal: ee(pt([[AngleMarker], [DirectedAngleMarker]])),
-    round: ee([...pt([[Te], [Te, Number]]), ...pt([[Complex], [Complex, Number]])]),
-    mod: ee([...pt([[Te, Te]]), ...pt([[Complex, Complex]])]),
-    floor: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    ceil: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    abs: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    sign: ee([Ae([Te]), Ae([Complex])]),
-    real: ee([Ae([Complex])], { allowDotCall: true }),
-    imag: ee([Ae([Complex])], { allowDotCall: true }),
-    conj: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    exp: ee([Ae([Te]), Ae([Complex])]),
-    sin: ee([Ae([Te]), Ae([Complex])]),
-    cos: ee([Ae([Te]), Ae([Complex])]),
-    tan: ee([Ae([Te]), Ae([Complex])]),
-    sinh: ee([Ae([Te]), Ae([Complex])]),
-    cosh: ee([Ae([Te]), Ae([Complex])]),
-    tanh: ee([Ae([Te]), Ae([Complex])]),
-    sec: ee([Ae([Te]), Ae([Complex])]),
-    csc: ee([Ae([Te]), Ae([Complex])]),
-    cot: ee([Ae([Te]), Ae([Complex])]),
-    sech: ee([Ae([Te]), Ae([Complex])]),
-    csch: ee([Ae([Te]), Ae([Complex])]),
-    coth: ee([Ae([Te]), Ae([Complex])]),
-    arctan: ee([Ae([Te]), Ae([Complex]), ...pt([[Number, Number]])]),
-    arcsinh: ee([Ae([Te]), Ae([Complex])]),
-    arccot: ee([Ae([Te]), Ae([Complex])]),
-    arccsch: ee([Ae([Te]), Ae([Complex])]),
-    nthroot: ee([...pt([[Number, Number]])]),
-    complexNthRoot: ee([...pt([[Complex, Complex]])]),
-    sort: ee(Su([[ro], [ListOfComplex], [ii, ro], [ii, ListOfComplex]]), {
+    angle: ee(pt([[N, N, N]])),
+    directedangle: ee(pt([[N, N, N]])),
+    angles: ee(Su([[xe]]), { allowDotCall: !0 }),
+    directedangles: ee(Su([[xe]]), { allowDotCall: !0 }),
+    coterminal: ee(pt([[Le], [ye]])),
+    round: ee([...pt([[Te], [Te, I]]), ...pt([[R], [R, I]])]),
+    mod: ee([...pt([[Te, Te]]), ...pt([[R, R]])]),
+    floor: ee([...pt([[Te]]), ...pt([[R]])]),
+    ceil: ee([...pt([[Te]]), ...pt([[R]])]),
+    abs: ee([...pt([[Te]]), ...pt([[R]])]),
+    sign: ee([Ae([Te]), Ae([R])]),
+    real: ee([Ae([R])], { allowDotCall: !0 }),
+    imag: ee([Ae([R])], { allowDotCall: !0 }),
+    conj: ee([...pt([[Te]]), ...pt([[R]])]),
+    exp: ee([Ae([Te]), Ae([R])]),
+    sin: ee([Ae([Te]), Ae([R])]),
+    cos: ee([Ae([Te]), Ae([R])]),
+    tan: ee([Ae([Te]), Ae([R])]),
+    sinh: ee([Ae([Te]), Ae([R])]),
+    cosh: ee([Ae([Te]), Ae([R])]),
+    tanh: ee([Ae([Te]), Ae([R])]),
+    sec: ee([Ae([Te]), Ae([R])]),
+    csc: ee([Ae([Te]), Ae([R])]),
+    cot: ee([Ae([Te]), Ae([R])]),
+    sech: ee([Ae([Te]), Ae([R])]),
+    csch: ee([Ae([Te]), Ae([R])]),
+    coth: ee([Ae([Te]), Ae([R])]),
+    arctan: ee([Ae([Te]), Ae([R]), ...pt([[I, I]])]),
+    arcsinh: ee([Ae([Te]), Ae([R])]),
+    arccot: ee([Ae([Te]), Ae([R])]),
+    arccsch: ee([Ae([Te]), Ae([R])]),
+    nthroot: ee([...pt([[I, I]])]),
+    complexNthRoot: ee([...pt([[R, R]])]),
+    sort: ee(Su([[ro], [Ue], [ii, ro], [ii, Ue]]), {
       minArityExampleArgs: "([3,2,1])",
       maxArityExampleArgs: "([1,2,3],[3,2,1])",
       dotMaxArityExampleArgs: "([3,4])",
-      allowDotCall: true,
+      allowDotCall: !0,
     }),
-    shuffle: ee(Su([[SeedType, ii], [SeedType, ii, Number]]), {
+    shuffle: ee(Su([[ft, ii], [ft, ii, I]]), {
       minArityExampleArgs: "([1,2,3])",
       maxArityExampleArgs: "([1,2,3],2)",
       dotMaxArityExampleArgs: "(2)",
-      allowDotCall: true,
-      isSeeded: true,
+      allowDotCall: !0,
+      isSeeded: !0,
     }),
     join: ee(Su([{ type: "variadic", initial: [u0, u0], rest: u0 }]), {
       minArityExampleArgs: "([1,2],[3,4])",
       dotMinArityExampleArgs: "([3,4])",
-      allowDotCall: true,
+      allowDotCall: !0,
     }),
     unique: ee(
       Su([[Qn.of(
-        ii.types.filter((e) => e !== ListOfDistribution && e !== ListOfAny),
-        { coerceComplexToReal: false },
+        ii.types.filter((e) => e !== Zn && e !== pn),
+        { coerceComplexToReal: !1 },
       )]]),
       {
         minArityExampleArgs: "([1,2,3])",
         maxArityExampleArgs: "([1,2,3])",
-        allowDotCall: true,
+        allowDotCall: !0,
       },
     ),
-    normaldist: ee(pt([[Number, Number]]), { defaultArguments: [vu, Kc] }),
-    tdist: ee(pt([[Number]])),
-    binomialdist: ee(pt([[Number, Number]]), { defaultArguments: [Nf] }),
-    poissondist: ee(pt([[Number]])),
-    uniformdist: ee(pt([[Number, Number]]), { defaultArguments: [vu, Kc] }),
-    pdf: ee(pt([[Distribution, Number]]), { allowDotCall: true }),
-    cdf: ee(pt([[Distribution, Number], [Distribution, Number, Number]]), { allowDotCall: true }),
-    median: ee([...pt([[Distribution]]), ...An(Number)], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+    normaldist: ee(pt([[I, I]]), { defaultArguments: [vu, Kc] }),
+    tdist: ee(pt([[I]])),
+    binomialdist: ee(pt([[I, I]]), { defaultArguments: [Nf] }),
+    poissondist: ee(pt([[I]])),
+    uniformdist: ee(pt([[I, I]]), { defaultArguments: [vu, Kc] }),
+    pdf: ee(pt([[Lt, I]]), { allowDotCall: !0 }),
+    cdf: ee(pt([[Lt, I], [Lt, I, I]]), { allowDotCall: !0 }),
+    median: ee([...pt([[Lt]]), ...An(I)], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
     }),
-    stdev: ee([...pt([[Distribution]]), ...An(Te), ...An(Complex)], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+    stdev: ee([...pt([[Lt]]), ...An(Te), ...An(R)], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
     }),
-    stdevp: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
-    var: ee([...pt([[Distribution]]), ...An(Te), ...An(Complex)], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+    stdevp: ee([...An(Te), ...An(R)], { allowDotCall: !0 }),
+    var: ee([...pt([[Lt]]), ...An(Te), ...An(R)], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
     }),
-    cov: ee([...xp(Te), ...xp(Complex)]),
-    covp: ee([...xp(Te), ...xp(Complex)]),
-    corr: ee([...xp(Te), ...xp(Complex)]),
-    quantile: ee([...pt([[Distribution, Number]]), kt([ListOfNumber, oi(Number)])], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+    cov: ee([...xp(Te), ...xp(R)]),
+    covp: ee([...xp(Te), ...xp(R)]),
+    corr: ee([...xp(Te), ...xp(R)]),
+    quantile: ee([...pt([[Lt, I]]), kt([ne, oi(I)])], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
       minArityExampleArgs: "([1,2,3], 1)",
       maxArityExampleArgs: "([1,2,3], 1)",
       dotMinArityExampleArgs: "(x)",
       dotMaxArityExampleArgs: "(x)",
     }),
     random: ee([
-      kt([SeedType]),
-      ...Su([[SeedType, Number], [SeedType, Number, Number], [SeedType, a0], [SeedType, a0, Number], [SeedType, a0, Number, Number]]),
-    ], { allowDotCall: true, isSeeded: true }),
-    polygon: ee([kt([]), ...An(Point), ...Su([[ListOfNumber, ListOfNumber], [Number, ListOfNumber], [ListOfNumber, Number]])]),
-    total: ee([...An(Te), ...An(Complex), ...An(Point), ...An(Point3D)], { allowDotCall: true }),
-    mean: ee([Ae([Distribution]), ...An(Te), ...An(Complex), ...An(Point), ...An(Point3D)], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+      kt([ft]),
+      ...Su([[ft, I], [ft, I, I], [ft, a0], [ft, a0, I], [ft, a0, I, I]]),
+    ], { allowDotCall: !0, isSeeded: !0 }),
+    polygon: ee([kt([]), ...An(N), ...Su([[ne, ne], [I, ne], [ne, I]])]),
+    total: ee([...An(Te), ...An(R), ...An(N), ...An(z)], { allowDotCall: !0 }),
+    mean: ee([Ae([Lt]), ...An(Te), ...An(R), ...An(N), ...An(z)], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
     }),
-    varp: ee([Ae([Distribution]), ...An(Te), ...An(Complex)], {
-      fallthroughUnlessDistribution: true,
-      allowDotCall: true,
+    varp: ee([Ae([Lt]), ...An(Te), ...An(R)], {
+      fallthroughUnlessDistribution: !0,
+      allowDotCall: !0,
     }),
-    mad: ee([...An(Te), ...An(Complex)]),
-    lcm: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
-    gcd: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
-    min: ee([...An(Number)], { allowDotCall: true }),
-    max: ee([...An(Number)], { allowDotCall: true }),
+    mad: ee([...An(Te), ...An(R)]),
+    lcm: ee([...An(Te), ...An(R)], { allowDotCall: !0 }),
+    gcd: ee([...An(Te), ...An(R)], { allowDotCall: !0 }),
+    min: ee([...An(I)], { allowDotCall: !0 }),
+    max: ee([...An(I)], { allowDotCall: !0 }),
     histogram: wo(),
     dotplot: wo(),
     boxplot: wo(),
@@ -9851,15 +9856,15 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       case "inverseTrig":
       case "trig2":
       case "never-broadcast":
-        return [Number];
+        return [I];
       case "reducer":
-        return [ListOfNumber];
+        return [ne];
       case "doubleReducer":
-        return [ListOfNumber, ListOfNumber];
+        return [ne, ne];
       case "parameterizedReducer":
-        return [ListOfNumber, Number];
+        return [ne, I];
       case "color":
-        return [Number, Number, Number];
+        return [I, I, I];
     }
   }
   function lk(e) {
@@ -9871,10 +9876,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       case "doubleReducer":
       case "color":
       case "never-broadcast":
-        return false;
+        return !1;
       case "reducer":
       case "parameterizedReducer":
-        return true;
+        return !0;
     }
   }
   function pk(e, t, n) {
@@ -9889,7 +9894,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       o = s.length - i,
       a = pk(r, o, i),
       u = (g = n.allowDotCall) != null ? g : lk(r),
-      c = (m = n.noPeel) != null ? m : false,
+      c = (m = n.noPeel) != null ? m : !1,
       { defaultArguments: l, minArityExampleArgs: p, maxArityExampleArgs: f } =
         n;
     return {
@@ -9897,7 +9902,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       symbol: t,
       argumentTypes: s,
       defaultArguments: l,
-      returnType: (h = n.returnType) != null ? h : Number,
+      returnType: (h = n.returnType) != null ? h : I,
       tag: r,
       minArity: o,
       maxArity: a,
@@ -9911,7 +9916,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let t;
     return e in Bn && (t = Bn[e].tag),
       t === "trig" || t === "trig2" || t === "inverseTrig"
-        ? true
+        ? !0
         : e === "angle" || e === "angles" || e === "directedangle" ||
           e === "directedangles" || e === "rotate";
   }
@@ -9924,7 +9929,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       csc: A("BuiltIn", "csc", { tag: "trig" }),
       arcsin: A("Math", "asin", { tag: "inverseTrig" }),
       arccos: A("Math", "acos", { tag: "inverseTrig" }),
-      arctan: A("Math", "atan2", { argumentTypes: [Number, Number], tag: "inverseTrig" }),
+      arctan: A("Math", "atan2", { argumentTypes: [I, I], tag: "inverseTrig" }),
       arccot: A("BuiltIn", "acot", { tag: "inverseTrig" }),
       arcsec: A("BuiltIn", "asec", { tag: "inverseTrig" }),
       arccsc: A("BuiltIn", "acsc", { tag: "inverseTrig" }),
@@ -9943,178 +9948,178 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       sqrt: A("Math", "sqrt"),
       rtxsqpone: A("BuiltIn", "sqrtxsqp1"),
       rtxsqmone: A("BuiltIn", "sqrtxsqm1"),
-      hypot: A("BuiltIn", "hypot", { argumentTypes: [Number, Number] }),
+      hypot: A("BuiltIn", "hypot", { argumentTypes: [I, I] }),
       log: A("BuiltIn", "common_log"),
-      logbase: A("BuiltIn", "log_base", { argumentTypes: [Number, Number] }),
+      logbase: A("BuiltIn", "log_base", { argumentTypes: [I, I] }),
       ln: A("BuiltIn", "log"),
       exp: A("Math", "exp"),
       floor: A("Math", "floor"),
       complexFloor: A("BuiltIn", "complexFloor", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       ceil: A("Math", "ceil"),
       complexCeil: A("BuiltIn", "complexCeil", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       round: A("Math", "round"),
       complexRound: A("BuiltIn", "complexRound", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       abs: A("Math", "abs"),
       sign: A("BuiltIn", "sign"),
-      mod: A("BuiltIn", "mod", { argumentTypes: [Number, Number] }),
+      mod: A("BuiltIn", "mod", { argumentTypes: [I, I] }),
       complexMod: A("BuiltIn", "complexMod", {
-        argumentTypes: [Complex, Complex],
-        returnType: Complex,
+        argumentTypes: [R, R],
+        returnType: R,
       }),
-      nCr: A("BuiltIn", "nCr", { argumentTypes: [Number, Number] }),
-      nPr: A("BuiltIn", "nPr", { argumentTypes: [Number, Number] }),
+      nCr: A("BuiltIn", "nCr", { argumentTypes: [I, I] }),
+      nPr: A("BuiltIn", "nPr", { argumentTypes: [I, I] }),
       factorial: A("BuiltIn", "factorial"),
-      polyGamma: A("BuiltIn", "polyGamma", { argumentTypes: [Number, Number] }),
+      polyGamma: A("BuiltIn", "polyGamma", { argumentTypes: [I, I] }),
       lcm: A("BuiltIn", "listLCM", { tag: "reducer" }),
       complexLCM: A("BuiltIn", "complexListLCM", {
-        argumentTypes: [ListOfComplex],
-        returnType: Complex,
+        argumentTypes: [Ue],
+        returnType: R,
         tag: "reducer",
       }),
       gcd: A("BuiltIn", "listGCD", { tag: "reducer" }),
       complexGCD: A("BuiltIn", "complexListGCD", {
-        argumentTypes: [ListOfComplex],
-        returnType: Complex,
+        argumentTypes: [Ue],
+        returnType: R,
         tag: "reducer",
       }),
-      distance: A("BuiltIn", "distance", { argumentTypes: [Point, Point] }),
+      distance: A("BuiltIn", "distance", { argumentTypes: [N, N] }),
       polygon: A("BuiltIn", "polygon", {
         tag: "reducer",
-        argumentTypes: [ListOfPoint],
-        returnType: Polygon,
+        argumentTypes: [Pt],
+        returnType: xe,
       }),
-      area: A("BuiltIn", "polygonArea", { argumentTypes: [Polygon] }),
-      perimeter: A("BuiltIn", "polygonPerimeter", { argumentTypes: [Polygon] }),
-      pointDet: A("BuiltIn", "pointDet", { argumentTypes: [Point, Point] }),
-      pointDot: A("BuiltIn", "pointDot", { argumentTypes: [Point, Point] }),
+      area: A("BuiltIn", "polygonArea", { argumentTypes: [xe] }),
+      perimeter: A("BuiltIn", "polygonPerimeter", { argumentTypes: [xe] }),
+      pointDet: A("BuiltIn", "pointDet", { argumentTypes: [N, N] }),
+      pointDot: A("BuiltIn", "pointDot", { argumentTypes: [N, N] }),
       pointPerp: A("BuiltIn", "pointPerp", {
-        argumentTypes: [Point],
-        returnType: Point,
+        argumentTypes: [N],
+        returnType: N,
       }),
       complexMultiplyPoints: A("BuiltIn", "complexMultiplyPoints", {
-        argumentTypes: [Point, Point],
-        returnType: Point,
+        argumentTypes: [N, N],
+        returnType: N,
       }),
       segment: A("BuiltIn", "segment", {
-        argumentTypes: [Point, Point],
-        returnType: Segment,
+        argumentTypes: [N, N],
+        returnType: de,
       }),
-      line: A("BuiltIn", "line", { argumentTypes: [Point, Point], returnType: Line }),
-      ray: A("BuiltIn", "ray", { argumentTypes: [Point, Point], returnType: Ray }),
-      vector: A("BuiltIn", "vector", { argumentTypes: [Point, Point], returnType: Vector }),
+      line: A("BuiltIn", "line", { argumentTypes: [N, N], returnType: fe }),
+      ray: A("BuiltIn", "ray", { argumentTypes: [N, N], returnType: Ne }),
+      vector: A("BuiltIn", "vector", { argumentTypes: [N, N], returnType: le }),
       vectorThreeD: A("BuiltIn", "vectorThreeD", {
-        argumentTypes: [Point3D, Point3D],
-        returnType: Vector3D,
+        argumentTypes: [z, z],
+        returnType: ke,
       }),
       mathVector: A("BuiltIn", "mathVector", {
-        argumentTypes: [Point, Point],
-        returnType: Vector,
+        argumentTypes: [N, N],
+        returnType: le,
       }),
       mathVectorThreeD: A("BuiltIn", "mathVectorThreeD", {
-        argumentTypes: [Point3D, Point3D],
-        returnType: Vector3D,
+        argumentTypes: [z, z],
+        returnType: ke,
       }),
       vectorDisplacementAsPoint: A("BuiltIn", "vectorDisplacementAsPoint", {
-        argumentTypes: [Vector],
-        returnType: Point,
+        argumentTypes: [le],
+        returnType: N,
       }),
       vectorThreeDDisplacementAsPoint: A(
         "BuiltIn",
         "vectorThreeDDisplacementAsPoint",
-        { argumentTypes: [Vector3D], returnType: Point3D },
+        { argumentTypes: [ke], returnType: z },
       ),
       basePointFromVector: A("BuiltIn", "basePointFromVector", {
-        argumentTypes: [Vector],
-        returnType: Point,
+        argumentTypes: [le],
+        returnType: N,
       }),
       basePointFromVectorThreeD: A("BuiltIn", "basePointFromVectorThreeD", {
-        argumentTypes: [Vector3D],
-        returnType: Point3D,
+        argumentTypes: [ke],
+        returnType: z,
       }),
-      circle: A("BuiltIn", "circle", { argumentTypes: [Point, Number], returnType: Circle }),
+      circle: A("BuiltIn", "circle", { argumentTypes: [N, I], returnType: ce }),
       center: A("BuiltIn", "center", {
-        argumentTypes: [Circle],
-        returnType: Point,
-        allowDotCall: true,
+        argumentTypes: [ce],
+        returnType: N,
+        allowDotCall: !0,
       }),
       radius: A("BuiltIn", "radius", {
-        argumentTypes: [Circle],
-        returnType: Number,
-        allowDotCall: true,
+        argumentTypes: [ce],
+        returnType: I,
+        allowDotCall: !0,
       }),
-      arc: A("BuiltIn", "arc", { argumentTypes: [Point, Point, Point], returnType: Arc }),
+      arc: A("BuiltIn", "arc", { argumentTypes: [N, N, N], returnType: ie }),
       arcCenter: A("BuiltIn", "arcCenter", {
-        argumentTypes: [Arc],
-        returnType: Point,
+        argumentTypes: [ie],
+        returnType: N,
       }),
       arcFirstPoint: A("BuiltIn", "arcFirstPoint", {
-        argumentTypes: [Arc],
-        returnType: Point,
+        argumentTypes: [ie],
+        returnType: N,
       }),
       arcMiddlePoint: A("BuiltIn", "arcMiddlePoint", {
-        argumentTypes: [Arc],
-        returnType: Point,
+        argumentTypes: [ie],
+        returnType: N,
       }),
       arcThirdPoint: A("BuiltIn", "arcThirdPoint", {
-        argumentTypes: [Arc],
-        returnType: Point,
+        argumentTypes: [ie],
+        returnType: N,
       }),
       arcOmega: A("BuiltIn", "arcOmega", {
-        argumentTypes: [Arc],
-        returnType: Number,
+        argumentTypes: [ie],
+        returnType: I,
       }),
       undirectedAngleMarker: A("BuiltIn", "undirectedAngleMarker", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: AngleMarker,
+        argumentTypes: [ye],
+        returnType: Le,
       }),
       directedAngleMarker: A("BuiltIn", "directedAngleMarker", {
-        argumentTypes: [Point, Number, Number, Number],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [N, I, I, I],
+        returnType: ye,
       }),
       directedCoterminalAngle: A("BuiltIn", "directedCoterminalAngle", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [ye],
+        returnType: ye,
       }),
       undirectedCoterminalAngle: A("BuiltIn", "undirectedCoterminalAngle", {
-        argumentTypes: [AngleMarker],
-        returnType: AngleMarker,
+        argumentTypes: [Le],
+        returnType: Le,
       }),
       supplement: A("BuiltIn", "supplementAngle", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [ye],
+        returnType: ye,
       }),
       directedAngleMarkerRawDelta: A("BuiltIn", "angleMarkerRawDelta", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: Number,
+        argumentTypes: [ye],
+        returnType: I,
       }),
       undirectedAngleMarkerRawDelta: A("BuiltIn", "angleMarkerRawDelta", {
-        argumentTypes: [AngleMarker],
-        returnType: Number,
+        argumentTypes: [Le],
+        returnType: I,
       }),
       directedAngleMarkerMultiplier: A("BuiltIn", "angleMarkerMultiplier", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: Number,
+        argumentTypes: [ye],
+        returnType: I,
       }),
       undirectedAngleMarkerMultiplier: A("BuiltIn", "angleMarkerMultiplier", {
-        argumentTypes: [AngleMarker],
-        returnType: Number,
+        argumentTypes: [Le],
+        returnType: I,
       }),
       polygonInteriorUndirectedAngles: A(
         "BuiltIn",
         "polygonInteriorUndirectedAngles",
         {
-          argumentTypes: [Polygon, Number],
-          returnType: ListOfAngleMarker,
-          allowDotCall: true,
+          argumentTypes: [xe, I],
+          returnType: On,
+          allowDotCall: !0,
           tag: "never-broadcast",
         },
       ),
@@ -10122,291 +10127,291 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         "BuiltIn",
         "polygonInteriorDirectedAngles",
         {
-          argumentTypes: [Polygon, Number],
-          returnType: ListOfDirectedAngleMarker,
-          allowDotCall: true,
+          argumentTypes: [xe, I],
+          returnType: Nn,
+          allowDotCall: !0,
           tag: "never-broadcast",
         },
       ),
       vertices: A("BuiltIn", "vertices", {
-        argumentTypes: [Polygon],
-        returnType: ListOfPoint,
-        allowDotCall: true,
+        argumentTypes: [xe],
+        returnType: Pt,
+        allowDotCall: !0,
         tag: "never-broadcast",
       }),
       segments: A("BuiltIn", "polygonEdges", {
-        argumentTypes: [Polygon],
-        returnType: ListOfSegment,
-        allowDotCall: true,
+        argumentTypes: [xe],
+        returnType: xn,
+        allowDotCall: !0,
         tag: "never-broadcast",
       }),
       scaleTangentTransformation: A("BuiltIn", "scaleTangentTransformation", {
-        argumentTypes: [Transformation, Number],
-        returnType: Polygon,
+        argumentTypes: [Re, I],
+        returnType: xe,
       }),
       scaleTangentPolygon: A("BuiltIn", "scaleTangentPolygon", {
-        argumentTypes: [Polygon, Number],
-        returnType: Polygon,
+        argumentTypes: [xe, I],
+        returnType: xe,
       }),
       scaleTangentSegment: A("BuiltIn", "scaleTangentSegment", {
-        argumentTypes: [Segment, Number],
-        returnType: Segment,
+        argumentTypes: [de, I],
+        returnType: de,
       }),
       scaleTangentLine: A("BuiltIn", "scaleTangentLine", {
-        argumentTypes: [Line, Number],
-        returnType: Line,
+        argumentTypes: [fe, I],
+        returnType: fe,
       }),
       scaleTangentRay: A("BuiltIn", "scaleTangentRay", {
-        argumentTypes: [Ray, Number],
-        returnType: Ray,
+        argumentTypes: [Ne, I],
+        returnType: Ne,
       }),
       scaleTangentCircle: A("BuiltIn", "scaleTangentCircle", {
-        argumentTypes: [Circle, Number],
-        returnType: Circle,
+        argumentTypes: [ce, I],
+        returnType: ce,
       }),
       scaleTangentArc: A("BuiltIn", "scaleTangentArc", {
-        argumentTypes: [Arc, Number],
-        returnType: Circle,
+        argumentTypes: [ie, I],
+        returnType: ce,
       }),
       scaleTangentDirectedAngleMarker: A("BuiltIn", "scaleTangentAngle", {
-        argumentTypes: [DirectedAngleMarker, Number],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [ye, I],
+        returnType: ye,
       }),
       scaleTangentUndirectedAngleMarker: A("BuiltIn", "scaleTangentAngle", {
-        argumentTypes: [AngleMarker, Number],
-        returnType: AngleMarker,
+        argumentTypes: [Le, I],
+        returnType: Le,
       }),
       addTangentPolygon: A("BuiltIn", "addTangentPolygon", {
-        argumentTypes: [Polygon, Polygon],
-        returnType: Polygon,
+        argumentTypes: [xe, xe],
+        returnType: xe,
       }),
       addTangentSegment: A("BuiltIn", "addTangentSegment", {
-        argumentTypes: [Segment, Segment],
-        returnType: Segment,
+        argumentTypes: [de, de],
+        returnType: de,
       }),
       addTangentSegmentThreeD: A("BuiltIn", "addTangentSegmentThreeD", {
-        argumentTypes: [Segment3D, Segment3D],
-        returnType: Segment3D,
+        argumentTypes: [wt, wt],
+        returnType: wt,
       }),
       addTangentLine: A("BuiltIn", "addTangentLine", {
-        argumentTypes: [Line, Line],
-        returnType: Line,
+        argumentTypes: [fe, fe],
+        returnType: fe,
       }),
       addTangentRay: A("BuiltIn", "addTangentRay", {
-        argumentTypes: [Ray, Ray],
-        returnType: Ray,
+        argumentTypes: [Ne, Ne],
+        returnType: Ne,
       }),
       addTangentVector: A("BuiltIn", "addTangentVector", {
-        argumentTypes: [Vector, Vector],
-        returnType: Vector,
+        argumentTypes: [le, le],
+        returnType: le,
       }),
       addTangentCircle: A("BuiltIn", "addTangentCircle", {
-        argumentTypes: [Circle, Circle],
-        returnType: Circle,
+        argumentTypes: [ce, ce],
+        returnType: ce,
       }),
       addTangentArc: A("BuiltIn", "addTangentArc", {
-        argumentTypes: [Arc, Arc],
-        returnType: Arc,
+        argumentTypes: [ie, ie],
+        returnType: ie,
       }),
       addTangentTransformation: A("BuiltIn", "addTangentTransformation", {
-        argumentTypes: [Transformation, Transformation],
-        returnType: Transformation,
+        argumentTypes: [Re, Re],
+        returnType: Re,
       }),
       addTangentDirectedAngleMarker: A("BuiltIn", "addTangentAngle", {
-        argumentTypes: [DirectedAngleMarker, DirectedAngleMarker],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [ye, ye],
+        returnType: ye,
       }),
       addTangentUndirectedAngleMarker: A("BuiltIn", "addTangentAngle", {
-        argumentTypes: [AngleMarker, AngleMarker],
-        returnType: AngleMarker,
+        argumentTypes: [Le, Le],
+        returnType: Le,
       }),
       segmentGlider: A("BuiltIn", "segmentGlider", {
-        argumentTypes: [Segment, Number],
-        returnType: Point,
+        argumentTypes: [de, I],
+        returnType: N,
       }),
       segmentThreeDGlider: A("BuiltIn", "segmentThreeDGlider", {
-        argumentTypes: [Segment3D, Number],
-        returnType: Point3D,
+        argumentTypes: [wt, I],
+        returnType: z,
       }),
       lineGlider: A("BuiltIn", "lineGlider", {
-        argumentTypes: [Line, Number],
-        returnType: Point,
+        argumentTypes: [fe, I],
+        returnType: N,
       }),
       rayGlider: A("BuiltIn", "rayGlider", {
-        argumentTypes: [Ray, Number],
-        returnType: Point,
+        argumentTypes: [Ne, I],
+        returnType: N,
       }),
       circleGlider: A("BuiltIn", "circleGlider", {
-        argumentTypes: [Circle, Number],
-        returnType: Point,
+        argumentTypes: [ce, I],
+        returnType: N,
       }),
       arcGlider: A("BuiltIn", "arcGlider", {
-        argumentTypes: [Arc, Number],
-        returnType: Point,
+        argumentTypes: [ie, I],
+        returnType: N,
       }),
       polygonEdgeByParameter: A("BuiltIn", "polygonEdgeByParameter", {
-        argumentTypes: [Polygon, Number],
-        returnType: Segment,
+        argumentTypes: [xe, I],
+        returnType: de,
       }),
       polygonGlider: A("BuiltIn", "polygonGlider", {
-        argumentTypes: [Polygon, Number],
-        returnType: Point,
+        argumentTypes: [xe, I],
+        returnType: N,
       }),
       chooseNonIncidentPoint: A("BuiltIn", "chooseNonIncidentPoint", {
-        argumentTypes: [Point, Point, Point],
-        returnType: Point,
+        argumentTypes: [N, N, N],
+        returnType: N,
       }),
       circleCircleIntersection: A("BuiltIn", "circleCircleIntersection", {
-        argumentTypes: [Circle, Circle, Number],
-        returnType: Point,
+        argumentTypes: [ce, ce, I],
+        returnType: N,
       }),
       circleArcIntersection: A("BuiltIn", "circleArcIntersection", {
-        argumentTypes: [Circle, Arc, Number],
-        returnType: Point,
+        argumentTypes: [ce, ie, I],
+        returnType: N,
       }),
       circleLineIntersection: A("BuiltIn", "circleLineIntersection", {
-        argumentTypes: [Circle, Line, Number],
-        returnType: Point,
+        argumentTypes: [ce, fe, I],
+        returnType: N,
       }),
       arcCircleIntersection: A("BuiltIn", "arcCircleIntersection", {
-        argumentTypes: [Arc, Circle, Number],
-        returnType: Point,
+        argumentTypes: [ie, ce, I],
+        returnType: N,
       }),
       arcArcIntersection: A("BuiltIn", "arcArcIntersection", {
-        argumentTypes: [Arc, Arc, Number],
-        returnType: Point,
+        argumentTypes: [ie, ie, I],
+        returnType: N,
       }),
       arcLineIntersection: A("BuiltIn", "arcLineIntersection", {
-        argumentTypes: [Arc, Line, Number],
-        returnType: Point,
+        argumentTypes: [ie, fe, I],
+        returnType: N,
       }),
       lineCircleIntersection: A("BuiltIn", "lineCircleIntersection", {
-        argumentTypes: [Line, Circle, Number],
-        returnType: Point,
+        argumentTypes: [fe, ce, I],
+        returnType: N,
       }),
       lineArcIntersection: A("BuiltIn", "lineArcIntersection", {
-        argumentTypes: [Line, Arc, Number],
-        returnType: Point,
+        argumentTypes: [fe, ie, I],
+        returnType: N,
       }),
       lineLineIntersection: A("BuiltIn", "lineLineIntersection", {
-        argumentTypes: [Line, Line, Number],
-        returnType: Point,
+        argumentTypes: [fe, fe, I],
+        returnType: N,
       }),
       lineFromSegment: A("BuiltIn", "identity", {
-        argumentTypes: [Segment],
-        returnType: Line,
+        argumentTypes: [de],
+        returnType: fe,
       }),
       lineFromRay: A("BuiltIn", "identity", {
-        argumentTypes: [Ray],
-        returnType: Line,
+        argumentTypes: [Ne],
+        returnType: fe,
       }),
       parallel: A("BuiltIn", "parallel", {
-        argumentTypes: [Line, Point],
-        returnType: Line,
+        argumentTypes: [fe, N],
+        returnType: fe,
       }),
       perpendicular: A("BuiltIn", "perpendicular", {
-        argumentTypes: [Line, Point],
-        returnType: Line,
+        argumentTypes: [fe, N],
+        returnType: fe,
       }),
       anglebisector: A("BuiltIn", "anglebisector", {
-        argumentTypes: [AngleMarker],
-        returnType: Ray,
+        argumentTypes: [Le],
+        returnType: Ne,
       }),
       directedanglebisector: A("BuiltIn", "anglebisector", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: Ray,
+        argumentTypes: [ye],
+        returnType: Ne,
       }),
       rawTransform: A("BuiltIn", "rawTransform", {
-        argumentTypes: [Point, Point],
-        returnType: Transformation,
+        argumentTypes: [N, N],
+        returnType: Re,
       }),
       rawTransformConj: A("BuiltIn", "rawTransformConj", {
-        argumentTypes: [Point, Point],
-        returnType: Transformation,
+        argumentTypes: [N, N],
+        returnType: Re,
       }),
       transformWithoutTranslation: A("BuiltIn", "transformWithoutTranslation", {
-        argumentTypes: [Transformation],
-        returnType: Transformation,
+        argumentTypes: [Re],
+        returnType: Re,
       }),
       transformScaleFactor: A("BuiltIn", "transformScaleFactor", {
-        argumentTypes: [Transformation],
-        returnType: Point,
+        argumentTypes: [Re],
+        returnType: N,
       }),
       translation: A("BuiltIn", "translation", {
-        argumentTypes: [Point],
-        returnType: Transformation,
+        argumentTypes: [N],
+        returnType: Re,
       }),
       dilation: A("BuiltIn", "dilation", {
-        argumentTypes: [Point, Number],
-        returnType: Transformation,
+        argumentTypes: [N, I],
+        returnType: Re,
       }),
       rotation: A("BuiltIn", "rotation", {
         tag: "trig2",
-        argumentTypes: [Point, Number],
-        returnType: Transformation,
+        argumentTypes: [N, I],
+        returnType: Re,
       }),
       reflection: A("BuiltIn", "reflection", {
-        argumentTypes: [Line],
-        returnType: Transformation,
+        argumentTypes: [fe],
+        returnType: Re,
       }),
       compose: A("BuiltIn", "composeTransformation", {
-        argumentTypes: [Transformation, Transformation],
-        returnType: Transformation,
+        argumentTypes: [Re, Re],
+        returnType: Re,
       }),
       inverse: A("BuiltIn", "invertTransformation", {
-        argumentTypes: [Transformation],
-        returnType: Transformation,
+        argumentTypes: [Re],
+        returnType: Re,
       }),
       transformPoint: A("BuiltIn", "transformPoint", {
-        argumentTypes: [Transformation, Point],
-        returnType: Point,
+        argumentTypes: [Re, N],
+        returnType: N,
       }),
       transformSegment: A("BuiltIn", "transformSegment", {
-        argumentTypes: [Transformation, Segment],
-        returnType: Segment,
+        argumentTypes: [Re, de],
+        returnType: de,
       }),
       transformLine: A("BuiltIn", "transformLine", {
-        argumentTypes: [Transformation, Line],
-        returnType: Line,
+        argumentTypes: [Re, fe],
+        returnType: fe,
       }),
       transformRay: A("BuiltIn", "transformRay", {
-        argumentTypes: [Transformation, Ray],
-        returnType: Ray,
+        argumentTypes: [Re, Ne],
+        returnType: Ne,
       }),
       transformVector: A("BuiltIn", "transformVector", {
-        argumentTypes: [Transformation, Vector],
-        returnType: Vector,
+        argumentTypes: [Re, le],
+        returnType: le,
       }),
       transformCircle: A("BuiltIn", "transformCircle", {
-        argumentTypes: [Transformation, Circle],
-        returnType: Circle,
+        argumentTypes: [Re, ce],
+        returnType: ce,
       }),
       transformArc: A("BuiltIn", "transformArc", {
-        argumentTypes: [Transformation, Arc],
-        returnType: Arc,
+        argumentTypes: [Re, ie],
+        returnType: ie,
       }),
       transformPolygon: A("BuiltIn", "transformPolygon", {
-        argumentTypes: [Transformation, Polygon],
-        returnType: Polygon,
+        argumentTypes: [Re, xe],
+        returnType: xe,
       }),
       transformAngleMarker: A("BuiltIn", "transformAngleMarker", {
-        argumentTypes: [Transformation, AngleMarker],
-        returnType: AngleMarker,
+        argumentTypes: [Re, Le],
+        returnType: Le,
       }),
       transformDirectedAngleMarker: A("BuiltIn", "transformAngleMarker", {
-        argumentTypes: [Transformation, DirectedAngleMarker],
-        returnType: DirectedAngleMarker,
+        argumentTypes: [Re, ye],
+        returnType: ye,
       }),
-      distanceThreeD: A("BuiltIn", "distanceThreeD", { argumentTypes: [Point3D, Point3D] }),
+      distanceThreeD: A("BuiltIn", "distanceThreeD", { argumentTypes: [z, z] }),
       segmentThreeD: A("BuiltIn", "segmentThreeD", {
-        argumentTypes: [Point3D, Point3D],
-        returnType: Segment3D,
+        argumentTypes: [z, z],
+        returnType: wt,
       }),
       triangle: A("BuiltIn", "triangle", {
-        argumentTypes: [Point3D, Point3D, Point3D],
-        returnType: Triangle3D,
+        argumentTypes: [z, z, z],
+        returnType: Rn,
       }),
-      sphere: A("BuiltIn", "sphere", { argumentTypes: [Point3D, Number], returnType: Sphere3D }),
+      sphere: A("BuiltIn", "sphere", { argumentTypes: [z, I], returnType: Hn }),
       mean: A("BuiltIn", "mean", { tag: "reducer" }),
       total: A("BuiltIn", "total", { tag: "reducer" }),
       stdev: A("BuiltIn", "stdev", { tag: "reducer" }),
@@ -10414,15 +10419,15 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       mad: A("BuiltIn", "mad", { tag: "reducer" }),
       count: A("BuiltIn", "listLength", {
         tag: "reducer",
-        argumentTypes: [ListOfAny],
-        noPeel: true,
+        argumentTypes: [pn],
+        noPeel: !0,
       }),
       listMin: A("BuiltIn", "listMin", { tag: "reducer" }),
       listMax: A("BuiltIn", "listMax", { tag: "reducer" }),
-      min: A("Math", "min", { argumentTypes: [Number, Number], returnType: Number }),
-      max: A("Math", "max", { argumentTypes: [Number, Number], returnType: Number }),
-      argmin: A("BuiltIn", "argMin", { tag: "reducer", noPeel: true }),
-      argmax: A("BuiltIn", "argMax", { tag: "reducer", noPeel: true }),
+      min: A("Math", "min", { argumentTypes: [I, I], returnType: I }),
+      max: A("Math", "max", { argumentTypes: [I, I], returnType: I }),
+      argmin: A("BuiltIn", "argMin", { tag: "reducer", noPeel: !0 }),
+      argmax: A("BuiltIn", "argMax", { tag: "reducer", noPeel: !0 }),
       median: A("BuiltIn", "median", { tag: "reducer" }),
       var: A("BuiltIn", "variance", { tag: "reducer" }),
       varp: A("BuiltIn", "varp", { tag: "reducer" }),
@@ -10448,268 +10453,268 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         tag: "parameterizedReducer",
       }),
       normalcdf: A("BuiltIn", "normalcdf", {
-        argumentTypes: [Number, Number, Number, Number],
+        argumentTypes: [I, I, I, I],
         defaultArguments: [vu, Kc],
       }),
       normalpdf: A("BuiltIn", "normalpdf", {
-        argumentTypes: [Number, Number, Number],
+        argumentTypes: [I, I, I],
         defaultArguments: [vu, Kc],
       }),
       binomcdf: A("BuiltIn", "binomcdf", {
-        argumentTypes: [Number, Number, Number, Number],
+        argumentTypes: [I, I, I, I],
         defaultArguments: [Nf],
       }),
       binompdf: A("BuiltIn", "binompdf", {
-        argumentTypes: [Number, Number, Number],
+        argumentTypes: [I, I, I],
         defaultArguments: [Nf],
       }),
-      poissoncdf: A("BuiltIn", "poissoncdf", { argumentTypes: [Number, Number, Number] }),
-      poissonpdf: A("BuiltIn", "poissonpdf", { argumentTypes: [Number, Number, Number] }),
+      poissoncdf: A("BuiltIn", "poissoncdf", { argumentTypes: [I, I, I] }),
+      poissonpdf: A("BuiltIn", "poissonpdf", { argumentTypes: [I, I, I] }),
       uniformcdf: A("BuiltIn", "uniformcdf", {
-        argumentTypes: [Number, Number, Number, Number],
+        argumentTypes: [I, I, I, I],
         defaultArguments: [vu, Kc],
       }),
       uniformpdf: A("BuiltIn", "uniformpdf", {
-        argumentTypes: [Number, Number, Number],
+        argumentTypes: [I, I, I],
         defaultArguments: [vu, Kc],
       }),
-      invT: A("BuiltIn", "invT", { argumentTypes: [Number, Number] }),
-      invPoisson: A("BuiltIn", "invPoisson", { argumentTypes: [Number, Number] }),
-      invBinom: A("BuiltIn", "invBinom", { argumentTypes: [Number, Number, Number] }),
-      invUniform: A("BuiltIn", "invUniform", { argumentTypes: [Number, Number, Number] }),
-      tpdf: A("BuiltIn", "tpdf", { argumentTypes: [Number, Number] }),
-      tcdf: A("BuiltIn", "tcdf", { argumentTypes: [Number, Number, Number] }),
+      invT: A("BuiltIn", "invT", { argumentTypes: [I, I] }),
+      invPoisson: A("BuiltIn", "invPoisson", { argumentTypes: [I, I] }),
+      invBinom: A("BuiltIn", "invBinom", { argumentTypes: [I, I, I] }),
+      invUniform: A("BuiltIn", "invUniform", { argumentTypes: [I, I, I] }),
+      tpdf: A("BuiltIn", "tpdf", { argumentTypes: [I, I] }),
+      tcdf: A("BuiltIn", "tcdf", { argumentTypes: [I, I, I] }),
       erf: A("BuiltIn", "erf"),
       invNorm: A("BuiltIn", "invNorm"),
       tscore: A("BuiltIn", "tscore", {
         tag: "parameterizedReducer",
         defaultArguments: [vu],
       }),
-      normalSample: A("BuiltIn", "normalSample", { argumentTypes: [SeedType, Number, Number] }),
+      normalSample: A("BuiltIn", "normalSample", { argumentTypes: [ft, I, I] }),
       uniformSample: A("BuiltIn", "uniformSample", {
-        argumentTypes: [SeedType, Number, Number],
+        argumentTypes: [ft, I, I],
       }),
-      tSample: A("BuiltIn", "tSample", { argumentTypes: [SeedType, Number] }),
-      poissonSample: A("BuiltIn", "poissonSample", { argumentTypes: [SeedType, Number] }),
-      binomSample: A("BuiltIn", "binomSample", { argumentTypes: [SeedType, Number, Number] }),
-      rgb: A("BuiltIn", "rgb", { returnType: RGBColor, tag: "color" }),
-      hsv: A("BuiltIn", "hsv", { returnType: RGBColor, tag: "color" }),
+      tSample: A("BuiltIn", "tSample", { argumentTypes: [ft, I] }),
+      poissonSample: A("BuiltIn", "poissonSample", { argumentTypes: [ft, I] }),
+      binomSample: A("BuiltIn", "binomSample", { argumentTypes: [ft, I, I] }),
+      rgb: A("BuiltIn", "rgb", { returnType: Kt, tag: "color" }),
+      hsv: A("BuiltIn", "hsv", { returnType: Kt, tag: "color" }),
       tone: A("BuiltIn", "tone", {
-        argumentTypes: [Number, Number],
-        returnType: Tone,
+        argumentTypes: [I, I],
+        returnType: Pn,
         defaultArguments: [Nf],
         minArityExampleArgs: "(440)",
         maxArityExampleArgs: "(440, 0.5)",
       }),
       validateRangeLength: A("BuiltIn", "validateRangeLength", {
-        returnType: Number,
-        argumentTypes: [ListOfNumber, ListOfNumber, Number, Number],
+        returnType: I,
+        argumentTypes: [ne, ne, I, I],
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       validateSampleCount: A("BuiltIn", "validateSampleCount", {
-        returnType: Number,
-        argumentTypes: [Number],
+        returnType: I,
+        argumentTypes: [I],
       }),
       select: A("BuiltIn", "select", {
-        argumentTypes: [ListOfAny, ListOfBool],
+        argumentTypes: [pn, Xn],
         returnType: (e) => e[0],
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       shuffle: A("BuiltIn", "shuffle", {
-        argumentTypes: [SeedType, ListOfAny],
+        argumentTypes: [ft, pn],
         returnType: (e) => e[1],
         tag: "never-broadcast",
       }),
       sortPerm: A("BuiltIn", "sortPerm", {
-        argumentTypes: [ListOfNumber],
-        returnType: ListOfNumber,
+        argumentTypes: [ne],
+        returnType: ne,
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       complexSortPerm: A("BuiltIn", "complexSortPerm", {
-        argumentTypes: [ListOfComplex],
-        returnType: ListOfNumber,
+        argumentTypes: [Ue],
+        returnType: ne,
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       elementsAt: A("BuiltIn", "elementsAt", {
-        argumentTypes: [ListOfAny, ListOfNumber],
+        argumentTypes: [pn, ne],
         returnType: (e) => e[0],
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       uniquePerm: A("BuiltIn", "uniquePerm", {
-        argumentTypes: [ListOfAny],
-        returnType: ListOfNumber,
+        argumentTypes: [pn],
+        returnType: ne,
         tag: "never-broadcast",
-        noPeel: true,
+        noPeel: !0,
       }),
       restriction: A("BuiltIn", "restriction", {
-        argumentTypes: [Bool],
-        returnType: Restriction,
+        argumentTypes: [De],
+        returnType: Gt,
       }),
       restrictionToBoolean: A("BuiltIn", "restrictionToBoolean", {
-        argumentTypes: [Restriction],
-        returnType: Bool,
+        argumentTypes: [Gt],
+        returnType: De,
       }),
       complex: A("BuiltIn", "complex", {
-        argumentTypes: [Number, Number],
-        returnType: Complex,
+        argumentTypes: [I, I],
+        returnType: R,
       }),
-      arg: A("BuiltIn", "arg", { argumentTypes: [Complex], returnType: Number }),
+      arg: A("BuiltIn", "arg", { argumentTypes: [R], returnType: I }),
       complexDivide: A("BuiltIn", "complexDivide", {
-        argumentTypes: [Complex, Complex],
-        returnType: Complex,
+        argumentTypes: [R, R],
+        returnType: R,
       }),
       peelableCoerceComplexToReal: A("BuiltIn", "coerceComplexToReal", {
-        argumentTypes: [Complex],
-        returnType: Number,
+        argumentTypes: [R],
+        returnType: I,
       }),
       coerceComplexToReal: A("BuiltIn", "coerceComplexToReal", {
-        argumentTypes: [Complex],
-        returnType: Number,
+        argumentTypes: [R],
+        returnType: I,
       }),
       coerceRealToComplex: A("BuiltIn", "coerceRealToComplex", {
-        argumentTypes: [Number],
-        returnType: Complex,
+        argumentTypes: [I],
+        returnType: R,
       }),
       complexSqrt: A("BuiltIn", "complexSqrt", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexLn: A("BuiltIn", "complexLog", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexLogbase: A("BuiltIn", "complexLogbase", {
-        argumentTypes: [Complex, Complex],
-        returnType: Complex,
+        argumentTypes: [R, R],
+        returnType: R,
       }),
       complexLog: A("BuiltIn", "complexCommonLog", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexExp: A("BuiltIn", "complexExp", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexPow: A("BuiltIn", "complexPow", {
-        argumentTypes: [Complex, Complex],
-        returnType: Complex,
+        argumentTypes: [R, R],
+        returnType: R,
       }),
       complexSin: A("BuiltIn", "complexSin", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCos: A("BuiltIn", "complexCos", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexTan: A("BuiltIn", "complexTan", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexSinh: A("BuiltIn", "complexSinh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCosh: A("BuiltIn", "complexCosh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexTanh: A("BuiltIn", "complexTanh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexSec: A("BuiltIn", "complexSec", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCsc: A("BuiltIn", "complexCsc", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCot: A("BuiltIn", "complexCot", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexSech: A("BuiltIn", "complexSech", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCsch: A("BuiltIn", "complexCsch", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexCoth: A("BuiltIn", "complexCoth", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArcsin: A("BuiltIn", "complexAsin", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccos: A("BuiltIn", "complexAcos", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArctan: A("BuiltIn", "complexAtan", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArcsec: A("BuiltIn", "complexAsec", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccsc: A("BuiltIn", "complexAcsc", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccot: A("BuiltIn", "complexAcot", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArcsinh: A("BuiltIn", "complexAsinh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccosh: A("BuiltIn", "complexAcosh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArctanh: A("BuiltIn", "complexAtanh", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArcsech: A("BuiltIn", "complexAsech", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccsch: A("BuiltIn", "complexAcsch", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       complexArccoth: A("BuiltIn", "complexAcoth", {
-        argumentTypes: [Complex],
-        returnType: Complex,
+        argumentTypes: [R],
+        returnType: R,
       }),
       angleVertex: A("BuiltIn", "angleVertex", {
-        argumentTypes: [AngleMarker],
-        returnType: Point,
+        argumentTypes: [Le],
+        returnType: N,
       }),
       angleStart: A("BuiltIn", "angleStart", {
-        argumentTypes: [AngleMarker],
-        returnType: Number,
+        argumentTypes: [Le],
+        returnType: I,
       }),
       directedAngleVertex: A("BuiltIn", "angleVertex", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: Point,
+        argumentTypes: [ye],
+        returnType: N,
       }),
       directedAngleStart: A("BuiltIn", "angleStart", {
-        argumentTypes: [DirectedAngleMarker],
-        returnType: Number,
+        argumentTypes: [ye],
+        returnType: I,
       }),
     },
     Ip = {
@@ -10749,19 +10754,19 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       sortPerm: "complexSortPerm",
     },
     dk = {
-      sqrt: true,
-      ln: true,
-      log: true,
-      logbase: true,
-      arcsin: true,
-      arccos: true,
-      arcsec: true,
-      arccsc: true,
-      arccosh: true,
-      arctanh: true,
-      arcsech: true,
-      arccoth: true,
-      nthroot: true,
+      sqrt: !0,
+      ln: !0,
+      log: !0,
+      logbase: !0,
+      arcsin: !0,
+      arccos: !0,
+      arcsec: !0,
+      arccsc: !0,
+      arccosh: !0,
+      arctanh: !0,
+      arcsech: !0,
+      arccoth: !0,
+      nthroot: !0,
     };
   function _g(e, t) {
     return e.isComplexEnabled() && t in dk ? Ip[t] : t;
@@ -10779,7 +10784,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function l0(e) {
     var s;
-    let t = [], n = Bn[e], r = (s = n.returnType) != null ? s : Number;
+    let t = [], n = Bn[e], r = (s = n.returnType) != null ? s : I;
     switch (n.tag) {
       case "reducer": {
         if (
@@ -10821,12 +10826,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var we = class extends Q {
     constructor(t) {
       super([]),
-        this._symbol = latexToIdentifier(t),
+        this._symbol = no(t),
         this._errorSymbol = this._symbol,
         this.addDependency(this._symbol);
     }
     setInputSpan(t) {
-      super.setInputSpan(t), this._errorSymbol = latexToIdentifier(this.getInputString());
+      super.setInputSpan(t), this._errorSymbol = no(this.getInputString());
     }
     getInputSpan() {
       return this._inputSpan === void 0
@@ -10836,7 +10841,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   };
   var gn = class extends Q {
     constructor(t, n) {
-      super(n, { skipRegisterDependencies: true }),
+      super(n, { skipRegisterDependencies: !0 }),
         typeof t == "string" && (t = new we(t)),
         this._identifier = t,
         this._symbol = t._symbol,
@@ -10869,7 +10874,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var Lg = class extends Yt {
       constructor() {
         super(...arguments);
-        this.isFunction = true;
+        this.isFunction = !0;
       }
     },
     tl,
@@ -10878,12 +10883,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   for (tl of We(Bn)) tt[tl] = new Lg();
   for (tl of We(Fo)) tt[tl] = new Lg();
   var Jr = {
-    "<": { inclusive: false, direction: -1 },
-    "!=": { inclusive: false, direction: 0 },
-    ">": { inclusive: false, direction: 1 },
-    "<=": { inclusive: true, direction: -1 },
-    "=": { inclusive: true, direction: 0 },
-    ">=": { inclusive: true, direction: 1 },
+    "<": { inclusive: !1, direction: -1 },
+    "!=": { inclusive: !1, direction: 0 },
+    ">": { inclusive: !1, direction: 1 },
+    "<=": { inclusive: !0, direction: -1 },
+    "=": { inclusive: !0, direction: 0 },
+    ">=": { inclusive: !0, direction: 1 },
   };
   function nl(e, t) {
     switch (t) {
@@ -10945,7 +10950,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       super();
       this.recursionInfo = i;
       this.externalBaseCases = [];
-      this.isFunction = true;
+      this.isFunction = !0;
       this._symbol = n._symbol, this._argSymbols = r.map((o) => o._symbol);
       for (let o of this._argSymbols) if (o === this._symbol) throw PI(o);
       this._exports = [this._symbol],
@@ -11021,7 +11026,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         return new e(
           i._symbol,
           [],
-          { valid: false, error: _x(i._symbol, i._argSymbols.length) },
+          { valid: !1, error: _x(i._symbol, i._argSymbols.length) },
           r._rhs,
           r,
         );
@@ -11031,11 +11036,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         let c = s.args[u];
         if (c instanceof Et) {
           if (o) {
-            o = { valid: false, error: wd() };
+            o = { valid: !1, error: wd() };
             break;
           }
           o = {
-            valid: true,
+            valid: !0,
             argIndex: u,
             functionDefArgSymbols: i._argSymbols,
             argValue: c.asValue(),
@@ -11043,11 +11048,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
           };
         } else if (c instanceof we) {
           if (c._symbol !== i._argSymbols[u]) {
-            o = { valid: false, error: ay() };
+            o = { valid: !1, error: ay() };
             break;
           } else a.push(c);
         } else {
-          o = { valid: false, error: ay() };
+          o = { valid: !1, error: ay() };
           break;
         }
       }
@@ -11116,7 +11121,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var Pp = class extends Yt {
     constructor(n, r) {
       super();
-      this.isRegression = true;
+      this.isRegression = !0;
       this.tableRegressionData = void 0;
       this._lhs = n,
         this.isLhsSimple = n instanceof we,
@@ -11278,7 +11283,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     var r, s, i, o;
     (s = (r = e.assignments)[t]) != null || (r[t] = []),
       e.assignments[t].push(n),
-      e.assignments[t].length > 1 && (e.multiplyDefined[t] = true),
+      e.assignments[t].length > 1 && (e.multiplyDefined[t] = !0),
       (o = (i = e.exports)[n]) != null || (i[n] = []),
       e.exports[n].push(t);
   }
@@ -11326,7 +11331,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function Kv(e, t) {
     var n;
-    return (n = e.multiplyDefined[t]) != null ? n : false;
+    return (n = e.multiplyDefined[t]) != null ? n : !1;
   }
   function Ik(e, t, n, r) {
     let s = [],
@@ -11341,7 +11346,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     function f(g) {
       u[g] = u[g] || {};
       let m = u[g], h;
-      m.id = g, m.index = c, m.lowlink = c, l.push(m), m.instack = true, c++;
+      m.id = g, m.index = c, m.lowlink = c, l.push(m), m.instack = !0, c++;
       let x = t[g], T;
       x.dependencies.type === "simple"
         ? T = x.dependencies.dependencies
@@ -11359,10 +11364,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         }
       }
       if (m.lowlink === m.index) {
-        if (h = l.pop(), h.instack = false, h === m) d(m.id);
+        if (h = l.pop(), h.instack = !1, h === m) d(m.id);
         else {
           let b = [h.id];
-          for (; h = l.pop(), h.instack = false, b.push(h.id), h !== m;);
+          for (; h = l.pop(), h.instack = !1, b.push(h.id), h !== m;);
           y(b);
         }
       }
@@ -11378,7 +11383,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     function y(g) {
       var b;
-      let m = [], h = true, x = [], T = new Set();
+      let m = [], h = !0, x = [], T = new Set();
       for (let M = g.length - 1; M >= 0; M--) {
         let P = g[M], D = t[P];
         for (let S of D.exports) {
@@ -11389,7 +11394,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         }
         T.add(P),
           p.push(P),
-          D.meta.type === 1 && !Kv(n, D.meta.fnSymbol) ? x.push(P) : h = false,
+          D.meta.type === 1 && !Kv(n, D.meta.fnSymbol) ? x.push(P) : h = !1,
           D.meta.type === 2 && i.add(P);
       }
       if (h) {
@@ -11438,7 +11443,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         this._exports = this.computeExports();
     }
     shouldExportAns() {
-      return true;
+      return !0;
     }
     computeExports() {
       let t = this._symbol, n = this.getDependencies();
@@ -11460,11 +11465,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
     shouldPromoteToSlider(t) {
       if (!this._expression.isConstant || this._expression.is_mixed_number) {
-        return false;
+        return !1;
       }
       let n = this._expression.asValue();
       return typeof n != "number" || !isFinite(n)
-        ? false
+        ? !1
         : t.isValidSlider(this._symbol);
     }
   };
@@ -11561,10 +11566,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         this.mergeDependencies(this._expressions[0], this._expressions[1]);
     }
     isInequality() {
-      return true;
+      return !0;
     }
     isShadeBetween() {
-      return true;
+      return !0;
     }
   };
   var Lu = class extends Q {};
@@ -11604,7 +11609,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   var Bg = class extends Yt {
     constructor(n, r) {
       super();
-      this.isImage = true;
+      this.isImage = !0;
       this.center = n.center,
         this.radianAngle = n.radianAngle,
         this.width = n.width,
@@ -11627,7 +11632,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   };
   var Rp = class extends Q {
     constructor(t) {
-      super(t, { skipRegisterDependencies: true }),
+      super(t, { skipRegisterDependencies: !0 }),
         this._differential = t[0],
         this.registerDependencies();
     }
@@ -11683,9 +11688,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       case 19:
       case 50:
       case 53:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function ds(e) {
@@ -11695,9 +11700,9 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       case 24:
       case 51:
       case 54:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function Gg(e) {
@@ -11706,15 +11711,15 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       case 22:
       case 24:
       case 51:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function Vr(e, t) {
     let n = new Array(t);
-    for (let s = 0; s < t; s++) n[s] = false;
-    n[t] = true;
+    for (let s = 0; s < t; s++) n[s] = !1;
+    n[t] = !0;
     let r = t;
     for (; r > 0;) {
       r = 0;
@@ -11724,7 +11729,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         if (!ge(i)) {
           for (
             let o of e.getDirectDependencies(i)
-          ) o > s && !n[o] && o > r && (r = o), n[o] = true;
+          ) o > s && !n[o] && o > r && (r = o), n[o] = !0;
         }
       }
     }
@@ -11732,8 +11737,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function nO(e, t) {
     let n = new Array(t);
-    for (let s = 0; s < t; s++) n[s] = false;
-    n[t] = true;
+    for (let s = 0; s < t; s++) n[s] = !1;
+    n[t] = !0;
     let r = t;
     for (; r > 0;) {
       r = 0;
@@ -11741,10 +11746,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         if (!n[s]) continue;
         let i = e.getInstruction(s);
         if (!ge(i)) {
-          if (i.type === 33) n[i.args[1]] = true, n[i.args[2]] = true;
+          if (i.type === 33) n[i.args[1]] = !0, n[i.args[2]] = !0;
           else {for (
               let o of e.getDirectDependencies(i)
-            ) o > s && !n[o] && (r = o), n[o] = true;}
+            ) o > s && !n[o] && (r = o), n[o] = !0;}
         }
       }
     }
@@ -11753,8 +11758,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function fs(e, t) {
     var s;
     let n = [], r = [];
-    for (let i = 0; i < t; i++) r.push(false);
-    r.push(true);
+    for (let i = 0; i < t; i++) r.push(!1);
+    r.push(!0);
     for (let i = t; i >= 0; i--) {
       if (!r[i]) continue;
       let o = e.getInstruction(i);
@@ -11797,7 +11802,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         }
       } else {o.type === 3 && o.symbol &&
           n.push({ symbol: o.symbol, scope: "symbolic-var" });}
-      if (!ge(o)) { for (let a of e.getDirectDependencies(o)) r[a] = true; }
+      if (!ge(o)) { for (let a of e.getDirectDependencies(o)) r[a] = !0; }
     }
     return n.reverse();
   }
@@ -11806,18 +11811,18 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function ol(e, t, n, r) {
     let s = [];
-    for (let o = n; o <= r; o++) s[o] = false;
-    for (let o of t) s[o] = true;
+    for (let o = n; o <= r; o++) s[o] = !1;
+    for (let o of t) s[o] = !0;
     let i = Math.min(...t);
     for (let o = 0; o <= 1; o++) {
-      let a = false;
+      let a = !1;
       for (let u = i + 1; u < e.instructionsLength(); u++) {
         let c = e.getInstruction(u);
         if (ge(c) || s[u]) continue;
-        let l = false;
+        let l = !1;
         for (let p of e.getDirectDependencies(c)) {
           if (s[p]) {
-            l = true;
+            l = !0;
             break;
           }
         }
@@ -11825,7 +11830,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
           let p = c.args[0], f = c.args.length - 1;
           for (let d = 0; d < f; d++) {
             let y = c.args[1 + d], g = p + 1 + d;
-            s[y] && (s[g] = true, a = true);
+            s[y] && (s[g] = !0, a = !0);
           }
         }
       }
@@ -11878,7 +11883,7 @@ return fn;
     let r = "",
       s = (e.instructionsLength() - 1).toString().length,
       i = 0,
-      o = false,
+      o = !1,
       a = Vr(e, t);
     for (let u = 0; u < e.instructionsLength(); u++) {
       let c = e.getInstruction(u), l = n.comments[u] || "";
@@ -11887,9 +11892,9 @@ return fn;
           !a[u] && !n.printUnreferencedInstructions || c.type === 0
       ) {
         o || (r += `${iO(u, s)}: ${g0(2 * i)}...
-`), o = true;
+`), o = !0;
       } else {
-        o = false;
+        o = !1;
         let p = `${iO(u, s)}: ${g0(2 * i)}${al(e, u)}`;
         l && (p += " ".repeat(Math.max(0, 36 - p.length)), p += `	# ${l}`),
           r += p + `
@@ -12188,9 +12193,9 @@ return fn;
     }
     hasRecursiveReferences() {
       for (let t of Object.values(this.referencesFrom)) {
-        if (t.length > 0) return true;
+        if (t.length > 0) return !0;
       }
-      return false;
+      return !1;
     }
     getBaseCasesForFunction(t) {
       return this.baseCases[t];
@@ -12216,16 +12221,16 @@ return fn;
     else if (o === t) a = i;
     else return;
     let u = e.getInstruction(a);
-    if (Je(u) && u.valueType === Number) return u.value;
+    if (Je(u) && u.valueType === I) return u.value;
   }
   function Sk(e, t, n, r) {
-    let s = [], i = true, o = true;
+    let s = [], i = !0, o = !0;
     for (let a in t) {
       let u = t[a],
         l = e.getInstruction(u).endIndex,
         f = e.getInstruction(l).args[0],
         d = r !== void 0 ? f + r + 1 : void 0,
-        y = { [l]: true };
+        y = { [l]: !0 };
       for (let g = l; g > f; g--) {
         if (!y[g]) continue;
         let m = e.getInstruction(g);
@@ -12233,12 +12238,12 @@ return fn;
           if (m.type === 33) {
             let h = m.args[1], x = m.args[2];
             if (!n[h] || !n[x]) {
-              i = false;
+              i = !1;
               let b = Dk(e, d, g);
-              b !== void 0 && !n[h] ? s.push({ fn: u, argValue: b }) : o = false;
+              b !== void 0 && !n[h] ? s.push({ fn: u, argValue: b }) : o = !1;
             }
           }
-          for (let h of m.args) y[h] = true;
+          for (let h of m.args) y[h] = !0;
         }
       }
     }
@@ -12260,7 +12265,7 @@ return fn;
         let y = e.getInstruction(d);
         if (!ge(y) && f[d]) {
           if (y.type === 55 && n.has(y.args[0])) {
-            r[d] = true;
+            r[d] = !0;
             let g = I0(e, p, y);
             g
               ? (g.iterationParameterIndex !== void 0 &&
@@ -12272,7 +12277,7 @@ return fn;
           }
           for (let g of e.getDirectDependencies(y)) {
             if (r[g]) {
-              r[d] = true;
+              r[d] = !0;
               break;
             }
           }
@@ -12294,7 +12299,7 @@ return fn;
       let a = n.args[o], u = e.getInstruction(a), c, l;
       if (u.type === 9 && s === void 0) {
         let d = e.getInstruction(u.args[1]);
-        if (!(d.type === 1 && d.valueType === Number)) return;
+        if (!(d.type === 1 && d.valueType === I)) return;
         l = V(d.value), c = u.args[0];
       } else l = 0, c = a;
       let p = e.getInstruction(c);
@@ -12367,7 +12372,7 @@ return fn;
     if (n.iterationParameterIndex !== void 0 && isFinite(i) && i <= o) {
       let p = Ok(n);
       return {
-        canIterate: true,
+        canIterate: !0,
         parameterSymbols: a,
         baseCaseInfo: r,
         maxRecursiveCallOffsets: s,
@@ -12377,7 +12382,7 @@ return fn;
         order: p,
       };
     } else {return {
-        canIterate: false,
+        canIterate: !1,
         parameterSymbols: a,
         baseCaseInfo: r,
         maxRecursiveCallOffsets: s,
@@ -12431,7 +12436,7 @@ return fn;
       }
       u.type === 54 && a++, u.type === 53 && a--;
     }
-    if (n === void 0) return false;
+    if (n === void 0) return !1;
     let r = e.getInstruction(t),
       s = e.getInstruction(r.args[0]),
       i = e.getInstruction(n).args[0];
@@ -12439,9 +12444,9 @@ return fn;
   }
   function Ug(e) {
     for (let t = 0; t < e.argCoeffs.length; t++) {
-      if (V(e.argCoeffs[t]) !== 0) return false;
+      if (V(e.argCoeffs[t]) !== 0) return !1;
     }
-    return true;
+    return !0;
   }
   var qg = Se(0, 1), bO = Se(1, 1);
   function $g(e) {
@@ -12564,7 +12569,7 @@ return fn;
       let n = this.coefficientTable[t];
       if (n !== void 0) return n;
       let r, s = this.chunk.getInstruction(t);
-      return s.type === 1 && s.valueType === Number
+      return s.type === 1 && s.valueType === I
         ? r = { argCoeffs: this.ZERO_COEFFS, constantCoeff: s.value }
         : this.mask[t]
         ? r = this._coeffs(t)
@@ -12778,15 +12783,15 @@ return fn;
         u = e.referenceArg(r[i]);
       o > 0 ? s.push(`${u}>=${a}`) : o < 0 && s.push(`${u}<=${a}`);
     }
-    return s.length === 0 ? true : `(${s.join("&&")})`;
+    return s.length === 0 ? !0 : `(${s.join("&&")})`;
   }
   function xO(e, t, n) {
     let r = "";
     for (let s = 0; s < n.length; s++) {
-      let i = e.printValue(t.argCoeffs[s], Number), o = e.referenceArg(n[s]);
+      let i = e.printValue(t.argCoeffs[s], I), o = e.referenceArg(n[s]);
       r += `${i}*${o}+`;
     }
-    return r += e.printValue(t.constantCoeff, Number), `(${r})`;
+    return r += e.printValue(t.constantCoeff, I), `(${r})`;
   }
   var Jt;
   ((r) => (r.Noop = 0, r.Inline = 1, r.Block = 2))(Jt || (Jt = {}));
@@ -12827,7 +12832,7 @@ return fn;
     let c = b0(i), l = uO(i), p = cO(i), f = Hg(i);
     return `
     const ${p}=${
-      a.length === 1 && o.signature.argTypes[0] === Number
+      a.length === 1 && o.signature.argTypes[0] === I
         ? "({fn, args}) => `${fn}:${args[0]}`"
         : "({fn, args}) => `${fn}:${JSON.stringify(args)}`"
     };
@@ -13191,9 +13196,9 @@ if (${x}) {
       o = Ap(s),
       a = _p(s),
       u = "",
-      c = false,
-      l = false;
-    e.wantToInlineThunk(s) || (l = true);
+      c = !1,
+      l = !1;
+    e.wantToInlineThunk(s) || (l = !0);
     let p = t;
     for (; p <= i;) {
       let f = n.getInstruction(p), d = p === t ? vO(e, f, p) : C0(e, f, p);
@@ -13204,19 +13209,19 @@ if (${x}) {
           c && (u += `,
 `),
             u += d.source,
-            c = true;
+            c = !0;
           break;
         case Jt.Block:
           c && (u += `;
 `),
-            c = false,
+            c = !1,
             u += d.source,
-            l = true;
+            l = !0;
           break;
       }
       r.push(u), p = d.nextIdx;
     }
-    if (u === "" && (u = "0", l = false), l) {
+    if (u === "" && (u = "0", l = !1), l) {
       let f = `${o}=false;${a}=()=>{
 ${o}=true;
 
@@ -13347,11 +13352,11 @@ if (earlyReturn !== undefined) return earlyReturn;
       : { type: Jt.Inline, source: `${fn(s + 1)}=${r}`, nextIdx: t.endIndex };
   }
   function Lp(e, t, n) {
-    let { chunk: r, referenced: s } = e, i = "", o = false;
+    let { chunk: r, referenced: s } = e, i = "", o = !1;
     for (let a = t; a <= n; a++) {
       if (!e.glsl && e.isThunkBegin(a)) {
         let c = e.thunkName(a);
-        i += `${o ? "," : "var "}${Ap(c)}`, i += `,${_p(c)}`, o = true;
+        i += `${o ? "," : "var "}${Ap(c)}`, i += `,${_p(c)}`, o = !0;
       }
       let u = r.getInstruction(a);
       if (!(u.type === 0 || u.type === 24 || u.type === 20 || !s[a])) {
@@ -13362,7 +13367,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         }
         if (
           !e.shouldInline(a) &&
-          (i += e.emitVarDeclaration(a, o), o = true, u.type === 53)
+          (i += e.emitVarDeclaration(a, o), o = !0, u.type === 53)
         ) {
           let { endIndex: c } = u;
           a = c - 1;
@@ -13535,13 +13540,13 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 15: {
         let s = t.valueType;
         switch (s) {
-          case Point:
-          case Complex:
+          case N:
+          case R:
             return e.emitVec2(
               e.referenceArg(t.args[0]),
               e.referenceArg(t.args[1]),
             );
-          case Point3D:
+          case z:
             return e.emitVec3(
               e.referenceArg(t.args[0]),
               e.referenceArg(t.args[1]),
@@ -13555,9 +13560,9 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 16: {
         let s = e.chunk.getInstruction(t.args[0]).valueType;
         switch (s) {
-          case Point:
-          case Point3D:
-          case Complex:
+          case N:
+          case z:
+          case R:
             return e.emitVecAccess(e.referenceArg(t.args[0]), t.index);
           default:
             let i = s;
@@ -13666,7 +13671,7 @@ if (earlyReturn !== undefined) return earlyReturn;
           );
         }
         for (let g = 0; g < d.length; g++) {
-          if (e.getInstruction(d[g]).valueType !== Number) continue e;
+          if (e.getInstruction(d[g]).valueType !== I) continue e;
           let m = a.coeffs(d[g]);
           if (m === void 0 || !qk(m, g) || V(m.argCoeffs[g]) < -1) continue e;
         }
@@ -13677,12 +13682,12 @@ if (earlyReturn !== undefined) return earlyReturn;
   }
   function qk(e, t) {
     for (let n = 0; n < e.argCoeffs.length; n++) {
-      if (n !== t && V(e.argCoeffs[n]) !== 0) return false;
+      if (n !== t && V(e.argCoeffs[n]) !== 0) return !1;
     }
-    return true;
+    return !0;
   }
   function NO(e, t) {
-    let n = e.getReturnIndex(), r = new Array(n), s = new Array(n).fill(false);
+    let n = e.getReturnIndex(), r = new Array(n), s = new Array(n).fill(!1);
     for (let o = 0; o <= n; o++) {
       let a = e.getInstruction(o);
       es(a) || ds(a) || a.type === 48 ||
@@ -13691,7 +13696,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         ? r[o] = 2
         : r[o] = 0;
     }
-    r[n] === 0 && (r[n] = 1, s[n] = true);
+    r[n] === 0 && (r[n] = 1, s[n] = !0);
     let i = 0;
     for (let o = n; o >= 0; o--) {
       if (!t[o]) continue;
@@ -13703,29 +13708,29 @@ if (earlyReturn !== undefined) return earlyReturn;
       ) {
         for (let c of a.args) {
           let l = e.getInstruction(c);
-          r[c] === 0 && l.type === 1 && l.valueType === Number
-            ? (r[c] = 1, s[c] = true)
-            : (r[c] = 2, s[c] = false);
+          r[c] === 0 && l.type === 1 && l.valueType === I
+            ? (r[c] = 1, s[c] = !0)
+            : (r[c] = 2, s[c] = !1);
         }
       } else {
         for (let c of a.args) {
           switch (r[c]) {
             case 0:
-              r[c] = 1, s[c] = true;
+              r[c] = 1, s[c] = !0;
               break;
             case 1:
             case 2:
-              r[c] = 2, s[c] = false;
+              r[c] = 2, s[c] = !1;
               break;
           }
         }
-        i > 0 && a.type === 33 && (r[o] = 2, s[o] = false);
+        i > 0 && a.type === 33 && (r[o] = 2, s[o] = !1);
       }
     }
     return s;
   }
   function RO(e, t) {
-    if (t.recursionGroup.length > 1) return false;
+    if (t.recursionGroup.length > 1) return !1;
     let n = t.endIndex, r = e.getInstruction(n);
     if (r.type !== 54) {
       throw new Error(
@@ -13733,7 +13738,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       );
     }
     let [s, ...i] = r.args;
-    if (i.length !== 1) return false;
+    if (i.length !== 1) return !1;
     let o = e.getInstruction(s);
     if (o.type !== 53) {
       throw new Error(
@@ -13741,29 +13746,29 @@ if (earlyReturn !== undefined) return earlyReturn;
       );
     }
     let a = o.args[0], u = {};
-    u[i[0]] = true;
+    u[i[0]] = !0;
     for (let c = n - 1; c >= s; c--) {
       let l = e.getInstruction(c);
       switch (l.type) {
         case 55:
-          if (!u[c]) return false;
+          if (!u[c]) return !1;
           if (l.args[0] !== a) {
             throw new Error("recursionGroup.length == 1 contradicted");
           }
           break;
         case 33:
-          u[c] && (u[l.args[1]] = true, u[l.args[2]] = true);
+          u[c] && (u[l.args[1]] = !0, u[l.args[2]] = !0);
           break;
         default:
           break;
       }
     }
-    return true;
+    return !0;
   }
   function $k(e, t) {
-    if (e.size !== t.size) return false;
-    for (let n of e) if (!t.has(n)) return false;
-    return true;
+    if (e.size !== t.size) return !1;
+    for (let n of e) if (!t.has(n)) return !1;
+    return !0;
   }
   var Wg = class {
     constructor(t, n, r) {
@@ -13811,10 +13816,10 @@ if (earlyReturn !== undefined) return earlyReturn;
     wantToInlineThunk(t) {
       let n = this.thunkSets[t];
       if (n !== "always" && n.size === 1) {
-        for (let r of n) if (this.piecewiseReferencedCount[r] !== 1) return false;
-        return true;
+        for (let r of n) if (this.piecewiseReferencedCount[r] !== 1) return !1;
+        return !0;
       }
-      return false;
+      return !1;
     }
     printChunkWithThunkInfo() {
       for (let t = 0; t <= this.chunk.getReturnIndex(); t++) {
@@ -13917,11 +13922,11 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
     thunkDecision(t, n, r, s, i) {
       let o = this.chunk.getInstruction(n);
-      if (o.type === 33 && (s = false), s || !r) {
-        return { shouldEndThunk: false, shouldStartThunk: false };
+      if (o.type === 33 && (s = !1), s || !r) {
+        return { shouldEndThunk: !1, shouldStartThunk: !1 };
       }
       if (i === "always") {
-        return { shouldEndThunk: t !== void 0, shouldStartThunk: false };
+        return { shouldEndThunk: t !== void 0, shouldStartThunk: !1 };
       }
       let a = o.type === 1 || o.type === 47,
         u = i.size > 0 && !a,
@@ -13931,7 +13936,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     markEndThunk(t, n) {
       let { referenced: r } = this;
       for (; t >= 0 && !r[t];) t--;
-      this._isThunkEnd[t] = true, this.thunkEnds[n.start] = t;
+      this._isThunkEnd[t] = !0, this.thunkEnds[n.start] = t;
     }
   };
   function Yk(e, t) {
@@ -14051,7 +14056,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   }
   var D0 = class extends wp {
     constructor(n) {
-      super(n, false);
+      super(n, !1);
       this.constants = [];
     }
     finish(n) {
@@ -14083,8 +14088,8 @@ if (earlyReturn !== undefined) return earlyReturn;
       return i;
     }
     emitConstant(n) {
-      return n.valueType === Number || n.valueType === Bool || n.valueType === Point ||
-          n.valueType === Point3D
+      return n.valueType === I || n.valueType === De || n.valueType === N ||
+          n.valueType === z
         ? this.printValue(n.value)
         : (this.constants.push(Vo(n.value)),
           `_C[${this.constants.length - 1}]`);
@@ -14151,7 +14156,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       return `${s.module}.${s.symbol}(${n.join(",")})`;
     }
     emitExtendSeed(n, r, s, i) {
-      let o = r === Number ? s : `BuiltIn.serializeNonNumericSeedPart(${r},${s})`;
+      let o = r === I ? s : `BuiltIn.serializeNonNumericSeedPart(${r},${s})`;
       return `${n}+'::${i}'+${o}`;
     }
     emitVarDeclaration(n, r) {
@@ -14191,13 +14196,13 @@ if (earlyReturn !== undefined) return earlyReturn;
     let i = [];
     for (let p of s.args) {
       let f = e.getInstruction(p);
-      if (!Je(f) || f.valueType !== Number) {
+      if (!Je(f) || f.valueType !== I) {
         throw U("Programming error: interval bounds must be constant numbers");
       }
       i.push(V(f.value));
     }
     let o, a;
-    r === MapIntervalPoint || r === MapIntervalComplex || r === MapIntervalPoint3D
+    r === sr || r === or || r === ir
       ? (o = ["t"], a = { type: "1d", min: i[0], max: i[1] })
       : (o = ["u", "v"],
         a = { type: "2d", uMin: i[0], uMax: i[1], vMin: i[2], vMax: i[3] });
@@ -14230,7 +14235,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   var on = class e extends Yt {
     constructor(n) {
       super();
-      this.isError = false;
+      this.isError = !1;
       this.eachElement = Xk;
       this.mapElements = Zk;
       if (n.getError()) {
@@ -14250,13 +14255,13 @@ if (earlyReturn !== undefined) return earlyReturn;
       ) throw RP(n.getListLengthDependencies());
       rO(n);
       let r = n.isConstant();
-      this.isConstant = r && (this.valueType === Number || this.valueType === Bool),
+      this.isConstant = r && (this.valueType === I || this.valueType === De),
         this.isTypedConstant = r,
-        this.isEmptyAction = r && this.valueType === Action &&
+        this.isEmptyAction = r && this.valueType === ut &&
           Object.keys(n.asValue().updateRules).length === 0;
     }
     shouldExportAns() {
-      return true;
+      return !0;
     }
     getCompiledFunction(n) {
       return ua(this.valueType)
@@ -14268,8 +14273,8 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
     polynomialOrder(n) {
       return this._chunk.polynomialOrder(n, {
-        allowRestriction: true,
-        allowClosedBlockReferences: false,
+        allowRestriction: !0,
+        allowClosedBlockReferences: !1,
       });
     }
     getPolynomialCoefficients(n) {
@@ -14334,10 +14339,10 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
     getEvaluationInfo() {
       return this._chunk.isConstant() && this.getDependencies().length === 0 &&
-          (se(this.valueType, Number) || se(this.valueType, Bool) ||
-            se(this.valueType, Complex))
+          (se(this.valueType, I) || se(this.valueType, De) ||
+            se(this.valueType, R))
         ? [{ val: this.asValue() }]
-        : false;
+        : !1;
     }
     findLinearSubset(n) {
       return this._chunk.findLinearSubset(n);
@@ -14357,8 +14362,8 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
     coerceToNumericIfPossible() {
       if (
-        se(this.valueType, AngleMarker) || se(this.valueType, DirectedAngleMarker) ||
-        se(this.valueType, Complex)
+        se(this.valueType, Le) || se(this.valueType, ye) ||
+        se(this.valueType, R)
       ) {
         let n = this._chunk.copy(), r = n.getReturnIndex();
         return n.coerceToNumericIfPossible() === r ? this : new e(n);
@@ -14379,7 +14384,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   var Bf = class Bf extends Q {
     constructor(n) {
       super(n);
-      this.isList = true;
+      this.isList = !0;
       this.length = n.length;
     }
     asValue() {
@@ -14425,7 +14430,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   var Ja = class extends Q {
     constructor(n, r, s, i, o = []) {
-      super([n, r].concat(s), { skipRegisterDependencies: true });
+      super([n, r].concat(s), { skipRegisterDependencies: !0 });
       this.shouldCoerceToList = i;
       this.parameters = o;
       this._index = n,
@@ -14458,15 +14463,15 @@ if (earlyReturn !== undefined) return earlyReturn;
   var Qg = class extends Et {
     constructor() {
       super(...arguments);
-      this.is_mixed_number = true;
+      this.is_mixed_number = !0;
     }
   };
   var Kg = class extends ao {
     constructor(n, r, s) {
       super(n);
-      this.isTypedConstant = true;
-      this.isMovablePoint = true;
-      this.moveStrategy = r, this.defaultDragMode = s, this.valueType = Point;
+      this.isTypedConstant = !0;
+      this.isMovablePoint = !0;
+      this.moveStrategy = r, this.defaultDragMode = s, this.valueType = N;
     }
     asValue() {
       return [+this.args[0].asValue(), +this.args[1].asValue()];
@@ -14490,7 +14495,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   var Bu = class extends Q {
     constructor(t) {
-      super(t, { skipRegisterDependencies: true }),
+      super(t, { skipRegisterDependencies: !0 }),
         this._index = t[0],
         this.registerDependencies();
     }
@@ -14546,7 +14551,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     constructor(n) {
       typeof n != "string" && (n = "" + n);
       super([]);
-      this.isString = true;
+      this.isString = !0;
       this._stringValue = n;
     }
     asValue() {
@@ -14561,7 +14566,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   var th = class extends ja {
     constructor(n, r) {
       super(new we(n._symbol), n._expression);
-      this.isSlider = true;
+      this.isSlider = !0;
       this.setInputSpan(n._inputSpan),
         this.sliderAssignment = n,
         this.sliderMin = r.sliderMin,
@@ -14575,7 +14580,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         this.sliderStep && this.mergeDependencies(this.sliderStep);
     }
     shouldPromoteToSlider(n) {
-      return false;
+      return !1;
     }
     asAssignment() {
       return new ja(this._symbol, this._expression);
@@ -14598,7 +14603,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   var xa = class extends Q {
     constructor(t, n) {
-      super([t].concat(n), { skipRegisterDependencies: true }),
+      super([t].concat(n), { skipRegisterDependencies: !0 }),
         this._body = t,
         this._assignments = n,
         this.registerDependencies();
@@ -14640,7 +14645,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       this.calcColumns = r;
       this.regression = s;
       this.exportPenalty = 1;
-      this.isTable = true;
+      this.isTable = !0;
       this.columns = n,
         this.mergeDependencies.apply(this, n),
         this.localFrameID = i;
@@ -14675,7 +14680,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   var Zp = class extends Q {
     constructor(t) {
-      super(t, { skipRegisterDependencies: true }),
+      super(t, { skipRegisterDependencies: !0 }),
         this._symbol = t[0]._symbol,
         this._expression = t[1],
         this.registerDependencies();
@@ -14706,9 +14711,9 @@ if (earlyReturn !== undefined) return earlyReturn;
   var pl = class extends Q {
     constructor(n, r, s) {
       super(n);
-      this.isTypedConstant = true;
-      this.isMovablePoint = true;
-      this.moveStrategy = r, this.defaultDragMode = s, this.valueType = Complex;
+      this.isTypedConstant = !0;
+      this.isMovablePoint = !0;
+      this.moveStrategy = r, this.defaultDragMode = s, this.valueType = R;
     }
     asValue() {
       return [+this.args[0].asValue(), +this.args[1].asValue()];
@@ -14730,122 +14735,122 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   function lt(e, t) {
     switch (e) {
-      case Number:
-      case Bool:
+      case I:
+      case De:
         return new C.Constant(t);
-      case SeedType:
+      case ft:
         return new C.Seed(t);
-      case Complex:
+      case R:
         return new C.Add([
-          lt(Number, t[0]),
-          new C.Multiply([lt(Number, t[1]), new C.ImaginaryUnit()]),
+          lt(I, t[0]),
+          new C.Multiply([lt(I, t[1]), new C.ImaginaryUnit()]),
         ]);
-      case Point:
-        return new C.ParenSeq([lt(Number, t[0]), lt(Number, t[1])]);
-      case Point3D:
-        return new C.ParenSeq([lt(Number, t[0]), lt(Number, t[1]), lt(Number, t[2])]);
-      case Segment3D:
-        return new C.FunctionCall("segment", [lt(Point3D, t[0]), lt(Point3D, t[1])]);
-      case Vector3D:
-        return new C.FunctionCall("vector", [lt(Point3D, t[0]), lt(Point3D, t[1])]);
-      case Triangle3D:
+      case N:
+        return new C.ParenSeq([lt(I, t[0]), lt(I, t[1])]);
+      case z:
+        return new C.ParenSeq([lt(I, t[0]), lt(I, t[1]), lt(I, t[2])]);
+      case wt:
+        return new C.FunctionCall("segment", [lt(z, t[0]), lt(z, t[1])]);
+      case ke:
+        return new C.FunctionCall("vector", [lt(z, t[0]), lt(z, t[1])]);
+      case Rn:
         return new C.FunctionCall("triangle", [
-          lt(Point3D, t[0]),
-          lt(Point3D, t[1]),
-          lt(Point3D, t[2]),
+          lt(z, t[0]),
+          lt(z, t[1]),
+          lt(z, t[2]),
         ]);
-      case Sphere3D:
-        return new C.FunctionCall("sphere", [lt(Point3D, t[0]), lt(Number, t[1])]);
-      case RGBColor:
+      case Hn:
+        return new C.FunctionCall("sphere", [lt(z, t[0]), lt(I, t[1])]);
+      case Kt:
         return new C.FunctionCall("rgb", [
-          lt(Number, t[0]),
-          lt(Number, t[1]),
-          lt(Number, t[2]),
+          lt(I, t[0]),
+          lt(I, t[1]),
+          lt(I, t[2]),
         ]);
-      case Polygon:
-        return new C.FunctionCall("polygon", [lt(ListOfPoint, t)]);
-      case Segment:
-        return new C.FunctionCall("segment", [lt(Point, t[0]), lt(Point, t[1])]);
-      case Line:
-        return new C.FunctionCall("line", [lt(Point, t[0]), lt(Point, t[1])]);
-      case Ray:
-        return new C.FunctionCall("ray", [lt(Point, t[0]), lt(Point, t[1])]);
-      case Vector:
-        return new C.FunctionCall("mathVector", [lt(Point, t[0]), lt(Point, t[1])]);
-      case Circle:
-        return new C.FunctionCall("circle", [lt(Point, t[0]), lt(Number, t[1])]);
-      case Arc:
+      case xe:
+        return new C.FunctionCall("polygon", [lt(Pt, t)]);
+      case de:
+        return new C.FunctionCall("segment", [lt(N, t[0]), lt(N, t[1])]);
+      case fe:
+        return new C.FunctionCall("line", [lt(N, t[0]), lt(N, t[1])]);
+      case Ne:
+        return new C.FunctionCall("ray", [lt(N, t[0]), lt(N, t[1])]);
+      case le:
+        return new C.FunctionCall("mathVector", [lt(N, t[0]), lt(N, t[1])]);
+      case ce:
+        return new C.FunctionCall("circle", [lt(N, t[0]), lt(I, t[1])]);
+      case ie:
         return new C.FunctionCall("arc", [
-          lt(Point, t[0]),
-          lt(Point, t[1]),
-          lt(Point, t[2]),
+          lt(N, t[0]),
+          lt(N, t[1]),
+          lt(N, t[2]),
         ]);
-      case AngleMarker:
+      case Le:
         return new C.FunctionCall("angle", [
-          lt(Point, t[0]),
-          lt(Number, t[1]),
-          lt(Number, t[2]),
+          lt(N, t[0]),
+          lt(I, t[1]),
+          lt(I, t[2]),
         ]);
-      case DirectedAngleMarker:
+      case ye:
         return new C.FunctionCall("directedangle", [
-          lt(Point, t[0]),
-          lt(Number, t[1]),
-          lt(Number, t[2]),
+          lt(N, t[0]),
+          lt(I, t[1]),
+          lt(I, t[2]),
         ]);
-      case EmptyList:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfPoint:
-      case ListOfColor:
-      case ListOfPolygon:
-      case ListOfSegment:
-      case ListOfLine:
-      case ListOfRay:
-      case ListOfVector:
-      case ListOfAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case ListOfCircle:
-      case ListOfArc:
-      case ListOfPoint3D:
-      case ListOfSegment3D:
-      case ListOfVector3D:
-      case ListOfTriangle3D:
-      case ListOfSphere3D:
-      case ListOfTone: {
+      case $e:
+      case ne:
+      case Xn:
+      case Ue:
+      case Pt:
+      case rr:
+      case In:
+      case xn:
+      case jn:
+      case Vn:
+      case Jn:
+      case On:
+      case Nn:
+      case Wn:
+      case Fn:
+      case fr:
+      case mr:
+      case gr:
+      case yr:
+      case Ar:
+      case cs: {
         let r = [], s = Ve(e);
         for (let i of t) r.push(lt(s, i));
         return new C.List(r);
       }
-      case Any:
-      case Distribution:
-      case ListOfAny:
-      case ListOfDistribution:
-      case Action:
-      case Transformation:
-      case ListOfTransformation:
-      case ErrorType:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapInterval2DPoint3D:
-      case Restriction:
-      case ListOfRestriction:
+      case Qt:
+      case Lt:
+      case pn:
+      case Zn:
+      case ut:
+      case Re:
+      case Rr:
+      case Ro:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
+      case $r:
+      case Wr:
+      case Yr:
+      case Xr:
+      case jr:
+      case Zr:
+      case Gt:
+      case Gs:
         throw new Error(
           `Programming error: cannot create parse node from valueType: ${
             at(e)
           }`,
         );
-      case Tone:
-        return new C.FunctionCall("tone", [lt(Number, t[0]), lt(Number, t[1])]);
+      case Pn:
+        return new C.FunctionCall("tone", [lt(I, t[0]), lt(I, t[1])]);
       default:
         let n = e;
         throw new Error(`Programming error: unexpected valueType: ${at(n)}`);
@@ -14861,9 +14866,9 @@ if (earlyReturn !== undefined) return earlyReturn;
     let t = e.asTypedValue();
     if (!t) return NaN;
     switch (t.valueType) {
-      case Number:
+      case I:
         return t.value;
-      case Complex:
+      case R:
         return t.value;
       default:
         throw U(`Unexpected type ${at(t.valueType)} in column.`);
@@ -14975,9 +14980,9 @@ if (earlyReturn !== undefined) return earlyReturn;
     return Math.abs(n - e) < t ? n : e;
   }
   function $j(e) {
-    let t = true, n = true, r = true;
-    return e.hardMin !== void 0 && e.target < e.hardMin && (t = false),
-      e.hardMax !== void 0 && e.target > e.hardMax && (n = false),
+    let t = !0, n = !0, r = !0;
+    return e.hardMin !== void 0 && e.target < e.hardMin && (t = !1),
+      e.hardMax !== void 0 && e.target > e.hardMax && (n = !1),
       e.step &&
       sh({
           target: e.target,
@@ -14985,7 +14990,7 @@ if (earlyReturn !== undefined) return earlyReturn;
           hardMin: t ? e.hardMin : void 0,
           hardMax: n ? e.hardMax : void 0,
         }) !== e.target &&
-      (r = false),
+      (r = !1),
       { min: t, max: n, step: r };
   }
   function sh(e) {
@@ -15053,8 +15058,8 @@ if (earlyReturn !== undefined) return earlyReturn;
       s = this.width.tryGetConcreteTree(e, t, Qa),
       i = this.height.tryGetConcreteTree(e, t, Qa),
       o = this.opacity.tryGetConcreteTree(e, t, Qa),
-      a = [Point, ListOfPoint, EmptyList],
-      u = [Number, ListOfNumber, EmptyList];
+      a = [N, Pt, $e],
+      u = [I, ne, $e];
     return n = Gf(n, a),
       r = Gf(r, u),
       s = Gf(s, u),
@@ -15070,7 +15075,7 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   C.Ticker.prototype.getConcreteTree = function (e, t) {
     let n = this.handler.tryGetConcreteTree(e, t);
-    !n.isError && n.valueType !== Action && (n = kd(oe(n.valueType)));
+    !n.isError && n.valueType !== ut && (n = kd(oe(n.valueType)));
     let r = n.getDependencies().filter((s) =>
       !(e.graphingEnabled() && e.validActionVariable(s))
     );
@@ -15082,23 +15087,23 @@ if (earlyReturn !== undefined) return earlyReturn;
   };
   function v0(e, t, n) {
     if (!t) {
-      n.valids[e] = true;
+      n.valids[e] = !0;
       return;
     }
     let r = t.getDependencies();
-    if (t.isError) n.errors[e] = true;
+    if (t.isError) n.errors[e] = !0;
     else if (r.length > 0) {
-      n.errors[e] = true;
+      n.errors[e] = !0;
       for (let s = 0; s < r.length; s++) {
         r[s] === n.exportedSymbol
-          ? n.errors.cycle = true
+          ? n.errors.cycle = !0
           : n.missingVars.push(r[s]);
       }
     } else n.values[e] = +t.asValue();
     n.valids[e] = isFinite(n.values[e]), n.valids[e] || (n.values[e] = void 0);
   }
   function ih(e) {
-    return e && e.valueType === ListOfNumber && e.length === 1 && e.args ? e.args[0] : e;
+    return e && e.valueType === ne && e.length === 1 && e.args ? e.args[0] : e;
   }
   C.Slider.prototype.getConcreteTree = function (e, t) {
     let n = this._expression.getConcreteTree(e, t),
@@ -15128,8 +15133,8 @@ if (earlyReturn !== undefined) return earlyReturn;
             ? o.errMsg = OI()
             : (o.errors.step || !o.valids.step) && (o.errMsg = RI()),
             o.values.min > o.values.max &&
-            (o.valids.min = false,
-              o.valids.max = false,
+            (o.valids.min = !1,
+              o.valids.max = !1,
               o.errMsg || (o.errMsg = NI()))),
         n.isConstant
     ) {
@@ -15173,7 +15178,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         n.length === 1 && n.push(new C.Constant(1).getConcreteTree(e, t)),
           n[1].getDependencies().length
       ) throw Qd(this._symbol).setDependencies(n[1].getDependencies());
-      if (n[1].valueType !== Number) throw Qd(this._symbol);
+      if (n[1].valueType !== I) throw Qd(this._symbol);
       let r = n[1].asValue();
       if (!isFinite(r) || r <= 0) throw Qd(this._symbol);
     }
@@ -15185,7 +15190,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     if (!t[this._symbol]) throw Li(this._symbol, e);
     let n = this.args.map((r) => r.getConcreteTree(e, t));
     return this.typeCheck(e, n),
-      n.length === 1 && (n[0].valueType === ListOfNumber || n[0].valueType === EmptyList)
+      n.length === 1 && (n[0].valueType === ne || n[0].valueType === $e)
         ? new this.constructor(n)
         : U("Failed to copmile BoxPlot");
   };
@@ -15251,7 +15256,7 @@ if (earlyReturn !== undefined) return earlyReturn;
           ? s.push(o)
           : o.tableError()
           ? s.push(Wd(o.tableError()))
-          : o.valueType === Number || o.valueType === Complex
+          : o.valueType === I || o.valueType === R
           ? s.push(o)
           : s.push(bT([oe(o.valueType)]));
       }
@@ -15270,9 +15275,9 @@ if (earlyReturn !== undefined) return earlyReturn;
       let s = this.header.getConcreteTree(e, t, {
         coerceToNumber: "all-except-complex",
       });
-      return !s.isError && s.valueType !== Number && s.valueType !== ListOfNumber &&
-          s.valueType !== Complex && s.valueType !== ListOfComplex && s.valueType !== EmptyList
-        ? hT([oe((r = s.valueType) != null ? r : Any)])
+      return !s.isError && s.valueType !== I && s.valueType !== ne &&
+          s.valueType !== R && s.valueType !== Ue && s.valueType !== $e
+        ? hT([oe((r = s.valueType) != null ? r : Qt)])
         : s.getDependencies().length > 0
         ? rn(s.getDependencies()).setDependencies(s.getDependencies())
         : s;
@@ -15295,36 +15300,36 @@ if (earlyReturn !== undefined) return earlyReturn;
     Ka && (Ka.cacheReads += 1);
   }
   var kO = {
-    segment: true,
-    ray: true,
-    vector: true,
-    line: true,
-    circle: true,
-    arc: true,
-    polygon: true,
-    glider: true,
-    midpoint: true,
-    intersection: true,
-    strictintersection: true,
-    perpendicular: true,
-    parallel: true,
-    translate: true,
-    rotate: true,
-    dilate: true,
-    reflect: true,
-    apply: true,
-    segments: true,
-    vertices: true,
-    angle: true,
-    angles: true,
-    directedangle: true,
-    directedangles: true,
-    clockwise: true,
-    counterclockwise: true,
-    reflex: true,
-    start: true,
-    end: true,
-    anglebisector: true,
+    segment: !0,
+    ray: !0,
+    vector: !0,
+    line: !0,
+    circle: !0,
+    arc: !0,
+    polygon: !0,
+    glider: !0,
+    midpoint: !0,
+    intersection: !0,
+    strictintersection: !0,
+    perpendicular: !0,
+    parallel: !0,
+    translate: !0,
+    rotate: !0,
+    dilate: !0,
+    reflect: !0,
+    apply: !0,
+    segments: !0,
+    vertices: !0,
+    angle: !0,
+    angles: !0,
+    directedangle: !0,
+    directedangles: !0,
+    clockwise: !0,
+    counterclockwise: !0,
+    reflex: !0,
+    start: !0,
+    end: !0,
+    anglebisector: !0,
   };
   function zo(e) {
     switch (e.type) {
@@ -15379,9 +15384,9 @@ if (earlyReturn !== undefined) return earlyReturn;
   function kf(e) {
     return tH(e)
       ? e === "rotate" || e === "dilate" || e === "translate" || e === "reflect"
-        ? true
-        : false
-      : false;
+        ? !0
+        : !1
+      : !1;
   }
   function oh(e) {
     if (e instanceof Go && e.list instanceof we && e.index instanceof Et) {
@@ -15436,13 +15441,13 @@ if (earlyReturn !== undefined) return earlyReturn;
     return t;
   }
   function UO(e, t, n, r, s) {
-    let i = se(n, Circle) || se(n, Arc), o = se(s, Circle) || se(s, Arc);
+    let i = se(n, ce) || se(n, ie), o = se(s, ce) || se(s, ie);
     if (!i && !o) return;
     let a = zO(e, t, n),
       u = zO(e, r, s),
       c = a.filter((l) => {
         let p = Ta(l);
-        return p ? u.some((f) => ws(l, f)) && !!e.lookup(p) : false;
+        return p ? u.some((f) => ws(l, f)) && !!e.lookup(p) : !1;
       });
     for (let l of a) HO(e, l, r) && c.every((p) => !ws(l, p)) && c.push(l);
     for (let l of u) HO(e, l, t) && c.every((p) => !ws(l, p)) && c.push(l);
@@ -15457,7 +15462,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       (i == null ? void 0 : i.symbol) === "strictintersection" ||
       (i == null ? void 0 : i.symbol) === "midpoint") &&
       (i == null ? void 0 : i.parents.some((o) => {
-        if (o.type === "arbitrary-expression") return false;
+        if (o.type === "arbitrary-expression") return !1;
         let a = Ta(o);
         return a && e.resolvesTo(a, n) &&
           (zo(t) === void 0 || zo(o) === void 0 || zo(o) === zo(t));
@@ -15470,7 +15475,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     for (let o = 0; o < s.length; o++) {
       let a = s[o];
       if (
-        se(n, Circle) && o === 0 || a.type === "arbitrary-expression" ||
+        se(n, ce) && o === 0 || a.type === "arbitrary-expression" ||
         a.type === "polygon-edge"
       ) continue;
       let u = Ta(a);
@@ -15481,100 +15486,100 @@ if (earlyReturn !== undefined) return earlyReturn;
     return r;
   }
   function jp(e) {
-    if (e.length === 0) return EmptyList;
-    if (e.includes(Complex)) return ListOfComplex;
+    if (e.length === 0) return $e;
+    if (e.includes(R)) return Ue;
     let t = e[0];
-    if (t !== Number && kn(t, Number)) {
+    if (t !== I && kn(t, I)) {
       for (let n of e) {
         let r = fu(t, n);
         r !== void 0 && (t = r);
       }
     }
-    return wn(t) ? vn(t) : ListOfAny;
+    return wn(t) ? vn(t) : pn;
   }
   function qO(e) {
     let t = [];
-    for (let n of e) n !== EmptyList && (j(n) ? t.push(Ve(n)) : t.push(n));
+    for (let n of e) n !== $e && (j(n) ? t.push(Ve(n)) : t.push(n));
     return jp(t);
   }
   function uh(e, t) {
     if (j(e)) {
       let n = Ve(e);
-      for (let r = 0; r < t.length; r++) if (Br(n, t[r])) return true;
-      return false;
+      for (let r = 0; r < t.length; r++) if (Br(n, t[r])) return !0;
+      return !1;
     }
     return Br(e, t);
   }
   function Br(e, t) {
     switch (e) {
-      case Number:
+      case I:
         return Ii(t);
-      case Restriction:
+      case Gt:
         return t;
-      case Complex:
-      case Point: {
+      case R:
+      case N: {
         let [n, r] = t;
         return Ii(n) || Ii(r);
       }
-      case Point3D: {
+      case z: {
         let [n, r, s] = t;
         return Ii(n) || Ii(r) || Ii(s);
       }
-      case RGBColor: {
+      case Kt: {
         let [n, r, s] = t;
         return Ii(n) || Ii(r) || Ii(s);
       }
-      case Polygon: {
-        for (let n of t) if (Br(Point, n)) return true;
-        return false;
+      case xe: {
+        for (let n of t) if (Br(N, n)) return !0;
+        return !1;
       }
-      case Sphere3D: {
+      case Hn: {
         let [n, r] = t;
-        return Br(Point3D, n) || Br(Number, r);
+        return Br(z, n) || Br(I, r);
       }
-      case Triangle3D: {
+      case Rn: {
         let [n, r, s] = t;
-        return Br(Point3D, n) || Br(Point3D, r) || Br(Point3D, s);
+        return Br(z, n) || Br(z, r) || Br(z, s);
       }
-      case Segment3D:
-      case Vector3D: {
+      case wt:
+      case ke: {
         let [n, r] = t;
-        return Br(Point3D, n) || Br(Point3D, r);
+        return Br(z, n) || Br(z, r);
       }
-      case Segment:
-      case Line:
-      case Ray:
-      case Vector: {
+      case de:
+      case fe:
+      case Ne:
+      case le: {
         let [n, r] = t;
-        return Br(Point, n) || Br(Point, r);
+        return Br(N, n) || Br(N, r);
       }
-      case Circle: {
+      case ce: {
         let [n, r] = t;
-        return Br(Point, n) || Br(Number, r);
+        return Br(N, n) || Br(I, r);
       }
-      case Arc: {
+      case ie: {
         let [n, r, s] = t;
-        return Br(Point, n) || Br(Point, r) || Br(Point, s);
+        return Br(N, n) || Br(N, r) || Br(N, s);
       }
-      case AngleMarker:
-      case DirectedAngleMarker: {
+      case Le:
+      case ye: {
         let [n, r, s] = t;
-        return Br(Point, n) || Br(Number, r) || Br(Number, s);
+        return Br(N, n) || Br(I, r) || Br(I, s);
       }
-      case Action:
+      case ut:
         return Object.keys(t.updateRules).length === 0;
-      case Bool:
-      case Distribution:
-      case SeedType:
-      case Transformation:
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapInterval2DPoint3D:
-        return false;
-      case Tone: {
+      case De:
+      case Lt:
+      case ft:
+      case Re:
+      case sr:
+      case or:
+      case ir:
+      case Pr:
+      case Mr:
+      case Er:
+        return !1;
+      case Pn: {
         let [n, r] = t;
         return Ii(n) || Ii(r);
       }
@@ -15769,7 +15774,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     let n = e.argNames.indexOf(t),
       r = e.getReturnIndex(),
       s = fo(
-        ns(e, n, { allowRestriction: true, allowClosedBlockReferences: false }),
+        ns(e, n, { allowRestriction: !0, allowClosedBlockReferences: !1 }),
         r,
       );
     if (ln(s.orderCtx, r) > 2) {
@@ -15777,9 +15782,9 @@ if (earlyReturn !== undefined) return earlyReturn;
         "Programming Error: cannot compute polynomial coefficients for polynomials of order greater than 2",
       );
     }
-    let i = Kn(s, r), o = false;
+    let i = Kn(s, r), o = !1;
     for (let a = 0; a < e.instructionsLength(); a++) {
-      e.getInstruction(a).type === 33 && s.mask[a] && (o = true);
+      e.getInstruction(a).type === 33 && s.mask[a] && (o = !0);
     }
     return {
       chunk: s.newChunk,
@@ -15991,7 +15996,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       let o = e.getInstruction(n);
       return o.type === 1 ? R0(o.valueType, o.value) : dr();
     }
-    let s = ns(e, r, { allowRestriction: true, allowClosedBlockReferences: false }),
+    let s = ns(e, r, { allowRestriction: !0, allowClosedBlockReferences: !1 }),
       i = sH(s, n);
     return Ds(i, n);
   }
@@ -16012,7 +16017,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         return R0(i.valueType, i.value);
       case 3:
       case 2:
-        return i.valueType === Number ? aa() : dr();
+        return i.valueType === I ? aa() : dr();
       case 0:
         return dr();
       case 31:
@@ -16025,7 +16030,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 11: {
         let o = Gn(Ds(e, i.args[0]), Ds(e, i.args[1])),
           a = n.getInstruction(i.args[1]);
-        return a.type === 1 && a.valueType === Number && V(a.value) !== 0
+        return a.type === 1 && a.valueType === I && V(a.value) !== 0
           ? o
           : Gn(dr(), o);
       }
@@ -16034,10 +16039,10 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 15: {
         let o = i.valueType;
         switch (o) {
-          case Point:
-          case Point3D:
+          case N:
+          case z:
             return oH(e, i.args);
-          case Complex:
+          case R:
             return N0(e, i.args);
           default:
             let a = o;
@@ -16126,70 +16131,70 @@ if (earlyReturn !== undefined) return earlyReturn;
   function R0(e, t) {
     if (j(e)) return t.length === 1 ? R0(Ve(e), t[0]) : dr();
     switch (e) {
-      case Number:
-      case Point:
-      case Point3D:
+      case I:
+      case N:
+      case z:
         return uh(e, t) ? ka() : aa();
-      case Bool:
+      case De:
         return t ? aa() : ka();
       default:
         return dr();
     }
   }
-  var Hf = [oi(Number), oi(Number)],
+  var Hf = [oi(I), oi(I)],
     A0 = [
       ...Pi([
         [Te, Te],
-        [Complex, Complex],
-        [Point, Number],
-        [Number, Point],
-        [Number, Vector],
-        [Number, Vector3D],
-        [Vector, Number],
-        [Vector3D, Number],
-        [Point3D, Number],
-        [Number, Point3D],
-        [Restriction, Tf],
-        [Tf, Restriction],
+        [R, R],
+        [N, I],
+        [I, N],
+        [I, le],
+        [I, ke],
+        [le, I],
+        [ke, I],
+        [z, I],
+        [I, z],
+        [Gt, Tf],
+        [Tf, Gt],
       ]),
-      kt([Restriction, If]),
-      kt([If, Restriction]),
+      kt([Gt, If]),
+      kt([If, Gt]),
     ],
     _0 = {
-      Negative: Pi([[Te], [Complex], [Point], [Vector], [Vector3D], [Point3D]]),
-      Add: Pi([[Te, Te], [Complex, Complex], [Point, Point], [Vector, Vector], [Vector3D, Vector3D], [Point3D, Point3D]]),
-      Subtract: Pi([[Te, Te], [Complex, Complex], [Point, Point], [Vector, Vector], [Vector3D, Vector3D], [Point3D, Point3D]]),
+      Negative: Pi([[Te], [R], [N], [le], [ke], [z]]),
+      Add: Pi([[Te, Te], [R, R], [N, N], [le, le], [ke, ke], [z, z]]),
+      Subtract: Pi([[Te, Te], [R, R], [N, N], [le, le], [ke, ke], [z, z]]),
       Multiply: A0,
-      DotMultiply: [...Pi([[Vector, Vector], [Vector3D, Vector3D], [Point3D, Point3D]]), ...A0],
+      DotMultiply: [...Pi([[le, le], [ke, ke], [z, z]]), ...A0],
       CrossMultiply: [
-        ...Pi([[Vector3D, Vector3D], [Point3D, Point3D]]),
+        ...Pi([[ke, ke], [z, z]]),
         ...Pi([
           [Te, Te],
-          [Complex, Complex],
-          [Point, Number],
-          [Number, Point],
-          [Vector, Number],
-          [Number, Vector],
-          [Vector3D, Number],
-          [Number, Vector3D],
-          [Restriction, Tf],
-          [Tf, Restriction],
+          [R, R],
+          [N, I],
+          [I, N],
+          [le, I],
+          [I, le],
+          [ke, I],
+          [I, ke],
+          [Gt, Tf],
+          [Tf, Gt],
         ]),
-        kt([Restriction, If]),
-        kt([If, Restriction]),
+        kt([Gt, If]),
+        kt([If, Gt]),
       ],
-      Divide: Pi([[Te, Te], [Complex, Complex], [Point, Number], [Vector, Number], [Vector3D, Number], [Point3D, Number]]),
-      Exponent: Pi([[Te, Te], [Complex, Complex]]),
+      Divide: Pi([[Te, Te], [R, R], [N, I], [le, I], [ke, I], [z, I]]),
+      Exponent: Pi([[Te, Te], [R, R]]),
       "Comparator['=']": [kt(Hf)],
       "Comparator['>']": [kt(Hf)],
       "Comparator['<']": [kt(Hf)],
       "Comparator['>=']": [kt(Hf)],
       "Comparator['<=']": [kt(Hf)],
-      ComparatorChain: Pi([{ type: "variadic", initial: [Number, Number], rest: Number }]),
+      ComparatorChain: Pi([{ type: "variadic", initial: [I, I], rest: I }]),
       PercentOf: A0,
-      Norm: Pi([[Number], [Point], [Point3D], [Vector], [Vector3D]]),
-      ListAccess: [kt([ii, oi(Qn.of([Bool, Number]))])],
-      Integral: Pi([[Number, Number, Qn.of(ql, { coerceComplexToReal: false })]]),
+      Norm: Pi([[I], [N], [z], [le], [ke]]),
+      ListAccess: [kt([ii, oi(Qn.of([De, I]))])],
+      Integral: Pi([[I, I, Qn.of(ql, { coerceComplexToReal: !1 })]]),
     };
   function Pi(e) {
     return e.map((t) => Ae(t));
@@ -16199,7 +16204,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       let r = n.filter((i) => i !== void 0);
       if (r.length === 0) return;
       let s = jp(r);
-      return j(s) && s !== ListOfAny
+      return j(s) && s !== pn
         ? Hu([kt({ type: "variadic", initial: [], rest: Ve(s) })], n)
         : [];
     } else if (t instanceof gn || t instanceof Gu || t instanceof Ms) {
@@ -16209,7 +16214,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       return s ? Hu(s, n) : void 0;
     } else if (t instanceof Fr) {
       let [r, s, i] = n, o = s !== void 0 && i !== void 0 ? Ha(s, i) : void 0;
-      !o && i === Number && t.args[2] instanceof Et && t.args[2].isNaN() &&
+      !o && i === I && t.args[2] instanceof Et && t.args[2].isNaN() &&
         (i = void 0);
       let a;
       if (o !== void 0) a = o;
@@ -16218,19 +16223,19 @@ if (earlyReturn !== undefined) return earlyReturn;
       else return;
       j(a) && (a = Ve(a));
       let u = wn(a) ? oi(a) : a;
-      return Hu([kt([oi(Bool), u, u])], [n[0], s, i]);
+      return Hu([kt([oi(De), u, u])], [n[0], s, i]);
     } else if (e.is3dProduct() && t instanceof _u) {
-      let r = [..._0.DotMultiply, Ae([Point, Point])];
+      let r = [..._0.DotMultiply, Ae([N, N])];
       return Hu(r, n);
     } else if (t instanceof ao) {
-      let r = [kt({ type: "variadic", initial: [Action], rest: Action }), Ae([Number, Number])];
-      return e.is3dProduct() && r.push(Ae([Number, Number, Number])), Hu(r, n);
+      let r = [kt({ type: "variadic", initial: [ut], rest: ut }), Ae([I, I])];
+      return e.is3dProduct() && r.push(Ae([I, I, I])), Hu(r, n);
     } else if (t instanceof Ru) {
-      let r = [kt({ type: "variadic", initial: [Action], rest: Action })],
-        s = n.filter((i) => i !== void 0 && i !== Number);
+      let r = [kt({ type: "variadic", initial: [ut], rest: ut })],
+        s = n.filter((i) => i !== void 0 && i !== I);
       if (s.length > 0) {
         let i = jp(s);
-        j(i) && i !== ListOfAny &&
+        j(i) && i !== pn &&
           r.push(kt({ type: "variadic", initial: [], rest: Ve(i) }));
       }
       return Hu(r, n);
@@ -16239,10 +16244,10 @@ if (earlyReturn !== undefined) return earlyReturn;
       switch (r) {
         case "x":
         case "y":
-          s = Pi([[Point], [Point3D]]);
+          s = Pi([[N], [z]]);
           break;
         case "z": {
-          s = Pi([[Point3D]]);
+          s = Pi([[z]]);
           break;
         }
         default: {
@@ -16271,7 +16276,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       case "Comparator['<=']": {
         e.setWarning(
           E("shared-calculator-error-complex-operation-undefined", {
-            symbol: formatSymbol(t.operator),
+            symbol: X(t.operator),
           }),
         );
         break;
@@ -16281,7 +16286,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         if (i === void 0 || i === "=") break;
         e.setWarning(
           E("shared-calculator-error-complex-operation-undefined", {
-            symbol: formatSymbol(i),
+            symbol: X(i),
           }),
         );
         break;
@@ -16378,7 +16383,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       else return;
       KO(e.getInstruction(i)) &&
         e.setWarning(
-          E("shared-calculator-error-complex-sort", { symbol: formatSymbol(n) }),
+          E("shared-calculator-error-complex-sort", { symbol: X(n) }),
         );
       return;
     }
@@ -16390,19 +16395,19 @@ if (earlyReturn !== undefined) return earlyReturn;
         case "nPr":
           e.setWarning(
             E("shared-calculator-error-complex-operation-unimplemented", {
-              symbol: formatSymbol(n),
+              symbol: X(n),
             }),
           );
           break;
         case "round":
           e.setWarning(
-            E("shared-calculator-error-complex-round", { symbol: formatSymbol(n) }),
+            E("shared-calculator-error-complex-round", { symbol: X(n) }),
           );
           break;
         default:
           e.setWarning(
             E("shared-calculator-error-complex-operation-undefined", {
-              symbol: formatSymbol(n),
+              symbol: X(n),
             }),
           );
           break;
@@ -16418,7 +16423,7 @@ if (earlyReturn !== undefined) return earlyReturn;
     for (let s = 0; s < t.length; s++) {
       let i = t[s], o = r.argTypeAtIndex(s);
       if (
-        !(o === Number || o === ListOfNumber || typeof o == "object" && o.coerceComplexToReal)
+        !(o === I || o === ne || typeof o == "object" && o.coerceComplexToReal)
       ) continue;
       let u = e.getInstruction(i);
       if (KO(u)) return s;
@@ -16426,14 +16431,14 @@ if (earlyReturn !== undefined) return earlyReturn;
     return -1;
   }
   function KO(e) {
-    if (e.type !== 1) return false;
+    if (e.type !== 1) return !1;
     switch (e.valueType) {
-      case Complex:
+      case R:
         return V(e.value[1]) !== 0;
-      case ListOfComplex:
+      case Ue:
         return e.value.some((t) => V(t[1]) !== 0);
       default:
-        return false;
+        return !1;
     }
   }
   function ZO(e, t) {
@@ -16444,8 +16449,8 @@ if (earlyReturn !== undefined) return earlyReturn;
     var x, T, b, M;
     if (n = _g(t, n), !el(n) && !Tp(n) || kf(n)) return;
     let o,
-      a = false,
-      u = false,
+      a = !1,
+      u = !1,
       c = 0,
       l = [],
       p = [],
@@ -16462,11 +16467,11 @@ if (earlyReturn !== undefined) return earlyReturn;
         p = lh(l, f, c),
         u = d.allowDotCall),
         p.length === 0 && (d != null && d.fallthroughUnlessDistribution) &&
-        f.length > 0 && se(f[0], Distribution)
+        f.length > 0 && se(f[0], Lt)
     ) {
       l = l.filter((P) => {
         let D = P.argTypeAtIndex(0);
-        return D === void 0 ? false : Mc(Distribution, D);
+        return D === void 0 ? !1 : Mc(Lt, D);
       }), p = [];
     } else if (Tp(n) && p.length === 0) {
       let P = Bn[n];
@@ -16489,8 +16494,8 @@ if (earlyReturn !== undefined) return earlyReturn;
       if (!u) throw Gd(r);
       let P = e.getInstruction(m[0]).valueType;
       if (
-        !j(P) && P !== Segment3D && P !== Vector3D && P !== Distribution && P !== Tone &&
-        (P === Point || !vd(P)) && n !== "real" && n !== "imag"
+        !j(P) && P !== wt && P !== ke && P !== Lt && P !== Pn &&
+        (P === N || !vd(P)) && n !== "real" && n !== "imag"
       ) throw tT(r, oe(P), { blockExport: e.areAllArgsConstant([m[0]]) });
       r = "." + r, h = m.slice(1), y -= 1, g -= 1;
     }
@@ -16502,7 +16507,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       if (p.length === 0) {
         throw P(r, Pa(e, h)[0], { blockExport: e.areAllArgsConstant(h) });
       }
-      if (h.length === 1 && e.getInstruction(h[0]).valueType === EmptyList) {
+      if (h.length === 1 && e.getInstruction(h[0]).valueType === $e) {
         throw P(r, Pa(e, h)[0], { blockExport: e.areAllArgsConstant(h) });
       }
     }
@@ -16548,7 +16553,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       !j(e.getInstruction(r[0]).valueType)
     ) throw rP(t, { blockExport: e.areAllArgsConstant([r[0]]) });
     if (t === "logbase" && r.length !== 2) {
-      return Ao("log", 1, r.length - 1, { includeUsageExample: true });
+      return Ao("log", 1, r.length - 1, { includeUsageExample: !0 });
     }
     if (t === "random") return $T();
     if (r.length < o || r.length > a) {
@@ -16565,7 +16570,7 @@ if (earlyReturn !== undefined) return earlyReturn;
           ? (b = o - u, i && g ? T = n + g : h && (T = n + h))
           : (b = a, i && m ? T = n + m : x && (T = n + x)),
           i && (c === "parameterizedReducer" || t === "pdf" || t === "cdf")
-      ) return Ao(n, b, r.length, { includeUsageExample: true, usageExample: T });
+      ) return Ao(n, b, r.length, { includeUsageExample: !0, usageExample: T });
       if (c === "reducer" && r.length === 0) return jT(n);
       if (c === "doubleReducer") return qd(n);
       if (c === "parameterizedReducer") return WT(n);
@@ -16688,8 +16693,8 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
     if (
       t === "polygon" && r.length === 2 &&
-      e.getInstruction(r[0]).valueType === Number &&
-      e.getInstruction(r[1]).valueType === Number
+      e.getInstruction(r[0]).valueType === I &&
+      e.getInstruction(r[1]).valueType === I
     ) return Ud();
     let p = [], f = [];
     for (let g = 0; g < s.length; g++) {
@@ -16798,9 +16803,9 @@ if (earlyReturn !== undefined) return earlyReturn;
   function rN(e, t, n) {
     return e === "polygon" && (t = t.filter((s) => s.maxArity !== 1)),
       t.some((s) =>
-        s.maxArity === 0 || n.length < s.minArity ? false : n.every((i, o) => {
+        s.maxArity === 0 || n.length < s.minArity ? !1 : n.every((i, o) => {
           let a = s.argTypeAtIndex(o);
-          return a === void 0 ? true : ny(i, a);
+          return a === void 0 ? !0 : ny(i, a);
         })
       );
   }
@@ -16859,16 +16864,16 @@ if (earlyReturn !== undefined) return earlyReturn;
         throw Vx(u, { blockExport: c });
       case "CrossMultiply":
         throw t.is3dProduct() && i.length === 2 &&
-            (se(i[0], Point) && se(i[1], Point) || se(i[0], Number) && se(i[1], Point3D) ||
-              se(i[0], Point3D) && se(i[1], Number))
+            (se(i[0], N) && se(i[1], N) || se(i[0], I) && se(i[1], z) ||
+              se(i[0], z) && se(i[1], I))
           ? Bx(u, { blockExport: c })
           : Vd(u, { blockExport: c });
       case "DotMultiply":
         throw Vd(u, { blockExport: c });
       case "Multiply": {
         if (t.is3dProduct() && i.length === 2) {
-          if (se(i[0], Point3D) && se(i[1], Point3D)) throw kx(u, { blockExport: c });
-          if (se(i[0], Point) && se(i[1], Point)) throw Gx(u, { blockExport: c });
+          if (se(i[0], z) && se(i[1], z)) throw kx(u, { blockExport: c });
+          if (se(i[0], N) && se(i[1], N)) throw Gx(u, { blockExport: c });
         }
         throw Vd(u, { blockExport: c });
       }
@@ -16888,7 +16893,7 @@ if (earlyReturn !== undefined) return earlyReturn;
       case "Or":
         throw Zx(u, { blockExport: c });
       case "Piecewise":
-        throw se(i[0], Bool)
+        throw se(i[0], De)
           ? gT([
             oe(e.getInstruction(r[1]).valueType),
             oe(e.getInstruction(r[2]).valueType),
@@ -16906,13 +16911,13 @@ if (earlyReturn !== undefined) return earlyReturn;
       case "Norm":
         throw Hs("abs", u, { blockExport: c });
       case "ParenSeq": {
-        let f = i.indexOf(Action) !== -1, d = i.some((g) => g !== Action);
+        let f = i.indexOf(ut) !== -1, d = i.some((g) => g !== ut);
         if (f && d) throw yy([oe(i[0]), oe(i[1])], { blockExport: c });
         if (i.length !== 2 && (!t.is3dProduct() || i.length !== 3)) {
           let g = t.is3dPolicy() ? 3 : 2;
           throw KT(g);
         }
-        let y = i.find((g) => !se(g, Number));
+        let y = i.find((g) => !se(g, I));
         throw y !== void 0
           ? Wx(oe(y), { blockExport: c })
           : U("Unexpected error type checking ParenSeq");
@@ -16922,7 +16927,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         if (i.length === 1) throw U("Length-1 BareSeq is impossible");
         let f = i[0], d = i.find((y) => y !== f);
         if (d) throw yy([oe(f), oe(d)], { blockExport: c });
-        if (f === Number) throw r.length === 2 ? JT() : QT();
+        if (f === I) throw r.length === 2 ? JT() : QT();
         sN(e, r);
         break;
       }
@@ -16930,8 +16935,8 @@ if (earlyReturn !== undefined) return earlyReturn;
         throw jx(u, "." + n.symbol, { blockExport: c });
       case "Integral": {
         let [f, d, y] = i, g = j(f) ? Ve(f) : f, m = j(d) ? Ve(d) : d;
-        throw kn(g, Number)
-          ? kn(m, Number)
+        throw kn(g, I)
+          ? kn(m, I)
             ? pT([oe(y)], { blockExport: c })
             : lT([oe(d)], { blockExport: c })
           : cT([oe(f)], { blockExport: c });
@@ -16995,7 +17000,7 @@ if (earlyReturn !== undefined) return earlyReturn;
         return t.map((r) => oe(r, n));
       case "ComparatorChain": {
         for (let r = 0; r < t.length; r++) {
-          if (!kn(t[r], Number) && !kn(t[r], ListOfNumber)) {
+          if (!kn(t[r], I) && !kn(t[r], ne)) {
             return r === 0
               ? [oe(t[r]), oe(t[r + 1])]
               : [oe(t[r - 1]), oe(t[r])];
@@ -17054,15 +17059,15 @@ if (earlyReturn !== undefined) return earlyReturn;
       for (let u of n.args) {
         let c = e.getInstruction(u).valueType;
         if (
-          !se(c, Number) && !se(c, Complex) && !se(c, Point) && !se(c, Point3D) && !se(c, RGBColor) &&
-          !se(c, Polygon) && !se(c, Segment) && !se(c, Line) && !se(c, Ray) && !se(c, Vector) &&
-          !se(c, Circle) && !se(c, Arc) && !se(c, AngleMarker) && !se(c, Tone) && !se(c, DirectedAngleMarker)
+          !se(c, I) && !se(c, R) && !se(c, N) && !se(c, z) && !se(c, Kt) &&
+          !se(c, xe) && !se(c, de) && !se(c, fe) && !se(c, Ne) && !se(c, le) &&
+          !se(c, ce) && !se(c, ie) && !se(c, Le) && !se(c, Pn) && !se(c, ye)
         ) throw ET(oe(c));
       }
       let a = {};
       for (let u of n.symbols) {
         if (a[u]) throw CT(u);
-        a[u] = true;
+        a[u] = !0;
       }
       return;
     }
@@ -17119,16 +17124,16 @@ if (earlyReturn !== undefined) return earlyReturn;
       }
     }
   }
-  function w0(e, t, n = false) {
+  function w0(e, t, n = !1) {
     switch (t.type) {
       case 8:
       case 9:
       case 10:
       case 11:
         return n && t.args.length > 0 &&
-            e.getInstruction(t.args[0]).valueType === Point
-          ? { expectedTypes: [Point, Point] }
-          : { expectedTypes: [Number, Number] };
+            e.getInstruction(t.args[0]).valueType === N
+          ? { expectedTypes: [N, N] }
+          : { expectedTypes: [I, I] };
       case 12:
       case 13:
       case 25:
@@ -17136,22 +17141,22 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 27:
       case 28:
       case 29:
-        return { expectedTypes: [Number, Number] };
+        return { expectedTypes: [I, I] };
       case 14:
-        return { expectedTypes: [Number] };
+        return { expectedTypes: [I] };
       case 31:
-        return { expectedTypes: [Bool, Bool] };
+        return { expectedTypes: [De, De] };
       case 32:
-        return { expectedTypes: [Bool, Bool] };
+        return { expectedTypes: [De, De] };
       case 33:
-        return { expectedTypes: [Bool, t.valueType, t.valueType] };
+        return { expectedTypes: [De, t.valueType, t.valueType] };
       case 15:
         return { expectedTypes: zl[t.valueType] };
       case 21:
-        return { expectedTypes: [Number, Number] };
+        return { expectedTypes: [I, I] };
       case 22: {
         let r = e.getInstruction(t.args[1]).valueType;
-        return $l(r) ? { expectedTypes: [Number, r] } : { expectedTypes: [Number, Number] };
+        return $l(r) ? { expectedTypes: [I, r] } : { expectedTypes: [I, I] };
       }
       case 38: {
         let r = t.valueType, s = Ve(r);
@@ -17160,52 +17165,52 @@ if (earlyReturn !== undefined) return earlyReturn;
       case 39:
       case 40:
       case 41:
-        return { expectedTypes: [ListOfAny, Number] };
+        return { expectedTypes: [pn, I] };
       case 37: {
         let r = t.symbol, s = Bn[r], i = s.argumentTypes;
         return s.tag === "reducer" && !cH(e, t.args) && Array.isArray(i) &&
             typeof i[0] == "number" && j(i[0])
           ? {
-            isReducerWithNoListArgs: true,
+            isReducerWithNoListArgs: !0,
             expectedTypes: { type: "variadic", initial: [], rest: Ve(i[0]) },
           }
           : { expectedTypes: i };
       }
       case 44: {
         let r = e.getInstruction(t.args[1]).valueType;
-        return { expectedTypes: [SeedType, r] };
+        return { expectedTypes: [ft, r] };
       }
       case 47:
         return {
           expectedTypes: t.args.map((r) => e.getInstruction(r).valueType),
         };
       case 23:
-        return { expectedTypes: [Number] };
+        return { expectedTypes: [I] };
       case 19:
         return {
           expectedTypes: t.args.map((r) => {
             let s = e.getInstruction(r).valueType;
-            return s === Bool || (t.callData.type === "sum" ? $l(s) : bx(s))
+            return s === De || (t.callData.type === "sum" ? $l(s) : bx(s))
               ? s
-              : Number;
+              : I;
           }),
         };
       case 50: {
         let r = t.callData.parameterSymbols.length, s = [];
-        for (let i = 0; i < r; i++) s.push(Number, Number);
+        for (let i = 0; i < r; i++) s.push(I, I);
         return { expectedTypes: s };
       }
       case 24:
       case 20:
       case 51: {
-        let r = [Number];
+        let r = [I];
         for (let s = 1; s < t.args.length; s++) {
           r.push(e.getInstruction(t.args[s]).valueType);
         }
         return { expectedTypes: r };
       }
       case 42:
-        return { expectedTypes: t.args.map(() => Number) };
+        return { expectedTypes: t.args.map(() => I) };
       case 48:
       case 49:
         return {
@@ -17230,8 +17235,8 @@ if (earlyReturn !== undefined) return earlyReturn;
     }
   }
   function cH(e, t) {
-    for (let n of t) if (j(e.getInstruction(n).valueType)) return true;
-    return false;
+    for (let n of t) if (j(e.getInstruction(n).valueType)) return !0;
+    return !1;
   }
   function oN(e) {
     let t = e.getReturnIndex(), n = e.getInstruction(t);
@@ -17251,32 +17256,32 @@ if (earlyReturn !== undefined) return earlyReturn;
     return e.getReturnIndex();
   }
   function F0(e, t, n) {
-    let r = false, s = [];
+    let r = !1, s = [];
     for (let i = 0; i < t.length; i++) {
       let o = Ad(n, i), a = t[i], u = e.getInstruction(a).valueType, c = a;
       o.every((l) => !_i(u, l)) &&
-      (se(o[0], Number) ? c = zi(e, a) : se(o[0], Complex) && (c = lH(e, a))),
-        c !== a && (r = true),
+      (se(o[0], I) ? c = zi(e, a) : se(o[0], R) && (c = lH(e, a))),
+        c !== a && (r = !0),
         s.push(c);
     }
-    return r ? { didCoerce: r, args: s } : { didCoerce: false };
+    return r ? { didCoerce: r, args: s } : { didCoerce: !1 };
   }
   function zi(e, t, n = {}) {
     var s;
     let r = e.getInstruction(t);
-    return r.valueType === EmptyList
+    return r.valueType === $e
       ? t
-      : se(r.valueType, AngleMarker)
+      : se(r.valueType, Le)
       ? uN(e, t)
-      : se(r.valueType, DirectedAngleMarker)
+      : se(r.valueType, ye)
       ? aN(e, t)
-      : se(r.valueType, Restriction)
+      : se(r.valueType, Gt)
       ? e.Piecewise([
         e.NativeFunction("restrictionToBoolean", [t]),
         e.Constant(1),
         e.Constant(NaN),
       ])
-      : se(r.valueType, Complex)
+      : se(r.valueType, R)
       ? (s = n.peelableCoerce) != null && s
         ? e.NativeFunction("peelableCoerceComplexToReal", [t])
         : e.NativeFunction("coerceComplexToReal", [t])
@@ -17284,14 +17289,14 @@ if (earlyReturn !== undefined) return earlyReturn;
   }
   function fl(e, t) {
     let n = e.getInstruction(t);
-    return n.valueType === EmptyList || se(n.valueType, Complex) ? t : zi(e, t);
+    return n.valueType === $e || se(n.valueType, R) ? t : zi(e, t);
   }
   function lH(e, t) {
     let n = e.getInstruction(t);
-    if (n.valueType === EmptyList) return t;
-    if (se(n.valueType, Number)) return e.NativeFunction("coerceRealToComplex", [t]);
-    if (se(n.valueType, Complex)) return t;
-    if (kn(n.valueType, Number) || kn(n.valueType, ListOfNumber)) {
+    if (n.valueType === $e) return t;
+    if (se(n.valueType, I)) return e.NativeFunction("coerceRealToComplex", [t]);
+    if (se(n.valueType, R)) return t;
+    if (kn(n.valueType, I) || kn(n.valueType, ne)) {
       let r = zi(e, t);
       return e.NativeFunction("coerceRealToComplex", [r]);
     }
@@ -17299,25 +17304,25 @@ if (earlyReturn !== undefined) return earlyReturn;
   }
   function pH(e, t) {
     let n = e.getInstruction(t[0]).valueType;
-    if (!wn(n)) return ListOfAny;
-    for (let r of t) if (e.getInstruction(r).valueType !== n) return ListOfAny;
+    if (!wn(n)) return pn;
+    for (let r of t) if (e.getInstruction(r).valueType !== n) return pn;
     return vn(n);
   }
   function ph(e, t, n) {
     let r = e.getInstruction(n);
     if (!ge(r)) {
       for (let o of r.args) {
-        if (!Je(e.getInstruction(o))) return true;
+        if (!Je(e.getInstruction(o))) return !0;
       }
     }
     if (t < n) return !Je(e.getInstruction(t));
-    let s = [true];
-    for (let o = n + 1; o <= t; o++) s.push(false);
+    let s = [!0];
+    for (let o = n + 1; o <= t; o++) s.push(!1);
     let i = [t];
     for (; i.length;) {
       let o = i.pop();
       if (s[o - n]) continue;
-      s[o - n] = true;
+      s[o - n] = !0;
       let a = e.getInstruction(o);
       if (!ge(a)) {
         for (let u of a.args) {
@@ -17325,16 +17330,16 @@ if (earlyReturn !== undefined) return earlyReturn;
           if (u < n) {
             let l = e.getInstruction(u);
             if (l.type === 4) continue;
-            if (!Je(l)) return true;
+            if (!Je(l)) return !0;
           } else {
-            if (e.getInstruction(u).type === 50) return true;
-            if (c.type === 3) return true;
+            if (e.getInstruction(u).type === 50) return !0;
+            if (c.type === 3) return !0;
             s[u - n] || i.push(u);
           }
         }
       }
     }
-    return false;
+    return !1;
   }
   function qo(e, t, n) {
     let r = qn(e, t);
@@ -17509,11 +17514,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       return e.List(s);
     } else {
-      let s = [], i = true, o = qn(e, t);
+      let s = [], i = !0, o = qn(e, t);
       for (let u of n) {
         let c = Math.floor(u);
         s.push(e.Constant(c + 1)),
-          (isNaN(c) || c < 0 || o === void 0 || c >= o) && (i = false);
+          (isNaN(c) || c < 0 || o === void 0 || c >= o) && (i = !1);
       }
       let a = [t, e.List(s)];
       return i ? e.InboundsListAccess(a) : e.ListAccess(a);
@@ -17522,11 +17527,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function Gr(e, t) {
     let n = e.getInstruction(t);
     if (n.type !== 48) return t;
-    let r = n.args[0], s = e.getInstruction(r), i = s.args[0], o = false;
+    let r = n.args[0], s = e.getInstruction(r), i = s.args[0], o = !1;
     for (let u = i + 1; u < r; u++) {
       let c = e.getInstruction(u);
       if (c.type === 40 && c.args[1] === i) {
-        o = true;
+        o = !0;
         break;
       }
     }
@@ -17549,13 +17554,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return !an(e) && isNaN(e) || !an(t) && isNaN(t) ? [NaN, NaN] : [e, t];
   }
   function fh(e) {
-    return complex(V(e[0]), V(e[1]));
+    return zt(V(e[0]), V(e[1]));
   }
   function cN([e, t]) {
     return an(e) && an(t);
   }
   function lN(e, t) {
-    if (!cN(e) || !cN(t)) return complexDivide(fh(e), fh(t));
+    if (!cN(e) || !cN(t)) return Du(fh(e), fh(t));
     let [n, r] = e,
       [s, i] = t,
       o = qs(wr(s, s), wr(i, i)),
@@ -17563,7 +17568,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       u = ai(wr(r, s), wr(n, i)),
       c = Ps(a, o),
       l = Ps(u, o);
-    return !an(c) || !an(l) ? complexDivide(fh(e), fh(t)) : V0(c, l);
+    return !an(c) || !an(l) ? Du(fh(e), fh(t)) : V0(c, l);
   }
   function B0(e, t, n) {
     let r;
@@ -17574,67 +17579,67 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function mh(e) {
     switch (e) {
-      case EmptyList:
-      case ListOfNumber:
-      case ListOfBool:
-      case ListOfComplex:
-      case ListOfRestriction:
-      case ListOfPoint:
-      case ListOfSegment:
-      case ListOfCircle:
-      case ListOfArc:
-      case ListOfRay:
-      case ListOfVector:
-      case ListOfLine:
-      case ListOfPolygon:
-      case ListOfAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case ListOfPoint3D:
-      case ListOfVector3D:
-      case ListOfTriangle3D:
-      case ListOfSphere3D:
-      case ListOfSegment3D:
-      case ListOfColor:
-      case ListOfTone:
-      case ListOfTransformation:
-        return true;
+      case $e:
+      case ne:
+      case Xn:
+      case Ue:
+      case Gs:
+      case Pt:
+      case xn:
+      case Wn:
+      case Fn:
+      case Vn:
+      case Jn:
+      case jn:
+      case In:
+      case On:
+      case Nn:
+      case fr:
+      case gr:
+      case yr:
+      case Ar:
+      case mr:
+      case rr:
+      case cs:
+      case Rr:
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function pN(e) {
     switch (e) {
-      case Number:
-      case Bool:
-      case Complex:
-      case Restriction:
-      case Point:
-      case Segment:
-      case Circle:
-      case Arc:
-      case Ray:
-      case Vector:
-      case Line:
-      case Polygon:
-      case AngleMarker:
-      case DirectedAngleMarker:
-      case Point3D:
-      case Vector3D:
-      case Triangle3D:
-      case Sphere3D:
-      case Segment3D:
-      case RGBColor:
-      case Tone:
-      case Transformation:
-      case Action:
-      case SeedType:
-        return true;
+      case I:
+      case De:
+      case R:
+      case Gt:
+      case N:
+      case de:
+      case ce:
+      case ie:
+      case Ne:
+      case le:
+      case fe:
+      case xe:
+      case Le:
+      case ye:
+      case z:
+      case ke:
+      case Rn:
+      case Hn:
+      case wt:
+      case Kt:
+      case Pn:
+      case Re:
+      case ut:
+      case ft:
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function k0(e, t) {
-    if (e === EmptyList) return [];
+    if (e === $e) return [];
     let n = Ve(e);
     if (!pN(n)) {
       throw new Error(
@@ -17651,11 +17656,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return r;
   }
   function dN(e, t) {
-    if (e === Number) return Se(t, 1);
-    if (e === Point || e === Complex) {
+    if (e === I) return Se(t, 1);
+    if (e === N || e === R) {
       let [n, r] = t;
       return [Se(n, 1), Se(r, 1)];
-    } else if (e === Point3D) {
+    } else if (e === z) {
       let [n, r, s] = t;
       return [Se(n, 1), Se(r, 1), Se(s, 1)];
     } else return t;
@@ -17709,7 +17714,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function J0(e, t, n, r) {
     an(r) && (r = V(r));
-    let s = n === Number || n === SeedType ? r : serializeNonNumericSeedPart(n, r);
+    let s = n === I || n === ft ? r : LE(n, r);
     return `${t}::${e}${s}`;
   }
   function Q0(e, t) {
@@ -17725,12 +17730,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "count":
         return t[0].length;
       case "validateRangeLength": {
-        let n = t[0], r = t[1], s = t[2], i = t[3], o = validateRangeLength(n, r, s, i);
+        let n = t[0], r = t[1], s = t[2], i = t[3], o = zE(n, r, s, i);
         if (o === 0) throw Jd();
         return o;
       }
       case "validateSampleCount": {
-        let n = Vo(t[0]), r = validateSampleCount(n);
+        let n = Vo(t[0]), r = UE(n);
         if (r === 0 && n !== 0) throw IP();
         return r;
       }
@@ -17910,15 +17915,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       i = t.resultIndex,
       o = e.getInstruction(r).args[0],
       a = [];
-    a[s] = true;
+    a[s] = !0;
     let u = s;
-    e.getInstruction(i).type === 55 && (a[i] = true, u = i);
+    e.getInstruction(i).type === 55 && (a[i] = !0, u = i);
     for (let d = u; d >= o; d--) {
       if (!a[d]) continue;
       let y = e.getInstruction(d);
       if (!ge(y)) {
         for (let g of y.args) {
-          g < o || g > r ? St(e, g, n) : a[g] = true;
+          g < o || g > r ? St(e, g, n) : a[g] = !0;
         }
       }
     }
@@ -17969,22 +17974,22 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function xH(e, t, n) {
     let r = [];
-    for (let i = 0; i <= t; i++) r.push(false);
+    for (let i = 0; i <= t; i++) r.push(!1);
     let s = [];
     for (let i = t + 1; i <= n; i++) s.push(i);
     for (; s.length;) {
       let i = s.pop();
       if (r[i]) continue;
-      r[i] = true;
+      r[i] = !0;
       let o = e.getInstruction(i);
-      if (o.type === 55) return true;
+      if (o.type === 55) return !0;
       if (!ge(o)) { for (let a of o.args) r[a] || s.push(a); }
     }
-    return false;
+    return !1;
   }
   function Qp(e) {
     let t = e.getCompiledFunction();
-    return t.executionMetadata.recursiveFunctionCache = new LruCache(),
+    return t.executionMetadata.recursiveFunctionCache = new up(),
       t.executionMetadata.iterativeRecursionOutputs = {},
       t.fn();
   }
@@ -18040,14 +18045,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         if (r.type === 1 && s.type === 1) {
           return e.popInstruction(), e.Constant(Uf(r.value, s.value));
         }
-        if (r.type === 1 && r.valueType === Number) {
+        if (r.type === 1 && r.valueType === I) {
           let i = V(r.value);
           if (i === Math.E) {
             return e.popInstruction(), e.NativeFunction("exp", [t.args[1]]);
           }
           if (i > 0) return e.popInstruction(), e.RawExponent(t.args);
         }
-        if (s.type === 1 && s.valueType === Number) {
+        if (s.type === 1 && s.valueType === I) {
           let i = V(s.value);
           if (i === 1) return e.popInstruction(), t.args[0];
           if (i === Math.floor(i)) {
@@ -18086,37 +18091,37 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 25: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, Y0(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, Y0(r.value, s.value)))
           : e.getReturnIndex();
       }
       case 26: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, X0(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, X0(r.value, s.value)))
           : e.getReturnIndex();
       }
       case 27: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, Z0(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, Z0(r.value, s.value)))
           : e.getReturnIndex();
       }
       case 28: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, W0(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, W0(r.value, s.value)))
           : e.getReturnIndex();
       }
       case 29: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, j0(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, j0(r.value, s.value)))
           : e.getReturnIndex();
       }
       case 31: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, mN(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, mN(r.value, s.value)))
           : r.type === 1
           ? (e.popInstruction(), r.value ? t.args[0] : t.args[1])
           : s.type === 1
@@ -18126,7 +18131,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 32: {
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return r.type === 1 && s.type === 1
-          ? (e.popInstruction(), e.ConstantOfType(Bool, yN(r.value, s.value)))
+          ? (e.popInstruction(), e.ConstantOfType(De, yN(r.value, s.value)))
           : r.type === 1
           ? (e.popInstruction(), r.value ? t.args[1] : t.args[0])
           : s.type === 1
@@ -18182,7 +18187,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             p,
             f;
           if (t.type === 41) p = t.args[1];
-          else if (i.type === 1 && i.valueType === Number && o !== void 0) {
+          else if (i.type === 1 && i.valueType === I && o !== void 0) {
             let y = V(i.value), g = Math.floor(y);
             if (g < 1 || g > o) return e.NanOfType(t.valueType);
             p = y === g ? t.args[1] : e.Constant(g);
@@ -18227,7 +18232,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               M = e.And([e.And([y, g]), e.GreaterEqual([m, h])]);
             return e.Piecewise([M, b, T]);
           } else return d[d.length - 1];
-        } else if (i.type === 1 && i.valueType === Number) {
+        } else if (i.type === 1 && i.valueType === I) {
           if (s.type === 38) {
             e.popInstruction();
             let a = Math.floor(V(i.value)) - 1;
@@ -18280,7 +18285,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         switch (t.symbol) {
           case "complexPow": {
             let s = e.getInstruction(t.args[1]);
-            if (s.type === 1 && s.valueType === Complex) {
+            if (s.type === 1 && s.valueType === R) {
               let [i, o] = s.value;
               if (V(i) === 1 && V(o) === 0) {
                 return e.popInstruction(), t.args[0];
@@ -18307,7 +18312,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             let s = t.args[0], i = t.args[1], o = qn(e, i);
             if (o !== void 0 && Je(e.getInstruction(s))) {
               e.popInstruction();
-              let a = randomPerm(hn(e, s), o);
+              let a = FE(hn(e, s), o);
               return dh(e, i, a);
             } else return e.getReturnIndex();
           }
@@ -18323,7 +18328,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           case "restrictionToBoolean": {
             let s = e.getInstruction(t.args[0]);
             return Je(s)
-              ? (e.popInstruction(), e.ConstantOfType(Bool, s.value))
+              ? (e.popInstruction(), e.ConstantOfType(De, s.value))
               : s.type === 37 && s.symbol === "restriction"
               ? (e.popInstruction(), s.args[0])
               : e.getReturnIndex();
@@ -18336,7 +18341,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let r = e.getInstruction(t.args[0]), s = e.getInstruction(t.args[1]);
         return Je(r) && Je(s)
           ? e.ConstantOfType(
-            SeedType,
+            ft,
             J0(t.tag, hn(e, t.args[0]), s.valueType, hn(e, t.args[1])),
           )
           : e.getReturnIndex();
@@ -18352,7 +18357,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           u = r - i,
           c = o.args[u];
         if (!ph(e, c, a)) {
-          if (t.valueType === ListOfDistribution) {
+          if (t.valueType === Zn) {
             if (s == null) throw sf(fs(e, r));
             let f = [];
             for (let d = 0; d < s; d++) {
@@ -18381,7 +18386,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           let { valueType: a, value: u } = o;
           uh(a, u) || (r[i] = { value: u, valueType: a });
         }
-        return e.ConstantOfType(Action, { type: "Action", updateRules: r });
+        return e.ConstantOfType(ut, { type: "Action", updateRules: r });
       }
       case 20:
       case 22:
@@ -18404,9 +18409,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function IN(e, t) {
     for (let n of t) {
       let r = e.getInstruction(n);
-      if (!Je(r)) return false;
+      if (!Je(r)) return !1;
     }
-    return true;
+    return !0;
   }
   function IH(e, t) {
     let n = [];
@@ -18456,10 +18461,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           case "color":
             return yl(e, t);
           case "never-broadcast": {
-            let s = [], i = false;
+            let s = [], i = !1;
             for (let o of t.args) {
               let a = Gr(e, o);
-              a !== o ? (i = true, s.push(a)) : s.push(o);
+              a !== o ? (i = !0, s.push(a)) : s.push(o);
             }
             return i ? e.copyInstructionWithArgs(t, s) : e.getReturnIndex();
           }
@@ -18491,7 +18496,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             }
             let s = Gr(e, t.args[0]);
             return s === t.args[0]
-              ? yl(e, t, [false, true])
+              ? yl(e, t, [!1, !0])
               : e.copyInstructionWithArgs(t, [s, t.args[1]]);
           }
           default: {
@@ -18503,18 +18508,18 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 39:
       case 40:
       case 41:
-        return yl(e, t, [false, true]);
+        return yl(e, t, [!1, !0]);
       case 55: {
         let s = e.getInstruction(t.args[0]).signature.argTypes.map((a) =>
             !j(a)
           ),
           i = [t.args[0]],
-          o = false;
+          o = !1;
         for (let a = 1; a < t.args.length; a++) {
           let u = t.args[a], c = Gr(e, u);
-          c !== u ? (o = true, i.push(c)) : i.push(u);
+          c !== u ? (o = !0, i.push(c)) : i.push(u);
         }
-        return o ? e.copyInstructionWithArgs(t, i) : yl(e, t, [false, ...s]);
+        return o ? e.copyInstructionWithArgs(t, i) : yl(e, t, [!1, ...s]);
       }
       case 21:
       case 22:
@@ -18539,15 +18544,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
   }
   function PH(e, t) {
-    for (let n of t) if (j(e.getInstruction(n).valueType)) return true;
-    return false;
+    for (let n of t) if (j(e.getInstruction(n).valueType)) return !0;
+    return !1;
   }
   function yl(e, t, n) {
-    let r = t.args, s = false, i = [];
+    let r = t.args, s = !1, i = [];
     for (let d = 0; d < r.length; d++) {
       if (n && !n[d]) continue;
       let y = r[d], g = e.getInstruction(y).valueType;
-      j(g) && i.indexOf(y) === -1 && i.push(y), g === EmptyList && (s = true);
+      j(g) && i.indexOf(y) === -1 && i.push(y), g === $e && (s = !0);
     }
     if (i.length === 0) return e.getReturnIndex();
     if (
@@ -18569,7 +18574,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     let a = o;
     if (Je(e.getInstruction(a)) && hn(e, a) === 0 && s) {
-      return e.ConstantOfType(EmptyList, []);
+      return e.ConstantOfType($e, []);
     }
     let u = e.BeginBroadcast([a], { type: "implicit" }), c = [];
     for (let d of i) c.push(Ea(e, d, u));
@@ -18607,7 +18612,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       "Programming error: cannot optimize regression on non-constant-length list",
     );
     l.push({ range: p - 1, length: p });
-    let f = false, d = false;
+    let f = !1, d = !1;
     for (let D = a + 1; D <= u; D++) {
       if (!n[D]) continue;
       let S = e.getInstruction(D);
@@ -18615,13 +18620,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       if (S.type === 39 || S.type === 41 || S.type === 40) {
         if (S.args[1] !== a) continue;
         let O = S.args[0];
-        if (e.getInstruction(O).valueType !== ListOfNumber || !Je(e.getInstruction(O))) {
+        if (e.getInstruction(O).valueType !== ne || !Je(e.getInstruction(O))) {
           continue;
         }
         let _ = hn(e, O), L = CH(_);
         if (!isFinite(L.range)) continue;
         c.push(D), l.push(L);
-      } else MN(S) ? f = true : (S.type === 12 || S.type === 13) && (d = true);
+      } else MN(S) ? f = !0 : (S.type === 12 || S.type === 13) && (d = !0);
     }
     if (c.length === 0 || !d && !f) return e;
     let y = [], g = [];
@@ -18635,9 +18640,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let O = m[D];
         for (let _ = 0; _ < O.length; _++) if (O[_]) return e;
       } else if (S.type === 12 || S.type === 13) {
-        let O = false, _ = false;
+        let O = !1, _ = !1;
         for (let K = 0; K < c.length; K++) {
-          h[S.args[0]][K] && (O = true), h[S.args[1]][K] && (_ = true);
+          h[S.args[0]][K] && (O = !0), h[S.args[1]][K] && (_ = !0);
         }
         if (O || !_) continue;
         let L = m[S.args[0]], w = 0, G;
@@ -18645,8 +18650,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         if (w !== 1 || G === void 0) continue;
         let k = g[G],
           Z = ns(e.copy().reopenFinalBlock(), k, {
-            allowRestriction: false,
-            allowClosedBlockReferences: false,
+            allowRestriction: !1,
+            allowClosedBlockReferences: !1,
           });
         if (ln(Z, S.args[0]) !== 1) continue;
         let F = fo(Z, S.args[0]), [Y, re] = Kn(F, S.args[0]);
@@ -18659,8 +18664,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       let D = e.copy().reopenFinalBlock();
       for (let S = 0; S < c.length; S++) {
         let O = ns(D, c[S], {
-            allowRestriction: false,
-            allowClosedBlockReferences: false,
+            allowRestriction: !1,
+            allowClosedBlockReferences: !1,
           }),
           _ = fo(O, u);
         for (let L = a + 1; L <= u; L++) {
@@ -18675,8 +18680,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             for (let me = 0; me < Z.length; me++) Z[me] && (F = me, Y += 1);
             if (Y !== 1 || F === void 0) continue;
             let re = ns(_.newChunk, F, {
-              allowRestriction: false,
-              allowClosedBlockReferences: false,
+              allowRestriction: !1,
+              allowClosedBlockReferences: !1,
             });
             if (ln(re, k) !== 1) continue;
             let Ee = fo(re, k), [he, K] = Kn(Ee, k);
@@ -18696,10 +18701,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         }
       }
     }
-    let x = false;
+    let x = !1;
     for (let D of y) {
       if (Fs(D) || !hi(D)) return e;
-      (D.bounds[0] !== -1 / 0 || D.bounds[1] !== 1 / 0) && (x = true);
+      (D.bounds[0] !== -1 / 0 || D.bounds[1] !== 1 / 0) && (x = !0);
     }
     if (!x) return e;
     let T = e.copy(), b = T.Constant(1), M = T.Constant(NaN), P = t;
@@ -18740,7 +18745,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function K0(e, t, n, r) {
     let s = e.getInstruction(r), i = vH(t.length);
-    for (let o = 0; o < t.length; o++) if (t[o] === r) return i[o] = true, i;
+    for (let o = 0; o < t.length; o++) if (t[o] === r) return i[o] = !0, i;
     if (ge(s)) return i;
     for (let o of s.args) {
       let a = n[o];
@@ -18750,7 +18755,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function vH(e) {
     let t = [];
-    for (let n = 0; n < e; n++) t.push(false);
+    for (let n = 0; n < e; n++) t.push(!1);
     return t;
   }
   var RN = tM({
@@ -19093,9 +19098,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       "vec2 z, vec2 base",
       pe`
       float u = z.x; float v = z.y;
-      float bu = base.x; float covp = base.y;
+      float bu = base.x; float bv = base.y;
       if (any(isnan(z)) || any(isnan(base))) return vec2(NaN, NaN);
-      if (covp == 0.0 && bu == 0.0) return vec2(NaN, NaN);
+      if (bv == 0.0 && bu == 0.0) return vec2(NaN, NaN);
       if (u == 0.0 && v == 0.0) return vec2(-Infinity, 0);${""}
       return dcg_complexDivide(dcg_complexLn(z), dcg_complexLn(base));`,
     ),
@@ -19580,9 +19585,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   var rM = class extends wp {
     constructor(n, r) {
-      super(n, true);
+      super(n, !0);
       this.maxUniforms = r;
-      this.glsl = true;
+      this.glsl = !0;
       this.shaderUniforms = [];
       this.definitions = {};
     }
@@ -19601,7 +19606,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           o = n.map((c) => this.printValue(c, i)).join(","),
           a = $f(r),
           u = LN({ type: a, arity: n.length });
-        return this.definitions[u] = true, (s ? "buildList" : a) + "(" + o + ")";
+        return this.definitions[u] = !0, (s ? "buildList" : a) + "(" + o + ")";
       }
       switch (typeof n) {
         case "boolean":
@@ -19636,7 +19641,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let u = fs(this.chunk, n.args[1]);
         throw i ? gy(u) : hy(u);
       }
-      if (r.valueType !== Number || s.valueType !== Number) {
+      if (r.valueType !== I || s.valueType !== I) {
         throw new Error("Programming error: non-number in summation bounds");
       }
       let o = V(r.value), a = V(s.value);
@@ -19697,7 +19702,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     emitList(n, r) {
       let s = LN({ type: $f(r.valueType), arity: r.args.length });
-      return this.definitions[s] = true, `buildList(${n.join(",")})`;
+      return this.definitions[s] = !0, `buildList(${n.join(",")})`;
     }
     emitListAccess(n, r, s, i) {
       let o = qn(this.chunk, i.args[0]);
@@ -19755,24 +19760,24 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           let o = sM(e, s),
             a =
               `${o} dcg_ternary(bool x, ${o} y, ${o} z) { if (x) return y; return z; }`;
-          t[a] = true;
+          t[a] = !0;
         }
       } else if (i.type === 37) {
         let o = yh[i.symbol];
         if ((o == null ? void 0 : o.type) === "reducer") {
           let a = i.args[0], u = qn(e, a);
           if (u === void 0) throw mu(fs(e, a));
-          for (let c of o.deps) t[yh[c].value(u)] = true;
-          t[o.value(u)] = true;
+          for (let c of o.deps) t[yh[c].value(u)] = !0;
+          t[o.value(u)] = !0;
         } else if ((o == null ? void 0 : o.type) === "double-reducer") {
           let a = i.args[0], u = i.args[1], c = qn(e, a), l = qn(e, u);
           if (c === void 0) throw mu(fs(e, a));
           if (l === void 0) throw mu(fs(e, u));
-          t[o.value(c, l)] = true;
+          t[o.value(c, l)] = !0;
         } else if ((o == null ? void 0 : o.type) === "elementsAt") {
           let a = $f(Ve(i.valueType)), u = i.args[1], c = qn(e, u);
           if (c === void 0) throw mu(fs(e, u));
-          t[o.value(a, c)] = true;
+          t[o.value(a, c)] = !0;
         }
       }
     }
@@ -19784,15 +19789,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function $f(e) {
     switch (j(e) ? Ve(e) : e) {
-      case Bool:
+      case De:
         return "bool";
-      case Number:
+      case I:
         return "float";
-      case Point:
-      case Complex:
+      case N:
+      case R:
         return "vec2";
-      case RGBColor:
-      case Point3D:
+      case Kt:
+      case z:
         return "vec3";
       default:
         throw new Error("Unexpected type: " + at(e));
@@ -19824,7 +19829,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     for (let r = 0; r < e.argNames.length; r++) {
       let s = [], i = [];
       for (let o = 0; o < e.argNames.length; o++) {
-        s.push(e.argTypes[o] === Number), i.push(r === o);
+        s.push(e.argTypes[o] === I), i.push(r === o);
       }
       n.push(i), t.push(s);
     }
@@ -19947,12 +19952,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function zH(e) {
     let t = [];
-    for (let n = 0; n < e; n++) t.push(false);
+    for (let n = 0; n < e; n++) t.push(!1);
     return t;
   }
   function iM(e) {
     let t = [];
-    for (let n = 0; n < e; n++) t.push(true);
+    for (let n = 0; n < e; n++) t.push(!0);
     return t;
   }
   function Sn(e, t, n) {
@@ -19968,7 +19973,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 19:
       case 23:
       case 50:
-        return Number;
+        return I;
       case 25:
       case 26:
       case 27:
@@ -19976,7 +19981,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 29:
       case 31:
       case 32:
-        return Bool;
+        return De;
       case 33: {
         let s = e.getInstruction(n[1]).valueType,
           i = e.getInstruction(n[2]).valueType,
@@ -19989,12 +19994,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 40:
       case 41: {
         let s = e.getInstruction(n[0]).valueType;
-        return j(s) ? Ve(s) : Any;
+        return j(s) ? Ve(s) : Qt;
       }
       case 44:
-        return SeedType;
+        return ft;
       case 49:
-        return Action;
+        return ut;
       case 55:
         return e.getInstruction(n[0]).valueType;
       case 1:
@@ -20014,7 +20019,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 54:
       case 15:
       case 16:
-        return Any;
+        return Qt;
       default:
         let r = t;
         throw new Error(`Unexpected opcode ${r}`);
@@ -20051,13 +20056,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             ]))
           : Uu(e, n) && Uu(e, r)
           ? (e.popInstruction(),
-            e.TupleOfType(Point, [
+            e.TupleOfType(N, [
               e.Add([e.Slot(0, [n]), e.Slot(0, [r])]),
               e.Add([e.Slot(1, [n]), e.Slot(1, [r])]),
             ]))
           : qu(e, n) && qu(e, r)
           ? (e.popInstruction(),
-            e.TupleOfType(Point3D, [
+            e.TupleOfType(z, [
               e.Add([e.Slot(0, [n]), e.Slot(0, [r])]),
               e.Add([e.Slot(1, [n]), e.Slot(1, [r])]),
               e.Add([e.Slot(2, [n]), e.Slot(2, [r])]),
@@ -20088,13 +20093,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             ]))
           : Uu(e, i) && Uu(e, o)
           ? (e.popInstruction(),
-            e.TupleOfType(Point, [
+            e.TupleOfType(N, [
               e.Subtract([e.Slot(0, [i]), e.Slot(0, [o])]),
               e.Subtract([e.Slot(1, [i]), e.Slot(1, [o])]),
             ]))
           : qu(e, i) && qu(e, o)
           ? (e.popInstruction(),
-            e.TupleOfType(Point3D, [
+            e.TupleOfType(z, [
               e.Subtract([e.Slot(0, [i]), e.Slot(0, [o])]),
               e.Subtract([e.Slot(1, [i]), e.Slot(1, [o])]),
               e.Subtract([e.Slot(2, [i]), e.Slot(2, [o])]),
@@ -20114,13 +20119,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             ]))
           : Uu(e, i)
           ? (e.popInstruction(),
-            e.TupleOfType(Point, [
+            e.TupleOfType(N, [
               e.Negative([e.Slot(0, [i])]),
               e.Negative([e.Slot(1, [i])]),
             ]))
           : qu(e, i)
           ? (e.popInstruction(),
-            e.TupleOfType(Point3D, [
+            e.TupleOfType(z, [
               e.Negative([e.Slot(0, [i])]),
               e.Negative([e.Slot(1, [i])]),
               e.Negative([e.Slot(2, [i])]),
@@ -20179,13 +20184,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               : e.getReturnIndex();
           } else {return Uu(e, i) && rs(e, o)
               ? (e.popInstruction(),
-                e.TupleOfType(Point, [
+                e.TupleOfType(N, [
                   e.Multiply([e.Slot(0, [i]), o]),
                   e.Multiply([e.Slot(1, [i]), o]),
                 ]))
               : rs(e, i) && Uu(e, o)
               ? (e.popInstruction(),
-                e.TupleOfType(Point, [
+                e.TupleOfType(N, [
                   e.Multiply([i, e.Slot(0, [o])]),
                   e.Multiply([i, e.Slot(1, [o])]),
                 ]))
@@ -20197,14 +20202,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
                 $u(e, [e.Multiply([i, Ss(e, o)]), $o(e, o)]))
               : qu(e, i) && rs(e, o)
               ? (e.popInstruction(),
-                e.TupleOfType(Point3D, [
+                e.TupleOfType(z, [
                   e.Multiply([e.Slot(0, [i]), o]),
                   e.Multiply([e.Slot(1, [i]), o]),
                   e.Multiply([e.Slot(2, [i]), o]),
                 ]))
               : rs(e, i) && qu(e, o)
               ? (e.popInstruction(),
-                e.TupleOfType(Point3D, [
+                e.TupleOfType(z, [
                   e.Multiply([i, e.Slot(0, [o])]),
                   e.Multiply([i, e.Slot(1, [o])]),
                   e.Multiply([i, e.Slot(2, [o])]),
@@ -20230,7 +20235,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             ]))
           : Uu(e, i) && rs(e, o)
           ? (e.popInstruction(),
-            e.TupleOfType(Point, [
+            e.TupleOfType(N, [
               e.Divide([e.Slot(0, [i]), o]),
               e.Divide([e.Slot(1, [i]), o]),
             ]))
@@ -20238,7 +20243,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           ? (e.popInstruction(), $u(e, [e.Divide([Ss(e, i), o]), $o(e, i)]))
           : qu(e, i) && rs(e, o)
           ? (e.popInstruction(),
-            e.TupleOfType(Point3D, [
+            e.TupleOfType(z, [
               e.Divide([e.Slot(0, [i]), o]),
               e.Divide([e.Slot(1, [i]), o]),
               e.Divide([e.Slot(2, [i]), o]),
@@ -20310,52 +20315,52 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
   }
   function Uu(e, t) {
-    return e.getInstruction(t).valueType === Point;
+    return e.getInstruction(t).valueType === N;
   }
   function qu(e, t) {
-    return e.getInstruction(t).valueType === Point3D;
+    return e.getInstruction(t).valueType === z;
   }
   function rs(e, t) {
-    return e.getInstruction(t).valueType === Number;
+    return e.getInstruction(t).valueType === I;
   }
   function cr(e, t) {
-    return e.getInstruction(t).valueType === Complex;
+    return e.getInstruction(t).valueType === R;
   }
   function Yf(e, t) {
-    return e.getInstruction(t).valueType === Restriction;
+    return e.getInstruction(t).valueType === Gt;
   }
   function eu(e, t) {
-    return t.every((n) => gt(e, n, Vector)) || t.every((n) => gt(e, n, Vector3D));
+    return t.every((n) => gt(e, n, le)) || t.every((n) => gt(e, n, ke));
   }
   function $u(e, t) {
     return Ui(e, t, "mathVector", Xf("mathVector", "mathVectorThreeD"));
   }
   function $o(e, t) {
     return Ui(e, [t], "start", [{
-      match: [Vector],
+      match: [le],
       build: () => e.NativeFunction("basePointFromVector", [t]),
     }, {
-      match: [Vector3D],
+      match: [ke],
       build: () => e.NativeFunction("basePointFromVectorThreeD", [t]),
     }]);
   }
   function Ss(e, t) {
     return Ui(e, [t], "displacement", [{
-      match: [Vector],
+      match: [le],
       build: () => e.NativeFunction("vectorDisplacementAsPoint", [t]),
     }, {
-      match: [Vector3D],
+      match: [ke],
       build: () => e.NativeFunction("vectorThreeDDisplacementAsPoint", [t]),
     }]);
   }
   function Xf(e, t) {
-    return [{ match: [Point, Point], build: (n, r) => n.NativeFunction(e, r) }, {
-      match: [Point3D, Point3D],
+    return [{ match: [N, N], build: (n, r) => n.NativeFunction(e, r) }, {
+      match: [z, z],
       build: (n, r) => n.NativeFunction(t, r),
     }];
   }
   function Yu(e, t) {
-    if (t.type !== 33) return false;
+    if (t.type !== 33) return !1;
     let n = e.getInstruction(t.args[2]);
     return n.type === 1 && io(n.valueType) && _S(n.valueType, n.value) ||
       Yu(e, n) && VN(e, t.args[1]) && VN(e, n.args[1]);
@@ -20382,15 +20387,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       i = e.getInstruction(r),
       o = e.getInstruction(s),
       a = (o.type === 41 || o.type === 40) && Je(e.getInstruction(o.args[0]));
-    return i.type === 2 && (Je(o) || a) && se(o.valueType, Number)
+    return i.type === 2 && (Je(o) || a) && se(o.valueType, I)
       ? { type: "constant", variable: e.argNames[r], index: s }
-      : se(i.valueType, Number) && se(o.valueType, Number)
+      : se(i.valueType, I) && se(o.valueType, I)
       ? { type: "implicit", index: e.Subtract([r, s]) }
       : void 0;
   }
   function VN(e, t) {
     let n = e.getInstruction(t);
-    return n.type === 1 && n.valueType === Number && V(n.value) === 1;
+    return n.type === 1 && n.valueType === I && V(n.value) === 1;
   }
   var uM = class {
       constructor(t, n, r, s) {
@@ -20409,14 +20414,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         for (let n of this.slices) {
           if (n.type === "constant") {
             let r = this.openChunk.getInstruction(n.index);
-            if (Je(r) && r.valueType === Number) {
+            if (Je(r) && r.valueType === I) {
               t.push({
                 type: "constant",
                 variable: n.variable,
                 value: V(r.value),
               });
-            } else if (!(Je(r) && r.valueType === ListOfNumber)) throw ca();
-          } else if (this.openChunk.getInstruction(n.index).valueType === Number) {
+            } else if (!(Je(r) && r.valueType === ne)) throw ca();
+          } else if (this.openChunk.getInstruction(n.index).valueType === I) {
             let s = this.openChunk.copy();
             s.setReturnIndex(n.index),
               s.fuseBroadcast(),
@@ -20454,22 +20459,22 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         this.oldIPToRestriction = [];
         var s, i;
         this.produceNumbers =
-          (s = r == null ? void 0 : r.produceNumbers) != null ? s : false,
+          (s = r == null ? void 0 : r.produceNumbers) != null ? s : !1,
           this.allowSlices = (i = r == null ? void 0 : r.allowSlices) != null
             ? i
-            : false,
+            : !1,
           this.newChunk = new Ia({
             argNames: t.argNames,
             argTypes: t.argTypes,
           }),
           this.startTrue = this.produceNumbers
             ? this.newChunk.Constant(1 / 0)
-            : this.newChunk.ConstantOfType(Bool, true),
+            : this.newChunk.ConstantOfType(De, !0),
           this.peelable = $H(t),
           XH(t, this.peelable, n);
       }
       selectRestriction() {
-        return true;
+        return !0;
       }
     },
     cM = class extends hh {
@@ -20496,18 +20501,18 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function* kN(e, t, n) {
     var s, i;
-    let r = aM(e, n, { produceNumbers: false, selectIndex: 0 });
+    let r = aM(e, n, { produceNumbers: !1, selectIndex: 0 });
     if (r === void 0 || r.count <= 1) {
       yield { value: t, restriction: void 0 };
       return;
     }
     for (let o = 0; o < r.count; o++) {
-      let a = (s = aM(e, n, { produceNumbers: true, selectIndex: o })) == null
+      let a = (s = aM(e, n, { produceNumbers: !0, selectIndex: o })) == null
           ? void 0
           : s.chunk,
         u = o === 0
           ? r.chunk
-          : (i = aM(e, n, { produceNumbers: false, selectIndex: o })) == null
+          : (i = aM(e, n, { produceNumbers: !1, selectIndex: o })) == null
           ? void 0
           : i.chunk;
       if (!a || !u) {
@@ -20578,7 +20583,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     let n = e.newChunk;
     return t.map((r) => {
       let s = n.getInstruction(r);
-      if (s.valueType !== Bool) return r;
+      if (s.valueType !== De) return r;
       switch (s.type) {
         case 27:
         case 29:
@@ -20602,7 +20607,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function HN({ newChunk: e }, t) {
     let n = e.getInstruction(t);
     return n.type === 1 &&
-      (n.valueType === Number && n.value === 1 / 0 || n.valueType === Bool && n.value);
+      (n.valueType === I && n.value === 1 / 0 || n.valueType === De && n.value);
   }
   function qH(e, t) {
     let {
@@ -20626,7 +20631,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let h = t + m - 1;
         s[h] = r.copyInstructionWithArgs(n.getInstruction(h), [s[t]]), i[h] = o;
       }
-      l = r.BlockVar(e.produceNumbers ? Number : Bool, [s[t]]),
+      l = r.BlockVar(e.produceNumbers ? I : De, [s[t]]),
         p = t + a.args.length - 1;
     }
     lM(e, p, u - 1);
@@ -20647,11 +20652,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       s[u + g] = r.copyInstructionWithArgs(n.getInstruction(u + g), [s[u]]);
     }
     if (a.type === 23) {
-      let g = r.BroadcastResult(e.produceNumbers ? ListOfNumber : ListOfBool, [s[u]]);
-      for (let m of d) m.index = r.BroadcastResult(ListOfNumber, [s[u]]);
+      let g = r.BroadcastResult(e.produceNumbers ? ne : Xn, [s[u]]);
+      for (let m of d) m.index = r.BroadcastResult(ne, [s[u]]);
       for (let m = 1; m < c.args.length; m++) i[u + m] = g;
     } else {
-      let g = r.BlockVar(e.produceNumbers ? Number : Bool, [s[u]]);
+      let g = r.BlockVar(e.produceNumbers ? I : De, [s[u]]);
       l === y && (g = o);
       for (let m = 1; m < c.args.length; m++) i[u + m] = g;
     }
@@ -20659,13 +20664,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function $H(e) {
     let t = [];
-    for (let r = 0; r < e.instructionsLength(); r++) t.push(false);
-    t[e.getReturnIndex()] = true;
+    for (let r = 0; r < e.instructionsLength(); r++) t.push(!1);
+    t[e.getReturnIndex()] = !0;
     let n = e.instructionsLength() - 1;
     for (let r = n; r >= 0; r--) {
       if (!t[r]) continue;
       let s = e.getInstruction(r);
-      if (!ge(s)) { for (let i of YH(e, s)) t[i] = true; }
+      if (!ge(s)) { for (let i of YH(e, s)) t[i] = !0; }
     }
     return t;
   }
@@ -20824,61 +20829,61 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       e.maxValidReference = Math.min(e.maxValidReference, t - 1);
   }
   var jH = {
-    "+": true,
-    "-": true,
-    "*": true,
-    "\\cdot": true,
-    "\\times": true,
-    "/": true,
-    "!": true,
-    "(": true,
-    ")": true,
-    "\\{": true,
-    "\\}": true,
-    "(|": true,
-    "|)": true,
-    "[": true,
-    "]": true,
-    ",": true,
-    "...": true,
-    ":": true,
-    "=": true,
-    ">": true,
-    "<": true,
-    ">=": true,
-    "<=": true,
-    "->": true,
-    "~": true,
-    "%": true,
-    ".": true,
-    for: true,
-    with: true,
-    Letter: true,
-    Decimal: true,
-    Cmd: true,
-    TokenNode: true,
-    Differential: true,
-    End: true,
-    Trig: true,
-    Ln: true,
-    Log: true,
-    Int: true,
-    Sum: true,
-    Prod: true,
-    Err: true,
+    "+": !0,
+    "-": !0,
+    "*": !0,
+    "\\cdot": !0,
+    "\\times": !0,
+    "/": !0,
+    "!": !0,
+    "(": !0,
+    ")": !0,
+    "\\{": !0,
+    "\\}": !0,
+    "(|": !0,
+    "|)": !0,
+    "[": !0,
+    "]": !0,
+    ",": !0,
+    "...": !0,
+    ":": !0,
+    "=": !0,
+    ">": !0,
+    "<": !0,
+    ">=": !0,
+    "<=": !0,
+    "->": !0,
+    "~": !0,
+    "%": !0,
+    ".": !0,
+    for: !0,
+    with: !0,
+    Letter: !0,
+    Decimal: !0,
+    Cmd: !0,
+    TokenNode: !0,
+    Differential: !0,
+    End: !0,
+    Trig: !0,
+    Ln: !0,
+    Log: !0,
+    Int: !0,
+    Sum: !0,
+    Prod: !0,
+    Err: !0,
   };
   function $K(e) {
     let t = nu[e];
-    if (!t) return true;
+    if (!t) return !0;
     switch (t) {
       case "Ln":
       case "Log":
       case "for":
       case "with":
       case "Trig":
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   var nu = {
@@ -20958,7 +20963,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return e === 39;
   }
   function ZN(e) {
-    if (9 <= e && e <= 13 || 8192 <= e && e <= 8202) return true;
+    if (9 <= e && e <= 13 || 8192 <= e && e <= 8202) return !0;
     switch (e) {
       case 32:
       case 160:
@@ -20969,9 +20974,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case 8287:
       case 12288:
       case 65279:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   var ez = {
@@ -21149,25 +21154,25 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function lr(e) {
     if (e.type === "Subscript") {
-      if (e.args[1].type !== "Alphanumeric") return false;
+      if (e.args[1].type !== "Alphanumeric") return !1;
       e = e.args[0];
     }
     switch (e.type) {
       case "Cmd":
-        return true;
+        return !0;
       case "Letter":
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function NR(e) {
-    return e.type !== "Superscript" ? false : lr(e.args[0]);
+    return e.type !== "Superscript" ? !1 : lr(e.args[0]);
   }
   function RR(e, t) {
-    if (e.type !== "Letter" || e.val !== "d" || t.type !== "Juxt") return false;
+    if (e.type !== "Letter" || e.val !== "d" || t.type !== "Juxt") return !1;
     let [n, r] = t.args;
-    return n.type !== "Letter" || n.val !== "d" ? false : lr(r);
+    return n.type !== "Letter" || n.val !== "d" ? !1 : lr(r);
   }
   function Sr(e) {
     return e.type === "Seq" ? e.args : [e];
@@ -21367,15 +21372,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function wR(e, t) {
     let n = az(e, t);
     if (n) return n;
-    let r = e.args, s = e.args[t].span, i = [], o = false, a = false;
+    let r = e.args, s = e.args[t].span, i = [], o = !1, a = !1;
     for (; t < r.length; t++) {
       let c = jf(r, t);
       if (c >= r.length) break;
       let l = r[c];
-      if (l.type === "Digit") t = c, o = true, i.push(l.val);
+      if (l.type === "Digit") t = c, o = !0, i.push(l.val);
       else if (!a && Sh(l)) {
         if (c + 1 < r.length && Sh(e.args[c + 1])) break;
-        t = c, a = true, i.push(".");
+        t = c, a = !0, i.push(".");
       } else break;
     }
     if (!o) {
@@ -21425,7 +21430,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "Symbol":
       case "Letter":
       case "Digit":
-        return false;
+        return !1;
       case "Cmd":
         return e.val === "\\space";
       case "EscapedSymbol":
@@ -21514,7 +21519,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             if (CM(r)) {
               let o;
               return s.type === "For"
-                ? o = e.setInput(Oh(e, s, { parentIsList: false }), s.span)
+                ? o = e.setInput(Oh(e, s, { parentIsList: !1 }), s.span)
                 : o = mn(e, s),
                 n.Assignment(mn(e, r), o);
             }
@@ -21557,15 +21562,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return Jf(e, t);
       }
       case "For":
-        return Oh(e, t, { parentIsList: false });
+        return Oh(e, t, { parentIsList: !1 });
       default:
         return Jf(e, t);
     }
   }
   function $R(e) {
-    if (e.type !== "Paren") return false;
+    if (e.type !== "Paren") return !1;
     let [t] = e.args;
-    return t.type !== "Seq" ? false : t.args.length === 2 || t.args.length === 3;
+    return t.type !== "Seq" ? !1 : t.args.length === 2 || t.args.length === 3;
   }
   function VR(e, t, n, r) {
     let s = dz(e, n, r);
@@ -21711,7 +21716,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             e.setInput(n.List(It(e, Sr(a))), void 0),
             e.setInput(n.List(It(e, Sr(u))), void 0),
           ]);
-        } else if (o.type === "For") return Oh(e, o, { parentIsList: true });
+        } else if (o.type === "For") return Oh(e, o, { parentIsList: !0 });
         return n.List(It(e, Sr(o)));
       }
       case "Pipes": {
@@ -21856,7 +21861,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "With": {
         if (e.isSubstitutionRHS) throw $y();
-        let [o, a] = t.args, u = { ...e, isSubstitutionRHS: true };
+        let [o, a] = t.args, u = { ...e, isSubstitutionRHS: !0 };
         return n.Substitution(mn(u, o), yz(u, a));
       }
       case "Decimal":
@@ -21871,7 +21876,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return n.BareSeq(It(e, t.args));
       case "EmptyPiecewise":
         return n.Restriction([
-          e.setInput(n.Constant(true), No(t.span.input, t.span.start)),
+          e.setInput(n.Constant(!0), No(t.span.input, t.span.start)),
         ]);
       case "Comparator":
         throw t.symbol === "=" ? ks("=") : cy();
@@ -21884,7 +21889,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "Ellipsis":
         throw ks("...");
       case "For":
-        return Oh(e, t, { parentIsList: false });
+        return Oh(e, t, { parentIsList: !1 });
       case "EmptyRangeEnd":
         throw sP();
       case "Err":
@@ -21904,7 +21909,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function mz(e) {
     return e.type !== "Neg"
-      ? false
+      ? !1
       : (e = e.args[0], e.type === "Decimal" && e.val === "1");
   }
   function BR(e, t) {
@@ -21939,17 +21944,17 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (s.type === "For") throw yu("for");
     let a = mn(Kf(e, { prefix: "li", expr: o }), s), u = [];
     if (i.type === "Seq") {
-      let p = false, f = false, d = false;
+      let p = !1, f = !1, d = !1;
       for (let y = 0; y < i.args.length; y++) {
         let g = i.args[y];
         ed(g) || e.allowIntervalComprehensions && g.type === "ComparatorChain"
-          ? p = true
-          : f = true, g.type === "Cmd" && g.val === "cursor" && (d = true);
+          ? p = !0
+          : f = !0, g.type === "Cmd" && g.val === "cursor" && (d = !0);
       }
       if (p && f) {
         let y = yu("for");
         throw d &&
-          y.setCursorContext({ type: "for-assignment-lhs", allowedTypes: [Point] }),
+          y.setCursorContext({ type: "for-assignment-lhs", allowedTypes: [N] }),
           y;
       }
     }
@@ -21968,7 +21973,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           throw p.type === "Cmd" && p.val === "cursor" &&
             f.setCursorContext({
               type: "for-assignment-lhs",
-              allowedTypes: [Point],
+              allowedTypes: [N],
             }),
             f;
         }
@@ -21980,20 +21985,20 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function yz(e, t) {
     let n = e.nodes;
     if (t.type === "Seq") {
-      let i = false, o = false, a = false;
+      let i = !1, o = !1, a = !1;
       for (let u = 0; u < t.args.length; u++) {
         let c = t.args[u];
         if (c.type === "With") throw yu("with");
-        if (ed(c) || GR(c)) i = true;
+        if (ed(c) || GR(c)) i = !0;
         else if (
           e.allowIntervalComprehensions && c.type === "ComparatorChain"
         ) {
           try {
-            MM(c), o = true;
+            MM(c), o = !0;
           } catch (l) {
-            a = true;
+            a = !0;
           }
-        } else a = true;
+        } else a = !0;
       }
       if ((i || o) && a) throw yu("with");
       if (o) throw Yy();
@@ -22001,9 +22006,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (e.allowIntervalComprehensions && t.type === "ComparatorChain") {
       let i;
       try {
-        MM(t), i = true;
+        MM(t), i = !0;
       } catch (o) {
-        i = false;
+        i = !1;
       }
       if (i) throw Yy();
     }
@@ -22017,9 +22022,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return s;
   }
   function GR(e) {
-    if (e.type !== "Comparator" || e.symbol !== "=") return false;
+    if (e.type !== "Comparator" || e.symbol !== "=") return !1;
     let t = e.args[0];
-    if (t.type !== "Call") return false;
+    if (t.type !== "Call") return !1;
     let [n] = t.args;
     return !!lr(n);
   }
@@ -22129,13 +22134,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return qs(t, Ps(n, r));
   }
   function xz(e) {
-    if (e.type !== "Call") return false;
+    if (e.type !== "Call") return !1;
     let t = e.args[0];
     for (
       ;
       t.type === "Superscript" || t.type === "Subscript" || t.type === "Prime";
     ) t = t.args[0];
-    return t.type !== "Cmd" ? false : EM(t.val) || YR(t.val);
+    return t.type !== "Cmd" ? !1 : EM(t.val) || YR(t.val);
   }
   function ed(e) {
     return e.type === "Comparator" && e.symbol === "=" && lr(e.args[0]);
@@ -22213,7 +22218,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "EmptyPipe":
         return yI();
       case "FunctionMissingArgument":
-        return Ao(e.val, 1, 0, { includeUsageExample: true });
+        return Ao(e.val, 1, 0, { includeUsageExample: !0 });
       case "AdjacentNumbers":
         return eI(Nh(e.args[0]), Nh(e.args[1]));
       case "TokenWithSubscript":
@@ -22242,7 +22247,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "MixedNumber":
       case "Cmd":
       case "EmptyPiecewise":
-        return true;
+        return !0;
       case "Neg": {
         let n = e.args[0];
         for (;;) {
@@ -22275,14 +22280,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "Call": {
         let [n, r] = e.args;
-        return lr(n) || NR(n) ? false : Yo(n) && Yo(r);
+        return lr(n) || NR(n) ? !1 : Yo(n) && Yo(r);
       }
       case "Derivative":
       case "Sqrt":
       case "Nthroot":
       case "Pipes":
       case "Bang":
-        return false;
+        return !1;
       case "Comparator":
       case "ComparatorChain":
       case "Tilde":
@@ -22303,13 +22308,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "Prime":
       case "EmptyRangeEnd":
       case "RightArrow":
-        return false;
+        return !1;
       default:
         throw `Unexpected surface node ${e.type}.`;
     }
   }
   function Rh(e) {
-    return e.type !== "Cmd" ? false : e.val === "random" || e.val === "shuffle";
+    return e.type !== "Cmd" ? !1 : e.val === "random" || e.val === "shuffle";
   }
   function XR(e) {
     let t = e.nodes.ExtendSeed("", [
@@ -22575,7 +22580,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       [nn("Err")],
     ],
     { leftPrec: _h, rightPrec: MA, initialPrec: vA } = WR(Pz),
-    CA = { trailingComma: false };
+    CA = { trailingComma: !1 };
   function OA(e, t) {
     let n = t ? { ...CA, ...t } : CA, r = ru(e, n), s = Ez(r);
     return s.type === "Err" && s.error.type === "EmptyGroup"
@@ -22583,9 +22588,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       : s;
   }
   function Ez(e) {
-    return Xu(e, { isToplevel: true });
+    return Xu(e, { isToplevel: !0 });
   }
-  function Xu(e, { isToplevel: t } = { isToplevel: false }) {
+  function Xu(e, { isToplevel: t } = { isToplevel: !1 }) {
     if (vh(e)) return Be(Pe(e, e), JR());
     let { state: n, tree: r } = pr(e, 0, { isToplevel: t });
     return r.type !== "Err" && !vh(n) ? VM(n).tree : r;
@@ -22593,7 +22598,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function H(e, t) {
     return { state: e, tree: t };
   }
-  function pr(e, t, { isToplevel: n } = { isToplevel: false }) {
+  function pr(e, t, { isToplevel: n } = { isToplevel: !1 }) {
     let r = e, s;
     if ({ state: r, tree: s } = Mz(r), s.type === "Err") return H(r, s);
     if (!PM(e, r)) {
@@ -23407,16 +23412,16 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   var kM = { type: "primitive", errorName: "^" },
     HA = { type: "primitive", errorName: "_" },
     _z = {
-      "\\frac": { type: "macro", errorName: "\\frac", expandsToSingleAtom: true },
+      "\\frac": { type: "macro", errorName: "\\frac", expandsToSingleAtom: !0 },
       "\\operatorname": {
         type: "macro",
         errorName: "\\operatorname",
-        expandsToSingleAtom: false,
+        expandsToSingleAtom: !1,
       },
       "\\token": {
         type: "macro",
         errorName: "\\token",
-        expandsToSingleAtom: false,
+        expandsToSingleAtom: !1,
       },
     };
   function zA(e) {
@@ -23424,7 +23429,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (t.type === "Cmd") {
       return t.val === "\\sqrt"
         ? BM(mo(e), "[")
-          ? { type: "macro", errorName: "\\sqrt[*]", expandsToSingleAtom: false }
+          ? { type: "macro", errorName: "\\sqrt[*]", expandsToSingleAtom: !1 }
           : { type: "primitive", errorName: "\\sqrt" }
         : _z[t.val];
     }
@@ -23432,7 +23437,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (t.type === "_") return HA;
   }
   function UA(e) {
-    let { state: t, tree: n } = Fh(AA(e), false);
+    let { state: t, tree: n } = Fh(AA(e), !1);
     if (!wh(t)) throw `Parse error: unexpected ${Yn(Xo(t).span)}.`;
     return n;
   }
@@ -23491,7 +23496,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "{": {
         e = mo(e);
         let r;
-        return { state: e, tree: r } = Fh(e, false), e = Zo(e, "}"), qi(e, r);
+        return { state: e, tree: r } = Fh(e, !1), e = Zo(e, "}"), qi(e, r);
       }
       case "^":
       case "_":
@@ -23569,7 +23574,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     let n = Xo(e);
     e = mo(e);
     let r;
-    ({ state: e, tree: r } = Fh(e, false)), e = Zo(e, "Right");
+    ({ state: e, tree: r } = Fh(e, !1)), e = Zo(e, "Right");
     let s = Xo(e);
     e = mo(e);
     let i = Zu(t, e);
@@ -23619,7 +23624,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function Hz(e) {
     e = Zo(e, "[");
     let t;
-    return { state: e, tree: t } = Fh(e, true), e = Zo(e, "]"), qi(e, t);
+    return { state: e, tree: t } = Fh(e, !0), e = Zo(e, "]"), qi(e, t);
   }
   function zz() {
     throw rf();
@@ -23666,12 +23671,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         allowIntervalComprehensions: !!t.allowIntervalComprehensions,
         specializeDoubleInequalities: !!t.specializeDoubleInequalities,
         includeFunctionParametersInRandomSeed:
-          (l = t.includeFunctionParametersInRandomSeed) != null ? l : true,
+          (l = t.includeFunctionParametersInRandomSeed) != null ? l : !0,
       },
       u = {};
     t.trailingComma !== void 0 && (u.trailingComma = t.trailingComma),
-      t.disallowFrac && (u.disallowFrac = true),
-      t.disableParentheses && (u.disableParentheses = true);
+      t.disallowFrac && (u.disallowFrac = !0),
+      t.disableParentheses && (u.disableParentheses = !0);
     function c(p) {
       return p.parseOptions = t, p;
     }
@@ -23707,64 +23712,64 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     ],
     $z = {
       isGeometryEnabled() {
-        return false;
+        return !1;
       },
       is3dProduct() {
-        return false;
+        return !1;
       },
       is3dPolicy() {
-        return false;
+        return !1;
       },
       polygonUnsupportedPreferTriangle() {
-        return false;
+        return !1;
       },
       areAllScalesLinear() {
-        return true;
+        return !0;
       },
       assignmentForbidden(e) {
-        return true;
+        return !0;
       },
       graphingEnabled() {
-        return false;
+        return !1;
       },
       isValidSlider(e) {
-        return false;
+        return !1;
       },
       sliderVariables(e) {
         return [];
       },
       ansEnabled() {
-        return false;
+        return !1;
       },
       disabledFeatures() {
         return qz;
       },
       dimensionVarsEnabled() {
-        return false;
+        return !1;
       },
       shouldIncludeFunctionParametersInRandomSeed() {
-        return true;
+        return !0;
       },
       isComplexEnabled() {
-        return false;
+        return !1;
       },
       isRecursionEnabled() {
-        return false;
+        return !1;
       },
     },
     YA = {
       ...$z,
       isGeometryEnabled() {
-        return true;
+        return !0;
       },
       is3dProduct() {
-        return true;
+        return !0;
       },
       is3dPolicy() {
-        return true;
+        return !0;
       },
       isComplexEnabled() {
-        return false;
+        return !1;
       },
     };
   var rd = class e {
@@ -23852,22 +23857,22 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           r[t] = n,
             this.frame[t] === void 0 &&
               ((o = this.dynamic[t]) == null ? void 0 : o.type) !== "dynamic"
-              ? (s[t] = n, i = true)
-              : i = false;
+              ? (s[t] = n, i = !0)
+              : i = !1;
           break;
         }
         case "dynamic": {
           s[t] = n,
             r[t] = { type: "lexical", value: n.value, node: n.node },
-            i = true;
+            i = !0;
           break;
         }
         case "error": {
-          s[t] = n, i = true;
+          s[t] = n, i = !0;
           break;
         }
         case "free": {
-          s[t] = n, i = true;
+          s[t] = n, i = !0;
           break;
         }
         default:
@@ -24052,7 +24057,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       let x = p[h];
       x !== void 0 && x > f && (p[h] = void 0);
     }
-    let d = [], y = false;
+    let d = [], y = !1;
     for (let h = 0; h < n; h++) d[h] = h, p[h] = i;
     let g = Vr(e, s);
     return Gh(
@@ -24132,12 +24137,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       let p = s.slice();
       p[t] = _n(n, a, [p[a.args[0]], p[a.args[1]]]),
         i[t] = o,
-        Gh({ ...e, valueMap: p, mustCopy: true }, t + 1, u - 1);
+        Gh({ ...e, valueMap: p, mustCopy: !0 }, t + 1, u - 1);
       let f = _n(n, c, [p[c.args[0]], i[c.args[1]]]);
       i[u] = f, l = n.Add([l, _n(n, n.getInstruction(u + 1), [f])]);
     } else for (let p = t; p <= u; p++) i[p] = o;
     if (jz(n, t, s)) {
-      let p = { ...e, mustCopy: true };
+      let p = { ...e, mustCopy: !0 };
       for (let f = t; f <= u + 1; f++) s[f] = Vh(p, f);
     } else for (let p = t; p <= u + 1; p++) s[p] = p;
     return i[u + 1] = l, u + c.args.length - 1;
@@ -24147,17 +24152,17 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (s.args[1] < t + 1) return n[s.args[1]];
     for (let i = t + 1; i <= s.args[1]; i++) {
       let o = e.getInstruction(i);
-      if (!ge(o)) { for (let a of o.args) if (a < t && n[a]) return true; }
+      if (!ge(o)) { for (let a of o.args) if (a < t && n[a]) return !0; }
     }
-    return false;
+    return !1;
   }
   function jz(e, t, n) {
     let r = e.getInstruction(t);
     for (let s = t; s <= r.endIndex; s++) {
       let i = e.getInstruction(s);
-      if (!ge(i)) { for (let o of i.args) if (n[o] !== o) return true; }
+      if (!ge(i)) { for (let o of i.args) if (n[o] !== o) return !0; }
     }
-    return false;
+    return !1;
   }
   function Jz(e, t) {
     let { chunk: n, derivativeMap: r, valueMap: s, ZERO: i } = e,
@@ -24179,7 +24184,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       c = t + o.args.length - 1;
     }
-    Gh({ ...e, mustCopy: true }, c, a - 1);
+    Gh({ ...e, mustCopy: !0 }, c, a - 1);
     let l = [];
     l.push(s[u.args[0]]);
     for (let p = 1; p < u.args.length; p++) l.push(s[u.args[p]], r[u.args[p]]);
@@ -24196,8 +24201,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     let o = n.getInstruction(t);
     if (ge(o)) return s ? po(n, o) : t;
     {
-      let a = [], u = false;
-      for (let c of o.args) a.push(r[c]), r[c] !== c && (u = true);
+      let a = [], u = !1;
+      for (let c of o.args) a.push(r[c]), r[c] !== c && (u = !0);
       return u || s ? _n(n, o, a) : t;
     }
   }
@@ -24243,7 +24248,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     let g = t + d.length + 1, m = u - 1, h = ol(n, y, g, m), x = r.slice();
     return x[o] = o,
-      Gh({ ...e, valueMap: x, mustCopy: true, forwardMask: h }, g, m),
+      Gh({ ...e, valueMap: x, mustCopy: !0, forwardMask: h }, g, m),
       n.EndFunction([f, s[l]]),
       u;
   }
@@ -24282,11 +24287,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       es(p) || ds(p) || p.type === 47 || p.type === 48 || p.type === 25 ||
       p.type === 27 || p.type === 26 || p.type === 29 || p.type === 28 ||
       p.type === 32 || p.type === 31 || p.type === 42 || p.type === 44 ||
-      p.type === 49 || p.valueType === SeedType
+      p.type === 49 || p.valueType === ft
     ) return u;
     if (p.type === 4) return Qz(e, t);
     if (!i[t] || ge(p)) {
-      return p.valueType !== Number
+      return p.valueType !== I
         ? nU(n, [o[t], u])
         : p.type !== 1 || isFinite(V(p.value))
         ? u
@@ -24396,23 +24401,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function nU(e, t) {
     switch (e.getInstruction(t[0]).valueType) {
-      case Segment:
+      case de:
         return e.NativeFunction("scaleTangentSegment", t);
-      case Line:
+      case fe:
         return e.NativeFunction("scaleTangentLine", t);
-      case Ray:
+      case Ne:
         return e.NativeFunction("scaleTangentRay", t);
-      case Circle:
+      case ce:
         return e.NativeFunction("scaleTangentCircle", t);
-      case Arc:
+      case ie:
         return e.NativeFunction("scaleTangentArc", t);
-      case AngleMarker:
+      case Le:
         return e.NativeFunction("scaleTangentUndirectedAngleMarker", t);
-      case DirectedAngleMarker:
+      case ye:
         return e.NativeFunction("scaleTangentDirectedAngleMarker", t);
-      case Polygon:
+      case xe:
         return e.NativeFunction("scaleTangentPolygon", t);
-      case Transformation:
+      case Re:
         return e.NativeFunction("scaleTangentTransformation", t);
       default:
         return e.Multiply(t);
@@ -24420,27 +24425,27 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function rU(e, t) {
     switch (e.getInstruction(t[0]).valueType) {
-      case Segment:
+      case de:
         return e.NativeFunction("addTangentSegment", t);
-      case Segment3D:
+      case wt:
         return e.NativeFunction("addTangentSegmentThreeD", t);
-      case Line:
+      case fe:
         return e.NativeFunction("addTangentLine", t);
-      case Ray:
+      case Ne:
         return e.NativeFunction("addTangentRay", t);
-      case Vector:
+      case le:
         return e.NativeFunction("addTangentVector", t);
-      case Circle:
+      case ce:
         return e.NativeFunction("addTangentCircle", t);
-      case Arc:
+      case ie:
         return e.NativeFunction("addTangentArc", t);
-      case AngleMarker:
+      case Le:
         return e.NativeFunction("addTangentUndirectedAngleMarker", t);
-      case DirectedAngleMarker:
+      case ye:
         return e.NativeFunction("addTangentDirectedAngleMarker", t);
-      case Polygon:
+      case xe:
         return e.NativeFunction("addTangentPolygon", t);
-      case Transformation:
+      case Re:
         return e.NativeFunction("addTangentTransformation", t);
       default:
         return e.Add(t);
@@ -25004,7 +25009,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     WA[t] = r;
   }
   function om(e) {
-    return se(e, Number) ? "number" : se(e, Complex) ? "complex" : void 0;
+    return se(e, I) ? "number" : se(e, R) ? "complex" : void 0;
   }
   function kh(e, t, n, r) {
     let s = e.getInstruction(n).valueType;
@@ -25034,9 +25039,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function oU(e, t) {
     switch (t) {
       case "number":
-        return kn(e, Complex) || kn(e, ListOfComplex) || se(e, Point) || se(e, Point3D);
+        return kn(e, R) || kn(e, Ue) || se(e, N) || se(e, z);
       case "complex":
-        return kn(e, Complex) || kn(e, ListOfComplex);
+        return kn(e, R) || kn(e, Ue);
       default:
         throw U(`Invalid derivative strategy '${t}'.`);
     }
@@ -25083,9 +25088,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     computeNeedsThunking() {
       for (let t = this.returnIndex; t >= 0; t--) {
-        if (this.instructions[t].type === 55) return true;
+        if (this.instructions[t].type === 55) return !0;
       }
-      return false;
+      return !1;
     }
     setError(t) {
       this.error = t;
@@ -25203,7 +25208,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
     }
     markClosedBlock(t, n) {
-      for (let r = t; r < n; r++) this.blockMask[r] = true;
+      for (let r = t; r < n; r++) this.blockMask[r] = !0;
     }
     LoadArg(t) {
       return this.pushLeafInstruction({ type: 2, valueType: t });
@@ -25227,7 +25232,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       });
     }
     Constant(t) {
-      return this.ConstantOfType(Number, t);
+      return this.ConstantOfType(I, t);
     }
     ConstantOfType(t, n) {
       if (typeof n == "number" && (n = Se(n, 1)), j(t) && n.length > 1e4) {
@@ -25242,15 +25247,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       let r = 16,
         s = this.getInstruction(n[0]).valueType,
         i = zl[s],
-        o = i ? i[t] : Any;
+        o = i ? i[t] : Qt;
       if (o === void 0) throw U(`Invalid slot index: ${t} for ${at(s)}.`);
       return this.pushInstruction({ type: r, valueType: o, args: n, index: t });
     }
     ImaginaryUnit() {
-      return this.ConstantOfType(Complex, [Se(0, 1), Se(1, 1)]);
+      return this.ConstantOfType(R, [Se(0, 1), Se(1, 1)]);
     }
     NanOfType(t) {
-      if (t === Distribution) {
+      if (t === Lt) {
         let n = this.Constant(NaN);
         return this.Distribution("uniformdist", [n, n]);
       } else return this.ConstantOfType(t, ls(t));
@@ -25367,7 +25372,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       });
     }
     Distribution(t, n) {
-      let r = 42, s = Distribution;
+      let r = 42, s = Lt;
       return this.pushInstruction({
         type: r,
         valueType: s,
@@ -25507,7 +25512,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         parameterSymbols: o.parameterSymbols,
         recursionGroup: o.recursionGroup,
       };
-      let a = this.pushInstruction({ type: n, valueType: Any, args: t });
+      let a = this.pushInstruction({ type: n, valueType: Qt, args: t });
       return this.markClosedBlock(r, a), a;
     }
     FunctionCall(t) {
@@ -25519,17 +25524,17 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       });
     }
     ExtendSeed(t, n) {
-      let r = 44, s = SeedType;
+      let r = 44, s = ft;
       return this.pushInstruction({ type: r, valueType: s, args: n, tag: t });
     }
     Noop() {
-      let t = 0, n = Any;
+      let t = 0, n = Qt;
       return this.pushLeafInstruction({ type: t, valueType: n });
     }
     Action(t, n) {
       return this.pushInstruction({
         type: 49,
-        valueType: Action,
+        valueType: ut,
         args: n,
         symbols: t,
       });
@@ -25573,7 +25578,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       return _n(this, t, n);
     }
     replaceInstructionWithNoop(t) {
-      this.instructions[t] = { type: 0, valueType: Any };
+      this.instructions[t] = { type: 0, valueType: Qt };
     }
     getReturnType() {
       return this.instructions[this.getReturnIndex()].valueType;
@@ -25582,8 +25587,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       return Je(this.instructions[this.getReturnIndex()]);
     }
     areAllArgsConstant(t) {
-      for (let n of t) if (!Je(this.instructions[n])) return false;
-      return true;
+      for (let n of t) if (!Je(this.instructions[n])) return !1;
+      return !0;
     }
     asValue() {
       return hn(this, this.getReturnIndex());
@@ -25630,7 +25635,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       };
     }
     getRestrictedFunctionForGLSL(t, n) {
-      let r = tu(this, t, { allowSlices: true }),
+      let r = tu(this, t, { allowSlices: !0 }),
         { restrictionChunk: s, valueChunk: i } = r
           .getValueAndRestrictionChunk(),
         o;
@@ -25695,7 +25700,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     isLinearIn(t) {
       let n = this.argNames.filter((r) => t.includes(r));
-      return n.length === 0 ? false : this.findLinearSubset(n).every(Boolean);
+      return n.length === 0 ? !1 : this.findLinearSubset(n).every(Boolean);
     }
     isImplicitPlane() {
       let t = (n) => n === "x" || n === "y" || n === "z";
@@ -25705,8 +25710,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       let r;
       return t === void 0
         ? (t = this.instructionsLength() - 1,
-          r = { printUnreferencedInstructions: true, comments: n })
-        : r = { printUnreferencedInstructions: false, comments: n },
+          r = { printUnreferencedInstructions: !0, comments: n })
+        : r = { printUnreferencedInstructions: !1, comments: n },
         oO(this, t, r);
     }
     printInstruction(t) {
@@ -25839,7 +25844,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             throw U(new Error(`Unexpected scope kind ${o}`));
         }
       }
-      s[i] = true;
+      s[i] = !0;
     }
     for (let i of n.definitions) {
       let o = t[i];
@@ -25886,7 +25891,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
     }
     r = Tn(r);
-    for (let i of n.definitions) r[i] = true;
+    for (let i of n.definitions) r[i] = !0;
     for (let i of n.scopes) e_(e, t, i, r);
   }
   var Sa = {
@@ -26081,10 +26086,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function n_(e, t, n) {
     switch (t) {
-      case Complex:
+      case R:
         return e.NativeFunction("complex", n);
-      case Point:
-      case Point3D:
+      case N:
+      case z:
         return e.TupleOfType(t, n);
       default:
         throw U(
@@ -26107,7 +26112,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         type: n.type === "Assignment"
           ? "assignment-rhs"
           : "function-definition-body",
-        allowedTypes: [Any],
+        allowedTypes: [Qt],
       })
       : r === "empty-list" &&
         e.setCursorContext({
@@ -26115,9 +26120,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           expressionType: "List",
           argIndex: 0,
           argCount: 0,
-          isLastValidArg: false,
+          isLastValidArg: !1,
           positionWithinArg: "start-to-end",
-          allowedTypesForInsertedArg: [Any],
+          allowedTypesForInsertedArg: [Qt],
         });
   }
   function r_(e, t, n) {
@@ -26126,12 +26131,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       r === "start-to-end"
         ? e.setCursorContext({
           type: "for-assignment-rhs",
-          allowedTypes: [Segment, Circle, Arc, Line, Ray, Polygon, ...ii.types],
+          allowedTypes: [de, ce, ie, fe, Ne, xe, ...ii.types],
         })
         : r === "empty-list" &&
           e.setCursorContext({
             type: "for-assignment-rhs",
-            allowedTypes: [Any],
+            allowedTypes: [Qt],
           });
     }
   }
@@ -26155,8 +26160,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function YM(e, t) {
     if (!e) return;
-    let n = false;
-    t instanceof Ms && t.args[1] instanceof gn && (n = true, t = t.args[1]);
+    let n = !1;
+    t instanceof Ms && t.args[1] instanceof gn && (n = !0, t = t.args[1]);
     let r = t.args;
     if (r) {
       if (r.length === 0) {
@@ -26213,13 +26218,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         expressionType: "List",
         argIndex: 0,
         argCount: 0,
-        isLastValidArg: false,
+        isLastValidArg: !1,
         positionWithinArg: "start-to-end",
-        allowedTypesForInsertedArg: p != null ? p : [Any],
+        allowedTypesForInsertedArg: p != null ? p : [Qt],
       };
     } else {
       if ((l == null ? void 0 : l.length) === 0) return;
-      let p = false;
+      let p = !1;
       if (c) {
         let y = 0;
         for (let g of c) {
@@ -26241,7 +26246,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         argCount: f,
         isLastValidArg: p,
         positionWithinArg: i.positionWithinArg,
-        allowedTypesForInsertedArg: l != null ? l : [Any],
+        allowedTypesForInsertedArg: l != null ? l : [Qt],
       };
       if (
         r instanceof gn &&
@@ -26263,24 +26268,24 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
   }
   function um(e, t, n) {
-    if (t === n) return true;
-    if (t < n) return false;
-    let r = [true];
-    for (let i = n + 1; i <= t; i++) r.push(false);
+    if (t === n) return !0;
+    if (t < n) return !1;
+    let r = [!0];
+    for (let i = n + 1; i <= t; i++) r.push(!1);
     let s = [t];
     for (; s.length;) {
       let i = s.pop();
       if (r[i - n]) continue;
-      r[i - n] = true;
+      r[i - n] = !0;
       let o = e.getInstruction(i);
       if (!ge(o)) {
         for (let a of e.getDirectDependencies(o)) {
-          if (a === n) return true;
+          if (a === n) return !0;
           a < n || r[a - n] || s.push(a);
         }
       }
     }
-    return false;
+    return !1;
   }
   function s_(e, t, n) {
     return zh(e, (r) => {
@@ -26370,9 +26375,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       return this.functionBodySubstitutions[n];
     }
     allowsRegressionParameterDependency() {
-      if (!this.kind) return true;
-      for (let t in this.substitutedGlobals) return false;
-      return true;
+      if (!this.kind) return !0;
+      for (let t in this.substitutedGlobals) return !1;
+      return !0;
     }
     getRegressionDependencyError(t) {
       if (this.allowsRegressionParameterDependency()) return;
@@ -26404,7 +26409,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         this.baseCaseTypes = {};
         this.firstValidBaseCaseIdentifiers = {};
         this.stack = [];
-        this.isUnconditionallyRecursive = false;
+        this.isUnconditionallyRecursive = !1;
         this.fnSymbols = Object.keys(t);
       }
       registerFunctionCall(t, n) {
@@ -26452,7 +26457,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       { freeDependencies: u, updateSymbols: c } = a;
     if (s || (s = u), !i) {
       i = [];
-      for (let f = 0; f < s.length; f++) i.push(Number);
+      for (let f = 0; f < s.length; f++) i.push(I);
     }
     let l;
     t.type === "FunctionDefinition" || t.type === "RecursiveFunctionBaseCase"
@@ -26469,7 +26474,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     try {
       KA(n, r, t.getScope()),
         Fe(p, t),
-        e.coerceToNumber === "all" || se(p.chunk.getReturnType(), Restriction)
+        e.coerceToNumber === "all" || se(p.chunk.getReturnType(), Gt)
           ? p.chunk.coerceToNumericIfPossible()
           : e.coerceToNumber === "all-except-complex" &&
             p.chunk.coerceNonComplexToNumberIfPossible(),
@@ -26494,7 +26499,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     for (let o of n) s.isDefined(o) || i.push(o);
     if (i.length) {
       let o = JM(e, i[0]).setDependencies(r.argNames.concat(i));
-      throw r.isConstant() && r.getReturnType() === Action &&
+      throw r.isConstant() && r.getReturnType() === ut &&
         o.setActionValue(r.asValue()),
         o;
     }
@@ -26526,18 +26531,18 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function mU(e, t) {
     let { scope: n, substitutionContext: r } = e;
-    if (!t.__IRCache) return false;
+    if (!t.__IRCache) return !1;
     let s = t.__IRCache.keys;
     for (let [i, o] of s) {
-      if (n.isLocal(i) || n.isError(i)) return false;
+      if (n.isLocal(i) || n.isError(i)) return !1;
       let a = n.getVisibleGlobalDefinition(i);
       if (
         a !== o ||
         a && a.type === "RegressionParameter" &&
           !r.allowsRegressionParameterDependency()
-      ) return false;
+      ) return !1;
     }
-    return true;
+    return !0;
   }
   function yU(e, t) {
     var u, c, l, p;
@@ -26551,7 +26556,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       a = t.type;
     switch (a) {
       case "Constant": {
-        let d = t._constantValue, y = typeof d == "boolean" ? Bool : Number;
+        let d = t._constantValue, y = typeof d == "boolean" ? De : I;
         return r.ConstantOfType(y, d);
       }
       case "RegressionParameter":
@@ -26573,7 +26578,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return (c = (u = a_(e, d, y)) != null
             ? u
             : eu(r, [d, y])
-            ? a_(e, Ss(r, d), Ss(r, y), { forcePermitted: true })
+            ? a_(e, Ss(r, d), Ss(r, y), { forcePermitted: !0 })
             : void 0) != null
           ? c
           : r.Multiply([d, y]);
@@ -26581,9 +26586,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "CrossMultiply": {
         let [d, y] = yo(e, t, t.args);
         return e.policy.is3dPolicy()
-          ? gt(r, d, Vector3D) && gt(r, y, Vector3D)
+          ? gt(r, d, ke) && gt(r, y, ke)
             ? $u(r, [u_(e, Ss(r, d), Ss(r, y)), $o(r, d)])
-            : gt(r, d, Point3D) && gt(r, y, Point3D)
+            : gt(r, d, z) && gt(r, y, z)
             ? u_(e, d, y)
             : r.Multiply([d, y])
           : r.Multiply([d, y]);
@@ -26596,7 +26601,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           let y = t.args[1];
           if (RU(y)) {
             let g = r.getInstruction(d[0]).valueType;
-            if (Ec(g, Number) || Ec(g, ListOfNumber)) return r.Exponent(d);
+            if (Ec(g, I) || Ec(g, ne)) return r.Exponent(d);
           }
           return r.NativeFunction("complexPow", d);
         } else return r.Exponent(d);
@@ -26641,7 +26646,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "Norm": {
         let d = qh(e, t, t.args)[0];
-        return gt(r, d, Complex)
+        return gt(r, d, R)
           ? Yh(r, d)
           : (p = (l = jM(e, d)) != null
               ? l
@@ -26667,12 +26672,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           return ms(t.args), r.List(Ju(e, t, t.args));
         }
         if (t.args.length === 0) {
-          return sd(r, n, o, t, []), r.ConstantOfType(EmptyList, []);
+          return sd(r, n, o, t, []), r.ConstantOfType($e, []);
         }
         {
           let d = r.instructionsLength(), y = [], g, m;
           ms(t.args);
-          let h = true;
+          let h = !0;
           for (let T of t.args) {
             let b = Fe(e, T), M = r.getInstruction(b);
             if (g === void 0) {
@@ -26704,7 +26709,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               expressionType: "List",
               argIndex: x.argIndex,
               argCount: t.args.length,
-              isLastValidArg: false,
+              isLastValidArg: !1,
               positionWithinArg: x.positionWithinArg,
               allowedTypesForInsertedArg: [T],
             });
@@ -26716,19 +26721,19 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let d = Fe(e, t.args[0]), y = r.getInstruction(d);
         if (t.args[1].type === "Range" && t.args[1].args[1].length === 0) {
           if (!j(y.valueType)) {
-            throw Bd([oe(y.valueType), oe(Number)], { blockExport: Je(y) });
+            throw Bd([oe(y.valueType), oe(I)], { blockExport: Je(y) });
           }
           let g = ur(r, d),
             m = QM(e, Fe(e, t.args[1].args[0]), r.List([g]), {
-              stepMustBePositive: true,
+              stepMustBePositive: !0,
             });
           return r.ListAccess([d, m]);
         } else {
           let g = Fe(e, t.args[1]), m = r.getInstruction(g);
-          if (Uo(r, n, t, [d, g]), m.valueType === ListOfBool) {
+          if (Uo(r, n, t, [d, g]), m.valueType === Xn) {
             return r.NativeFunction("select", [d, g]);
           }
-          if (m.valueType === Bool && j(y.valueType)) {
+          if (m.valueType === De && j(y.valueType)) {
             let h = r.ConstantOfType(y.valueType, []);
             return r.Piecewise([g, d, h]);
           }
@@ -26737,15 +26742,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "Range": {
         let [d, y] = yo(e, t, t.args);
-        return QM(e, d, y, { stepMustBePositive: false });
+        return QM(e, d, y, { stepMustBePositive: !1 });
       }
       case "ListComprehension":
         return MU(e, t);
       case "Piecewise": {
         let d = Fe(e, t.args[0]),
           y = r.getInstruction(d),
-          g = y.type === 1 && y.value === false,
-          m = y.type === 1 && y.value === true,
+          g = y.type === 1 && y.value === !1,
+          m = y.type === 1 && y.value === !0,
           h;
         h = r.getWarning();
         let x = Fe(e, t.args[1]);
@@ -26757,15 +26762,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let M = r.getInstruction(b[1]),
           P = r.getInstruction(b[2]),
           D = _i(M.valueType, P.valueType) || _i(P.valueType, M.valueType);
-        if (y.type === 1 && y.valueType === Bool && D) {
+        if (y.type === 1 && y.valueType === De && D) {
           let _ = b[y.value ? 1 : 2],
             L = r.getInstruction(_),
-            w = M.valueType !== EmptyList ? M.valueType : P.valueType;
-          return L.valueType === EmptyList && w !== EmptyList ? r.ConstantOfType(w, []) : _;
+            w = M.valueType !== $e ? M.valueType : P.valueType;
+          return L.valueType === $e && w !== $e ? r.ConstantOfType(w, []) : _;
         }
         let S = M.valueType, O = j(S) ? Ve(S) : S;
-        if (!D && Je(P) && P.valueType === Number && Ii(P.value) && io(O)) {
-          if (se(M.valueType, Restriction)) {
+        if (!D && Je(P) && P.valueType === I && Ii(P.value) && io(O)) {
+          if (se(M.valueType, Gt)) {
             return r.NativeFunction("restriction", [
               r.And([b[0], r.NativeFunction("restrictionToBoolean", [b[1]])]),
             ]);
@@ -26875,7 +26880,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         } else throw ks(".");
       }
       case "Seed":
-        return r.ConstantOfType(SeedType, t._stringValue);
+        return r.ConstantOfType(ft, t._stringValue);
       case "ExtendSeed":
         return r.ExtendSeed(t.tag, yo(e, t, t.args));
       case "Integral": {
@@ -26886,7 +26891,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           h = Fe(g, t.args[2]),
           x = r.getInstruction(m),
           T = r.getInstruction(h),
-          b = r.SymbolicVar(Number, d),
+          b = r.SymbolicVar(I, d),
           M = s.childScope();
         M.addLexicalBinding(d, b);
         let P = Fe(Ci(e, M), t.args[3]);
@@ -26900,8 +26905,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let _ = h;
         S !== void 0 && j(T.valueType) && (_ = Ea(r, h, S));
         let L = r.getInstruction(P).valueType, w = j(L) ? Ve(L) : L, G;
-        if ($l(w) && w !== Number) {
-          let k = [], Z = w === Complex || w === Point ? 2 : 3;
+        if ($l(w) && w !== I) {
+          let k = [], Z = w === R || w === N ? 2 : 3;
           for (let F = 0; F < Z; F++) {
             let Y = r.BeginIntegral({ indexSymbol: d }, [O, _]),
               re = su(r, Y, b, P),
@@ -26909,7 +26914,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             S !== void 0 && j(Ee.valueType) && (re = Ea(r, re, S)),
               re = r.Slot(F, [re]);
             let he = r.EndIntegral([Y, re]);
-            k.push(r.BlockVar(Number, [he]));
+            k.push(r.BlockVar(I, [he]));
           }
           G = n_(r, w, k);
         } else {
@@ -26918,7 +26923,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             F = r.getInstruction(Z);
           S !== void 0 && j(F.valueType) && (Z = Ea(r, Z, S));
           let Y = r.EndIntegral([k, Z]);
-          G = r.BlockVar(Number, [Y]);
+          G = r.BlockVar(I, [Y]);
         }
         if (S !== void 0) {
           let k = r.EndBroadcast([S, G]);
@@ -26932,11 +26937,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let m = Ci(e, g), h = Fe(m, t.args[1]);
         h = zi(m.chunk, h);
         let x = Fe(m, t.args[2]);
-        if (x = zi(m.chunk, x), !gt(r, h, Number)) {
+        if (x = zi(m.chunk, x), !gt(r, h, I)) {
           let me = zu(r, [h]), J = r.areAllArgsConstant([h]);
           throw y ? rT(me, { blockExport: J }) : oT(me, { blockExport: J });
         }
-        if (!gt(r, x, Number)) {
+        if (!gt(r, x, I)) {
           let me = zu(r, [x]), J = r.areAllArgsConstant([x]);
           throw y ? sT(me, { blockExport: J }) : aT(me, { blockExport: J });
         }
@@ -26944,13 +26949,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           b = r.NativeFunction("round", [x]),
           M = r.getInstruction(T),
           P = r.getInstruction(b);
-        if (M.type === 1 && M.valueType === Number && !isFinite(V(M.value))) {
+        if (M.type === 1 && M.valueType === I && !isFinite(V(M.value))) {
           throw y ? py() : dy();
         }
-        if (P.type === 1 && P.valueType === Number && !isFinite(V(P.value))) {
+        if (P.type === 1 && P.valueType === I && !isFinite(V(P.value))) {
           throw y ? py() : dy();
         }
-        let D = r.SymbolicVar(Number, d), S = s.childScope();
+        let D = r.SymbolicVar(I, d), S = s.childScope();
         S.addLexicalBinding(d, D);
         let O = Fe(Ci(e, S), t.args[3]),
           _ = r.getInstruction(O).valueType,
@@ -26965,7 +26970,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           me = r.NativeFunction("listMax", [me, r.Constant(0)]);
           let J = y
             ? r.Multiply([O, me])
-            : G === Complex
+            : G === R
             ? r.NativeFunction("complexPow", [O, me])
             : r.RawExponent([O, me]);
           return r.Piecewise([
@@ -26982,7 +26987,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         Z != null && j(P.valueType) && (Y = Ea(r, b, Z));
         let re = y
             ? r.ZeroOfType(G)
-            : G === Complex
+            : G === R
             ? r.NativeFunction("complex", [r.Constant(1), r.Constant(0)])
             : r.Constant(1),
           Ee = r.BeginLoop({ type: y ? "sum" : "product", indexSymbol: d }, [
@@ -27009,13 +27014,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           m = r.getInstruction(g),
           h = om(m.valueType);
         if (!h) throw mT(d, zu(r, [g]), { blockExport: Je(m) });
-        let x, T, b = false;
-        if ((m.type === 2 || m.type === 3) && m.valueType === Number) x = e, T = g;
+        let x, T, b = !1;
+        if ((m.type === 2 || m.type === 3) && m.valueType === I) x = e, T = g;
         else {
           let S = s.childScope();
           T = r.SymbolicVar(m.valueType),
             S.addDynamicBinding(d, T),
-            b = true,
+            b = !0,
             x = Ci(e, S);
         }
         let M = 1;
@@ -27038,10 +27043,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           h = r.getInstruction(m),
           x = om(h.valueType);
         if (!x) throw yT(d._symbol, zu(r, [m]), { blockExport: Je(h) });
-        let T = false, b;
-        (h.type === 2 || h.type === 3) && h.valueType === Number
+        let T = !1, b;
+        (h.type === 2 || h.type === 3) && h.valueType === I
           ? b = m
-          : (b = r.SymbolicVar(h.valueType), T = true);
+          : (b = r.SymbolicVar(h.valueType), T = !0);
         let M, P;
         if (d._symbol === "logbase") {
           if (d.args.length !== 2) throw Nc();
@@ -27104,13 +27109,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return e.NativeFunction("hypot", [e.Slot(0, [t]), e.Slot(1, [t])]);
   }
   function m_(e, t) {
-    return gt(e, t, Number) ? t : e.Slot(0, [t]);
+    return gt(e, t, I) ? t : e.Slot(0, [t]);
   }
   function y_(e, t) {
-    return gt(e, t, Number) ? e.Constant(0) : e.Slot(1, [t]);
+    return gt(e, t, I) ? e.Constant(0) : e.Slot(1, [t]);
   }
   function g_(e, t) {
-    return gt(e, t, Number) ? t : e.NativeFunction("complex", [
+    return gt(e, t, I) ? t : e.NativeFunction("complex", [
       e.Slot(0, [t]),
       e.Negative([e.Slot(1, [t])]),
     ]);
@@ -27123,23 +27128,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       match: _r(Te, 0),
       build: () => e.NativeFunction(n, t),
     }, {
-      match: _r(Complex, 1),
+      match: _r(R, 1),
       build: () =>
         e.NativeFunction("complex", [
           e.NativeFunction(n, t.map((r) => m_(e, r))),
           e.NativeFunction(n, t.map((r) => y_(e, r))),
         ]),
     }, {
-      match: _r(Point, 1),
+      match: _r(N, 1),
       build: () => {
         let r = (s) => e.NativeFunction(n, t.map((i) => e.Slot(s, [i])));
-        return e.TupleOfType(Point, [r(0), r(1)]);
+        return e.TupleOfType(N, [r(0), r(1)]);
       },
     }, {
-      match: _r(Point3D, 1),
+      match: _r(z, 1),
       build: () => {
         let r = (s) => e.NativeFunction(n, t.map((i) => e.Slot(s, [i])));
-        return e.TupleOfType(Point3D, [r(0), r(1), r(2)]);
+        return e.TupleOfType(z, [r(0), r(1), r(2)]);
       },
     }]);
   }
@@ -27148,7 +27153,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       match: _r(Te, 0),
       build: () => e.NativeFunction("varp", t),
     }, {
-      match: _r(Complex, 1),
+      match: _r(R, 1),
       build: () => {
         let n = Tl(e, t);
         return Tl(e, t.map((r) => gU(e, e.Subtract([r, n]))));
@@ -27160,7 +27165,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       match: _r(Te, 1),
       build: () => e.NativeFunction("var", t),
     }, {
-      match: _r(Complex, 1),
+      match: _r(R, 1),
       build: () => {
         let n = e.NativeFunction("count", t);
         return e.Divide([
@@ -27179,11 +27184,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function XM(e, t) {
     return Ui(e, t, "covp", [{
       match: [ro, ro],
-      noBroadcast: true,
+      noBroadcast: !0,
       build: () => e.NativeFunction("covp", t),
     }, {
-      match: [ListOfComplex, ListOfComplex],
-      noBroadcast: true,
+      match: [Ue, Ue],
+      noBroadcast: !0,
       build: () => {
         let n = e.NativeFunction("listMin", [ur(e, t[0]), ur(e, t[1])]),
           r = o_(e, t[0], n),
@@ -27204,23 +27209,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function jM(e, t) {
     let n = e.chunk;
-    return gt(n, t, Point3D)
+    return gt(n, t, z)
       ? n.NativeFunction("hypot", [
         n.Slot(0, [t]),
         n.NativeFunction("hypot", [n.Slot(1, [t]), n.Slot(2, [t])]),
       ])
-      : gt(n, t, Point)
+      : gt(n, t, N)
       ? n.NativeFunction("hypot", [n.Slot(0, [t]), n.Slot(1, [t])])
       : void 0;
   }
-  function a_(e, t, n, { forcePermitted: r } = { forcePermitted: false }) {
+  function a_(e, t, n, { forcePermitted: r } = { forcePermitted: !1 }) {
     let s = e.chunk;
-    return (r || e.policy.is3dProduct()) && gt(s, t, Point) && gt(s, n, Point)
+    return (r || e.policy.is3dProduct()) && gt(s, t, N) && gt(s, n, N)
       ? s.Add([
         s.Multiply([s.Slot(0, [t]), s.Slot(0, [n])]),
         s.Multiply([s.Slot(1, [t]), s.Slot(1, [n])]),
       ])
-      : (r || e.policy.is3dProduct()) && gt(s, t, Point3D) && gt(s, n, Point3D)
+      : (r || e.policy.is3dProduct()) && gt(s, t, z) && gt(s, n, z)
       ? s.Add([
         s.Add([
           s.Multiply([s.Slot(0, [t]), s.Slot(0, [n])]),
@@ -27238,7 +27243,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       a = r.Slot(0, [n]),
       u = r.Slot(1, [n]),
       c = r.Slot(2, [n]);
-    return r.TupleOfType(Point3D, [
+    return r.TupleOfType(z, [
       r.Subtract([r.Multiply([i, c]), r.Multiply([o, u])]),
       r.Subtract([r.Multiply([o, a]), r.Multiply([s, c])]),
       r.Subtract([r.Multiply([s, u]), r.Multiply([i, a])]),
@@ -27277,7 +27282,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       if (d.type === 4) {
         if (d.signature.argTypes.length !== r.length) {
           throw Ao(t, d.signature.argTypes.length, r.length, {
-            includeUsageExample: true,
+            includeUsageExample: !0,
           });
         }
         for (let y = 0; y < r.length; y++) {
@@ -27289,9 +27294,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           }
         }
         return i.FunctionCall([l, ...r]);
-      } else if (se(d.valueType, Transformation)) return Wh(e.chunk, [l, ...r], n, true);
+      } else if (se(d.valueType, Re)) return Wh(e.chunk, [l, ...r], n, !0);
       if (r.length >= 1) return f_(e, t, s, r);
-      throw d.type === 2 ? Dy(n) : d.valueType === Distribution ? Vy(n) : Fy(n);
+      throw d.type === 2 ? Dy(n) : d.valueType === Lt ? Vy(n) : Fy(n);
     }
     let p = o.getVisibleGlobalDefinition(t);
     if (p === void 0 || !p.isFunction) {
@@ -27302,9 +27307,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       if (p) {
         let d = Fe(e, p);
-        if (i.getInstruction(d).valueType === Distribution) throw Vy(n);
-        if (se(i.getInstruction(d).valueType, Transformation)) {
-          return Wh(e.chunk, [d, ...r], n, true);
+        if (i.getInstruction(d).valueType === Lt) throw Vy(n);
+        if (se(i.getInstruction(d).valueType, Re)) {
+          return Wh(e.chunk, [d, ...r], n, !0);
         }
       }
       if (r.length >= 1) return f_(e, t, s, r);
@@ -27315,7 +27320,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (Af(p)) {
       if (r.length !== p._argSymbols.length) {
         throw Ao(n, p._argSymbols.length, r.length, {
-          includeUsageExample: true,
+          includeUsageExample: !0,
         });
       }
       if (
@@ -27438,7 +27443,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             (g = (y = a.defaultArguments) == null ? void 0 : y.length) != null
               ? g
               : 0,
-          isDotCall: false,
+          isDotCall: !1,
           maxArity: c,
         })
         : new Error("Programming Error: unexpected arity mismatch");
@@ -27449,7 +27454,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       if (
         l === 1 ||
         l < 4 && !j(i.getInstruction(r[1]).valueType) &&
-          i.getInstruction(r[1]).valueType !== Distribution
+          i.getInstruction(r[1]).valueType !== Lt
       ) {
         let m = i.Distribution("uniformdist", [i.Constant(0), i.Constant(1)]);
         p = [r[0], m].concat(r.slice(1));
@@ -27474,7 +27479,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         if (o.isGeometryEnabled() || o.is3dPolicy()) {
           let m = p[0];
           return d([{
-            match: [Segment3D],
+            match: [wt],
             build: () => {
               let h = i.Constant(0), x = i.Constant(1);
               return i.NativeFunction("distanceThreeD", [
@@ -27483,7 +27488,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               ]);
             },
           }, {
-            match: [Segment],
+            match: [de],
             build: () => {
               let h = i.Constant(0), x = i.Constant(1);
               return i.NativeFunction("distance", [
@@ -27492,7 +27497,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               ]);
             },
           }, {
-            match: [Arc],
+            match: [ie],
             build: () => {
               let h = i.NativeFunction("abs", [
                   i.NativeFunction("arcOmega", [p[0]]),
@@ -27511,7 +27516,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return d([
           { match: [Te], build: () => i.NativeFunction("round", p) },
           {
-            match: [Te, Number],
+            match: [Te, I],
             build: () => {
               let m = i.NativeFunction("round", [p[1]]),
                 h = i.RawExponent([i.Constant(10), m]);
@@ -27521,9 +27526,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
               ]);
             },
           },
-          { match: [Complex], build: () => i.NativeFunction("complexRound", p) },
+          { match: [R], build: () => i.NativeFunction("complexRound", p) },
           {
-            match: [Complex, Number],
+            match: [R, I],
             build: () => {
               let m = i.NativeFunction("round", [p[1]]),
                 h = i.RawExponent([i.Constant(10), m]);
@@ -27536,7 +27541,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         ]);
       case "abs":
         return d([{ match: [Te], build: () => i.NativeFunction(t, p) }, {
-          match: [Complex],
+          match: [R],
           build: () => Yh(i, p[0]),
         }]);
       case "real":
@@ -27564,7 +27569,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "floor":
       case "ceil":
         return d([{ match: [Te], build: () => pi(e, t, p) }, {
-          match: [Complex],
+          match: [R],
           build: () => pi(e, Ip[t], p),
         }]);
       case "arctan":
@@ -27573,12 +27578,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             match: [Te],
             build: () => pi(e, t, p.concat(i.Constant(1))),
           },
-          { match: [Number, Number], build: () => pi(e, t, p) },
-          { match: [Complex], build: () => pi(e, Ip[t], p) },
+          { match: [I, I], build: () => pi(e, t, p) },
+          { match: [R], build: () => pi(e, Ip[t], p) },
         ]);
       case "mod":
         return d([{ match: [Te, Te], build: () => pi(e, t, p) }, {
-          match: [Complex, Complex],
+          match: [R, R],
           build: () => pi(e, Ip[t], p),
         }]);
       case "nthroot":
@@ -27590,11 +27595,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         ]);
       case "sign":
         return d([{ match: [Te], build: () => pi(e, t, p) }, {
-          match: [Complex],
+          match: [R],
           build: () => {
             let m = p[0];
             return i.Piecewise([
-              i.Equal([m, i.ZeroOfType(Complex)]),
+              i.Equal([m, i.ZeroOfType(R)]),
               m,
               i.Divide([m, Yh(i, m)]),
             ]);
@@ -27603,25 +27608,25 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "midpoint":
         return d([
           {
-            match: [Segment],
+            match: [de],
             build: () => {
               let m = i.Constant(Se(1, 2));
               return i.NativeFunction("segmentGlider", [p[0], m]);
             },
           },
           {
-            match: [Segment3D],
+            match: [wt],
             build: () => {
               let m = i.Constant(Se(1, 2));
               return i.NativeFunction("segmentThreeDGlider", [p[0], m]);
             },
           },
-          { match: [Point, Point], build: c_ },
-          { match: [Point3D, Point3D], build: c_ },
+          { match: [N, N], build: c_ },
+          { match: [z, z], build: c_ },
         ]);
       case "circle":
         return d([{
-          match: [Point, Segment],
+          match: [N, de],
           build: () => {
             let m = i.Constant(0), h = i.Constant(1);
             return i.NativeFunction("circle", [
@@ -27633,23 +27638,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
             ]);
           },
         }, {
-          match: [Point, Point],
+          match: [N, N],
           build: () =>
             i.NativeFunction("circle", [p[0], i.NativeFunction("distance", p)]),
-        }, { match: [Point, Number], build: () => i.NativeFunction("circle", p) }]);
+        }, { match: [N, I], build: () => i.NativeFunction("circle", p) }]);
       case "segment":
         return d(Xf("segment", "segmentThreeD"));
       case "vector":
         return d(Xf("vector", "vectorThreeD"));
       case "sphere":
         return d([{
-          match: [Point3D, Number],
+          match: [z, I],
           build: (m, h) => m.NativeFunction("sphere", h),
         }, {
-          match: [Point, Number],
+          match: [N, I],
           build: (m, h) =>
             m.NativeFunction("sphere", [
-              m.TupleOfType(Point3D, [
+              m.TupleOfType(z, [
                 m.Slot(0, [h[0]]),
                 m.Slot(1, [h[0]]),
                 m.Constant(0),
@@ -27661,18 +27666,18 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return d(Xf("distance", "distanceThreeD"));
       case "center":
         return d([{
-          match: [Circle],
+          match: [ce],
           build: () => i.NativeFunction("center", [p[0]]),
         }, {
-          match: [Arc],
+          match: [ie],
           build: () => i.NativeFunction("arcCenter", [p[0]]),
         }]);
       case "radius":
         return d([{
-          match: [Circle],
+          match: [ce],
           build: () => i.NativeFunction("radius", [p[0]]),
         }, {
-          match: [Arc],
+          match: [ie],
           build: () =>
             i.NativeFunction("distance", [
               i.NativeFunction("arcFirstPoint", [p[0]]),
@@ -27685,10 +27690,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "strictintersection": {
         let m = 0;
         t === "strictintersection" &&
-          ((gt(i, p[0], Segment) || gt(i, p[0], Arc)) && (m += 3),
-            (gt(i, p[1], Segment) || gt(i, p[1], Arc)) && (m += 12),
-            gt(i, p[0], Ray) && (m += 1),
-            gt(i, p[1], Ray) && (m += 4));
+          ((gt(i, p[0], de) || gt(i, p[0], ie)) && (m += 3),
+            (gt(i, p[1], de) || gt(i, p[1], ie)) && (m += 12),
+            gt(i, p[0], Ne) && (m += 1),
+            gt(i, p[1], Ne) && (m += 4));
         let h = SU(e, s, p), x = h && Ta(h);
         if (!h || !x) return ZM(i, p, m);
         let T = Fe(e, new C.Identifier(x)), b = zo(h);
@@ -27702,7 +27707,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "parallel":
       case "perpendicular":
         return d([{
-          match: [Qm, Point],
+          match: [Qm, N],
           build: () => {
             let h = [Zh(i, p[0]), p[1]];
             return i.NativeFunction(t, h);
@@ -27710,10 +27715,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         }]);
       case "anglebisector":
         return d([{
-          match: [AngleMarker],
+          match: [Le],
           build: () => i.NativeFunction("anglebisector", p),
         }, {
-          match: [DirectedAngleMarker],
+          match: [ye],
           build: () => i.NativeFunction("directedanglebisector", p),
         }]);
       case "start":
@@ -27726,7 +27731,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "dilate":
         return DU(e, t, p);
       case "apply":
-        return Wh(i, p, n, false);
+        return Wh(i, p, n, !1);
       case "normaldist":
       case "tdist":
       case "poissondist":
@@ -27740,12 +27745,12 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return Xh(i, r)
           ? lm(i, p, t)
           : d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-            match: _r(Complex, 1),
+            match: _r(R, 1),
             build: () => i.NativeFunction("sqrt", [i_(i, p)]),
           }]);
       case "stdevp":
         return d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-          match: _r(Complex, 1),
+          match: _r(R, 1),
           build: () => i.NativeFunction("sqrt", [cm(i, p)]),
         }]);
       case "var":
@@ -27753,11 +27758,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "cov":
         return d([{
           match: [ro, ro],
-          noBroadcast: true,
+          noBroadcast: !0,
           build: () => pi(e, t, r),
         }, {
-          match: [ListOfComplex, ListOfComplex],
-          noBroadcast: true,
+          match: [Ue, Ue],
+          noBroadcast: !0,
           build: () => {
             let m = i.NativeFunction("listMin", [ur(i, p[0]), ur(i, p[1])]);
             return i.Divide([
@@ -27769,11 +27774,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "corr":
         return d([{
           match: [ro, ro],
-          noBroadcast: true,
+          noBroadcast: !0,
           build: () => pi(e, t, r),
         }, {
-          match: [ListOfComplex, ListOfComplex],
-          noBroadcast: true,
+          match: [Ue, Ue],
+          noBroadcast: !0,
           build: () =>
             i.Divide([
               XM(i, p),
@@ -27784,7 +27789,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         }]);
       case "mad":
         return d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-          match: _r(Complex, 1),
+          match: _r(R, 1),
           build: () => {
             let m = Tl(i, p);
             return Tl(i, p.map((h) => Yh(i, i.Subtract([h, m]))));
@@ -27803,7 +27808,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "lcm":
       case "gcd":
         return d([{ match: _r(Te, 1), build: () => i.NativeFunction(t, p) }, {
-          match: _r(Complex, 1),
+          match: _r(R, 1),
           build: () => {
             let m;
             switch (t) {
@@ -27818,13 +27823,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           },
         }]);
       case "min":
-        return d([{ match: [Number, Number], build: () => i.NativeFunction("min", p) }, {
-          match: _r(Number, 0),
+        return d([{ match: [I, I], build: () => i.NativeFunction("min", p) }, {
+          match: _r(I, 0),
           build: () => i.NativeFunction("listMin", p),
         }]);
       case "max":
-        return d([{ match: [Number, Number], build: () => i.NativeFunction("max", p) }, {
-          match: _r(Number, 0),
+        return d([{ match: [I, I], build: () => i.NativeFunction("max", p) }, {
+          match: _r(I, 0),
           build: () => i.NativeFunction("listMax", p),
         }]);
       case "random": {
@@ -27832,27 +27837,27 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           h = p[1],
           x = i.getInstruction(p[0]),
           T = i.getInstruction(h);
-        if (x.valueType !== SeedType) {
+        if (x.valueType !== ft) {
           throw U(`Unexpected value type for seed arg: ${x.valueType}`);
         }
-        if (T.valueType === ListOfDistribution) throw YT();
+        if (T.valueType === Zn) throw YT();
         let b;
         if (j(T.valueType)) b = t_;
         else {
-          if (T.type !== 42 || T.valueType !== Distribution) {
+          if (T.type !== 42 || T.valueType !== Lt) {
             throw U('Expected distribution argument to "random"');
           }
           b = Sa[T.symbol][t];
         }
         if (p.length > 2) {
           let M = p[2], P = i.getInstruction(M);
-          if (P.valueType !== Number) {
+          if (P.valueType !== I) {
             throw U(
               `Expected numSamples argument to random() to be a number but got ${P.valueType}`,
             );
           }
           if (p.length === 4) {
-            if (i.getInstruction(p[3]).valueType !== Number) {
+            if (i.getInstruction(p[3]).valueType !== I) {
               throw U(
                 `Expected userSeed argument to random() to be a number but got ${P.valueType}`,
               );
@@ -27874,36 +27879,36 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         let m = p[0], h = p[1], x = p[2];
         if (
           !j(i.getInstruction(h).valueType) ||
-          x !== void 0 && i.getInstruction(x).valueType !== Number
+          x !== void 0 && i.getInstruction(x).valueType !== I
         ) throw U(`Unexpected args for "${t}"`);
         return x !== void 0 && (m = i.ExtendSeed("us", [m, x])),
           i.NativeFunction("shuffle", [m, h]);
       }
       case "sort":
         return d([{
-          match: [ListOfNumber],
-          noBroadcast: true,
+          match: [ne],
+          noBroadcast: !0,
           build: () => l_(e, p[0], p[0]),
         }, {
-          match: [ii, ListOfNumber],
-          noBroadcast: true,
+          match: [ii, ne],
+          noBroadcast: !0,
           build: () => l_(e, p[0], p[1]),
         }]);
       case "join": {
-        let m = [], h = true;
+        let m = [], h = !0;
         for (let w of p) {
           let G = i.getInstruction(w);
-          Je(G) || (h = false);
+          Je(G) || (h = !1);
           let k = G.valueType;
-          if (k !== EmptyList) {
-            if (j(k)) m.push({ isList: true, index: w, elementType: Ve(k) });
-            else if (wn(k)) m.push({ isList: false, index: w, elementType: k });
+          if (k !== $e) {
+            if (j(k)) m.push({ isList: !0, index: w, elementType: Ve(k) });
+            else if (wn(k)) m.push({ isList: !1, index: w, elementType: k });
             else {throw Hs(n, Pa(i, r), {
                 blockExport: i.areAllArgsConstant(p),
               });}
           }
         }
-        if (m.length === 0) return i.ConstantOfType(EmptyList, []);
+        if (m.length === 0) return i.ConstantOfType($e, []);
         for (let w of m) {
           if (w.elementType !== m[0].elementType) {
             throw Hs(n, Pa(i, r), { blockExport: i.areAllArgsConstant(p) });
@@ -27947,7 +27952,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "unique": {
         let m = p[0], h = i.getInstruction(m);
-        if (!j(h.valueType) || h.valueType === ListOfDistribution) {
+        if (!j(h.valueType) || h.valueType === Zn) {
           throw U(`Unexpected types for ${t}`);
         }
         return i.NativeFunction("elementsAt", [
@@ -27959,23 +27964,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         return d([{
           match: [],
           build: () => {
-            let m = i.ConstantOfType(ListOfPoint, []);
+            let m = i.ConstantOfType(Pt, []);
             return i.NativeFunction("polygon", [m]);
           },
         }, {
-          match: [Number, Number],
-          noBroadcast: true,
+          match: [I, I],
+          noBroadcast: !0,
           build: () => {
             throw Ud();
           },
         }, {
-          match: [Number, Number],
+          match: [I, I],
           build: () => {
-            let m = i.TupleOfType(Point, p);
+            let m = i.TupleOfType(N, p);
             return i.NativeFunction("polygon", [m]);
           },
         }, {
-          match: { type: "variadic", initial: [], rest: Point },
+          match: { type: "variadic", initial: [], rest: N },
           build: () => i.NativeFunction("polygon", p),
         }]);
       case "directedangle":
@@ -27993,10 +27998,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           Fe(e, new C.Identifier("trigAngleMultiplier")),
         ]);
       case "coterminal": {
-        if (gt(i, p[0], DirectedAngleMarker)) {
+        if (gt(i, p[0], ye)) {
           return i.NativeFunction("directedCoterminalAngle", p);
         }
-        if (gt(i, p[0], AngleMarker)) {
+        if (gt(i, p[0], Le)) {
           return i.NativeFunction("undirectedCoterminalAngle", p);
         }
         throw U(`Unexpected types for ${t}`);
@@ -28029,14 +28034,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   function x_(e, t) {
     return Ui(e, t, "glider", [
       {
-        match: [Segment, Number],
+        match: [de, I],
         build: () => e.NativeFunction("segmentGlider", t),
       },
-      { match: [Line, Number], build: () => e.NativeFunction("lineGlider", t) },
-      { match: [Ray, Number], build: () => e.NativeFunction("rayGlider", t) },
-      { match: [Circle, Number], build: () => e.NativeFunction("circleGlider", t) },
-      { match: [Arc, Number], build: () => e.NativeFunction("arcGlider", t) },
-      { match: [Polygon, Number], build: () => e.NativeFunction("polygonGlider", t) },
+      { match: [fe, I], build: () => e.NativeFunction("lineGlider", t) },
+      { match: [Ne, I], build: () => e.NativeFunction("rayGlider", t) },
+      { match: [ce, I], build: () => e.NativeFunction("circleGlider", t) },
+      { match: [ie, I], build: () => e.NativeFunction("arcGlider", t) },
+      { match: [xe, I], build: () => e.NativeFunction("polygonGlider", t) },
     ]);
   }
   function l_(e, t, n) {
@@ -28045,7 +28050,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     let i = r.NativeFunction("listMin", [ur(r, t), ur(r, n)]);
     return n = r.ListAccess([
       n,
-      QM(e, r.List([r.Constant(1)]), r.List([i]), { stepMustBePositive: true }),
+      QM(e, r.List([r.Constant(1)]), r.List([i]), { stepMustBePositive: !0 }),
     ]),
       r.NativeFunction("elementsAt", [t, TU(e, [n])]);
   }
@@ -28054,19 +28059,19 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return Ui(n, t, "sort", [{
       match: [ro],
       build: () => n.NativeFunction(r, t),
-      noBroadcast: true,
+      noBroadcast: !0,
     }, {
-      match: [ListOfComplex],
+      match: [Ue],
       build: () => n.NativeFunction(Ip[r], t),
-      noBroadcast: true,
+      noBroadcast: !0,
     }]);
   }
   function lm(e, t, n) {
     let r = t[0], s = e.getInstruction(r);
-    if (!se(s.valueType, Distribution)) throw U(`Unexpected args for "${n}"`);
+    if (!se(s.valueType, Lt)) throw U(`Unexpected args for "${n}"`);
     let i = t.slice(1);
     for (let o of i) {
-      if (!se(e.getInstruction(o).valueType, Number)) {
+      if (!se(e.getInstruction(o).valueType, I)) {
         throw U(`Unexpected args for "${n}"`);
       }
     }
@@ -28103,8 +28108,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
   }
   function Xh(e, t) {
-    return t.length !== 0 && e.getInstruction(t[0]).valueType !== EmptyList &&
-      se(e.getInstruction(t[0]).valueType, Distribution);
+    return t.length !== 0 && e.getInstruction(t[0]).valueType !== $e &&
+      se(e.getInstruction(t[0]).valueType, Lt);
   }
   function IU(e, t) {
     ms(t.args);
@@ -28112,15 +28117,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return T_(e, n);
   }
   function T_(e, t) {
-    let { chunk: n } = e, r = false, s = false;
+    let { chunk: n } = e, r = !1, s = !1;
     for (let i = 0; i < t.length; i++) {
       let a = n.getInstruction(t[i]).valueType;
-      r = r || a === Action, s = s || a !== Action;
+      r = r || a === ut, s = s || a !== ut;
     }
     if (r && s) throw U("Unexpected mix of actions and non-actions");
     if (r) return I_(e, t);
-    if (t.length === 2) return n.TupleOfType(Point, t);
-    if (t.length == 3) return n.TupleOfType(Point3D, t);
+    if (t.length === 2) return n.TupleOfType(N, t);
+    if (t.length == 3) return n.TupleOfType(z, t);
     throw U(`Unexpected tuple dimensions: ${t.length}`);
   }
   function PU(e, t) {
@@ -28129,8 +28134,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     let r = Ju(e, t, t.args);
     if (r.length < 1) throw U("Empty bare sequence");
     let s = n.getInstruction(r[0]).valueType;
-    if (s === Number) throw U("Ambiguous bare sequence");
-    return s === Action ? I_(e, r) : n.List(r);
+    if (s === I) throw U("Ambiguous bare sequence");
+    return s === ut ? I_(e, r) : n.List(r);
   }
   function I_(e, t) {
     let { chunk: n } = e, r = [], s = [];
@@ -28172,15 +28177,15 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function EU(e, t) {
     switch (e.getInstruction(t).valueType) {
-      case Segment:
-      case Circle:
-      case Arc:
+      case de:
+      case ce:
+      case ie:
         return [e.Constant(0), e.Constant(1)];
-      case Line:
+      case fe:
         return [e.Constant(-1 / 0), e.Constant(1 / 0)];
-      case Ray:
+      case Ne:
         return [e.Constant(0), e.Constant(1 / 0)];
-      case Polygon:
+      case xe:
         return [
           e.Constant(0),
           e.NativeFunction("count", [e.NativeFunction("vertices", [t])]),
@@ -28262,7 +28267,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       g = r.BeginMap({ parameterSymbols: x }, T);
       for (let b = 0; b < t.parameters.length + a.length; b++) {
-        r.BlockVar(Number, [g]);
+        r.BlockVar(I, [g]);
       }
       for (let b = 0; b < t.parameters.length; b++) {
         let M = t.parameters[b].identifier._symbol, D = g + b + 1;
@@ -28313,7 +28318,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         n,
         "Programming error: expected range start list to have constant length.",
       );
-    if (o.valueType !== ListOfNumber || a.valueType !== ListOfNumber) throw Jd();
+    if (o.valueType !== ne || a.valueType !== ne) throw Jd();
     let l = i.Constant(1),
       p = i.Constant(0),
       f = i.ListAccess([t, l]),
@@ -28340,11 +28345,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       i.BroadcastResult(vn(i.getInstruction(b).valueType), [M]);
   }
   function Zh(e, t) {
-    return gt(e, t, Segment)
+    return gt(e, t, de)
       ? e.NativeFunction("lineFromSegment", [t])
-      : gt(e, t, Vector)
+      : gt(e, t, le)
       ? e.NativeFunction("lineFromSegment", [hU(e, t)])
-      : gt(e, t, Ray)
+      : gt(e, t, Ne)
       ? e.NativeFunction("lineFromRay", [t])
       : t;
   }
@@ -28356,7 +28361,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   }
   function p_(e, t, n) {
     let { chunk: r } = e;
-    if (t.length === 3 && gt(r, t[0], Point) && gt(r, t[1], Point) && gt(r, t[2], Point)) {
+    if (t.length === 3 && gt(r, t[0], N) && gt(r, t[1], N) && gt(r, t[2], N)) {
       let s = t[0],
         i = t[1],
         o = t[2],
@@ -28393,7 +28398,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         ]),
         M = r.Constant(0),
         P = r.And([r.Equal([y, M]), r.Equal([g, M])]);
-      return r.Piecewise([P, r.NanOfType(DirectedAngleMarker), b]);
+      return r.Piecewise([P, r.NanOfType(ye), b]);
     } else throw U(`Unexpected types for ${n}`);
   }
   function aN(e, t) {
@@ -28436,13 +28441,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     switch (t) {
       case "translate": {
         u = [{
-          match: [Vector],
+          match: [le],
           build: () =>
             r.NativeFunction("translation", [
               r.NativeFunction("vectorDisplacementAsPoint", i),
             ]),
         }, {
-          match: [Point, Point],
+          match: [N, N],
           build: () =>
             r.NativeFunction("translation", [r.Subtract([i[1], i[0]])]),
         }];
@@ -28460,7 +28465,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       }
       case "rotate": {
         u = [{
-          match: [Point, Number],
+          match: [N, I],
           build: () => {
             let p = Fe(e, new C.Identifier("trigAngleMultiplier"));
             return r.NativeFunction("rotation", [i[0], r.Multiply([i[1], p])]);
@@ -28469,7 +28474,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         break;
       }
       case "dilate": {
-        u = [{ match: [Point, Number], build: () => r.NativeFunction("dilation", i) }];
+        u = [{ match: [N, I], build: () => r.NativeFunction("dilation", i) }];
         break;
       }
       default: {
@@ -28481,23 +28486,23 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       l = Ui(r, i, () => {
         throw Jx(t, Pa(r, i), a[0].signature, { blockExport: c });
       }, u);
-    return Wh(r, [l, n[0]], t, true);
+    return Wh(r, [l, n[0]], t, !0);
   }
   function Wh(e, t, n, r) {
     let s = [
-      [Transformation, "compose"],
-      [Point, "transformPoint"],
-      [Segment, "transformSegment"],
-      [Line, "transformLine"],
-      [Ray, "transformRay"],
-      [Vector, "transformVector"],
-      [Circle, "transformCircle"],
-      [Arc, "transformArc"],
-      [Polygon, "transformPolygon"],
-      [AngleMarker, "transformAngleMarker"],
-      [DirectedAngleMarker, "transformDirectedAngleMarker"],
+      [Re, "compose"],
+      [N, "transformPoint"],
+      [de, "transformSegment"],
+      [fe, "transformLine"],
+      [Ne, "transformRay"],
+      [le, "transformVector"],
+      [ce, "transformCircle"],
+      [ie, "transformArc"],
+      [xe, "transformPolygon"],
+      [Le, "transformAngleMarker"],
+      [ye, "transformDirectedAngleMarker"],
     ].map(([o, a]) => ({
-      match: [Transformation, o],
+      match: [Re, o],
       build: (u, c) => u.NativeFunction(a, c),
     }));
     function i() {
@@ -28509,21 +28514,21 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return Ui(e, t, i, s);
   }
   function ZM(e, t, n) {
-    let r = Zh(e, t[0]), s = Zh(e, t[1]), i = [r, s, e.ConstantOfType(Number, n)];
-    if (gt(e, r, Circle)) {
-      if (gt(e, s, Circle)) return e.NativeFunction("circleCircleIntersection", i);
-      if (gt(e, s, Arc)) return e.NativeFunction("circleArcIntersection", i);
-      if (gt(e, s, Line)) return e.NativeFunction("circleLineIntersection", i);
+    let r = Zh(e, t[0]), s = Zh(e, t[1]), i = [r, s, e.ConstantOfType(I, n)];
+    if (gt(e, r, ce)) {
+      if (gt(e, s, ce)) return e.NativeFunction("circleCircleIntersection", i);
+      if (gt(e, s, ie)) return e.NativeFunction("circleArcIntersection", i);
+      if (gt(e, s, fe)) return e.NativeFunction("circleLineIntersection", i);
     }
-    if (gt(e, r, Arc)) {
-      if (gt(e, s, Circle)) return e.NativeFunction("arcCircleIntersection", i);
-      if (gt(e, s, Arc)) return e.NativeFunction("arcArcIntersection", i);
-      if (gt(e, s, Line)) return e.NativeFunction("arcLineIntersection", i);
+    if (gt(e, r, ie)) {
+      if (gt(e, s, ce)) return e.NativeFunction("arcCircleIntersection", i);
+      if (gt(e, s, ie)) return e.NativeFunction("arcArcIntersection", i);
+      if (gt(e, s, fe)) return e.NativeFunction("arcLineIntersection", i);
     }
-    if (gt(e, r, Line)) {
-      if (gt(e, s, Circle)) return e.NativeFunction("lineCircleIntersection", i);
-      if (gt(e, s, Arc)) return e.NativeFunction("lineArcIntersection", i);
-      if (gt(e, s, Line)) return e.NativeFunction("lineLineIntersection", i);
+    if (gt(e, r, fe)) {
+      if (gt(e, s, ce)) return e.NativeFunction("lineCircleIntersection", i);
+      if (gt(e, s, ie)) return e.NativeFunction("lineArcIntersection", i);
+      if (gt(e, s, fe)) return e.NativeFunction("lineLineIntersection", i);
     }
     throw U("Invalid intersection types");
   }
@@ -28545,9 +28550,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           getGeometryTree: (f) => ah(f).tree,
           lookup: c,
           isPointOrListOfPoints: (f) => {
-            if (f.isFunction) return false;
+            if (f.isFunction) return !1;
             let d = Fe(e, f);
-            return se(i.getInstruction(d).valueType, Point);
+            return se(i.getInstruction(d).valueType, N);
           },
           resolvesTo: (f, d) => o.getVisibleGlobalDefinition(f) === d,
         },
@@ -28582,16 +28587,16 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }, s);
   }
   var d_ = {
-    points: ListOfPoint,
-    lines: ListOfLine,
-    segments: ListOfSegment,
-    polygons: ListOfPolygon,
-    circles: ListOfCircle,
-    arcs: ListOfArc,
-    angles: ListOfAngleMarker,
-    directedangles: ListOfDirectedAngleMarker,
-    rays: ListOfRay,
-    vectors: ListOfVector,
+    points: Pt,
+    lines: jn,
+    segments: xn,
+    polygons: In,
+    circles: Wn,
+    arcs: Fn,
+    angles: On,
+    directedangles: Nn,
+    rays: Vn,
+    vectors: Jn,
   };
   function OU(e, t) {
     let { chunk: n, scope: r } = e,
@@ -28624,25 +28629,25 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         : e instanceof Fu || e instanceof wu
         ? e.args[0]._symbol
         : void 0;
-    if (r && t.definitions[r]) return false;
+    if (r && t.definitions[r]) return !1;
     if (e instanceof Fr) {
-      let a = [pm(e.args[0], t) || new Et(true)],
+      let a = [pm(e.args[0], t) || new Et(!0)],
         u = pm(e.args[1], t),
         c = pm(e.args[2], t);
       return u && a.push(u),
         c && a.push(c),
-        a.length === 1 ? false : (a.length === 2 && a.push(a[1]), new Fr(a));
+        a.length === 1 ? !1 : (a.length === 2 && a.push(a[1]), new Fr(a));
     }
-    let s = [], i = false;
+    let s = [], i = !1;
     for (let o of n) {
       let a = pm(o, t);
-      if (a === false) {
-        i = true;
+      if (a === !1) {
+        i = !0;
         continue;
       }
       s.push(a);
     }
-    return i ? false : e.copyWithArgs(s);
+    return i ? !1 : e.copyWithArgs(s);
   }
   function P_(e, t, n) {
     let { chunk: r, scope: s } = e, i = {}, o = We(n.definitions);
@@ -28658,7 +28663,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     } catch (y) {
       throw u.isUnconditionallyRecursive && y instanceof v && !y.blocksExport
         ? o.length > 1 || E_(t, t._expression)
-          ? Rc(o, { suggestAlternativeFunctionName: false })
+          ? Rc(o, { suggestAlternativeFunctionName: !1 })
           : oy(o)
         : y;
     }
@@ -28707,7 +28712,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         )
         : g != null && g.maxRecursiveCallOffsets &&
             o.every((m) => g.maxRecursiveCallOffsets[m] === 0)
-        ? Rc(o, { suggestAlternativeFunctionName: false })
+        ? Rc(o, { suggestAlternativeFunctionName: !1 })
         : Sx(o, {
           type: "missing-non-recursive-branch",
           recursionGroup: o,
@@ -28729,11 +28734,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       o = t.argTypes[n._symbol];
     if (i !== void 0 && o !== void 0) return { returnType: i, argTypes: o };
     let a = n._argSymbols.length, u = r.length;
-    if (a !== u) throw Ao(n._symbol, a, u, { includeUsageExample: true });
+    if (a !== u) throw Ao(n._symbol, a, u, { includeUsageExample: !0 });
     let c = r.map((d) => s.getInstruction(d).valueType),
       l = `${n._symbol}:${c.join(",")}:${Object.keys(t.returnTypes).join(",")}`;
     if (t.stack.includes(l)) {
-      return t.isUnconditionallyRecursive = true, { returnType: Number, argTypes: c };
+      return t.isUnconditionallyRecursive = !0, { returnType: I, argTypes: c };
     }
     t.stack.push(l);
     let p = s.getReturnIndex(), f;
@@ -28750,14 +28755,14 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         T.push(S), x.addLexicalBinding(D, S);
       }
       if (!t.baseCaseTypes.hasOwnProperty(g)) {
-        let P, D, S, O = true;
+        let P, D, S, O = !0;
         for (let _ of m) {
           let L = _.getRef();
           if (!_.specifiedArg.valid || !L) continue;
           let w = new we(L), G = Fe(h, w);
           S || (S = w);
           let k = s.getInstruction(G), Z = k.valueType;
-          if (Je(k) || (O = false), P === void 0) P = _.specifiedArg.argIndex;
+          if (Je(k) || (O = !1), P === void 0) P = _.specifiedArg.argIndex;
           else if (P !== _.specifiedArg.argIndex) throw wd();
           let F = D;
           if (F === void 0) D = Z;
@@ -28778,7 +28783,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
           f = Ve(f);
         }
         let O = t.returnTypes[n._symbol];
-        if (O !== void 0 && f !== O) throw Ld({ blockExport: false });
+        if (O !== void 0 && f !== O) throw Ld({ blockExport: !1 });
         t.argTypes[n._symbol] = S, t.returnTypes[n._symbol] = f;
       }
     }),
@@ -28828,18 +28833,18 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         }
       }
     }
-    let c = [], l = false;
+    let c = [], l = !1;
     for (let p = 0; p < t.length; p++) {
       let f = t[p], d = e.getInstruction(f).valueType;
       if (u[f - n] & 2) {
         if (!j(d)) throw U(`Expected list type but found ${at(d)}`);
-        l = true, c.push(Ve(d));
+        l = !0, c.push(Ve(d));
       } else c.push(d);
     }
     return { inferredArgTypes: c, someArgBroadcasts: l };
   }
   function C_(e, t, n, r) {
-    let { chunk: s } = e, i = true, o = n[t._symbol];
+    let { chunk: s } = e, i = !0, o = n[t._symbol];
     for (let a of o) {
       let u = a.specifiedArg;
       if (!u.valid) continue;
@@ -28848,7 +28853,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         p = s.Equal([l, s.Constant(u.argValue)]),
         f = Fe(e, a),
         d = s.getInstruction(f);
-      Je(d) || (i = false);
+      Je(d) || (i = !1);
       let y = s.getInstruction(f).valueType, g = s.getInstruction(r).valueType;
       if (Ha(y, g) === void 0) throw Ld({ blockExport: i });
       r = s.Piecewise([p, f, r]);
@@ -28890,11 +28895,11 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     for (let n = 0; n < e.length; n++) t.push(oe(e[n].valueType));
     return t;
   }
-  var Di = true;
+  var Di = !0;
   function S_(e, t) {
     let n = t.length, r = t[0];
     if (n < 2) throw so(this._symbol, { blockExport: Di });
-    if (!D_(r.valueType, [ListOfNumber, EmptyList])) throw so(this._symbol, { blockExport: Di });
+    if (!D_(r.valueType, [ne, $e])) throw so(this._symbol, { blockExport: Di });
     if (n > 2) throw by(this._symbol, 2);
   }
   C.Histogram.prototype.typeCheck = S_;
@@ -28902,17 +28907,17 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
   C.BoxPlot.prototype.typeCheck = function (e, t) {
     let n = t.length, r = t[0];
     if (n === 0) throw so(this._symbol, { blockExport: Di });
-    if (!D_(r.valueType, [ListOfNumber, EmptyList])) throw so(this._symbol, { blockExport: Di });
+    if (!D_(r.valueType, [ne, $e])) throw so(this._symbol, { blockExport: Di });
     if (n > 1) throw so(this._symbol, { blockExport: Di });
   };
   C.TTest.prototype.typeCheck = function (e, t) {
     let n = this._symbol;
     if (t.length === 0) throw so(n, { blockExport: Di });
-    if (t[0].valueType === EmptyList) throw jl(n);
-    if (t[0].valueType !== ListOfNumber) throw so(n, { blockExport: Di });
+    if (t[0].valueType === $e) throw jl(n);
+    if (t[0].valueType !== ne) throw so(n, { blockExport: Di });
     if (t.length > 2) throw by(n, 2);
     if (t[0].length < 2) throw jl(n);
-    if (t[1] && t[1].valueType !== Number) throw Hs(n, KM(t), { blockExport: Di });
+    if (t[1] && t[1].valueType !== I) throw Hs(n, KM(t), { blockExport: Di });
   };
   C.IndependentTTest.prototype.typeCheck = function (e, t) {
     let n = this._symbol;
@@ -28920,8 +28925,8 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     if (!j(t[0].valueType) || !j(t[1].valueType)) {
       throw jd(n, { blockExport: Di });
     }
-    if (t[0].valueType === EmptyList || t[1].valueType === EmptyList) throw jl("ittest");
-    if (t[0].valueType !== ListOfNumber || t[1].valueType !== ListOfNumber) {
+    if (t[0].valueType === $e || t[1].valueType === $e) throw jl("ittest");
+    if (t[0].valueType !== ne || t[1].valueType !== ne) {
       throw Hs(n, KM(t), { blockExport: Di });
     }
     if (t[0].length < 2 || t[1].length < 2) throw jl("ittest");
@@ -28929,10 +28934,10 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     C.Stats.prototype.typeCheck = function (e, t) {
       let n = t.length, r = t[0];
       if (n === 0) throw so(this._symbol, { blockExport: Di });
-      if (r.valueType === EmptyList) {
+      if (r.valueType === $e) {
         throw Hs(this._symbol, KM(t), { blockExport: Di });
       }
-      if (r.valueType !== ListOfNumber) throw so(this._symbol, { blockExport: Di });
+      if (r.valueType !== ne) throw so(this._symbol, { blockExport: Di });
       if (n > 1) throw so(this._symbol, { blockExport: Di });
     };
   var iu = function (e, t, n) {
@@ -29148,35 +29153,35 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
         symbol: "normaldist",
         params: ["mean", "stdev"],
         defaults: ["0", "1"],
-        discrete: false,
+        discrete: !1,
       },
       tdist: {
         type: "distribution",
         symbol: "tdist",
         params: ["dof"],
         defaults: [void 0],
-        discrete: false,
+        discrete: !1,
       },
       binomialdist: {
         type: "distribution",
         symbol: "binomialdist",
         params: ["trials", "probsuccess"],
         defaults: [void 0, "0.5"],
-        discrete: true,
+        discrete: !0,
       },
       poissondist: {
         type: "distribution",
         symbol: "poissondist",
         params: ["mean"],
         defaults: [void 0],
-        discrete: true,
+        discrete: !0,
       },
       uniformdist: {
         type: "distribution",
         symbol: "uniformdist",
         params: ["min", "max"],
         defaults: ["0", "1"],
-        discrete: false,
+        discrete: !1,
       },
     },
     AU = {
@@ -29200,7 +29205,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       },
     };
   function v_(e) {
-    let t = Mi(e, { trailingComma: true });
+    let t = Mi(e, { trailingComma: !0 });
     return ou(t);
   }
   function ou(e) {
@@ -29224,66 +29229,66 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     return { ...n, span: t.getInputSpan(), values: r };
   }
   var LU = {
-    X_OR_Y: { points: false, lines: true, fill: false },
-    SINGLE_POINT: { points: true, lines: false, fill: false },
-    POINT_LIST: { points: true, lines: false, fill: false },
-    PARAMETRIC: { points: false, lines: true, fill: false },
-    POLAR: { points: false, lines: true, fill: false },
-    IMPLICIT: { points: false, lines: true, fill: false },
-    POLYGON: { points: false, lines: true, fill: true },
-    HISTOGRAM: { points: false, lines: true, fill: true },
-    DOTPLOT: { points: true, lines: false, fill: false },
-    BOXPLOT: { points: false, lines: true, fill: false },
-    TTEST: { points: false, lines: false, fill: false },
-    STATS: { points: false, lines: false, fill: false },
-    VECTOR2D: { points: false, lines: true, fill: false },
-    POINT3D: { points: true, lines: false, fill: false },
-    POINT3D_LIST: { points: true, lines: false, fill: false },
-    CURVE3D_xyz_t: { points: false, lines: true, fill: false },
-    SLICE: { points: false, lines: true, fill: false },
-    SLICE_rθz_at_z: { points: false, lines: true, fill: false },
-    SLICE_zrθ_at_r: { points: false, lines: true, fill: false },
-    SLICE_zrθ_at_θ: { points: false, lines: true, fill: false },
-    SLICE_zrθ_at_xyz: { points: false, lines: true, fill: false },
-    SLICE_rθφ_at_θ: { points: false, lines: true, fill: false },
-    SLICE_rθφ_at_φ: { points: false, lines: true, fill: false },
-    SLICE_rθφ_at_xyz: { points: false, lines: true, fill: false },
-    SLICE_xyz_uv: { points: false, lines: true, fill: false },
-    SEGMENT3D: { points: false, lines: true, fill: false },
-    VECTOR3D: { points: false, lines: true, fill: false },
-    SPHERE3D: { points: false, lines: true, fill: false },
-    SURFACE_xyz_uv: { points: false, lines: true, fill: false },
-    SURFACE_z_rθ: { points: false, lines: true, fill: false },
-    SURFACE_r_θz: { points: false, lines: true, fill: false },
-    SURFACE_r_θφ: { points: false, lines: true, fill: false },
-    SURFACE_r_θz_AMBIGUOUS: { points: false, lines: true, fill: false },
-    SURFACE: { points: false, lines: true, fill: false },
-    TRIANGLE3D: { points: false, lines: true, fill: false },
-    SURFACE_AMBIGUOUS: { points: false, lines: true, fill: false },
-    SURFACE_CONSTANT_AMBIGUOUS: { points: false, lines: true, fill: false },
-    IMPLICIT_SURFACE: { points: false, lines: true, fill: false },
-    IMPLICIT_SURFACE_AMBIGUOUS: { points: false, lines: true, fill: false },
+    X_OR_Y: { points: !1, lines: !0, fill: !1 },
+    SINGLE_POINT: { points: !0, lines: !1, fill: !1 },
+    POINT_LIST: { points: !0, lines: !1, fill: !1 },
+    PARAMETRIC: { points: !1, lines: !0, fill: !1 },
+    POLAR: { points: !1, lines: !0, fill: !1 },
+    IMPLICIT: { points: !1, lines: !0, fill: !1 },
+    POLYGON: { points: !1, lines: !0, fill: !0 },
+    HISTOGRAM: { points: !1, lines: !0, fill: !0 },
+    DOTPLOT: { points: !0, lines: !1, fill: !1 },
+    BOXPLOT: { points: !1, lines: !0, fill: !1 },
+    TTEST: { points: !1, lines: !1, fill: !1 },
+    STATS: { points: !1, lines: !1, fill: !1 },
+    VECTOR2D: { points: !1, lines: !0, fill: !1 },
+    POINT3D: { points: !0, lines: !1, fill: !1 },
+    POINT3D_LIST: { points: !0, lines: !1, fill: !1 },
+    CURVE3D_xyz_t: { points: !1, lines: !0, fill: !1 },
+    SLICE: { points: !1, lines: !0, fill: !1 },
+    SLICE_rθz_at_z: { points: !1, lines: !0, fill: !1 },
+    SLICE_zrθ_at_r: { points: !1, lines: !0, fill: !1 },
+    SLICE_zrθ_at_θ: { points: !1, lines: !0, fill: !1 },
+    SLICE_zrθ_at_xyz: { points: !1, lines: !0, fill: !1 },
+    SLICE_rθφ_at_θ: { points: !1, lines: !0, fill: !1 },
+    SLICE_rθφ_at_φ: { points: !1, lines: !0, fill: !1 },
+    SLICE_rθφ_at_xyz: { points: !1, lines: !0, fill: !1 },
+    SLICE_xyz_uv: { points: !1, lines: !0, fill: !1 },
+    SEGMENT3D: { points: !1, lines: !0, fill: !1 },
+    VECTOR3D: { points: !1, lines: !0, fill: !1 },
+    SPHERE3D: { points: !1, lines: !0, fill: !1 },
+    SURFACE_xyz_uv: { points: !1, lines: !0, fill: !1 },
+    SURFACE_z_rθ: { points: !1, lines: !0, fill: !1 },
+    SURFACE_r_θz: { points: !1, lines: !0, fill: !1 },
+    SURFACE_r_θφ: { points: !1, lines: !0, fill: !1 },
+    SURFACE_r_θz_AMBIGUOUS: { points: !1, lines: !0, fill: !1 },
+    SURFACE: { points: !1, lines: !0, fill: !1 },
+    TRIANGLE3D: { points: !1, lines: !0, fill: !1 },
+    SURFACE_AMBIGUOUS: { points: !1, lines: !0, fill: !1 },
+    SURFACE_CONSTANT_AMBIGUOUS: { points: !1, lines: !0, fill: !1 },
+    IMPLICIT_SURFACE: { points: !1, lines: !0, fill: !1 },
+    IMPLICIT_SURFACE_AMBIGUOUS: { points: !1, lines: !0, fill: !1 },
   };
   function eC(e, t, n) {
     var s, i, o, a, u, c;
-    if (e === void 0) return { points: false, lines: false, fill: false };
+    if (e === void 0) return { points: !1, lines: !1, fill: !1 };
     let r = LU[e];
     switch (e) {
       case "SINGLE_POINT":
-        return { points: true, lines: false, fill: false };
+        return { points: !0, lines: !1, fill: !1 };
       case "POINT_LIST":
       case "POINT3D_LIST":
       case "DOTPLOT":
         return {
           points: (s = t.points) != null ? s : r.points,
           lines: (i = t.lines) != null ? i : r.lines,
-          fill: false,
+          fill: !1,
         };
       case "POINT3D":
         return {
           points: (o = t.points) != null ? o : r.points,
-          lines: false,
-          fill: false,
+          lines: !1,
+          fill: !1,
         };
       case "PARAMETRIC":
       case "POLYGON":
@@ -29297,7 +29302,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "STATS":
       case "CURVE3D_xyz_t":
         return {
-          points: false,
+          points: !1,
           lines: (a = t.lines) != null ? a : r.lines,
           fill: (u = t.fill) != null ? u : r.fill,
         };
@@ -29325,9 +29330,9 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "SLICE_r\u03B8\u03C6_at_xyz":
       case "SLICE_xyz_uv":
         return {
-          points: false,
+          points: !1,
           lines: (c = t.lines) != null ? c : r.lines,
-          fill: false,
+          fill: !1,
         };
       default:
         n && n(e);
@@ -29336,7 +29341,7 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
   }
   function tC(e) {
-    if (e === void 0) return false;
+    if (e === void 0) return !1;
     switch (e) {
       case "SINGLE_POINT":
       case "POINT_LIST":
@@ -29372,13 +29377,13 @@ Non-constant instruction: "${al(e, ur(e, t))}"`);
       case "POINT3D":
       case "POINT3D_LIST":
       case "TRIANGLE3D":
-        return true;
+        return !0;
       case "HISTOGRAM":
       case "BOXPLOT":
       case "DOTPLOT":
       case "TTEST":
       case "STATS":
-        return false;
+        return !1;
       default:
         return e;
     }
@@ -29587,10 +29592,10 @@ return accum;`,
   };
   B.pointwise = function (t, n, r) {
     typeof r == "undefined" && (r = "");
-    var s = [], i, o = /\[i\]$/, a, u = "", c = false;
+    var s = [], i, o = /\[i\]$/, a, u = "", c = !1;
     for (i = 0; i < t.length; i++) {
       o.test(t[i]) ? (a = t[i].substring(0, t[i].length - 3), u = a) : a = t[i],
-        a === "ret" && (c = true),
+        a === "ret" && (c = !0),
         s.push(a);
     }
     return s[t.length] = "_s",
@@ -29613,10 +29618,10 @@ return ret;`,
   };
   B.pointwise2 = function (t, n, r) {
     typeof r == "undefined" && (r = "");
-    var s = [], i, o = /\[i\]$/, a, u = "", c = false;
+    var s = [], i, o = /\[i\]$/, a, u = "", c = !1;
     for (i = 0; i < t.length; i++) {
       o.test(t[i]) ? (a = t[i].substring(0, t[i].length - 3), u = a) : a = t[i],
-        a === "ret" && (c = true),
+        a === "ret" && (c = !0),
         s.push(a);
     }
     return s[t.length] = "var _n = " + u + `.length;
@@ -30087,7 +30092,7 @@ return accum;
   };
   B.epsilon = 2220446049250313e-31;
   B.LU = function (e, t) {
-    t = t || false;
+    t = t || !1;
     var n = Math.abs,
       r,
       s,
@@ -30147,8 +30152,8 @@ return accum;
   var Un = B;
   var wU = Math.pow(2, -52);
   function eb(e) {
-    for (let t of e) for (let n of t) if (!an(n)) return false;
-    return true;
+    for (let t of e) for (let n of t) if (!an(n)) return !1;
+    return !0;
   }
   function FU(e) {
     let t = [];
@@ -30427,16 +30432,16 @@ return accum;
   function uC(e, t) {
     let n = rb(0, t.length),
       r = nb(t, n),
-      s = tb(Un.transpose(r), { mutateInput: true });
+      s = tb(Un.transpose(r), { mutateInput: !0 });
     for (let u = 0; u < 2; u++) {
-      let c = Qu(e, n), l = Un.neg(Il(s, c, { regularize: false }));
+      let c = Qu(e, n), l = Un.neg(Il(s, c, { regularize: !1 }));
       n = Un.add(n, l);
     }
     let i = dm(e, n);
     if (F_(s)) return { solution: n, MSE: i };
     let o = rb(0, t.length);
     for (let u = 0; u < 2; u++) {
-      let c = Qu(e, o), l = Un.neg(Il(s, c, { regularize: true }));
+      let c = Qu(e, o), l = Un.neg(Il(s, c, { regularize: !0 }));
       o = Un.add(o, l);
     }
     let a = dm(e, o);
@@ -30444,7 +30449,7 @@ return accum;
   }
   function sC(e, t, n, r) {
     let s = r.maxIterations,
-      i = r.linearSubset || rb(false, n.length),
+      i = r.linearSubset || rb(!1, n.length),
       o = Un.not(i),
       a = V_(t, i),
       u = V_(t, o),
@@ -30457,28 +30462,28 @@ return accum;
     if (a.length > 0) {
       let h = Un.transpose(nb(a, p)), x = tb(h);
       y = { Jv: h, F: x };
-      let T = Qu(e, p), b = Un.neg(Il(x, T, { regularize: true }));
+      let T = Qu(e, p), b = Un.neg(Il(x, T, { regularize: !0 }));
       p = rC(p, b, i);
     }
-    let g = false, m = dm(e, p);
+    let g = !1, m = dm(e, p);
     for (; f < s && !g && isFinite(m);) {
       let h = Qu(e, p), x = nb(u, p), T = Un.transpose(x), b, M;
       if (y) {
         let { F: S, Jv: O } = y;
-        b = Un.dot(x, Un.sub(h, Un.dot(O, Il(S, h, { regularize: true })))),
-          M = Un.dot(x, Un.sub(T, Un.dot(O, Il(S, T, { regularize: true }))));
+        b = Un.dot(x, Un.sub(h, Un.dot(O, Il(S, h, { regularize: !0 })))),
+          M = Un.dot(x, Un.sub(T, Un.dot(O, Il(S, T, { regularize: !0 }))));
       } else b = Un.dot(x, h), M = Un.dot(x, T);
-      let P = p, D = false;
+      let P = p, D = !1;
       for (; f < s && !g && !D;) {
         f += 1;
         let S = Un.add(M, Un.diag(rb(d, u.length))),
-          O = Un.neg(Un.solve(S, b, true));
+          O = Un.neg(Un.solve(S, b, !0));
         P = rC(p, O, o), g = Un.all(Un.eq(P, p));
         let _;
         if (y) {
           let w = Un.transpose(nb(a, P)), G = tb(w);
           _ = { Jv: w, F: G };
-          let k = Qu(e, P), Z = Un.neg(Il(G, k, { regularize: true }));
+          let k = Qu(e, P), Z = Un.neg(Il(G, k, { regularize: !0 }));
           P = rC(P, Z, i);
         }
         let L = dm(e, P);
@@ -30587,7 +30592,7 @@ return accum;
     return isFinite(l.MSE) && (l.MSE < c.MSE || si(l.MSE, c.MSE, 8)) ? l : c;
   }
   function cC(e) {
-    return { chunk: e, isLazy: true };
+    return { chunk: e, isLazy: !0 };
   }
   function H_(e) {
     return e.slice();
@@ -30599,7 +30604,7 @@ return accum;
       chunk: t,
       forwardParameterMap: H_,
       reverseParameterMap: H_,
-      isLazy: false,
+      isLazy: !1,
       valueMap: nq(e.chunk.instructionsLength()),
       replacementMask: ad(e.chunk.argNames.length),
     };
@@ -30649,20 +30654,20 @@ return accum;
           "Programming error: cannot optimize regression on non-constant-length list",
         ),
       });
-    let c = false, l = false;
+    let c = !1, l = !1;
     for (let m = i + 1; m <= o; m++) {
       let h = e.getInstruction(m);
       if (h.type === 39 || h.type === 41 || h.type === 40) {
         if (h.args[1] !== i) continue;
         let x = h.args[0];
-        if (e.getInstruction(x).valueType !== ListOfNumber || !Je(e.getInstruction(x))) {
+        if (e.getInstruction(x).valueType !== ne || !Je(e.getInstruction(x))) {
           continue;
         }
         let T = hn(e, x), b = JU(T);
         if (!isFinite(b.min) || !isFinite(b.max)) continue;
         a.push(m), u.push(b);
-      } else if (h.type === 37) h.symbol === "exp" ? l = true : q_(h) && (c = true);
-      else if (h.type === 12 || h.type === 13) l = true;
+      } else if (h.type === 37) h.symbol === "exp" ? l = !0 : q_(h) && (c = !0);
+      else if (h.type === 12 || h.type === 13) l = !0;
       else if (es(h) || ds(h)) return;
     }
     if (a.length === 0 || !l && !c) return;
@@ -30671,14 +30676,14 @@ return accum;
       let h = a.indexOf(m);
       if (h !== -1) {
         let x = ad(a.length);
-        x[h] = true, p.push(x);
+        x[h] = !0, p.push(x);
       } else p.push(sb(e, p, a.length, m));
     }
     let f = [];
     for (let m = 0; m <= e.getReturnIndex(); m++) {
       if (e.getInstruction(m).type === 2) {
         let x = ad(e.argNames.length);
-        x[m] = true, f.push(x);
+        x[m] = !0, f.push(x);
       } else f.push(sb(e, f, e.argNames.length, m));
     }
     let d = {
@@ -30817,15 +30822,15 @@ return accum;
   }
   function U_(e, t) {
     let { listAccessDependencyTable: n } = e, r = n[t];
-    for (let s of r) if (s) return true;
-    return false;
+    for (let s of r) if (s) return !0;
+    return !1;
   }
   function pC(e, t) {
     let n = [];
     for (let i = 0; i <= t; i++) {
       if (e.getInstruction(i).type === 2) {
         let a = ad(e.argNames.length);
-        a[i] = true, n.push(a);
+        a[i] = !0, n.push(a);
       } else n.push(sb(e, n, e.argNames.length, i));
     }
     let r, s = n[t];
@@ -30869,17 +30874,17 @@ return accum;
       return G[o] = F, G[d] = Y, G;
     }
     function _(w) {
-      let G = w.slice(), k = w[o], Z = w[d], F = hypot(k, Z), Y = Math.atan2(Z, k);
+      let G = w.slice(), k = w[o], Z = w[d], F = Ts(k, Z), Y = Math.atan2(Z, k);
       return G[o] = F, G[d] = Y, a.reverseParameterMap(G);
     }
     let L = a.replacementMask.slice();
-    return L[o] = true, L[g] = true, L[d] = true, {
+    return L[o] = !0, L[g] = !0, L[d] = !0, {
       chunk: l,
       forwardParameterMap: O,
       reverseParameterMap: _,
       valueMap: p,
       replacementMask: L,
-      isLazy: false,
+      isLazy: !1,
     };
   }
   function KU(e, t, n, r) {
@@ -30887,7 +30892,7 @@ return accum;
       i = s.getInstruction(t),
       [o, a] = i.args,
       u = s.getInstruction(o);
-    if (u.type === 1 && u.valueType === Number && V(u.value) > 0) {
+    if (u.type === 1 && u.valueType === I && V(u.value) > 0) {
       let x = ib(e),
         { chunk: T, valueMap: b } = x,
         M = T.Multiply([T.NativeFunction("ln", [b[o]]), b[a]]);
@@ -30910,12 +30915,12 @@ return accum;
       return T[c] = M, l.reverseParameterMap(T);
     }
     let m = l.replacementMask.slice();
-    m[c] = true;
+    m[c] = !0;
     let h = {
       chunk: p,
       forwardParameterMap: y,
       reverseParameterMap: g,
-      isLazy: false,
+      isLazy: !1,
       valueMap: f,
       replacementMask: m,
     };
@@ -30948,14 +30953,14 @@ return accum;
       return D[u] = O, c.reverseParameterMap(D);
     }
     let x = c.replacementMask.slice();
-    x[u] = true;
+    x[u] = !0;
     let T = ib(o);
     T.valueMap[t] = T.chunk.Multiply([T.valueMap[n], T.valueMap[r]]);
     let b = {
         chunk: l,
         forwardParameterMap: y,
         reverseParameterMap: g,
-        isLazy: false,
+        isLazy: !1,
         valueMap: p,
         replacementMask: x,
       },
@@ -31003,22 +31008,22 @@ return accum;
       chunk: i,
       forwardParameterMap: x,
       reverseParameterMap: T,
-      isLazy: false,
+      isLazy: !1,
       valueMap: o,
       replacementMask: s.replacementMask,
-      didShiftScale: true,
+      didShiftScale: !0,
     };
   }
   function dC(e, t, n) {
     let r = e.chunk,
-      s = ns(r, n, { allowRestriction: false, allowClosedBlockReferences: false });
+      s = ns(r, n, { allowRestriction: !1, allowClosedBlockReferences: !1 });
     if (ln(s, t) !== 1) return;
     let i = fo(s, t), [o, a] = Kn(i, t);
     if (a === void 0) return;
     let u = i.newChunk.getInstruction(o);
-    if (u.type !== 1 || u.valueType !== Number) return;
+    if (u.type !== 1 || u.valueType !== I) return;
     let c = i.newChunk.getInstruction(a);
-    if (c.type !== 1 || c.valueType !== Number) return;
+    if (c.type !== 1 || c.valueType !== I) return;
     let l = ib(e),
       { chunk: p, valueMap: f } = l,
       d = V(u.value),
@@ -31033,11 +31038,11 @@ return accum;
       return T[n] = M, l.reverseParameterMap(T);
     }
     let h = l.replacementMask.slice();
-    return h[n] = true, {
+    return h[n] = !0, {
       chunk: p,
       forwardParameterMap: g,
       reverseParameterMap: m,
-      isLazy: false,
+      isLazy: !1,
       valueMap: f,
       replacementMask: h,
     };
@@ -31045,12 +31050,12 @@ return accum;
   function Y_(e, t, n) {
     let r = e.chunk,
       s = e.isLazy ? t : e.valueMap[t],
-      i = ns(r, n, { allowRestriction: false, allowClosedBlockReferences: true });
+      i = ns(r, n, { allowRestriction: !1, allowClosedBlockReferences: !0 });
     if (ln(i, s) !== 1) return;
     e.isLazy &&
       (i = ns(r.copy().reopenFinalBlock(), n, {
-        allowRestriction: false,
-        allowClosedBlockReferences: false,
+        allowRestriction: !1,
+        allowClosedBlockReferences: !1,
       }));
     let o = fo(i, s), [a, u] = Kn(o, s);
     if (u === void 0) return;
@@ -31058,7 +31063,7 @@ return accum;
     for (let K = 0; K <= l; K++) {
       if (c.getInstruction(K).type === 2) {
         let te = ad(c.argNames.length);
-        te[K] = true, p.push(te);
+        te[K] = !0, p.push(te);
       } else p.push(sb(c, p, c.argNames.length, K));
     }
     let f, d;
@@ -31072,17 +31077,17 @@ return accum;
       }
     }
     if (f === void 0 || d === void 0) return;
-    let y = ns(c, f, { allowRestriction: false, allowClosedBlockReferences: false });
+    let y = ns(c, f, { allowRestriction: !1, allowClosedBlockReferences: !1 });
     if (ln(y, u) !== 1) return;
-    let g = ns(c, d, { allowRestriction: false, allowClosedBlockReferences: false });
+    let g = ns(c, d, { allowRestriction: !1, allowClosedBlockReferences: !1 });
     if (ln(g, a) !== 1) return;
     let m = fo(y, u),
       h = fo(g, a),
       [x, T] = Kn(m, u),
       b = m.newChunk.getInstruction(x);
-    if (b.type !== 1 || b.valueType !== Number) return;
+    if (b.type !== 1 || b.valueType !== I) return;
     let M = m.newChunk.getInstruction(T);
-    if (M.type !== 1 || M.valueType !== Number) return;
+    if (M.type !== 1 || M.valueType !== I) return;
     let P = ib(e),
       { chunk: D, valueMap: S } = P,
       O = D.Add([D.Multiply([f, n]), d]);
@@ -31111,11 +31116,11 @@ return accum;
       return Oe[f] = dt, Oe[d] = Ge, P.reverseParameterMap(Oe);
     }
     let he = P.replacementMask.slice();
-    return he[f] = true, he[d] = true, {
+    return he[f] = !0, he[d] = !0, {
       chunk: D,
       forwardParameterMap: w,
       reverseParameterMap: Ee,
-      isLazy: false,
+      isLazy: !1,
       valueMap: S,
       replacementMask: he,
     };
@@ -31131,7 +31136,7 @@ return accum;
   }
   function ad(e) {
     let t = [];
-    for (let n = 0; n < e; n++) t.push(false);
+    for (let n = 0; n < e; n++) t.push(!1);
     return t;
   }
   function nq(e) {
@@ -31150,15 +31155,15 @@ return accum;
     }
   }
   var ud = { coerceToNumber: "all-except-complex" },
-    fC = { ...ud, wrapInList: true };
+    fC = { ...ud, wrapInList: !0 };
   function X_(e) {
-    return e === Number || e === ListOfNumber || e === Complex || e === ListOfComplex;
+    return e === I || e === ne || e === R || e === Ue;
   }
   function rq(e) {
     return !!e.tableRegressionData;
   }
   function sq(e, t) {
-    return e === EmptyList || t === EmptyList ? false : X_(e) && X_(t);
+    return e === $e || t === $e ? !1 : X_(e) && X_(t);
   }
   function iq(e, t) {
     let {
@@ -31194,7 +31199,7 @@ return accum;
       x = { policy: n, frame: r },
       T = Z_(x, t, d),
       b = is.NONE;
-    l === ListOfNumber && (b = dq(t, a, T));
+    l === ne && (b = dq(t, a, T));
     let M;
     if (
       t.userData.isLogModeRegression && (b === is.LOGLIN || b === is.LOGLOG)
@@ -31215,7 +31220,7 @@ return accum;
       M = K_(t, O, T, _, t.userData.isLogModeRegression, b, l);
     } else M = K_(t, a, T, y, t.userData.isLogModeRegression, b, l);
     let P = oq(t, s), D = pq(t, P, o, y);
-    return t.userData.residualVariable = identifierToLatex(P),
+    return t.userData.residualVariable = qr(P),
       new C.OptimizedRegression(d, lt(l, y), M, T.substituted, {
         isModelValid: !!T.uniqueRHSNumberList,
         residualVariable: P,
@@ -31228,7 +31233,7 @@ return accum;
   }
   function oq(e, t) {
     if (e.userData && e.userData.residualVariable) {
-      let i = latexToIdentifier(e.userData.residualVariable);
+      let i = no(e.userData.residualVariable);
       if (!t[i]) return i;
     }
     let n = e.getDependencies().filter((i) =>
@@ -31256,7 +31261,7 @@ return accum;
         (f.type === "Assignment" && (f = f._expression), !f.buildIRExpression)
       ) continue;
       let d = f.buildIRExpression(e, t, ud);
-      if (!d.isError && kn(d.valueType, ListOfNumber)) {
+      if (!d.isError && kn(d.valueType, ne)) {
         if (i !== void 0) {
           i = void 0, o = void 0;
           break;
@@ -31277,7 +31282,7 @@ return accum;
       return e.map((s) => 1);
     }
     for (let s of e) {
-      let i = identifierToLatex(s), o = n[s];
+      let i = qr(s), o = n[s];
       o && isFinite(o.asValue())
         ? r.push(+o.asValue())
         : t.hasOwnProperty(i) && isFinite(+t[i])
@@ -31288,9 +31293,9 @@ return accum;
   }
   function yC(e, t) {
     switch (t) {
-      case ListOfNumber:
+      case ne:
         return e;
-      case ListOfComplex:
+      case Ue:
         return function (...r) {
           let s = e.apply(void 0, r);
           return aq(s);
@@ -31301,9 +31306,9 @@ return accum;
   }
   function j_(e, t) {
     switch (t) {
-      case ListOfNumber:
+      case ne:
         return e;
-      case ListOfComplex:
+      case Ue:
         return uq(e);
       default:
         throw U("Regression with invalid value type.");
@@ -31367,7 +31372,7 @@ return accum;
         solution: [],
         residuals: t.interpretWithParameters([]),
         MSE: oL(r, [], s),
-        isLinear: true,
+        isLinear: !0,
       };}
   }
   function Q_(e, t) {
@@ -31396,9 +31401,9 @@ return accum;
     let t = { valueType: e.valueType, value: e.asCompilerValue() },
       { value: n, valueType: r } = t;
     switch (r) {
-      case Number:
+      case I:
         return n;
-      case Complex:
+      case R:
         return V(n[1]) === 0 ? n[0] : NaN;
       default:
         return NaN;
@@ -31411,7 +31416,7 @@ return accum;
       let p = eL(l[0]), f = eL(l[1]);
       i.push(a ? Math.log(V(p)) : p), o.push(f);
     });
-    let u = corr(i.map(V), o.map(V));
+    let u = Og(i.map(V), o.map(V));
     if (!isFinite(u)) return;
     let c = lq(i, o);
     if (si(c.MSE, s, 8)) return u;
@@ -31421,7 +31426,7 @@ return accum;
     if (s) {
       let [a, u] = s, c = [];
       for (let l = 0; l < t.length; l++) c.push(ai(t[l], qs(wr(a, e[l]), u)));
-      return { solution: s, MSE: ob(c, ListOfNumber) };
+      return { solution: s, MSE: ob(c, ne) };
     }
     function i(a, u) {
       let c = [];
@@ -31456,34 +31461,34 @@ return accum;
     if (
       !isFinite(r) || !isFinite(i) || !isFinite(s) || !isFinite(o) ||
       o - s === 0
-    ) return false;
+    ) return !1;
     let a = i - r;
-    if (a === 0) return false;
+    if (a === 0) return !1;
     for (let u = 1; u < n - 1; u++) {
       let c = e[u], l = t[u], p = (o * (c - r) + s * (i - c)) / a;
-      if (!si(l, p, 5)) return false;
+      if (!si(l, p, 5)) return !1;
     }
-    return true;
+    return !0;
   }
   var is = { NONE: 0, LOGLIN: 1, LOGLOG: 2, LINLOG: 3 };
   function dq(e, t, n) {
-    if (!e.isLhsSimple || !n.uniqueRHSNumberList || se(t.valueType, Complex)) {
+    if (!e.isLhsSimple || !n.uniqueRHSNumberList || se(t.valueType, R)) {
       return is.NONE;
     }
     let r = n.substituted;
-    if (r.isError || r.valueType !== Number) return is.NONE;
+    if (r.isError || r.valueType !== I) return is.NONE;
     let s = r.getDependencies();
     if (s.length !== 1 || isFinite(n.node.polynomialOrder(s[0]))) {
       return is.NONE;
     }
     let i = r.getCompiledFunction(s).fn, o = n.uniqueRHSNumberList;
-    if (r.valueType !== Number) return is.NONE;
+    if (r.valueType !== I) return is.NONE;
     let a = o.mapElements((f) => +f.asValue());
     if (a.length < 3) return is.NONE;
     a.sort((f, d) => f - d);
-    let u = a.map(i), c = u.map(Math.log), l = a.map(Math.log), p = true;
+    let u = a.map(i), c = u.map(Math.log), l = a.map(Math.log), p = !0;
     return C.List.wrap(t).eachElement((f) => {
-      isFinite(Math.log(+f.asValue())) || (p = false);
+      isFinite(Math.log(+f.asValue())) || (p = !1);
     }),
       mC(a, c) && p
         ? is.LOGLIN
@@ -31496,13 +31501,13 @@ return accum;
   function tL({ policy: e, frame: t }, n, r) {
     let s = Tn(t);
     for (let a of We(r)) s[a] = r[a];
-    let i = od({ policy: e, frame: s, wrapInList: true }, n), o = i.getError();
+    let i = od({ policy: e, frame: s, wrapInList: !0 }, n), o = i.getError();
     if (o) throw o;
     return i.asCompilerValue();
   }
   function ob(e, t) {
     switch (t) {
-      case ListOfNumber: {
+      case ne: {
         let n = 0;
         for (let r of e) {
           let s = V(r);
@@ -31510,7 +31515,7 @@ return accum;
         }
         return n / e.length;
       }
-      case ListOfComplex: {
+      case Ue: {
         let n = 0;
         for (let [r, s] of e) {
           let i = V(r);
@@ -31526,12 +31531,12 @@ return accum;
   }
   function fq(e, t) {
     switch (t) {
-      case Number:
-      case Complex:
+      case I:
+      case R:
         return 0;
-      case ListOfNumber:
-        return varp(e);
-      case ListOfComplex: {
+      case ne:
+        return Sf(e);
+      case Ue: {
         let n = e, r = 0, s = 0;
         for (let [u, c] of n) r += u, s += c;
         let i = r / n.length, o = s / n.length, a = 0;
@@ -31553,9 +31558,9 @@ return accum;
   }
   function nL(e, t) {
     switch (t) {
-      case ListOfNumber:
+      case ne:
         return e;
-      case ListOfComplex:
+      case Ue:
         return e * Math.SQRT2;
       default:
         throw U("Regression with invalid value type.");
@@ -31583,7 +31588,7 @@ return accum;
   function mq(e) {
     let t = 0;
     if (j(e == null ? void 0 : e.valueType)) {
-      let n = e.asValue(), r = listMax(n), s = listMin(n);
+      let n = e.asValue(), r = Sg(n), s = Dg(n);
       t = (s < 0 && 0 < r ? r - s : Math.max(Math.abs(s), Math.abs(r))) / 500;
     }
     return t;
@@ -31601,7 +31606,7 @@ return accum;
         displayPrecision: M,
         residuals: r.residuals,
         isLinear: r.isLinear,
-        parameterWarning: false,
+        parameterWarning: !1,
       };
     }
     let u = t.getDependencies(),
@@ -31611,7 +31616,7 @@ return accum;
       f = 1 / 0,
       d = {},
       y,
-      g = false,
+      g = !1,
       m = 1 / 0,
       h = 5;
     for (let b of s) {
@@ -31624,7 +31629,7 @@ return accum;
         let P = b.reverseParameterMap(r.solution.map((S) => V(S))),
           D = oL(l, P, c);
         if (d && (!isFinite(D) || D >= f)) {
-          isFinite(D) || (g = true, r.MSE < m && (m = r.MSE));
+          isFinite(D) || (g = !0, r.MSE < m && (m = r.MSE));
           continue;
         }
         f = r.MSE, d = Q_(P, t), y = p.apply(void 0, P), h = rL(P, p, a, o);
@@ -31635,16 +31640,16 @@ return accum;
       parameters: d,
       displayPrecision: h,
       residuals: y,
-      isLinear: false,
+      isLinear: !1,
       parameterWarning: g && m < f && T > x,
     };
   }
   var Si = {
-    pointsOfInterest: true,
-    plotSingleVariableImplicitEquations: true,
-    plotImplicits: true,
-    plotInequalities: true,
-    sliders: true,
+    pointsOfInterest: !0,
+    plotSingleVariableImplicitEquations: !0,
+    plotImplicits: !0,
+    plotInequalities: !0,
+    sliders: !0,
   };
   function aL(e, t) {
     let { mappedArgIndex: n, mappedReturnIndex: r, solutionIndex: s } = t,
@@ -31679,13 +31684,13 @@ return accum;
   }
   function gq(e, t, n) {
     let r = [];
-    for (let s = 0; s < n; s++) r.push(false);
+    for (let s = 0; s < n; s++) r.push(!1);
     r[n] = t[n];
     for (let s = n; s >= 0; s--) {
       if (!r[s] || !t[s]) continue;
       let i = e.getInstruction(s);
-      if (i.type === 33) r[i.args[1]] = true;
-      else if (!ge(i)) { for (let o of i.args) r[o] = true; }
+      if (i.type === 33) r[i.args[1]] = !0;
+      else if (!ge(i)) { for (let o of i.args) r[o] = !0; }
     }
     return r;
   }
@@ -31699,7 +31704,7 @@ return accum;
   function gC(e, t) {
     try {
       let n = new on(t), r = xl({}, n), s = [];
-      for (let o = 0; o < r.length; o++) s.push(Number);
+      for (let o = 0; o < r.length; o++) s.push(I);
       let i = jh({
         policy: e,
         frame: {},
@@ -31710,38 +31715,38 @@ return accum;
       });
       return i.chunk = t,
         t.fuseBroadcast(),
-        cL({ policy: e, ctx: i, isInequality: false, allowSolvingIn3D: true }, t);
+        cL({ policy: e, ctx: i, isInequality: !1, allowSolvingIn3D: !0 }, t);
     } catch (n) {
       return n instanceof C.Base ? n : U(n);
     }
   }
   function ab(e, t) {
     let n = e.getInstruction(t);
-    if (n.type !== 1) return false;
+    if (n.type !== 1) return !1;
     switch (n.valueType) {
-      case Complex:
+      case R:
         return Number.isNaN(n.value[0]);
-      case Number:
+      case I:
         return Number.isNaN(n.value);
       default:
         throw U("Unexpected type in isConstantNaN: " + at(n.valueType));
     }
   }
   function hq({ policy: e, frame: t }, n) {
-    let r = false, s = [];
+    let r = !1, s = [];
     if (n instanceof ku) {
       let x = n._lhs, T = x._symbol;
       if (
         !t[T] && !e.assignmentForbidden(T) &&
-        (r = true, s = x._dependencies, x.args.length > 1)
+        (r = !0, s = x._dependencies, x.args.length > 1)
       ) {
         let M = n._dependencies.filter((D) => !s.includes(D)),
           P = rn([T]).setDependencies(M);
-        throw P.silent = true, P;
+        throw P.silent = !0, P;
       }
     }
     let i = n.asComparator(), o = xl(t, i), a = [];
-    for (let x = 0; x < o.length; x++) a.push(Number);
+    for (let x = 0; x < o.length; x++) a.push(I);
     let u = jh({
         policy: e,
         frame: t,
@@ -31754,14 +31759,14 @@ return accum;
       l = i.getOperator(),
       p = l !== "=",
       f = Fe(u, i.args[0]),
-      d = zi(c, f, { peelableCoerce: true });
+      d = zi(c, f, { peelableCoerce: !0 });
     if (d !== f && !ab(c, f) && ab(c, d)) throw Ny(l);
-    let y = Fe(u, i.args[1]), g = zi(c, y, { peelableCoerce: true });
+    let y = Fe(u, i.args[1]), g = zi(c, y, { peelableCoerce: !0 });
     if (g !== y && !ab(c, y) && ab(c, g)) throw Ny(l);
     try {
       Uo(c, e, i, [d, g]);
     } catch (x) {
-      throw x instanceof v && r && (x.silent = true), x;
+      throw x instanceof v && r && (x.silent = !0), x;
     }
     switch (l) {
       case "<":
@@ -31790,7 +31795,7 @@ return accum;
         policy: e,
         ctx: u,
         isInequality: p,
-        allowSolvingIn3D: false,
+        allowSolvingIn3D: !1,
         maybeBaseCase: r,
         callParameters: s,
       }, c);
@@ -31819,7 +31824,7 @@ return accum;
       if (s) {
         let m = i ? a.filter((x) => !i.includes(x)) : a,
           h = rn(g).setDependencies(m);
-        return h.silent = true, h;
+        return h.silent = !0, h;
       } else return rn(g).setDependencies(a);
     }
     if (n && !e.validInequalityVariables(a)) return $I().setDependencies(a);
@@ -31827,7 +31832,7 @@ return accum;
     if (e.complicatedPolarImplicit(p, l)) return WI().setDependencies(a);
     if (!e.validImplicitVariables(a)) {
       let g = Ac();
-      return s && (g.silent = true), g;
+      return s && (g.silent = !0), g;
     }
     if (e.is3dPolicy() && r && l !== 1) return ca();
     if (l > 2 || e.is3dPolicy() && !r) return new on(o);
@@ -31849,10 +31854,10 @@ return accum;
         }
         b.fuseBroadcast(), f.push(new on(b));
       }
-      let x = false;
+      let x = !1;
       for (let T of m.coefficients) {
         let b = m.chunk.getInstruction(T);
-        b.type === 1 && b.value !== 0 && (x = true);
+        b.type === 1 && b.value !== 0 && (x = !0);
       }
       if (o.argNames.length !== 2 || x) d.push(void 0);
       else {
@@ -31892,7 +31897,7 @@ return accum;
         if (
           d.polynomialOrder(u, {
             allowRestriction: l,
-            allowClosedBlockReferences: false,
+            allowClosedBlockReferences: !1,
           }) > 2
         ) {
           o[a].effectiveOrder = 1 / 0;
@@ -32072,9 +32077,9 @@ return accum;
       case 124:
       case 126:
       case 127:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function uu(e) {
@@ -32085,15 +32090,15 @@ return accum;
   }
   function pL(e) {
     let t = [];
-    for (let r = 0; r < e.instructionsLength(); r++) t.push(false);
+    for (let r = 0; r < e.instructionsLength(); r++) t.push(!1);
     let n = [];
-    t[e.getReturnIndex()] = true;
+    t[e.getReturnIndex()] = !0;
     for (let r = e.instructionsLength() - 1; r >= 0; r--) {
       if (!t[r]) continue;
       let s = e.getInstruction(r);
       if (s.type === 2 && n.push(e.argNames[r]), ge(s)) continue;
       let i = Yu(e, s) ? [s.args[1]] : s.args;
-      for (let o of i) t[o] = true;
+      for (let o of i) t[o] = !0;
     }
     return n;
   }
@@ -32227,7 +32232,7 @@ return accum;
       i = new Array(s),
       o = new Array(s * 3),
       a = [],
-      u = false,
+      u = !1,
       c = new Array(s * 3),
       l = new Array(s * 2),
       p = new Array(s * r),
@@ -32239,7 +32244,7 @@ return accum;
       let x = n[m], T = x ? e.hintedNormal(m, x) : e.getNormal(m);
       T
         ? (c[3 * d] = T[0], c[3 * d + 1] = T[1], c[3 * d + 2] = T[2])
-        : (a[d] = true, u = true, c[3 * d] = 0, c[3 * d + 1] = 0, c[3 * d + 2] = 0),
+        : (a[d] = !0, u = !0, c[3 * d] = 0, c[3 * d + 1] = 0, c[3 * d + 2] = 0),
         o[3 * d] = h[0],
         o[3 * d + 1] = h[1],
         o[3 * d + 2] = h[2];
@@ -32292,7 +32297,7 @@ return accum;
       normals: c,
       faces: f,
       uvs: l,
-      resolved: true,
+      resolved: !0,
       extraAttrs: p,
     };
   }
@@ -32439,7 +32444,7 @@ return accum;
     Sq = .99,
     pd = .9999;
   function bC(e, t) {
-    return !e || !t ? true : e[0] * t[0] + e[1] * t[1] + e[2] * t[2] < Sq;
+    return !e || !t ? !0 : e[0] * t[0] + e[1] * t[1] + e[2] * t[2] < Sq;
   }
   var IC = class extends TC {
       hintVec(t, n) {
@@ -32843,7 +32848,7 @@ return accum;
       if (
         (-this.duSquared + a * s) /
             Math.sqrt((this.duSquared + a * a) * (this.duSquared + s * s)) > -pd
-      ) return true;
+      ) return !0;
       let l = this.tangentInForcedDf(r, [0, -this.dv], o);
       return (-this.dvSquared + i * l) /
           Math.sqrt((this.dvSquared + i * i) * (this.dvSquared + l * l)) > -pd;
@@ -32956,7 +32961,7 @@ return accum;
           i[1],
           i[2] || 0,
         );
-      if (a < 1) return false;
+      if (a < 1) return !1;
       let u = [
         s[0] + a * (i[0] - s[0]),
         s[1] + a * (i[1] - s[1]),
@@ -33020,7 +33025,7 @@ return accum;
       return this.breakSegment(), this.segments;
     }
     finish() {
-      return { segments: this.getSegments(), resolved: true };
+      return { segments: this.getSegments(), resolved: !0 };
     }
   };
   var fL = 5, Nq = Math.pow(2, 14), { abs: ho } = Math;
@@ -33054,7 +33059,7 @@ return accum;
     return { x: e, y: t, isZero: n };
   }
   function pb(e, t, n) {
-    return { vertices: [e, t, n], visited: false, next: void 0 };
+    return { vertices: [e, t, n], visited: !1, next: void 0 };
   }
   function dL(e, t) {
     let { mathToPixels: n } = e,
@@ -33080,7 +33085,7 @@ return accum;
   function Aq(e, t, n) {
     let r = _q(e, n), s = [], i = [];
     i.push(r);
-    let o = 1, a = true;
+    let o = 1, a = !0;
     e: for (; i.length;) {
       let u = s;
       s = i, i = u;
@@ -33088,7 +33093,7 @@ return accum;
       for (; c = s.pop();) {
         if (wq(c, e, t)) {
           if (Lq(c, e, t), !c.children) {
-            a = false;
+            a = !1;
             break e;
           }
           if (
@@ -33099,7 +33104,7 @@ return accum;
               o += 3,
               o >= Nq
           ) {
-            a = false;
+            a = !1;
             break e;
           }
         } else MC(c, e, t);
@@ -33132,14 +33137,14 @@ return accum;
     ];
   }
   function wq(e, t, n) {
-    if (e.depth < fL) return true;
-    if (Vq(e, n) || Fq(e, n)) return false;
+    if (e.depth < fL) return !0;
+    if (Vq(e, n) || Fq(e, n)) return !1;
     let r = e.vertices[0],
       s = e.vertices[1],
       i = e.vertices[2],
       o = e.vertices[3];
-    if (isNaN(r.z) && isNaN(s.z) && isNaN(i.z) && isNaN(o.z)) return false;
-    if (isNaN(r.z) || isNaN(s.z) || isNaN(i.z) || isNaN(o.z)) return true;
+    if (isNaN(r.z) && isNaN(s.z) && isNaN(i.z) && isNaN(o.z)) return !1;
+    if (isNaN(r.z) || isNaN(s.z) || isNaN(i.z) || isNaN(o.z)) return !0;
     let a = mL(r, s, i, o, t, n),
       u = Na(r, s, t, n),
       c = Na(s, i, t, n),
@@ -33152,20 +33157,20 @@ return accum;
       ec(l, o, a, t, n) || ec(o, p, a, t, n) || ec(p, r, a, t, n);
   }
   function ec(e, t, n, r, s) {
-    if (e.z > 0 == t.z > 0 && t.z > 0 == n.z > 0) return false;
+    if (e.z > 0 == t.z > 0 && t.z > 0 == n.z > 0) return !1;
     let i = 0;
     isFinite(e.z) && (i = Math.max(i, Math.abs(e.z))),
       isFinite(t.z) && (i = Math.max(i, Math.abs(t.z))),
       isFinite(n.z) && (i = Math.max(i, Math.abs(n.z)));
     let o = 32 * Number.EPSILON * i, a, u, c, l;
     if (e.z > 0 == t.z > 0) {
-      if (a = Os(e, t, r, s), a.z > 0 != e.z > 0) return true;
+      if (a = Os(e, t, r, s), a.z > 0 != e.z > 0) return !0;
       u = Oa(e, n, r, s, o), c = Oa(t, n, r, s, o), l = Oa(a, n, r, s, o);
     } else if (t.z > 0 == n.z > 0) {
-      if (a = Os(t, n, r, s), a.z > 0 != t.z > 0) return true;
+      if (a = Os(t, n, r, s), a.z > 0 != t.z > 0) return !0;
       u = Oa(t, e, r, s, o), c = Oa(n, e, r, s, o), l = Oa(a, e, r, s, o);
     } else {
-      if (a = Os(n, e, r, s), a.z > 0 != n.z > 0) return true;
+      if (a = Os(n, e, r, s), a.z > 0 != n.z > 0) return !0;
       u = Oa(n, t, r, s, o), c = Oa(e, t, r, s, o), l = Oa(a, t, r, s, o);
     }
     let { mathToPixels: p, map3d: f } = s;
@@ -33181,7 +33186,7 @@ return accum;
     }
   }
   function tc(e, t, n, r) {
-    if (isNaN(e.z) && isNaN(t.z)) return false;
+    if (isNaN(e.z) && isNaN(t.z)) return !1;
     if (isNaN(e.z) || isNaN(t.z)) return e.z > 0 || t.z > 0;
     let i = 4 * Os(e, t, n, r).z - t.z - 3 * e.z,
       o = 1e-4,
@@ -33191,14 +33196,14 @@ return accum;
   }
   function Fq(e, t) {
     let { mathToPixels: n, map3d: r, tolerance: s } = t;
-    if (r) return false;
+    if (r) return !1;
     {
       let [i, o] = n.mapCoordinatePair([e.vertices[1].x, e.vertices[1].y]),
         [a, u] = n.mapCoordinatePair([e.vertices[0].x, e.vertices[0].y]),
         [c, l] = n.mapCoordinatePair([e.vertices[3].x, e.vertices[3].y]);
-      if (ho(i - a) < 10 * s || ho(u - l) < 10 * s) return true;
+      if (ho(i - a) < 10 * s || ho(u - l) < 10 * s) return !0;
     }
-    return false;
+    return !1;
   }
   function Vq(e, t) {
     return e.vertices[0].x < t.xmin || e.vertices[0].y > t.ymax ||
@@ -33253,7 +33258,7 @@ return accum;
       f = t.z;
     if (md(e, r) || md(t, r)) {
       let d = Os(e, t, n, r);
-      return Ku(d.x, d.y, false);
+      return Ku(d.x, d.y, !1);
     }
     if (o) {
       let [d, y, g] = o(a, c), [m, h, x] = o(u, l);
@@ -33279,12 +33284,12 @@ return accum;
           [g, m] = i.mapCoordinatePair([u, l]);
       }
     }
-    if (isNaN(p)) return Ku(u, l, false);
-    if (isNaN(f)) return Ku(a, c, false);
+    if (isNaN(p)) return Ku(u, l, !1);
+    if (isNaN(f)) return Ku(a, c, !1);
     {
       let d = Math.abs(p), y = Math.abs(f);
-      if (d < s && y > 100 * s) return 1 / d >= y ? Ku(a, c, true) : Ku(u, l, false);
-      if (y < s && d > 100 * s) return 1 / y >= d ? Ku(u, l, true) : Ku(a, c, false);
+      if (d < s && y > 100 * s) return 1 / d >= y ? Ku(a, c, !0) : Ku(u, l, !1);
+      if (y < s && d > 100 * s) return 1 / y >= d ? Ku(u, l, !0) : Ku(a, c, !1);
       let g = yL(fd(a, c, p), fd(u, l, f), n, r),
         m = p === 0 || f === 0 || g.z === 0 ||
           g.z >= p == f >= g.z && Math.abs(g.z) < 1e250;
@@ -33448,7 +33453,7 @@ return accum;
       if (
         CC(n, r, t, o), CC(r, s, t, o), CC(s, n, t, o), e.visited || !e.next
       ) break;
-      e.visited = true, e = e.next;
+      e.visited = !0, e = e.next;
     }
     t.strokeAccumulator.breakSegment(), t.fillAccumulator.breakSegment();
   }
@@ -34124,8 +34129,8 @@ return accum;
       this.gradient = r;
       this.cubeEdge = new Array(26);
       this.face = BC();
-      this.cubeHasCrossing = false;
-      this.allNormalsFromGradient = true;
+      this.cubeHasCrossing = !1;
+      this.allNormalsFromGradient = !0;
       this.normalFromGradient = [];
       this.edgesMaybeCross = 0;
       this.positions = [];
@@ -34165,16 +34170,16 @@ return accum;
         normals: s,
         faces: this.triangles,
         uvs: n,
-        resolved: true,
+        resolved: !0,
         extraAttrs: [],
       };
     }
     onEachCube() {
-      this.edgesMaybeCross = 0, this.cubeHasCrossing = false;
+      this.edgesMaybeCross = 0, this.cubeHasCrossing = !1;
       for (let n = 0; n < 26; n++) {
         let r = this.cubeVertexValue.get(zr[n * 2]),
           s = this.cubeVertexValue.get(zr[n * 2 + 1]);
-        (r === 0 || s === 0) && (this.cubeHasCrossing = true),
+        (r === 0 || s === 0) && (this.cubeHasCrossing = !0),
           !(r > 0 && s > 0 || r < 0 && s < 0) && (isFinite(r) || isFinite(s)) &&
           (this.edgesMaybeCross |= 1 << n);
       }
@@ -34217,11 +34222,11 @@ return accum;
         if (c >> l & 1) {
           !this.cubeHasCrossing &&
             (this.cubeEdge[l].posNeg || this.cubeEdge[l].posNaN) &&
-            (this.cubeHasCrossing = true);
+            (this.cubeHasCrossing = !0);
           continue;
         }
         let p = this.findSurfaceCrossingEDI(zr[l * 2], zr[l * 2 + 1]);
-        this.cubeEdge[l] = p, r8(p) && (this.cubeHasCrossing = true);
+        this.cubeEdge[l] = p, r8(p) && (this.cubeHasCrossing = !0);
       }
     }
     saveEdges() {
@@ -34272,14 +34277,14 @@ return accum;
         o /= -u,
         a /= -u,
         ep(i, o, a)
-          ? (this.normalFromGradient.push(true),
+          ? (this.normalFromGradient.push(!0),
             this._pushPositionAndNormal(n, r, s, i, o, a))
           : this.pushPositionNoGradient(n, r, s);
     }
     pushPositionNoGradient(n, r, s) {
       return isFinite(n) && isFinite(r) && isFinite(s)
-        ? (this.allNormalsFromGradient = false,
-          this.normalFromGradient.push(false),
+        ? (this.allNormalsFromGradient = !1,
+          this.normalFromGradient.push(!1),
           this._pushPositionAndNormal(n, r, s, 0, 0, 0))
         : 0;
     }
@@ -34419,13 +34424,13 @@ return accum;
         }
         if (h !== void 0) {
           if (this.isInequality) {
-            let x = [], T = [], b = false;
+            let x = [], T = [], b = !1;
             for (let M = 0; M < 6; M++) {
               if (i >> M & 1) continue;
               let { posNeg: P, posNaN: D } = this.cubeEdge[r[M]],
                 S = El(P),
                 O = El(D);
-              S && x.push(P), O && T.push(D), S && O && (b = true);
+              S && x.push(P), O && T.push(D), S && O && (b = !0);
             }
             if (b) {
               x.push(...s),
@@ -34503,7 +34508,7 @@ return accum;
     return t;
   }
   function Ml(e, t, n, r) {
-    (n === void 0 || isNaN(n)) && (n = zC(t.min, t.max)), n = clamp(s8(n), 2, 2e3);
+    (n === void 0 || isNaN(n)) && (n = zC(t.min, t.max)), n = hr(s8(n), 2, 2e3);
     let { xmin: s, xmax: i, ymin: o, ymax: a, zmin: u, zmax: c } = r.viewport;
     u != null || (u = Dr.zmin), c != null || (c = Dr.zmax);
     let l = Pb(e, {
@@ -34522,7 +34527,7 @@ return accum;
     return Ml(
       (i) => {
         let o = e(i), a = o[0], u = o[1], c = o[2];
-        return [a * cos(u * s), a * sin(u * s), c];
+        return [a * Mn(u * s), a * dn(u * s), c];
       },
       t,
       n,
@@ -34535,9 +34540,9 @@ return accum;
       (i) => {
         let o = e(i), a = o[0], u = o[1], c = o[2];
         return [
-          a * sin(c * s) * cos(u * s),
-          a * sin(c * s) * sin(u * s),
-          a * cos(c * s),
+          a * dn(c * s) * Mn(u * s),
+          a * dn(c * s) * dn(u * s),
+          a * Mn(c * s),
         ];
       },
       t,
@@ -34674,7 +34679,7 @@ return accum;
       createFGZ(n, r) {
         let s = this.allFGZs.get(n);
         if (s) return s;
-        let i = { id: n, pos: r, connections: [], visited: false };
+        let i = { id: n, pos: r, connections: [], visited: !1 };
         return this.allFGZs.set(n, i), i;
       }
       getTriangleCrossingUncached(n) {
@@ -34696,7 +34701,7 @@ return accum;
         if (r.length === 2 && s.length === 2) {
           let a = a8(r[0], r[1], s[0], s[1]);
           return a
-            ? { id: wC(this.cubeID, n), pos: a, connections: [], visited: false }
+            ? { id: wC(this.cubeID, n), pos: a, connections: [], visited: !1 }
             : null;
         } else return null;
       }
@@ -34787,7 +34792,7 @@ return accum;
       traceCurve(n, r) {
         let s = r;
         for (;;) {
-          n.addPoint(r.pos), r.visited = true;
+          n.addPoint(r.pos), r.visited = !0;
           let i;
           for (let o of r.connections) o.visited || (i = o);
           if (!i) break;
@@ -34882,7 +34887,7 @@ return accum;
         i = this.getDfNorth(n),
         o = this.getF(n),
         a = this.tangentInForced(r, [-this.du, 0], o);
-      if (XP(a, s) / Math.sqrt(Ql(a) * Ql(s)) > -pd) return true;
+      if (XP(a, s) / Math.sqrt(Ql(a) * Ql(s)) > -pd) return !0;
       let c = this.tangentInForced(r, [0, -this.dv], o);
       return XP(i, c) / Math.sqrt(Ql(i) * Ql(c)) > -pd;
     }
@@ -34938,7 +34943,7 @@ return accum;
     }
     isDegenerate(n, r, s) {
       let i = this.getF(n), o = this.getF(r);
-      if (qa(i, o) < this.distThresh) return true;
+      if (qa(i, o) < this.distThresh) return !0;
       let a = this.getF(s);
       return qa(o, a) < this.distThresh || qa(i, a) < this.distThresh;
     }
@@ -34997,15 +35002,15 @@ return accum;
   }
   function oie(e) {
     let t = {};
-    for (let n in e) e.hasOwnProperty(n) && (t[n] = true);
+    for (let n in e) e.hasOwnProperty(n) && (t[n] = !0);
     return t;
   }
   var FL = {
-    collapsed: false,
-    hidden: false,
-    secret: false,
-    inFrontOfEverything: false,
-    readonly: false,
+    collapsed: !1,
+    hidden: !1,
+    secret: !1,
+    inFrontOfEverything: !1,
+    readonly: !1,
     title: "",
   };
   function uie(e) {
@@ -35015,17 +35020,17 @@ return accum;
     return Em(FL, e);
   }
   var VL = "**dcg_geo_folder**";
-  var ZC = { show: false, min: "", max: "" },
+  var ZC = { show: !1, min: "", max: "" },
     WC = {
       breadth: "",
       axisOffset: "",
       alignedAxis: "x",
-      showBoxplotOutliers: true,
+      showBoxplotOutliers: !0,
       binAlignment: "center",
       dotplotXMode: "exact",
       histogramMode: "",
     },
-    jC = { enabled: false, latex: "" };
+    jC = { enabled: !1, latex: "" };
   var kL = 4e3,
     Sb = {
       polarDomain: { min: "", max: "" },
@@ -35053,52 +35058,52 @@ return accum;
       folderId: "",
       latex: "",
       color: "",
-      showLabel: false,
-      showAngleLabel: true,
+      showLabel: !1,
+      showAngleLabel: !0,
       label: "",
-      hidden: false,
-      secret: false,
-      readonly: false,
-      disableGraphInteractions: false,
+      hidden: !1,
+      secret: !1,
+      readonly: !1,
+      disableGraphInteractions: !1,
       dragMode: "AUTO",
       labelSize: "",
       labelOrientation: "default",
-      suppressTextOutline: false,
-      interactiveLabel: false,
+      suppressTextOutline: !1,
+      interactiveLabel: !1,
       editableLabelMode: "NONE",
       residualVariable: "",
-      isLogModeRegression: false,
+      isLogModeRegression: !1,
       pointStyle: "POINT",
       lineStyle: "SOLID",
       arrowMode: "DEFAULT",
       regressionParameters: {},
-      displayEvaluationAsFraction: false,
+      displayEvaluationAsFraction: !1,
       slider: {},
-      strictIntersection: false,
-      extendTo3D: false,
+      strictIntersection: !1,
+      extendTo3D: !1,
       ...Sb,
       points: void 0,
       lines: void 0,
       fill: void 0,
     },
     zL = {
-      hardMin: false,
-      hardMax: false,
+      hardMin: !1,
+      hardMax: !1,
       animationPeriod: kL,
       loopMode: "LOOP_FORWARD_REVERSE",
       playDirection: 1,
-      isPlaying: false,
+      isPlaying: !1,
       min: "-10",
       max: "10",
       step: "",
     },
     UL = {
-      hardMin: false,
-      hardMax: false,
+      hardMin: !1,
+      hardMax: !1,
       animationPeriod: kL,
       loopMode: "LOOP_FORWARD_REVERSE",
       playDirection: 1,
-      isPlaying: false,
+      isPlaying: !1,
       min: `${Dr.xmin}`,
       max: `${Dr.xmax}`,
       step: "",
@@ -35127,8 +35132,8 @@ return accum;
     return wL(e, Sb);
   }
   function Mie(e, t) {
-    for (let n in Sb) if (Sb.hasOwnProperty(n) && e[n] !== t[n]) return false;
-    return true;
+    for (let n in Sb) if (Sb.hasOwnProperty(n) && e[n] !== t[n]) return !1;
+    return !0;
   }
   function Cie(e) {
     return {
@@ -35331,7 +35336,7 @@ return accum;
     if (a === -1 / 0 && u >= p) {
       l = ic({
         bounds: [a, p],
-        included: true,
+        included: !0,
         viewState: t,
         graphInfo: n,
         compiled: r,
@@ -35340,7 +35345,7 @@ return accum;
     } else if (a === -1 / 0 && u < 1 / 0) {
       l = ic({
         bounds: [a, u],
-        included: true,
+        included: !0,
         viewState: t,
         graphInfo: n,
         compiled: r,
@@ -35350,7 +35355,7 @@ return accum;
         c.push(
           ic({
             bounds: [u + 1, p],
-            included: false,
+            included: !1,
             viewState: t,
             graphInfo: n,
             compiled: r,
@@ -35360,7 +35365,7 @@ return accum;
     } else if (a > -1 / 0 && u >= p) {
       l = ic({
         bounds: [a, p],
-        included: true,
+        included: !0,
         viewState: t,
         graphInfo: n,
         compiled: r,
@@ -35369,7 +35374,7 @@ return accum;
         c.push(
           ic({
             bounds: [-1 / 0, a - 1],
-            included: false,
+            included: !1,
             viewState: t,
             graphInfo: n,
             compiled: r,
@@ -35380,7 +35385,7 @@ return accum;
     } else {
       l = ic({
         bounds: [a, u],
-        included: true,
+        included: !0,
         viewState: t,
         graphInfo: n,
         compiled: r,
@@ -35388,7 +35393,7 @@ return accum;
       });
       let f = ic({
           bounds: [-1 / 0, a - 1],
-          included: false,
+          included: !1,
           viewState: t,
           graphInfo: n,
           compiled: r,
@@ -35396,7 +35401,7 @@ return accum;
         }),
         d = ic({
           bounds: [u + 1, p],
-          included: false,
+          included: !1,
           viewState: t,
           graphInfo: n,
           compiled: r,
@@ -35435,7 +35440,7 @@ return accum;
         this.intersections.push(...t), this.count += t.length;
       }
       addIntersection(t, n) {
-        n.valueType === Point ? this.addPoint(n.value) : this.addPoints(n.value);
+        n.valueType === N ? this.addPoint(n.value) : this.addPoints(n.value);
       }
       getPoints() {
         return this.intersections;
@@ -35446,9 +35451,9 @@ return accum;
         this.parentType = t;
         this.count = 0;
         this.intersectionsByIndex = new Map();
-        if (t === ListOfSegment) this.scalarType = Segment;
-        else if (t === ListOfRay) this.scalarType = Ray;
-        else if (t === ListOfArc) this.scalarType = Arc;
+        if (t === xn) this.scalarType = de;
+        else if (t === Vn) this.scalarType = Ne;
+        else if (t === Fn) this.scalarType = ie;
         else {throw new Error(
             `Expected ListOfSegment or ListOfArc but got ${at(t)}`,
           );}
@@ -35463,10 +35468,10 @@ return accum;
         let r = zo(t);
         if (r !== void 0) {
           let s = r - 1, i = this.getListItemIntersections(s);
-          n.valueType === ListOfPoint ? i.addPoints(n.value) : i.addPoint(n.value),
+          n.valueType === Pt ? i.addPoints(n.value) : i.addPoint(n.value),
             this.count += 1;
         } else {
-          za(n.valueType, [ListOfPoint]);
+          za(n.valueType, [Pt]);
           for (let s = 0; s < n.value.length; s++) {
             this.getListItemIntersections(s).addPoint(n.value[s]);
           }
@@ -35476,13 +35481,13 @@ return accum;
     },
     KC = class {
       constructor() {
-        this.parentType = Polygon;
+        this.parentType = xe;
         this.count = 0;
         this.intersectionsByEdgeIndex = new Map();
       }
       getEdgeIntersections(t) {
         let n = this.intersectionsByEdgeIndex.get(t);
-        return n || (n = new Mm(Segment), this.intersectionsByEdgeIndex.set(t, n)),
+        return n || (n = new Mm(de), this.intersectionsByEdgeIndex.set(t, n)),
           n;
       }
       addPoint(t, n) {
@@ -35495,20 +35500,20 @@ return accum;
           );
         }
         let r = t.edgeIndex - 1, s = this.getEdgeIntersections(r);
-        n.valueType === ListOfPoint
+        n.valueType === Pt
           ? (s.addPoints(n.value), this.count += n.value.length)
           : (s.addPoint(n.value), this.count += 1);
       }
     },
     e1 = class {
       constructor() {
-        this.parentType = ListOfPolygon;
+        this.parentType = In;
         this.count = 0;
         this.intersectionsByEdgeIndex = new Map();
       }
       getEdgeIntersections(t) {
         let n = this.intersectionsByEdgeIndex.get(t);
-        return n || (n = new gd(ListOfSegment), this.intersectionsByEdgeIndex.set(t, n)),
+        return n || (n = new gd(xn), this.intersectionsByEdgeIndex.set(t, n)),
           n;
       }
       addIntersection(t, n) {
@@ -35520,11 +35525,11 @@ return accum;
         let r = t.edgeIndex - 1, s = this.getEdgeIntersections(r), i = zo(t);
         if (i !== void 0) {
           let o = i - 1;
-          n.valueType === ListOfPoint
+          n.valueType === Pt
             ? s.getListItemIntersections(o).addPoints(n.value)
             : s.getListItemIntersections(o).addPoint(n.value), this.count += 1;
         } else {
-          za(n.valueType, [ListOfPoint]);
+          za(n.valueType, [Pt]);
           for (let o = 0; o < n.value.length; o++) {
             s.getListItemIntersections(o).addPoint(n.value[o]);
           }
@@ -35540,15 +35545,15 @@ return accum;
         return this.data[t];
       }
       addChildIntersection(t, n) {
-        za(n == null ? void 0 : n.valueType, [Point, ListOfPoint]);
+        za(n == null ? void 0 : n.valueType, [N, Pt]);
         let r;
-        if (t.valueType == ListOfPolygon) r = this.data[t.id] || new e1();
+        if (t.valueType == In) r = this.data[t.id] || new e1();
         else if (
-          t.valueType === ListOfSegment || t.valueType === ListOfRay || t.valueType === ListOfArc
+          t.valueType === xn || t.valueType === Vn || t.valueType === Fn
         ) r = this.data[t.id] || new gd(t.valueType);
-        else if (t.valueType === Polygon) r = this.data[t.id] || new KC();
+        else if (t.valueType === xe) r = this.data[t.id] || new KC();
         else if (
-          t.valueType === Segment || t.valueType === Ray || t.valueType === Arc
+          t.valueType === de || t.valueType === Ne || t.valueType === ie
         ) r = this.data[t.id] || new Mm(t.valueType);
         else return;
         this.data[t.id] = r, r.addIntersection(t.ref, n);
@@ -35899,7 +35904,7 @@ return accum;
       normals: r,
       faces: i,
       uvs: s,
-      resolved: true,
+      resolved: !0,
       extraAttrs: [],
     };
   }
@@ -35918,7 +35923,7 @@ return accum;
     }
     return Math.floor(e / n);
   }
-  var T8 = false, ac = 200, Fb = C.List;
+  var T8 = !1, ac = 200, Fb = C.List;
   function Ir() {
     return {};
   }
@@ -36087,7 +36092,7 @@ return accum;
             color: Ra(this.userData, this.metaData),
             style: this.userData.pointStyle,
             showLabel: !!this.userData.showLabel,
-            nakedLabel: true,
+            nakedLabel: !0,
             labelSize: this.metaData.computedLabelSize,
             labelAngle: this.metaData.computedLabelAngle,
             labelOrientation: this.userData.labelOrientation,
@@ -36096,7 +36101,7 @@ return accum;
             editableLabel: o(this.userData),
             labels: this.computedLabels || [],
             poi: go(x),
-            showPoint: false,
+            showPoint: !1,
           }];
         } else return [];
       }
@@ -36188,7 +36193,7 @@ return accum;
       case 117: {
         let x = this.metaData.colorLatexValue
             ? !Array.isArray(this.metaData.colorLatexValue)
-            : true,
+            : !0,
           T = this.metaData.computedSurfaceOpacity,
           b = [],
           M = [],
@@ -36216,7 +36221,7 @@ return accum;
           F = () => {
             let Y = {
               guid: Ns(),
-              resolved: true,
+              resolved: !0,
               positions: new Float32Array(b),
               normals: new Float32Array(M),
               faces: new Uint32Array(P),
@@ -36225,7 +36230,7 @@ return accum;
             };
             return S.length && (Y.colors = new Float32Array(S)), Y;
           };
-        if (t.valueType === ListOfTriangle3D && !Array.isArray(T)) {
+        if (t.valueType === yr && !Array.isArray(T)) {
           let Y = this.metaData.computedSurfaceOpacity, re = "";
           if (x) {
             let Ee = (d = this.metaData.colorLatexValue) != null
@@ -36233,8 +36238,8 @@ return accum;
               : this.userData.color;
             re = a(this.userData, Ee);
           }
-          return p({ color: true }, (Ee, he) => {
-            if (Ee.valueType === Triangle3D) {
+          return p({ color: !0 }, (Ee, he) => {
+            if (Ee.valueType === Rn) {
               let [[K, Oe, te], [Ze, dt, me], [J, W, Ge]] = Ee.asValue();
               if (Z(K, Oe, te, Ze, dt, me, J, W, Ge), !x) {
                 let [be, ue, _e] = QC(he.color);
@@ -36250,7 +36255,7 @@ return accum;
               graphMode: 117,
             }];
         }
-        return p({ color: true, surfaceOpacity: true }, (Y, re) => {
+        return p({ color: !0, surfaceOpacity: !0 }, (Y, re) => {
           var W;
           let [[Ee, he, K], [Oe, te, Ze], [dt, me, J]] = Y.asValue();
           return b = [],
@@ -36269,9 +36274,9 @@ return accum;
       case 119: {
         let x = this.metaData.colorLatexValue
           ? !Array.isArray(this.metaData.colorLatexValue)
-          : true;
+          : !0;
         if (
-          t.valueType === ListOfSegment3D && x &&
+          t.valueType === mr && x &&
           !Array.isArray(this.metaData.computedLineWidth)
         ) {
           let T = (y = this.metaData.colorLatexValue) != null
@@ -36279,8 +36284,8 @@ return accum;
               : this.userData.color,
             b = this.metaData.computedLineWidth,
             M = [];
-          return p({ color: true }, (P) => {
-            if (P.valueType === Segment3D) {
+          return p({ color: !0 }, (P) => {
+            if (P.valueType === wt) {
               let [[D, S, O], [_, L, w]] = P.asValue();
               M.push(D, S, O, _, L, w, NaN, NaN, NaN);
             }
@@ -36294,7 +36299,7 @@ return accum;
               thickness: b != null ? b : 1,
             }];
         }
-        return p({ color: true, lineWidth: true }, (T, b) => {
+        return p({ color: !0, lineWidth: !0 }, (T, b) => {
           let { lineWidth: M, color: P } = b,
             D = T.asValue(),
             [[S, O, _], [L, w, G]] = D;
@@ -36310,9 +36315,9 @@ return accum;
       case 129:
         let m = this.metaData.colorLatexValue
           ? !Array.isArray(this.metaData.colorLatexValue)
-          : true;
+          : !0;
         if (
-          t.valueType === ListOfVector3D && m &&
+          t.valueType === gr && m &&
           !Array.isArray(this.metaData.computedLineWidth)
         ) {
           let x = (g = this.metaData.colorLatexValue) != null
@@ -36320,8 +36325,8 @@ return accum;
               : this.userData.color,
             T = this.metaData.computedLineWidth,
             b = [];
-          return p({ color: true }, (M) => {
-            if (M.valueType === Vector3D) {
+          return p({ color: !0 }, (M) => {
+            if (M.valueType === ke) {
               let [[P, D, S], [O, _, L]] = M.asValue();
               b.push(O, _, L, P + O, D + _, S + L);
             }
@@ -36335,7 +36340,7 @@ return accum;
               thickness: T != null ? T : 1,
             }];
         }
-        return p({ color: true, lineWidth: true }, (x, T) => {
+        return p({ color: !0, lineWidth: !0 }, (x, T) => {
           let { lineWidth: b, color: M } = T,
             P = x.asValue(),
             [[D, S, O], [_, L, w]] = P;
@@ -36348,7 +36353,7 @@ return accum;
           }];
         });
       case 118:
-        return p({ color: true, resolution: true, surfaceOpacity: true }, (x, T) => {
+        return p({ color: !0, resolution: !0, surfaceOpacity: !0 }, (x, T) => {
           let { color: b, surfaceOpacity: M } = T,
             P = x.asValue(),
             [[D, S, O], _] = P,
@@ -36368,7 +36373,7 @@ return accum;
           T = this.metaData,
           b = [],
           M = p(
-            { color: true, lineOpacity: true, lineWidth: true, resolution: true },
+            { color: !0, lineOpacity: !0, lineWidth: !0, resolution: !0 },
             (D, S) => {
               var _;
               let O = D.getDependencies();
@@ -36380,7 +36385,7 @@ return accum;
                   droppedIndices: w,
                   color: Ra(x, T),
                   style: x.lineStyle,
-                  showPoint: false,
+                  showPoint: !1,
                   poi: go(L),
                 }];
               } else {
@@ -36416,11 +36421,11 @@ return accum;
         return P;
       }
       case 20:
-        return p({ lineOpacity: true, lineWidth: true, color: true }, (x, T) => {
+        return p({ lineOpacity: !0, lineWidth: !0, color: !0 }, (x, T) => {
           let [[b, M], P] = x.asValue();
           return isNaN(b) || isNaN(M) || isNaN(P) ? [] : [{
             segments: [[b, M, P]],
-            resolved: true,
+            resolved: !0,
             graphMode: T.graphMode,
             color: T.color,
             style: T.lineStyle,
@@ -36432,8 +36437,8 @@ return accum;
           }];
         });
       case 21:
-        return p({ color: true, lineWidth: true, lineOpacity: true }, (x, T) => {
-          let b = getArcDetails(x.asValue());
+        return p({ color: !0, lineWidth: !0, lineOpacity: !0 }, (x, T) => {
+          let b = Rg(x.asValue());
           if (!b) return [];
           let M = [];
           return b.type === "arc"
@@ -36492,13 +36497,13 @@ return accum;
       case 17:
       case 18:
       case 19:
-        return p({ color: true, lineWidth: true, lineOpacity: true }, (x, T) => {
+        return p({ color: !0, lineWidth: !0, lineOpacity: !0 }, (x, T) => {
           let [[b, M], [P, D]] = x.asValue();
           if (isNaN(b) || isNaN(M) || isNaN(P) || isNaN(D)) return [];
           let S = [],
             O = {
               segments: [[b, M, P, D]],
-              resolved: true,
+              resolved: !0,
               graphMode: T.graphMode,
               color: T.color,
               style: T.lineStyle,
@@ -36522,7 +36527,7 @@ return accum;
               segments: [[b, M, P, D]],
               color: T.color,
               listIndex: _,
-              showLabel: true,
+              showLabel: !0,
               labelSize: this.metaData.computedLabelSize,
               labelAngle: this.metaData.computedLabelAngle,
               labelOrientation: this.userData.labelOrientation,
@@ -36532,13 +36537,13 @@ return accum;
           return S;
         });
       case 24:
-        return p({ lineOpacity: true, lineWidth: true, color: true }, (x, T) => {
+        return p({ lineOpacity: !0, lineWidth: !0, color: !0 }, (x, T) => {
           let [b, M] = x.asValue(),
             [[P, D], [S, O]] = [M, [M[0] + b[0], M[1] + b[1]]];
           if (isNaN(S) || isNaN(O) || isNaN(P) || isNaN(D)) return [];
           let _ = {
             segments: [[P, D, S, O]],
-            resolved: true,
+            resolved: !0,
             graphMode: T.graphMode,
             color: T.color,
             style: T.lineStyle,
@@ -36552,10 +36557,10 @@ return accum;
           return [ew(e, _, n)];
         });
       case 23:
-        return p({ lineOpacity: true, lineWidth: true, color: true }, (x, T) => {
+        return p({ lineOpacity: !0, lineWidth: !0, color: !0 }, (x, T) => {
           let { value: b, valueType: M } = x.asTypedValue(), [[P, D], S, O] = b;
           if (isNaN(P) || isNaN(D) || isNaN(S) || isNaN(O)) return [];
-          let _ = T.listIndex, L = M === DirectedAngleMarker, w = L ? O : Math.abs(O), G = [];
+          let _ = T.listIndex, L = M === ye, w = L ? O : Math.abs(O), G = [];
           if (
             G.push({
               graphMode: 23,
@@ -36576,7 +36581,7 @@ return accum;
               segments: [[P, D, S, O]],
               color: T.color,
               listIndex: _,
-              showLabel: true,
+              showLabel: !0,
               labelSize: this.metaData.computedLabelSize,
               labelAngle: this.metaData.computedLabelAngle,
               labelOrientation: this.userData.labelOrientation,
@@ -36606,14 +36611,14 @@ return accum;
       case 122:
       case 123:
       case 124: {
-        let x = t.valueType === Number;
+        let x = t.valueType === I;
         return p({
-          lineOpacity: true,
-          lineWidth: true,
-          resolution: true,
-          fillOpacity: true,
-          surfaceOpacity: true,
-          color: true,
+          lineOpacity: !0,
+          lineWidth: !0,
+          resolution: !0,
+          fillOpacity: !0,
+          surfaceOpacity: !0,
+          color: !0,
         }, (T, b) => {
           var F, Y, re, Ee, he, K, Oe, te, Ze, dt, me;
           (r.graphMode === 6 || r.graphMode === 110 || r.graphMode === 124) &&
@@ -36640,7 +36645,7 @@ return accum;
           let O = S8(this, T, P, n, b, S, x);
           if (O) return O;
           let _ = hC(b.graphMode),
-            L = (re = this.userData.extendTo3D) != null ? re : false,
+            L = (re = this.userData.extendTo3D) != null ? re : !1,
             w = _ && !L,
             G = !e.is3dPolicy() || w,
             k = (Ee = this.userData.lines) != null ? Ee : G,
@@ -36669,9 +36674,9 @@ return accum;
           }
           if (
             _ &&
-            (this.userData.lines === true
+            (this.userData.lines === !0
               ? (k = w, Z = !w)
-              : this.userData.lines === false && (k = false, Z = false)),
+              : this.userData.lines === !1 && (k = !1, Z = !1)),
               Z && va(b.graphMode)
           ) {
             let J = zb(b.graphMode);
@@ -36679,8 +36684,8 @@ return accum;
               let { positions: W, normals: Ge, faces: be, uvs: ue } = JL(),
                 _e = {
                   guid: Ns(),
-                  isDomainCube: true,
-                  resolved: true,
+                  isDomainCube: !0,
+                  resolved: !0,
                   positions: W,
                   normals: Ge,
                   faces: be,
@@ -36757,7 +36762,7 @@ return accum;
       case 215:
       case 209:
         return p(
-          { color: true, lineWidth: true, lineOpacity: true, resolution: true },
+          { color: !0, lineWidth: !0, lineOpacity: !0, resolution: !0 },
           (x, T) => {
             var re;
             let b = (re = vi[f]) != null ? re : [],
@@ -36789,7 +36794,7 @@ return accum;
                 };
                 break;
             }
-            let P = { allowSlices: true },
+            let P = { allowSlices: !0 },
               D = tu(x._chunk, b, P),
               { valueChunk: S, slices: O } = D.getValueAndRestrictionChunk(),
               _ = S.getInstruction(S.getReturnIndex()).valueType,
@@ -36900,10 +36905,10 @@ return accum;
           },
         );
       case 210:
-        return p({ color: true, surfaceOpacity: true, resolution: true }, (x, T) => {
+        return p({ color: !0, surfaceOpacity: !0, resolution: !0 }, (x, T) => {
           var Y, re, Ee, he, K, Oe, te, Ze;
           let b = (Y = vi[f]) != null ? Y : [],
-            M = { allowSlices: true },
+            M = { allowSlices: !0 },
             P = tu(x._chunk, b, M),
             { restrictionChunk: D, slices: S } = P
               .getSlicesAndRestrictionChunk(),
@@ -36918,14 +36923,14 @@ return accum;
               ]).fn;
             } catch (be) {}
             let J = (re = T.resolution) != null ? re : NaN;
-            return isNaN(J) && (J = Im), J = clamp(J, 0, 100), [{
+            return isNaN(J) && (J = Im), J = hr(J, 0, 100), [{
               meshData: d1(
                 dt.getCompiledFunction(b),
                 void 0,
                 me,
                 n.viewport,
                 J,
-                { isInequality: false },
+                { isInequality: !1 },
               ),
               color: T.color,
               surfaceOpacity: (Ee = T.surfaceOpacity) != null ? Ee : 1,
@@ -36964,8 +36969,8 @@ return accum;
         });
       case 16: {
         let x = [],
-          T = this.userData.lines === void 0 ? true : this.userData.lines,
-          b = this.userData.fill === void 0 ? true : this.userData.fill;
+          T = this.userData.lines === void 0 ? !0 : this.userData.lines,
+          b = this.userData.fill === void 0 ? !0 : this.userData.fill;
         if (!b && !T) return x;
         let M = Dl(this.metaData, [
             "computedLineOpacity",
@@ -37016,14 +37021,14 @@ return accum;
                   s)
             ) {
               for (let F = 0; F < S.length - 1; F++) {
-                za(s.parentType, [Polygon, ListOfPolygon]);
+                za(s.parentType, [xe, In]);
                 let Y = s.getEdgeIntersections(F);
                 if (!Y) continue;
                 let [re, Ee] = S[F], [he, K] = S[F + 1];
                 x.push(
                   ...o1([{
                     segments: [[re, Ee, he, K]],
-                    resolved: true,
+                    resolved: !0,
                     graphMode: 17,
                     color: k,
                     style: this.userData.lineStyle,
@@ -37044,11 +37049,11 @@ return accum;
                 segments: Z,
                 color: k,
                 listIndex: _,
-                showLabel: true,
+                showLabel: !0,
                 labelSize: this.metaData.computedLabelSize,
                 labelAngle: this.metaData.computedLabelAngle,
                 labelOrientation: this.userData.labelOrientation,
-                labels: F ? [F] : [P8(polygonArea(S), n)],
+                labels: F ? [F] : [P8(qE(S), n)],
               });
             }
           }
@@ -37061,7 +37066,7 @@ return accum;
       case 15:
       case 22:
       case 128:
-        return false;
+        return !1;
       default:
         let h = f;
         throw new Error(`Unexpected graphMode: ${h}`);
@@ -37073,9 +37078,9 @@ return accum;
       s = t.concrete.getCompiledFunction(r),
       i,
       o,
-      a = false;
+      a = !1;
     if (e.graphMode === 112 || e.graphMode === 126 || e.graphMode === 113) {
-      e.operator !== "=" && (a = true);
+      e.operator !== "=" && (a = !0);
       try {
         i = t.concrete.gradient(["x", "y", "z"])._chunk,
           o = i.getCompiledFunction(["x", "y", "z"]).fn;
@@ -37147,14 +37152,14 @@ return accum;
         case 121:
         case 123: {
           t.graphMode = 2,
-            t.willConvertTo3D = true,
+            t.willConvertTo3D = !0,
             (r = t.lineWidth) != null || (t.lineWidth = 1);
           break;
         }
         case 120:
         case 122: {
           t.graphMode = 1,
-            t.willConvertTo3D = true,
+            t.willConvertTo3D = !0,
             (s = t.lineWidth) != null || (t.lineWidth = 1);
           break;
         }
@@ -37186,9 +37191,9 @@ return accum;
     let a = n.getInstruction(n.getReturnIndex());
     if (a.type !== 38 || a.args.length !== 3) return;
     let [u, c, l] = a.args,
-      p = ns(n, s, { allowRestriction: false, allowClosedBlockReferences: false }),
-      f = ns(n, i, { allowRestriction: false, allowClosedBlockReferences: false }),
-      d = ns(n, o, { allowRestriction: false, allowClosedBlockReferences: false });
+      p = ns(n, s, { allowRestriction: !1, allowClosedBlockReferences: !1 }),
+      f = ns(n, i, { allowRestriction: !1, allowClosedBlockReferences: !1 }),
+      d = ns(n, o, { allowRestriction: !1, allowClosedBlockReferences: !1 });
     if (
       ln(p, u) !== 1 || ln(f, c) !== 1 || ln(d, l) !== 1 || ln(f, u) !== 0 ||
       ln(d, u) !== 0 || ln(p, c) !== 0 || ln(d, c) !== 0 || ln(p, l) !== 0 ||
@@ -37336,9 +37341,9 @@ return accum;
       case 6:
       case 8:
       case 5:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function kb(e, t, n, r = 0) {
@@ -37361,9 +37366,9 @@ return accum;
     switch (e) {
       case 17:
       case 24:
-        return true;
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function N8(e, t) {
@@ -37436,8 +37441,8 @@ return accum;
           Y = (w - b) / l,
           re = (M - _) / p,
           Ee = (G - M) / p,
-          he = hypot(k, F, re),
-          K = hypot(Z, Y, Ee);
+          he = Ts(k, F, re),
+          K = Ts(Z, Y, Ee);
         if ((Z * k + Y * F + Ee * re) / (he * K) < .7 && he > f && K > f) {
           let te = .5 * (f / he),
             Ze = .5 * (f / K),
@@ -37465,7 +37470,7 @@ return accum;
   }
   function wb(e, t, n) {
     return {
-      resolved: true,
+      resolved: !0,
       graphMode: t,
       segments: n,
       operator: e.operator,
@@ -37474,7 +37479,7 @@ return accum;
       style: "DASHED",
       lineWidth: 1,
       lineOpacity: .5,
-      isIntersectionExtension: true,
+      isIntersectionExtension: !0,
     };
   }
   function o1(e, t) {
@@ -37487,7 +37492,7 @@ return accum;
         (s = t.getListItemIntersections(r.listIndex)),
           r.graphMode === 17 || r.graphMode === 19
       ) {
-        za(s.parentType, [Segment, Ray]);
+        za(s.parentType, [de, Ne]);
         let i = s.getPoints();
         if (!i) continue;
         let o = 0, a, u = 1, c, [l, p, f, d] = r.segments[0];
@@ -37499,7 +37504,7 @@ return accum;
         a !== void 0 && n.push(wb(r, 17, [[l, p, i[a][0], i[a][1]]])),
           c !== void 0 && n.push(wb(r, 17, [[f, d, i[c][0], i[c][1]]]));
       } else if (r.graphMode === 21) {
-        za(s.parentType, [Arc]);
+        za(s.parentType, [ie]);
         let i = s.getPoints();
         if (!i) continue;
         let [o, a, u, c, l] = r.segments[0],
@@ -37578,7 +37583,7 @@ return accum;
         }
       }
     }
-    return s.length > 0 ? s : false;
+    return s.length > 0 ? s : !1;
   }
   C.Base.prototype.tryGraph = function (e, t, n, r) {
     var s, i, o;
@@ -37610,18 +37615,18 @@ return accum;
     let r = this.getGraphInfo(e, t),
       s = r.graphMode,
       i = "baseComparator",
-      o = this.userData.lines === void 0 ? true : this.userData.lines;
+      o = this.userData.lines === void 0 ? !0 : this.userData.lines;
     if (s === 8 || s === 112 || s === 113 || s === 127 || s === 210) {
       return this._graph(e, t, n, r);
     }
-    if (s === 10 || !(t instanceof C.SolvedEquation)) return false;
-    let a = this.getOperator(), u = [], c = [], l = true;
+    if (s === 10 || !(t instanceof C.SolvedEquation)) return !1;
+    let a = this.getOperator(), u = [], c = [], l = !0;
     t._expression.eachElement((m) => {
       u.push(m.getCompiledFunction());
       try {
         c.push(m.getCompiledDerivative());
       } catch (h) {
-        l = false;
+        l = !1;
       }
     }), l || (c = void 0);
     let p = [],
@@ -37687,13 +37692,13 @@ return accum;
   };
   C.DoubleInequality.prototype.graph = function (e, t, n) {
     let r = this.getGraphInfo(e, t);
-    if (r.graphMode === 10) return false;
+    if (r.graphMode === 10) return !1;
     let s = [],
       i = nl(Jr[this._operators[0]].inclusive, 0),
       o = nl(Jr[this._operators[1]].inclusive, 0),
       a = this.userData,
       u = this.metaData,
-      c = a.lines === void 0 ? true : a.lines,
+      c = a.lines === void 0 ? !0 : a.lines,
       l = ["colorLatexValue", "computedFillOpacity"];
     c && l.push("computedLineWidth", "computedLineOpacity");
     let p = Dl(u, l), f = t._expressions;
@@ -37767,16 +37772,16 @@ return accum;
     if (r.type !== 37) return;
     let s = e.discrete ? "discreteDistribution" : "continuousDistribution";
     if (e.symbol === "binomialdist" && r.symbol === "binompdf") {
-      let i = hn(n, r.args[1]), o = hn(n, r.args[2]), a = binompdf(o * i, i, o);
+      let i = hn(n, r.args[1]), o = hn(n, r.args[2]), a = Cg(o * i, i, o);
       return { type: s, xmin: 0, xmax: i, ymin: 0, ymax: a };
     }
     if (e.symbol === "poissondist" && r.symbol === "poissonpdf") {
       let i = hn(n, r.args[1]),
-        o = Math.max(poissonpdf(Math.floor(i), i), poissonpdf(Math.ceil(i), i));
+        o = Math.max(lp(Math.floor(i), i), lp(Math.ceil(i), i));
       return { type: s, xmin: 0, xmax: 2.5 * i, ymin: 0, ymax: o };
     }
     if (e.symbol === "normaldist" && r.symbol === "normalpdf") {
-      let i = hn(n, r.args[1]), o = hn(n, r.args[2]), a = normalpdf(i, i, o);
+      let i = hn(n, r.args[1]), o = hn(n, r.args[2]), a = _E(i, i, o);
       return {
         type: s,
         xmin: i - 2 * Math.abs(o),
@@ -37790,11 +37795,11 @@ return accum;
         o = hn(n, r.args[2]),
         a = (i + o) / 2,
         u = o - i,
-        c = uniformpdf(a, i, o);
+        c = VE(a, i, o);
       return { type: s, xmin: i - u / 3, xmax: o + u / 3, ymin: 0, ymax: c };
     }
     if (e.symbol === "tdist" && r.symbol === "tpdf") {
-      let i = hn(n, r.args[1]), o = tpdf(0, i);
+      let i = hn(n, r.args[1]), o = Mg(0, i);
       return { type: s, xmin: -3, xmax: 3, ymin: 0, ymax: o };
     }
   }
@@ -37872,11 +37877,11 @@ return accum;
           : 0,
       o = t.args[0].asValue();
     ms(o);
-    let a = lw(o, s, i), u = false, c, l = [];
+    let a = lw(o, s, i), u = !1, c, l = [];
     for (let m in a) {
       let h = a[m];
       for (let x = h.data.length - 1; x >= 0; x--) {
-        h.center !== h.data[x] && (u = true);
+        h.center !== h.data[x] && (u = !0);
       }
     }
     if (
@@ -37905,7 +37910,7 @@ return accum;
       style: this.userData.pointStyle,
       pointSize: g,
       pointOpacity: y,
-      showPoint: true,
+      showPoint: !0,
       needsDotplotXMode: u,
     }];
   };
@@ -37914,12 +37919,12 @@ return accum;
       s = this.metaData.evaluatedAxisOffset,
       i = this.metaData.evaluatedBreadth,
       o = t.args[0].asValue();
-    if (ms(o), isNaN(i) || isNaN(s)) return false;
+    if (ms(o), isNaN(i) || isNaN(s)) return !1;
     let a = Math.min.apply(null, o),
       u = Math.max.apply(null, o),
-      c = quartile(o, 1),
-      l = quartile(o, 2),
-      p = quartile(o, 3),
+      c = Xc(o, 1),
+      l = Xc(o, 2),
+      p = Xc(o, 3),
       f = s,
       d = f - i / 2,
       y = f + i / 2,
@@ -37968,7 +37973,7 @@ return accum;
         graphMode: 3,
         color: r.color,
         style: "OPEN",
-        showPoint: true,
+        showPoint: !0,
         poi: go(m),
       }),
       x;
@@ -37977,14 +37982,14 @@ return accum;
     return Array.prototype.concat.apply([], e);
   }
   C.Table.prototype.isValueDraggable = function (e, t, n) {
-    if (!e.columns[t].isIndependent) return false;
+    if (!e.columns[t].isIndependent) return !1;
     let s = this.calcColumns[t].values, i = s && s[n], o = i && i.asValue();
     return !!(typeof o == "number" && isFinite(o) &&
       i.getDependencies().length === 0);
   };
   function nw(e) {
     let t = [];
-    for (let n of e) typeof n == "number" ? t.push(n) : t.push(coerceComplexToReal(n));
+    for (let n of e) typeof n == "number" ? t.push(n) : t.push(s0(n));
     return t;
   }
   C.Table.prototype.graph = function (e, t, n) {
@@ -38022,7 +38027,7 @@ return accum;
       for (let k = 0; k < i.length; k++) {
         let Z = i[k], F = u[k];
         if (!isFinite(Z) || !isFinite(F)) {
-          L[k] = true, m && (P.length > 1 && M.push(P), P = []);
+          L[k] = !0, m && (P.length > 1 && M.push(P), P = []);
           continue;
         }
         if (g) {
@@ -38063,7 +38068,7 @@ return accum;
           segments: [x],
           droppedIndices: L,
           graphMode: 3,
-          showPoint: true,
+          showPoint: !0,
           poi: go(x),
           color: l.colorLatexValue || c.color,
           pointSize: l.computedPointSize,
@@ -38102,13 +38107,13 @@ return accum;
         ? e[0].type !== "none"
         : n !== 0
         ? e[1].type !== "none"
-        : false
-      : false;
+        : !1
+      : !1;
   }
   C.Image.prototype.graph = function (e, t, n) {
     let r = [];
     if (
-      t.center.valueType !== Point || t.center.getDependencies().length !== 0 ||
+      t.center.valueType !== N || t.center.getDependencies().length !== 0 ||
       !t.radianAngle.isConstant || !t.width.isConstant ||
       !t.height.isConstant || !t.opacity.isConstant
     ) return r;
@@ -38369,7 +38374,7 @@ return accum;
       return isFinite(n) ? { x: [0], y: [t(0)] } : { x: [], y: [] };
     }
     finish() {
-      return { segments: this.getSegments(), resolved: true, poi: this.getPOI() };
+      return { segments: this.getSegments(), resolved: !0, poi: this.getPOI() };
     }
   };
   var { floor: fw } = Math,
@@ -38415,14 +38420,14 @@ return accum;
         extrema: { x: [], y: [] },
       };
     if (!isFinite(n) || !isFinite(r)) {
-      return { segments: [], poi: s, resolved: true };
+      return { segments: [], poi: s, resolved: !0 };
     }
     let i = [[t.min, n, t.max, r]], o = -e[0] / e[1];
     return !isNaN(o) && o >= t.min && o <= t.max &&
       (s.zeros.x.push(o), s.zeros.y.push(0)),
       0 >= t.min && 0 <= t.max &&
       (s.intercept.x.push(0), s.intercept.y.push(e[0])),
-      { segments: i, poi: s, resolved: true };
+      { segments: i, poi: s, resolved: !0 };
   }
   function B8(e, t) {
     let n = y1(e[0], t), r = y1(e[1], t);
@@ -38435,13 +38440,13 @@ return accum;
           n.segments[0][3],
           r.segments[0][3],
         ]],
-        resolved: true,
+        resolved: !0,
       }
-      : { segments: [], resolved: true };
+      : { segments: [], resolved: !0 };
   }
   function G8(e, t) {
     let n = e(t);
-    return { segments: [[...n, ...n]], resolved: true };
+    return { segments: [[...n, ...n]], resolved: !0 };
   }
   function xw(e, t, n) {
     let { mappedFn: r, jumpTolerance: s, screen: i } = n,
@@ -38530,8 +38535,8 @@ return accum;
     let { fn: t, min: n, max: r } = e,
       s = Math.floor(n),
       i = Math.ceil(r),
-      o = true;
-    i - s + 1 > mw && (i = s + (mw - 1), o = false);
+      o = !0;
+    i - s + 1 > mw && (i = s + (mw - 1), o = !1);
     let a = [];
     for (let u = s; u <= i; u++) {
       let c = t(u);
@@ -38549,14 +38554,14 @@ return accum;
       l;
     function p(f, d) {
       let y = d % 2 === 0 ? 1 : -1;
-      if (!r && y === -1) return false;
-      let g = d * (Math.PI / n), m = [s, s + 1, s + 2, s + 3], h = false;
+      if (!r && y === -1) return !1;
+      let g = d * (Math.PI / n), m = [s, s + 1, s + 2, s + 3], h = !1;
       for (let x = 0, T = m.length; x < T; x++) {
         let b = f(m[x]), M = f(m[x] + g);
         if (
-          isFinite(b) && isFinite(M) && (h = true),
+          isFinite(b) && isFinite(M) && (h = !0),
             isFinite(b) !== isFinite(M) || Math.abs(b - y * M) > o
-        ) return false;
+        ) return !1;
       }
       return !!h;
     }
@@ -38572,7 +38577,7 @@ return accum;
     return [e[1] * Math.cos(e[0]), e[1] * Math.sin(e[0])];
   }
   function Pb(e, t) {
-    if (t.max < t.min) return { segments: [], resolved: true };
+    if (t.max < t.min) return { segments: [], resolved: !0 };
     if (t.parameterTransform) {
       let p = t.parameterTransform, f = e;
       e = (d) => f(p(d));
@@ -38591,9 +38596,9 @@ return accum;
     return o.finish();
   }
   function z8(e, t) {
-    if (e.length !== t.length) return false;
-    for (let n = 0; n < e.length; n++) if (e[n] !== t[n]) return false;
-    return true;
+    if (e.length !== t.length) return !1;
+    for (let n = 0; n < e.length; n++) if (e[n] !== t[n]) return !1;
+    return !0;
   }
   function vm(e, t, n, r, s, i, o, a) {
     if (r === t) return;
@@ -38667,7 +38672,7 @@ return accum;
       normals: [],
       faces: [],
       uvs: [],
-      resolved: true,
+      resolved: !0,
       extraAttrs: [],
     });
   }
@@ -38724,7 +38729,7 @@ return accum;
   function Z8(e, t, n, r, s, i) {
     let o = i ? Math.PI / 180 : 1,
       a = e.fn,
-      u = Pm((c, l) => [c * cos(l * o), c * sin(l * o), a(c, l)], t, n, r, s, 0);
+      u = Pm((c, l) => [c * Mn(l * o), c * dn(l * o), a(c, l)], t, n, r, s, 0);
     return Wi(u);
   }
   function W8(e, t, n, r, s, i) {
@@ -38733,7 +38738,7 @@ return accum;
       u = Pm(
         (c, l) => {
           let p = a(c, l);
-          return [p * cos(c * o), p * sin(c * o), l, p];
+          return [p * Mn(c * o), p * dn(c * o), l, p];
         },
         t,
         n,
@@ -38750,9 +38755,9 @@ return accum;
         (c, l) => {
           let p = a(c, l);
           return [
-            p * sin(l * o) * cos(c * o),
-            p * sin(l * o) * sin(c * o),
-            p * cos(l * o),
+            p * dn(l * o) * Mn(c * o),
+            p * dn(l * o) * dn(c * o),
+            p * Mn(l * o),
             p,
           ];
         },
@@ -38784,24 +38789,24 @@ return accum;
     };
   }
   function Pw(e) {
-    for (let t of e) if (t !== 0) return false;
-    return true;
+    for (let t of e) if (t !== 0) return !1;
+    return !0;
   }
   function dw(e, t) {
     let { min: n, max: r, mathToPixels: s, nInitialSamples: i } = t,
       o = s.interpolateX(n, r, 0),
       a = e(o),
       u = Pw(a),
-      c = false,
+      c = !1,
       l = [];
     for (let p = 1; p < i; p++) {
       let f = s.interpolateX(n, r, p / (i - 1)), d = e(f), y = Pw(d);
       if (u) {
-        o = f, a = d, y || (u = false);
+        o = f, a = d, y || (u = !1);
         continue;
       }
       if (y) {
-        c ? (u = true, c = false) : c = true;
+        c ? (u = !0, c = !1) : c = !0;
         continue;
       }
       let g = QD(o, a, f, d, e);
@@ -38810,7 +38815,7 @@ return accum;
     return l;
   }
   function Mw(e) {
-    if (!e) return false;
+    if (!e) return !1;
     let t = e.viewport.xmin,
       n = e.viewport.xmax,
       r = e.viewport.ymin,
@@ -38863,7 +38868,7 @@ return accum;
       case 1:
         switch (S = Gn(bi([p, f]), D), S.type) {
           case "empty":
-            return false;
+            return !1;
           case "interval":
             p = S.bounds[0], f = S.bounds[1];
         }
@@ -38883,7 +38888,7 @@ return accum;
       case 2: {
         switch (S = Gn(bi([c, l]), D), S.type) {
           case "empty":
-            return false;
+            return !1;
           case "interval":
             c = S.bounds[0], l = S.bounds[1];
         }
@@ -38908,7 +38913,7 @@ return accum;
         let { min: te, max: Ze } = t.domain;
         switch (S = Gn(bi([te, Ze]), D), S.type) {
           case "empty":
-            return false;
+            return !1;
           case "interval":
             te = S.bounds[0], Ze = S.bounds[1];
         }
@@ -38958,7 +38963,7 @@ return accum;
             ((F = t.domain) == null ? void 0 : F.type) === "1d" ? t.domain : Oe;
         switch (S = Gn(bi([te, Ze]), D), S.type) {
           case "empty":
-            return false;
+            return !1;
           case "interval":
             te = S.bounds[0], Ze = S.bounds[1];
         }
@@ -39150,9 +39155,9 @@ return accum;
           }
           : t.slice_coordinate === "_implicit"
           ? { ..._, u: new qe(c, l), v: new qe(p, f) }
-          : false;
+          : !1;
       default:
-        return false;
+        return !1;
     }
   }
   function Cw(e) {
@@ -39175,7 +39180,7 @@ return accum;
       o = r.fn,
       a = Td(t, n, o),
       u;
-    if (!a) u = { segments: [], resolved: true };
+    if (!a) u = { segments: [], resolved: !0 };
     else {
       let { min: p, max: f } = a;
       u = k8({
@@ -39226,7 +39231,7 @@ return accum;
       p,
       f = J8(n.graphMode),
       d = t.xAxisScale === "linear" && t.yAxisScale === "linear";
-    if (!u) c = { segments: [], resolved: true };
+    if (!u) c = { segments: [], resolved: !0 };
     else {
       switch (f) {
         case 1:
@@ -39284,7 +39289,7 @@ return accum;
             re = n.graphMode === 122 || n.graphMode === 123,
             Ee = Y ? Im : re ? 2 : _L,
             { resolution: he } = n,
-            K = he === void 0 || isNaN(he) ? Ee : clamp(fw(he), 2, 100),
+            K = he === void 0 || isNaN(he) ? Ee : hr(fw(he), 2, 100),
             Oe = bi([Z.min, Z.max]).type !== "empty" &&
               bi([F.min, F.max]).type !== "empty",
             te;
@@ -39328,10 +39333,10 @@ return accum;
             case 112:
             case 113:
               te = d1(r, e.dependencies, e.gradient, u, K, {
-                isInequality: (m = e.isImplicit3dInequality) != null ? m : false,
+                isInequality: (m = e.isImplicit3dInequality) != null ? m : !1,
               });
               break;
-            case false:
+            case !1:
               te = q8();
               break;
           }
@@ -39408,7 +39413,7 @@ return accum;
             Ee,
             he,
             K,
-            Oe = true,
+            Oe = !0,
             te = (J, W) => {
               let be = k(J, u, (ze, Ce) => {
                   let { x: _t, y: bc, z: xc } = W(ze, Ce, J(ze, Ce));
@@ -39443,7 +39448,7 @@ return accum;
             me = (J, W) => {
               var be;
               let Ge = k(J, dt, W);
-              return Oe = (be = Ge.resolved) != null ? be : true, Ze(Ge, W);
+              return Oe = (be = Ge.resolved) != null ? be : !0, Ze(Ge, W);
             };
           switch (f) {
             case 200: {
@@ -39501,7 +39506,7 @@ return accum;
               if (Y === "z") return te((W, Ge) => J(W, Ge, F), yw);
               if (Y === "_implicit") {
                 let { resolution: W } = n,
-                  Ge = W === void 0 || isNaN(W) ? Im : clamp(fw(W), 2, 100);
+                  Ge = W === void 0 || isNaN(W) ? Im : hr(fw(W), 2, 100);
                 K = AL(r.fn, n.slice_function.fn, u, Ge);
                 let be = t.viewport, ue = [];
                 for (let _e = 0; _e < K.length / 3; _e++) {
@@ -39525,10 +39530,10 @@ return accum;
               let J = r.fn, W;
               switch (Y) {
                 case "x":
-                  W = (ze, Ce) => J(ze, Ce) * cos(ze * a) - F;
+                  W = (ze, Ce) => J(ze, Ce) * Mn(ze * a) - F;
                   break;
                 case "y":
-                  W = (ze, Ce) => J(ze, Ce) * sin(ze * a) - F;
+                  W = (ze, Ce) => J(ze, Ce) * dn(ze * a) - F;
                   break;
                 case "r":
                   W = (ze, Ce) => J(ze, Ce) - F;
@@ -39537,8 +39542,8 @@ return accum;
                   let At = n.slice_function.fn;
                   W = (ze, Ce) =>
                     At(
-                      J(ze, Ce) * cos(ze * a),
-                      J(ze, Ce) * sin(ze * a),
+                      J(ze, Ce) * Mn(ze * a),
+                      J(ze, Ce) * dn(ze * a),
                       Ce,
                       J(ze, Ce),
                       ze,
@@ -39553,22 +39558,22 @@ return accum;
                   At,
                   ze,
                 ) => [
-                  Ge ? F : J(At, ze) * cos(At * a),
-                  be ? F : J(At, ze) * sin(At * a),
+                  Ge ? F : J(At, ze) * Mn(At * a),
+                  be ? F : J(At, ze) * dn(At * a),
                   ze,
                 ],
                 _e = k(W, dt, ue);
-              K = Ze(_e, ue), Oe = (P = _e.resolved) != null ? P : true;
+              K = Ze(_e, ue), Oe = (P = _e.resolved) != null ? P : !0;
               break;
             }
             case 213: {
               let J = Y === "x", W = Y === "y", Ge = Y === "z", be = r.fn, ue;
               switch (Y) {
                 case "x":
-                  ue = (Ce, _t) => Ce * cos(_t * a) - F;
+                  ue = (Ce, _t) => Ce * Mn(_t * a) - F;
                   break;
                 case "y":
-                  ue = (Ce, _t) => Ce * sin(_t * a) - F;
+                  ue = (Ce, _t) => Ce * dn(_t * a) - F;
                   break;
                 case "z":
                   ue = (Ce, _t) => be(Ce, _t) - F;
@@ -39576,7 +39581,7 @@ return accum;
                 case "_implicit":
                   let ze = n.slice_function.fn;
                   ue = (Ce, _t) =>
-                    ze(Ce * cos(_t * a), Ce * sin(_t * a), be(Ce, _t), Ce, _t);
+                    ze(Ce * Mn(_t * a), Ce * dn(_t * a), be(Ce, _t), Ce, _t);
                   break;
                 default:
                   throw new Error("Programming Error: bad slice");
@@ -39585,8 +39590,8 @@ return accum;
                   ze,
                   Ce,
                 ) => [
-                  J ? F : ze * cos(Ce * a),
-                  W ? F : ze * sin(Ce * a),
+                  J ? F : ze * Mn(Ce * a),
+                  W ? F : ze * dn(Ce * a),
                   Ge ? F : be(ze, Ce),
                 ],
                 At = k(ue, dt, _e);
@@ -39597,13 +39602,13 @@ return accum;
               let J = Y === "x", W = Y === "y", Ge = Y === "z", be = r.fn, ue;
               switch (Y) {
                 case "x":
-                  ue = (Ce, _t) => be(Ce, _t) * sin(_t * a) * cos(Ce * a) - F;
+                  ue = (Ce, _t) => be(Ce, _t) * dn(_t * a) * Mn(Ce * a) - F;
                   break;
                 case "y":
-                  ue = (Ce, _t) => be(Ce, _t) * sin(_t * a) * sin(Ce * a) - F;
+                  ue = (Ce, _t) => be(Ce, _t) * dn(_t * a) * dn(Ce * a) - F;
                   break;
                 case "z":
-                  ue = (Ce, _t) => be(Ce, _t) * cos(_t * a) - F;
+                  ue = (Ce, _t) => be(Ce, _t) * Mn(_t * a) - F;
                   break;
                 case "rho":
                   ue = (Ce, _t) => be(Ce, _t) - F;
@@ -39612,9 +39617,9 @@ return accum;
                   let ze = n.slice_function.fn;
                   ue = (Ce, _t) =>
                     ze(
-                      be(Ce, _t) * sin(_t * a) * sin(Ce * a),
-                      be(Ce, _t) * sin(_t * a) * cos(Ce * a),
-                      be(Ce, _t) * cos(_t * a),
+                      be(Ce, _t) * dn(_t * a) * dn(Ce * a),
+                      be(Ce, _t) * dn(_t * a) * Mn(Ce * a),
+                      be(Ce, _t) * Mn(_t * a),
                       be(Ce, _t),
                       Ce,
                       _t,
@@ -39627,12 +39632,12 @@ return accum;
                   ze,
                   Ce,
                 ) => [
-                  J ? F : be(ze, Ce) * sin(Ce * a) * cos(ze * a),
-                  W ? F : be(ze, Ce) * sin(Ce * a) * sin(ze * a),
-                  Ge ? F : be(ze, Ce) * cos(Ce * a),
+                  J ? F : be(ze, Ce) * dn(Ce * a) * Mn(ze * a),
+                  W ? F : be(ze, Ce) * dn(Ce * a) * dn(ze * a),
+                  Ge ? F : be(ze, Ce) * Mn(Ce * a),
                 ],
                 At = k(ue, dt, _e);
-              K = Ze(At, _e), Oe = (D = At.resolved) != null ? D : true;
+              K = Ze(At, _e), Oe = (D = At.resolved) != null ? D : !0;
               break;
             }
             case 215:
@@ -39773,12 +39778,12 @@ return accum;
           u = [],
           c = Math.max(c, o < e.length ? r(e[o]) : 1 / 0),
           c = Math.max(c, i < t.length ? r(t[i]) : 1 / 0));
-      let l = false;
+      let l = !1;
       if (
         o < e.length && e[o][0] <= c &&
-        (c = Math.max(c, r(e[o])), a.push(e[o]), o += 1, l = true),
+        (c = Math.max(c, r(e[o])), a.push(e[o]), o += 1, l = !0),
           i < t.length && t[i][0] <= c &&
-          (c = Math.max(c, r(t[i])), u.push(t[i]), i += 1, l = true),
+          (c = Math.max(c, r(t[i])), u.push(t[i]), i += 1, l = !0),
           !l
       ) break;
     }
@@ -39788,7 +39793,7 @@ return accum;
     let t = [], n = {};
     for (let r = 0; r < e.length; r++) {
       let s = e[r], [i, o] = s;
-      !isNaN(i) && !isNaN(o) ? t.push(s) : n[r] = true;
+      !isNaN(i) && !isNaN(o) ? t.push(s) : n[r] = !0;
     }
     return { points: t, droppedIndices: n };
   }
@@ -39847,8 +39852,8 @@ return accum;
           isRecursionEnabled: a,
         },
       ) {
-        this._isGeometry = false;
-        this._is3dProduct = false;
+        this._isGeometry = !1;
+        this._is3dProduct = !1;
         this._isGeometry = t,
           this._is3dProduct = n,
           this._scales = r,
@@ -39864,7 +39869,7 @@ return accum;
         return this._is3dProduct;
       }
       is3dPolicy() {
-        return false;
+        return !1;
       }
       isComplexEnabled() {
         return this._isComplexEnabled;
@@ -39873,13 +39878,13 @@ return accum;
         return this._isRecursionEnabled;
       }
       polygonUnsupportedPreferTriangle() {
-        return false;
+        return !1;
       }
       areAllScalesLinear() {
         return this._scales
           ? this._scales.xAxisScale === "linear" &&
             this._scales.yAxisScale === "linear"
-          : true;
+          : !0;
       }
       assignmentForbidden(t) {
         return t === "x" || t === "y" || t === "theta" || t === "index" ||
@@ -39888,7 +39893,7 @@ return accum;
       }
       isValidSlider(t) {
         return t === "x" || t === "y"
-          ? true
+          ? !0
           : !(t.slice(0, 3) === "ans" || t.slice(0, 6) === "idref_" ||
             this.assignmentForbidden(t));
       }
@@ -39904,13 +39909,13 @@ return accum;
         return r ? t.length >= 1 : t.length >= 2 && n.length >= 1;
       }
       graphingEnabled() {
-        return true;
+        return !0;
       }
       ansEnabled() {
-        return false;
+        return !1;
       }
       dimensionVarsEnabled() {
-        return true;
+        return !0;
       }
       validRegressionParameter(t) {
         return t !== "x" && t !== "y";
@@ -39919,13 +39924,13 @@ return accum;
         return t !== "theta" && t.slice(0, 6) !== "idref_";
       }
       unplottablePolarFunction(t, n) {
-        return t !== "theta" ? false : n.indexOf("r") !== -1;
+        return t !== "theta" ? !1 : n.indexOf("r") !== -1;
       }
       validDoubleInequalitySymbol(t) {
         return t === "x" || t === "y";
       }
       validDoubleInequalityVariables(t) {
-        return t.length > 2 ? false : t.every(this.validDoubleInequalitySymbol);
+        return t.length > 2 ? !1 : t.every(this.validDoubleInequalitySymbol);
       }
       validExpressionVariables(t) {
         return t.length === 1 && t[0] === "x";
@@ -39936,7 +39941,7 @@ return accum;
       validImplicitVariables(t) {
         switch (t.length) {
           case 0:
-            return true;
+            return !0;
           case 1:
             return t[0] === "x" || t[0] === "y" || t[0] === "r";
           case 2:
@@ -39945,7 +39950,7 @@ return accum;
               t[0] === "r" && t[1] === "theta" ||
               t[0] === "theta" && t[1] === "r";
           default:
-            return false;
+            return !1;
         }
       }
       graphableListVariables(t, n) {
@@ -39964,7 +39969,7 @@ return accum;
           case 2:
             return this.validImplicitVariables(t);
           default:
-            return false;
+            return !1;
         }
       }
       validFirstColumnVariable(t) {
@@ -40029,11 +40034,11 @@ return accum;
           isRecursionEnabled: i,
         },
       ) {
-        this._isBeta3d = false;
+        this._isBeta3d = !1;
         this._isBeta3d = t,
           this.policy2d = new Id({
-            enableGeometry: false,
-            enable3d: true,
+            enableGeometry: !1,
+            enable3d: !0,
             scales: { xAxisScale: "linear", yAxisScale: "linear" },
             includeFunctionParametersInRandomSeed: n,
             isComplexEnabled: r,
@@ -40042,13 +40047,13 @@ return accum;
           });
       }
       isGeometryEnabled() {
-        return false;
+        return !1;
       }
       is3dProduct() {
-        return true;
+        return !0;
       }
       is3dPolicy() {
-        return true;
+        return !0;
       }
       isBeta3d() {
         return this._isBeta3d;
@@ -40060,19 +40065,19 @@ return accum;
         return this.policy2d.isRecursionEnabled();
       }
       polygonUnsupportedPreferTriangle() {
-        return true;
+        return !0;
       }
       areAllScalesLinear() {
-        return true;
+        return !0;
       }
       graphingEnabled() {
-        return true;
+        return !0;
       }
       ansEnabled() {
-        return false;
+        return !1;
       }
       dimensionVarsEnabled() {
-        return false;
+        return !1;
       }
       validInequalityVariables(t) {
         return this.validImplicitVariables(t);
@@ -40116,10 +40121,10 @@ return accum;
         return t !== "phi" && this.policy2d.validLHS(t);
       }
       unplottablePolarFunction(t, n) {
-        return false;
+        return !1;
       }
       complicatedPolarImplicit(t, n) {
-        return false;
+        return !1;
       }
       validDoubleInequalitySymbol(t) {
         return Om(t);
@@ -40251,12 +40256,12 @@ return accum;
   function Sw(e, t) {
     let n = e.is3dPolicy();
     if (t.isMovablePoint && !n && K8(this.userData, t) !== "NONE") {
-      return t.valueType === Complex ? 26 : 4;
+      return t.valueType === R ? 26 : 4;
     }
     let r = Do(e, t);
     switch (t.valueType) {
-      case ListOfPoint3D:
-      case Point3D:
+      case fr:
+      case z:
         if (n) {
           if (r.length === 0) return 114;
           if (e.validParametricVariables(r)) {
@@ -40264,11 +40269,11 @@ return accum;
           }
         }
         return 10;
-      case Complex:
-      case ListOfComplex:
-      case Point:
-      case ListOfPoint: {
-        let s = se(t.valueType, Complex);
+      case R:
+      case Ue:
+      case N:
+      case Pt: {
+        let s = se(t.valueType, R);
         return r.length === 0
           ? s ? 25 : 3
           : n && e.validParametricVariables(r)
@@ -40277,8 +40282,8 @@ return accum;
           ? 5
           : 10;
       }
-      case Number:
-      case ListOfNumber:
+      case I:
+      case ne:
         return !e.is3dPolicy() && r.length === 1
           ? 2
           : n && r.length === 2 && r.indexOf("x") > -1 && r.indexOf("y") > -1
@@ -40287,63 +40292,63 @@ return accum;
     }
     if (r.length > 0) return 10;
     switch (t.valueType) {
-      case MapIntervalComplex:
-      case ListOfMapIntervalComplex:
+      case or:
+      case Wr:
         return 5;
-      case MapIntervalPoint:
-      case ListOfMapIntervalPoint:
+      case sr:
+      case $r:
         return 5;
-      case MapIntervalPoint3D:
-      case ListOfMapIntervalPoint3D:
+      case ir:
+      case Yr:
         return n ? 100 : 10;
-      case MapInterval2ToComplex:
-      case ListOfMapInterval2ToComplex:
+      case Mr:
+      case jr:
         return n ? La(130, t) : 10;
-      case MapInterval2ToPoint:
-      case ListOfMapInterval2ToPoint:
+      case Pr:
+      case Xr:
         return n ? La(130, t) : 10;
-      case MapInterval2DPoint3D:
-      case ListOfMapInterval2DPoint3D:
+      case Er:
+      case Zr:
         return n ? La(103, t) : 10;
-      case Segment3D:
-      case ListOfSegment3D:
+      case wt:
+      case mr:
         return n ? 119 : 10;
-      case Vector3D:
-      case ListOfVector3D:
+      case ke:
+      case gr:
         return n ? 129 : 10;
-      case Triangle3D:
-      case ListOfTriangle3D:
+      case Rn:
+      case yr:
         return n ? 117 : 10;
-      case Sphere3D:
-      case ListOfSphere3D:
+      case Hn:
+      case Ar:
         return n ? 118 : 10;
-      case Polygon:
-      case ListOfPolygon:
+      case xe:
+      case In:
         return 16;
-      case Circle:
-      case ListOfCircle:
+      case ce:
+      case Wn:
         return 20;
-      case Arc:
-      case ListOfArc:
+      case ie:
+      case Fn:
         return 21;
-      case Segment:
-      case ListOfSegment:
+      case de:
+      case xn:
         return 17;
-      case Line:
-      case ListOfLine:
+      case fe:
+      case jn:
         return 18;
-      case Ray:
-      case ListOfRay:
+      case Ne:
+      case Vn:
         return 19;
-      case Vector:
-      case ListOfVector:
+      case le:
+      case Jn:
         return this instanceof we && this.getDependencies().length === 1
           ? 10
           : 24;
-      case AngleMarker:
-      case ListOfAngleMarker:
-      case DirectedAngleMarker:
-      case ListOfDirectedAngleMarker:
+      case Le:
+      case On:
+      case ye:
+      case Nn:
         return 23;
       default:
         return 10;
@@ -40402,7 +40407,7 @@ return accum;
   function La(e, t) {
     let n = x1(e), r = t._chunk;
     try {
-      let i = tu(r, n, { allowSlices: true }).getSliceVariablesOrImplicit();
+      let i = tu(r, n, { allowSlices: !0 }).getSliceVariablesOrImplicit();
       if (i.length !== 1) return e;
       let o = i[0];
       return n.indexOf(o) < 0 ? 10 : lL(e, o);
@@ -40419,16 +40424,16 @@ return accum;
     if (this.isEquation(e, t)) return this.asEquation().getGraphMode(e, t);
     let n = Do(e, t), r = this._symbol, s = t.getDependencies();
     switch (t.valueType) {
-      case Number:
-      case ListOfNumber:
-      case EmptyList:
+      case I:
+      case ne:
+      case $e:
         switch (n.length) {
           case 0: {
             let o = e.graphMode(r, [], s);
             return e.is3dPolicy() ? La(o, t) : o;
           }
           case 1:
-            if (t.valueType === ListOfNumber && !e.graphableListVariables(r, n[0])) {
+            if (t.valueType === ne && !e.graphableListVariables(r, n[0])) {
               return 10;
             }
             if (this.isSlider) return 10;
@@ -40437,7 +40442,7 @@ return accum;
           default:
             return e.is3dPolicy() ? La(e.graphMode(r, n, s), t) : 10;
         }
-      case Point3D:
+      case z:
         if (
           e.assignmentForbidden(r) ||
           n.length > 0 && !e.validParametricVariables(n)
@@ -40473,8 +40478,8 @@ return accum;
     let r = e.functionDefinitionGraphMode(this._symbol, this._argSymbols),
       s = Do(e, t);
     switch (t.valueType) {
-      case Number:
-      case ListOfNumber:
+      case I:
+      case ne:
         if (n) return r;
         switch (s.length) {
           case 0:
@@ -40552,7 +40557,7 @@ return accum;
     if (c !== 0) {
       if (c === 1) {
         if (u !== c && !t.isInequality()) return wT();
-        let y = tu(a, [], { allowSlices: true }).getSliceVariablesOrImplicit();
+        let y = tu(a, [], { allowSlices: !0 }).getSliceVariablesOrImplicit();
         if (y.length !== 1) return ca();
         let g = x1(o), m = y[0];
         if (g.indexOf(m) < 0) {
@@ -40591,7 +40596,7 @@ return accum;
       e == 213 || e == 214 || e == 215;
   }
   function s$(e) {
-    if (!va(e)) return false;
+    if (!va(e)) return !1;
     switch (e) {
       case 106:
       case 107:
@@ -40607,7 +40612,7 @@ return accum;
       case 130:
       case 103:
       case 210:
-        return true;
+        return !0;
       case 124:
       case 120:
       case 121:
@@ -40634,9 +40639,9 @@ return accum;
       case 214:
       case 215:
       case 209:
-        return false;
+        return !1;
       default:
-        return false;
+        return !1;
     }
   }
   function Nw(e) {
@@ -40690,53 +40695,53 @@ return accum;
       return `\\left[${n.join(",")}\\right]`;
     }
     switch (e) {
-      case Number:
+      case I:
         return wa(t);
-      case Complex:
-        return complexNumberLabel(t);
-      case Point: {
+      case R:
+        return Ic(t);
+      case N: {
         let [i, o] = t;
         return `\\left(${wa(i)},${wa(o)}\\right)`;
       }
-      case Point3D: {
+      case z: {
         let [i, o, a] = t;
         return `\\left(${wa(i)},${wa(o)},${wa(a)}\\right)`;
       }
-      case RGBColor:
+      case Kt:
         return "\\operatorname{rgb}\\left(" +
-          [Ln(Number, t[0]), Ln(Number, t[1]), Ln(Number, t[2])].join(",") + "\\right)";
-      case Polygon: {
+          [Ln(I, t[0]), Ln(I, t[1]), Ln(I, t[2])].join(",") + "\\right)";
+      case xe: {
         let i = [];
-        for (let o of t) i.push(Ln(Point, o));
+        for (let o of t) i.push(Ln(N, o));
         return "\\operatorname{polygon}\\left(" + i.join(",") + "\\right)";
       }
-      case Segment:
+      case de:
         return "\\operatorname{segment}\\left(" +
-          [Ln(Point, t[0]), Ln(Point, t[1])].join(",") + "\\right)";
-      case Line:
+          [Ln(N, t[0]), Ln(N, t[1])].join(",") + "\\right)";
+      case fe:
         return "\\operatorname{line}\\left(" +
-          [Ln(Point, t[0]), Ln(Point, t[1])].join(",") + "\\right)";
-      case Ray:
+          [Ln(N, t[0]), Ln(N, t[1])].join(",") + "\\right)";
+      case Ne:
         return "\\operatorname{ray}\\left(" +
-          [Ln(Point, t[0]), Ln(Point, t[1])].join(",") + "\\right)";
-      case Vector:
+          [Ln(N, t[0]), Ln(N, t[1])].join(",") + "\\right)";
+      case le:
         let n = t[0], r = t[1], s = [r[0] + n[0], r[1] + n[1]];
-        return `\\operatorname{vector}\\left(${Ln(Point, r)},${Ln(Point, s)}\\right)`;
-      case Circle:
+        return `\\operatorname{vector}\\left(${Ln(N, r)},${Ln(N, s)}\\right)`;
+      case ce:
         return "\\operatorname{circle}\\left(" +
-          [Ln(Point, t[0]), Ln(Number, t[1])].join(",") + "\\right)";
-      case Arc:
+          [Ln(N, t[0]), Ln(I, t[1])].join(",") + "\\right)";
+      case ie:
         return "\\operatorname{arc}\\left(" +
-          [Ln(Point, t[0]), Ln(Point, t[1]), Ln(Point, t[2])].join(",") + "\\right)";
-      case AngleMarker:
+          [Ln(N, t[0]), Ln(N, t[1]), Ln(N, t[2])].join(",") + "\\right)";
+      case Le:
         return "\\operatorname{angle}\\left(" +
-          [Ln(Point, t[0]), Ln(Number, t[1]), Ln(Number, t[2])].join(",") + "\\right)";
-      case DirectedAngleMarker:
+          [Ln(N, t[0]), Ln(I, t[1]), Ln(I, t[2])].join(",") + "\\right)";
+      case ye:
         return "\\operatorname{directedangle}\\left(" +
-          [Ln(Point, t[0]), Ln(Number, t[1]), Ln(Number, t[2])].join(",") + "\\right)";
-      case Tone:
-        return `\\operatorname{tone}\\left(${Ln(Number, t[0])},${
-          Ln(Number, t[1])
+          [Ln(N, t[0]), Ln(I, t[1]), Ln(I, t[2])].join(",") + "\\right)";
+      case Pn:
+        return `\\operatorname{tone}\\left(${Ln(I, t[0])},${
+          Ln(I, t[1])
         }\\right)`;
       default:
         throw new Error("Cannot serialize a value of type " + oe(e) + ".");
@@ -40749,7 +40754,7 @@ return accum;
   }
   function P1(e, t) {
     let { valueType: n, value: r } = e.updateRules[t];
-    return `${identifierToLatex(t)}=${Ln(n, r)}`;
+    return `${qr(t)}=${Ln(n, r)}`;
   }
   function Aw(e) {
     return e instanceof C.Constant ||
@@ -40860,12 +40865,12 @@ return accum;
   function o$(e) {
     return e.isError
       ? e.getError()
-      : e.valueType === Complex
+      : e.valueType === R
       ? e.asValue()
       : +e.asValue();
   }
   function a$(e, t, n, r) {
-    let s = [], i = false;
+    let s = [], i = !1;
     for (let o = 0; o < n.columns.length; o++) {
       let a = r.columns[o],
         u = n.columns[o],
@@ -40875,7 +40880,7 @@ return accum;
           : ha(a) && a.isIndependent,
         p = o >= 1 && !r.columns[0].isError && !a.isError &&
           !u.header.userData.hidden;
-      p && (i = true);
+      p && (i = !0);
       let f = { computed: !l, values: c, plotted: p };
       a.isError && (f.error = a.getError()), s.push(f);
     }
@@ -40884,12 +40889,12 @@ return accum;
   function u$(e, t, n) {
     let r = { variables: [], errorMap: {}, dimensions: {} };
     if (
-      e.areAllScalesLinear() || (r.errorMap.scale = true),
-        n.center.isError && (r.errorMap.center = true),
-        n.radianAngle.isError && (r.errorMap.angle = true),
-        n.width.isError && (r.errorMap.width = true),
-        n.height.isError && (r.errorMap.height = true),
-        n.opacity.isError && (r.errorMap.opacity = true),
+      e.areAllScalesLinear() || (r.errorMap.scale = !0),
+        n.center.isError && (r.errorMap.center = !0),
+        n.radianAngle.isError && (r.errorMap.angle = !0),
+        n.width.isError && (r.errorMap.width = !0),
+        n.height.isError && (r.errorMap.height = !0),
+        n.opacity.isError && (r.errorMap.opacity = !0),
         Object.keys(r.errorMap).length > 0
     ) return r.variables = t.getSliderVariables(e, n), r;
     r.dimensions.x = [],
@@ -40900,7 +40905,7 @@ return accum;
       r.dimensions.opacity = [];
     let s = [n.center, n.radianAngle, n.width, n.height, n.opacity];
     return s.some((o) => o && o.valueType && j(o.valueType)) &&
-      (r.is_concrete_list = true),
+      (r.is_concrete_list = !0),
       C.List.eachArgs(s, (o) => {
         let a = o[0].asValue(),
           u = +o[1].asValue(),
@@ -40913,20 +40918,20 @@ return accum;
           r.dimensions.opacity.push(Math.max(0, Math.min(1, +o[4].asValue())));
       }),
       (e.graphingEnabled() ? t.getGraphMode(e, n) : 10) !== 10 &&
-      (r.is_graphable = true),
+      (r.is_graphable = !0),
       n.moveStrategy && (r.move_strategy = n.moveStrategy),
       t.center &&
       (t.center.type === "Identifier"
         ? (r.center_reference_id = t.center.referencedStatementId,
           r.center_reference_symbol = t.center._symbol)
-        : t.center.type === "ParenSeq" && n.center.valueType === Point &&
-          (r.center_is_point_literal = true)),
+        : t.center.type === "ParenSeq" && n.center.valueType === N &&
+          (r.center_is_point_literal = !0)),
       r;
   }
   function c$(e, t, n) {
     let r = n.handler, s = n.minStep, i = {}, o = {};
-    for (let p of r.getDependencies()) e.validActionVariable(p) || (i[p] = true);
-    for (let p of s.getDependencies()) o[p] = true;
+    for (let p of r.getDependencies()) e.validActionVariable(p) || (i[p] = !0);
+    for (let p of s.getDependencies()) o[p] = !0;
     let a;
     if (Kr(s)) a = { status: "error", error: s.getError() };
     else {
@@ -41001,19 +41006,19 @@ return accum;
       let c = _w(e, t, n, r);
       return c && (s.geometry = c), s;
     }
-    if (r.valueType === RGBColor && r.getDependencies().length === 0) {
+    if (r.valueType === Kt && r.getDependencies().length === 0) {
       let c = r.asValue();
       s.rgb_value = kc(c[0], c[1], c[2]).formatHex();
     }
-    r.valueType === Action && r.getDependencies().length === 0 &&
+    r.valueType === ut && r.getDependencies().length === 0 &&
     (s.action_value = I1(r.asValue())),
       r.moveStrategy &&
       (s.move_strategy = r.moveStrategy,
         s.default_drag_mode = r.defaultDragMode),
-      n.isInequality() && (s.is_inequality = true),
+      n.isInequality() && (s.is_inequality = !0),
       s.operator = n.getOperator(),
       r instanceof C.SolvedEquation
-        ? r._expression.asValue() !== true && r._expression.asValue() !== false &&
+        ? r._expression.asValue() !== !0 && r._expression.asValue() !== !1 &&
           (s.assignment = r._symbol)
         : n instanceof C.Assignment &&
           (n._symbol.startsWith("_") || (s.assignment = n._symbol)),
@@ -41024,24 +41029,24 @@ return accum;
       (!va(o) && !iw(o) && (o = 10),
         r instanceof C.OptimizedRegression && (o = 10)),
         o !== 10 &&
-        (s.is_graphable = true,
+        (s.is_graphable = !0,
           s.expression_type = n.getExpressionType(o, r.valueType),
           e.is3dPolicy() && (s.expression_type === "SINGLE_POINT"
             ? s.expression_type = "POINT3D"
             : s.expression_type === "POINT_LIST" &&
               (s.expression_type = "POINT3D_LIST")),
           r.valueType && ua(r.valueType) && (s.map_type = r.valueType),
-          r.isShadeBetween() && (s.is_shade_between = true),
+          r.isShadeBetween() && (s.is_shade_between = !0),
           s.expression_type !== "POINT3D" &&
           s.expression_type !== "POINT3D_LIST")
     ) {
       let c = n.tableInfo(e, r);
-      c && (s.is_tableable = true, s.table_info = c);
+      c && (s.is_tableable = !0, s.table_info = c);
     }
     if (
       r.valueType !== void 0 && j(r.valueType) &&
-      (s.is_concrete_list = true,
-        r.valueType === ListOfColor && r.getDependencies().length === 0)
+      (s.is_concrete_list = !0,
+        r.valueType === rr && r.getDependencies().length === 0)
     ) {
       let c = r.asValue();
       c && (s.rgb_value = c.map((l) => kc(l[0], l[1], l[2]).formatHex()));
@@ -41058,20 +41063,20 @@ return accum;
     if (
       r.getEvaluationInfo() && s.operator === "=" && !n.isConstant &&
       !n.isFunction && !(n instanceof C.RecursiveFunctionBaseCase) &&
-      r.valueType !== Bool && r.valueType !== ListOfBool && !(n instanceof C.Equation) &&
+      r.valueType !== De && r.valueType !== Xn && !(n instanceof C.Equation) &&
       !(n instanceof C.ComparatorChain) && !(e.isComplexEnabled() && Rm(n)) &&
-      (s.is_evaluable = true), r instanceof C.OptimizedRegression
+      (s.is_evaluable = !0), r instanceof C.OptimizedRegression
     ) {
       let c = r, l = {};
       for (let p of We(c.parameters)) {
         c.parameters.hasOwnProperty(p) &&
-          (l[identifierToLatex(p)] = +c.parameters[p].asValue());
+          (l[qr(p)] = +c.parameters[p].asValue());
       }
-      s.is_regression = true,
+      s.is_regression = !0,
         s.regression = {
           parameters: l,
           displayPrecision: c.displayPrecision,
-          residualVariable: identifierToLatex(c.residualVariable),
+          residualVariable: qr(c.residualVariable),
           residualSuggestionId: c.residualSuggestionId,
           shouldSuggestLogMode: c.shouldSuggestLogMode,
           isLinear: c.isLinear,
@@ -41080,47 +41085,47 @@ return accum;
         };
     }
     let u = ou(n);
-    return u && u.discrete && (s.is_discrete_distribution = true), s;
+    return u && u.discrete && (s.is_discrete_distribution = !0), s;
   }
   function p$(e) {
     switch (e) {
-      case Point:
-      case ListOfPoint:
-      case Line:
-      case ListOfLine:
-      case Segment:
-      case ListOfSegment:
-      case Ray:
-      case ListOfRay:
-      case Vector:
-      case ListOfVector:
-      case Circle:
-      case ListOfCircle:
-      case Arc:
-      case ListOfArc:
-      case Polygon:
-      case ListOfPolygon:
-      case AngleMarker:
-      case ListOfAngleMarker:
-      case DirectedAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case Transformation:
-      case ListOfTransformation:
-        return true;
+      case N:
+      case Pt:
+      case fe:
+      case jn:
+      case de:
+      case xn:
+      case Ne:
+      case Vn:
+      case le:
+      case Jn:
+      case ce:
+      case Wn:
+      case ie:
+      case Fn:
+      case xe:
+      case In:
+      case Le:
+      case On:
+      case ye:
+      case Nn:
+      case Re:
+      case Rr:
+        return !0;
       default:
-        return false;
+        return !1;
     }
   }
   function _w(e, t, n, r) {
     let s = {};
     r.valueType !== void 0 && (s.valueType = r.valueType),
-      s.valueType && se(s.valueType, Point) && e.graphingEnabled() &&
-      uu(n.getGraphMode(e, r)) && (s.isMovablePoint = true);
+      s.valueType && se(s.valueType, N) && e.graphingEnabled() &&
+      uu(n.getGraphMode(e, r)) && (s.isMovablePoint = !0);
     let { identifier: i, listAccess: o, tree: a } = ah(n);
     if (
       i && (s.identifier = i),
         o && (s.listAccess = o),
-        a && (s.call = a, r.valueType && se(r.valueType, Transformation) && n instanceof Cr)
+        a && (s.call = a, r.valueType && se(r.valueType, Re) && n instanceof Cr)
     ) {
       let c = n._expression;
       s.transformation_preview_info = {
@@ -41148,7 +41153,7 @@ return accum;
     let r = am(n.userData);
     if (!r) return;
     let { input: s, start: i, end: o } = r;
-    if (s.trim() === "") return { type: "empty", allowedTypes: [Any] };
+    if (s.trim() === "") return { type: "empty", allowedTypes: [Qt] };
     let a = "\\cursor",
       u = s.slice(0, i) + a + " " + s.slice(o),
       c = { start: i, end: i + a.length },
@@ -41162,18 +41167,18 @@ return accum;
     let r = e.variables;
     if (r && r.length) {
       let s = {};
-      for (let i of r) s[i] = true;
-      for (let i of We(n)) s[i] = true;
+      for (let i of r) s[i] = !0;
+      for (let i of We(n)) s[i] = !0;
       n = s;
     }
     e.variables = t.sliderVariables(We(n));
   }
   function C1(e, t) {
-    if (t.blocksExport) return false;
+    if (t.blocksExport) return !1;
     let n = t.getDependencies();
-    if (n.length === 0) return false;
-    for (let r of n) if (!e.validActionVariable(r)) return false;
-    return true;
+    if (n.length === 0) return !1;
+    for (let r of n) if (!e.validActionVariable(r)) return !1;
+    return !0;
   }
   var q = class {
     constructor(t, n, r, s) {
@@ -41197,7 +41202,7 @@ return accum;
       if (
         !this.evaluationState.is_graphable ||
         !this.rawTree.userData.shouldGraph || !Si.pointsOfInterest
-      ) return false;
+      ) return !1;
       let t = this.getGraphMode();
       return t === 1 || t === 2;
     }
@@ -41255,7 +41260,7 @@ return accum;
   }
   function h$(e) {
     let t = {};
-    for (let n = 0; n < e.length; n++) t[e[n]] = true;
+    for (let n = 0; n < e.length; n++) t[e[n]] = !0;
     return t;
   }
   function D1(e, t) {
@@ -41286,7 +41291,7 @@ return accum;
   function Bw(e, t, n) {
     for (let r = 0; r < e.length; r++) {
       let s = e[r];
-      t[s].order !== 0 && (n[s] = true);
+      t[s].order !== 0 && (n[s] = !0);
     }
   }
   C.ParenSeq.prototype.getMoveStrategy = function (e, t, n, r) {
@@ -41294,8 +41299,8 @@ return accum;
   };
   function Gw(e, t, n, r, s) {
     var h;
-    let i = r.valueType === Complex;
-    if (r.valueType !== Point && !i || r.getDependencies().length !== 0) return;
+    let i = r.valueType === R;
+    if (r.valueType !== N && !i || r.getDependencies().length !== 0) return;
     if (i && Rm(e)) {
       let x = e.getInputSpan();
       return x
@@ -41326,15 +41331,15 @@ return accum;
           id: S.id,
           coefficients: S.coefficients,
         },
-          T[S.symbol] = true,
+          T[S.symbol] = !0,
           Bw(u, x[M], b)), l[M] || (l[M] = { type: "none" });
       }
       i &&
         (l[0].type === "updateSlider" && l[1].type === "none"
-          ? c[1].tryGetConcreteTree(t, n).valueType !== Number &&
+          ? c[1].tryGetConcreteTree(t, n).valueType !== I &&
             (l[0] = { type: "none" })
           : l[0].type === "none" && l[1].type === "updateSlider" &&
-            c[0].tryGetConcreteTree(t, n).valueType !== Number &&
+            c[0].tryGetConcreteTree(t, n).valueType !== I &&
             (l[1] = { type: "none" }));
     }
     let [p, f] = l, d;
@@ -41363,7 +41368,7 @@ return accum;
     ];
   }
   function b$(e, t, n, r, s) {
-    if (!r.isTypedConstant || r.valueType !== Point) return;
+    if (!r.isTypedConstant || r.valueType !== N) return;
     let i, o, a;
     switch (e.args[1].type) {
       case "Constant": {
@@ -41396,7 +41401,7 @@ return accum;
     }
   }
   function kw(e, t, n, r, s) {
-    if (r.valueType === Complex) return Gw(e, t, n, r, s);
+    if (r.valueType === R) return Gw(e, t, n, r, s);
   }
   C.Expression.prototype.getMoveStrategy = function (e, t, n, r) {
     return kw(this, e, t, n, r);
@@ -41408,7 +41413,7 @@ return accum;
   };
   C.Image.prototype.getMoveStrategy = function (e, t, n, r) {
     if (
-      n.center.valueType !== Point || n.center.getDependencies().length !== 0 ||
+      n.center.valueType !== N || n.center.getDependencies().length !== 0 ||
       !n.width.isConstant || !n.height.isConstant ||
       !n.radianAngle.isConstant || !n.opacity.isConstant
     ) return;
@@ -41437,7 +41442,7 @@ return accum;
       let m = Fw(e, g, l[y], i, u, c);
       m &&
       (p[y] = { type: "updateSlider", id: m.id, coefficients: m.coefficients },
-        u[m.symbol] = true,
+        u[m.symbol] = !0,
         Bw(o, l[y], c)), p[y] || (p[y] = { type: "none" });
     }
     if (
@@ -41461,60 +41466,60 @@ return accum;
     let s = Do(e, r),
       i = r.getDependencies(),
       o,
-      a = se(r.valueType, Complex) && s.some((u) => e.validParametricVariable(u));
+      a = se(r.valueType, R) && s.some((u) => e.validParametricVariable(u));
     switch (
       r instanceof C.IRExpression && i.length > 0 && !a &&
       (r = r.coerceToNumericIfPossible()), r.valueType
     ) {
-      case Distribution:
-      case ListOfDistribution:
-      case EmptyList: {
+      case Lt:
+      case Zn:
+      case $e: {
         o = r;
         break;
       }
-      case RGBColor:
-      case ListOfColor:
-      case Segment:
-      case ListOfSegment:
-      case Circle:
-      case ListOfCircle:
-      case Arc:
-      case ListOfArc:
-      case Line:
-      case ListOfLine:
-      case Ray:
-      case ListOfRay:
-      case Vector:
-      case ListOfVector:
-      case AngleMarker:
-      case ListOfAngleMarker:
-      case DirectedAngleMarker:
-      case ListOfDirectedAngleMarker:
-      case Transformation:
-      case ListOfTransformation:
-      case Action:
-      case Polygon:
-      case ListOfPolygon:
-      case Segment3D:
-      case ListOfSegment3D:
-      case Vector3D:
-      case ListOfVector3D:
-      case Triangle3D:
-      case ListOfTriangle3D:
-      case Sphere3D:
-      case ListOfSphere3D:
-      case Tone:
-      case ListOfTone:
+      case Kt:
+      case rr:
+      case de:
+      case xn:
+      case ce:
+      case Wn:
+      case ie:
+      case Fn:
+      case fe:
+      case jn:
+      case Ne:
+      case Vn:
+      case le:
+      case Jn:
+      case Le:
+      case On:
+      case ye:
+      case Nn:
+      case Re:
+      case Rr:
+      case ut:
+      case xe:
+      case In:
+      case wt:
+      case mr:
+      case ke:
+      case gr:
+      case Rn:
+      case yr:
+      case Hn:
+      case Ar:
+      case Pn:
+      case cs:
         s.length
           ? o = rn(n.getSliderVariables(e, r)).setDependencies(s)
           : o = r;
         break;
-      case Point:
-      case Point3D:
-      case ListOfPoint:
-      case ListOfPoint3D:
-      case Complex:
-      case ListOfComplex:
+      case N:
+      case z:
+      case Pt:
+      case fr:
+      case R:
+      case Ue:
         if (s.length) {
           if (e.validParametricVariables(s)) o = r;
           else {
@@ -41523,25 +41528,25 @@ return accum;
           }
         } else o = r;
         break;
-      case MapIntervalPoint:
-      case MapIntervalComplex:
-      case MapInterval2ToPoint:
-      case MapInterval2ToComplex:
-      case MapIntervalPoint3D:
-      case MapInterval2DPoint3D:
-      case ListOfMapIntervalPoint:
-      case ListOfMapIntervalComplex:
-      case ListOfMapInterval2ToPoint:
-      case ListOfMapInterval2ToComplex:
-      case ListOfMapIntervalPoint3D:
-      case ListOfMapInterval2DPoint3D: {
+      case sr:
+      case or:
+      case Pr:
+      case Mr:
+      case ir:
+      case Er:
+      case $r:
+      case Wr:
+      case Xr:
+      case jr:
+      case Yr:
+      case Zr: {
         s.length === 0
           ? o = r
           : o = rn(n.getSliderVariables(e, r)).setDependencies(s);
         break;
       }
-      case Number:
-      case ListOfNumber:
+      case I:
+      case ne:
         s.length === 0
           ? o = r
           : s.length <= (e.is3dPolicy() ? 2 : 1)
@@ -41599,7 +41604,7 @@ return accum;
     return s;
   };
   function v1(e, t, n, r, s, i) {
-    if (r.valueType !== Complex) return;
+    if (r.valueType !== R) return;
     let o = e.getMoveStrategy(t, n, r, s);
     if (!o) return;
     let a = (i != null ? i : e).getDefaultDragMode(o), u = r.asCompilerValue();
@@ -41635,7 +41640,7 @@ return accum;
       let u = Tn(t);
       u[this._argSymbols[0]] = new we("identityTransformation");
       let c = this._expression.tryGetConcreteTree(e, u);
-      if (c instanceof on && se(c.valueType, Transformation)) return new q(e, t, this, c);
+      if (c instanceof on && se(c.valueType, Re)) return new q(e, t, this, c);
     }
     if (e.is3dPolicy() && e.assignmentForbidden(this._symbol)) {
       return new q(e, t, this, zy(this._symbol));
@@ -41682,7 +41687,7 @@ return accum;
       return new q(e, t, this, Yl(oe(s.valueType)));
     }
     if (this.isEquation(e, s)) return this.asEquation().analyze(e, t);
-    let i = s.valueType === RGBColor || s.valueType === ListOfColor;
+    let i = s.valueType === Kt || s.valueType === rr;
     if (e.assignmentForbidden(r) && i) {
       let d = HI(r).allowExport().setDependencies([r]);
       return new q(e, t, this, d);
@@ -41761,13 +41766,13 @@ return accum;
     return e[1] !== 0 && !isNaN(e[1]);
   }
   function zw(e) {
-    return e.valueType === ListOfComplex && e.value.some(x$);
+    return e.valueType === Ue && e.value.some(x$);
   }
   function T$(e, t, n) {
     let [r, s] = n.variables, i = Hw(e, t, r), o = Hw(e, t, s);
     if (!("value" in i)) return i;
     if (!("value" in o)) return o;
-    if (zw(i) || zw(o)) return TT(oe(Complex));
+    if (zw(i) || zw(o)) return TT(oe(R));
   }
   C.Regression.prototype.analyzeRegression = function (e, t, n, r, s) {
     if (!e.isCustomRegressionSupported() && !this.tableRegressionData) {
@@ -41844,8 +41849,8 @@ return accum;
       return i;
     };
   }
-  C.TTest.prototype.analyze = qw(ttest);
-  C.IndependentTTest.prototype.analyze = qw(ittest);
+  C.TTest.prototype.analyze = qw(GE);
+  C.IndependentTTest.prototype.analyze = qw(kE);
   C.Stats.prototype.analyze = function (e, t) {
     if (hs(this)) return bs(e, t, this);
     let n = this.tryGetConcreteTree(e, t), r = n.getDependencies();
@@ -41861,7 +41866,7 @@ return accum;
     if (!n.isError) {
       s.evaluationState.expression_type = "STATS";
       let i = n.args.map((o) => o.asValue());
-      s.evaluationState.stats_results = stats.apply(null, i);
+      s.evaluationState.stats_results = HE.apply(null, i);
     }
     return s;
   };
@@ -41967,7 +41972,7 @@ return accum;
   };
   C.Table.prototype.analyze = function (e, t) {
     let n = this.getConcreteTree(e, t), r = new q(e, t, this, n);
-    return r.evaluationState.is_graphable = true, r;
+    return r.evaluationState.is_graphable = !0, r;
   };
   C.Image.prototype.analyze = function (e, t, n) {
     let r = this.tryGetConcreteTree(e, t);
@@ -42018,7 +42023,7 @@ return accum;
         i.slider_max_valid = r.valids.max,
         i.slider_step_valid = r.valids.step;
       let o = i.slider_min_valid && i.slider_max_valid && i.slider_step_valid;
-      i.is_slider = true,
+      i.is_slider = !0,
         i.raw_slider_latex = this.getInputString(),
         i.is_slidable = o,
         i.is_animatable = i.is_slidable && !i.is_graphable,
@@ -42028,14 +42033,14 @@ return accum;
   };
   function hs(e) {
     return e.userData && "latex" in e.userData &&
-      trimLatex(e.userData.latex).slice(-1) === "=";
+      oa(e.userData.latex).slice(-1) === "=";
   }
   function bs(e, t, n) {
     return new q(e, t, n, $d("="));
   }
   function N1(e) {
-    return e.concreteTree.isConstant && e.concreteTree.valueType === Number ||
-      e.concreteTree.isTypedConstant && e.concreteTree.valueType === Complex;
+    return e.concreteTree.isConstant && e.concreteTree.valueType === I ||
+      e.concreteTree.isTypedConstant && e.concreteTree.valueType === R;
   }
   function Zb(e, t) {
     return t.warning = e.warning, t;
@@ -42116,7 +42121,7 @@ return accum;
         e,
         t,
         this,
-        Rc([this._symbol], { suggestAlternativeFunctionName: false }),
+        Rc([this._symbol], { suggestAlternativeFunctionName: !1 }),
       );
     }
     let i = s.filter((o) => r.indexOf(o) === -1);
@@ -42211,9 +42216,9 @@ return accum;
   };
   function Zw(e) {
     switch (e.valueType) {
-      case Number:
+      case I:
         return L1(e);
-      case Point: {
+      case N: {
         let t = L1(e.slot(0)), n = L1(e.slot(1));
         return !t || !n ? void 0 : [t, n];
       }
@@ -42259,64 +42264,64 @@ return accum;
   };
   var P$ = C.List;
   C.Base.prototype.tableInfo = function (e, t) {
-    return false;
+    return !1;
   };
   C.Identifier.prototype.tableInfo = function (e, t) {
     return e.validFirstColumnVariable(this._symbol)
       ? {
         independent_variable: this._symbol,
         dependent_column: this.getInputString(),
-        by_reference: false,
+        by_reference: !1,
       }
-      : false;
+      : !1;
   };
   C.Expression.prototype.tableInfo = function (e, t) {
     let n = t.getDependencies();
-    if (ou(this)) return false;
+    if (ou(this)) return !1;
     switch (t.valueType) {
-      case Point:
-      case ListOfPoint:
+      case N:
+      case Pt:
         return n.length !== 0 ||
             t.isMovablePoint &&
               (t.moveStrategy[0].type === "updateSlider" ||
                 t.moveStrategy[1].type === "updateSlider")
-          ? false
+          ? !1
           : {
             independent_variable: "x",
             dependent_column: "y",
-            by_reference: false,
+            by_reference: !1,
             values: P$.wrap(t).asValue(),
           };
-      case Number:
-        if (n.length !== 1) return false;
+      case I:
+        if (n.length !== 1) return !1;
         let s = n[0];
         return e.validFirstColumnVariable(s)
           ? {
             independent_variable: s,
             dependent_column: this.getInputString(),
-            by_reference: false,
+            by_reference: !1,
           }
-          : false;
+          : !1;
       default:
-        return false;
+        return !1;
     }
   };
   C.Assignment.prototype.tableInfo = function (e, t) {
     if (
       t instanceof C.SolvedEquation || !this.getInputString().length ||
       ou(this) || vd(t.valueType)
-    ) return false;
+    ) return !1;
     let n = t.getDependencies();
-    if (n.length > 1) return false;
+    if (n.length > 1) return !1;
     let r;
     if (n.length === 0) {
-      if (!e.tableableAsConstant(this._symbol)) return false;
+      if (!e.tableableAsConstant(this._symbol)) return !1;
       r = e.implicitIndependent(this._symbol);
     } else r = n[0];
-    if (!e.validFirstColumnVariable(r)) return false;
+    if (!e.validFirstColumnVariable(r)) return !1;
     let s = e.assignmentForbidden(this._symbol)
-      ? trimLatex(this.getInputString().replace(/[^=]*=/, ""))
-      : trimLatex(this.getInputString().split("=")[0]);
+      ? oa(this.getInputString().replace(/[^=]*=/, ""))
+      : oa(this.getInputString().split("=")[0]);
     return {
       independent_variable: r,
       dependent_column: s,
@@ -42327,33 +42332,33 @@ return accum;
     if (
       this._argSymbols.length !== 1 || !this.getInputString().length ||
       t.getDependencies().length > 1
-    ) return false;
+    ) return !1;
     let r = this._argSymbols[0];
-    if (!e.validFirstColumnVariable(r)) return false;
+    if (!e.validFirstColumnVariable(r)) return !1;
     let s = e.assignmentForbidden(this._symbol),
       i = s
-        ? trimLatex(this.getInputString().replace(/[^=]*=/, ""))
-        : trimLatex(this.getInputString().split("=")[0]);
+        ? oa(this.getInputString().replace(/[^=]*=/, ""))
+        : oa(this.getInputString().split("=")[0]);
     return { independent_variable: r, dependent_column: i, by_reference: !s };
   };
   C.BaseComparator.prototype.tableInfo = function (e, t) {
-    return false;
+    return !1;
   };
   C.ComparatorChain.prototype.tableInfo = function (e, t) {
-    return false;
+    return !1;
   };
   C.DoubleInequality.prototype.tableInfo = function (e, t) {
-    return false;
+    return !1;
   };
   C.Equation.prototype.tableInfo = function (e, t) {
-    return false;
+    return !1;
   };
   C.Base.prototype.tableError = function () {
     return this.isInequality()
       ? E("shared-calculator-error-table-inequality-supplement")
       : !(this instanceof C.Expression) && !(this instanceof C.IRExpression)
       ? E("shared-calculator-error-table-generic-supplement")
-      : false;
+      : !1;
   };
   C.List.prototype.tableError = function () {
     return E("shared-calculator-error-table-list-supplement");
@@ -42391,7 +42396,7 @@ return accum;
     return new on(t);
   };
   function E$() {
-    return identifierToLatex(this._symbol) + " ";
+    return qr(this._symbol) + " ";
   }
   C.Identifier.prototype.printLatex = E$;
   C.Constant.prototype.printLatex = function () {
@@ -42436,7 +42441,7 @@ return accum;
       this.args[1].printLatex() + "}";
   };
   C.Assignment.prototype.printLatex = function () {
-    return identifierToLatex(this._symbol) + "=" + this._expression.printLatex();
+    return qr(this._symbol) + "=" + this._expression.printLatex();
   };
   C.Equation.prototype.printLatex =
     C.CallAssignment.prototype.printLatex =
@@ -42494,7 +42499,7 @@ return accum;
         return "\\log_{" + this.args[1].printLatex() + "}\\left(" +
           this.args[0].printLatex() + "\\right)";
       default:
-        return identifierToLatex(this._symbol) + "\\left(" + this.args.map(Ls).join(", ") +
+        return qr(this._symbol) + "\\left(" + this.args.map(Ls).join(", ") +
           "\\right)";
     }
   }
@@ -42503,7 +42508,7 @@ return accum;
     return this.originalNode.printLatex();
   };
   C.SeededFunctionCall.prototype.printLatex = function () {
-    return identifierToLatex(this._symbol) + "\\left(" +
+    return qr(this._symbol) + "\\left(" +
       this.args.slice(1).map(Ls).join(", ") + "\\right)";
   };
   C.DotAccess.prototype.printLatex = function () {
@@ -42517,7 +42522,7 @@ return accum;
           Array(this.order + 1).join("'") + "\\left(" +
           this.args[0].args[0].printLatex() + "\\right)";
       default:
-        return identifierToLatex(this.args[0]._symbol) + Array(this.order + 1).join("'") +
+        return qr(this.args[0]._symbol) + Array(this.order + 1).join("'") +
           "\\left(" + this.args[0].args.map(Ls).join(", ") + "\\right)";
     }
   };
@@ -42573,7 +42578,7 @@ return accum;
       "\\right)!";
   };
   function w1(e) {
-    return e.isConstant && e.asValue() === true;
+    return e.isConstant && e.asValue() === !0;
   }
   function C$(e) {
     return e.isConstant && e.isNaN();
@@ -42608,11 +42613,11 @@ return accum;
       : "\\left\\{" + this.args[0].printLatex() + "\\right\\}";
   };
   C.FunctionDefinition.prototype.printLatex = function () {
-    return identifierToLatex(this._symbol) + "\\left(" + this._argSymbols.map(identifierToLatex).join(", ") +
+    return qr(this._symbol) + "\\left(" + this._argSymbols.map(qr).join(", ") +
       "\\right) = " + this._expression.printLatex();
   };
   C.Derivative.prototype.printLatex = function () {
-    return "\\frac{d}{d" + identifierToLatex(this._symbol) + "}\\left(" +
+    return "\\frac{d}{d" + qr(this._symbol) + "}\\left(" +
       this.args[0].printLatex() + "\\right)";
   };
   C.Regression.prototype.printLatex = function () {
@@ -42639,7 +42644,7 @@ return accum;
     return "\\Stats\\left(" + this.args.map(Ls).join(", ") + "\\right)";
   };
   C.AssignmentExpression.prototype.printLatex = function () {
-    return identifierToLatex(this._symbol) + "=" + this.args[1].printLatex();
+    return qr(this._symbol) + "=" + this.args[1].printLatex();
   };
   C.ListComprehension.prototype.printLatex = function () {
     return "\\left[" + this._body.printLatex() + "\\operatorname{for}" +
@@ -42657,7 +42662,7 @@ return accum;
     return br;
   };
   C.MovableComplexNumber.prototype.printLatex = function () {
-    return complexNumberLabel(this.asValue());
+    return Ic(this.asValue());
   };
   C.Base.prototype.getExpressionType = function (e, t) {
     switch (e) {
@@ -42744,7 +42749,7 @@ return accum;
       case 215:
         return "SLICE_xyz_uv";
       default:
-        return t !== void 0 && se(t, Polygon) ? "POLYGON" : "X_OR_Y";
+        return t !== void 0 && se(t, xe) ? "POLYGON" : "X_OR_Y";
     }
   };
   C.Histogram.prototype.getExpressionType = function (e, t) {
@@ -42930,7 +42935,7 @@ return accum;
                 t._symbol,
                 c,
                 {
-                  valid: true,
+                  valid: !0,
                   argIndex: this.recursiveParameterIndex,
                   argValue: u,
                   functionDefArgSymbols: t._argSymbols,
@@ -42947,7 +42952,7 @@ return accum;
         let r = [];
         for (let s of t._expression._assignments) {
           let i = Qr.fromCallAssignment(this.recursiveFunctionGroup, s);
-          if ((i == null ? void 0 : i.specifiedArg.valid) === false) {
+          if ((i == null ? void 0 : i.specifiedArg.valid) === !1) {
             throw i.specifiedArg.error;
           }
           i && t._symbol === i._symbol
@@ -42996,7 +43001,7 @@ return accum;
         Am(n, r, s.getDependencies()),
           Am(n, r, s.getLegalExports(e)),
           ui(s) && s.userData && s.userData.residualVariable &&
-          Am(n, r, [latexToIdentifier(s.userData.residualVariable)]),
+          Am(n, r, [no(s.userData.residualVariable)]),
           jw(n, r, i),
           Hi(s) && s.columns
       ) {
@@ -43021,18 +43026,18 @@ return accum;
   }
   function Ed(e, t, n, r, s) {
     let i = {}, o = {}, a = [], u = [];
-    for (let c of We(r)) r[c] && (o[c] = true, a.push(c));
-    for (let c of We(s)) s[c] && (i[c] = true, u.push(c));
+    for (let c of We(r)) r[c] && (o[c] = !0, a.push(c));
+    for (let c of We(s)) s[c] && (i[c] = !0, u.push(c));
     for (; a.length || u.length;) {
       for (; a.length;) {
         let c = a.pop(), l = t[c];
         if (l) {
-          for (let p of l.getLegalExports(e)) i[p] || (i[p] = true, u.push(p));
+          for (let p of l.getLegalExports(e)) i[p] || (i[p] = !0, u.push(p));
         }
       }
       for (; u.length;) {
         let c = u.pop(), l = n[c];
-        if (l) { for (let p of l) o[p] || (o[p] = true, a.push(p)); }
+        if (l) { for (let p of l) o[p] || (o[p] = !0, a.push(p)); }
       }
     }
     return { ids: o, symbols: i };
@@ -43055,7 +43060,7 @@ return accum;
       ? function (s) {
         return s - t(e(s));
       }
-      : false;
+      : !1;
   }
   function Kw(e, t) {
     t instanceof C.SolvedEquation
@@ -43184,51 +43189,51 @@ return accum;
   var _m = {};
   ia(_m, { getFrame: () => q$ });
   var tF = {
-    segment: true,
-    line: true,
-    ray: true,
-    circle: true,
-    arc: true,
-    vector: true,
-    glider: true,
-    parallel: true,
-    perpendicular: true,
-    center: true,
-    radius: true,
-    area: true,
-    perimeter: true,
-    start: true,
-    end: true,
-    angles: true,
-    angle: true,
-    directedangles: true,
-    directedangle: true,
-    coterminal: true,
-    supplement: true,
-    vertices: true,
-    segments: true,
-    intersection: true,
-    strictintersection: true,
-    translate: true,
-    dilate: true,
-    rotate: true,
-    reflect: true,
-    construction: true,
-    points: true,
-    lines: true,
-    circles: true,
-    arcs: true,
-    polygons: true,
-    rays: true,
-    anglebisector: true,
+    segment: !0,
+    line: !0,
+    ray: !0,
+    circle: !0,
+    arc: !0,
+    vector: !0,
+    glider: !0,
+    parallel: !0,
+    perpendicular: !0,
+    center: !0,
+    radius: !0,
+    area: !0,
+    perimeter: !0,
+    start: !0,
+    end: !0,
+    angles: !0,
+    angle: !0,
+    directedangles: !0,
+    directedangle: !0,
+    coterminal: !0,
+    supplement: !0,
+    vertices: !0,
+    segments: !0,
+    intersection: !0,
+    strictintersection: !0,
+    translate: !0,
+    dilate: !0,
+    rotate: !0,
+    reflect: !0,
+    construction: !0,
+    points: !0,
+    lines: !0,
+    circles: !0,
+    arcs: !0,
+    polygons: !0,
+    rays: !0,
+    anglebisector: !0,
   };
   var nF = {
-    segment: true,
-    triangle: true,
-    vector: true,
-    start: true,
-    end: true,
-    sphere: true,
+    segment: !0,
+    triangle: !0,
+    vector: !0,
+    start: !0,
+    end: !0,
+    sphere: !0,
   };
   var rF = [
       "csc",
@@ -43305,9 +43310,9 @@ return accum;
     for (n of We(tt)) {
       if (
         U$.includes(n) ||
-        e.restrictedFunctions === true && rF.indexOf(n) !== -1 &&
-          !(e.forceEnableGeometryFunctions === true && H$.indexOf(n) !== -1) ||
-        e.distributions === false && iF.indexOf(n) !== -1
+        e.restrictedFunctions === !0 && rF.indexOf(n) !== -1 &&
+          !(e.forceEnableGeometryFunctions === !0 && H$.indexOf(n) !== -1) ||
+        e.distributions === !1 && iF.indexOf(n) !== -1
       ) continue;
       let r = oF.indexOf(n) !== -1, s = n in nF;
       if (r && s) {
@@ -43490,12 +43495,12 @@ return accum;
       }
     }
     for (let i of r) {
-      let o = this.statements[i], a = latexToIdentifier(o.userData.residualVariable);
+      let o = this.statements[i], a = no(o.userData.residualVariable);
       a && (t[a] = i);
       let u = o.getDependencies().slice(), c = {}, l;
       for (; l = u.pop();) {
         if (c[l]) continue;
-        c[l] = true;
+        c[l] = !0;
         let p = e[l] || t[l];
         if (p) {
           u.push(...n[p]), n[i].push(l);
@@ -43517,7 +43522,7 @@ return accum;
   }
   function gF(e) {
     if (e.length === 0) return [""];
-    let t = [], n = e.split(/(`)/), r = false, s = "";
+    let t = [], n = e.split(/(`)/), r = !1, s = "";
     for (let i = 0; i < n.length; i++) {
       let o = n[i];
       o.length &&
@@ -43555,12 +43560,12 @@ return accum;
   }
   var hF = { bigCutoff: 1e7, digits: 8 };
   function bF(e, t) {
-    let n = t ? truncatedLatexLabel(e, hF) : truncatedPlainmathLabel(e, hF);
+    let n = t ? kl(e, hF) : Gl(e, hF);
     return t ? `{${n}}` : n;
   }
   function xF(e, t) {
-    let n = { ...DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS, digits: 8, scientificNotationDigits: 3 },
-      r = t ? complexNumberLabel(e, n) : complexPlainMathNumberLabel(e, n);
+    let n = { ...yx, digits: 8, scientificNotationDigits: 3 },
+      r = t ? Ic(e, n) : gx(e, n);
     return t ? `{${r}}` : r;
   }
   function H1(e, t, n, r) {
@@ -43575,33 +43580,33 @@ return accum;
         let c = new C.Identifier(u.symbol).tryGetConcreteTree(t, n, {
           coerceToNumber: "all-except-complex",
         });
-        if (c.valueType === Number && c.getDependencies().length === 0) {
+        if (c.valueType === I && c.getDependencies().length === 0) {
           let l = c.asValue();
           if (typeof l == "number") {
             s.push(bF(l, i));
             continue;
           }
         } else if (
-          c.valueType === ListOfNumber && r < c.length && c.getDependencies().length === 0
+          c.valueType === ne && r < c.length && c.getDependencies().length === 0
         ) {
           let l = (o = c.elementAt) == null ? void 0 : o.call(c, r).asValue();
           if (typeof l == "number") {
             s.push(bF(l, i));
             continue;
           }
-        } else if (c.valueType === Complex && c.getDependencies().length === 0) {
+        } else if (c.valueType === R && c.getDependencies().length === 0) {
           let l = c.asTypedValue();
-          if ((l == null ? void 0 : l.valueType) === Complex) {
+          if ((l == null ? void 0 : l.valueType) === R) {
             s.push(xF(l.value, i));
             continue;
           }
         } else if (
-          c.valueType === ListOfComplex && r < c.length && c.getDependencies().length === 0
+          c.valueType === Ue && r < c.length && c.getDependencies().length === 0
         ) {
           let l = (a = c.elementAt) == null
             ? void 0
             : a.call(c, r).asTypedValue();
-          if ((l == null ? void 0 : l.valueType) === Complex) {
+          if ((l == null ? void 0 : l.valueType) === R) {
             s.push(xF(l.value, i));
             continue;
           }
@@ -43617,25 +43622,25 @@ return accum;
         this.complexEnabled = !!t.isComplexEnabled;
     }
     isGeometryEnabled() {
-      return false;
+      return !1;
     }
     is3dProduct() {
-      return false;
+      return !1;
     }
     is3dPolicy() {
-      return false;
+      return !1;
     }
     isComplexEnabled() {
       return this.complexEnabled;
     }
     isRecursionEnabled() {
-      return false;
+      return !1;
     }
     polygonUnsupportedPreferTriangle() {
-      return false;
+      return !1;
     }
     areAllScalesLinear() {
-      return true;
+      return !0;
     }
     assignmentForbidden(t) {
       return this.singleExpression
@@ -43643,19 +43648,19 @@ return accum;
         : t.slice(0, 3) === "tmp";
     }
     isValidSlider(t) {
-      return false;
+      return !1;
     }
     sliderVariables() {
       return [];
     }
     graphingEnabled() {
-      return false;
+      return !1;
     }
     ansEnabled() {
       return !this.singleExpression;
     }
     dimensionVarsEnabled() {
-      return false;
+      return !1;
     }
     disabledFeatures() {
       return this.singleExpression
@@ -43678,11 +43683,11 @@ return accum;
         ];
     }
     shouldIncludeFunctionParametersInRandomSeed() {
-      return true;
+      return !0;
     }
   };
   function Q$(e) {
-    let t = truncatedLatexLabel(e, { bigCutoff: 1e9, smallCutoff: 1e-6, digits: 12 });
+    let t = kl(e, { bigCutoff: 1e9, smallCutoff: 1e-6, digits: 12 });
     return t.indexOf("\\times") === -1
       ? t
       : t[0] === "-"
@@ -43694,14 +43699,14 @@ return accum;
       case "exponential":
       case "power":
       case "logarithmic":
-        return true;
+        return !0;
       case "cubic":
       case "linear":
       case "logistic":
       case "sinusoidal":
       case "quadratic":
       case "quartic":
-        return false;
+        return !1;
     }
   }
   function e5(e, t) {
@@ -43784,7 +43789,7 @@ return accum;
   function IF(e, t, n, r) {
     let s = e.regression;
     if (!s) return;
-    K$(s.type) || (s.isLogMode = false);
+    K$(s.type) || (s.isLogMode = !1);
     let i = e.columns, { columnIds: o } = s, a = r.get(o.x), u = r.get(o.y);
     if (!(a && u)) return U("Missing columns for table regression");
     let c = [{
@@ -43850,16 +43855,16 @@ return accum;
   ) {
     switch (e) {
       case "fourFunction":
-        return new Cc({ singleExpression: false });
+        return new Cc({ singleExpression: !1 });
       case "singleExpressionFourFunction":
-        return new Cc({ singleExpression: true });
+        return new Cc({ singleExpression: !0 });
       case "scientific":
-        return new Lm({ singleExpression: false, isComplexEnabled: r });
+        return new Lm({ singleExpression: !1, isComplexEnabled: r });
       case "singleExpressionScientific":
-        return new Lm({ singleExpression: true, isComplexEnabled: r });
+        return new Lm({ singleExpression: !0, isComplexEnabled: r });
       case "graphing":
         return new Id({
-          enableGeometry: false,
+          enableGeometry: !1,
           enable3d: t,
           scales: s,
           isComplexEnabled: r,
@@ -43869,8 +43874,8 @@ return accum;
         });
       case "geometry":
         return new Id({
-          enableGeometry: true,
-          enable3d: false,
+          enableGeometry: !0,
+          enable3d: !1,
           scales: s,
           includeFunctionParametersInRandomSeed: i,
           isComplexEnabled: r,
@@ -43908,11 +43913,11 @@ return accum;
   function m5(e) {
     let t = e.evaluationState.expression_type, n = e.rawTree.userData;
     return !n.clickableInfo || !n.clickableInfo.enabled
-      ? false
+      ? !1
       : _f(e.rawTree)
-      ? true
+      ? !0
       : uu(e.getGraphMode())
-      ? false
+      ? !1
       : tC(t);
   }
   function yn(e, t) {
@@ -43968,14 +43973,14 @@ return accum;
       c = u && u.metaData && u.metaData.distributionSpec,
       l = Fa(t, n, i, a, -1 / 0),
       p = Fa(t, n, o, a, 1 / 0),
-      f = true,
-      d = true;
+      f = !0,
+      d = !0;
     if (
-      isNaN(l) && (f = false, l = NaN),
-        isNaN(p) && (d = false, p = NaN),
+      isNaN(l) && (f = !1, l = NaN),
+        isNaN(p) && (d = !1, p = NaN),
         f
           ? d
-            ? l > p && (f = false, d = false, r.error = VI().getError())
+            ? l > p && (f = !1, d = !1, r.error = VI().getError())
             : r.error = FI().getError()
           : r.error = wI().getError(),
         f && d
@@ -43998,28 +44003,28 @@ return accum;
       r.cdf_max_valid = d,
       r.cdf_min_default = y,
       r.cdf_max_default = g,
-      r.is_single_identifier = false,
+      r.is_single_identifier = !1,
       mc(r, t, a);
   }
   var q1 = { coerceToNumber: "all" };
   function I5(e, t, n, r, s) {
-    let i = {}, o = true, a = NaN, u, c = false;
+    let i = {}, o = !0, a = NaN, u, c = !1;
     if (n) {
       let l = n.tryGetConcreteTree(e, t, q1);
       u = l.getDependencies().length === 0 ? l.asValue() : NaN,
         c = Array.isArray(u),
         a = c ? u : +u;
-      for (let p of l.getDependencies()) i[p] = true;
+      for (let p of l.getDependencies()) i[p] = !0;
     }
     if (c) {
       for (let l of a) {
         if (!isFinite(+l)) {
-          o = false, a = NaN;
+          o = !1, a = NaN;
           break;
         }
       }
-    } else isFinite(+a) ? s !== void 0 && a > s && (a = s) : (o = false, a = NaN);
-    return n || (o = true, r !== void 0 && (a = r)),
+    } else isFinite(+a) ? s !== void 0 && a > s && (a = s) : (o = !1, a = NaN);
+    return n || (o = !0, r !== void 0 && (a = r)),
       { value: a, valid: o, missingVarsMap: i };
   }
   var wm = {
@@ -44091,7 +44096,7 @@ return accum;
       default: () => .4,
       transform: void 0,
       shouldEvaluate: (e) => {
-        if (!e) return false;
+        if (!e) return !1;
         let { expression_type: t, is_inequality: n } = e.evaluationState;
         return !!(t === "POLYGON" || t === "PARAMETRIC" || n);
       },
@@ -44105,7 +44110,7 @@ return accum;
       default: () => 1,
       transform: void 0,
       shouldEvaluate: (e) => {
-        if (!e) return false;
+        if (!e) return !1;
         let { expression_type: t } = e.evaluationState;
         return t === "CURVE3D_xyz_t" || t === "SURFACE" || t === "SPHERE3D" ||
           t === "SURFACE_AMBIGUOUS" || t === "SURFACE_CONSTANT_AMBIGUOUS" ||
@@ -44177,11 +44182,11 @@ return accum;
       let o = e.tryGetConcreteTree(r, s),
         a = o.getDependencies().length > 0 ? void 0 : o.asValue(),
         { valueType: u } = o;
-      if (i = !!(a && (u === RGBColor || u === ListOfColor)), i) {
-        let c = o && o.valueType === RGBColor ? DF(a) : a.map(DF);
+      if (i = !!(a && (u === Kt || u === rr)), i) {
+        let c = o && o.valueType === Kt ? DF(a) : a.map(DF);
         t.colorLatexValue = c, n.color_latex_value = c;
       } else delete t.colorLatexValue, delete n.color_latex_value;
-    } else i = true;
+    } else i = !0;
     n.color_latex_valid = i;
   }
   function E5(e, t, n) {
@@ -44204,7 +44209,7 @@ return accum;
   }
   function M5(e) {
     if (
-      e.concreteTree.valueType === RGBColor &&
+      e.concreteTree.valueType === Kt &&
       e.concreteTree.getDependencies().length > 0
     ) {
       let t = e.concreteTree._chunk;
@@ -44224,8 +44229,8 @@ return accum;
       o = s.metaData.clickHandler;
     if (!o) return;
     let a = o.tryGetConcreteTree(t, n);
-    !a.isError && a.valueType !== Action && (a = kd(oe(a.valueType)));
-    for (let c of a.getDependencies()) t.validActionVariable(c) || (i[c] = true);
+    !a.isError && a.valueType !== ut && (a = kd(oe(a.valueType)));
+    for (let c of a.getDependencies()) t.validActionVariable(c) || (i[c] = !0);
     let u = Object.keys(i);
     u.length > 0 && (a = rn(u).setDependencies(a.getDependencies())),
       a.isError && !C1(t, a)
@@ -44356,17 +44361,17 @@ return accum;
   function Fa(e, t, n, r, s) {
     if (n) {
       let i = n.tryGetConcreteTree(e, t, q1);
-      for (let o of i.getDependencies()) r[o] = true;
+      for (let o of i.getDependencies()) r[o] = !0;
       return i.isConstant ? +i.asValue() : NaN;
     } else return s;
   }
   function U1(e, t, n) {
-    let r = true, s = true;
-    return isFinite(e) || (r = false, e = NaN),
-      isFinite(t) || (s = false, t = NaN),
+    let r = !0, s = !0;
+    return isFinite(e) || (r = !1, e = NaN),
+      isFinite(t) || (s = !1, t = NaN),
       r
         ? s
-          ? e > t && (r = false, s = false, n.error = LI().getError())
+          ? e > t && (r = !1, s = !1, n.error = LI().getError())
           : n.error = _I().getError()
         : n.error = AI().getError(),
       { min: e, max: t, minValid: r, maxValid: s };
@@ -44379,10 +44384,10 @@ return accum;
       a = {},
       u = Fa(t, n, i, a, 1),
       c = Fa(t, n, o, a, 1),
-      l = true,
-      p = true;
-    isFinite(u) || (l = false, u = NaN),
-      isFinite(c) || (p = false, c = NaN),
+      l = !0,
+      p = !0;
+    isFinite(u) || (l = !1, u = NaN),
+      isFinite(c) || (p = !1, c = NaN),
       l ? p || (r.error = kT().getError()) : r.error = GT().getError(),
       s.metaData.evaluatedAxisOffset = u,
       s.metaData.evaluatedBreadth = c,
@@ -44391,7 +44396,7 @@ return accum;
       mc(r, t, a);
   }
   function z1(e, t, n) {
-    if (e.isError || e.getDependencies().length || e.valueType !== Action) return;
+    if (e.isError || e.getDependencies().length || e.valueType !== ut) return;
     let r = e.asValue();
     if (r) {
       for (let s of We(r.updateRules)) {
@@ -44405,14 +44410,14 @@ return accum;
     if (
       e.type !== "statement" || t.type !== "statement" ||
       ws(e.latexSelection, t.latexSelection)
-    ) return false;
+    ) return !1;
     let n = li(e), r = li(t);
     return delete n.latexSelection, delete r.latexSelection, ws(n, r);
   }
   function N5(e, t) {
-    if (!(e instanceof Cr)) return false;
+    if (!(e instanceof Cr)) return !1;
     let n = t[e._symbol];
-    return n ? !!n.recursionInfo : false;
+    return n ? !!n.recursionInfo : !1;
   }
   var tx = class {
     constructor(t) {
@@ -44426,28 +44431,28 @@ return accum;
       this.intersectId = void 0;
       this.dirtyExportedSymbolRoots = {};
       this.dirtyStatementRoots = {};
-      this.markedRegressionDirty = false;
+      this.markedRegressionDirty = !1;
       this.childIntersections = new hd();
-      this.use_degrees = false;
-      this.initialEvaluation = false;
+      this.use_degrees = !1;
+      this.initialEvaluation = !1;
       this.globalEventCount = 0;
       this.evaluationMode = "graphing";
       this.product = "graphing";
-      this.beta3d = false;
-      this.restrictedFunctions = false;
-      this.forceEnableGeometryFunctions = false;
-      this.functionDefinition = true;
-      this.replaceRoundWithReciprocal = false;
-      this.distributions = true;
-      this.actions = true;
-      this.substitutions = true;
-      this.intervalComprehensions = true;
-      this.recursion = true;
+      this.beta3d = !1;
+      this.restrictedFunctions = !1;
+      this.forceEnableGeometryFunctions = !1;
+      this.functionDefinition = !0;
+      this.replaceRoundWithReciprocal = !1;
+      this.distributions = !0;
+      this.actions = !0;
+      this.substitutions = !0;
+      this.intervalComprehensions = !0;
+      this.recursion = !0;
       this.lastClockTickTime = void 0;
       this.dimensions = { width: 0, height: 0 };
-      this.includeFunctionParametersInRandomSeed = true;
-      this.complex = false;
-      this.customRegressions = true;
+      this.includeFunctionParametersInRandomSeed = !0;
+      this.complex = !1;
+      this.customRegressions = !0;
       this.getCLSymbolMap = mF;
       this.invalidate();
     }
@@ -44580,7 +44585,7 @@ return accum;
         t.hasOwnProperty("recursion") && this.setRecursion(!!t.recursion);
       let o = t.recursionDepthLimit;
       if (
-        o !== void 0 && o > 0 && o <= 10 ** 6 && testingOnlySetRecursiveDepthLimit(o),
+        o !== void 0 && o > 0 && o <= 10 ** 6 && RE(o),
           t.hasOwnProperty("beta3d") && this.setBeta3d(!!t.beta3d),
           t.hasOwnProperty("product") && this.setProduct(t.product),
           t.hasOwnProperty("selectedIds")
@@ -44681,7 +44686,7 @@ return accum;
     setGlobalRandomSeed(t) {
       this.globalRandomSeedString = t,
         this.parent_frame.globalRandomSeed = new EF(t),
-        this.dirtyExportedSymbolRoots.globalRandomSeed = true;
+        this.dirtyExportedSymbolRoots.globalRandomSeed = !0;
     }
     setIncludeFunctionParametersInRandomSeed(t) {
       this.includeFunctionParametersInRandomSeed = t, this.setPolicy();
@@ -44758,8 +44763,8 @@ return accum;
         let r = hc(this.mainFrameContext, n),
           s = n.tryGetConcreteTree(this.policy, r),
           i = 1;
-        (s.valueType === ListOfPoint || s.valueType === ListOfComplex || s.valueType === ListOfSegment ||
-          s.valueType === ListOfPolygon || s.valueType === ListOfAngleMarker || s.valueType === ListOfDirectedAngleMarker) &&
+        (s.valueType === Pt || s.valueType === Ue || s.valueType === xn ||
+          s.valueType === In || s.valueType === On || s.valueType === Nn) &&
           (i = s.length);
         let o = [], a = this.currentLabel[t];
         if (Bo(a)) {
@@ -44799,7 +44804,7 @@ return accum;
       var i;
       let n = this.getViewState();
       if (!n || !Mw(n)) return;
-      let r = false, s = false;
+      let r = !1, s = !1;
       for (let o in this.unpublishedIds) {
         if (!this.analysis.hasOwnProperty(o)) continue;
         let a = this.analysis[o],
@@ -44826,14 +44831,14 @@ return accum;
               (a.rawTree.userData.shouldGraph ||
                 a.rawTree.userData.showLabel && c)
             ? (this.postProgressUpdate("GRAPHING", [o]),
-              s = true,
+              s = !0,
               this._notifyGraphComputed(
                 o,
                 a.graph(n, this.childIntersections.getChildIntersections(o)),
                 t,
               ),
               o === this.intersectId &&
-              (r = true, this._updateIntersections(o, t)),
+              (r = !0, this._updateIntersections(o, t)),
               this.postProgressUpdate("UNPUBLISHED", [o]))
             : ga(a.rawTree) || this._notifyGraphRemoved(o, t);}
       }
@@ -44860,9 +44865,9 @@ return accum;
     }
     getDisabledFeatures() {
       let t = this.policy.disabledFeatures();
-      this.functionDefinition === false && (t = t.concat("FunctionDefinition")),
-        this.actions === false && (t = t.concat("UpdateRule")),
-        this.substitutions === false &&
+      this.functionDefinition === !1 && (t = t.concat("FunctionDefinition")),
+        this.actions === !1 && (t = t.concat("UpdateRule")),
+        this.substitutions === !1 &&
         (t = t.concat(["Substitution", "ListComprehension"]));
       let n = this.additionalFunctions || [];
       return t = t.filter((r) =>
@@ -44874,7 +44879,7 @@ return accum;
     areFractionsDisallowed() {
       let { evaluationMode: t } = this;
       return t !== "fourFunction" && t !== "singleExpressionFourFunction"
-        ? false
+        ? !1
         : !this.additionalFunctions ||
           this.additionalFunctions.indexOf("fraction") === -1;
     }
@@ -44908,7 +44913,7 @@ return accum;
             let _ = s.getRegressionId();
             _ !== void 0 && p.add(_);
           }
-          t.shouldGraph = true;
+          t.shouldGraph = !0;
           let f = t.columns,
             d = [],
             y = new Map(),
@@ -45025,7 +45030,7 @@ return accum;
           this.updateSingleStatement(
             r,
             new C.Ticker({
-              handler: ri(t.handlerLatex, { ...a, allowDt: true }),
+              handler: ri(t.handlerLatex, { ...a, allowDt: !0 }),
               minStep: ri(t.minStepLatex || "0", a),
             }),
             { selectionOnlyChange: o },
@@ -45040,7 +45045,7 @@ return accum;
         }
         default:
           t = t;
-          let S, O = trimLatex(t.latex);
+          let S, O = oa(t.latex);
           O.slice(-1) === "=" ? S = O.substring(0, O.length - 1) : S = t.latex,
             this.updateSingleStatement(r, Mi(S, a), { selectionOnlyChange: o });
           for (let _ in wm) {
@@ -45182,7 +45187,7 @@ return accum;
       }
       let c = t.clickableInfo;
       c && c.enabled && c.latex &&
-      (u.clickHandler = ri(c.latex, { ...a, allowIndex: true })),
+      (u.clickHandler = ri(c.latex, { ...a, allowIndex: !0 })),
         this.statements[r].userData = t,
         this.statements[r].metaData = u;
       let l = t.label;
@@ -45193,7 +45198,7 @@ return accum;
     }
     updateSingleStatement(t, n, { selectionOnlyChange: r }) {
       r
-        ? this.selectionOnlyChangeIds[t] = true
+        ? this.selectionOnlyChangeIds[t] = !0
         : (this.markExportsDirty(t), this.markAsDirtyRoot(t)),
         this.statements[t] = n;
     }
@@ -45219,14 +45224,14 @@ return accum;
     }
     markExportsDirty(t) {
       if (this.statements[t]) {
-        ui(this.statements[t]) && (this.markedRegressionDirty = true);
+        ui(this.statements[t]) && (this.markedRegressionDirty = !0);
         for (let n of this.statements[t].getLegalExports(this.policy)) {
-          this.dirtyExportedSymbolRoots[n] = true;
+          this.dirtyExportedSymbolRoots[n] = !0;
         }
       }
     }
     markAsDirtyRoot(t) {
-      this.dirtyStatementRoots[t] = true;
+      this.dirtyStatementRoots[t] = !0;
     }
     markUnpublished(t) {
       var r;
@@ -45235,7 +45240,7 @@ return accum;
         n && ui(n) &&
           ((r = n.tableRegressionData) == null ? void 0 : r.tableId) !==
             void 0 ||
-        (this.unpublishedIds[t] = true, delete this.selectionOnlyChangeIds[t]);
+        (this.unpublishedIds[t] = !0, delete this.selectionOnlyChangeIds[t]);
     }
     getFrame() {
       return this.updateAnalysis(), this.mainFrameContext.global;
@@ -45425,7 +45430,7 @@ return accum;
         let o = i.concreteTree,
           a = i.rawTree.getExportsFromConcrete(this.policy, o);
         t.set(r, a);
-        for (let u of a) n[u] = true;
+        for (let u of a) n[u] = !0;
       }
       return { regressionExportMap: t, regressionExportRoots: n };
     }
@@ -45441,9 +45446,9 @@ return accum;
       let n = this.statements[sa], r = new l5(t);
       r.metaData = { extraDepNodes: [] }, r.userData = {};
       let s = {};
-      for (let o of (n == null ? void 0 : n.getDependencies()) || []) s[o] = true;
+      for (let o of (n == null ? void 0 : n.getDependencies()) || []) s[o] = !0;
       let i = {};
-      for (let o of r.getDependencies()) i[o] = true;
+      for (let o of r.getDependencies()) i[o] = !0;
       (!n || !ws(s, i)) &&
         (this.statements[sa] = r,
           this.parent_frame.construction = r,
@@ -45470,7 +45475,7 @@ return accum;
         if (u instanceof ku && s.has(u._lhs._symbol)) {
           let c = Qr.fromCallAssignment(n, u);
           if (!c) continue;
-          this.updateSingleStatement(a, c, { selectionOnlyChange: false });
+          this.updateSingleStatement(a, c, { selectionOnlyChange: !1 });
           let l = c._symbol;
           i[l] || (i[l] = []),
             i[l].push(c),
@@ -45482,7 +45487,7 @@ return accum;
               i[c].push(u),
               u.getDependencies().length && o.push(a))
             : this.updateSingleStatement(a, u.originalNode, {
-              selectionOnlyChange: false,
+              selectionOnlyChange: !1,
             });
         }
       }
@@ -45523,7 +45528,7 @@ return accum;
         ),
         r = this.markedRegressionDirty;
       for (let b in n.ids) {
-        this.statements[b] && ui(this.statements[b]) && (r = true);
+        this.statements[b] && ui(this.statements[b]) && (r = !0);
       }
       let s = new Set();
       if (r) {
@@ -45540,11 +45545,11 @@ return accum;
               delete this.regressionFrameContext.global[P]);
         }
       }
-      let i = false;
+      let i = !1;
       for (let b of s.keys()) {
         this.markUnpublished(b),
           this.mainFrameContext.hasLocalFrame(b) &&
-          (i = true, this.mainFrameContext.deleteLocalFrame(b));
+          (i = !0, this.mainFrameContext.deleteLocalFrame(b));
       }
       if (i) {
         for (let b in this.statements) {
@@ -45552,7 +45557,7 @@ return accum;
           M.localFrameID && s.has(M.localFrameID) && s.add(b);
         }
       }
-      this.markedRegressionDirty = false,
+      this.markedRegressionDirty = !1,
         this.dirtyExportedSymbolRoots = {},
         this.dirtyStatementRoots = {};
       let o = this.analysis;
@@ -45569,7 +45574,7 @@ return accum;
         ),
         p = Ed(this.policy, this.statements, t, {}, u),
         f = {};
-      for (let b of c.recursiveFunctionSymbols) f[b] = true;
+      for (let b of c.recursiveFunctionSymbols) f[b] = !0;
       let d = Ed(this.policy, this.statements, t, {}, f);
       this.markRegressionAndRecursionDependents({
         regressionDependentStatements: p.ids,
@@ -45592,7 +45597,7 @@ return accum;
           if (P.regression) {
             let _ = M.rawTree.tableRegressionData.columnInfo.filter((G) =>
                 G.isIdentifier
-              ).map((G) => latexToIdentifier(G.latex)).filter((G) =>
+              ).map((G) => no(G.latex)).filter((G) =>
                 this.policy.assignmentForbidden(G)
               ),
               L = (h = M.rawTree.tableRegressionData.columnInfo.find((G) =>
@@ -45628,15 +45633,15 @@ return accum;
         this.childIntersections = this.buildChildIntersectionMap();
       }
       Qw(t).forEach((b) => {
-        o[b].evaluationState.depends_on_random_seed = true;
+        o[b].evaluationState.depends_on_random_seed = !0;
       });
-      let y = Ed(this.policy, this.statements, t, { [sa]: true }, {
-        construction: true,
+      let y = Ed(this.policy, this.statements, t, { [sa]: !0 }, {
+        construction: !0,
       });
       for (let b in y.ids) {
         if (b === sa) continue;
         let M = o[b].evaluationState;
-        M.geometry && (M.geometry.unconstructable = true);
+        M.geometry && (M.geometry.unconstructable = !0);
       }
       let g;
       for (let b in this.statements) {
@@ -45646,13 +45651,13 @@ return accum;
         }
       }
       if (g) {
-        let b = Ed(this.policy, this.statements, t, { [g]: true }, {
-          [`idref_${g}`]: true,
+        let b = Ed(this.policy, this.statements, t, { [g]: !0 }, {
+          [`idref_${g}`]: !0,
         });
         for (let M in b.ids) {
           if (M === sa) continue;
           let P = o[M].evaluationState;
-          P.geometry && (P.geometry.depends_on_selected = true);
+          P.geometry && (P.geometry.depends_on_selected = !0);
         }
       }
       this.lastFrame = Tn(this.parent_frame);
@@ -45781,7 +45786,7 @@ return accum;
     }
     processEvents(t) {
       if (!t || !this.actions) return;
-      let n = Tn(this.mainFrameContext.global), r = {}, s = false, i = false, o;
+      let n = Tn(this.mainFrameContext.global), r = {}, s = !1, i = !1, o;
       for (let a of t) {
         switch (
           this.globalEventCount += 1,
@@ -45792,7 +45797,7 @@ return accum;
             let c = this.statements[a.expressionId];
             if (!c) continue;
             let l = c.tryGetConcreteTree(this.policy, n);
-            i = true, z1(l, r, n);
+            i = !0, z1(l, r, n);
             break;
           }
           case "click": {
@@ -45800,7 +45805,7 @@ return accum;
             if (!c || !c.metaData.clickHandler) continue;
             n.index = new C.Constant(a.indexVar + 1);
             let l = c.metaData.clickHandler.tryGetConcreteTree(this.policy, n);
-            i = true, s = true, z1(l, r, n);
+            i = !0, s = !0, z1(l, r, n);
             break;
           }
           case "clock-tick": {
@@ -45837,9 +45842,9 @@ return accum;
     }
   };
   function R5(e, t) {
-    if (e.length !== t.length) return false;
-    for (let n = 0; n < e.length; n++) if (e[n] !== t[n]) return false;
-    return true;
+    if (e.length !== t.length) return !1;
+    for (let n = 0; n < e.length; n++) if (e[n] !== t[n]) return !1;
+    return !0;
   }
   var vF = class {
     constructor(t) {
@@ -45908,73 +45913,73 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "ba", { get: () => vX });
   Object.defineProperty(__dcg_chunk_exports__, "ca", { get: () => hf });
   Object.defineProperty(__dcg_chunk_exports__, "da", { get: () => tg });
-  Object.defineProperty(__dcg_chunk_exports__, "ea", { get: () => value });
-  Object.defineProperty(__dcg_chunk_exports__, "fa", { get: () => point });
-  Object.defineProperty(__dcg_chunk_exports__, "ga", { get: () => DEFAULT_EVALUATION_LABEL_OPTIONS });
-  Object.defineProperty(__dcg_chunk_exports__, "ha", { get: () => DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS });
-  Object.defineProperty(__dcg_chunk_exports__, "ia", { get: () => canDisplayAsFraction });
-  Object.defineProperty(__dcg_chunk_exports__, "ja", { get: () => numericLabel });
-  Object.defineProperty(__dcg_chunk_exports__, "ka", { get: () => truncatedHTMLLabel });
-  Object.defineProperty(__dcg_chunk_exports__, "la", { get: () => truncatedLatexLabel });
-  Object.defineProperty(__dcg_chunk_exports__, "ma", { get: () => identifierToLatex });
-  Object.defineProperty(__dcg_chunk_exports__, "na", { get: () => latexToIdentifier });
-  Object.defineProperty(__dcg_chunk_exports__, "oa", { get: () => trimLatex });
-  Object.defineProperty(__dcg_chunk_exports__, "pa", { get: () => complexNumberLabel });
+  Object.defineProperty(__dcg_chunk_exports__, "ea", { get: () => fx });
+  Object.defineProperty(__dcg_chunk_exports__, "fa", { get: () => PV });
+  Object.defineProperty(__dcg_chunk_exports__, "ga", { get: () => CD });
+  Object.defineProperty(__dcg_chunk_exports__, "ha", { get: () => yx });
+  Object.defineProperty(__dcg_chunk_exports__, "ia", { get: () => SD });
+  Object.defineProperty(__dcg_chunk_exports__, "ja", { get: () => Zm });
+  Object.defineProperty(__dcg_chunk_exports__, "ka", { get: () => vD });
+  Object.defineProperty(__dcg_chunk_exports__, "la", { get: () => kl });
+  Object.defineProperty(__dcg_chunk_exports__, "ma", { get: () => qr });
+  Object.defineProperty(__dcg_chunk_exports__, "na", { get: () => no });
+  Object.defineProperty(__dcg_chunk_exports__, "oa", { get: () => oa });
+  Object.defineProperty(__dcg_chunk_exports__, "pa", { get: () => Ic });
   Object.defineProperty(__dcg_chunk_exports__, "qa", { get: () => Oo });
   Object.defineProperty(__dcg_chunk_exports__, "ra", { get: () => Cd });
   Object.defineProperty(__dcg_chunk_exports__, "sa", { get: () => WY });
   Object.defineProperty(__dcg_chunk_exports__, "ta", { get: () => Vs });
   Object.defineProperty(__dcg_chunk_exports__, "ua", { get: () => kn });
-  Object.defineProperty(__dcg_chunk_exports__, "va", { get: () => Any });
-  Object.defineProperty(__dcg_chunk_exports__, "wa", { get: () => Number });
-  Object.defineProperty(__dcg_chunk_exports__, "xa", { get: () => Bool });
-  Object.defineProperty(__dcg_chunk_exports__, "ya", { get: () => Point });
-  Object.defineProperty(__dcg_chunk_exports__, "za", { get: () => Action });
-  Object.defineProperty(__dcg_chunk_exports__, "Aa", { get: () => ListOfAny });
-  Object.defineProperty(__dcg_chunk_exports__, "Ba", { get: () => ListOfNumber });
-  Object.defineProperty(__dcg_chunk_exports__, "Ca", { get: () => ListOfBool });
-  Object.defineProperty(__dcg_chunk_exports__, "Da", { get: () => ListOfPoint });
-  Object.defineProperty(__dcg_chunk_exports__, "Ea", { get: () => EmptyList });
-  Object.defineProperty(__dcg_chunk_exports__, "Fa", { get: () => ErrorType });
-  Object.defineProperty(__dcg_chunk_exports__, "Ga", { get: () => SeedType });
-  Object.defineProperty(__dcg_chunk_exports__, "Ha", { get: () => RGBColor });
-  Object.defineProperty(__dcg_chunk_exports__, "Ia", { get: () => ListOfColor });
-  Object.defineProperty(__dcg_chunk_exports__, "Ja", { get: () => Polygon });
-  Object.defineProperty(__dcg_chunk_exports__, "Ka", { get: () => ListOfPolygon });
-  Object.defineProperty(__dcg_chunk_exports__, "La", { get: () => Segment });
-  Object.defineProperty(__dcg_chunk_exports__, "Ma", { get: () => ListOfSegment });
-  Object.defineProperty(__dcg_chunk_exports__, "Na", { get: () => Circle });
-  Object.defineProperty(__dcg_chunk_exports__, "Oa", { get: () => ListOfCircle });
-  Object.defineProperty(__dcg_chunk_exports__, "Pa", { get: () => Arc });
-  Object.defineProperty(__dcg_chunk_exports__, "Qa", { get: () => ListOfArc });
-  Object.defineProperty(__dcg_chunk_exports__, "Ra", { get: () => Line });
-  Object.defineProperty(__dcg_chunk_exports__, "Sa", { get: () => ListOfLine });
-  Object.defineProperty(__dcg_chunk_exports__, "Ta", { get: () => Ray });
-  Object.defineProperty(__dcg_chunk_exports__, "Ua", { get: () => ListOfRay });
-  Object.defineProperty(__dcg_chunk_exports__, "Va", { get: () => AngleMarker });
-  Object.defineProperty(__dcg_chunk_exports__, "Wa", { get: () => ListOfAngleMarker });
-  Object.defineProperty(__dcg_chunk_exports__, "Xa", { get: () => DirectedAngleMarker });
-  Object.defineProperty(__dcg_chunk_exports__, "Ya", { get: () => ListOfDirectedAngleMarker });
-  Object.defineProperty(__dcg_chunk_exports__, "Za", { get: () => Transformation });
-  Object.defineProperty(__dcg_chunk_exports__, "_a", { get: () => ListOfTransformation });
-  Object.defineProperty(__dcg_chunk_exports__, "$a", { get: () => Vector });
-  Object.defineProperty(__dcg_chunk_exports__, "ab", { get: () => ListOfVector });
-  Object.defineProperty(__dcg_chunk_exports__, "bb", { get: () => Restriction });
-  Object.defineProperty(__dcg_chunk_exports__, "cb", { get: () => ListOfRestriction });
-  Object.defineProperty(__dcg_chunk_exports__, "db", { get: () => Complex });
-  Object.defineProperty(__dcg_chunk_exports__, "eb", { get: () => ListOfComplex });
-  Object.defineProperty(__dcg_chunk_exports__, "fb", { get: () => Tone });
-  Object.defineProperty(__dcg_chunk_exports__, "gb", { get: () => ListOfTone });
-  Object.defineProperty(__dcg_chunk_exports__, "hb", { get: () => Point3D });
-  Object.defineProperty(__dcg_chunk_exports__, "ib", { get: () => ListOfPoint3D });
-  Object.defineProperty(__dcg_chunk_exports__, "jb", { get: () => Segment3D });
-  Object.defineProperty(__dcg_chunk_exports__, "kb", { get: () => ListOfSegment3D });
-  Object.defineProperty(__dcg_chunk_exports__, "lb", { get: () => Triangle3D });
-  Object.defineProperty(__dcg_chunk_exports__, "mb", { get: () => ListOfTriangle3D });
-  Object.defineProperty(__dcg_chunk_exports__, "nb", { get: () => Sphere3D });
-  Object.defineProperty(__dcg_chunk_exports__, "ob", { get: () => ListOfSphere3D });
-  Object.defineProperty(__dcg_chunk_exports__, "pb", { get: () => Vector3D });
-  Object.defineProperty(__dcg_chunk_exports__, "qb", { get: () => ListOfVector3D });
+  Object.defineProperty(__dcg_chunk_exports__, "va", { get: () => Qt });
+  Object.defineProperty(__dcg_chunk_exports__, "wa", { get: () => I });
+  Object.defineProperty(__dcg_chunk_exports__, "xa", { get: () => De });
+  Object.defineProperty(__dcg_chunk_exports__, "ya", { get: () => N });
+  Object.defineProperty(__dcg_chunk_exports__, "za", { get: () => ut });
+  Object.defineProperty(__dcg_chunk_exports__, "Aa", { get: () => pn });
+  Object.defineProperty(__dcg_chunk_exports__, "Ba", { get: () => ne });
+  Object.defineProperty(__dcg_chunk_exports__, "Ca", { get: () => Xn });
+  Object.defineProperty(__dcg_chunk_exports__, "Da", { get: () => Pt });
+  Object.defineProperty(__dcg_chunk_exports__, "Ea", { get: () => $e });
+  Object.defineProperty(__dcg_chunk_exports__, "Fa", { get: () => Ro });
+  Object.defineProperty(__dcg_chunk_exports__, "Ga", { get: () => ft });
+  Object.defineProperty(__dcg_chunk_exports__, "Ha", { get: () => Kt });
+  Object.defineProperty(__dcg_chunk_exports__, "Ia", { get: () => rr });
+  Object.defineProperty(__dcg_chunk_exports__, "Ja", { get: () => xe });
+  Object.defineProperty(__dcg_chunk_exports__, "Ka", { get: () => In });
+  Object.defineProperty(__dcg_chunk_exports__, "La", { get: () => de });
+  Object.defineProperty(__dcg_chunk_exports__, "Ma", { get: () => xn });
+  Object.defineProperty(__dcg_chunk_exports__, "Na", { get: () => ce });
+  Object.defineProperty(__dcg_chunk_exports__, "Oa", { get: () => Wn });
+  Object.defineProperty(__dcg_chunk_exports__, "Pa", { get: () => ie });
+  Object.defineProperty(__dcg_chunk_exports__, "Qa", { get: () => Fn });
+  Object.defineProperty(__dcg_chunk_exports__, "Ra", { get: () => fe });
+  Object.defineProperty(__dcg_chunk_exports__, "Sa", { get: () => jn });
+  Object.defineProperty(__dcg_chunk_exports__, "Ta", { get: () => Ne });
+  Object.defineProperty(__dcg_chunk_exports__, "Ua", { get: () => Vn });
+  Object.defineProperty(__dcg_chunk_exports__, "Va", { get: () => Le });
+  Object.defineProperty(__dcg_chunk_exports__, "Wa", { get: () => On });
+  Object.defineProperty(__dcg_chunk_exports__, "Xa", { get: () => ye });
+  Object.defineProperty(__dcg_chunk_exports__, "Ya", { get: () => Nn });
+  Object.defineProperty(__dcg_chunk_exports__, "Za", { get: () => Re });
+  Object.defineProperty(__dcg_chunk_exports__, "_a", { get: () => Rr });
+  Object.defineProperty(__dcg_chunk_exports__, "$a", { get: () => le });
+  Object.defineProperty(__dcg_chunk_exports__, "ab", { get: () => Jn });
+  Object.defineProperty(__dcg_chunk_exports__, "bb", { get: () => Gt });
+  Object.defineProperty(__dcg_chunk_exports__, "cb", { get: () => Gs });
+  Object.defineProperty(__dcg_chunk_exports__, "db", { get: () => R });
+  Object.defineProperty(__dcg_chunk_exports__, "eb", { get: () => Ue });
+  Object.defineProperty(__dcg_chunk_exports__, "fb", { get: () => Pn });
+  Object.defineProperty(__dcg_chunk_exports__, "gb", { get: () => cs });
+  Object.defineProperty(__dcg_chunk_exports__, "hb", { get: () => z });
+  Object.defineProperty(__dcg_chunk_exports__, "ib", { get: () => fr });
+  Object.defineProperty(__dcg_chunk_exports__, "jb", { get: () => wt });
+  Object.defineProperty(__dcg_chunk_exports__, "kb", { get: () => mr });
+  Object.defineProperty(__dcg_chunk_exports__, "lb", { get: () => Rn });
+  Object.defineProperty(__dcg_chunk_exports__, "mb", { get: () => yr });
+  Object.defineProperty(__dcg_chunk_exports__, "nb", { get: () => Hn });
+  Object.defineProperty(__dcg_chunk_exports__, "ob", { get: () => Ar });
+  Object.defineProperty(__dcg_chunk_exports__, "pb", { get: () => ke });
+  Object.defineProperty(__dcg_chunk_exports__, "qb", { get: () => gr });
   Object.defineProperty(__dcg_chunk_exports__, "rb", { get: () => RD });
   Object.defineProperty(__dcg_chunk_exports__, "sb", { get: () => Qn });
   Object.defineProperty(__dcg_chunk_exports__, "tb", { get: () => RV });
@@ -46000,33 +46005,33 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "Nb", { get: () => Tn });
   Object.defineProperty(__dcg_chunk_exports__, "Ob", { get: () => bX });
   Object.defineProperty(__dcg_chunk_exports__, "Pb", { get: () => ls });
-  Object.defineProperty(__dcg_chunk_exports__, "Qb", { get: () => hypot });
-  Object.defineProperty(__dcg_chunk_exports__, "Rb", { get: () => toFraction });
-  Object.defineProperty(__dcg_chunk_exports__, "Sb", { get: () => clamp });
-  Object.defineProperty(__dcg_chunk_exports__, "Tb", { get: () => lcm });
-  Object.defineProperty(__dcg_chunk_exports__, "Ub", { get: () => distance });
-  Object.defineProperty(__dcg_chunk_exports__, "Vb", { get: () => arcCenter });
-  Object.defineProperty(__dcg_chunk_exports__, "Wb", { get: () => arcOmega });
-  Object.defineProperty(__dcg_chunk_exports__, "Xb", { get: () => lineGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "Yb", { get: () => segmentGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "Zb", { get: () => rayGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "_b", { get: () => circleGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "$b", { get: () => arcGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "ac", { get: () => polygonGlider });
-  Object.defineProperty(__dcg_chunk_exports__, "bc", { get: () => getArcDetails });
-  Object.defineProperty(__dcg_chunk_exports__, "cc", { get: () => circleCircleIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "dc", { get: () => lineCircleIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "ec", { get: () => circleLineIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "fc", { get: () => lineLineIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "gc", { get: () => circleArcIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "hc", { get: () => lineArcIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "ic", { get: () => arcCircleIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "jc", { get: () => arcLineIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "kc", { get: () => arcArcIntersection });
-  Object.defineProperty(__dcg_chunk_exports__, "lc", { get: () => dilation });
-  Object.defineProperty(__dcg_chunk_exports__, "mc", { get: () => composeTransformation });
-  Object.defineProperty(__dcg_chunk_exports__, "nc", { get: () => invertTransformation });
-  Object.defineProperty(__dcg_chunk_exports__, "oc", { get: () => transformPoint });
+  Object.defineProperty(__dcg_chunk_exports__, "Qb", { get: () => Ts });
+  Object.defineProperty(__dcg_chunk_exports__, "Rb", { get: () => wB });
+  Object.defineProperty(__dcg_chunk_exports__, "Sb", { get: () => hr });
+  Object.defineProperty(__dcg_chunk_exports__, "Tb", { get: () => xE });
+  Object.defineProperty(__dcg_chunk_exports__, "Ub", { get: () => pp });
+  Object.defineProperty(__dcg_chunk_exports__, "Vb", { get: () => yp });
+  Object.defineProperty(__dcg_chunk_exports__, "Wb", { get: () => gp });
+  Object.defineProperty(__dcg_chunk_exports__, "Xb", { get: () => ZE });
+  Object.defineProperty(__dcg_chunk_exports__, "Yb", { get: () => WE });
+  Object.defineProperty(__dcg_chunk_exports__, "Zb", { get: () => EE });
+  Object.defineProperty(__dcg_chunk_exports__, "_b", { get: () => Z2 });
+  Object.defineProperty(__dcg_chunk_exports__, "$b", { get: () => Dv });
+  Object.defineProperty(__dcg_chunk_exports__, "ac", { get: () => j2 });
+  Object.defineProperty(__dcg_chunk_exports__, "bc", { get: () => Rg });
+  Object.defineProperty(__dcg_chunk_exports__, "cc", { get: () => Mf });
+  Object.defineProperty(__dcg_chunk_exports__, "dc", { get: () => jE });
+  Object.defineProperty(__dcg_chunk_exports__, "ec", { get: () => JE });
+  Object.defineProperty(__dcg_chunk_exports__, "fc", { get: () => Sv });
+  Object.defineProperty(__dcg_chunk_exports__, "gc", { get: () => K2 });
+  Object.defineProperty(__dcg_chunk_exports__, "hc", { get: () => vv });
+  Object.defineProperty(__dcg_chunk_exports__, "ic", { get: () => eG });
+  Object.defineProperty(__dcg_chunk_exports__, "jc", { get: () => Ov });
+  Object.defineProperty(__dcg_chunk_exports__, "kc", { get: () => tG });
+  Object.defineProperty(__dcg_chunk_exports__, "lc", { get: () => yG });
+  Object.defineProperty(__dcg_chunk_exports__, "mc", { get: () => bG });
+  Object.defineProperty(__dcg_chunk_exports__, "nc", { get: () => xG });
+  Object.defineProperty(__dcg_chunk_exports__, "oc", { get: () => oo });
   Object.defineProperty(__dcg_chunk_exports__, "pc", { get: () => Et });
   Object.defineProperty(__dcg_chunk_exports__, "qc", { get: () => tt });
   Object.defineProperty(__dcg_chunk_exports__, "rc", { get: () => Jr });
