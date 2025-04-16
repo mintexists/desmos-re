@@ -1731,7 +1731,7 @@
     Any: () => Any,
     Arc: () => Arc,
     Bool: () => Bool,
-    BroadcastableArg: () => ey,
+    BroadcastableArg: () => BroadcastableArg,
     Circle: () => Circle,
     Complex: () => Complex,
     DirectedAngleMarker: () => DirectedAngleMarker,
@@ -1739,7 +1739,7 @@
     EmptyList: () => EmptyList,
     ErrorType: () => ErrorType,
     Line: () => Line,
-    ListArgType: () => Km,
+    ListArgType: () => ListArgType,
     ListOfAngleMarker: () => ListOfAngleMarker,
     ListOfAny: () => ListOfAny,
     ListOfArc: () => ListOfArc,
@@ -1777,9 +1777,9 @@
     MapIntervalComplex: () => MapIntervalComplex,
     MapIntervalPoint: () => MapIntervalPoint,
     MapIntervalPoint3D: () => MapIntervalPoint3D,
-    NoCoerceComplexToReal: () => Nd,
+    NoCoerceComplexToReal: () => NoCoerceComplexToReal,
     Number: () => Number,
-    NumberNC: () => Te,
+    NumberNC: () => NumberNC,
     Point: () => Point,
     Point3D: () => Point3D,
     Polygon: () => Polygon,
@@ -1793,64 +1793,64 @@
     Tone: () => Tone,
     Transformation: () => Transformation,
     Triangle3D: () => Triangle3D,
-    TupleTypeMap: () => zl,
-    UNKNOWN_RETURN_TYPE: () => FV,
-    Union: () => Qn,
+    TupleTypeMap: () => TupleTypeMap,
+    UNKNOWN_RETURN_TYPE: () => UNKNOWN_RETURN_TYPE,
+    Union: () => Union,
     Vector: () => Vector,
     Vector3D: () => Vector3D,
-    allListTypes: () => ii,
-    allTupleTypes: () => hx,
-    allValueTypes: () => RV,
-    angleTypes: () => Tx,
-    assertTypeIsOneOf: () => za,
-    broadcastArg: () => oi,
-    broadcastable: () => Ae,
-    commonCoerceableType: () => fu,
-    commonCoerceableTypeWithBroadcast: () => Ha,
-    elementType: () => Ve,
-    getAllowedTypesForArg: () => Ad,
-    hasListType: () => wn,
-    hasMapType: () => Ix,
-    isEligibleForBroadcast: () => ty,
-    isGeometryType: () => vd,
-    isList: () => j,
-    isMapOrListOfMap: () => ua,
-    isMultipliableElementType: () => bx,
-    isOneOf: () => Od,
-    isSubType: () => _i,
-    isSubTypeOrCoercible: () => kn,
-    isSubTypeOrNonComplexCoercible: () => Ec,
-    isSummableElementType: () => $l,
-    isTypeOrListOfType: () => se,
-    isValidOnLogScales: () => Ul,
-    listArg: () => Rd,
-    listType: () => vn,
-    mapType: () => Px,
-    multipliableElementTypes: () => Jm,
-    prettyPrint: () => oe,
-    repr: () => at,
-    signature: () => kt,
-    straightTypes: () => Qm,
-    summableElementTypes: () => ql,
-    typeSatisfiesArgType: () => ny,
-    typeSatisfiesArgTypeUncoerced: () => Mc,
-    valueTypes: () => RD,
-    variadicMinCount: () => _r,
-    vectorTypes: () => xx,
+    allListTypes: () => allListTypes,
+    allTupleTypes: () => allTupleTypes,
+    allValueTypes: () => allValueTypes,
+    angleTypes: () => angleTypes,
+    assertTypeIsOneOf: () => assertTypeIsOneOf,
+    broadcastArg: () => broadcastArg,
+    broadcastable: () => broadcastable,
+    commonCoerceableType: () => commonCoerceableType,
+    commonCoerceableTypeWithBroadcast: () => commonCoerceableTypeWithBroadcast,
+    elementType: () => elementType,
+    getAllowedTypesForArg: () => getAllowedTypesForArg,
+    hasListType: () => hasListType,
+    hasMapType: () => hasMapType,
+    isEligibleForBroadcast: () => isEligibleForBroadcast,
+    isGeometryType: () => isGeometryType,
+    isList: () => isList,
+    isMapOrListOfMap: () => isMapOrListOfMap,
+    isMultipliableElementType: () => isMultipliableElementType,
+    isOneOf: () => isOneOf,
+    isSubType: () => isSubType,
+    isSubTypeOrCoercible: () => isSubTypeOrCoercible,
+    isSubTypeOrNonComplexCoercible: () => isSubTypeOrNonComplexCoercible,
+    isSummableElementType: () => isSummableElementType,
+    isTypeOrListOfType: () => isTypeOrListOfType,
+    isValidOnLogScales: () => isValidOnLogScales,
+    listArg: () => listArg,
+    listType: () => listType,
+    mapType: () => mapType,
+    multipliableElementTypes: () => multipliableElementTypes,
+    prettyPrint: () => prettyPrint,
+    repr: () => repr,
+    signature: () => signature,
+    straightTypes: () => straightTypes,
+    summableElementTypes: () => summableElementTypes,
+    typeSatisfiesArgType: () => typeSatisfiesArgType,
+    typeSatisfiesArgTypeUncoerced: () => typeSatisfiesArgTypeUncoerced,
+    valueTypes: () => valueTypes,
+    variadicMinCount: () => variadicMinCount,
+    vectorTypes: () => vectorTypes,
   });
   function jm(e, t) {
-    return t ? vn(e) : e;
+    return t ? listType(e) : e;
   }
-  function _i(e, t) {
-    return e === EmptyList && j(t) || t === ListOfAny && j(e) ||
-        t === Any && !j(e)
+  function isSubType(e, t) {
+    return e === EmptyList && isList(t) || t === ListOfAny && isList(e) ||
+        t === Any && !isList(e)
       ? true
       : e === t;
   }
-  function kn(e, t) {
+  function isSubTypeOrCoercible(e, t) {
     if (e === void 0) return false;
-    if (_i(e, t)) return true;
-    j(e) && j(t) && t !== EmptyList && (e = Ve(e), t = Ve(t));
+    if (isSubType(e, t)) return true;
+    isList(e) && isList(t) && t !== EmptyList && (e = elementType(e), t = elementType(t));
     let n = t;
     switch (e) {
       case AngleMarker:
@@ -1863,32 +1863,32 @@
         return false;
     }
   }
-  function Ec(e, t) {
+  function isSubTypeOrNonComplexCoercible(e, t) {
     return t === Number && e === Complex ||
         t === ListOfNumber && e === ListOfComplex
       ? false
-      : kn(e, t);
+      : isSubTypeOrCoercible(e, t);
   }
-  function fu(e, t) {
-    if (_i(e, t)) return t;
-    if (_i(t, e)) return e;
-    let n = j(e);
-    if (n != j(t)) return;
+  function commonCoerceableType(e, t) {
+    if (isSubType(e, t)) return t;
+    if (isSubType(t, e)) return e;
+    let n = isList(e);
+    if (n != isList(t)) return;
     let r = jm(Complex, n);
-    if (e === r && kn(t, r)) return r;
-    if (t === r && kn(e, r)) return r;
+    if (e === r && isSubTypeOrCoercible(t, r)) return r;
+    if (t === r && isSubTypeOrCoercible(e, r)) return r;
     let s = jm(Number, n);
-    if (kn(e, s) && kn(t, s)) {
+    if (isSubTypeOrCoercible(e, s) && isSubTypeOrCoercible(t, s)) {
       let i = jm(AngleMarker, n), o = jm(DirectedAngleMarker, n);
       return e === i && t === o || e === o && t === i ? void 0 : s;
     }
   }
-  function Ha(e, t) {
-    return j(e) && wn(t)
-      ? fu(e, vn(t))
-      : wn(e) && j(t)
-      ? fu(vn(e), t)
-      : fu(e, t);
+  function commonCoerceableTypeWithBroadcast(e, t) {
+    return isList(e) && hasListType(t)
+      ? commonCoerceableType(e, listType(t))
+      : hasListType(e) && isList(t)
+      ? commonCoerceableType(listType(e), t)
+      : commonCoerceableType(e, t);
   }
   var Any = 0,
     Number = 1,
@@ -1954,7 +1954,7 @@
     MapInterval2ToComplex = 209,
     ListOfMapIntervalComplex = 210,
     ListOfMapInterval2ToComplex = 211,
-    RD = {
+    valueTypes = {
       Any: Any,
       Number: Number,
       Bool: Bool,
@@ -2020,27 +2020,27 @@
       ListOfMapInterval2ToComplex: ListOfMapInterval2ToComplex,
       ListOfMapInterval2DPoint3D: ListOfMapInterval2DPoint3D,
     },
-    zl = {
+    TupleTypeMap = {
       [Point]: [Number, Number],
       [Point3D]: [Number, Number, Number],
       [Complex]: [Number, Number],
     },
-    Qn = class e {
+    Union = class Union {
       constructor(t, { coerceComplexToReal: n }) {
         this.types = t;
         this.coerceComplexToReal = n;
       }
       static of(t, n = { coerceComplexToReal: true }) {
-        return new e(t, n);
+        return new Union(t, n);
       }
       getTypes() {
         return this.types;
       }
     },
-    RV = Object.values(RD),
-    AV = Object.keys(zl).map(parseFloat),
-    hx = Qn.of(AV);
-  function at(e) {
+    allValueTypes = Object.values(valueTypes),
+    AV = Object.keys(TupleTypeMap).map(parseFloat),
+    allTupleTypes = Union.of(AV);
+  function repr(e) {
     switch (e) {
       case Any:
         return "Any";
@@ -2175,7 +2175,7 @@
         throw new Error(`Invalid type: ${t}`);
     }
   }
-  function oe(e, t) {
+  function prettyPrint(e, t) {
     var r;
     let n = (r = t == null ? void 0 : t.specifyPointDimensions) != null
       ? r
@@ -2345,7 +2345,7 @@
       ListOfMapInterval2ToComplex,
       ListOfMapInterval2DPoint3D,
     ],
-    ii = Qn.of(_V, { coerceComplexToReal: false }),
+    allListTypes = Union.of(_V, { coerceComplexToReal: false }),
     eX = {
       [ListOfAny]: Any,
       [EmptyList]: Number,
@@ -2379,7 +2379,7 @@
       [ListOfMapInterval2ToComplex]: MapInterval2ToComplex,
       [ListOfMapInterval2DPoint3D]: MapInterval2DPoint3D,
     };
-  function j(e) {
+  function isList(e) {
     switch (e) {
       case void 0:
         return false;
@@ -2454,7 +2454,7 @@
         throw new Error(`Invalid type: ${e}`);
     }
   }
-  function Ve(e) {
+  function elementType(e) {
     switch (e) {
       case EmptyList:
       case ListOfNumber:
@@ -2550,13 +2550,13 @@
       case MapInterval2ToPoint:
       case MapInterval2ToComplex:
       case MapInterval2DPoint3D:
-        throw new Error("Type " + at(e) + " does not implement elementType.");
+        throw new Error("Type " + repr(e) + " does not implement elementType.");
       default:
         let t = e;
         throw new Error(`Invalid type: ${t}`);
     }
   }
-  function vn(e) {
+  function listType(e) {
     switch (e) {
       case Any:
         return ListOfAny;
@@ -2652,13 +2652,13 @@
       case ListOfMapInterval2ToPoint:
       case ListOfMapInterval2ToComplex:
       case ListOfMapInterval2DPoint3D:
-        throw new Error("Type " + at(e) + " does not implement listType.");
+        throw new Error("Type " + repr(e) + " does not implement listType.");
       default:
         let t = e;
         throw new Error(`Invalid type: ${t}`);
     }
   }
-  function wn(e) {
+  function hasListType(e) {
     switch (e) {
       case Any:
       case Number:
@@ -2730,7 +2730,7 @@
         throw new Error(`Invalid type: ${e}`);
     }
   }
-  function vd(e) {
+  function isGeometryType(e) {
     if (e === void 0) return false;
     switch (e) {
       case Point:
@@ -2749,7 +2749,7 @@
         return false;
     }
   }
-  function Ul(e) {
+  function isValidOnLogScales(e) {
     switch (e) {
       case Number:
       case Any:
@@ -2822,32 +2822,32 @@
         throw new Error(`Invalid type: ${t}`);
     }
   }
-  function Od(e, t) {
+  function isOneOf(e, t) {
     for (let n of t) if (e === n) return true;
     return false;
   }
-  var ql = [Number, Complex, Point, Point3D];
-  function $l(e) {
-    return ql.includes(e);
+  var summableElementTypes = [Number, Complex, Point, Point3D];
+  function isSummableElementType(e) {
+    return summableElementTypes.includes(e);
   }
-  var Jm = [Number, Complex];
-  function bx(e) {
-    return Jm.includes(e);
+  var multipliableElementTypes = [Number, Complex];
+  function isMultipliableElementType(e) {
+    return multipliableElementTypes.includes(e);
   }
-  var Qm = Qn.of([Line, Ray, Segment, Vector]),
-    xx = Qn.of([Vector, Vector3D]),
-    Tx = Qn.of([AngleMarker, DirectedAngleMarker]);
-  function se(e, t) {
+  var straightTypes = Union.of([Line, Ray, Segment, Vector]),
+    vectorTypes = Union.of([Vector, Vector3D]),
+    angleTypes = Union.of([AngleMarker, DirectedAngleMarker]);
+  function isTypeOrListOfType(e, t) {
     return e === void 0
       ? false
       : e === t
       ? true
-      : j(e)
-      ? e === EmptyList ? true : Ve(e) === t
+      : isList(e)
+      ? e === EmptyList ? true : elementType(e) === t
       : false;
   }
-  function ua(e) {
-    return Od(e, [
+  function isMapOrListOfMap(e) {
+    return isOneOf(e, [
       MapIntervalPoint,
       MapIntervalComplex,
       MapIntervalPoint3D,
@@ -2872,30 +2872,30 @@
       [Complex]: MapInterval2ToComplex,
       [Point3D]: MapInterval2DPoint3D,
     };
-  function Ix(e) {
+  function hasMapType(e) {
     return AD[e] !== void 0;
   }
-  function Px(e, t) {
+  function mapType(e, t) {
     let n = t === 1 ? AD[e] : LV[e];
     if (n === void 0) {
-      throw new Error(`Unexpected return type for map: ${at(e)}`);
+      throw new Error(`Unexpected return type for map: ${repr(e)}`);
     }
     return n;
   }
-  function za(e, t) {
-    if (!Od(e, t)) {
+  function assertTypeIsOneOf(e, t) {
+    if (!isOneOf(e, t)) {
       throw new Error(
-        `Programming error: expected one of ${t.map(at)} but found ${
-          e && at(e)
+        `Programming error: expected one of ${t.map(repr)} but found ${
+          e && repr(e)
         } instead.`,
       );
     }
   }
-  var FV = Symbol("UNKNOWN_RETURN_TYPE");
+  var UNKNOWN_RETURN_TYPE = Symbol("UNKNOWN_RETURN_TYPE");
   function _D(e) {
     return typeof e == "object" && e.type === "variadic";
   }
-  function _r(e, t) {
+  function variadicMinCount(e, t) {
     return { type: "variadic", initial: new Array(t).fill(e), rest: e };
   }
   var Ex = class {
@@ -2947,10 +2947,10 @@
       : !!t.every((n, r) => {
         if (n === void 0) return true;
         let s = e.argTypeAtIndex(r);
-        return s === void 0 ? false : ny(n, s);
+        return s === void 0 ? false : typeSatisfiesArgType(n, s);
       });
   }
-  var Nd = class {
+  var NoCoerceComplexToReal = class {
       constructor(t) {
         this.arg = t;
         this.coerceComplexToReal = false;
@@ -2959,70 +2959,70 @@
         return typeof this.arg == "number" ? [this.arg] : this.arg.getTypes();
       }
     },
-    Te = new Nd(Number),
-    ro = new Nd(ListOfNumber),
-    Km = class {
+    NumberNC = new NoCoerceComplexToReal(Number),
+    ro = new NoCoerceComplexToReal(ListOfNumber),
+    ListArgType = class {
       constructor(t) {
         typeof t == "number"
-          ? (this.coerceComplexToReal = t === Number, this.nodeTypes = [vn(t)])
+          ? (this.coerceComplexToReal = t === Number, this.nodeTypes = [listType(t)])
           : (this.coerceComplexToReal = t.coerceComplexToReal,
-            this.nodeTypes = t.getTypes().map(vn));
+            this.nodeTypes = t.getTypes().map(listType));
       }
       getTypes() {
         return this.nodeTypes;
       }
     };
-  function Rd(e) {
-    return new Km(e);
+  function listArg(e) {
+    return new ListArgType(e);
   }
-  var ey = class {
+  var BroadcastableArg = class {
     constructor(t) {
       if (typeof t == "number") {
-        this.coerceComplexToReal = t === Number, this.nodeTypes = [t, vn(t)];
+        this.coerceComplexToReal = t === Number, this.nodeTypes = [t, listType(t)];
       } else {
         this.coerceComplexToReal = t.coerceComplexToReal, this.nodeTypes = [];
-        for (let n of t.getTypes()) this.nodeTypes.push(n, vn(n));
+        for (let n of t.getTypes()) this.nodeTypes.push(n, listType(n));
       }
     }
     getTypes() {
       return this.nodeTypes;
     }
   };
-  function ty(e) {
+  function isEligibleForBroadcast(e) {
     return typeof e == "number"
-      ? wn(e)
-      : e instanceof Qn
-      ? e.types.every(ty)
+      ? hasListType(e)
+      : e instanceof Union
+      ? e.types.every(isEligibleForBroadcast)
       : false;
   }
-  function oi(e) {
-    return new ey(e);
+  function broadcastArg(e) {
+    return new BroadcastableArg(e);
   }
-  function kt(e, t = {}) {
+  function signature(e, t = {}) {
     let n = { geometry: true, "3d": true, graphing: true, ...t };
     return _D(e) ? new Mx(e, n) : new Ex(e, n);
   }
-  function Ae(e, t = {}) {
+  function broadcastable(e, t = {}) {
     return _D(e)
-      ? kt(
-        { type: "variadic", initial: e.initial.map(oi), rest: oi(e.rest) },
+      ? signature(
+        { type: "variadic", initial: e.initial.map(broadcastArg), rest: broadcastArg(e.rest) },
         t,
       )
-      : kt(e.map(oi), t);
+      : signature(e.map(broadcastArg), t);
   }
-  function ny(e, t) {
-    if (typeof t == "number") return kn(e, t);
+  function typeSatisfiesArgType(e, t) {
+    if (typeof t == "number") return isSubTypeOrCoercible(e, t);
     {
       let n = t.getTypes();
       return t.coerceComplexToReal
-        ? n.some((r) => kn(e, r))
-        : n.some((r) => Ec(e, r));
+        ? n.some((r) => isSubTypeOrCoercible(e, r))
+        : n.some((r) => isSubTypeOrNonComplexCoercible(e, r));
     }
   }
-  function Mc(e, t) {
-    return typeof t == "number" ? _i(e, t) : t.getTypes().some((r) => _i(e, r));
+  function typeSatisfiesArgTypeUncoerced(e, t) {
+    return typeof t == "number" ? isSubType(e, t) : t.getTypes().some((r) => isSubType(e, r));
   }
-  function Ad(e, t) {
+  function getAllowedTypesForArg(e, t) {
     let n = new Set();
     for (let r of e) {
       let s = r.argTypeAtIndex(t);
@@ -3599,7 +3599,7 @@
     let n = new v(
       E("shared-calculator-error-point-type-error", {
         symbol1: e,
-        symbol2: oe(Point),
+        symbol2: prettyPrint(Point),
       }),
     );
     return t || n.allowExport(), n;
@@ -3665,7 +3665,7 @@
     }
     for (let a = 1; a < n.argTypes.length; a++) {
       let u = n.argTypes[a];
-      typeof u == "number" ? s.push(oe(u)) : s.push(oe(u.getTypes()[0]));
+      typeof u == "number" ? s.push(prettyPrint(u)) : s.push(prettyPrint(u.getTypes()[0]));
     }
     let i = "";
     switch (s.length) {
@@ -3914,7 +3914,7 @@
   function piecewiseConditionTypeErrorError(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-piecewise-condition-type-error", {
-        symbol1: oe(Bool),
+        symbol1: prettyPrint(Bool),
         symbol2: e[0],
       }),
     );
@@ -5077,8 +5077,8 @@
   function substitutionTypeErrorError(e, t) {
     return new v(
       E("shared-calculator-error-substitution-type-error", {
-        actual: oe(e),
-        expected: oe(t),
+        actual: prettyPrint(e),
+        expected: prettyPrint(t),
       }),
     );
   }
@@ -5153,14 +5153,14 @@
   function invalidIntervalComprehensionReturnTypeError(e) {
     return new v(
       E("shared-calculator-error-invalid-interval-comprehension-return-type", {
-        type: oe(e),
+        type: prettyPrint(e),
       }),
     );
   }
   function invalidIntervalComprehensionArityError(e, t) {
     return new v(
       E("shared-calculator-error-bad-interval-comprehension-arity", {
-        type: oe(e),
+        type: prettyPrint(e),
         count: Cd(t),
       }),
     );
@@ -5219,7 +5219,7 @@
     return typeof e != "object" || !e ? false : e.type === "Action";
   }
   function bX(e) {
-    return j(e.valueType);
+    return isList(e.valueType);
   }
   var Gi = {};
   ia(Gi, {
@@ -7158,8 +7158,8 @@
       Tone,
     ],
     AB = new Set(fE),
-    Tf = Qn.of(fE.filter((e) => wn(e))),
-    If = Qn.of(fE.filter((e) => !wn(e)));
+    Tf = Union.of(fE.filter((e) => hasListType(e))),
+    If = Union.of(fE.filter((e) => !hasListType(e)));
   function io(e) {
     return AB.has(e);
   }
@@ -9822,10 +9822,10 @@
   }
   var vu = c0(Se(0, 1)), Kc = c0(Se(1, 1)), Nf = c0(Se(1, 2));
   function pt(e) {
-    return e.map((t) => Ae(t));
+    return e.map((t) => broadcastable(t));
   }
   function Su(e) {
-    return e.map((t) => kt(t));
+    return e.map((t) => signature(t));
   }
   function ee(e, t) {
     var d, y, g, m, h;
@@ -9865,9 +9865,9 @@
   function wo() {
     return ee(pt([{ type: "variadic", initial: [], rest: Any }]), {});
   }
-  var Ag = Qn.of([Segment, Circle, Line, Ray, Arc]),
-    o0 = Qn.of([Segment, Line, Ray, Vector]),
-    bp = Qn.of([
+  var Ag = Union.of([Segment, Circle, Line, Ray, Arc]),
+    o0 = Union.of([Segment, Line, Ray, Vector]),
+    bp = Union.of([
       Point,
       Segment,
       Circle,
@@ -9880,23 +9880,23 @@
       DirectedAngleMarker,
       Transformation,
     ]),
-    a0 = Qn.of([
-      ...ii.types.filter((e) => e !== ListOfDistribution),
+    a0 = Union.of([
+      ...allListTypes.types.filter((e) => e !== ListOfDistribution),
       Distribution,
     ]),
-    u0 = Qn.of([Any, ListOfAny], { coerceComplexToReal: false });
+    u0 = Union.of([Any, ListOfAny], { coerceComplexToReal: false });
   function el(e) {
     return !!Fo[e];
   }
   function An(e) {
     return [
-      kt([Rd(e)]),
-      kt([e]),
-      Ae({ type: "variadic", initial: [e, e], rest: e }),
+      signature([listArg(e)]),
+      signature([e]),
+      broadcastable({ type: "variadic", initial: [e, e], rest: e }),
     ];
   }
   function xp(e) {
-    return [kt([Rd(e), Rd(e)])];
+    return [signature([listArg(e), listArg(e)])];
   }
   var Fo = {
     midpoint: ee([
@@ -9905,12 +9905,12 @@
     ], {
       allowDotCall: true,
     }),
-    segment: ee([Ae([Point, Point]), Ae([Point3D, Point3D])]),
-    vector: ee([Ae([Point, Point]), Ae([Point3D, Point3D])]),
-    sphere: ee([Ae([Point, Number]), Ae([Point3D, Number])]),
+    segment: ee([broadcastable([Point, Point]), broadcastable([Point3D, Point3D])]),
+    vector: ee([broadcastable([Point, Point]), broadcastable([Point3D, Point3D])]),
+    sphere: ee([broadcastable([Point, Number]), broadcastable([Point3D, Number])]),
     distance: ee(pt([[Point, Point], [Point3D, Point3D]])),
     glider: ee(
-      pt([[Qn.of([Segment, Circle, Line, Ray, Arc, Polygon]), Number]]),
+      pt([[Union.of([Segment, Circle, Line, Ray, Arc, Polygon]), Number]]),
     ),
     circle: ee(pt([[Point, Segment], [Point, Point], [Point, Number]]), {}),
     center: ee(pt([[Circle], [Arc]]), { allowDotCall: true }),
@@ -9919,17 +9919,17 @@
     strictintersection: ee(pt([[Ag, Ag]])),
     parallel: ee(pt([[o0, Point]])),
     perpendicular: ee(pt([[o0, Point]])),
-    anglebisector: ee(pt([[Tx]])),
-    start: ee([Ae([Vector]), Ae([Vector3D])], { allowDotCall: true }),
-    end: ee([Ae([Vector]), Ae([Vector3D])], { allowDotCall: true }),
+    anglebisector: ee(pt([[angleTypes]])),
+    start: ee([broadcastable([Vector]), broadcastable([Vector3D])], { allowDotCall: true }),
+    end: ee([broadcastable([Vector]), broadcastable([Vector3D])], { allowDotCall: true }),
     length: ee([
-      kt([ii], { geometry: false, "3d": false }),
-      Ae([Segment3D]),
-      Ae([Vector3D]),
-      Ae([Segment]),
-      Ae([Vector]),
-      Ae([Arc]),
-      kt({ type: "variadic", initial: [Any], rest: Any }, {
+      signature([allListTypes], { geometry: false, "3d": false }),
+      broadcastable([Segment3D]),
+      broadcastable([Vector3D]),
+      broadcastable([Segment]),
+      broadcastable([Vector]),
+      broadcastable([Arc]),
+      signature({ type: "variadic", initial: [Any], rest: Any }, {
         geometry: false,
         "3d": false,
       }),
@@ -9952,43 +9952,43 @@
     directedangles: ee(Su([[Polygon]]), { allowDotCall: true }),
     coterminal: ee(pt([[AngleMarker], [DirectedAngleMarker]])),
     round: ee([
-      ...pt([[Te], [Te, Number]]),
+      ...pt([[NumberNC], [NumberNC, Number]]),
       ...pt([[Complex], [Complex, Number]]),
     ]),
-    mod: ee([...pt([[Te, Te]]), ...pt([[Complex, Complex]])]),
-    floor: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    ceil: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    abs: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    sign: ee([Ae([Te]), Ae([Complex])]),
-    real: ee([Ae([Complex])], { allowDotCall: true }),
-    imag: ee([Ae([Complex])], { allowDotCall: true }),
-    conj: ee([...pt([[Te]]), ...pt([[Complex]])]),
-    exp: ee([Ae([Te]), Ae([Complex])]),
-    sin: ee([Ae([Te]), Ae([Complex])]),
-    cos: ee([Ae([Te]), Ae([Complex])]),
-    tan: ee([Ae([Te]), Ae([Complex])]),
-    sinh: ee([Ae([Te]), Ae([Complex])]),
-    cosh: ee([Ae([Te]), Ae([Complex])]),
-    tanh: ee([Ae([Te]), Ae([Complex])]),
-    sec: ee([Ae([Te]), Ae([Complex])]),
-    csc: ee([Ae([Te]), Ae([Complex])]),
-    cot: ee([Ae([Te]), Ae([Complex])]),
-    sech: ee([Ae([Te]), Ae([Complex])]),
-    csch: ee([Ae([Te]), Ae([Complex])]),
-    coth: ee([Ae([Te]), Ae([Complex])]),
-    arctan: ee([Ae([Te]), Ae([Complex]), ...pt([[Number, Number]])]),
-    arcsinh: ee([Ae([Te]), Ae([Complex])]),
-    arccot: ee([Ae([Te]), Ae([Complex])]),
-    arccsch: ee([Ae([Te]), Ae([Complex])]),
+    mod: ee([...pt([[NumberNC, NumberNC]]), ...pt([[Complex, Complex]])]),
+    floor: ee([...pt([[NumberNC]]), ...pt([[Complex]])]),
+    ceil: ee([...pt([[NumberNC]]), ...pt([[Complex]])]),
+    abs: ee([...pt([[NumberNC]]), ...pt([[Complex]])]),
+    sign: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    real: ee([broadcastable([Complex])], { allowDotCall: true }),
+    imag: ee([broadcastable([Complex])], { allowDotCall: true }),
+    conj: ee([...pt([[NumberNC]]), ...pt([[Complex]])]),
+    exp: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    sin: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    cos: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    tan: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    sinh: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    cosh: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    tanh: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    sec: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    csc: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    cot: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    sech: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    csch: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    coth: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    arctan: ee([broadcastable([NumberNC]), broadcastable([Complex]), ...pt([[Number, Number]])]),
+    arcsinh: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    arccot: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
+    arccsch: ee([broadcastable([NumberNC]), broadcastable([Complex])]),
     nthroot: ee([...pt([[Number, Number]])]),
     complexNthRoot: ee([...pt([[Complex, Complex]])]),
-    sort: ee(Su([[ro], [ListOfComplex], [ii, ro], [ii, ListOfComplex]]), {
+    sort: ee(Su([[ro], [ListOfComplex], [allListTypes, ro], [allListTypes, ListOfComplex]]), {
       minArityExampleArgs: "([3,2,1])",
       maxArityExampleArgs: "([1,2,3],[3,2,1])",
       dotMaxArityExampleArgs: "([3,4])",
       allowDotCall: true,
     }),
-    shuffle: ee(Su([[SeedType, ii], [SeedType, ii, Number]]), {
+    shuffle: ee(Su([[SeedType, allListTypes], [SeedType, allListTypes, Number]]), {
       minArityExampleArgs: "([1,2,3])",
       maxArityExampleArgs: "([1,2,3],2)",
       dotMaxArityExampleArgs: "(2)",
@@ -10001,8 +10001,8 @@
       allowDotCall: true,
     }),
     unique: ee(
-      Su([[Qn.of(
-        ii.types.filter((e) => e !== ListOfDistribution && e !== ListOfAny),
+      Su([[Union.of(
+        allListTypes.types.filter((e) => e !== ListOfDistribution && e !== ListOfAny),
         { coerceComplexToReal: false },
       )]]),
       {
@@ -10024,21 +10024,21 @@
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
     }),
-    stdev: ee([...pt([[Distribution]]), ...An(Te), ...An(Complex)], {
+    stdev: ee([...pt([[Distribution]]), ...An(NumberNC), ...An(Complex)], {
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
     }),
-    stdevp: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
-    var: ee([...pt([[Distribution]]), ...An(Te), ...An(Complex)], {
+    stdevp: ee([...An(NumberNC), ...An(Complex)], { allowDotCall: true }),
+    var: ee([...pt([[Distribution]]), ...An(NumberNC), ...An(Complex)], {
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
     }),
-    cov: ee([...xp(Te), ...xp(Complex)]),
-    covp: ee([...xp(Te), ...xp(Complex)]),
-    corr: ee([...xp(Te), ...xp(Complex)]),
+    cov: ee([...xp(NumberNC), ...xp(Complex)]),
+    covp: ee([...xp(NumberNC), ...xp(Complex)]),
+    corr: ee([...xp(NumberNC), ...xp(Complex)]),
     quantile: ee([
       ...pt([[Distribution, Number]]),
-      kt([ListOfNumber, oi(Number)]),
+      signature([ListOfNumber, broadcastArg(Number)]),
     ], {
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
@@ -10048,7 +10048,7 @@
       dotMaxArityExampleArgs: "(x)",
     }),
     random: ee([
-      kt([SeedType]),
+      signature([SeedType]),
       ...Su([[SeedType, Number], [SeedType, Number, Number], [SeedType, a0], [
         SeedType,
         a0,
@@ -10056,19 +10056,19 @@
       ], [SeedType, a0, Number, Number]]),
     ], { allowDotCall: true, isSeeded: true }),
     polygon: ee([
-      kt([]),
+      signature([]),
       ...An(Point),
       ...Su([[ListOfNumber, ListOfNumber], [Number, ListOfNumber], [
         ListOfNumber,
         Number,
       ]]),
     ]),
-    total: ee([...An(Te), ...An(Complex), ...An(Point), ...An(Point3D)], {
+    total: ee([...An(NumberNC), ...An(Complex), ...An(Point), ...An(Point3D)], {
       allowDotCall: true,
     }),
     mean: ee([
-      Ae([Distribution]),
-      ...An(Te),
+      broadcastable([Distribution]),
+      ...An(NumberNC),
       ...An(Complex),
       ...An(Point),
       ...An(Point3D),
@@ -10076,13 +10076,13 @@
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
     }),
-    varp: ee([Ae([Distribution]), ...An(Te), ...An(Complex)], {
+    varp: ee([broadcastable([Distribution]), ...An(NumberNC), ...An(Complex)], {
       fallthroughUnlessDistribution: true,
       allowDotCall: true,
     }),
-    mad: ee([...An(Te), ...An(Complex)]),
-    lcm: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
-    gcd: ee([...An(Te), ...An(Complex)], { allowDotCall: true }),
+    mad: ee([...An(NumberNC), ...An(Complex)]),
+    lcm: ee([...An(NumberNC), ...An(Complex)], { allowDotCall: true }),
+    gcd: ee([...An(NumberNC), ...An(Complex)], { allowDotCall: true }),
     min: ee([...An(Number)], { allowDotCall: true }),
     max: ee([...An(Number)], { allowDotCall: true }),
     histogram: wo(),
@@ -11085,10 +11085,10 @@
       case "reducer": {
         if (
           Array.isArray(n.argumentTypes) &&
-          typeof n.argumentTypes[0] == "number" && j(n.argumentTypes[0]) &&
-          typeof r == "number" && wn(r)
+          typeof n.argumentTypes[0] == "number" && isList(n.argumentTypes[0]) &&
+          typeof r == "number" && hasListType(r)
         ) {
-          let i = n.argumentTypes[0], o = Ve(i);
+          let i = n.argumentTypes[0], o = elementType(i);
           t.push(...An(o));
         } else {throw new Error(
             `Programming error: declared argumentTypes for built-in function ${e} is not consistent with "reducer"`,
@@ -11097,23 +11097,23 @@
       }
       case "parameterizedReducer": {
         if (
-          t.push(kt(n.argumentTypes)),
+          t.push(signature(n.argumentTypes)),
             Array.isArray(n.argumentTypes) && n.argumentTypes.length === 2
         ) {
           let i = n.argumentTypes[1];
           t.push(
-            kt([n.argumentTypes[0], typeof i == "number" && wn(i) ? oi(i) : i]),
+            signature([n.argumentTypes[0], typeof i == "number" && hasListType(i) ? broadcastArg(i) : i]),
           );
         }
         break;
       }
       case "doubleReducer":
       case "never-broadcast": {
-        t.push(kt(n.argumentTypes));
+        t.push(signature(n.argumentTypes));
         break;
       }
       default: {
-        t.push(kt(n.argumentTypes.map((i) => ty(i) ? oi(i) : i)));
+        t.push(signature(n.argumentTypes.map((i) => isEligibleForBroadcast(i) ? broadcastArg(i) : i)));
         break;
       }
     }
@@ -12223,31 +12223,31 @@
       case 0:
         return ts(n.type);
       case 2:
-        return `${ts(n.type)} ${at(n.valueType)} ${e.argNames[t]}`;
+        return `${ts(n.type)} ${repr(n.valueType)} ${e.argNames[t]}`;
       case 3:
-        return `${ts(n.type)} ${at(n.valueType)}`;
+        return `${ts(n.type)} ${repr(n.valueType)}`;
       case 1:
-        return `${ts(n.type)} ${at(n.valueType)} ${y0(n.value)}`;
+        return `${ts(n.type)} ${repr(n.valueType)} ${y0(n.value)}`;
       case 37:
       case 42:
-        return `${ts(n.type)} ${at(n.valueType)} ${n.symbol} ${
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.symbol} ${
           n.args.join(" ")
         }`;
       case 44:
-        return `${ts(n.type)} ${at(n.valueType)} ${n.tag} ${n.args.join(" ")}`;
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.tag} ${n.args.join(" ")}`;
       case 48:
-        return `${ts(n.type)} ${at(n.valueType)} ${n.args.join(" ")}`;
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.args.join(" ")}`;
       case 16:
-        return `${ts(n.type)} ${at(n.valueType)} (${n.index}) ${
+        return `${ts(n.type)} ${repr(n.valueType)} (${n.index}) ${
           n.args.join(" ")
         }`;
       case 50:
-        return `${ts(n.type)} ${at(n.valueType)} ${n.args.join(" ")} (${
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.args.join(" ")} (${
           n.callData.parameterSymbols.join(",")
         })`;
       case 4: {
-        let s = n.signature.argTypes.map((i) => at(i)).join(", ");
-        return `${ts(n.type)} ${at(n.valueType)} ${n.symbol}(${s}) [group ${
+        let s = n.signature.argTypes.map((i) => repr(i)).join(", ");
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.symbol}(${s}) [group ${
           n.recursionGroup.join(" ")
         }]`;
       }
@@ -12283,7 +12283,7 @@
       case 54:
       case 55:
       case 15:
-        return `${ts(n.type)} ${at(n.valueType)} ${n.args.join(" ")}`;
+        return `${ts(n.type)} ${repr(n.valueType)} ${n.args.join(" ")}`;
       default:
         let r = n;
         throw new Error(`Unexpected opcode ${r.type}`);
@@ -14400,7 +14400,7 @@
           ? i += `${c}=${this.printValue(ls(u.valueType))};
   `
           : i += `throw new Error('Cannot set ${c} of type ${
-            at(u.valueType)
+            repr(u.valueType)
           } to NaN value');
   `;
       }
@@ -14512,7 +14512,7 @@
     if (t.type !== 47) throw new Error(`Expected BlockVar, got ${t.type}`);
     let n = e.getInstruction(t.args[0]);
     if (n.type !== 51) throw new Error(`Expected EndMap, got ${n.type}`);
-    let r = j(t.valueType) ? Ve(t.valueType) : t.valueType,
+    let r = isList(t.valueType) ? elementType(t.valueType) : t.valueType,
       s = e.getInstruction(n.args[0]);
     if (s.type !== 50) throw new Error(`Expected BeginMap, got ${s.type}`);
     let i = [];
@@ -14573,7 +14573,7 @@
           this._chunk = n,
           this.valueType = n.getReturnType(),
           this.addDependencies(n.getLiveArgNames()),
-          this.isList = j(this.valueType),
+          this.isList = isList(this.valueType),
           this.isList &&
           (this.length = this._chunk.getConstantListLength(),
             this.length === void 0)
@@ -14590,7 +14590,7 @@
       return true;
     }
     getCompiledFunction(n) {
-      return ua(this.valueType)
+      return isMapOrListOfMap(this.valueType)
         ? Jg(this._chunk)
         : this._chunk.getCompiledFunction(n);
     }
@@ -14649,7 +14649,7 @@
     asValue() {
       if (this._chunk.isConstant()) return this._chunk.asValue();
       if (this.isList) {
-        let n = [], r = Vo(ls(Ve(this.valueType)));
+        let n = [], r = Vo(ls(elementType(this.valueType)));
         for (let s = 0; s < this.length; s++) n.push(r);
         return n;
       } else return Vo(ls(this.valueType));
@@ -14665,8 +14665,8 @@
     }
     getEvaluationInfo() {
       return this._chunk.isConstant() && this.getDependencies().length === 0 &&
-          (se(this.valueType, Number) || se(this.valueType, Bool) ||
-            se(this.valueType, Complex))
+          (isTypeOrListOfType(this.valueType, Number) || isTypeOrListOfType(this.valueType, Bool) ||
+            isTypeOrListOfType(this.valueType, Complex))
         ? [{ val: this.asValue() }]
         : false;
     }
@@ -14688,9 +14688,9 @@
     }
     coerceToNumericIfPossible() {
       if (
-        se(this.valueType, AngleMarker) ||
-        se(this.valueType, DirectedAngleMarker) ||
-        se(this.valueType, Complex)
+        isTypeOrListOfType(this.valueType, AngleMarker) ||
+        isTypeOrListOfType(this.valueType, DirectedAngleMarker) ||
+        isTypeOrListOfType(this.valueType, Complex)
       ) {
         let n = this._chunk.copy(), r = n.getReturnIndex();
         return n.coerceToNumericIfPossible() === r ? this : new e(n);
@@ -14741,13 +14741,13 @@
     for (let i = 0; i < s; i++) {
       let o = [];
       for (let a = 0; a < n.length; a++) {
-        o.push(n[a].isList || j(n[a].valueType) ? n[a].elementAt(i) : n[a]);
+        o.push(n[a].isList || isList(n[a].valueType) ? n[a].elementAt(i) : n[a]);
       }
       r(o, i);
     }
   },
     Bf.wrap = function (n) {
-      return n.isList || j(n.valueType) ? n : new Bf([n]);
+      return n.isList || isList(n.valueType) ? n : new Bf([n]);
     };
   var lo = Bf;
   var Go = class extends Q {
@@ -15167,7 +15167,7 @@
       case ListOfTriangle3D:
       case ListOfSphere3D:
       case ListOfTone: {
-        let r = [], s = Ve(e);
+        let r = [], s = elementType(e);
         for (let i of t) r.push(lt(s, i));
         return new C.List(r);
       }
@@ -15195,14 +15195,14 @@
       case ListOfRestriction:
         throw new Error(
           `Programming error: cannot create parse node from valueType: ${
-            at(e)
+            repr(e)
           }`,
         );
       case Tone:
         return new C.FunctionCall("tone", [lt(Number, t[0]), lt(Number, t[1])]);
       default:
         let n = e;
-        throw new Error(`Programming error: unexpected valueType: ${at(n)}`);
+        throw new Error(`Programming error: unexpected valueType: ${repr(n)}`);
     }
   }
   function jk(e) {
@@ -15220,7 +15220,7 @@
       case Complex:
         return t.value;
       default:
-        throw internalError(`Unexpected type ${at(t.valueType)} in column.`);
+        throw internalError(`Unexpected type ${repr(t.valueType)} in column.`);
     }
   }
   var dl = class extends lo {
@@ -15425,7 +15425,7 @@
   C.Ticker.prototype.getConcreteTree = function (e, t) {
     let n = this.handler.tryGetConcreteTree(e, t);
     !n.isError && n.valueType !== Action &&
-      (n = eventHandlerTypeErrorError(oe(n.valueType)));
+      (n = eventHandlerTypeErrorError(prettyPrint(n.valueType)));
     let r = n.getDependencies().filter((s) =>
       !(e.graphingEnabled() && e.validActionVariable(s))
     );
@@ -15621,7 +15621,7 @@
           ? s.push(invalidTableEntryError(o.tableError()))
           : o.valueType === Number || o.valueType === Complex
           ? s.push(o)
-          : s.push(tableEntryTypeErrorError([oe(o.valueType)]));
+          : s.push(tableEntryTypeErrorError([prettyPrint(o.valueType)]));
       }
       for (let i = 0; i < s.length; i++) {
         if (s[i].isError) continue;
@@ -15642,7 +15642,7 @@
           s.valueType !== ListOfNumber &&
           s.valueType !== Complex && s.valueType !== ListOfComplex &&
           s.valueType !== EmptyList
-        ? tableHeaderTypeErrorError([oe((r = s.valueType) != null ? r : Any)])
+        ? tableHeaderTypeErrorError([prettyPrint((r = s.valueType) != null ? r : Any)])
         : s.getDependencies().length > 0
         ? tooManyVariablesError(s.getDependencies()).setDependencies(
           s.getDependencies(),
@@ -15808,7 +15808,7 @@
     return t;
   }
   function UO(e, t, n, r, s) {
-    let i = se(n, Circle) || se(n, Arc), o = se(s, Circle) || se(s, Arc);
+    let i = isTypeOrListOfType(n, Circle) || isTypeOrListOfType(n, Arc), o = isTypeOrListOfType(s, Circle) || isTypeOrListOfType(s, Arc);
     if (!i && !o) return;
     let a = zO(e, t, n),
       u = zO(e, r, s),
@@ -15842,7 +15842,7 @@
     for (let o = 0; o < s.length; o++) {
       let a = s[o];
       if (
-        se(n, Circle) && o === 0 || a.type === "arbitrary-expression" ||
+        isTypeOrListOfType(n, Circle) && o === 0 || a.type === "arbitrary-expression" ||
         a.type === "polygon-edge"
       ) continue;
       let u = Ta(a);
@@ -15856,22 +15856,22 @@
     if (e.length === 0) return EmptyList;
     if (e.includes(Complex)) return ListOfComplex;
     let t = e[0];
-    if (t !== Number && kn(t, Number)) {
+    if (t !== Number && isSubTypeOrCoercible(t, Number)) {
       for (let n of e) {
-        let r = fu(t, n);
+        let r = commonCoerceableType(t, n);
         r !== void 0 && (t = r);
       }
     }
-    return wn(t) ? vn(t) : ListOfAny;
+    return hasListType(t) ? listType(t) : ListOfAny;
   }
   function qO(e) {
     let t = [];
-    for (let n of e) n !== EmptyList && (j(n) ? t.push(Ve(n)) : t.push(n));
+    for (let n of e) n !== EmptyList && (isList(n) ? t.push(elementType(n)) : t.push(n));
     return jp(t);
   }
   function uh(e, t) {
-    if (j(e)) {
-      let n = Ve(e);
+    if (isList(e)) {
+      let n = elementType(e);
       for (let r = 0; r < t.length; r++) if (Br(n, t[r])) return true;
       return false;
     }
@@ -15951,7 +15951,7 @@
         return Ii(n) || Ii(r);
       }
       default:
-        throw new Error("Type cannot contain a NaN value: " + oe(e) + ".");
+        throw new Error("Type cannot contain a NaN value: " + prettyPrint(e) + ".");
     }
   }
   function po(e, t) {
@@ -16499,7 +16499,7 @@
     return n;
   }
   function R0(e, t) {
-    if (j(e)) return t.length === 1 ? R0(Ve(e), t[0]) : dr();
+    if (isList(e)) return t.length === 1 ? R0(elementType(e), t[0]) : dr();
     switch (e) {
       case Number:
       case Point:
@@ -16511,10 +16511,10 @@
         return dr();
     }
   }
-  var Hf = [oi(Number), oi(Number)],
+  var Hf = [broadcastArg(Number), broadcastArg(Number)],
     A0 = [
       ...Pi([
-        [Te, Te],
+        [NumberNC, NumberNC],
         [Complex, Complex],
         [Point, Number],
         [Number, Point],
@@ -16527,17 +16527,17 @@
         [Restriction, Tf],
         [Tf, Restriction],
       ]),
-      kt([Restriction, If]),
-      kt([If, Restriction]),
+      signature([Restriction, If]),
+      signature([If, Restriction]),
     ],
     _0 = {
-      Negative: Pi([[Te], [Complex], [Point], [Vector], [Vector3D], [Point3D]]),
-      Add: Pi([[Te, Te], [Complex, Complex], [Point, Point], [Vector, Vector], [
+      Negative: Pi([[NumberNC], [Complex], [Point], [Vector], [Vector3D], [Point3D]]),
+      Add: Pi([[NumberNC, NumberNC], [Complex, Complex], [Point, Point], [Vector, Vector], [
         Vector3D,
         Vector3D,
       ], [Point3D, Point3D]]),
       Subtract: Pi([
-        [Te, Te],
+        [NumberNC, NumberNC],
         [Complex, Complex],
         [Point, Point],
         [Vector, Vector],
@@ -16552,7 +16552,7 @@
       CrossMultiply: [
         ...Pi([[Vector3D, Vector3D], [Point3D, Point3D]]),
         ...Pi([
-          [Te, Te],
+          [NumberNC, NumberNC],
           [Complex, Complex],
           [Point, Number],
           [Number, Point],
@@ -16563,23 +16563,23 @@
           [Restriction, Tf],
           [Tf, Restriction],
         ]),
-        kt([Restriction, If]),
-        kt([If, Restriction]),
+        signature([Restriction, If]),
+        signature([If, Restriction]),
       ],
       Divide: Pi([
-        [Te, Te],
+        [NumberNC, NumberNC],
         [Complex, Complex],
         [Point, Number],
         [Vector, Number],
         [Vector3D, Number],
         [Point3D, Number],
       ]),
-      Exponent: Pi([[Te, Te], [Complex, Complex]]),
-      "Comparator['=']": [kt(Hf)],
-      "Comparator['>']": [kt(Hf)],
-      "Comparator['<']": [kt(Hf)],
-      "Comparator['>=']": [kt(Hf)],
-      "Comparator['<=']": [kt(Hf)],
+      Exponent: Pi([[NumberNC, NumberNC], [Complex, Complex]]),
+      "Comparator['=']": [signature(Hf)],
+      "Comparator['>']": [signature(Hf)],
+      "Comparator['<']": [signature(Hf)],
+      "Comparator['>=']": [signature(Hf)],
+      "Comparator['<=']": [signature(Hf)],
       ComparatorChain: Pi([{
         type: "variadic",
         initial: [Number, Number],
@@ -16587,23 +16587,23 @@
       }]),
       PercentOf: A0,
       Norm: Pi([[Number], [Point], [Point3D], [Vector], [Vector3D]]),
-      ListAccess: [kt([ii, oi(Qn.of([Bool, Number]))])],
+      ListAccess: [signature([allListTypes, broadcastArg(Union.of([Bool, Number]))])],
       Integral: Pi([[
         Number,
         Number,
-        Qn.of(ql, { coerceComplexToReal: false }),
+        Union.of(summableElementTypes, { coerceComplexToReal: false }),
       ]]),
     };
   function Pi(e) {
-    return e.map((t) => Ae(t));
+    return e.map((t) => broadcastable(t));
   }
   function ch(e, t, n) {
     if (t instanceof lo) {
       let r = n.filter((i) => i !== void 0);
       if (r.length === 0) return;
       let s = jp(r);
-      return j(s) && s !== ListOfAny
-        ? Hu([kt({ type: "variadic", initial: [], rest: Ve(s) })], n)
+      return isList(s) && s !== ListOfAny
+        ? Hu([signature({ type: "variadic", initial: [], rest: elementType(s) })], n)
         : [];
     } else if (t instanceof gn || t instanceof Gu || t instanceof Ms) {
       let r = t instanceof Ms ? t.args[1]._symbol : t._symbol;
@@ -16611,7 +16611,7 @@
       let s = Rf(e, r);
       return s ? Hu(s, n) : void 0;
     } else if (t instanceof Fr) {
-      let [r, s, i] = n, o = s !== void 0 && i !== void 0 ? Ha(s, i) : void 0;
+      let [r, s, i] = n, o = s !== void 0 && i !== void 0 ? commonCoerceableTypeWithBroadcast(s, i) : void 0;
       !o && i === Number && t.args[2] instanceof Et && t.args[2].isNaN() &&
         (i = void 0);
       let a;
@@ -16619,25 +16619,25 @@
       else if (s !== void 0) a = s;
       else if (i !== void 0) a = i;
       else return;
-      j(a) && (a = Ve(a));
-      let u = wn(a) ? oi(a) : a;
-      return Hu([kt([oi(Bool), u, u])], [n[0], s, i]);
+      isList(a) && (a = elementType(a));
+      let u = hasListType(a) ? broadcastArg(a) : a;
+      return Hu([signature([broadcastArg(Bool), u, u])], [n[0], s, i]);
     } else if (e.is3dProduct() && t instanceof _u) {
-      let r = [..._0.DotMultiply, Ae([Point, Point])];
+      let r = [..._0.DotMultiply, broadcastable([Point, Point])];
       return Hu(r, n);
     } else if (t instanceof ao) {
       let r = [
-        kt({ type: "variadic", initial: [Action], rest: Action }),
-        Ae([Number, Number]),
+        signature({ type: "variadic", initial: [Action], rest: Action }),
+        broadcastable([Number, Number]),
       ];
-      return e.is3dProduct() && r.push(Ae([Number, Number, Number])), Hu(r, n);
+      return e.is3dProduct() && r.push(broadcastable([Number, Number, Number])), Hu(r, n);
     } else if (t instanceof Ru) {
-      let r = [kt({ type: "variadic", initial: [Action], rest: Action })],
+      let r = [signature({ type: "variadic", initial: [Action], rest: Action })],
         s = n.filter((i) => i !== void 0 && i !== Number);
       if (s.length > 0) {
         let i = jp(s);
-        j(i) && i !== ListOfAny &&
-          r.push(kt({ type: "variadic", initial: [], rest: Ve(i) }));
+        isList(i) && i !== ListOfAny &&
+          r.push(signature({ type: "variadic", initial: [], rest: elementType(i) }));
       }
       return Hu(r, n);
     } else if (t instanceof Ho) {
@@ -16700,14 +16700,14 @@
           case 0:
             e.setWarning(
               E("shared-calculator-error-integral-lower-bound-type-error", {
-                symbol: oe(e.getInstruction(n[0]).valueType),
+                symbol: prettyPrint(e.getInstruction(n[0]).valueType),
               }),
             );
             break;
           case 1:
             e.setWarning(
               E("shared-calculator-error-integral-upper-bound-type-error", {
-                symbol: oe(e.getInstruction(n[1]).valueType),
+                symbol: prettyPrint(e.getInstruction(n[1]).valueType),
               }),
             );
             break;
@@ -16849,7 +16849,7 @@
   }
   function ZO(e, t) {
     let n = e.getInstruction(t[0]), r = e.getInstruction(t[1]);
-    return { symbol1: oe(n.valueType), symbol2: oe(r.valueType) };
+    return { symbol1: prettyPrint(n.valueType), symbol2: prettyPrint(r.valueType) };
   }
   function tN(e, t, n, r, s, i) {
     var x, T, b, M;
@@ -16873,11 +16873,11 @@
         p = lh(l, f, c),
         u = d.allowDotCall),
         p.length === 0 && (d != null && d.fallthroughUnlessDistribution) &&
-        f.length > 0 && se(f[0], Distribution)
+        f.length > 0 && isTypeOrListOfType(f[0], Distribution)
     ) {
       l = l.filter((P) => {
         let D = P.argTypeAtIndex(0);
-        return D === void 0 ? false : Mc(Distribution, D);
+        return D === void 0 ? false : typeSatisfiesArgTypeUncoerced(Distribution, D);
       }), p = [];
     } else if (Tp(n) && p.length === 0) {
       let P = Bn[n];
@@ -16900,11 +16900,11 @@
       if (!u) throw illegalDotCallError(r);
       let P = e.getInstruction(m[0]).valueType;
       if (
-        !j(P) && P !== Segment3D && P !== Vector3D && P !== Distribution &&
+        !isList(P) && P !== Segment3D && P !== Vector3D && P !== Distribution &&
         P !== Tone &&
-        (P === Point || !vd(P)) && n !== "real" && n !== "imag"
+        (P === Point || !isGeometryType(P)) && n !== "real" && n !== "imag"
       ) {
-        throw dotLHSTypeErrorError(r, oe(P), {
+        throw dotLHSTypeErrorError(r, prettyPrint(P), {
           blockExport: e.areAllArgsConstant([m[0]]),
         });
       }
@@ -16912,7 +16912,7 @@
     }
     if (
       (t.isGeometryEnabled() || t.is3dPolicy()) && n === "length" &&
-      h.length === 1 && j(e.getInstruction(h[0]).valueType)
+      h.length === 1 && isList(e.getInstruction(h[0]).valueType)
     ) {
       let P = t.is3dPolicy()
         ? threeDLengthTypeErrorError
@@ -16958,8 +16958,8 @@
   ) {
     if (c === "doubleReducer" && r.length === 2) {
       if (
-        !j(e.getInstruction(r[0]).valueType) ||
-        !j(e.getInstruction(r[1]).valueType)
+        !isList(e.getInstruction(r[0]).valueType) ||
+        !isList(e.getInstruction(r[1]).valueType)
       ) {
         throw nonListDoubleReducerError(t, {
           blockExport: e.areAllArgsConstant(r),
@@ -16967,7 +16967,7 @@
       }
     } else if (
       c === "parameterizedReducer" && !i && r.length === 2 &&
-      !j(e.getInstruction(r[0]).valueType)
+      !isList(e.getInstruction(r[0]).valueType)
     ) {
       throw nonListParameterizedReducerError(t, {
         blockExport: e.areAllArgsConstant([r[0]]),
@@ -17134,7 +17134,7 @@
         h = c !== void 0 && c !== "doubleReducer" && c !== "never-broadcast" &&
           !(c === "parameterizedReducer" && g === 0) && t !== "polygon",
         x = e.getInstruction(m).valueType;
-      j(x) && h && (x = Ve(x)), p.push(x), f.push(oe(x));
+      isList(x) && h && (x = elementType(x)), p.push(x), f.push(prettyPrint(x));
     }
     let d = e.areAllArgsConstant(s), y = nN(t);
     if (y && !rN(t, l, p)) {
@@ -17238,25 +17238,25 @@
       t.some((s) =>
         s.maxArity === 0 || n.length < s.minArity ? false : n.every((i, o) => {
           let a = s.argTypeAtIndex(o);
-          return a === void 0 ? true : ny(i, a);
+          return a === void 0 ? true : typeSatisfiesArgType(i, a);
         })
       );
   }
   function Pa(e, t) {
     let n = [];
-    for (let r of t) n.push(oe(e.getInstruction(r).valueType));
+    for (let r of t) n.push(prettyPrint(e.getInstruction(r).valueType));
     return n;
   }
   function zu(e, t) {
     let n = [];
     for (let r of t) {
-      let s = e.getInstruction(r).valueType, i = j(s) ? Ve(s) : s;
-      n.push(oe(i));
+      let s = e.getInstruction(r).valueType, i = isList(s) ? elementType(s) : s;
+      n.push(prettyPrint(i));
     }
     return n;
   }
   function gt(e, t, n) {
-    return se(e.getInstruction(t).valueType, n);
+    return isTypeOrListOfType(e.getInstruction(t).valueType, n);
   }
   function Uo(e, t, n, r) {
     var l, p;
@@ -17299,19 +17299,19 @@
         throw subtractTypeErrorError(u, { blockExport: c });
       case "CrossMultiply":
         throw t.is3dProduct() && i.length === 2 &&
-            (se(i[0], Point) && se(i[1], Point) ||
-              se(i[0], Number) && se(i[1], Point3D) ||
-              se(i[0], Point3D) && se(i[1], Number))
+            (isTypeOrListOfType(i[0], Point) && isTypeOrListOfType(i[1], Point) ||
+              isTypeOrListOfType(i[0], Number) && isTypeOrListOfType(i[1], Point3D) ||
+              isTypeOrListOfType(i[0], Point3D) && isTypeOrListOfType(i[1], Number))
           ? multiplyTypeErrorCrossError(u, { blockExport: c })
           : multiplyTypeErrorError(u, { blockExport: c });
       case "DotMultiply":
         throw multiplyTypeErrorError(u, { blockExport: c });
       case "Multiply": {
         if (t.is3dProduct() && i.length === 2) {
-          if (se(i[0], Point3D) && se(i[1], Point3D)) {
+          if (isTypeOrListOfType(i[0], Point3D) && isTypeOrListOfType(i[1], Point3D)) {
             throw multiplyTypeError3DError(u, { blockExport: c });
           }
-          if (se(i[0], Point) && se(i[1], Point)) {
+          if (isTypeOrListOfType(i[0], Point) && isTypeOrListOfType(i[1], Point)) {
             throw multiplyTypeError2DError(u, { blockExport: c });
           }
         }
@@ -17333,10 +17333,10 @@
       case "Or":
         throw orTypeErrorError(u, { blockExport: c });
       case "Piecewise":
-        throw se(i[0], Bool)
+        throw isTypeOrListOfType(i[0], Bool)
           ? piecewiseBranchTypeErrorError([
-            oe(e.getInstruction(r[1]).valueType),
-            oe(e.getInstruction(r[2]).valueType),
+            prettyPrint(e.getInstruction(r[1]).valueType),
+            prettyPrint(e.getInstruction(r[2]).valueType),
           ], { blockExport: e.areAllArgsConstant([r[1], r[2]]) })
           : piecewiseConditionTypeErrorError(u, {
             blockExport: e.areAllArgsConstant([r[0]]),
@@ -17355,15 +17355,15 @@
       case "ParenSeq": {
         let f = i.indexOf(Action) !== -1, d = i.some((g) => g !== Action);
         if (f && d) {
-          throw combineTypeErrorError([oe(i[0]), oe(i[1])], { blockExport: c });
+          throw combineTypeErrorError([prettyPrint(i[0]), prettyPrint(i[1])], { blockExport: c });
         }
         if (i.length !== 2 && (!t.is3dProduct() || i.length !== 3)) {
           let g = t.is3dPolicy() ? 3 : 2;
           throw badTupleDimensionsError(g);
         }
-        let y = i.find((g) => !se(g, Number));
+        let y = i.find((g) => !isTypeOrListOfType(g, Number));
         throw y !== void 0
-          ? pointTypeErrorError(oe(y), { blockExport: c })
+          ? pointTypeErrorError(prettyPrint(y), { blockExport: c })
           : internalError("Unexpected error type checking ParenSeq");
       }
       case "BareSeq": {
@@ -17372,7 +17372,7 @@
           throw internalError("Length-1 BareSeq is impossible");
         }
         let f = i[0], d = i.find((y) => y !== f);
-        if (d) throw combineTypeErrorError([oe(f), oe(d)], { blockExport: c });
+        if (d) throw combineTypeErrorError([prettyPrint(f), prettyPrint(d)], { blockExport: c });
         if (f === Number) {
           throw r.length === 2 ? malformedPointError() : malformedListError();
         }
@@ -17384,12 +17384,12 @@
           blockExport: c,
         });
       case "Integral": {
-        let [f, d, y] = i, g = j(f) ? Ve(f) : f, m = j(d) ? Ve(d) : d;
-        throw kn(g, Number)
-          ? kn(m, Number)
-            ? integralArgumentTypeErrorError([oe(y)], { blockExport: c })
-            : integralUpperBoundTypeErrorError([oe(d)], { blockExport: c })
-          : integralLowerBoundTypeErrorError([oe(f)], { blockExport: c });
+        let [f, d, y] = i, g = isList(f) ? elementType(f) : f, m = isList(d) ? elementType(d) : d;
+        throw isSubTypeOrCoercible(g, Number)
+          ? isSubTypeOrCoercible(m, Number)
+            ? integralArgumentTypeErrorError([prettyPrint(y)], { blockExport: c })
+            : integralUpperBoundTypeErrorError([prettyPrint(d)], { blockExport: c })
+          : integralLowerBoundTypeErrorError([prettyPrint(f)], { blockExport: c });
       }
       case "Ans":
       case "Constant":
@@ -17425,15 +17425,15 @@
   function sN(e, t) {
     if (t.length === 0) return;
     let n = e.getInstruction(t[0]).valueType;
-    if (!wn(n)) {
-      throw listTypeErrorError([oe(n)], {
+    if (!hasListType(n)) {
+      throw listTypeErrorError([prettyPrint(n)], {
         blockExport: Je(e.getInstruction(t[0])),
       });
     }
     let r = e.areAllArgsConstant(t);
     for (let s of t) {
       let i = e.getInstruction(s).valueType;
-      if (!wn(i)) throw listTypeErrorError([oe(i)], { blockExport: r });
+      if (!hasListType(i)) throw listTypeErrorError([prettyPrint(i)], { blockExport: r });
       if (i !== n) throw heterogeneousListError({ blockExport: r });
     }
   }
@@ -17451,16 +17451,16 @@
       case "Comparator['<=']":
       case "Comparator['>=']":
       case "NamedCoordinateAccess":
-        return t.map((r) => oe(r, n));
+        return t.map((r) => prettyPrint(r, n));
       case "ComparatorChain": {
         for (let r = 0; r < t.length; r++) {
-          if (!kn(t[r], Number) && !kn(t[r], ListOfNumber)) {
+          if (!isSubTypeOrCoercible(t[r], Number) && !isSubTypeOrCoercible(t[r], ListOfNumber)) {
             return r === 0
-              ? [oe(t[r]), oe(t[r + 1])]
-              : [oe(t[r - 1]), oe(t[r])];
+              ? [prettyPrint(t[r]), prettyPrint(t[r + 1])]
+              : [prettyPrint(t[r - 1]), prettyPrint(t[r])];
           }
         }
-        return t.map((r) => oe(r));
+        return t.map((r) => prettyPrint(r));
       }
       case "ListAccess":
       case "Constant":
@@ -17498,7 +17498,7 @@
       case "CrossMultiply":
       case "Or":
       case "PercentOf":
-        return t.map((r) => oe(r));
+        return t.map((r) => prettyPrint(r));
       default: {
         let r = e;
         throw new Error(`Unexpected node type: ${r}`);
@@ -17508,18 +17508,18 @@
   function iN(e, t) {
     let n = e.getInstruction(t);
     if (ge(n)) return;
-    let r = kt(w0(e, n).expectedTypes);
+    let r = signature(w0(e, n).expectedTypes);
     if (n.type === 49) {
       for (let u of n.args) {
         let c = e.getInstruction(u).valueType;
         if (
-          !se(c, Number) && !se(c, Complex) && !se(c, Point) &&
-          !se(c, Point3D) && !se(c, RGBColor) &&
-          !se(c, Polygon) && !se(c, Segment) && !se(c, Line) && !se(c, Ray) &&
-          !se(c, Vector) &&
-          !se(c, Circle) && !se(c, Arc) && !se(c, AngleMarker) &&
-          !se(c, Tone) && !se(c, DirectedAngleMarker)
-        ) throw updateRuleTypeErrorError(oe(c));
+          !isTypeOrListOfType(c, Number) && !isTypeOrListOfType(c, Complex) && !isTypeOrListOfType(c, Point) &&
+          !isTypeOrListOfType(c, Point3D) && !isTypeOrListOfType(c, RGBColor) &&
+          !isTypeOrListOfType(c, Polygon) && !isTypeOrListOfType(c, Segment) && !isTypeOrListOfType(c, Line) && !isTypeOrListOfType(c, Ray) &&
+          !isTypeOrListOfType(c, Vector) &&
+          !isTypeOrListOfType(c, Circle) && !isTypeOrListOfType(c, Arc) && !isTypeOrListOfType(c, AngleMarker) &&
+          !isTypeOrListOfType(c, Tone) && !isTypeOrListOfType(c, DirectedAngleMarker)
+        ) throw updateRuleTypeErrorError(prettyPrint(c));
       }
       let a = {};
       for (let u of n.symbols) {
@@ -17531,7 +17531,7 @@
     let s = [];
     for (let a = 0; a < n.args.length; a++) {
       let u = e.getInstruction(n.args[a]).valueType, c = r.argTypeAtIndex(a);
-      (c === void 0 || !Mc(u, c)) && s.push(n.args[a]);
+      (c === void 0 || !typeSatisfiesArgTypeUncoerced(u, c)) && s.push(n.args[a]);
     }
     if (s.length === 0) return;
     let i = Pa(e, n.args), o = e.areAllArgsConstant(n.args);
@@ -17608,17 +17608,17 @@
       case 33:
         return { expectedTypes: [Bool, t.valueType, t.valueType] };
       case 15:
-        return { expectedTypes: zl[t.valueType] };
+        return { expectedTypes: TupleTypeMap[t.valueType] };
       case 21:
         return { expectedTypes: [Number, Number] };
       case 22: {
         let r = e.getInstruction(t.args[1]).valueType;
-        return $l(r)
+        return isSummableElementType(r)
           ? { expectedTypes: [Number, r] }
           : { expectedTypes: [Number, Number] };
       }
       case 38: {
-        let r = t.valueType, s = Ve(r);
+        let r = t.valueType, s = elementType(r);
         return { expectedTypes: { type: "variadic", initial: [], rest: s } };
       }
       case 39:
@@ -17628,10 +17628,10 @@
       case 37: {
         let r = t.symbol, s = Bn[r], i = s.argumentTypes;
         return s.tag === "reducer" && !cH(e, t.args) && Array.isArray(i) &&
-            typeof i[0] == "number" && j(i[0])
+            typeof i[0] == "number" && isList(i[0])
           ? {
             isReducerWithNoListArgs: true,
-            expectedTypes: { type: "variadic", initial: [], rest: Ve(i[0]) },
+            expectedTypes: { type: "variadic", initial: [], rest: elementType(i[0]) },
           }
           : { expectedTypes: i };
       }
@@ -17649,7 +17649,7 @@
         return {
           expectedTypes: t.args.map((r) => {
             let s = e.getInstruction(r).valueType;
-            return s === Bool || (t.callData.type === "sum" ? $l(s) : bx(s))
+            return s === Bool || (t.callData.type === "sum" ? isSummableElementType(s) : isMultipliableElementType(s))
               ? s
               : Number;
           }),
@@ -17686,7 +17686,7 @@
           expectedTypes: t.args.map((r) => e.getInstruction(r).valueType),
         };
       case 16:
-        return { expectedTypes: [hx] };
+        return { expectedTypes: [allTupleTypes] };
       default: {
         let r = t;
         throw new Error(`Unexpected opcode: ${r.type}`);
@@ -17694,17 +17694,17 @@
     }
   }
   function cH(e, t) {
-    for (let n of t) if (j(e.getInstruction(n).valueType)) return true;
+    for (let n of t) if (isList(e.getInstruction(n).valueType)) return true;
     return false;
   }
   function oN(e) {
     let t = e.getReturnIndex(), n = e.getInstruction(t);
     if (ge(n)) return t;
-    let r = w0(e, n), s = kt(r.expectedTypes), i = F0(e, n.args, [s]);
+    let r = w0(e, n), s = signature(r.expectedTypes), i = F0(e, n.args, [s]);
     if (r.isReducerWithNoListArgs) {
       let o = pH(e, i.didCoerce ? i.args : n.args),
-        a = vn(r.expectedTypes.rest);
-      if (_i(o, a)) {
+        a = listType(r.expectedTypes.rest);
+      if (isSubType(o, a)) {
         i.didCoerce ? e.replaceInstructionWithNoop(t) : e.popInstruction();
         let u = e.List(n.args);
         return e.copyInstructionWithArgs(n, [u]);
@@ -17717,9 +17717,9 @@
   function F0(e, t, n) {
     let r = false, s = [];
     for (let i = 0; i < t.length; i++) {
-      let o = Ad(n, i), a = t[i], u = e.getInstruction(a).valueType, c = a;
-      o.every((l) => !_i(u, l)) &&
-      (se(o[0], Number) ? c = zi(e, a) : se(o[0], Complex) && (c = lH(e, a))),
+      let o = getAllowedTypesForArg(n, i), a = t[i], u = e.getInstruction(a).valueType, c = a;
+      o.every((l) => !isSubType(u, l)) &&
+      (isTypeOrListOfType(o[0], Number) ? c = zi(e, a) : isTypeOrListOfType(o[0], Complex) && (c = lH(e, a))),
         c !== a && (r = true),
         s.push(c);
     }
@@ -17730,17 +17730,17 @@
     let r = e.getInstruction(t);
     return r.valueType === EmptyList
       ? t
-      : se(r.valueType, AngleMarker)
+      : isTypeOrListOfType(r.valueType, AngleMarker)
       ? uN(e, t)
-      : se(r.valueType, DirectedAngleMarker)
+      : isTypeOrListOfType(r.valueType, DirectedAngleMarker)
       ? aN(e, t)
-      : se(r.valueType, Restriction)
+      : isTypeOrListOfType(r.valueType, Restriction)
       ? e.Piecewise([
         e.NativeFunction("restrictionToBoolean", [t]),
         e.Constant(1),
         e.Constant(NaN),
       ])
-      : se(r.valueType, Complex)
+      : isTypeOrListOfType(r.valueType, Complex)
       ? (s = n.peelableCoerce) != null && s
         ? e.NativeFunction("peelableCoerceComplexToReal", [t])
         : e.NativeFunction("coerceComplexToReal", [t])
@@ -17748,16 +17748,16 @@
   }
   function fl(e, t) {
     let n = e.getInstruction(t);
-    return n.valueType === EmptyList || se(n.valueType, Complex) ? t : zi(e, t);
+    return n.valueType === EmptyList || isTypeOrListOfType(n.valueType, Complex) ? t : zi(e, t);
   }
   function lH(e, t) {
     let n = e.getInstruction(t);
     if (n.valueType === EmptyList) return t;
-    if (se(n.valueType, Number)) {
+    if (isTypeOrListOfType(n.valueType, Number)) {
       return e.NativeFunction("coerceRealToComplex", [t]);
     }
-    if (se(n.valueType, Complex)) return t;
-    if (kn(n.valueType, Number) || kn(n.valueType, ListOfNumber)) {
+    if (isTypeOrListOfType(n.valueType, Complex)) return t;
+    if (isSubTypeOrCoercible(n.valueType, Number) || isSubTypeOrCoercible(n.valueType, ListOfNumber)) {
       let r = zi(e, t);
       return e.NativeFunction("coerceRealToComplex", [r]);
     }
@@ -17765,9 +17765,9 @@
   }
   function pH(e, t) {
     let n = e.getInstruction(t[0]).valueType;
-    if (!wn(n)) return ListOfAny;
+    if (!hasListType(n)) return ListOfAny;
     for (let r of t) if (e.getInstruction(r).valueType !== n) return ListOfAny;
-    return vn(n);
+    return listType(n);
   }
   function ph(e, t, n) {
     let r = e.getInstruction(n);
@@ -17864,10 +17864,10 @@
         return -1;
       }
       default: {
-        if (j(t.valueType)) return -1;
+        if (isList(t.valueType)) return -1;
         throw new Error(
           `Programming Error: cannot find the list length of ${ts(t.type)} ${
-            oe(t.valueType)
+            prettyPrint(t.valueType)
           }.`,
         );
       }
@@ -17875,7 +17875,7 @@
   }
   function ur(e, t) {
     let n = e.getInstruction(t);
-    if (!j(n.valueType)) {
+    if (!isList(n.valueType)) {
       throw new Error(
         `Programming Error: cannot find the list length of ${
           e.printInstruction(t)
@@ -17906,7 +17906,7 @@
   }
   function Jp(e, t) {
     let n = [];
-    for (let o of t) j(e.getInstruction(o).valueType) && n.push(o);
+    for (let o of t) isList(e.getInstruction(o).valueType) && n.push(o);
     if (n.length === 0) return;
     if (n.length === 1) return ur(e, n[0]);
     let r = [];
@@ -17923,26 +17923,26 @@
   }
   function zf(e, t, n) {
     let r = e.getInstruction(t);
-    if (j(r.valueType)) {
+    if (isList(r.valueType)) {
       let s = qn(e, t);
       if (n = Math.floor(n), isNaN(n) || n < 0 || s !== void 0 && n >= s) {
-        let i = Ve(r.valueType);
+        let i = elementType(r.valueType);
         return e.NanOfType(i);
       }
       return r.type === 38
         ? r.args[n]
-        : r.type === 1 && j(r.valueType)
-        ? e.ConstantOfType(Ve(r.valueType), r.value[n])
+        : r.type === 1 && isList(r.valueType)
+        ? e.ConstantOfType(elementType(r.valueType), r.value[n])
         : s !== void 0
         ? e.InboundsListAccess([t, e.Constant(n + 1)])
         : e.ListAccess([t, e.Constant(n + 1)]);
-    } else throw new Error(`Cannot access elements of ${oe(r.valueType)}`);
+    } else throw new Error(`Cannot access elements of ${prettyPrint(r.valueType)}`);
   }
   function dh(e, t, n) {
     let r = e.getInstruction(t);
     if (n.length === 0) return e.ConstantOfType(r.valueType, []);
-    if (r.type === 1 && j(r.valueType)) {
-      let s = [], i = Ve(r.valueType);
+    if (r.type === 1 && isList(r.valueType)) {
+      let s = [], i = elementType(r.valueType);
       for (let o of n) {
         let a = Math.floor(o);
         isNaN(a) || a < 0 ||
@@ -17969,7 +17969,7 @@
               "Programming error: expected List instruction to have constant length.",
             )
         ) {
-          let a = Ve(r.valueType);
+          let a = elementType(r.valueType);
           s.push(e.NanOfType(a));
         } else s.push(r.args[o]);
       }
@@ -18101,11 +18101,11 @@
   }
   function k0(e, t) {
     if (e === EmptyList) return [];
-    let n = Ve(e);
+    let n = elementType(e);
     if (!pN(n)) {
       throw new Error(
-        `Programming error: unexpected element type ${at(n)} for list type ${
-          at(e)
+        `Programming error: unexpected element type ${repr(n)} for list type ${
+          repr(e)
         }.`,
       );
     }
@@ -18238,7 +18238,7 @@
   }
   function xN(e, t, n, r) {
     let s = e.getInstruction(t), i = bN(e, s, r);
-    if (!isFinite(n) || n < 0 || n >= i) return ls(Ve(s.valueType));
+    if (!isFinite(n) || n < 0 || n >= i) return ls(elementType(s.valueType));
     let o = s.args[0],
       a = t - o,
       u = e.getInstruction(o),
@@ -18693,7 +18693,7 @@
                 lengthIndex: m,
                 one: h,
               } = f,
-              x = Ve(s.valueType),
+              x = elementType(s.valueType),
               T = e.NanOfType(x),
               b = d[d.length - 1],
               M = e.And([e.And([y, g]), e.GreaterEqual([m, h])]);
@@ -18711,7 +18711,7 @@
             let a = Math.floor(V(i.value)) - 1;
             return isNaN(a) || a < 0 || a >= s.value.length
               ? e.NanOfType(t.valueType)
-              : e.ConstantOfType(Ve(s.valueType), s.value[a]);
+              : e.ConstantOfType(elementType(s.valueType), s.value[a]);
           } else return e.getReturnIndex();
         } else return e.getReturnIndex();
       }
@@ -18725,7 +18725,7 @@
           return e.popInstruction(), B0(e, t.valueType, i);
         } else {throw new Error(
             `Constant collapsing a block with return type ${
-              oe(t.valueType)
+              prettyPrint(t.valueType)
             } is not implemented.`,
           );}
       }
@@ -18739,7 +18739,7 @@
           return e.popInstruction(), B0(e, t.valueType, i);
         } else {throw new Error(
             `Constant collapsing a function call with return type ${
-              oe(t.valueType)
+              prettyPrint(t.valueType)
             } is not implemented.`,
           );}
       }
@@ -18978,7 +18978,7 @@
         return yl(e, t, [false, true]);
       case 55: {
         let s = e.getInstruction(t.args[0]).signature.argTypes.map((a) =>
-            !j(a)
+            !isList(a)
           ),
           i = [t.args[0]],
           o = false;
@@ -19011,7 +19011,7 @@
     }
   }
   function PH(e, t) {
-    for (let n of t) if (j(e.getInstruction(n).valueType)) return true;
+    for (let n of t) if (isList(e.getInstruction(n).valueType)) return true;
     return false;
   }
   function yl(e, t, n) {
@@ -19019,7 +19019,7 @@
     for (let d = 0; d < r.length; d++) {
       if (n && !n[d]) continue;
       let y = r[d], g = e.getInstruction(y).valueType;
-      j(g) && i.indexOf(y) === -1 && i.push(y), g === EmptyList && (s = true);
+      isList(g) && i.indexOf(y) === -1 && i.push(y), g === EmptyList && (s = true);
     }
     if (i.length === 0) return e.getReturnIndex();
     if (
@@ -19055,7 +19055,7 @@
       }
     }
     let p = e.copyInstructionWithArgs(t, l), f = e.EndBroadcast([u, p]);
-    return e.BroadcastResult(vn(e.getInstruction(p).valueType), [f]);
+    return e.BroadcastResult(listType(e.getInstruction(p).valueType), [f]);
   }
   function Ea(e, t, n) {
     return e.getInstruction(t).type == 48
@@ -20071,8 +20071,8 @@
     printValue(n, r) {
       if (Array.isArray(n)) {
         if (n.length > 100) throw gpuMaxListSizeError();
-        let s = j(r),
-          i = s ? Ve(r) : r,
+        let s = isList(r),
+          i = s ? elementType(r) : r,
           o = n.map((c) => this.printValue(c, i)).join(","),
           a = $f(r),
           u = LN({ type: a, arity: n.length });
@@ -20130,7 +20130,7 @@
       return `dcg_neg(${n})`;
     }
     emitTernary(n, r, s, i) {
-      return j(i.valueType) ? `dcg_ternary(${n},${r},${s})` : `${n}?${r}:${s}`;
+      return isList(i.valueType) ? `dcg_ternary(${n},${r},${s})` : `${n}?${r}:${s}`;
     }
     emitVec2(n, r) {
       return `vec2(${n},${r})`;
@@ -20231,7 +20231,7 @@
     for (let s = n; s <= r; s++) {
       let i = e.getInstruction(s);
       if (i.type === 33) {
-        if (j(i.valueType)) {
+        if (isList(i.valueType)) {
           let o = sM(e, s),
             a =
               `${o} dcg_ternary(bool x, ${o} y, ${o} z) { if (x) return y; return z; }`;
@@ -20250,7 +20250,7 @@
           if (l === void 0) throw gpuVariableListLengthError(fs(e, u));
           t[o.value(c, l)] = true;
         } else if ((o == null ? void 0 : o.type) === "elementsAt") {
-          let a = $f(Ve(i.valueType)), u = i.args[1], c = qn(e, u);
+          let a = $f(elementType(i.valueType)), u = i.args[1], c = qn(e, u);
           if (c === void 0) throw gpuVariableListLengthError(fs(e, u));
           t[o.value(a, c)] = true;
         }
@@ -20263,7 +20263,7 @@
     return /^-?\d+$/.test(t) ? t + ".0" : t;
   }
   function $f(e) {
-    switch (j(e) ? Ve(e) : e) {
+    switch (isList(e) ? elementType(e) : e) {
       case Bool:
         return "bool";
       case Number:
@@ -20275,12 +20275,12 @@
       case Point3D:
         return "vec3";
       default:
-        throw new Error("Unexpected type: " + at(e));
+        throw new Error("Unexpected type: " + repr(e));
     }
   }
   function sM(e, t) {
     let n = e.getInstruction(t);
-    if (j(n.valueType)) {
+    if (isList(n.valueType)) {
       let r = qn(e, t);
       if (r === void 0) throw gpuVariableListLengthError(fs(e, t));
       if (r > 100) throw gpuMaxListSizeError();
@@ -20460,7 +20460,7 @@
       case 33: {
         let s = e.getInstruction(n[1]).valueType,
           i = e.getInstruction(n[2]).valueType,
-          o = Ha(s, i);
+          o = commonCoerceableTypeWithBroadcast(s, i);
         return o === void 0 ? s : o;
       }
       case 38:
@@ -20469,7 +20469,7 @@
       case 40:
       case 41: {
         let s = e.getInstruction(n[0]).valueType;
-        return j(s) ? Ve(s) : Any;
+        return isList(s) ? elementType(s) : Any;
       }
       case 44:
         return SeedType;
@@ -20866,9 +20866,9 @@
       i = e.getInstruction(r),
       o = e.getInstruction(s),
       a = (o.type === 41 || o.type === 40) && Je(e.getInstruction(o.args[0]));
-    return i.type === 2 && (Je(o) || a) && se(o.valueType, Number)
+    return i.type === 2 && (Je(o) || a) && isTypeOrListOfType(o.valueType, Number)
       ? { type: "constant", variable: e.argNames[r], index: s }
-      : se(i.valueType, Number) && se(o.valueType, Number)
+      : isTypeOrListOfType(i.valueType, Number) && isTypeOrListOfType(o.valueType, Number)
       ? { type: "implicit", index: e.Subtract([r, s]) }
       : void 0;
   }
@@ -24803,7 +24803,7 @@
           d = n.NativeFunction("complex", [u, c]);
           break;
       }
-      if (j(p.valueType)) {
+      if (isList(p.valueType)) {
         let y = ur(n, t), g = n.BeginBroadcast([y]), m = n.EndBroadcast([g, d]);
         return n.BroadcastResult(p.valueType, [m]);
       } else return d;
@@ -25534,7 +25534,7 @@
     WA[t] = r;
   }
   function om(e) {
-    return se(e, Number) ? "number" : se(e, Complex) ? "complex" : void 0;
+    return isTypeOrListOfType(e, Number) ? "number" : isTypeOrListOfType(e, Complex) ? "complex" : void 0;
   }
   function kh(e, t, n, r) {
     let s = e.getInstruction(n).valueType;
@@ -25547,8 +25547,8 @@
     if (!oU(i, r)) {
       let o = e.areAllArgsConstant([t]);
       throw r === "number"
-        ? derivativeTypeErrorError([oe(i)], { blockExport: o })
-        : derivativeTypeErrorRespectError([oe(i), oe(s)], { blockExport: o });
+        ? derivativeTypeErrorError([prettyPrint(i)], { blockExport: o })
+        : derivativeTypeErrorRespectError([prettyPrint(i), prettyPrint(s)], { blockExport: o });
     }
     switch (r) {
       case "number":
@@ -25566,10 +25566,10 @@
   function oU(e, t) {
     switch (t) {
       case "number":
-        return kn(e, Complex) || kn(e, ListOfComplex) || se(e, Point) ||
-          se(e, Point3D);
+        return isSubTypeOrCoercible(e, Complex) || isSubTypeOrCoercible(e, ListOfComplex) || isTypeOrListOfType(e, Point) ||
+          isTypeOrListOfType(e, Point3D);
       case "complex":
-        return kn(e, Complex) || kn(e, ListOfComplex);
+        return isSubTypeOrCoercible(e, Complex) || isSubTypeOrCoercible(e, ListOfComplex);
       default:
         throw internalError(`Invalid derivative strategy '${t}'.`);
     }
@@ -25577,7 +25577,7 @@
   function zM(e, t, n) {
     let r = e.getInstruction(n).valueType, s = om(r);
     if (!s) {
-      throw internalError(`chunk.derivative called on non-number ${at(r)}.`);
+      throw internalError(`chunk.derivative called on non-number ${repr(r)}.`);
     }
     return kh(e, t, n, s);
   }
@@ -25765,7 +25765,7 @@
       return this.ConstantOfType(Number, t);
     }
     ConstantOfType(t, n) {
-      if (typeof n == "number" && (n = Se(n, 1)), j(t) && n.length > 1e4) {
+      if (typeof n == "number" && (n = Se(n, 1)), isList(t) && n.length > 1e4) {
         throw maxListSizeError();
       }
       return this.pushLeafInstruction({ type: 1, valueType: t, value: n });
@@ -25776,10 +25776,10 @@
     Slot(t, n) {
       let r = 16,
         s = this.getInstruction(n[0]).valueType,
-        i = zl[s],
+        i = TupleTypeMap[s],
         o = i ? i[t] : Any;
       if (o === void 0) {
-        throw internalError(`Invalid slot index: ${t} for ${at(s)}.`);
+        throw internalError(`Invalid slot index: ${t} for ${repr(s)}.`);
       }
       return this.pushInstruction({ type: r, valueType: o, args: n, index: t });
     }
@@ -26625,7 +26625,7 @@
         return e.TupleOfType(t, n);
       default:
         throw internalError(
-          `Type ${at(t)} is not a supported aggregate type for building.`,
+          `Type ${repr(t)} is not a supported aggregate type for building.`,
         );
     }
   }
@@ -26663,7 +26663,7 @@
       r === "start-to-end"
         ? e.setCursorContext({
           type: "for-assignment-rhs",
-          allowedTypes: [Segment, Circle, Arc, Line, Ray, Polygon, ...ii.types],
+          allowedTypes: [Segment, Circle, Arc, Line, Ray, Polygon, ...allListTypes.types],
         })
         : r === "empty-list" &&
           e.setCursorContext({
@@ -26742,9 +26742,9 @@
     for (let p of a) {
       u.push(p === void 0 ? void 0 : e.getInstruction(p).valueType);
     }
-    let c = ch(t, r, u), l = c && Ad(c, o);
+    let c = ch(t, r, u), l = c && getAllowedTypesForArg(c, o);
     if (i.positionWithinArg === "empty-list") {
-      let p = l == null ? void 0 : l.filter(j).map(Ve);
+      let p = l == null ? void 0 : l.filter(isList).map(elementType);
       return (p == null ? void 0 : p.length) === 0 ? void 0 : {
         type: "expression-arguments",
         expressionType: "List",
@@ -26825,7 +26825,7 @@
       let { chunk: s } = r, i = [], o = [];
       for (let d = 0; d < n.length; d++) {
         let y = s.getInstruction(n[d]).valueType;
-        j(y)
+        isList(y)
           ? (i.push(2), o.push(s.SymbolicVar(y, t._argSymbols[d])))
           : (i.push(0), o.push(n[d]));
       }
@@ -27006,11 +27006,11 @@
     try {
       KA(n, r, t.getScope()),
         Fe(p, t),
-        e.coerceToNumber === "all" || se(p.chunk.getReturnType(), Restriction)
+        e.coerceToNumber === "all" || isTypeOrListOfType(p.chunk.getReturnType(), Restriction)
           ? p.chunk.coerceToNumericIfPossible()
           : e.coerceToNumber === "all-except-complex" &&
             p.chunk.coerceNonComplexToNumberIfPossible(),
-        e.wrapInList && !j(p.chunk.getReturnType()) &&
+        e.wrapInList && !isList(p.chunk.getReturnType()) &&
         p.chunk.List([p.chunk.getReturnIndex()]),
         p.chunk.fuseBroadcast(),
         pU(p, t, c);
@@ -27137,7 +27137,7 @@
           let y = t.args[1];
           if (RU(y)) {
             let g = r.getInstruction(d[0]).valueType;
-            if (Ec(g, Number) || Ec(g, ListOfNumber)) return r.Exponent(d);
+            if (isSubTypeOrNonComplexCoercible(g, Number) || isSubTypeOrNonComplexCoercible(g, ListOfNumber)) return r.Exponent(d);
           }
           return r.NativeFunction("complexPow", d);
         } else return r.Exponent(d);
@@ -27217,12 +27217,12 @@
           for (let T of t.args) {
             let b = Fe(e, T), M = r.getInstruction(b);
             if (g === void 0) {
-              if (g = M.valueType, !wn(g)) {
-                throw listTypeErrorError([oe(g)], { blockExport: h });
+              if (g = M.valueType, !hasListType(g)) {
+                throw listTypeErrorError([prettyPrint(g)], { blockExport: h });
               }
-              m = vn(g);
+              m = listType(g);
             } else if (M.valueType !== g) {
-              if (fu(g, M.valueType) !== void 0) {
+              if (commonCoerceableType(g, M.valueType) !== void 0) {
                 return r.unsafelyTruncate(d), r.List(Ju(e, t, t.args));
               }
               throw heterogeneousListError({ blockExport: h });
@@ -27239,7 +27239,7 @@
             e.selection && x !== void 0 && m !== void 0 &&
             x.positionWithinArg !== "empty-list"
           ) {
-            let T = Ve(m);
+            let T = elementType(m);
             r.setCursorContext({
               type: "expression-arguments",
               expressionType: "List",
@@ -27256,8 +27256,8 @@
       case "ListAccess": {
         let d = Fe(e, t.args[0]), y = r.getInstruction(d);
         if (t.args[1].type === "Range" && t.args[1].args[1].length === 0) {
-          if (!j(y.valueType)) {
-            throw indexTypeErrorError([oe(y.valueType), oe(Number)], {
+          if (!isList(y.valueType)) {
+            throw indexTypeErrorError([prettyPrint(y.valueType), prettyPrint(Number)], {
               blockExport: Je(y),
             });
           }
@@ -27271,7 +27271,7 @@
           if (Uo(r, n, t, [d, g]), m.valueType === ListOfBool) {
             return r.NativeFunction("select", [d, g]);
           }
-          if (m.valueType === Bool && j(y.valueType)) {
+          if (m.valueType === Bool && isList(y.valueType)) {
             let h = r.ConstantOfType(y.valueType, []);
             return r.Piecewise([g, d, h]);
           }
@@ -27299,7 +27299,7 @@
         sd(e.chunk, e.policy, e.selection, t, b), Uo(e.chunk, e.policy, t, b);
         let M = r.getInstruction(b[1]),
           P = r.getInstruction(b[2]),
-          D = _i(M.valueType, P.valueType) || _i(P.valueType, M.valueType);
+          D = isSubType(M.valueType, P.valueType) || isSubType(P.valueType, M.valueType);
         if (y.type === 1 && y.valueType === Bool && D) {
           let _ = b[y.value ? 1 : 2],
             L = r.getInstruction(_),
@@ -27308,9 +27308,9 @@
             ? r.ConstantOfType(w, [])
             : _;
         }
-        let S = M.valueType, O = j(S) ? Ve(S) : S;
+        let S = M.valueType, O = isList(S) ? elementType(S) : S;
         if (!D && Je(P) && P.valueType === Number && Ii(P.value) && io(O)) {
-          if (se(M.valueType, Restriction)) {
+          if (isTypeOrListOfType(M.valueType, Restriction)) {
             return r.NativeFunction("restriction", [
               r.And([b[0], r.NativeFunction("restrictionToBoolean", [b[1]])]),
             ]);
@@ -27447,17 +27447,17 @@
           throw variableLengthIntegralDependsOnIntegrationVariableError(d);
         }
         let S = D !== void 0 ? r.BeginBroadcast([D]) : void 0, O = m;
-        S !== void 0 && j(x.valueType) && (O = Ea(r, m, S));
+        S !== void 0 && isList(x.valueType) && (O = Ea(r, m, S));
         let _ = h;
-        S !== void 0 && j(T.valueType) && (_ = Ea(r, h, S));
-        let L = r.getInstruction(P).valueType, w = j(L) ? Ve(L) : L, G;
-        if ($l(w) && w !== Number) {
+        S !== void 0 && isList(T.valueType) && (_ = Ea(r, h, S));
+        let L = r.getInstruction(P).valueType, w = isList(L) ? elementType(L) : L, G;
+        if (isSummableElementType(w) && w !== Number) {
           let k = [], Z = w === Complex || w === Point ? 2 : 3;
           for (let F = 0; F < Z; F++) {
             let Y = r.BeginIntegral({ indexSymbol: d }, [O, _]),
               re = su(r, Y, b, P),
               Ee = r.getInstruction(re);
-            S !== void 0 && j(Ee.valueType) && (re = Ea(r, re, S)),
+            S !== void 0 && isList(Ee.valueType) && (re = Ea(r, re, S)),
               re = r.Slot(F, [re]);
             let he = r.EndIntegral([Y, re]);
             k.push(r.BlockVar(Number, [he]));
@@ -27467,13 +27467,13 @@
           let k = r.BeginIntegral({ indexSymbol: d }, [O, _]),
             Z = su(r, k, b, P),
             F = r.getInstruction(Z);
-          S !== void 0 && j(F.valueType) && (Z = Ea(r, Z, S));
+          S !== void 0 && isList(F.valueType) && (Z = Ea(r, Z, S));
           let Y = r.EndIntegral([k, Z]);
           G = r.BlockVar(Number, [Y]);
         }
         if (S !== void 0) {
           let k = r.EndBroadcast([S, G]);
-          return r.BroadcastResult(vn(w), [k]);
+          return r.BroadcastResult(listType(w), [k]);
         } else return G;
       }
       case "Sum":
@@ -27516,8 +27516,8 @@
         S.addLexicalBinding(d, D);
         let O = Fe(Ci(e, S), t.args[3]),
           _ = r.getInstruction(O).valueType,
-          L = j(_) ? Ve(_) : _,
-          G = (t.type === "Sum" ? ql : Jm).find((me) => Ec(L, me));
+          L = isList(_) ? elementType(_) : _,
+          G = (t.type === "Sum" ? summableElementTypes : multipliableElementTypes).find((me) => isSubTypeOrNonComplexCoercible(L, me));
         if (G === void 0) {
           let me = zu(r, [O]), J = r.areAllArgsConstant([O]);
           throw y
@@ -27545,9 +27545,9 @@
             : variableLengthProductBodyDependsOnIndexError(d);
         }
         let Z = k !== void 0 ? r.BeginBroadcast([k]) : void 0, F = T;
-        Z !== void 0 && j(M.valueType) && (F = Ea(r, T, Z));
+        Z !== void 0 && isList(M.valueType) && (F = Ea(r, T, Z));
         let Y = b;
-        Z != null && j(P.valueType) && (Y = Ea(r, b, Z));
+        Z != null && isList(P.valueType) && (Y = Ea(r, b, Z));
         let re = y
             ? r.ZeroOfType(G)
             : G === Complex
@@ -27561,13 +27561,13 @@
           he = r.BlockVar(G, [Ee]),
           K = su(r, Ee, D, O),
           Oe = r.getInstruction(K);
-        Z !== void 0 && j(Oe.valueType) && (K = Ea(r, K, Z));
+        Z !== void 0 && isList(Oe.valueType) && (K = Ea(r, K, Z));
         let te = y ? r.Add([he, K]) : r.Multiply([he, K]),
           Ze = r.EndLoop([Ee, te]),
           dt = r.BlockVar(G, [Ze]);
         if (Z !== void 0) {
           let me = r.EndBroadcast([Z, dt]);
-          return r.BroadcastResult(vn(G), [me]);
+          return r.BroadcastResult(listType(G), [me]);
         } else return dt;
       }
       case "Derivative": {
@@ -27702,23 +27702,23 @@
   }
   function h_(e, t, n) {
     return Ui(e, t, n, [{
-      match: _r(Te, 0),
+      match: variadicMinCount(NumberNC, 0),
       build: () => e.NativeFunction(n, t),
     }, {
-      match: _r(Complex, 1),
+      match: variadicMinCount(Complex, 1),
       build: () =>
         e.NativeFunction("complex", [
           e.NativeFunction(n, t.map((r) => m_(e, r))),
           e.NativeFunction(n, t.map((r) => y_(e, r))),
         ]),
     }, {
-      match: _r(Point, 1),
+      match: variadicMinCount(Point, 1),
       build: () => {
         let r = (s) => e.NativeFunction(n, t.map((i) => e.Slot(s, [i])));
         return e.TupleOfType(Point, [r(0), r(1)]);
       },
     }, {
-      match: _r(Point3D, 1),
+      match: variadicMinCount(Point3D, 1),
       build: () => {
         let r = (s) => e.NativeFunction(n, t.map((i) => e.Slot(s, [i])));
         return e.TupleOfType(Point3D, [r(0), r(1), r(2)]);
@@ -27727,10 +27727,10 @@
   }
   function cm(e, t) {
     return Ui(e, t, "varp", [{
-      match: _r(Te, 0),
+      match: variadicMinCount(NumberNC, 0),
       build: () => e.NativeFunction("varp", t),
     }, {
-      match: _r(Complex, 1),
+      match: variadicMinCount(Complex, 1),
       build: () => {
         let n = Tl(e, t);
         return Tl(e, t.map((r) => gU(e, e.Subtract([r, n]))));
@@ -27739,10 +27739,10 @@
   }
   function i_(e, t) {
     return Xh(e, t) ? lm(e, t, "var") : Ui(e, t, "var", [{
-      match: _r(Te, 1),
+      match: variadicMinCount(NumberNC, 1),
       build: () => e.NativeFunction("var", t),
     }, {
-      match: _r(Complex, 1),
+      match: variadicMinCount(Complex, 1),
       build: () => {
         let n = e.NativeFunction("count", t);
         return e.Divide([
@@ -27756,7 +27756,7 @@
     let r = e.BeginBroadcast([n]),
       s = e.InboundsListAccess([t, r]),
       i = e.EndBroadcast([r, s]);
-    return e.BroadcastResult(vn(e.getInstruction(s).valueType), [i]);
+    return e.BroadcastResult(listType(e.getInstruction(s).valueType), [i]);
   }
   function XM(e, t) {
     return Ui(e, t, "covp", [{
@@ -27868,14 +27868,14 @@
         }
         for (let y = 0; y < r.length; y++) {
           let g = i.getInstruction(r[y]).valueType, m = d.signature.argTypes[y];
-          if (!se(g, m)) {
-            throw expectedArgumentToBeButFoundError(y, at(m), at(g), {
+          if (!isTypeOrListOfType(g, m)) {
+            throw expectedArgumentToBeButFoundError(y, repr(m), repr(g), {
               blockExport: Je(i.getInstruction(r[y])),
             });
           }
         }
         return i.FunctionCall([l, ...r]);
-      } else if (se(d.valueType, Transformation)) {
+      } else if (isTypeOrListOfType(d.valueType, Transformation)) {
         return Wh(e.chunk, [l, ...r], n, true);
       }
       if (r.length >= 1) return f_(e, t, s, r);
@@ -27897,7 +27897,7 @@
         if (i.getInstruction(d).valueType === Distribution) {
           throw distributionAsFunctionError(n);
         }
-        if (se(i.getInstruction(d).valueType, Transformation)) {
+        if (isTypeOrListOfType(i.getInstruction(d).valueType, Transformation)) {
           return Wh(e.chunk, [d, ...r], n, true);
         }
       }
@@ -27931,7 +27931,7 @@
           let x = Uh(e, p, h, s),
             T = i.EndBroadcast([m, x]),
             b = i.getInstruction(x).valueType;
-          if (wn(b)) return i.BroadcastResult(vn(b), [T]);
+          if (hasListType(b)) return i.BroadcastResult(listType(b), [T]);
         }
       }
       return Uh(e, p, r, s);
@@ -27996,7 +27996,7 @@
     return s;
   }
   function bU(e, t, n) {
-    let r = [n.noBroadcast ? kt(n.match) : Ae(n.match)];
+    let r = [n.noBroadcast ? signature(n.match) : broadcastable(n.match)];
     return lh(r, t.map((s) => e.getInstruction(s).valueType), 0).length > 0;
   }
   function Ui(e, t, n, r) {
@@ -28048,7 +28048,7 @@
     else if (t === "random") {
       if (
         l === 1 ||
-        l < 4 && !j(i.getInstruction(r[1]).valueType) &&
+        l < 4 && !isList(i.getInstruction(r[1]).valueType) &&
           i.getInstruction(r[1]).valueType !== Distribution
       ) {
         let m = i.Distribution("uniformdist", [i.Constant(0), i.Constant(1)]);
@@ -28060,7 +28060,7 @@
       let m = [];
       for (let x of p) m.push(i.getInstruction(x).valueType);
       let h = qO(m);
-      f = [kt({ type: "variadic", initial: [h, h], rest: h })];
+      f = [signature({ type: "variadic", initial: [h, h], rest: h })];
     }
     if (f) {
       let m = F0(i, p, f);
@@ -28105,13 +28105,13 @@
                 i.Multiply([x, h]),
               ]);
             },
-          }, { match: [xx], build: () => jM(e, Ss(i, m)) }]);
+          }, { match: [vectorTypes], build: () => jM(e, Ss(i, m)) }]);
         } else return i.NativeFunction("count", p);
       case "round":
         return d([
-          { match: [Te], build: () => i.NativeFunction("round", p) },
+          { match: [NumberNC], build: () => i.NativeFunction("round", p) },
           {
-            match: [Te, Number],
+            match: [NumberNC, Number],
             build: () => {
               let m = i.NativeFunction("round", [p[1]]),
                 h = i.RawExponent([i.Constant(10), m]);
@@ -28138,7 +28138,7 @@
           },
         ]);
       case "abs":
-        return d([{ match: [Te], build: () => i.NativeFunction(t, p) }, {
+        return d([{ match: [NumberNC], build: () => i.NativeFunction(t, p) }, {
           match: [Complex],
           build: () => Yh(i, p[0]),
         }]);
@@ -28166,21 +28166,21 @@
       case "arccsch":
       case "floor":
       case "ceil":
-        return d([{ match: [Te], build: () => pi(e, t, p) }, {
+        return d([{ match: [NumberNC], build: () => pi(e, t, p) }, {
           match: [Complex],
           build: () => pi(e, Ip[t], p),
         }]);
       case "arctan":
         return d([
           {
-            match: [Te],
+            match: [NumberNC],
             build: () => pi(e, t, p.concat(i.Constant(1))),
           },
           { match: [Number, Number], build: () => pi(e, t, p) },
           { match: [Complex], build: () => pi(e, Ip[t], p) },
         ]);
       case "mod":
-        return d([{ match: [Te, Te], build: () => pi(e, t, p) }, {
+        return d([{ match: [NumberNC, NumberNC], build: () => pi(e, t, p) }, {
           match: [Complex, Complex],
           build: () => pi(e, Ip[t], p),
         }]);
@@ -28192,7 +28192,7 @@
           i.Divide([i.Constant(1), p[1]]),
         ]);
       case "sign":
-        return d([{ match: [Te], build: () => pi(e, t, p) }, {
+        return d([{ match: [NumberNC], build: () => pi(e, t, p) }, {
           match: [Complex],
           build: () => {
             let m = p[0];
@@ -28308,7 +28308,7 @@
       case "parallel":
       case "perpendicular":
         return d([{
-          match: [Qm, Point],
+          match: [straightTypes, Point],
           build: () => {
             let h = [Zh(i, p[0]), p[1]];
             return i.NativeFunction(t, h);
@@ -28345,13 +28345,13 @@
       case "stdev":
         return Xh(i, r)
           ? lm(i, p, t)
-          : d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-            match: _r(Complex, 1),
+          : d([{ match: variadicMinCount(NumberNC, 1), build: () => pi(e, t, r) }, {
+            match: variadicMinCount(Complex, 1),
             build: () => i.NativeFunction("sqrt", [i_(i, p)]),
           }]);
       case "stdevp":
-        return d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-          match: _r(Complex, 1),
+        return d([{ match: variadicMinCount(NumberNC, 1), build: () => pi(e, t, r) }, {
+          match: variadicMinCount(Complex, 1),
           build: () => i.NativeFunction("sqrt", [cm(i, p)]),
         }]);
       case "var":
@@ -28389,8 +28389,8 @@
             ]),
         }]);
       case "mad":
-        return d([{ match: _r(Te, 1), build: () => pi(e, t, r) }, {
-          match: _r(Complex, 1),
+        return d([{ match: variadicMinCount(NumberNC, 1), build: () => pi(e, t, r) }, {
+          match: variadicMinCount(Complex, 1),
           build: () => {
             let m = Tl(i, p);
             return Tl(i, p.map((h) => Yh(i, i.Subtract([h, m]))));
@@ -28408,8 +28408,8 @@
         return t === "mean" && Xh(i, r) ? lm(i, p, t) : h_(i, p, t);
       case "lcm":
       case "gcd":
-        return d([{ match: _r(Te, 1), build: () => i.NativeFunction(t, p) }, {
-          match: _r(Complex, 1),
+        return d([{ match: variadicMinCount(NumberNC, 1), build: () => i.NativeFunction(t, p) }, {
+          match: variadicMinCount(Complex, 1),
           build: () => {
             let m;
             switch (t) {
@@ -28428,7 +28428,7 @@
           match: [Number, Number],
           build: () => i.NativeFunction("min", p),
         }, {
-          match: _r(Number, 0),
+          match: variadicMinCount(Number, 0),
           build: () => i.NativeFunction("listMin", p),
         }]);
       case "max":
@@ -28436,7 +28436,7 @@
           match: [Number, Number],
           build: () => i.NativeFunction("max", p),
         }, {
-          match: _r(Number, 0),
+          match: variadicMinCount(Number, 0),
           build: () => i.NativeFunction("listMax", p),
         }]);
       case "random": {
@@ -28453,7 +28453,7 @@
           throw randomFromBroadcastDistributionError();
         }
         let b;
-        if (j(T.valueType)) b = t_;
+        if (isList(T.valueType)) b = t_;
         else {
           if (T.type !== 42 || T.valueType !== Distribution) {
             throw internalError('Expected distribution argument to "random"');
@@ -28482,14 +28482,14 @@
             O = i.BeginBroadcast([S]);
           m = i.ExtendSeed("lc", [m, i.Subtract([O, D])]);
           let _ = b(i, h, [m]), L = i.EndBroadcast([O, _]);
-          return i.BroadcastResult(vn(i.getInstruction(_).valueType), [L]);
+          return i.BroadcastResult(listType(i.getInstruction(_).valueType), [L]);
         }
         return b(i, h, [m]);
       }
       case "shuffle": {
         let m = p[0], h = p[1], x = p[2];
         if (
-          !j(i.getInstruction(h).valueType) ||
+          !isList(i.getInstruction(h).valueType) ||
           x !== void 0 && i.getInstruction(x).valueType !== Number
         ) throw internalError(`Unexpected args for "${t}"`);
         return x !== void 0 && (m = i.ExtendSeed("us", [m, x])),
@@ -28501,7 +28501,7 @@
           noBroadcast: true,
           build: () => l_(e, p[0], p[0]),
         }, {
-          match: [ii, ListOfNumber],
+          match: [allListTypes, ListOfNumber],
           noBroadcast: true,
           build: () => l_(e, p[0], p[1]),
         }]);
@@ -28512,8 +28512,8 @@
           Je(G) || (h = false);
           let k = G.valueType;
           if (k !== EmptyList) {
-            if (j(k)) m.push({ isList: true, index: w, elementType: Ve(k) });
-            else if (wn(k)) m.push({ isList: false, index: w, elementType: k });
+            if (isList(k)) m.push({ isList: true, index: w, elementType: elementType(k) });
+            else if (hasListType(k)) m.push({ isList: false, index: w, elementType: k });
             else {throw functionTypeErrorError(n, Pa(i, r), {
                 blockExport: i.areAllArgsConstant(p),
               });}
@@ -28533,7 +28533,7 @@
             let k = i.getInstruction(Gr(i, G.index));
             gO(k), G.isList ? w.push(...k.value) : w.push(k.value);
           }
-          return i.ConstantOfType(vn(m[0].elementType), w);
+          return i.ConstantOfType(listType(m[0].elementType), w);
         }
         let x = i.Constant(0), T = i.Constant(1), b = {};
         for (let w of m) {
@@ -28561,11 +28561,11 @@
           _ = i.Piecewise([S[w], O[w], _]);
         }
         let L = i.EndBroadcast([P, _]);
-        return i.BroadcastResult(vn(m[0].elementType), [L]);
+        return i.BroadcastResult(listType(m[0].elementType), [L]);
       }
       case "unique": {
         let m = p[0], h = i.getInstruction(m);
-        if (!j(h.valueType) || h.valueType === ListOfDistribution) {
+        if (!isList(h.valueType) || h.valueType === ListOfDistribution) {
           throw internalError(`Unexpected types for ${t}`);
         }
         return i.NativeFunction("elementsAt", [
@@ -28687,22 +28687,22 @@
   }
   function lm(e, t, n) {
     let r = t[0], s = e.getInstruction(r);
-    if (!se(s.valueType, Distribution)) {
+    if (!isTypeOrListOfType(s.valueType, Distribution)) {
       throw internalError(`Unexpected args for "${n}"`);
     }
     let i = t.slice(1);
     for (let o of i) {
-      if (!se(e.getInstruction(o).valueType, Number)) {
+      if (!isTypeOrListOfType(e.getInstruction(o).valueType, Number)) {
         throw internalError(`Unexpected args for "${n}"`);
       }
     }
-    if (j(s.valueType)) {
+    if (isList(s.valueType)) {
       let o = [], a = 1 / 0;
       for (let c of t) {
         let l = Gr(e, c);
         o.push(l);
         let p = e.getInstruction(l);
-        if (j(p.valueType)) {
+        if (isList(p.valueType)) {
           let f = qn(e, l);
           if (f === void 0) throw variableLengthDistributionListError(fs(e, l));
           a = Math.min(a, f);
@@ -28718,7 +28718,7 @@
         }
         let f = [];
         for (let d of o.slice(1)) {
-          j(e.getInstruction(d).valueType) ? f.push(zf(e, d, c)) : f.push(d);
+          isList(e.getInstruction(d).valueType) ? f.push(zf(e, d, c)) : f.push(d);
         }
         u.push(Sa[p.symbol][n](e, l, f));
       }
@@ -28734,7 +28734,7 @@
   }
   function Xh(e, t) {
     return t.length !== 0 && e.getInstruction(t[0]).valueType !== EmptyList &&
-      se(e.getInstruction(t[0]).valueType, Distribution);
+      isTypeOrListOfType(e.getInstruction(t[0]).valueType, Distribution);
   }
   function IU(e, t) {
     ms(t.args);
@@ -28844,18 +28844,18 @@
       let T = t._inputLists[x], b = T._symbol, M = Fe(p, T.args[1]);
       r_(r, i, T);
       let P = r.getInstruction(M);
-      if (!j(P.valueType)) {
+      if (!isList(P.valueType)) {
         let S = EU(r, M);
         if (S) {
           a.push({ symbol: b, object: M, gliderBounds: S });
           continue;
         }
         let O;
-        if (wn(P.valueType)) {
+        if (hasListType(P.valueType)) {
           let _ = T.args[1].getInputSpan();
           _ && (O = Yn(_));
         }
-        throw listComprehensionInputListTypeErrorError(b, oe(P.valueType), O, {
+        throw listComprehensionInputListTypeErrorError(b, prettyPrint(P.valueType), O, {
           blockExport: Je(P),
         });
       }
@@ -28917,22 +28917,22 @@
     }, o);
     if (g !== void 0) {
       let x = r.EndMap([g, h]), T = r.getInstruction(h).valueType;
-      if (ua(T)) throw invalidNestedIntervalComprehensionError();
-      if (!Ix(T)) throw invalidIntervalComprehensionReturnTypeError(T);
+      if (isMapOrListOfMap(T)) throw invalidNestedIntervalComprehensionError();
+      if (!hasMapType(T)) throw invalidIntervalComprehensionReturnTypeError(T);
       let b = n.is3dPolicy() ? 2 : 1;
       if (t.parameters.length + a.length > b) {
         throw invalidIntervalComprehensionArityError(T, t.parameters.length);
       }
-      let M = Px(T, t.parameters.length + a.length);
+      let M = mapType(T, t.parameters.length + a.length);
       h = r.BlockVar(M, [x]);
     }
     if (y !== void 0) {
       let x = r.getInstruction(h);
-      if (!wn(x.valueType)) {
-        throw listTypeErrorError([oe(x.valueType)], { blockExport: Je(x) });
+      if (!hasListType(x.valueType)) {
+        throw listTypeErrorError([prettyPrint(x.valueType)], { blockExport: Je(x) });
       }
       let T = r.EndBroadcast([y, h]);
-      h = r.BroadcastResult(vn(x.valueType), [T]);
+      h = r.BroadcastResult(listType(x.valueType), [T]);
     } else t.shouldCoerceToList && (h = r.List([h]));
     return h;
   }
@@ -28977,7 +28977,7 @@
       [m]: "step",
       [b]: "body",
     }),
-      i.BroadcastResult(vn(i.getInstruction(b).valueType), [M]);
+      i.BroadcastResult(listType(i.getInstruction(b).valueType), [M]);
   }
   function Zh(e, t) {
     return gt(e, t, Segment)
@@ -29060,7 +29060,7 @@
         let f = 0;
         for (let d = 1; d < n.length; d++) {
           let y = r.getInstruction(n[d]).valueType, g = p.argTypeAtIndex(d);
-          g && Mc(y, g) && f++;
+          g && typeSatisfiesArgTypeUncoerced(y, g) && f++;
         }
         return {
           signature: p,
@@ -29093,7 +29093,7 @@
       }
       case "reflect": {
         u = [{
-          match: [Qm],
+          match: [straightTypes],
           build: () => {
             let p = Zh(r, i[0]);
             return r.NativeFunction("reflection", [p]);
@@ -29208,7 +29208,7 @@
           isPointOrListOfPoints: (f) => {
             if (f.isFunction) return false;
             let d = Fe(e, f);
-            return se(i.getInstruction(d).valueType, Point);
+            return isTypeOrListOfType(i.getInstruction(d).valueType, Point);
           },
           resolvesTo: (f, d) => o.getVisibleGlobalDefinition(f) === d,
         },
@@ -29270,7 +29270,7 @@
     if (!(i in d_)) throw unexpectedSymbolError("construction");
     let o = d_[i];
     if (s.args.length === 0) return n.ConstantOfType(o, []);
-    let a = Ve(o), u = [];
+    let a = elementType(o), u = [];
     for (let c of s.args) {
       try {
         let l = Fe(e, c);
@@ -29440,7 +29440,7 @@
           let F = D;
           if (F === void 0) D = Z;
           else {
-            let Y = Ha(F, Z);
+            let Y = commonCoerceableTypeWithBroadcast(F, Z);
             if (Y === void 0) {
               throw baseCasesMustAllHaveSameReturnTypeError({ blockExport: O });
             }
@@ -29454,12 +29454,12 @@
         let P = C_(h, n, t.baseCases, Fe(h, y || b)),
           { someArgBroadcasts: D, inferredArgTypes: S } = NU(s, T, p, P);
         if (c = S, f = s.getInstruction(P).valueType, D) {
-          if (!j(f)) {
+          if (!isList(f)) {
             throw internalError(
-              `TODO: expected a list type but found ${at(f)}`,
+              `TODO: expected a list type but found ${repr(f)}`,
             );
           }
-          f = Ve(f);
+          f = elementType(f);
         }
         let O = t.returnTypes[n._symbol];
         if (O !== void 0 && f !== O) {
@@ -29476,10 +29476,10 @@
         }
         let m = Fe(y, n._expression);
         t.stack.pop();
-        let h = s.getInstruction(m).valueType, x = f === void 0 ? h : Ha(f, h);
+        let h = s.getInstruction(m).valueType, x = f === void 0 ? h : commonCoerceableTypeWithBroadcast(f, h);
         if (x === void 0) {
           throw internalError(
-            `Mismatched return types: ${f && at(f)} vs ${at(h)}`,
+            `Mismatched return types: ${f && repr(f)} vs ${repr(h)}`,
           );
         }
         return t.returnTypes[n._symbol] = x, { returnType: x, argTypes: c };
@@ -29520,8 +29520,8 @@
     for (let p = 0; p < t.length; p++) {
       let f = t[p], d = e.getInstruction(f).valueType;
       if (u[f - n] & 2) {
-        if (!j(d)) throw internalError(`Expected list type but found ${at(d)}`);
-        l = true, c.push(Ve(d));
+        if (!isList(d)) throw internalError(`Expected list type but found ${repr(d)}`);
+        l = true, c.push(elementType(d));
       } else c.push(d);
     }
     return { inferredArgTypes: c, someArgBroadcasts: l };
@@ -29538,7 +29538,7 @@
         d = s.getInstruction(f);
       Je(d) || (i = false);
       let y = s.getInstruction(f).valueType, g = s.getInstruction(r).valueType;
-      if (Ha(y, g) === void 0) {
+      if (commonCoerceableTypeWithBroadcast(y, g) === void 0) {
         throw baseCasesMustAllHaveSameReturnTypeError({ blockExport: i });
       }
       r = s.Piecewise([p, f, r]);
@@ -29574,10 +29574,10 @@
   v.prototype.buildIRExpression = function (e, t, n) {
     return this;
   };
-  var D_ = Od;
+  var D_ = isOneOf;
   function KM(e) {
     let t = [];
-    for (let n = 0; n < e.length; n++) t.push(oe(e[n].valueType));
+    for (let n = 0; n < e.length; n++) t.push(prettyPrint(e[n].valueType));
     return t;
   }
   var Di = true;
@@ -29617,7 +29617,7 @@
   C.IndependentTTest.prototype.typeCheck = function (e, t) {
     let n = this._symbol;
     if (t.length !== 2) throw wrongDoubleReducerArityError(n);
-    if (!j(t[0].valueType) || !j(t[1].valueType)) {
+    if (!isList(t[0].valueType) || !isList(t[1].valueType)) {
       throw nonListDoubleReducerError(n, { blockExport: Di });
     }
     if (t[0].valueType === EmptyList || t[1].valueType === EmptyList) {
@@ -31910,7 +31910,7 @@
     if (a.isError) throw a;
     if (u.isError) throw u;
     if (!sq(a.valueType, u.valueType)) {
-      throw regressionTypeErrorError([oe(a.valueType), oe(u.valueType)]);
+      throw regressionTypeErrorError([prettyPrint(a.valueType), prettyPrint(u.valueType)]);
     }
     let c = t._difference.buildIRExpression(n, r, fC);
     if (c.isError) throw c;
@@ -31995,7 +31995,7 @@
         (f.type === "Assignment" && (f = f._expression), !f.buildIRExpression)
       ) continue;
       let d = f.buildIRExpression(e, t, ud);
-      if (!d.isError && kn(d.valueType, ListOfNumber)) {
+      if (!d.isError && isSubTypeOrCoercible(d.valueType, ListOfNumber)) {
         if (i !== void 0) {
           i = void 0, o = void 0;
           break;
@@ -32206,7 +32206,7 @@
   }
   var is = { NONE: 0, LOGLIN: 1, LOGLOG: 2, LINLOG: 3 };
   function dq(e, t, n) {
-    if (!e.isLhsSimple || !n.uniqueRHSNumberList || se(t.valueType, Complex)) {
+    if (!e.isLhsSimple || !n.uniqueRHSNumberList || isTypeOrListOfType(t.valueType, Complex)) {
       return is.NONE;
     }
     let r = n.substituted;
@@ -32321,7 +32321,7 @@
   }
   function mq(e) {
     let t = 0;
-    if (j(e == null ? void 0 : e.valueType)) {
+    if (isList(e == null ? void 0 : e.valueType)) {
       let n = e.asValue(), r = listMax(n), s = listMin(n);
       t = (s < 0 && 0 < r ? r - s : Math.max(Math.abs(s), Math.abs(r))) / 500;
     }
@@ -32330,7 +32330,7 @@
   function sL(e, t, n) {
     let r, s, i = t._chunk;
     i && (s = $_(i));
-    let o = j(n == null ? void 0 : n.valueType), a = mq(n);
+    let o = isList(n == null ? void 0 : n.valueType), a = mq(n);
     if (!s || s.length === 0) {
       t = t.deriveRegressionRestrictions(), r = J_(e, t);
       let b = t.getCompiledFunction(t.getDependencies()).fn,
@@ -32467,7 +32467,7 @@
         return Number.isNaN(n.value);
       default:
         throw internalError(
-          "Unexpected type in isConstantNaN: " + at(n.valueType),
+          "Unexpected type in isConstantNaN: " + repr(n.valueType),
         );
     }
   }
@@ -32606,7 +32606,7 @@
       else {
         let T = m.chunk.copy(), b = m.coefficients.slice();
         T.List(b);
-        let M = j(o.getReturnType()) ? o.elementAt(g) : o.copy(),
+        let M = isList(o.getReturnType()) ? o.elementAt(g) : o.copy(),
           D = M.argNames.indexOf(p) === 0 ? 1 : 0,
           S = M.getReturnIndex();
         M.Add([D, M.Multiply([M.Constant(0), S])]),
@@ -32619,7 +32619,7 @@
     let n = e.chunk,
       r = e.policy,
       s = n.argNames,
-      i = j(n.getReturnType()),
+      i = isList(n.getReturnType()),
       o = [];
     e: for (let a = 0; a < s.length; a++) {
       let u = s[a], c = s.length > 1 && !r.validSolvedVariable(u);
@@ -36214,7 +36214,7 @@
         else if (t === ListOfRay) this.scalarType = Ray;
         else if (t === ListOfArc) this.scalarType = Arc;
         else {throw new Error(
-            `Expected ListOfSegment or ListOfArc but got ${at(t)}`,
+            `Expected ListOfSegment or ListOfArc but got ${repr(t)}`,
           );}
       }
       getListItemIntersections(t) {
@@ -36231,7 +36231,7 @@
             ? i.addPoints(n.value)
             : i.addPoint(n.value), this.count += 1;
         } else {
-          za(n.valueType, [ListOfPoint]);
+          assertTypeIsOneOf(n.valueType, [ListOfPoint]);
           for (let s = 0; s < n.value.length; s++) {
             this.getListItemIntersections(s).addPoint(n.value[s]);
           }
@@ -36291,7 +36291,7 @@
             ? s.getListItemIntersections(o).addPoints(n.value)
             : s.getListItemIntersections(o).addPoint(n.value), this.count += 1;
         } else {
-          za(n.valueType, [ListOfPoint]);
+          assertTypeIsOneOf(n.valueType, [ListOfPoint]);
           for (let o = 0; o < n.value.length; o++) {
             s.getListItemIntersections(o).addPoint(n.value[o]);
           }
@@ -36307,7 +36307,7 @@
         return this.data[t];
       }
       addChildIntersection(t, n) {
-        za(n == null ? void 0 : n.valueType, [Point, ListOfPoint]);
+        assertTypeIsOneOf(n == null ? void 0 : n.valueType, [Point, ListOfPoint]);
         let r;
         if (t.valueType == ListOfPolygon) r = this.data[t.id] || new e1();
         else if (
@@ -37148,7 +37148,7 @@
             (D, S) => {
               var _;
               let O = D.getDependencies();
-              if (O.length === 0 && !ua(D.valueType)) {
+              if (O.length === 0 && !isMapOrListOfMap(D.valueType)) {
                 let { points: L, droppedIndices: w } = Cm([D.asValue()]);
                 return [{
                   segments: [L],
@@ -37588,7 +37588,7 @@
               D = tu(x._chunk, b, P),
               { valueChunk: S, slices: O } = D.getValueAndRestrictionChunk(),
               _ = S.getInstruction(S.getReturnIndex()).valueType,
-              L = ua(_) ? Jg(S) : S.getCompiledFunction(b),
+              L = isMapOrListOfMap(_) ? Jg(S) : S.getCompiledFunction(b),
               w = O[0],
               G = w.type === "implicit",
               k = G ? NaN : w.value,
@@ -37774,7 +37774,7 @@
             "fillOpacity",
           ], i),
           P = t.asValue();
-        j(t.valueType) || (P = [P]);
+        isList(t.valueType) || (P = [P]);
         for (let D = 0; D < P.length; D++) {
           if (D > M - 1) continue;
           let S = P[D];
@@ -37816,7 +37816,7 @@
                   s)
             ) {
               for (let F = 0; F < S.length - 1; F++) {
-                za(s.parentType, [Polygon, ListOfPolygon]);
+                assertTypeIsOneOf(s.parentType, [Polygon, ListOfPolygon]);
                 let Y = s.getEdgeIntersections(F);
                 if (!Y) continue;
                 let [re, Ee] = S[F], [he, K] = S[F + 1];
@@ -38296,7 +38296,7 @@
         (s = t.getListItemIntersections(r.listIndex)),
           r.graphMode === 17 || r.graphMode === 19
       ) {
-        za(s.parentType, [Segment, Ray]);
+        assertTypeIsOneOf(s.parentType, [Segment, Ray]);
         let i = s.getPoints();
         if (!i) continue;
         let o = 0, a, u = 1, c, [l, p, f, d] = r.segments[0];
@@ -38308,7 +38308,7 @@
         a !== void 0 && n.push(wb(r, 17, [[l, p, i[a][0], i[a][1]]])),
           c !== void 0 && n.push(wb(r, 17, [[f, d, i[c][0], i[c][1]]]));
       } else if (r.graphMode === 21) {
-        za(s.parentType, [Arc]);
+        assertTypeIsOneOf(s.parentType, [Arc]);
         let i = s.getPoints();
         if (!i) continue;
         let [o, a, u, c, l] = r.segments[0],
@@ -41092,7 +41092,7 @@
       case ListOfComplex:
       case Point:
       case ListOfPoint: {
-        let s = se(t.valueType, Complex);
+        let s = isTypeOrListOfType(t.valueType, Complex);
         return r.length === 0
           ? s ? 25 : 3
           : n && e.validParametricVariables(r)
@@ -41518,9 +41518,9 @@
     return n.substr(0, Math.max(r + 5, i + t));
   }
   function Ln(e, t) {
-    if (j(e)) {
+    if (isList(e)) {
       let n = [];
-      for (let r = 0; r < t.length; r++) n.push(Ln(Ve(e), t[r]));
+      for (let r = 0; r < t.length; r++) n.push(Ln(elementType(e), t[r]));
       return `\\left[${n.join(",")}\\right]`;
     }
     switch (e) {
@@ -41579,7 +41579,7 @@
           Ln(Number, t[1])
         }\\right)`;
       default:
-        throw new Error("Cannot serialize a value of type " + oe(e) + ".");
+        throw new Error("Cannot serialize a value of type " + prettyPrint(e) + ".");
     }
   }
   function I1(e) {
@@ -41739,7 +41739,7 @@
       r.dimensions.height = [],
       r.dimensions.opacity = [];
     let s = [n.center, n.radianAngle, n.width, n.height, n.opacity];
-    return s.some((o) => o && o.valueType && j(o.valueType)) &&
+    return s.some((o) => o && o.valueType && isList(o.valueType)) &&
       (r.is_concrete_list = true),
       C.List.eachArgs(s, (o) => {
         let a = o[0].asValue(),
@@ -41877,7 +41877,7 @@
             ? s.expression_type = "POINT3D"
             : s.expression_type === "POINT_LIST" &&
               (s.expression_type = "POINT3D_LIST")),
-          r.valueType && ua(r.valueType) && (s.map_type = r.valueType),
+          r.valueType && isMapOrListOfMap(r.valueType) && (s.map_type = r.valueType),
           r.isShadeBetween() && (s.is_shade_between = true),
           s.expression_type !== "POINT3D" &&
           s.expression_type !== "POINT3D_LIST")
@@ -41886,7 +41886,7 @@
       c && (s.is_tableable = true, s.table_info = c);
     }
     if (
-      r.valueType !== void 0 && j(r.valueType) &&
+      r.valueType !== void 0 && isList(r.valueType) &&
       (s.is_concrete_list = true,
         r.valueType === ListOfColor && r.getDependencies().length === 0)
     ) {
@@ -41962,7 +41962,7 @@
   function _w(e, t, n, r) {
     let s = {};
     r.valueType !== void 0 && (s.valueType = r.valueType),
-      s.valueType && se(s.valueType, Point) && e.graphingEnabled() &&
+      s.valueType && isTypeOrListOfType(s.valueType, Point) && e.graphingEnabled() &&
       uu(n.getGraphMode(e, r)) && (s.isMovablePoint = true);
     let { identifier: i, listAccess: o, tree: a } = ah(n);
     if (
@@ -41970,7 +41970,7 @@
         o && (s.listAccess = o),
         a &&
         (s.call = a,
-          r.valueType && se(r.valueType, Transformation) && n instanceof Cr)
+          r.valueType && isTypeOrListOfType(r.valueType, Transformation) && n instanceof Cr)
     ) {
       let c = n._expression;
       s.transformation_preview_info = {
@@ -42304,14 +42304,14 @@
   };
   function Xb(e, t, n, r) {
     if (r.isError) return new q(e, t, n, r);
-    if (!e.areAllScalesLinear() && !Ul(r.valueType)) {
-      let u = logScaleTypeErrorError(oe(r.valueType));
+    if (!e.areAllScalesLinear() && !isValidOnLogScales(r.valueType)) {
+      let u = logScaleTypeErrorError(prettyPrint(r.valueType));
       return u.setCursorContext(r.getCursorContext()), new q(e, t, n, u);
     }
     let s = Do(e, r),
       i = r.getDependencies(),
       o,
-      a = se(r.valueType, Complex) &&
+      a = isTypeOrListOfType(r.valueType, Complex) &&
         s.some((u) => e.validParametricVariable(u));
     switch (
       r instanceof C.IRExpression && i.length > 0 && !a &&
@@ -42493,7 +42493,7 @@
       let u = Tn(t);
       u[this._argSymbols[0]] = new we("identityTransformation");
       let c = this._expression.tryGetConcreteTree(e, u);
-      if (c instanceof on && se(c.valueType, Transformation)) {
+      if (c instanceof on && isTypeOrListOfType(c.valueType, Transformation)) {
         return new q(e, t, this, c);
       }
     }
@@ -42520,8 +42520,8 @@
       let u = this.getSliderVariables(e, r);
       return new q(e, t, this, tooManyVariablesError(u).setDependencies(u));
     }
-    return !e.areAllScalesLinear() && !Ul(r.valueType)
-      ? new q(e, t, this, logScaleTypeErrorError(oe(r.valueType)))
+    return !e.areAllScalesLinear() && !isValidOnLogScales(r.valueType)
+      ? new q(e, t, this, logScaleTypeErrorError(prettyPrint(r.valueType)))
       : (r = Pd(e, this, r), new q(e, t, this, r));
   };
   C.Assignment.prototype.analyze = function (e, t, n) {
@@ -42544,8 +42544,8 @@
         : invalidImplicitVariablesError(), s = this.tryGetConcreteTree(e, d);
     }
     if (s.isError) return new q(e, t, this, s);
-    if (!e.areAllScalesLinear() && !Ul(s.valueType)) {
-      return new q(e, t, this, logScaleTypeErrorError(oe(s.valueType)));
+    if (!e.areAllScalesLinear() && !isValidOnLogScales(s.valueType)) {
+      return new q(e, t, this, logScaleTypeErrorError(prettyPrint(s.valueType)));
     }
     if (this.isEquation(e, s)) return this.asEquation().analyze(e, t);
     let i = s.valueType === RGBColor || s.valueType === ListOfColor;
@@ -42628,8 +42628,8 @@
       let o = this.getSliderVariables(e, n);
       return new q(e, t, this, tooManyVariablesError(o).setDependencies(o));
     }
-    return !e.areAllScalesLinear() && !Ul(n.valueType)
-      ? new q(e, t, this, logScaleTypeErrorError(oe(n.valueType)))
+    return !e.areAllScalesLinear() && !isValidOnLogScales(n.valueType)
+      ? new q(e, t, this, logScaleTypeErrorError(prettyPrint(n.valueType)))
       : new q(e, t, this, n);
   };
   function Hw(e, t, n) {
@@ -42651,7 +42651,7 @@
     let [r, s] = n.variables, i = Hw(e, t, r), o = Hw(e, t, s);
     if (!("value" in i)) return i;
     if (!("value" in o)) return o;
-    if (zw(i) || zw(o)) return tableRegressionTypeErrorError(oe(Complex));
+    if (zw(i) || zw(o)) return tableRegressionTypeErrorError(prettyPrint(Complex));
   }
   C.Regression.prototype.analyzeRegression = function (e, t, n, r, s) {
     if (!e.isCustomRegressionSupported() && !this.tableRegressionData) {
@@ -43258,7 +43258,7 @@
   C.Assignment.prototype.tableInfo = function (e, t) {
     if (
       t instanceof C.SolvedEquation || !this.getInputString().length ||
-      ou(this) || vd(t.valueType)
+      ou(this) || isGeometryType(t.valueType)
     ) return false;
     let n = t.getDependencies();
     if (n.length > 1) return false;
@@ -43620,7 +43620,7 @@
   C.Base.prototype.getExpressionType = function (e, t) {
     switch (e) {
       case 114:
-        return t && j(t) ? "POINT3D_LIST" : "POINT3D";
+        return t && isList(t) ? "POINT3D_LIST" : "POINT3D";
       case 100:
       case 128:
         return "CURVE3D_xyz_t";
@@ -43664,7 +43664,7 @@
       case 4:
       case 25:
       case 26:
-        return t && j(t) ? "POINT_LIST" : "SINGLE_POINT";
+        return t && isList(t) ? "POINT_LIST" : "SINGLE_POINT";
       case 1:
       case 2:
         return "X_OR_Y";
@@ -43702,7 +43702,7 @@
       case 215:
         return "SLICE_xyz_uv";
       default:
-        return t !== void 0 && se(t, Polygon) ? "POLYGON" : "X_OR_Y";
+        return t !== void 0 && isTypeOrListOfType(t, Polygon) ? "POLYGON" : "X_OR_Y";
     }
   };
   C.Histogram.prototype.getExpressionType = function (e, t) {
@@ -45203,7 +45203,7 @@
     if (!o) return;
     let a = o.tryGetConcreteTree(t, n);
     !a.isError && a.valueType !== Action &&
-      (a = eventHandlerTypeErrorError(oe(a.valueType)));
+      (a = eventHandlerTypeErrorError(prettyPrint(a.valueType)));
     for (let c of a.getDependencies()) {
       t.validActionVariable(c) || (i[c] = true);
     }
@@ -46945,7 +46945,7 @@
   Object.defineProperty(__dcg_chunk_exports__, "ra", { get: () => Cd });
   Object.defineProperty(__dcg_chunk_exports__, "sa", { get: () => WY });
   Object.defineProperty(__dcg_chunk_exports__, "ta", { get: () => Vs });
-  Object.defineProperty(__dcg_chunk_exports__, "ua", { get: () => kn });
+  Object.defineProperty(__dcg_chunk_exports__, "ua", { get: () => isSubTypeOrCoercible });
   Object.defineProperty(__dcg_chunk_exports__, "va", { get: () => Any });
   Object.defineProperty(__dcg_chunk_exports__, "wa", { get: () => Number });
   Object.defineProperty(__dcg_chunk_exports__, "xa", { get: () => Bool });
@@ -47038,20 +47038,20 @@
   Object.defineProperty(__dcg_chunk_exports__, "qb", {
     get: () => ListOfVector3D,
   });
-  Object.defineProperty(__dcg_chunk_exports__, "rb", { get: () => RD });
-  Object.defineProperty(__dcg_chunk_exports__, "sb", { get: () => Qn });
-  Object.defineProperty(__dcg_chunk_exports__, "tb", { get: () => RV });
-  Object.defineProperty(__dcg_chunk_exports__, "ub", { get: () => at });
-  Object.defineProperty(__dcg_chunk_exports__, "vb", { get: () => oe });
-  Object.defineProperty(__dcg_chunk_exports__, "wb", { get: () => j });
-  Object.defineProperty(__dcg_chunk_exports__, "xb", { get: () => Ve });
-  Object.defineProperty(__dcg_chunk_exports__, "yb", { get: () => vd });
-  Object.defineProperty(__dcg_chunk_exports__, "zb", { get: () => Qm });
-  Object.defineProperty(__dcg_chunk_exports__, "Ab", { get: () => se });
-  Object.defineProperty(__dcg_chunk_exports__, "Bb", { get: () => ua });
-  Object.defineProperty(__dcg_chunk_exports__, "Cb", { get: () => kt });
-  Object.defineProperty(__dcg_chunk_exports__, "Db", { get: () => Ae });
-  Object.defineProperty(__dcg_chunk_exports__, "Eb", { get: () => ny });
+  Object.defineProperty(__dcg_chunk_exports__, "rb", { get: () => valueTypes });
+  Object.defineProperty(__dcg_chunk_exports__, "sb", { get: () => Union });
+  Object.defineProperty(__dcg_chunk_exports__, "tb", { get: () => allValueTypes });
+  Object.defineProperty(__dcg_chunk_exports__, "ub", { get: () => repr });
+  Object.defineProperty(__dcg_chunk_exports__, "vb", { get: () => prettyPrint });
+  Object.defineProperty(__dcg_chunk_exports__, "wb", { get: () => isList });
+  Object.defineProperty(__dcg_chunk_exports__, "xb", { get: () => elementType });
+  Object.defineProperty(__dcg_chunk_exports__, "yb", { get: () => isGeometryType });
+  Object.defineProperty(__dcg_chunk_exports__, "zb", { get: () => straightTypes });
+  Object.defineProperty(__dcg_chunk_exports__, "Ab", { get: () => isTypeOrListOfType });
+  Object.defineProperty(__dcg_chunk_exports__, "Bb", { get: () => isMapOrListOfMap });
+  Object.defineProperty(__dcg_chunk_exports__, "Cb", { get: () => signature });
+  Object.defineProperty(__dcg_chunk_exports__, "Db", { get: () => broadcastable });
+  Object.defineProperty(__dcg_chunk_exports__, "Eb", { get: () => typeSatisfiesArgType });
   Object.defineProperty(__dcg_chunk_exports__, "Fb", { get: () => Ie });
   Object.defineProperty(__dcg_chunk_exports__, "Gb", { get: () => wD });
   Object.defineProperty(__dcg_chunk_exports__, "Hb", { get: () => FD });
