@@ -1317,330 +1317,305 @@
   }
   var Ht = {};
   ia(Ht, {
-    actionMergeFreeVariable: () => actionMergeFreeVariableError,
-    addArgumentsToDefinition: () => addArgumentsToDefinitionError,
-    addTypeError: () => addTypeErrorError,
-    adjacentMixedNumber: () => adjacentMixedNumberError,
-    adjacentNumbers: () => adjacentNumbersError,
-    andTypeError: () => andTypeErrorError,
-    ansUndefined: () => ansUndefinedError,
-    assignmentsUnsupported: () => assignmentsUnsupportedError,
-    badEqualitySlice: () => badEqualitySliceError,
-    badForInputListDependency: () => badForInputListDependencyError,
-    badForIntervalDependency: () => badForIntervalDependencyError,
-    badImplicitCall: () => badImplicitCallError,
-    badIntegralBoundDependency: () => badIntegralBoundDependencyError,
-    badLogExponent: () => badLogExponentError,
-    badProductBoundDependency: () => badProductBoundDependencyError,
-    badSampleSize: () => badSampleSizeError,
-    badSumBoundDependency: () => badSumBoundDependencyError,
-    badSymbolContext: () => badSymbolContextError,
-    badTrigExponent: () => badTrigExponentError,
-    badTupleDimensions: () => badTupleDimensionsError,
-    baseCaseCannotDependOnRecursiveParameter: () =>
-      baseCaseCannotDependOnRecursiveParameterError,
-    baseCaseTooComplicatedUsePiecewise: () =>
-      baseCaseTooComplicatedUsePiecewiseError,
-    baseCasesMustAllHaveSameReturnType: () =>
-      baseCasesMustAllHaveSameReturnTypeError,
+    actionMergeFreeVariable: () => OT,
+    addArgumentsToDefinition: () => Zd,
+    addTypeError: () => Fx,
+    adjacentMixedNumber: () => Ty,
+    adjacentNumbers: () => eI,
+    andTypeError: () => Xx,
+    ansUndefined: () => EP,
+    assignmentsUnsupported: () => tf,
+    badEqualitySlice: () => ca,
+    badForInputListDependency: () => OP,
+    badForIntervalDependency: () => NP,
+    badImplicitCall: () => xy,
+    badIntegralBoundDependency: () => xP,
+    badLogExponent: () => hI,
+    badProductBoundDependency: () => lP,
+    badSampleSize: () => IP,
+    badSumBoundDependency: () => cP,
+    badSymbolContext: () => Kd,
+    badTrigExponent: () => gI,
+    badTupleDimensions: () => KT,
+    baseCaseCannotDependOnRecursiveParameter: () => Ox,
+    baseCaseTooComplicatedUsePiecewise: () => wd,
+    baseCasesMustAllHaveSameReturnType: () => Ld,
     binaryOperatorMissingOperand: () => $d,
-    blankExpression: () => blankExpressionError,
-    boxplotBreadthInvalid: () => boxplotBreadthInvalidError,
-    boxplotOffsetInvalid: () => boxplotOffsetInvalidError,
-    cannotAssignColor: () => cannotAssignColorError,
-    cannotRedefine: () => cannotRedefineError,
-    cannotRestrict: () => cannotRestrictError,
-    cannotRestrictWithEquality: () => cannotRestrictWithEqualityError,
-    cannotSubscript: () => cannotSubscriptError,
-    cantCombineSphericalAndCylindrical: () =>
-      cantCombineSphericalAndCylindricalError,
-    cdfMaxInvalid: () => cdfMaxInvalidError,
-    cdfMaxLessThanMin: () => cdfMaxLessThanMinError,
-    cdfMinInvalid: () => cdfMinInvalidError,
-    cdfRequiresArguments: () => cdfRequiresArgumentsError,
-    cdfTooManyArguments: () => cdfTooManyArgumentsError,
-    clickableObjectAlreadyAssigned: () => clickableObjectAlreadyAssignedError,
-    clickableObjectAssignmentNotDefined: () =>
-      clickableObjectAssignmentNotDefinedError,
-    clickableObjectAssignmentNotIdentifier: () =>
-      clickableObjectAssignmentNotIdentifierError,
-    clickableObjectInvalidExpression: () =>
-      clickableObjectInvalidExpressionError,
-    colonMissingCondition: () => colonMissingConditionError,
-    colorArity: () => colorArityError,
-    combineTypeError: () => combineTypeErrorError,
-    comparatorTypeError: () => comparatorTypeErrorError,
-    complexPlottedTableCell: () => complexPlottedTableCellError,
-    complicatedDoubleInequality: () => complicatedDoubleInequalityError,
-    complicatedPolarImplicit: () => complicatedPolarImplicitError,
-    computedColumnHeader: () => computedColumnHeaderError,
-    constantUnsupported: () => constantUnsupportedError,
-    coordinateAccessTypeError: () => coordinateAccessTypeErrorError,
-    customRegressionsUnsupported: () => customRegressionsUnsupportedError,
-    cycle: () => cycleError,
-    deeplyNested: () => deeplyNestedError,
-    dependsOnDeletedGeoObject: () => dependsOnDeletedGeoObjectError,
-    derivativeMissingBody: () => derivativeMissingBodyError,
-    derivativeTypeError: () => derivativeTypeErrorError,
-    derivativeTypeErrorRespect: () => derivativeTypeErrorRespectError,
-    derivativeVariableTypeError: () => derivativeVariableTypeErrorError,
-    differentialWithSuperscript: () => differentialWithSuperscriptError,
-    distributionAsFunction: () => distributionAsFunctionError,
-    divideTypeError: () => divideTypeErrorError,
-    domainMaxInvalid: () => domainMaxInvalidError,
-    domainMaxLessThanMin: () => domainMaxLessThanMinError,
-    domainMinInvalid: () => domainMinInvalidError,
-    dotLHSConstantNumberError: () => dotLHSConstantNumberErrorError,
-    dotLHSTypeError: () => dotLHSTypeErrorError,
-    dotRHSPropertyError: () => dotRHSPropertyErrorError,
-    duplicateFunctionParameter: () => duplicateFunctionParameterError,
-    duplicateUpdateRules: () => duplicateUpdateRulesError,
-    eachBaseCaseArgumentMustBeSimple: () =>
-      eachBaseCaseArgumentMustBeSimpleError,
-    emptyParen: () => emptyParenError,
-    emptyPipe: () => emptyPipeError,
-    emptyRadical: () => emptyRadicalError,
-    emptyRadicalIndex: () => emptyRadicalIndexError,
-    emptySquareBracket: () => emptySquareBracketError,
-    emptySubscript: () => emptySubscriptError,
-    emptySuperscript: () => emptySuperscriptError,
-    equationRequired: () => equationRequiredError,
-    equationsUnsupported: () => equationsUnsupportedError,
-    eventHandlerTypeError: () => eventHandlerTypeErrorError,
-    expectedArgumentToBeButFound: () => expectedArgumentToBeButFoundError,
-    exponentTypeError: () => exponentTypeErrorError,
-    featureUnavailable: () => featureUnavailableError,
-    fractionEmpty: () => fractionEmptyError,
-    fractionMissingDenominator: () => fractionMissingDenominatorError,
-    fractionMissingNumerator: () => fractionMissingNumeratorError,
-    fractionsUnavailable: () => fractionsUnavailableError,
-    functionDefinitionsUnsupported: () => functionDefinitionsUnsupportedError,
+    blankExpression: () => Xd,
+    boxplotBreadthInvalid: () => kT,
+    boxplotOffsetInvalid: () => GT,
+    cannotAssignColor: () => HI,
+    cannotRedefine: () => Zl,
+    cannotRestrict: () => kI,
+    cannotRestrictWithEquality: () => zI,
+    cannotSubscript: () => EI,
+    cantCombineSphericalAndCylindrical: () => Oy,
+    cdfMaxInvalid: () => FI,
+    cdfMaxLessThanMin: () => VI,
+    cdfMinInvalid: () => wI,
+    cdfRequiresArguments: () => zT,
+    cdfTooManyArguments: () => UT,
+    clickableObjectAlreadyAssigned: () => WV,
+    clickableObjectAssignmentNotDefined: () => ZV,
+    clickableObjectAssignmentNotIdentifier: () => jV,
+    clickableObjectInvalidExpression: () => JV,
+    colonMissingCondition: () => TI,
+    colorArity: () => XT,
+    combineTypeError: () => yy,
+    comparatorTypeError: () => Yx,
+    complexPlottedTableCell: () => zV,
+    complicatedDoubleInequality: () => Ly,
+    complicatedPolarImplicit: () => WI,
+    computedColumnHeader: () => UP,
+    constantUnsupported: () => _c,
+    coordinateAccessTypeError: () => jx,
+    customRegressionsUnsupported: () => CP,
+    cycle: () => MI,
+    deeplyNested: () => _T,
+    dependsOnDeletedGeoObject: () => GP,
+    derivativeMissingBody: () => hP,
+    derivativeTypeError: () => dT,
+    derivativeTypeErrorRespect: () => fT,
+    derivativeVariableTypeError: () => mT,
+    differentialWithSuperscript: () => fP,
+    distributionAsFunction: () => Vy,
+    divideTypeError: () => Hx,
+    domainMaxInvalid: () => _I,
+    domainMaxLessThanMin: () => LI,
+    domainMinInvalid: () => AI,
+    dotLHSConstantNumberError: () => ly,
+    dotLHSTypeError: () => tT,
+    dotRHSPropertyError: () => nT,
+    duplicateFunctionParameter: () => II,
+    duplicateUpdateRules: () => CT,
+    eachBaseCaseArgumentMustBeSimple: () => ay,
+    emptyParen: () => Yd,
+    emptyPipe: () => yI,
+    emptyRadical: () => dI,
+    emptyRadicalIndex: () => fI,
+    emptySquareBracket: () => mI,
+    emptySubscript: () => Ey,
+    emptySuperscript: () => aI,
+    equationRequired: () => wy,
+    equationsUnsupported: () => Ua,
+    eventHandlerTypeError: () => kd,
+    expectedArgumentToBeButFound: () => Lx,
+    exponentTypeError: () => zx,
+    featureUnavailable: () => rf,
+    fractionEmpty: () => oI,
+    fractionMissingDenominator: () => iI,
+    fractionMissingNumerator: () => sI,
+    fractionsUnavailable: () => Uy,
+    functionDefinitionsUnsupported: () => nf,
     functionNameAsParameter: () => PI,
-    functionNotDefined: () => functionNotDefinedError,
-    functionOnlyWorksInComplexMode: () => functionOnlyWorksInComplexModeError,
-    functionRequiresNumberOfArguments: () =>
-      functionRequiresNumberOfArgumentsError,
-    functionTypeError: () => functionTypeErrorError,
-    functionUnsupported: () => functionUnsupportedError,
-    geometryLengthTypeError: () => geometryLengthTypeErrorError,
-    getLogInternalErrors: () => getLogInternalErrorsError,
-    gpuLongProduct: () => gpuLongProductError,
-    gpuLongSum: () => gpuLongSumError,
-    gpuMaxListSize: () => gpuMaxListSizeError,
-    gpuUnsupportedFunction: () => gpuUnsupportedFunctionError,
-    gpuUnsupportedIntegral: () => gpuUnsupportedIntegralError,
-    gpuVariableListLength: () => gpuVariableListLengthError,
-    gpuVariableProduct: () => gpuVariableProductError,
-    gpuVariableSum: () => gpuVariableSumError,
-    heterogeneousList: () => heterogeneousListError,
-    identifierAsFunction: () => identifierAsFunctionError,
-    identifierIsNotFunction: () => identifierIsNotFunctionError,
-    illegalBinWidth: () => illegalBinWidthError,
-    illegalDotCall: () => illegalDotCallError,
-    implicitsDisabled: () => implicitsDisabledError,
-    incorrectProductLowerBound: () => incorrectProductLowerBoundError,
-    incorrectSumLowerBound: () => incorrectSumLowerBoundError,
-    indexTypeError: () => indexTypeErrorError,
-    inequalitiesDisabled: () => inequalitiesDisabledError,
-    inequalitiesUnsupported: () => inequalitiesUnsupportedError,
-    integralArgumentTypeError: () => integralArgumentTypeErrorError,
-    integralLowerBoundTypeError: () => integralLowerBoundTypeErrorError,
-    integralMissingBody: () => integralMissingBodyError,
-    integralMissingBound: () => integralMissingBoundError,
-    integralMissingDifferential: () => integralMissingDifferentialError,
-    integralUpperBoundTypeError: () => integralUpperBoundTypeErrorError,
-    internal: () => internalError,
-    invalidDependentFirstTableColumn: () =>
-      invalidDependentFirstTableColumnError,
-    invalidDoubleEquality3d: () => invalidDoubleEquality3dError,
-    invalidDoubleInequality3d: () => invalidDoubleInequality3dError,
-    invalidDoubleInequalityVariables: () =>
-      invalidDoubleInequalityVariablesError,
-    invalidFirstTableColumn: () => invalidFirstTableColumnError,
-    invalidFunctionName: () => invalidFunctionNameError,
-    invalidHalfEmptyRange: () => invalidHalfEmptyRangeError,
-    invalidImplicitVariables: () => invalidImplicitVariablesError,
-    invalidImplicitVariables3d: () => invalidImplicitVariables3dError,
+    functionNotDefined: () => Dy,
+    functionOnlyWorksInComplexMode: () => VD,
+    functionRequiresNumberOfArguments: () => _x,
+    functionTypeError: () => Hs,
+    functionUnsupported: () => Li,
+    geometryLengthTypeError: () => Kx,
+    getLogInternalErrors: () => GV,
+    gpuLongProduct: () => BT,
+    gpuLongSum: () => VT,
+    gpuMaxListSize: () => Oc,
+    gpuUnsupportedFunction: () => Xl,
+    gpuUnsupportedIntegral: () => FT,
+    gpuVariableListLength: () => mu,
+    gpuVariableProduct: () => hy,
+    gpuVariableSum: () => gy,
+    heterogeneousList: () => Hd,
+    identifierAsFunction: () => Iy,
+    identifierIsNotFunction: () => Py,
+    illegalBinWidth: () => Qd,
+    illegalDotCall: () => Gd,
+    implicitsDisabled: () => ZI,
+    incorrectProductLowerBound: () => uP,
+    incorrectSumLowerBound: () => aP,
+    indexTypeError: () => Bd,
+    inequalitiesDisabled: () => Ry,
+    inequalitiesUnsupported: () => Lc,
+    integralArgumentTypeError: () => pT,
+    integralLowerBoundTypeError: () => cT,
+    integralMissingBody: () => gP,
+    integralMissingBound: () => pP,
+    integralMissingDifferential: () => dP,
+    integralUpperBoundTypeError: () => lT,
+    internal: () => U,
+    invalidDependentFirstTableColumn: () => UV,
+    invalidDoubleEquality3d: () => JI,
+    invalidDoubleInequality3d: () => jI,
+    invalidDoubleInequalityVariables: () => Ay,
+    invalidFirstTableColumn: () => eP,
+    invalidFunctionName: () => zy,
+    invalidHalfEmptyRange: () => sP,
+    invalidImplicitVariables: () => Ac,
+    invalidImplicitVariables3d: () => YI,
     invalidInequalityVariables: () => $I,
-    invalidIntervalComprehensionArity: () =>
-      invalidIntervalComprehensionArityError,
-    invalidIntervalComprehensionParameter: () =>
-      invalidIntervalComprehensionParameterError,
-    invalidIntervalComprehensionReturnType: () =>
-      invalidIntervalComprehensionReturnTypeError,
-    invalidLHS: () => invalidLHSError,
-    invalidNestedIntervalComprehension: () =>
-      invalidNestedIntervalComprehensionError,
-    invalidOperatorName: () => invalidOperatorNameError,
-    invalidRegressionParameter: () => invalidRegressionParameterError,
-    invalidSubscript: () => invalidSubscriptError,
-    invalidTableEntry: () => invalidTableEntryError,
-    invalidTableHeader: () => invalidTableHeaderError,
-    listComprehensionIncorrectInput: () => listComprehensionIncorrectInputError,
-    listComprehensionInputListTypeError: () =>
-      listComprehensionInputListTypeErrorError,
-    listTypeError: () => listTypeErrorError,
-    logScaleBoxPlot: () => logScaleBoxPlotError,
-    logScaleDotPlot: () => logScaleDotPlotError,
-    logScaleHistogram: () => logScaleHistogramError,
-    logScaleTypeError: () => logScaleTypeErrorError,
-    logbaseUnsupported: () => logbaseUnsupportedError,
-    malformedList: () => malformedListError,
-    malformedPoint: () => malformedPointError,
-    matrixAddDimensions: () => matrixAddDimensionsError,
-    matrixAssignment: () => matrixAssignmentError,
-    matrixElementTypeError: () => matrixElementTypeErrorError,
-    matrixFractionalPower: () => matrixFractionalPowerError,
-    matrixInvalidVariable: () => matrixInvalidVariableError,
-    matrixMultiplyDimensions: () => matrixMultiplyDimensionsError,
-    matrixPowerDimensions: () => matrixPowerDimensionsError,
-    matrixSubtractDimensions: () => matrixSubtractDimensionsError,
-    maxListSize: () => maxListSizeError,
-    methodRequiresList: () => methodRequiresListError,
-    mismatchedBraces: () => mismatchedBracesError,
-    mismatchedDoubleInequality: () => mismatchedDoubleInequalityError,
-    mixedComparatorChain: () => mixedComparatorChainError,
-    mixedRestrictionEquation: () => mixedRestrictionEquationError,
-    multipleEqualityRestrictions: () => multipleEqualityRestrictionsError,
-    multiplyDefined: () => multiplyDefinedError,
-    multiplyTypeError: () => multiplyTypeErrorError,
-    multiplyTypeError2D: () => multiplyTypeError2DError,
-    multiplyTypeError3D: () => multiplyTypeError3DError,
-    multiplyTypeErrorCross: () => multiplyTypeErrorCrossError,
-    negativeTypeError: () => negativeTypeErrorError,
-    nonArithmeticRange: () => nonArithmeticRangeError,
-    nonListDoubleReducer: () => nonListDoubleReducerError,
-    nonListParameterizedReducer: () => nonListParameterizedReducerError,
-    nonSquareDeterminant: () => nonSquareDeterminantError,
-    nonSquareInverse: () => nonSquareInverseError,
+    invalidIntervalComprehensionArity: () => HP,
+    invalidIntervalComprehensionParameter: () => Jl,
+    invalidIntervalComprehensionReturnType: () => kP,
+    invalidLHS: () => UI,
+    invalidNestedIntervalComprehension: () => zP,
+    invalidOperatorName: () => cI,
+    invalidRegressionParameter: () => tP,
+    invalidSubscript: () => uI,
+    invalidTableEntry: () => Wd,
+    invalidTableHeader: () => KI,
+    listComprehensionIncorrectInput: () => vP,
+    listComprehensionInputListTypeError: () => SP,
+    listTypeError: () => vc,
+    logScaleBoxPlot: () => AT,
+    logScaleDotPlot: () => RT,
+    logScaleHistogram: () => NT,
+    logScaleTypeError: () => Yl,
+    logbaseUnsupported: () => MP,
+    malformedList: () => QT,
+    malformedPoint: () => JT,
+    matrixAddDimensions: () => KV,
+    matrixAssignment: () => QV,
+    matrixElementTypeError: () => sB,
+    matrixFractionalPower: () => nB,
+    matrixInvalidVariable: () => iB,
+    matrixMultiplyDimensions: () => tB,
+    matrixPowerDimensions: () => rB,
+    matrixSubtractDimensions: () => eB,
+    maxListSize: () => zd,
+    methodRequiresList: () => so,
+    mismatchedBraces: () => bP,
+    mismatchedDoubleInequality: () => _y,
+    mixedComparatorChain: () => qx,
+    mixedRestrictionEquation: () => wT,
+    multipleEqualityRestrictions: () => LT,
+    multiplyDefined: () => Wl,
+    multiplyTypeError: () => Vd,
+    multiplyTypeError2D: () => Gx,
+    multiplyTypeError3D: () => kx,
+    multiplyTypeErrorCross: () => Bx,
+    negativeTypeError: () => Ux,
+    nonArithmeticRange: () => Jd,
+    nonListDoubleReducer: () => jd,
+    nonListParameterizedReducer: () => rP,
+    nonSquareDeterminant: () => qV,
+    nonSquareInverse: () => YV,
     nonSquareTrace: () => $V,
-    opaque: () => opaqueError,
-    optimizationError: () => optimizationErrorError,
-    orTypeError: () => orTypeErrorError,
-    parameterAlreadyDefined: () => parameterAlreadyDefinedError,
-    parenthesesUnavailable: () => parenthesesUnavailableError,
-    pdfWrongArity: () => pdfWrongArityError,
-    percentMissingOf: () => percentMissingOfError,
-    piecewiseBranchTypeError: () => piecewiseBranchTypeErrorError,
-    piecewiseConditionTypeError: () => piecewiseConditionTypeErrorError,
-    piecewiseMissingCondition: () => piecewiseMissingConditionError,
-    piecewisePartMissingCondition: () => piecewisePartMissingConditionError,
-    pointTypeError: () => pointTypeErrorError,
-    pointsUnsupported: () => pointsUnsupportedError,
-    polygonTwoNumbersError: () => polygonTwoNumbersErrorError,
-    polygonUnsupportedIn3d: () => polygonUnsupportedIn3dError,
-    primeVariableTypeError: () => primeVariableTypeErrorError,
-    primeWithoutParen: () => primeWithoutParenError,
-    primedFunctionArity: () => primedFunctionArityError,
-    productArgumentTypeError: () => productArgumentTypeErrorError,
-    productInfiniteBoundError: () => productInfiniteBoundErrorError,
-    productLowerBoundTypeError: () => productLowerBoundTypeErrorError,
-    productMissingBody: () => productMissingBodyError,
-    productMissingBound: () => productMissingBoundError,
-    productUpperBoundTypeError: () => productUpperBoundTypeErrorError,
+    opaque: () => Fd,
+    optimizationError: () => nP,
+    orTypeError: () => Zx,
+    parameterAlreadyDefined: () => Sy,
+    parenthesesUnavailable: () => DP,
+    pdfWrongArity: () => HT,
+    percentMissingOf: () => TP,
+    piecewiseBranchTypeError: () => gT,
+    piecewiseConditionTypeError: () => fy,
+    piecewiseMissingCondition: () => bI,
+    piecewisePartMissingCondition: () => xI,
+    pointTypeError: () => Wx,
+    pointsUnsupported: () => Fc,
+    polygonTwoNumbersError: () => Ud,
+    polygonUnsupportedIn3d: () => ky,
+    primeVariableTypeError: () => yT,
+    primeWithoutParen: () => Cy,
+    primedFunctionArity: () => Nc,
+    productArgumentTypeError: () => uT,
+    productInfiniteBoundError: () => dy,
+    productLowerBoundTypeError: () => oT,
+    productMissingBody: () => yP,
+    productMissingBound: () => oP,
+    productUpperBoundTypeError: () => aT,
     randomArity: () => $T,
-    randomFromBroadcastDistribution: () => randomFromBroadcastDistributionError,
-    recursionCyclicDependency: () => recursionCyclicDependencyError,
-    recursionDoesNotTerminate: () => recursionDoesNotTerminateError,
-    recursionInRegression: () => recursionInRegressionError,
-    recursiveDepthExceeded: () => recursiveDepthExceededError,
-    recursiveFunctionCannotDependOnFreeVariable: () =>
-      recursiveFunctionCannotDependOnFreeVariableError,
-    recursiveFunctionMissingBaseCase: () =>
-      recursiveFunctionMissingBaseCaseError,
-    recursiveFunctionMissingBaseCaseWithMetadata: () =>
-      recursiveFunctionMissingBaseCaseWithMetadataError,
-    regressionTypeError: () => regressionTypeErrorError,
-    regressionsUnsupported: () => regressionsUnsupportedError,
-    selfReferentialBaseCase: () => selfReferentialBaseCaseError,
-    selfReferentialFunctions: () => selfReferentialFunctionsError,
-    setLogInternalErrors: () => setLogInternalErrorsError,
-    shadowedIndex: () => shadowedIndexError,
-    shadowedIntegrationVariable: () => shadowedIntegrationVariableError,
-    shadowedListComprehensionInput: () => shadowedListComprehensionInputError,
-    singleVariableImplicitEquationsDisabled: () =>
-      singleVariableImplicitEquationsDisabledError,
-    singularInverse: () => singularInverseError,
-    sliderLimitReferencesExport: () => sliderLimitReferencesExportError,
-    sliderMaxInvalid: () => sliderMaxInvalidError,
-    sliderMaxLessThanMin: () => sliderMaxLessThanMinError,
-    sliderMinInvalid: () => sliderMinInvalidError,
-    sliderStepInvalid: () => sliderStepInvalidError,
-    substitutionAmbiguousComma: () => substitutionAmbiguousCommaError,
-    substitutionBodyAction: () => substitutionBodyActionError,
-    substitutionBodyDependsOnRegression: () =>
-      substitutionBodyDependsOnRegressionError,
-    substitutionDuplicateSymbol: () => substitutionDuplicateSymbolError,
-    substitutionFunctionLHS: () => substitutionFunctionLHSError,
-    substitutionIllegalLHS: () => substitutionIllegalLHSError,
+    randomFromBroadcastDistribution: () => YT,
+    recursionCyclicDependency: () => Nx,
+    recursionDoesNotTerminate: () => Rx,
+    recursionInRegression: () => xT,
+    recursiveDepthExceeded: () => Ax,
+    recursiveFunctionCannotDependOnFreeVariable: () => vx,
+    recursiveFunctionMissingBaseCase: () => oy,
+    recursiveFunctionMissingBaseCaseWithMetadata: () => Sx,
+    regressionTypeError: () => PT,
+    regressionsUnsupported: () => wc,
+    selfReferentialBaseCase: () => CI,
+    selfReferentialFunctions: () => Rc,
+    setLogInternalErrors: () => Dx,
+    shadowedIndex: () => vy,
+    shadowedIntegrationVariable: () => By,
+    shadowedListComprehensionInput: () => qy,
+    singleVariableImplicitEquationsDisabled: () => XI,
+    singularInverse: () => XV,
+    sliderLimitReferencesExport: () => SI,
+    sliderMaxInvalid: () => OI,
+    sliderMaxLessThanMin: () => NI,
+    sliderMinInvalid: () => vI,
+    sliderStepInvalid: () => RI,
+    substitutionAmbiguousComma: () => yu,
+    substitutionBodyAction: () => aB,
+    substitutionBodyDependsOnRegression: () => FP,
+    substitutionDuplicateSymbol: () => VP,
+    substitutionFunctionLHS: () => uf,
+    substitutionIllegalLHS: () => af,
     substitutionInvalidAssignments: () => of,
-    substitutionLocalLHS: () => substitutionLocalLHSError,
+    substitutionLocalLHS: () => wP,
     substitutionNested: () => $y,
-    substitutionRecursiveCallLHS: () => substitutionRecursiveCallLHSError,
-    substitutionTypeError: () => substitutionTypeErrorError,
-    substitutionUnsupportedInterval: () => substitutionUnsupportedIntervalError,
-    subtractTypeError: () => subtractTypeErrorError,
-    sumArgumentTypeError: () => sumArgumentTypeErrorError,
-    sumInfiniteBoundError: () => sumInfiniteBoundErrorError,
-    sumLowerBoundTypeError: () => sumLowerBoundTypeErrorError,
-    sumMissingBody: () => sumMissingBodyError,
-    sumMissingBound: () => sumMissingBoundError,
-    sumUpperBoundTypeError: () => sumUpperBoundTypeErrorError,
-    superscriptWithPrime: () => superscriptWithPrimeError,
-    tableEntryTypeError: () => tableEntryTypeErrorError,
-    tableHeaderTypeError: () => tableHeaderTypeErrorError,
-    tableRegressionInvalidData: () => tableRegressionInvalidDataError,
-    tableRegressionLogWithNegative: () => tableRegressionLogWithNegativeError,
-    tableRegressionTypeError: () => tableRegressionTypeErrorError,
-    tdistWrongArity: () => tdistWrongArityError,
-    threeDLengthTypeError: () => threeDLengthTypeErrorError,
-    tickerMinStepNonNegativeNumber: () => tickerMinStepNonNegativeNumberError,
-    tokenWithSubscript: () => tokenWithSubscriptError,
-    tooManyArguments: () => tooManyArgumentsError,
-    tooManyVariables: () => tooManyVariablesError,
-    transformationDefinitionTypeError: () =>
-      transformationDefinitionTypeErrorError,
-    transformationTypeError: () => transformationTypeErrorError,
-    ttestListTooShort: () => ttestListTooShortError,
-    unaryOperatorMissingLeft: () => unaryOperatorMissingLeftError,
-    unaryOperatorMissingRight: () => unaryOperatorMissingRightError,
-    unexpectedEquality: () => unexpectedEqualityError,
-    unexpectedInequality: () => unexpectedInequalityError,
-    unexpectedPrime: () => unexpectedPrimeError,
-    unexpectedSubscript: () => unexpectedSubscriptError,
-    unexpectedSymbol: () => unexpectedSymbolError,
-    unexportableTableRegression: () => unexportableTableRegressionError,
-    unplottableEqualityChain: () => unplottableEqualityChainError,
+    substitutionRecursiveCallLHS: () => BP,
+    substitutionTypeError: () => oB,
+    substitutionUnsupportedInterval: () => Yy,
+    subtractTypeError: () => Vx,
+    sumArgumentTypeError: () => iT,
+    sumInfiniteBoundError: () => py,
+    sumLowerBoundTypeError: () => rT,
+    sumMissingBody: () => mP,
+    sumMissingBound: () => iP,
+    sumUpperBoundTypeError: () => sT,
+    superscriptWithPrime: () => pI,
+    tableEntryTypeError: () => bT,
+    tableHeaderTypeError: () => hT,
+    tableRegressionInvalidData: () => IT,
+    tableRegressionLogWithNegative: () => HV,
+    tableRegressionTypeError: () => TT,
+    tdistWrongArity: () => qT,
+    threeDLengthTypeError: () => eT,
+    tickerMinStepNonNegativeNumber: () => DI,
+    tokenWithSubscript: () => tI,
+    tooManyArguments: () => by,
+    tooManyVariables: () => rn,
+    transformationDefinitionTypeError: () => Jx,
+    transformationTypeError: () => Qx,
+    ttestListTooShort: () => jl,
+    unaryOperatorMissingLeft: () => nI,
+    unaryOperatorMissingRight: () => rI,
+    unexpectedEquality: () => wx,
+    unexpectedInequality: () => cy,
+    unexpectedPrime: () => My,
+    unexpectedSubscript: () => lI,
+    unexpectedSymbol: () => ks,
+    unexportableTableRegression: () => qP,
+    unplottableEqualityChain: () => QI,
     unplottableLongInequalityChain: () => $x,
-    unplottablePolarFunction: () => unplottablePolarFunctionError,
-    unrecognizedSymbol: () => unrecognizedSymbolError,
-    updateRuleFunctionLHS: () => updateRuleFunctionLHSError,
-    updateRuleIllegalLHS: () => updateRuleIllegalLHSError,
-    updateRuleLocalLHS: () => updateRuleLocalLHSError,
-    updateRuleNonIdentifierLHS: () => updateRuleNonIdentifierLHSError,
-    updateRuleTypeError: () => updateRuleTypeErrorError,
-    updateRuleUndefinedLHS: () => updateRuleUndefinedLHSError,
-    useRForCylindricalCoordinates: () => useRForCylindricalCoordinatesError,
-    useRhoForSphericalCoordinates: () => useRhoForSphericalCoordinatesError,
-    variableAsFunction: () => variableAsFunctionError,
-    variableLengthDistributionList: () => variableLengthDistributionListError,
-    variableLengthIntegralDependsOnIntegrationVariable: () =>
-      variableLengthIntegralDependsOnIntegrationVariableError,
-    variableLengthProductBodyDependsOnIndex: () =>
-      variableLengthProductBodyDependsOnIndexError,
-    variableLengthSumBodyDependsOnIndex: () =>
-      variableLengthSumBodyDependsOnIndexError,
-    variableLengthTopLevelList: () => variableLengthTopLevelListError,
-    variableSeed: () => variableSeedError,
-    variableUnsupported: () => variableUnsupportedError,
-    variablesUnsupported: () => variablesUnsupportedError,
-    warnComplexImplicit: () => warnComplexImplicitError,
-    writeIntegral: () => writeIntegralError,
-    wrongArity: () => wrongArityError,
-    wrongArityLengthAsCount: () => wrongArityLengthAsCountError,
-    wrongDoubleReducerArity: () => wrongDoubleReducerArityError,
-    wrongParameterizedReducerArity: () => wrongParameterizedReducerArityError,
-    zeroArgReducer: () => zeroArgReducerError,
+    unplottablePolarFunction: () => qI,
+    unrecognizedSymbol: () => uy,
+    updateRuleFunctionLHS: () => vT,
+    updateRuleIllegalLHS: () => ST,
+    updateRuleLocalLHS: () => my,
+    updateRuleNonIdentifierLHS: () => MT,
+    updateRuleTypeError: () => ET,
+    updateRuleUndefinedLHS: () => DT,
+    useRForCylindricalCoordinates: () => GI,
+    useRhoForSphericalCoordinates: () => BI,
+    variableAsFunction: () => Fy,
+    variableLengthDistributionList: () => sf,
+    variableLengthIntegralDependsOnIntegrationVariable: () => LP,
+    variableLengthProductBodyDependsOnIndex: () => _P,
+    variableLengthSumBodyDependsOnIndex: () => AP,
+    variableLengthTopLevelList: () => RP,
+    variableSeed: () => PP,
+    variableUnsupported: () => Hy,
+    variablesUnsupported: () => ef,
+    warnComplexImplicit: () => Ny,
+    writeIntegral: () => Gy,
+    wrongArity: () => Ao,
+    wrongArityLengthAsCount: () => ZT,
+    wrongDoubleReducerArity: () => qd,
+    wrongParameterizedReducerArity: () => WT,
+    zeroArgReducer: () => jT,
   });
   function Cd(e) {
     return { __isLocalizableNumericValue: true, value: e };
@@ -3270,7 +3245,7 @@
     getExpressionType(t, n) {}
     tableInfo(t, n) {}
     analyze(t, n, r) {
-      throw internalError(`Node ${this.type} does not define analyze.`);
+      throw U(`Node ${this.type} does not define analyze.`);
     }
     analyzeFourFunction(t, n, r) {}
     analyzeScientific(t, n, r) {}
@@ -3371,16 +3346,16 @@
     }
   };
   var iy = false;
-  function setLogInternalErrorsError(e) {
+  function Dx(e) {
     iy = e;
   }
-  function getLogInternalErrorsError() {
+  function GV() {
     return iy;
   }
   function kV(...e) {
     iy && console.error(...e);
   }
-  function internalError(e) {
+  function U(e) {
     if (iy) {
       let t = e instanceof Error ? e : new Error(`${e}`);
       return kV(t.stack),
@@ -3388,7 +3363,7 @@
     }
     return new v(E("shared-calculator-error-parse-error"));
   }
-  function recursiveFunctionMissingBaseCaseError(e) {
+  function oy(e) {
     let t = e.length, n = e[0];
     return new v(
       E("shared-calculator-error-recursion-missing-base-case", {
@@ -3398,48 +3373,48 @@
       }),
     );
   }
-  function recursiveFunctionMissingBaseCaseWithMetadataError(e, t) {
-    let n = recursiveFunctionMissingBaseCaseError(e);
+  function Sx(e, t) {
+    let n = oy(e);
     return n.recursionMetadata = t, n;
   }
-  function recursiveFunctionCannotDependOnFreeVariableError(e) {
+  function vx(e) {
     return new v(
       E("shared-calculator-error-recursion-base-case-free-variable", {
         freeVariable: formatSymbol(e),
       }),
     );
   }
-  function baseCaseCannotDependOnRecursiveParameterError(e) {
+  function Ox(e) {
     return new v(
       E("shared-calculator-error-recursion-base-case-free-variable", {
         freeVariable: formatSymbol(e),
       }),
     );
   }
-  function baseCasesMustAllHaveSameReturnTypeError({ blockExport: e }) {
+  function Ld({ blockExport: e }) {
     let t = new v(E("shared-calculator-error-recursion-base-case-same-type"));
     return e || t.allowExport(), t;
   }
-  function baseCaseTooComplicatedUsePiecewiseError() {
+  function wd() {
     return new v(
       E("shared-calculator-error-recursion-base-case-too-complicated"),
     );
   }
-  function eachBaseCaseArgumentMustBeSimpleError() {
+  function ay() {
     return new v(
       E("shared-calculator-error-recursion-base-case-argument-non-number"),
     );
   }
-  function recursionCyclicDependencyError() {
+  function Nx() {
     return new v(E("shared-calculator-error-recursion-does-not-terminate"));
   }
-  function recursionDoesNotTerminateError() {
+  function Rx() {
     return new v(E("shared-calculator-error-recursion-does-not-terminate"));
   }
-  function recursiveDepthExceededError() {
+  function Ax() {
     return new v(E("shared-calculator-error-recursion-depth-limit-exceeded"));
   }
-  function functionRequiresNumberOfArgumentsError(e, t) {
+  function _x(e, t) {
     return new v(
       E("shared-calculator-error-recursion-wrong-arity", {
         fnSymbol: formatSymbol(e),
@@ -3447,7 +3422,7 @@
       }),
     );
   }
-  function expectedArgumentToBeButFoundError(e, t, n, { blockExport: r }) {
+  function Lx(e, t, n, { blockExport: r }) {
     let s = new v(
       E("shared-calculator-error-recursion-argument-type", {
         index: e + 1,
@@ -3457,24 +3432,24 @@
     );
     return r || s.allowExport(), s;
   }
-  function opaqueError() {
+  function Fd() {
     return new v(E("shared-calculator-error-parse-error"));
   }
-  function unrecognizedSymbolError(e) {
+  function uy(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-unrecognized-symbol", { symbol: e }));
   }
-  function unexpectedInequalityError() {
+  function cy() {
     return new v(E("shared-calculator-error-unexpected-inequality"));
   }
-  function unexpectedEqualityError() {
+  function wx() {
     return new v(E("shared-calculator-error-unexpected-equality"));
   }
-  function unexpectedSymbolError(e) {
+  function ks(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-unexpected-symbol", { symbol: e }));
   }
-  function addTypeErrorError(e, { blockExport: t }) {
+  function Fx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-add-type-error", {
         symbol1: e[0],
@@ -3483,7 +3458,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function subtractTypeErrorError(e, { blockExport: t }) {
+  function Vx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-subtract-type-error", {
         symbol1: e[0],
@@ -3492,7 +3467,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function multiplyTypeErrorError(e, { blockExport: t }) {
+  function Vd(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-multiply-type-error", {
         symbol1: e[0],
@@ -3501,7 +3476,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function multiplyTypeErrorCrossError(e, { blockExport: t }) {
+  function Bx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-multiply-type-error-cross", {
         symbol1: e[0],
@@ -3510,7 +3485,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function multiplyTypeError2DError(e, { blockExport: t }) {
+  function Gx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-multiply-type-error-2d", {
         symbol1: e[0],
@@ -3519,7 +3494,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function multiplyTypeError3DError(e, { blockExport: t }) {
+  function kx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-multiply-type-error-3d", {
         symbol1: e[0],
@@ -3528,7 +3503,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function divideTypeErrorError(e, { blockExport: t }) {
+  function Hx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-divide-type-error", {
         symbol1: e[0],
@@ -3537,7 +3512,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function exponentTypeErrorError(e, { blockExport: t }) {
+  function zx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-exponent-type-error", {
         symbol1: e[0],
@@ -3546,13 +3521,13 @@
     );
     return t || n.allowExport(), n;
   }
-  function negativeTypeErrorError(e, { blockExport: t }) {
+  function Ux(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-negative-type-error", { symbol: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function mixedComparatorChainError() {
+  function qx() {
     return new v(E("shared-calculator-error-mixed-comparator-chain"));
   }
   function $x() {
@@ -3560,7 +3535,7 @@
       E("shared-calculator-error-unplottable-long-inequality-chain"),
     );
   }
-  function comparatorTypeErrorError(e, { blockExport: t }) {
+  function Yx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-comparator-type-error", {
         symbol1: e[0],
@@ -3569,7 +3544,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function andTypeErrorError(e, { blockExport: t }) {
+  function Xx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-operator-type-error", {
         symbol: "and",
@@ -3579,7 +3554,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function orTypeErrorError(e, { blockExport: t }) {
+  function Zx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-operator-type-error", {
         symbol: "or",
@@ -3589,13 +3564,13 @@
     );
     return t || n.allowExport(), n;
   }
-  function listTypeErrorError(e, { blockExport: t }) {
+  function vc(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-list-type-error", { symbol1: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function pointTypeErrorError(e, { blockExport: t }) {
+  function Wx(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-point-type-error", {
         symbol1: e,
@@ -3604,7 +3579,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function indexTypeErrorError(e, { blockExport: t }) {
+  function Bd(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-index-type-error", {
         symbol1: e[0],
@@ -3613,7 +3588,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function coordinateAccessTypeErrorError(e, t, { blockExport: n }) {
+  function jx(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-coordinate-access-type-error", {
         coordinate: t,
@@ -3622,7 +3597,7 @@
     );
     return n || r.allowExport(), r;
   }
-  function functionTypeErrorError(e, t, { blockExport: n }) {
+  function Hs(e, t, { blockExport: n }) {
     let r;
     switch (t.length) {
       case 1:
@@ -3658,11 +3633,9 @@
     dilate: "dilation",
     reflect: "reflection",
   };
-  function transformationDefinitionTypeErrorError(e, t, n, { blockExport: r }) {
+  function Jx(e, t, n, { blockExport: r }) {
     let s = [];
-    if (n.maxArity === void 0) {
-      return functionTypeErrorError(e, t, { blockExport: r });
-    }
+    if (n.maxArity === void 0) return Hs(e, t, { blockExport: r });
     for (let a = 1; a < n.argTypes.length; a++) {
       let u = n.argTypes[a];
       typeof u == "number" ? s.push(oe(u)) : s.push(oe(u.getTypes()[0]));
@@ -3724,7 +3697,7 @@
     }
     return r || o.allowExport(), o;
   }
-  function transformationTypeErrorError(e, t, { blockExport: n }) {
+  function Qx(e, t, { blockExport: n }) {
     let r;
     switch (t.length) {
       case 1:
@@ -3754,7 +3727,7 @@
     }
     return n || r.allowExport(), r;
   }
-  function geometryLengthTypeErrorError(e, t, { blockExport: n }) {
+  function Kx(e, t, { blockExport: n }) {
     let r = formatSymbol(e),
       s = formatSymbol("count"),
       i = new v(
@@ -3766,7 +3739,7 @@
       );
     return n || i.allowExport(), i;
   }
-  function threeDLengthTypeErrorError(e, t, { blockExport: n }) {
+  function eT(e, t, { blockExport: n }) {
     let r = formatSymbol(e),
       s = formatSymbol("count"),
       i = new v(
@@ -3778,14 +3751,14 @@
       );
     return n || i.allowExport(), i;
   }
-  function illegalDotCallError(e) {
+  function Gd(e) {
     return new v(
       E("shared-calculator-error-illegal-dot-call", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function dotLHSTypeErrorError(e, t, { blockExport: n }) {
+  function tT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-dot-lhs-type-error", {
         symbol: formatSymbol(e),
@@ -3794,38 +3767,38 @@
     );
     return n || r.allowExport(), r;
   }
-  function dotLHSConstantNumberErrorError() {
+  function ly() {
     return new v(E("shared-calculator-error-dot-lhs-constant-number"));
   }
-  function dotRHSPropertyErrorError(e) {
+  function nT(e) {
     return new v(
       E("shared-calculator-error-dot-rhs-property-error", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function sumLowerBoundTypeErrorError(e, { blockExport: t }) {
+  function rT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-sum-lower-bound-type-error", { symbol: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function sumUpperBoundTypeErrorError(e, { blockExport: t }) {
+  function sT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-sum-upper-bound-type-error", { symbol: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function sumInfiniteBoundErrorError() {
+  function py() {
     return new v(E("shared-calculator-error-sum-infinite-bound-type-error"));
   }
-  function sumArgumentTypeErrorError(e, { blockExport: t }) {
+  function iT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-sum-argument-type-error", { symbol: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function productLowerBoundTypeErrorError(e, { blockExport: t }) {
+  function oT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-product-lower-bound-type-error", {
         symbol: e[0],
@@ -3833,7 +3806,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function productUpperBoundTypeErrorError(e, { blockExport: t }) {
+  function aT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-product-upper-bound-type-error", {
         symbol: e[0],
@@ -3841,12 +3814,12 @@
     );
     return t || n.allowExport(), n;
   }
-  function productInfiniteBoundErrorError() {
+  function dy() {
     return new v(
       E("shared-calculator-error-product-infinite-bound-type-error"),
     );
   }
-  function productArgumentTypeErrorError(e, { blockExport: t }) {
+  function uT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-product-argument-type-error", {
         symbol: e[0],
@@ -3854,7 +3827,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function integralLowerBoundTypeErrorError(e, { blockExport: t }) {
+  function cT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-integral-lower-bound-type-error", {
         symbol: e[0],
@@ -3862,7 +3835,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function integralUpperBoundTypeErrorError(e, { blockExport: t }) {
+  function lT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-integral-upper-bound-type-error", {
         symbol: e[0],
@@ -3870,7 +3843,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function integralArgumentTypeErrorError(e, { blockExport: t }) {
+  function pT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-integral-argument-type-error", {
         symbol: e[0],
@@ -3878,13 +3851,13 @@
     );
     return t || n.allowExport(), n;
   }
-  function derivativeTypeErrorError(e, { blockExport: t }) {
+  function dT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-derivative-type-error", { symbol: e[0] }),
     );
     return t || n.allowExport(), n;
   }
-  function derivativeTypeErrorRespectError(e, { blockExport: t }) {
+  function fT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-derivative-type-error-respect", {
         symbol1: e[0],
@@ -3893,7 +3866,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function derivativeVariableTypeErrorError(e, t, { blockExport: n }) {
+  function mT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-derivative-variable-type-error", {
         symbol1: formatSymbol(e),
@@ -3902,7 +3875,7 @@
     );
     return n || r.allowExport(), r;
   }
-  function primeVariableTypeErrorError(e, t, { blockExport: n }) {
+  function yT(e, t, { blockExport: n }) {
     let r = new v(
       E("shared-calculator-error-prime-variable-type-error", {
         symbol1: formatSymbol(e),
@@ -3911,7 +3884,7 @@
     );
     return n || r.allowExport(), r;
   }
-  function piecewiseConditionTypeErrorError(e, { blockExport: t }) {
+  function fy(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-piecewise-condition-type-error", {
         symbol1: oe(Bool),
@@ -3920,7 +3893,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function piecewiseBranchTypeErrorError(e, { blockExport: t }) {
+  function gT(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-piecewise-branch-type-error", {
         symbol1: e[0],
@@ -3929,33 +3902,33 @@
     );
     return t || n.allowExport(), n;
   }
-  function tableHeaderTypeErrorError(e) {
+  function hT(e) {
     return new v(
       E("shared-calculator-error-table-header-type-error", { symbol: e[0] }),
     );
   }
-  function tableEntryTypeErrorError(e) {
+  function bT(e) {
     return new v(
       E("shared-calculator-error-table-entry-type-error", { symbol: e[0] }),
     );
   }
-  function recursionInRegressionError() {
+  function xT() {
     return new v(E("shared-calculator-error-regression-recursion"));
   }
-  function tableRegressionTypeErrorError(e) {
+  function TT(e) {
     return new v(
       E("shared-calculator-error-table-regression-type-error", { symbol: e }),
     );
   }
-  function tableRegressionInvalidDataError() {
+  function IT() {
     return new v(E("shared-calculator-error-table-regression-invalid-data"));
   }
-  function tableRegressionLogWithNegativeError() {
+  function HV() {
     return new v(
       E("shared-calculator-error-table-regression-log-with-negative"),
     );
   }
-  function regressionTypeErrorError(e) {
+  function PT(e) {
     return new v(
       E("shared-calculator-error-regression-type-error", {
         symbol1: e[0],
@@ -3963,12 +3936,12 @@
       }),
     );
   }
-  function updateRuleTypeErrorError(e) {
+  function ET(e) {
     return new v(
       E("shared-calculator-error-update-rule-type-error", { symbol: e }),
     );
   }
-  function updateRuleNonIdentifierLHSError() {
+  function MT() {
     return new v(
       E("shared-calculator-error-update-rule-non-identifier-lhs", {
         arrow: "\u2192",
@@ -3976,42 +3949,42 @@
       }),
     );
   }
-  function duplicateUpdateRulesError(e) {
+  function CT(e) {
     return new v(
       E("shared-calculator-error-duplicate-update-rules", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function updateRuleUndefinedLHSError(e) {
+  function DT(e) {
     return new v(
       E("shared-calculator-error-update-rule-undefined-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function updateRuleIllegalLHSError(e) {
+  function ST(e) {
     return new v(
       E("shared-calculator-error-update-rule-illegal-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function updateRuleFunctionLHSError(e) {
+  function vT(e) {
     return new v(
       E("shared-calculator-error-update-rule-function-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function updateRuleLocalLHSError(e) {
+  function my(e) {
     return new v(
       E("shared-calculator-error-update-rule-local-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function actionMergeFreeVariableError(e) {
+  function OT(e) {
     let t = e.filter((n) => n.scope === "free").map((n) => n.symbol);
     return new v(
       E("shared-calculator-error-action-merge-free-variable", {
@@ -4019,18 +3992,18 @@
       }),
     ).setDependencies(t).allowExport();
   }
-  function eventHandlerTypeErrorError(e) {
+  function kd(e) {
     return new v(
       E("shared-calculator-error-event-handler-type-error", {
         example: "a\u2192a+1",
       }),
     );
   }
-  function heterogeneousListError({ blockExport: e }) {
+  function Hd({ blockExport: e }) {
     let t = new v(E("shared-calculator-error-heterogeneous-list"));
     return e || t.allowExport(), t;
   }
-  function combineTypeErrorError(e, { blockExport: t }) {
+  function yy(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-combine-type-error", {
         symbol1: e[0],
@@ -4039,36 +4012,36 @@
     );
     return t || n.allowExport(), n;
   }
-  function logScaleTypeErrorError(e) {
+  function Yl(e) {
     return new v(
       E("shared-calculator-error-log-scale-type-error", { symbol: e }),
     ).allowExport();
   }
-  function logScaleHistogramError() {
+  function NT() {
     return new v(E("shared-calculator-error-log-scale-histogram"));
   }
-  function logScaleDotPlotError() {
+  function RT() {
     return new v(E("shared-calculator-error-log-scale-dot-plot"));
   }
-  function logScaleBoxPlotError() {
+  function AT() {
     return new v(E("shared-calculator-error-log-scale-box-plot"));
   }
-  function deeplyNestedError() {
+  function _T() {
     return new v(E("shared-calculator-error-deeply-nested")).allowExport();
   }
-  function multipleEqualityRestrictionsError() {
+  function LT() {
     return new v(E("shared-calculator-error-3d-multiple-equality-restrictions"))
       .allowExport();
   }
-  function mixedRestrictionEquationError() {
+  function wT() {
     return new v(E("shared-calculator-error-3d-mixed-restriction-equation"))
       .allowExport();
   }
-  function badEqualitySliceError() {
+  function ca() {
     return new v(E("shared-calculator-error-3d-bad-equality-slice"))
       .allowExport();
   }
-  function gpuVariableListLengthError(e) {
+  function mu(e) {
     return new v(
       E("shared-calculator-error-gpu-variable-list-length", {
         symbol: formatSymbol(
@@ -4077,101 +4050,101 @@
       }),
     );
   }
-  function gpuVariableSumError(e) {
+  function gy(e) {
     return new v(
       E("shared-calculator-error-gpu-variable-sum", {
         symbol: formatSymbol(e[0].symbol),
       }),
     );
   }
-  function gpuVariableProductError(e) {
+  function hy(e) {
     return new v(
       E("shared-calculator-error-gpu-variable-product", {
         symbol: formatSymbol(e[0].symbol),
       }),
     );
   }
-  function gpuUnsupportedFunctionError(e) {
+  function Xl(e) {
     return new v(
       E("shared-calculator-error-gpu-function-unsupported", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function gpuUnsupportedIntegralError() {
+  function FT() {
     return new v(E("shared-calculator-error-gpu-integral-unsupported"));
   }
-  function gpuLongSumError() {
+  function VT() {
     return new v(
       E("shared-calculator-error-gpu-long-sum", {
         maxTermCount: (1e3).toLocaleString(),
       }),
     );
   }
-  function gpuLongProductError() {
+  function BT() {
     return new v(
       E("shared-calculator-error-gpu-long-product", {
         maxTermCount: (1e3).toLocaleString(),
       }),
     );
   }
-  function gpuMaxListSizeError() {
+  function Oc() {
     return new v(
       E("shared-calculator-error-gpu-max-list-size", {
         maxListSize: (100).toLocaleString(),
       }),
     );
   }
-  function maxListSizeError() {
+  function zd() {
     return new v(
       E("shared-calculator-error-max-list-size", {
         maxListSize: (1e4).toLocaleString(),
       }),
     ).allowExport();
   }
-  function polygonTwoNumbersErrorError() {
+  function Ud() {
     return new v(E("shared-calculator-error-two-numbers-error"));
   }
-  function boxplotOffsetInvalidError() {
+  function GT() {
     return new v(E("shared-calculator-error-boxplot-offset-invalid"));
   }
-  function boxplotBreadthInvalidError() {
+  function kT() {
     return new v(E("shared-calculator-error-boxplot-breadth-invalid"));
   }
-  function tooManyArgumentsError(e, t) {
+  function by(e, t) {
     return new v(
       E("shared-calculator-error-too-many-arguments", { symbol: e, max: t }),
     );
   }
-  function pdfWrongArityError() {
+  function HT() {
     let e = E("shared-calculator-error-pdf-wrong-arity-recommendation"),
       t = E("shared-calculator-error-pdf-wrong-arity", { recommendation: e });
     return new v(t);
   }
-  function cdfRequiresArgumentsError() {
+  function zT() {
     let e = E("shared-calculator-error-cdf-wrong-arity-recommendation"),
       t = E("shared-calculator-error-cdf-wrong-arity", { recommendation: e });
     return new v(t);
   }
-  function cdfTooManyArgumentsError() {
+  function UT() {
     let e = E("shared-calculator-error-cdf-too-many-arguments-recommendation"),
       t = E("shared-calculator-error-cdf-too-many-arguments", {
         recommendation: e,
       });
     return new v(t);
   }
-  function tdistWrongArityError() {
+  function qT() {
     return new v(E("shared-calculator-error-tdist-wrong-arity"));
   }
   function $T() {
     return new v(E("shared-calculator-error-random-arity"));
   }
-  function randomFromBroadcastDistributionError() {
+  function YT() {
     return new v(
       E("shared-calculator-error-random-from-broadcast-distribution"),
     );
   }
-  function colorArityError(e) {
+  function XT(e) {
     let t = e === "rgb" ? [150, 30, 100] : [180, .5, .5],
       n = E("shared-calculator-error-color-arity-recommendation", {
         recommendation: formatSymbol(e) + "(" + t.join(", ") + ")",
@@ -4182,7 +4155,7 @@
       });
     return new v(r);
   }
-  function wrongArityError(e, t, n, r) {
+  function Ao(e, t, n, r) {
     e = formatSymbol(e);
     let s, i;
     if (t === 1) {
@@ -4219,7 +4192,7 @@
     }
     return new v(s);
   }
-  function wrongArityLengthAsCountError() {
+  function ZT() {
     let e = E("shared-calculator-error-wrong-arity-supplement", {
         recommendation: "length(x)",
       }),
@@ -4229,7 +4202,7 @@
       });
     return new v(t);
   }
-  function wrongParameterizedReducerArityError(e) {
+  function WT(e) {
     return new v(
       E("shared-calculator-error-wrong-two-arg-arity", {
         symbol: formatSymbol(e),
@@ -4237,7 +4210,7 @@
       }),
     );
   }
-  function wrongDoubleReducerArityError(e) {
+  function qd(e) {
     return new v(
       E("shared-calculator-error-wrong-two-arg-arity", {
         symbol: formatSymbol(e),
@@ -4245,49 +4218,49 @@
       }),
     );
   }
-  function primedFunctionArityError() {
+  function Nc() {
     return new v(E("shared-calculator-error-primed-function-arity"));
   }
-  function zeroArgReducerError(e) {
+  function jT(e) {
     return new v(
       E("shared-calculator-error-zero-arg-reducer", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function malformedPointError() {
+  function JT() {
     return new v(E("shared-calculator-error-malformed-point"));
   }
-  function malformedListError() {
+  function QT() {
     return new v(E("shared-calculator-error-malformed-list"));
   }
-  function badTupleDimensionsError(e) {
+  function KT(e) {
     return new v(
       E("shared-calculator-error-bad-tuple-dimensions", { symbol: e }),
     );
   }
-  function badImplicitCallError(e) {
+  function xy(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-bad-implicit-call", { symbol: e }));
   }
-  function adjacentNumbersError(e, t) {
+  function eI(e, t) {
     return new v(
       E("shared-calculator-error-adjacent-numbers", { left: e, right: t }),
     );
   }
-  function adjacentMixedNumberError(e) {
+  function Ty(e) {
     return new v(
       E("shared-calculator-error-adjacent-mixed-number", { mixedNumber: e }),
     );
   }
-  function tokenWithSubscriptError() {
+  function tI() {
     return new v(E("shared-calculator-error-token-with-subscript"));
   }
-  function identifierAsFunctionError(e) {
+  function Iy(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-identifier-as-function", { symbol: e }));
   }
-  function identifierIsNotFunctionError(e) {
+  function Py(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-identifier-is-not-function", { symbol: e }),
@@ -4302,13 +4275,13 @@
         }),
       );
   }
-  function unaryOperatorMissingLeftError(e) {
+  function nI(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-unary-operator-missing-left", { symbol: e }),
       );
   }
-  function unaryOperatorMissingRightError(e) {
+  function rI(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-unary-operator-missing-right", {
@@ -4316,85 +4289,85 @@
         }),
       );
   }
-  function fractionMissingNumeratorError() {
+  function sI() {
     return new v(E("shared-calculator-error-fraction-missing-numerator"));
   }
-  function fractionMissingDenominatorError() {
+  function iI() {
     return new v(E("shared-calculator-error-fraction-missing-denominator"));
   }
-  function fractionEmptyError() {
+  function oI() {
     return new v(E("shared-calculator-error-fraction-empty"));
   }
-  function emptySubscriptError() {
+  function Ey() {
     return new v(E("shared-calculator-error-empty-subscript"));
   }
-  function emptySuperscriptError() {
+  function aI() {
     return new v(E("shared-calculator-error-empty-superscript"));
   }
-  function invalidSubscriptError(e) {
+  function uI(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-invalid-subscript", { symbol: e }));
   }
-  function invalidOperatorNameError() {
+  function cI() {
     return new v(E("shared-calculator-error-invalid-operator-name"));
   }
-  function unexpectedSubscriptError() {
+  function lI() {
     return new v(E("shared-calculator-error-unexpected-subscript"));
   }
-  function superscriptWithPrimeError() {
+  function pI() {
     return new v(E("shared-calculator-error-superscript-with-prime"));
   }
-  function unexpectedPrimeError() {
+  function My() {
     return new v(E("shared-calculator-error-unexpected-prime"));
   }
-  function primeWithoutParenError() {
+  function Cy() {
     return new v(E("shared-calculator-error-prime-without-paren"));
   }
-  function emptyRadicalError() {
+  function dI() {
     return new v(E("shared-calculator-error-empty-radical"));
   }
-  function emptyRadicalIndexError() {
+  function fI() {
     return new v(E("shared-calculator-error-empty-radical-index"));
   }
-  function emptyParenError() {
+  function Yd() {
     return new v(E("shared-calculator-error-empty-paren"));
   }
-  function emptySquareBracketError() {
+  function mI() {
     return new v(E("shared-calculator-error-empty-square-bracket"));
   }
-  function emptyPipeError() {
+  function yI() {
     return new v(E("shared-calculator-error-empty-pipe"));
   }
-  function badTrigExponentError(e) {
+  function gI(e) {
     let t = e + "^2", n = e + "^-1";
     return new v(
       E("shared-calculator-error-bad-trig-exponent", { form1: t, form2: n }),
     );
   }
-  function badLogExponentError(e) {
+  function hI(e) {
     let t = e + "^2";
     return new v(E("shared-calculator-error-bad-log-exponent", { form: t }));
   }
-  function piecewiseMissingConditionError() {
+  function bI() {
     return new v(E("shared-calculator-error-piecewise-missing-condition"));
   }
-  function piecewisePartMissingConditionError() {
+  function xI() {
     return new v(E("shared-calculator-error-piecewise-part-missing-condition"));
   }
-  function colonMissingConditionError() {
+  function TI() {
     return new v(E("shared-calculator-error-colon-missing-condition"));
   }
-  function blankExpressionError() {
+  function Xd() {
     let e = new v(E("shared-calculator-error-blank-expression"));
     return e.silent = true, e;
   }
-  function functionNotDefinedError(e) {
+  function Dy(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-function-not-defined", { dependency: e }),
       );
   }
-  function parameterAlreadyDefinedError(e) {
+  function Sy(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-parameter-already-defined", {
@@ -4402,7 +4375,7 @@
         }),
       );
   }
-  function duplicateFunctionParameterError(e) {
+  function II(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-duplicate-function-parameter", {
@@ -4418,7 +4391,7 @@
         }),
       );
   }
-  function cannotRedefineError(e, t) {
+  function Zl(e, t) {
     return e = formatSymbol(e),
       t === void 0
         ? new v(E("shared-calculator-error-cannot-redefine", { symbol: e }))
@@ -4429,19 +4402,19 @@
           }),
         );
   }
-  function cannotSubscriptError(e) {
+  function EI(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-cannot-subscript", { symbol: e }));
   }
-  function multiplyDefinedError(e) {
+  function Wl(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-multiply-defined", { dependency: e }));
   }
-  function shadowedIndexError(e) {
+  function vy(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-shadowed-index", { symbol: e }));
   }
-  function cycleError(e) {
+  function MI(e) {
     e = e.map(formatSymbol);
     let t = e.pop() || "",
       n = new v(
@@ -4452,7 +4425,7 @@
       );
     return n.isCyclicDependencyError = true, n;
   }
-  function selfReferentialFunctionsError(e, t) {
+  function Rc(e, t) {
     let n = e.length, r = e[0];
     return t.suggestAlternativeFunctionName && n == 1
       ? new v(
@@ -4468,69 +4441,69 @@
         }),
       );
   }
-  function selfReferentialBaseCaseError(e) {
+  function CI(e) {
     return new v(
       E("shared-calculator-error-self-referential-base-case", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function tickerMinStepNonNegativeNumberError() {
+  function DI() {
     return new v(E("shared-calculator-error-ticker-min-step-nonnegative"));
   }
-  function sliderLimitReferencesExportError(e) {
+  function SI(e) {
     return new v(
       E("shared-calculator-error-slider-limit-references-export", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function sliderMinInvalidError() {
+  function vI() {
     return new v(E("shared-calculator-error-slider-min-invalid"));
   }
-  function sliderMaxInvalidError() {
+  function OI() {
     return new v(E("shared-calculator-error-slider-max-invalid"));
   }
-  function sliderMaxLessThanMinError() {
+  function NI() {
     return new v(E("shared-calculator-error-slider-max-less-than-min"));
   }
-  function sliderStepInvalidError() {
+  function RI() {
     return new v(E("shared-calculator-error-slider-step-invalid"));
   }
-  function domainMinInvalidError() {
+  function AI() {
     return new v(E("shared-calculator-error-domain-min-invalid"));
   }
-  function domainMaxInvalidError() {
+  function _I() {
     return new v(E("shared-calculator-error-domain-max-invalid"));
   }
-  function domainMaxLessThanMinError() {
+  function LI() {
     return new v(E("shared-calculator-error-domain-max-less-than-min"));
   }
-  function cdfMinInvalidError() {
+  function wI() {
     return new v(E("shared-calculator-error-cdf-min-invalid"));
   }
-  function cdfMaxInvalidError() {
+  function FI() {
     return new v(E("shared-calculator-error-cdf-max-invalid"));
   }
-  function cdfMaxLessThanMinError() {
+  function VI() {
     return new v(E("shared-calculator-error-cdf-max-less-than-min"));
   }
-  function useRhoForSphericalCoordinatesError() {
+  function BI() {
     return new v(
       E("shared-calculator-error-use-rho-for-spherical-coordinates"),
     );
   }
-  function useRForCylindricalCoordinatesError() {
+  function GI() {
     return new v(
       E("shared-calculator-error-use-r-for-cylindrical-coordinates"),
     );
   }
-  function cantCombineSphericalAndCylindricalError() {
+  function Oy() {
     return new v(
       E("shared-calculator-error-cant-combine-spherical-and-cylindrical"),
     );
   }
-  function tooManyVariablesError(e) {
+  function rn(e) {
     if (e = e.map(formatSymbol), e.length === 0) {
       return new v(E("shared-calculator-error-too-many-variables-no-symbols"));
     }
@@ -4548,28 +4521,28 @@
         }),
       );
   }
-  function cannotRestrictError(e) {
+  function kI(e) {
     return new v(
       E("shared-calculator-error-cannot-restrict", {
         variable: formatSymbol(e),
       }),
     );
   }
-  function cannotAssignColorError(e) {
+  function HI(e) {
     return new v(
       E("shared-calculator-error-cannot-assign-color", {
         variable: formatSymbol(e),
       }),
     );
   }
-  function cannotRestrictWithEqualityError(e) {
+  function zI(e) {
     return new v(
       E("shared-calculator-error-cannot-restrict-with-equality", {
         variable: formatSymbol(e),
       }),
     );
   }
-  function addArgumentsToDefinitionError(e, t, n) {
+  function Zd(e, t, n) {
     e = e.map(formatSymbol), t = formatSymbol(t), n = n.map(formatSymbol);
     let r = t + "(" + n.join(",") + "," + e.join(",") + ")",
       s = e.pop() || "",
@@ -4578,31 +4551,31 @@
       ? new v(E("shared-calculator-error-add-arguments-to-definition-many", i))
       : new v(E("shared-calculator-error-add-arguments-to-definition-one", i));
   }
-  function invalidLHSError(e) {
+  function UI(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-invalid-lhs", { symbol: e }));
   }
-  function unplottablePolarFunctionError() {
+  function qI() {
     return new v(E("shared-calculator-error-unplottable-polar-function"));
   }
   function $I() {
     return new v(E("shared-calculator-error-invalid-inequality-variables"));
   }
-  function invalidImplicitVariablesError() {
+  function Ac() {
     return new v(E("shared-calculator-error-invalid-implicit-variables"));
   }
-  function invalidImplicitVariables3dError() {
+  function YI() {
     return new v(E("shared-calculator-error-invalid-implicit-variables-3d"));
   }
-  function singleVariableImplicitEquationsDisabledError() {
+  function XI() {
     return new v(
       E("shared-calculator-error-single-variable-implicit-equations-disabled"),
     );
   }
-  function implicitsDisabledError() {
+  function ZI() {
     return new v(E("shared-calculator-error-implicits-disabled"));
   }
-  function warnComplexImplicitError(e) {
+  function Ny(e) {
     let t = new v(
       e === "="
         ? E("graphing-calculator-error-nan-blame-complex-coercion")
@@ -4612,40 +4585,40 @@
     );
     return t.warning = t.getError(), t.silent = true, t;
   }
-  function complexPlottedTableCellError() {
+  function zV() {
     return new v(E("shared-calculator-error-complex-table-point-coordinate"));
   }
-  function inequalitiesDisabledError() {
+  function Ry() {
     return new v(E("shared-calculator-error-inequalities-disabled"));
   }
-  function complicatedPolarImplicitError() {
+  function WI() {
     return new v(E("shared-calculator-error-complicated-polar-implicit"));
   }
-  function invalidDoubleInequality3dError() {
+  function jI() {
     return new v(E("shared-calculator-error-invalid-double-inequality-3d"));
   }
-  function invalidDoubleEquality3dError() {
+  function JI() {
     return new v(E("shared-calculator-error-invalid-double-equality-3d"));
   }
-  function unplottableEqualityChainError() {
+  function QI() {
     return new v(E("shared-calculator-error-unplottable-chained-equality"));
   }
-  function invalidDoubleInequalityVariablesError() {
+  function Ay() {
     return new v(
       E("shared-calculator-error-invalid-double-inequality-variables"),
     );
   }
-  function mismatchedDoubleInequalityError() {
+  function _y() {
     return new v(
       E("shared-calculator-error-mismatched-double-inequality", {
         example: "1 < y < 2",
       }),
     );
   }
-  function complicatedDoubleInequalityError() {
+  function Ly() {
     return new v(E("shared-calculator-error-complicated-double-inequality"));
   }
-  function equationRequiredError(e) {
+  function wy(e) {
     return e
       ? (e = formatSymbol(e),
         new v(
@@ -4655,29 +4628,29 @@
         ))
       : new v(E("shared-calculator-error-equation-required"));
   }
-  function variableAsFunctionError(e) {
+  function Fy(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-variable-as-function", { dependency: e }),
       );
   }
-  function distributionAsFunctionError(e) {
+  function Vy(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-distribution-as-function", { symbol: e }),
       );
   }
-  function invalidTableHeaderError(e) {
+  function KI(e) {
     return new v(
       E("shared-calculator-error-invalid-table-header", { supplement: e }),
     );
   }
-  function invalidTableEntryError(e) {
+  function Wd(e) {
     return new v(
       E("shared-calculator-error-invalid-table-entry", { supplement: e }),
     );
   }
-  function invalidFirstTableColumnError() {
+  function eP() {
     return new v(
       E("shared-calculator-error-invalid-first-table-column", {
         most: "'y', 'r',",
@@ -4685,22 +4658,22 @@
       }),
     );
   }
-  function invalidDependentFirstTableColumnError() {
+  function UV() {
     return new v(
       E("shared-calculator-error-invalid-dependent-first-table-column"),
     );
   }
-  function invalidRegressionParameterError(e) {
+  function tP(e) {
     return new v(
       E("shared-calculator-error-invalid-regression-parameter", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function optimizationErrorError() {
+  function nP() {
     return new v(E("shared-calculator-error-optimization-error"));
   }
-  function nonListDoubleReducerError(e, { blockExport: t }) {
+  function jd(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-non-list-double-reducer", {
         symbol: formatSymbol(e),
@@ -4709,7 +4682,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function nonListParameterizedReducerError(e, { blockExport: t }) {
+  function rP(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-non-list-parameterized-reducer", {
         symbol: formatSymbol(e),
@@ -4718,7 +4691,7 @@
     );
     return t || n.allowExport(), n;
   }
-  function methodRequiresListError(e, { blockExport: t }) {
+  function so(e, { blockExport: t }) {
     let n = new v(
       E("shared-calculator-error-method-requires-list", {
         symbol: formatSymbol(e),
@@ -4727,61 +4700,61 @@
     );
     return t || n.allowExport(), n;
   }
-  function nonArithmeticRangeError() {
+  function Jd() {
     return new v(E("shared-calculator-error-non-arithmetic-range"))
       .allowExport();
   }
-  function invalidHalfEmptyRangeError() {
+  function sP() {
     return new v(E("shared-calculator-error-invalid-half-empty-range"));
   }
-  function sumMissingBoundError() {
+  function iP() {
     return new v(E("shared-calculator-error-sum-missing-bound"));
   }
-  function productMissingBoundError() {
+  function oP() {
     return new v(E("shared-calculator-error-product-missing-bound"));
   }
-  function incorrectSumLowerBoundError() {
+  function aP() {
     return new v(E("shared-calculator-error-incorrect-sum-lower-bound"));
   }
-  function incorrectProductLowerBoundError() {
+  function uP() {
     return new v(E("shared-calculator-error-incorrect-product-lower-bound"));
   }
-  function badSumBoundDependencyError(e) {
+  function cP(e) {
     return new v(
       E("shared-calculator-error-bad-sum-bound-dependency", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function badProductBoundDependencyError(e) {
+  function lP(e) {
     return new v(
       E("shared-calculator-error-bad-product-bound-dependency", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function integralMissingBoundError() {
+  function pP() {
     return new v(E("shared-calculator-error-integral-missing-bound"));
   }
-  function integralMissingDifferentialError() {
+  function dP() {
     return new v(E("shared-calculator-error-integral-missing-differential"));
   }
-  function differentialWithSuperscriptError() {
+  function fP() {
     return new v(E("shared-calculator-error-differential-with-superscript"));
   }
-  function sumMissingBodyError() {
+  function mP() {
     return new v(E("shared-calculator-error-sum-missing-body"));
   }
-  function productMissingBodyError() {
+  function yP() {
     return new v(E("shared-calculator-error-product-missing-body"));
   }
-  function integralMissingBodyError() {
+  function gP() {
     return new v(E("shared-calculator-error-integral-missing-body"));
   }
-  function derivativeMissingBodyError() {
+  function hP() {
     return new v(E("shared-calculator-error-derivative-missing-body"));
   }
-  function mismatchedBracesError(e, t) {
+  function bP(e, t) {
     return e = formatSymbol(e),
       t = formatSymbol(t),
       new v(
@@ -4791,35 +4764,35 @@
         }),
       );
   }
-  function shadowedIntegrationVariableError(e) {
+  function By(e) {
     return new v(
       E("shared-calculator-error-shadowed-integration-variable", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function badIntegralBoundDependencyError(e) {
+  function xP(e) {
     return new v(
       E("shared-calculator-error-bad-integral-bound-dependency", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function percentMissingOfError() {
+  function TP() {
     return new v(E("shared-calculator-error-percent-missing-of"));
   }
-  function illegalBinWidthError(e) {
+  function Qd(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-illegal-bin-width", { symbol: e }));
   }
-  function ttestListTooShortError(e) {
+  function jl(e) {
     return e = formatSymbol(e),
       new v(E("shared-calculator-error-ttest-list-too-short", { symbol: e }));
   }
-  function badSampleSizeError() {
+  function IP() {
     return new v(E("shared-calculator-error-bad-sample-size"));
   }
-  function variableSeedError(e) {
+  function PP(e) {
     return new v(
       E("shared-calculator-error-variable-seed", {
         symbol: formatSymbol(e[0].symbol),
@@ -4827,14 +4800,14 @@
     ).setDependencies(e.filter((t) => t.scope === "free").map((t) => t.symbol))
       .allowExport();
   }
-  function badSymbolContextError(e) {
+  function Kd(e) {
     return new v(
       E("shared-calculator-error-bad-symbol-context", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function writeIntegralError() {
+  function Gy() {
     return new v(
       E("shared-calculator-error-write-integral", {
         command: "integral",
@@ -4842,162 +4815,157 @@
       }),
     );
   }
-  function ansUndefinedError() {
+  function EP() {
     return new v(E("shared-calculator-error-ans-undefined"));
   }
-  function variablesUnsupportedError(e) {
+  function ef(e) {
     return new v(
       E("shared-calculator-error-variables-unsupported", {
         variable: formatSymbol(e),
       }),
     );
   }
-  function polygonUnsupportedIn3dError() {
+  function ky() {
     return new v(E("shared-calculator-error-polygon-unsupported-in-3d"));
   }
-  function functionOnlyWorksInComplexModeError(e) {
+  function VD(e) {
     return new v(
       E("shared-calculator-error-function-only-works-in-complex", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function functionUnsupportedError(e, t) {
+  function Li(e, t) {
     return t != null && t.is3dPolicy() && e === "polygon"
-      ? polygonUnsupportedIn3dError()
+      ? ky()
       : !!t && !(t != null && t.isGeometryEnabled()) && !(t instanceof Cc) &&
           !t.isComplexEnabled() && FD.indexOf(e) !== -1
-      ? functionOnlyWorksInComplexModeError(e)
+      ? VD(e)
       : new v(
         E("shared-calculator-error-function-unsupported", {
           symbol: formatSymbol(e),
         }),
       );
   }
-  function logbaseUnsupportedError() {
+  function MP() {
     return new v(E("shared-calculator-error-logbase-unsupported"));
   }
-  function constantUnsupportedError(e) {
+  function _c(e) {
     return new v(
       E("shared-calculator-error-constant-unsupported", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function variableUnsupportedError(e) {
+  function Hy(e) {
     return new v(
       E("shared-calculator-error-variable-unsupported", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function invalidFunctionNameError(e) {
+  function zy(e) {
     return new v(
       E("shared-calculator-error-variable-invalid-function-name", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function assignmentsUnsupportedError() {
+  function tf() {
     return new v(E("shared-calculator-error-assignments-unsupported"));
   }
-  function functionDefinitionsUnsupportedError() {
+  function nf() {
     return new v(E("shared-calculator-error-function-definition-unsupported"));
   }
-  function equationsUnsupportedError() {
+  function Ua() {
     return new v(E("shared-calculator-error-equations-unsupported"));
   }
-  function inequalitiesUnsupportedError() {
+  function Lc() {
     return new v(E("shared-calculator-error-inequalities-unsupported"));
   }
-  function regressionsUnsupportedError() {
+  function wc() {
     return new v(E("shared-calculator-error-regressions-unsupported"));
   }
-  function customRegressionsUnsupportedError() {
+  function CP() {
     return new v(E("shared-calculator-error-custom-regressions-unsupported"));
   }
-  function pointsUnsupportedError() {
+  function Fc() {
     return new v(E("shared-calculator-error-points-unsupported"));
   }
-  function featureUnavailableError() {
+  function rf() {
     return new v(E("shared-calculator-error-feature-unavailable"));
   }
-  function fractionsUnavailableError() {
+  function Uy() {
     return new v(E("basic-calculator-error-fractions-unavailable"));
   }
-  function parenthesesUnavailableError() {
+  function DP() {
     return new v(E("basic-calculator-error-parentheses-unavailable"));
   }
-  function nonSquareDeterminantError() {
+  function qV() {
     return new v(E("shared-calculator-error-non-square-determinant"));
   }
   function $V() {
     return new v(E("shared-calculator-error-non-square-trace"));
   }
-  function nonSquareInverseError() {
+  function YV() {
     return new v(E("shared-calculator-error-non-square-inverse"));
   }
-  function singularInverseError() {
+  function XV() {
     return new v(E("shared-calculator-error-non-singular-inverse"));
   }
-  function clickableObjectAssignmentNotDefinedError(e) {
+  function ZV(e) {
     return new v(
       E("shared-calculator-error-clickable-object-assignment-not-defined", {
         symbol: e,
       }),
     );
   }
-  function clickableObjectAlreadyAssignedError(e) {
+  function WV(e) {
     return new v(
       E("shared-calculator-error-multiply-defined", { dependency: e }),
     );
   }
-  function clickableObjectAssignmentNotIdentifierError() {
+  function jV() {
     return new v(
       E("shared-calculator-error-clickable-object-assignment-not-identifier"),
     );
   }
-  function clickableObjectInvalidExpressionError() {
+  function JV() {
     return new v(
       E("shared-calculator-error-clickable-object-invalid-expression"),
     );
   }
-  function matrixAssignmentError() {
+  function QV() {
     return new v(E("shared-calculator-error-matrix-assignment"));
   }
-  function matrixAddDimensionsError() {
+  function KV() {
     return new v(E("shared-calculator-error-matrix-add-dimensions"));
   }
-  function matrixSubtractDimensionsError() {
+  function eB() {
     return new v(E("shared-calculator-error-matrix-subtract-dimensions"));
   }
-  function matrixMultiplyDimensionsError() {
+  function tB() {
     return new v(E("shared-calculator-error-matrix-multiply-dimensions"));
   }
-  function matrixFractionalPowerError() {
+  function nB() {
     return new v(E("shared-calculator-error-matrix-fractional-power"));
   }
-  function matrixPowerDimensionsError() {
+  function rB() {
     return new v(E("shared-calculator-error-matrix-power-dimensions"));
   }
-  function matrixElementTypeErrorError(e) {
+  function sB(e) {
     return new v(
       E("shared-calculator-error-matrix-element-type-error", { arg: e[0] }),
     );
   }
-  function matrixInvalidVariableError(e) {
+  function iB(e) {
     return new v(
       E("shared-calculator-error-matrix-invalid-variable", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function listComprehensionInputListTypeErrorError(
-    e,
-    t,
-    n,
-    { blockExport: r },
-  ) {
+  function SP(e, t, n, { blockExport: r }) {
     let s = "[1...10]";
     n && !/[\\]/.test(n) && (s = `[${n}]`);
     let i = new v(
@@ -5009,12 +4977,12 @@
     );
     return r || i.allowExport(), i;
   }
-  function listComprehensionIncorrectInputError() {
+  function vP() {
     return new v(
       E("shared-calculator-error-incorrect-list-comprehension-input"),
     );
   }
-  function shadowedListComprehensionInputError(e) {
+  function qy(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-shadowed-list-comprehension-input", {
@@ -5022,7 +4990,7 @@
         }),
       );
   }
-  function badForInputListDependencyError(e) {
+  function OP(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-bad-for-input-list-dependency", {
@@ -5030,13 +4998,13 @@
         }),
       );
   }
-  function badForIntervalDependencyError(e) {
+  function NP(e) {
     return e = formatSymbol(e),
       new v(
         E("shared-calculator-error-bad-for-interval-dependency", { symbol: e }),
       );
   }
-  function variableLengthTopLevelListError(e) {
+  function RP(e) {
     let t = e.filter((n) => n.scope === "free").map((n) => n.symbol);
     return new v(
       E("shared-calculator-error-variable-length-top-level-list", {
@@ -5044,21 +5012,21 @@
       }),
     ).setDependencies(t).allowExport();
   }
-  function variableLengthDistributionListError(e) {
+  function sf(e) {
     return new v(
       E("shared-calculator-error-variable-length-distribution-list", {
         symbol: e[0].symbol,
       }),
     ).setDependencies(e.filter((t) => t.scope === "free").map((t) => t.symbol));
   }
-  function variableLengthSumBodyDependsOnIndexError(e) {
+  function AP(e) {
     return new v(
       E("shared-calculator-error-variable-length-sum-body-depends-on-index", {
         symbol: e,
       }),
     );
   }
-  function variableLengthProductBodyDependsOnIndexError(e) {
+  function _P(e) {
     return new v(
       E(
         "shared-calculator-error-variable-length-product-body-depends-on-index",
@@ -5066,7 +5034,7 @@
       ),
     );
   }
-  function variableLengthIntegralDependsOnIntegrationVariableError(e) {
+  function LP(e) {
     return new v(
       E(
         "shared-calculator-error-variable-length-integral-depends-on-integration-var",
@@ -5074,7 +5042,7 @@
       ),
     );
   }
-  function substitutionTypeErrorError(e, t) {
+  function oB(e, t) {
     return new v(
       E("shared-calculator-error-substitution-type-error", {
         actual: oe(e),
@@ -5085,28 +5053,28 @@
   function of() {
     return new v(E("shared-calculator-error-substitution-invalid-assignments"));
   }
-  function substitutionLocalLHSError(e) {
+  function wP(e) {
     return new v(
       E("shared-calculator-error-substitution-local-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function substitutionIllegalLHSError(e) {
+  function af(e) {
     return new v(
       E("shared-calculator-error-substitution-illegal-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function substitutionFunctionLHSError(e) {
+  function uf(e) {
     return new v(
       E("shared-calculator-error-substitution-function-lhs", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function substitutionBodyDependsOnRegressionError(e, t, n) {
+  function FP(e, t, n) {
     return new v(
       E(
         "shared-calculator-error-substitution-body-regression-parameter-dependency",
@@ -5118,27 +5086,27 @@
       ),
     );
   }
-  function substitutionBodyActionError() {
+  function aB() {
     return new v(E("shared-calculator-error-substitution-body-action"));
   }
   function $y() {
     return new v(E("shared-calculator-error-substitution-nested"));
   }
-  function substitutionAmbiguousCommaError(e) {
+  function yu(e) {
     return new v(
       E("shared-calculator-error-substitution-ambiguous-comma", {
         operation: e,
       }),
     );
   }
-  function substitutionDuplicateSymbolError(e) {
+  function VP(e) {
     return new v(
       E("shared-calculator-error-substitution-duplicate-assignment", {
         symbol: formatSymbol(e),
       }),
     );
   }
-  function substitutionRecursiveCallLHSError(e, t, n) {
+  function BP(e, t, n) {
     return new v(
       E("shared-calculator-error-substitution-recursive-call-lhs", {
         operator: e,
@@ -5147,17 +5115,17 @@
       }),
     );
   }
-  function dependsOnDeletedGeoObjectError() {
+  function GP() {
     return new v(E("shared-calculator-error-depends-on-deleted-geo-object"));
   }
-  function invalidIntervalComprehensionReturnTypeError(e) {
+  function kP(e) {
     return new v(
       E("shared-calculator-error-invalid-interval-comprehension-return-type", {
         type: oe(e),
       }),
     );
   }
-  function invalidIntervalComprehensionArityError(e, t) {
+  function HP(e, t) {
     return new v(
       E("shared-calculator-error-bad-interval-comprehension-arity", {
         type: oe(e),
@@ -5165,7 +5133,7 @@
       }),
     );
   }
-  function invalidIntervalComprehensionParameterError(e) {
+  function Jl(e) {
     return new v(
       E(
         "shared-calculator-error-invalid-interval-comprehension-invalid-bound",
@@ -5173,22 +5141,22 @@
       ),
     );
   }
-  function invalidNestedIntervalComprehensionError() {
+  function zP() {
     return new v(E("shared-calculator-error-nested-interval-comprehension"));
   }
-  function substitutionUnsupportedIntervalError() {
+  function Yy() {
     return new v(
       E("shared-calculator-error-substitution-unsupported-interval"),
     );
   }
-  function computedColumnHeaderError(e) {
+  function UP(e) {
     return new v(
       E("shared-calculator-error-table-regression-invalid-export-identifier", {
         latex: "`" + e + "`",
       }),
     );
   }
-  function unexportableTableRegressionError(e) {
+  function qP(e) {
     return new v(
       e.length === 1
         ? E(
@@ -5209,7 +5177,7 @@
   var BD = Symbol("DEPENDENCY_ORDER");
   function GD(e) {
     let t = e[BD];
-    if (!t) throw internalError("Missing dependency order.");
+    if (!t) throw U("Missing dependency order.");
     return t;
   }
   function $P(e, t) {
@@ -6272,7 +6240,7 @@
     }
     debugState() {
       return `y=${this.scanlineY}
-  ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
+${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     }
   };
   function dB(e) {
@@ -7285,11 +7253,11 @@
     n))(TerminationStatus || {});
   function recursionDiverges(e, t) {
     if (io(t)) return e.recursionTerminationStatus = 0, ls(t);
-    throw recursionDoesNotTerminateError();
+    throw Rx();
   }
   function handleRecursionLimitExceeded(e, t) {
     if (io(t)) return e.recursionTerminationStatus = 1, ls(t);
-    throw recursiveDepthExceededError();
+    throw Ax();
   }
   var LS = new WeakMap();
   function getBroadcastTargetElements(e) {
@@ -11323,13 +11291,7 @@
         return new e(
           i._symbol,
           [],
-          {
-            valid: false,
-            error: functionRequiresNumberOfArgumentsError(
-              i._symbol,
-              i._argSymbols.length,
-            ),
-          },
+          { valid: false, error: _x(i._symbol, i._argSymbols.length) },
           r._rhs,
           r,
         );
@@ -11339,10 +11301,7 @@
         let c = s.args[u];
         if (c instanceof Et) {
           if (o) {
-            o = {
-              valid: false,
-              error: baseCaseTooComplicatedUsePiecewiseError(),
-            };
+            o = { valid: false, error: wd() };
             break;
           }
           o = {
@@ -11354,14 +11313,11 @@
           };
         } else if (c instanceof we) {
           if (c._symbol !== i._argSymbols[u]) {
-            o = {
-              valid: false,
-              error: eachBaseCaseArgumentMustBeSimpleError(),
-            };
+            o = { valid: false, error: ay() };
             break;
           } else a.push(c);
         } else {
-          o = { valid: false, error: eachBaseCaseArgumentMustBeSimpleError() };
+          o = { valid: false, error: ay() };
           break;
         }
       }
@@ -11451,12 +11407,12 @@
     exportTo(n, r, s) {
       if (r.isError) return [];
       if (!(r instanceof Wa)) {
-        throw internalError(`Expected optimized regression but got ${r.type}.`);
+        throw U(`Expected optimized regression but got ${r.type}.`);
       }
       let i = [];
       for (let o of We(r.parameters)) {
         n.assignmentForbidden(o) ||
-          (i.push(o), s[o] = s[o] ? multiplyDefinedError(o) : r.parameters[o]);
+          (i.push(o), s[o] = s[o] ? Wl(o) : r.parameters[o]);
       }
       return n.assignmentForbidden(r.residualVariable)
         ? []
@@ -11466,9 +11422,7 @@
       return [];
     }
     analyzeRegression(n, r, s, i, o) {
-      throw internalError(
-        `Node ${this.type} does not define analyzeRegression.`,
-      );
+      throw U(`Node ${this.type} does not define analyzeRegression.`);
     }
   };
   var co = class extends Yt {
@@ -11823,9 +11777,7 @@
       if (r.length !== n.length + 1) {
         throw "Programming Error: ComparatorChain must have one more arg than symbols";
       }
-      if (n.includes("=") && !n.every((s) => s === "=")) {
-        throw mixedComparatorChainError();
-      }
+      if (n.includes("=") && !n.every((s) => s === "=")) throw qx();
       this._difference = Pk(n, r);
     }
     isInequality() {
@@ -12161,7 +12113,7 @@
     let n = Vr(e, e.getReturnIndex()), r = [];
     for (let i = 0; i < e.argNames.length; i++) n[i] && r.push(i);
     let s = ol(e, r, 0, e.getReturnIndex());
-    for (let i of t) if (n[i] && s[i]) throw variableSeedError(fs(e, i));
+    for (let i of t) if (n[i] && s[i]) throw PP(fs(e, i));
   }
   function ms(e) {
     if (!Bo(e)) {
@@ -12187,9 +12139,9 @@
   }
   function wf(e, t, n, r) {
     let i = `var fn = (function(${e.join(",")}){"use strict"; ${t}});
-  fn.__meta = __meta;
-  return fn;
-  `;
+fn.__meta = __meta;
+return fn;
+`;
     return new Function("BuiltIn", "ErrorMsg", "_C", "__meta", i)(Gi, Ht, n, r);
   }
   function oO(e, t, n) {
@@ -12205,13 +12157,13 @@
           !a[u] && !n.printUnreferencedInstructions || c.type === 0
       ) {
         o || (r += `${iO(u, s)}: ${g0(2 * i)}...
-  `), o = true;
+`), o = true;
       } else {
         o = false;
         let p = `${iO(u, s)}: ${g0(2 * i)}${al(e, u)}`;
         l && (p += " ".repeat(Math.max(0, 36 - p.length)), p += `	# ${l}`),
           r += p + `
-  `;
+`;
       }
       es(c) && (i += 1);
     }
@@ -12707,7 +12659,7 @@
   }
   function Ok(e) {
     if (e.iterationParameterIndex === void 0) {
-      throw internalError("Programming error: no recursive parameter");
+      throw U("Programming error: no recursive parameter");
     }
     let n = Object.values(e.recursiveFunctionGroup),
       r = new Map(),
@@ -12738,7 +12690,7 @@
           s.set(p, f), f === 0 && o.push(p);
         });
     }
-    if (a.length !== n.length) throw recursionCyclicDependencyError();
+    if (a.length !== n.length) throw Nx();
     return a;
   }
   function zg(e, t) {
@@ -13116,13 +13068,13 @@
         return "";
       case Jt.Inline:
         return e.source + `;
-  `;
+`;
       case Jt.Block:
         return e.source;
     }
   }
   function PO(e, t, n) {
-    if (e.glsl) throw internalError("GLSL function not implemented");
+    if (e.glsl) throw U("GLSL function not implemented");
     let { chunk: r, referenced: s } = e,
       i = t.args[0],
       o = r.getInstruction(i),
@@ -13133,7 +13085,7 @@
     for (let c = 0; c < a.length; c++) {
       let l = n + c + 1;
       s[l] && (u += `${fn(l)}=${h0(i, c)};
-  `);
+`);
     }
     return { type: Jt.Block, source: Nk(e, t, n, u), nextIdx: n + 1 };
   }
@@ -13146,27 +13098,25 @@
     for (let d = 0; d < a.length; d++) d > 0 && (u += ","), u += h0(i, d);
     let c = b0(i), l = uO(i), p = cO(i), f = Hg(i);
     return `
-      const ${p}=${
+    const ${p}=${
       a.length === 1 && o.signature.argTypes[0] === Number
         ? "({fn, args}) => `${fn}:${args[0]}`"
         : "({fn, args}) => `${fn}:${JSON.stringify(args)}`"
     };
-  
-      const ${c}=((${l}, ${u}) => {
-        ${Lp(e, n + 1, o.endIndex - 1)}
-        const ${f} = {depth: 0, count: 0};
-        const cache = ${l};
-        ${r}
-      `;
+
+    const ${c}=((${l}, ${u}) => {
+      ${Lp(e, n + 1, o.endIndex - 1)}
+      const ${f} = {depth: 0, count: 0};
+      const cache = ${l};
+      ${r}
+    `;
   }
   function EO(e, t, n) {
     let r = n + 1, s = t.args[0], o = e.chunk.getInstruction(s).args[0];
-    if (e.isTailFunction[o]) {
-      throw internalError("Unexpected tail recursive function");
-    }
+    if (e.isTailFunction[o]) throw U("Unexpected tail recursive function");
     let a = Rk(e, t), { referenced: u } = e;
     return u[n] && (a += `${fn(n)}=${e.referenceArg(t.args[0])};
-  `),
+`),
       e.exitFunction(),
       { type: Jt.Block, source: a, nextIdx: r };
   }
@@ -13178,17 +13128,17 @@
       o = Hg(s),
       a = r.valueType;
     return `
-  ${o}.count++;
-  ${o}.depth++;
-  let ${i};
-  if ((${o}.depth > BuiltIn.RECURSIVE_DEPTH_LIMIT) || (${o}.count > BuiltIn.RECURSIVE_COMPUTATION_LIMIT)) {
-    ${i}=BuiltIn.handleRecursionLimitExceeded(__meta, ${a});
-  } else {
-    ${i}=${e.referenceArg(t.args[1])};
-  }
-  return BuiltIn.recursionSuccess(${i},${o});
-  });
-  `;
+${o}.count++;
+${o}.depth++;
+let ${i};
+if ((${o}.depth > BuiltIn.RECURSIVE_DEPTH_LIMIT) || (${o}.count > BuiltIn.RECURSIVE_COMPUTATION_LIMIT)) {
+  ${i}=BuiltIn.handleRecursionLimitExceeded(__meta, ${a});
+} else {
+  ${i}=${e.referenceArg(t.args[1])};
+}
+return BuiltIn.recursionSuccess(${i},${o});
+});
+`;
   }
   function Vf(e, t) {
     return `{ fn: ${e}, args: ${t} }`;
@@ -13208,7 +13158,7 @@
       g = s.getInstruction(y.args[0]);
     if (zg(s, n)) {
       if (e.recursiveFunctionInfo.length < 1) {
-        throw internalError("Expected recursive function info");
+        throw U("Expected recursive function info");
       }
       let m = e.recursiveFunctionInfo[e.recursiveFunctionInfo.length - 1],
         h = "",
@@ -13216,55 +13166,55 @@
       if (e.isTailFunction[i]) {
         let P = y.valueType;
         x && (h = `
-  if (${x}) {
-              return BuiltIn.recursionDiverges(__meta, ${P});
-            }`);
+if (${x}) {
+            return BuiltIn.recursionDiverges(__meta, ${P});
+          }`);
         let D = g.signature.argTypes,
           S = h + `
-  `;
+`;
         S += "looping=true";
         for (let O = 0; O < D.length; O++) {
           let _ = kg(u + O + 1);
           S += `,
-  ${_}=${c[O]}`;
+${_}=${c[O]}`;
         }
         return h
           ? {
             type: Jt.Block,
             source: S + `;
-  `,
+`,
             nextIdx: r,
           }
           : { type: Jt.Inline, source: S, nextIdx: r };
       } else if (m.executionMode === 1) {
         let P = s.getInstruction(s.getInstruction(m.fn).endIndex),
           D = I0(s, P.args[0], t);
-        if (!D) throw internalError("Expected valid iteration reference");
+        if (!D) throw U("Expected valid iteration reference");
         let S = Ff(D.ref.to, D.ref.iterationParameterOffset);
         return { type: Jt.Inline, source: `${l}=${S}`, nextIdx: r };
       }
       x && (h = `
-  if (${x}) {
-            return BuiltIn.SYMBOL_DIVERGES;
-          }`);
+if (${x}) {
+          return BuiltIn.SYMBOL_DIVERGES;
+        }`);
       let T = Hg(m.fn),
         b = Vf(i, p),
         M = `
-        const ${p} = ([${c.join(",")}]);
-        ${h}
-        const ${d} = cache.get(BuiltIn.recursionCacheKey(${b}));
-        if (${d} === undefined) {
-          return BuiltIn.recursionMissingCacheEntry(${b});
-        }
-        ${l} = ${d}[0];
-        const ${f} = ${d}[1];
-        if (${f}.count > ${T}.count) {
-          ${T}.count = ${f}.count;
-        }
-        if (${f}.depth > ${T}.depth) {
-          ${T}.depth = ${f}.depth;
-        }
-      `;
+      const ${p} = ([${c.join(",")}]);
+      ${h}
+      const ${d} = cache.get(BuiltIn.recursionCacheKey(${b}));
+      if (${d} === undefined) {
+        return BuiltIn.recursionMissingCacheEntry(${b});
+      }
+      ${l} = ${d}[0];
+      const ${f} = ${d}[1];
+      if (${f}.count > ${T}.count) {
+        ${T}.count = ${f}.count;
+      }
+      if (${f}.depth > ${T}.depth) {
+        ${T}.depth = ${f}.depth;
+      }
+    `;
       return { type: Jt.Block, source: M, nextIdx: r };
     } else {
       let m = `{${g.recursionGroup.map((b) => `${b}: ${b0(b)}`).join(",")}}`,
@@ -13273,11 +13223,11 @@
       if (h.canIterate) return _k(e, t, n, h, { innerFunctionsMap: m });
       let x = Vf(i, `[${c.join(",")}]`),
         T = `${l}=BuiltIn.executeRecursiveFunction(
-        __meta,
-        ${m},
-        ${y.valueType},
-        ${x}
-      )`;
+      __meta,
+      ${m},
+      ${y.valueType},
+      ${x}
+    )`;
       return { type: Jt.Inline, source: T, nextIdx: r };
     }
   }
@@ -13288,7 +13238,7 @@
       let r = "declare" in n ? `let ${n.declare}` : fn(n.reference),
         s = n.initializeRHS;
       t += `${r}=${s};
-  `;
+`;
     }
     return t;
   }
@@ -13330,26 +13280,26 @@
       }, { declare: h, initializeRHS: void 0, updateRHS: CO });
     }
     let y = `${c}=(() => {
-      ${Lp(e, o + 1, s.endIndex - 1)}
-  
-      let looping = true;
-      ${DO(l)}
-      while (looping) {
-        looping = false;
-  
-        ${p}
-  
-        if (looping) {
-          ${SO(l)}
-        }
-  
-        if ((${f} > BuiltIn.RECURSIVE_DEPTH_LIMIT) || (${d} > BuiltIn.RECURSIVE_COMPUTATION_LIMIT)) {
-          return BuiltIn.handleRecursionLimitExceeded(__meta, ${u});
-        };
+    ${Lp(e, o + 1, s.endIndex - 1)}
+
+    let looping = true;
+    ${DO(l)}
+    while (looping) {
+      looping = false;
+
+      ${p}
+
+      if (looping) {
+        ${SO(l)}
       }
-  
-      return ${e.referenceArg(i.args[1])}
-    })()`;
+
+      if ((${f} > BuiltIn.RECURSIVE_DEPTH_LIMIT) || (${d} > BuiltIn.RECURSIVE_COMPUTATION_LIMIT)) {
+        return BuiltIn.handleRecursionLimitExceeded(__meta, ${u});
+      };
+    }
+
+    return ${e.referenceArg(i.args[1])}
+  })()`;
     return { type: Jt.Inline, source: y, nextIdx: n + 1 };
   }
   function _k(e, t, n, r, s) {
@@ -13378,11 +13328,11 @@
     if (P !== void 0) {
       let G = e.referenceArg(P);
       S = `BuiltIn.listMax(
-        (${G}).filter(
-          x => isFinite(x) &&
-          Math.floor(x - ${b}) === (x - ${b})
-        )
-      )`, O = `BuiltIn.getBroadcastTargetElements(${G}).has(${x})`;
+      (${G}).filter(
+        x => isFinite(x) &&
+        Math.floor(x - ${b}) === (x - ${b})
+      )
+    )`, O = `BuiltIn.getBroadcastTargetElements(${G}).has(${x})`;
     } else S = `(${e.referenceArg(T)})`, O = "false";
     l.push({ reference: h, initializeRHS: `(${b})`, updateRHS: `${x}+1` }),
       f = "";
@@ -13398,9 +13348,9 @@
         let Oe = fn(K);
         he === d + 1
           ? f += `${Oe}=${e.referenceArg(h)};
-  `
+`
           : p += `${Oe}=${e.referenceArg(t.args[he])};
-  `;
+`;
       }
       p += Lp(e, Y + 1, k.endIndex - 1);
       let Ee = m[k.symbol];
@@ -13413,16 +13363,16 @@
             ),
             Ze = Vf(G, `[${te.join(",")}]`),
             dt = `BuiltIn.executeRecursiveFunction(
-              __meta,
-              ${s.innerFunctionsMap},
-              ${re.valueType},
-              ${Ze}
-            )`,
+            __meta,
+            ${s.innerFunctionsMap},
+            ${re.valueType},
+            ${Ze}
+          )`,
             me = `(
-            broadcastOutputMap
-              ? (broadcastOutputMap[BuiltIn.recursionCacheKey(${Ze})] = ${dt})
-              : ${dt}
-          )`;
+          broadcastOutputMap
+            ? (broadcastOutputMap[BuiltIn.recursionCacheKey(${Ze})] = ${dt})
+            : ${dt}
+        )`;
           l.push({ declare: K, initializeRHS: me, updateRHS: Oe });
         }
       }
@@ -13430,69 +13380,69 @@
         f += Xg(e, Y, k.endIndex).source,
         e.exitFunction(),
         f += `const ${Ff(G, 0)}=${e.referenceArg(F.args[1])};
-  `;
+`;
     }
     let _ = t.args.slice(1).map((G) => e.referenceArg(G)),
       L = t.args.slice(1).map((G, k) => k === d ? x : e.referenceArg(G)),
       w = `${c}=(() => {
-      ${p}
-      const broadcastOutputMap = ${
+    ${p}
+    const broadcastOutputMap = ${
         P !== void 0 ? "__meta.iterativeRecursionOutputs" : "undefined"
       };
-  
-      ${DO(l)}
-  
-      const outerStackFrame = ${Vf(i, `[${_.join(",")}]`)};
-  
-      if (broadcastOutputMap) {
-          const cacheEntry = broadcastOutputMap[BuiltIn.recursionCacheKey(outerStackFrame)];
-          if (cacheEntry !== undefined) {
-            return cacheEntry;
-          }
-        }
-  
-  
-      const targetLoopSteps = ${D}
-      if (targetLoopSteps < 0 || Math.floor(targetLoopSteps) !== targetLoopSteps) {
-        return BuiltIn.executeRecursiveFunction(
-          __meta,
-          ${s.innerFunctionsMap},
-          ${o.valueType},
-          outerStackFrame
-        );
-      }
-  
-      const loopEnd = ${S};
-  
-      let result;
-      while (true) {
-        ${f}
-  
-        result = ${e.referenceArg(a.args[1])};
-  
-        if (broadcastOutputMap && ${O}) {
-          const key = BuiltIn.recursionCacheKey(${Vf(i, `[${L.join(",")}]`)});
-          broadcastOutputMap[key] = result;
-        }
-  
-        if (${x} < loopEnd) {
-          ${SO(l)}
-        } else {
-          break;
+
+    ${DO(l)}
+
+    const outerStackFrame = ${Vf(i, `[${_.join(",")}]`)};
+
+    if (broadcastOutputMap) {
+        const cacheEntry = broadcastOutputMap[BuiltIn.recursionCacheKey(outerStackFrame)];
+        if (cacheEntry !== undefined) {
+          return cacheEntry;
         }
       }
-  
-      ${
+
+
+    const targetLoopSteps = ${D}
+    if (targetLoopSteps < 0 || Math.floor(targetLoopSteps) !== targetLoopSteps) {
+      return BuiltIn.executeRecursiveFunction(
+        __meta,
+        ${s.innerFunctionsMap},
+        ${o.valueType},
+        outerStackFrame
+      );
+    }
+
+    const loopEnd = ${S};
+
+    let result;
+    while (true) {
+      ${f}
+
+      result = ${e.referenceArg(a.args[1])};
+
+      if (broadcastOutputMap && ${O}) {
+        const key = BuiltIn.recursionCacheKey(${Vf(i, `[${L.join(",")}]`)});
+        broadcastOutputMap[key] = result;
+      }
+
+      if (${x} < loopEnd) {
+        ${SO(l)}
+      } else {
+        break;
+      }
+    }
+
+    ${
         P === void 0
           ? "return result;"
           : `const cached = broadcastOutputMap[BuiltIn.recursionCacheKey(outerStackFrame)];
-            if (cached === undefined) {
-              return BuiltIn.recursionDiverges(__meta, ${o.valueType});
-            }
-            return cached;
-            `
+          if (cached === undefined) {
+            return BuiltIn.recursionDiverges(__meta, ${o.valueType});
+          }
+          return cached;
+          `
       }
-    })()`;
+  })()`;
     return { type: Jt.Inline, source: w, nextIdx: n + 1 };
   }
   function Zg(e) {
@@ -13524,13 +13474,13 @@
           break;
         case Jt.Inline:
           c && (u += `,
-  `),
+`),
             u += d.source,
             c = true;
           break;
         case Jt.Block:
           c && (u += `;
-  `),
+`),
             c = false,
             u += d.source,
             l = true;
@@ -13540,11 +13490,11 @@
     }
     if (u === "" && (u = "0", l = false), l) {
       let f = `${o}=false;${a}=()=>{
-  ${o}=true;
-  
-        ${u}${c ? ";" : ""}
-      };
-  `;
+${o}=true;
+
+      ${u}${c ? ";" : ""}
+    };
+`;
       return { type: Jt.Block, source: f, nextIdx: p };
     } else return e.inlineThunk(s, u), { type: Jt.Noop, nextIdx: p };
   }
@@ -13563,7 +13513,7 @@
       case 4:
         return { type: Jt.Noop, nextIdx: r };
       case 21:
-        if (e.glsl) throw gpuUnsupportedIntegralError();
+        if (e.glsl) throw FT();
         return Fk(e, t, n);
       case 2:
         return e.inlineSource(n, e.chunk.argNames[n]),
@@ -13613,15 +13563,15 @@
             }
             return f = "const earlyReturn =" + f,
               f += `;
-  if (earlyReturn !== undefined) return earlyReturn;
-  `,
+if (earlyReturn !== undefined) return earlyReturn;
+`,
               f;
           },
           l = `if (${s}) {
-            ${c(i.thunkDependencies)}${u} = ${i.rawExpression};
-          } else {
-            ${c(o.thunkDependencies)}${u} = ${o.rawExpression};
-          }`;
+          ${c(i.thunkDependencies)}${u} = ${i.rawExpression};
+        } else {
+          ${c(o.thunkDependencies)}${u} = ${o.rawExpression};
+        }`;
         return { type: Jt.Block, source: l, nextIdx: r };
       }
       case 55:
@@ -13650,13 +13600,13 @@
     let { endIndex: r } = t,
       { chunk: s } = e,
       i = `function(${fn(n)}) {
-  `,
+`,
       o = n + 1,
       a = r - 1;
     i += Lp(e, o, a), i += Xg(e, n, r).source;
     let u = s.getInstruction(r);
     return i += `return ${e.referenceArg(u.args[1])};
-  }`,
+}`,
       i;
   }
   function Fk(e, t, n) {
@@ -13693,7 +13643,7 @@
       }
     }
     return o && (i += `;
-  `),
+`),
       i;
   }
   function Vk(e, t, n) {
@@ -13707,12 +13657,12 @@
       if (!i[f] || s.getInstruction(f).type !== 48) continue;
       let y = fn(f);
       r || (c += `${y}=[];
-  `);
+`);
     }
     return r || (c += `if(${u}>${1e4}) throw ErrorMsg.maxListSize();
-  `),
+`),
       c += `for(${o}=1${r ? ".0" : ""};${o}<=${u};${o}++){
-  `,
+`,
       c;
   }
   function Bk(e, t, n) {
@@ -13726,12 +13676,12 @@
       if (r) {
         let p = e.referenceArg(t.args[0]);
         o += `${c}[int(${p})-1]=${l};
-  `;
+`;
       } else {o += `${c}.push(${l});
-  `;}
+`;}
     }
     return o += `}
-  `,
+`,
       o;
   }
   function Gk(e, t, n) {
@@ -13740,7 +13690,7 @@
     let o = `${e.referenceArg(t.args[0])}`,
       a = `${e.referenceArg(t.args[1])}`,
       u = `if(${o}>${a}){
-  `;
+`;
     for (let c = 2; c < t.args.length; c++) {
       let l = t.endIndex + c - 1;
       if (
@@ -13748,20 +13698,20 @@
       ) continue;
       let p = fn(l);
       u += `${p}=${e.referenceArg(t.args[c])};
-  `;
+`;
     }
     u += e.checkFiniteBounds(t, o, a),
       u += `}else{
-  `;
+`;
     for (let c = 2; c < t.args.length; c++) {
       let l = n + c - 1;
       if (!s[l] || r.getInstruction(l).type !== 47) continue;
       let p = fn(l);
       u += `${p}=${e.referenceArg(t.args[c])};
-  `;
+`;
     }
     return u += `${i}=${o};
-  `,
+`,
       u += "while (true) {",
       u;
   }
@@ -13772,7 +13722,7 @@
       a = fn(t.args[0]),
       u = `${a}++;`;
     u += `if (${a}<=${o}) {
-  `;
+`;
     let c = new Map(), l = [];
     for (let p = 1; p < t.args.length; p++) {
       let f = t.args[0] + p;
@@ -13788,10 +13738,10 @@
     }
     for (let [p, f] of c.entries()) {
       u += `${fn(p)}=${f};
-  `;
+`;
     }
     u += `} else {
-  `;
+`;
     for (let p = 1; p < t.args.length; p++) {
       let f = n + p;
       if (
@@ -13799,20 +13749,20 @@
       ) continue;
       let d = fn(f);
       u += `${d}=${e.referenceArg(t.args[p])};
-  `;
+`;
     }
     return u += `break;
-  `,
+`,
       u += `}
-  }
-  `,
+}
+`,
       u += `}
-  `,
+`,
       u;
   }
   function Hk(e, t, n) {
     let { glsl: r } = e;
-    if (r) throw internalError("GLSL map not implemented yet");
+    if (r) throw U("GLSL map not implemented yet");
     let s = fn(t.endIndex + 1), i = [];
     for (let a = 0; a < t.callData.parameterSymbols.length; a++) {
       let u = fn(n + a + 1);
@@ -13820,12 +13770,12 @@
     }
     let o = i.join(",");
     return `${s}=(${o}) => {
-  `;
+`;
   }
   function zk(e, t, n) {
     let r = `return ${e.referenceArg(t.args[1])}`;
     return r += `}
-  `,
+`,
       r;
   }
   function Uk(e, t, n) {
@@ -14387,7 +14337,7 @@
     beforeBeginLoop() {}
     checkFiniteBounds(n, r, s) {
       let i = `}else if(!isFinite(${s}-${r})){
-  `;
+`;
       for (let o = 2; o < n.args.length; o++) {
         let a = n.endIndex + o - 1;
         if (a >= this.chunk.instructionsLength() || !this.referenced[a]) {
@@ -14398,11 +14348,11 @@
         let c = fn(a);
         io(u.valueType)
           ? i += `${c}=${this.printValue(ls(u.valueType))};
-  `
+`
           : i += `throw new Error('Cannot set ${c} of type ${
             at(u.valueType)
           } to NaN value');
-  `;
+`;
       }
       return i;
     }
@@ -14519,9 +14469,7 @@
     for (let p of s.args) {
       let f = e.getInstruction(p);
       if (!Je(f) || f.valueType !== Number) {
-        throw internalError(
-          "Programming error: interval bounds must be constant numbers",
-        );
+        throw U("Programming error: interval bounds must be constant numbers");
       }
       i.push(V(f.value));
     }
@@ -14533,12 +14481,12 @@
         a = { type: "2d", uMin: i[0], uMax: i[1], vMin: i[2], vMax: i[3] });
     let u = jg(e),
       c = `
-    const mapFn = (function() {
-      "use strict";
-      ${u.source}
-    })();
-    return mapFn(${o.join(",")});
-  `,
+  const mapFn = (function() {
+    "use strict";
+    ${u.source}
+  })();
+  return mapFn(${o.join(",")});
+`,
       l = {};
     return {
       args: o,
@@ -14577,7 +14525,7 @@
           this.isList &&
           (this.length = this._chunk.getConstantListLength(),
             this.length === void 0)
-      ) throw variableLengthTopLevelListError(n.getListLengthDependencies());
+      ) throw RP(n.getListLengthDependencies());
       rO(n);
       let r = n.isConstant();
       this.isConstant = r &&
@@ -15220,7 +15168,7 @@
       case Complex:
         return t.value;
       default:
-        throw internalError(`Unexpected type ${at(t.valueType)} in column.`);
+        throw U(`Unexpected type ${at(t.valueType)} in column.`);
     }
   }
   var dl = class extends lo {
@@ -15375,7 +15323,7 @@
     try {
       r = this.getConcreteTree(e, t, n);
     } catch (s) {
-      s instanceof C.Base ? r = s : r = internalError(s);
+      s instanceof C.Base ? r = s : r = U(s);
     }
     return r;
   };
@@ -15399,7 +15347,7 @@
     return this;
   };
   function Gf(e, t) {
-    return e.isError ? e : t.indexOf(e.valueType) === -1 ? opaqueError() : e;
+    return e.isError ? e : t.indexOf(e.valueType) === -1 ? Fd() : e;
   }
   C.Image.prototype.getConcreteTree = function (e, t) {
     let n = this.center.tryGetConcreteTree(e, t),
@@ -15424,13 +15372,11 @@
   };
   C.Ticker.prototype.getConcreteTree = function (e, t) {
     let n = this.handler.tryGetConcreteTree(e, t);
-    !n.isError && n.valueType !== Action &&
-      (n = eventHandlerTypeErrorError(oe(n.valueType)));
+    !n.isError && n.valueType !== Action && (n = kd(oe(n.valueType)));
     let r = n.getDependencies().filter((s) =>
       !(e.graphingEnabled() && e.validActionVariable(s))
     );
-    return r.length &&
-      (n = tooManyVariablesError(e.sliderVariables(r)).setDependencies(r)),
+    return r.length && (n = rn(e.sliderVariables(r)).setDependencies(r)),
       new C.Ticker({
         handler: n,
         minStep: this.minStep.tryGetConcreteTree(e, t, Qa),
@@ -15479,17 +15425,16 @@
           ? delete o.values.step
           : o.values.step = Math.abs(o.values.step)),
         o.errors.cycle
-          ? n = sliderLimitReferencesExportError(o.exportedSymbol)
+          ? n = SI(o.exportedSymbol)
           : (o.errors.min || !o.valids.min
-            ? o.errMsg = sliderMinInvalidError()
+            ? o.errMsg = vI()
             : o.errors.max || !o.valids.max
-            ? o.errMsg = sliderMaxInvalidError()
-            : (o.errors.step || !o.valids.step) &&
-              (o.errMsg = sliderStepInvalidError()),
+            ? o.errMsg = OI()
+            : (o.errors.step || !o.valids.step) && (o.errMsg = RI()),
             o.values.min > o.values.max &&
             (o.valids.min = false,
               o.valids.max = false,
-              o.errMsg || (o.errMsg = sliderMaxLessThanMinError()))),
+              o.errMsg || (o.errMsg = NI()))),
         n.isConstant
     ) {
       let u = t.initialEvaluation && t.initialEvaluation.asValue() &&
@@ -15525,36 +15470,32 @@
     return n.sliderInfo = o, n;
   };
   function LO(e, t) {
-    if (!t[this._symbol]) throw functionUnsupportedError(this._symbol, e);
+    if (!t[this._symbol]) throw Li(this._symbol, e);
     let n = this.args.map((r) => r.getConcreteTree(e, t));
     if (n.length > 0) {
       if (
         n.length === 1 && n.push(new C.Constant(1).getConcreteTree(e, t)),
           n[1].getDependencies().length
-      ) {
-        throw illegalBinWidthError(this._symbol).setDependencies(
-          n[1].getDependencies(),
-        );
-      }
-      if (n[1].valueType !== Number) throw illegalBinWidthError(this._symbol);
+      ) throw Qd(this._symbol).setDependencies(n[1].getDependencies());
+      if (n[1].valueType !== Number) throw Qd(this._symbol);
       let r = n[1].asValue();
-      if (!isFinite(r) || r <= 0) throw illegalBinWidthError(this._symbol);
+      if (!isFinite(r) || r <= 0) throw Qd(this._symbol);
     }
     return this.typeCheck(e, n), new this.constructor(n);
   }
   C.Histogram.prototype.getConcreteTree = LO;
   C.DotPlot.prototype.getConcreteTree = LO;
   C.BoxPlot.prototype.getConcreteTree = function (e, t) {
-    if (!t[this._symbol]) throw functionUnsupportedError(this._symbol, e);
+    if (!t[this._symbol]) throw Li(this._symbol, e);
     let n = this.args.map((r) => r.getConcreteTree(e, t));
     return this.typeCheck(e, n),
       n.length === 1 &&
         (n[0].valueType === ListOfNumber || n[0].valueType === EmptyList)
         ? new this.constructor(n)
-        : internalError("Failed to copmile BoxPlot");
+        : U("Failed to copmile BoxPlot");
   };
   function O0(e, t) {
-    if (!t[this._symbol]) throw functionUnsupportedError(this._symbol, e);
+    if (!t[this._symbol]) throw Li(this._symbol, e);
     let n = this.args.map((r) => r.getConcreteTree(e, t));
     return this.typeCheck(e, n), new this.constructor(n);
   }
@@ -15580,23 +15521,21 @@
       let n;
       if (e instanceof lo) n = e.mapElements((r) => r);
       else if (e instanceof on) n = e.mapElements((r) => r);
-      else {return internalError(
-          `Unexpected parse node type ${e.type} with isList: true`,
-        );}
+      else return U(`Unexpected parse node type ${e.type} with isList: true`);
       return new C.TableColumnValue(n, void 0);
     } else if (e.isTypedConstant) {
       let n = [];
       for (let r = 0; r < t; r++) n.push(e);
       return new dl(n, void 0);
-    } else {return internalError(
+    } else {return U(
         `Invalid column: expected an error, constant, or list but got:
-   ${e.repr("", 1)}`,
+ ${e.repr("", 1)}`,
       );}
   }
   C.TableColumn.prototype.getConcreteTree = function (e, t) {
     var r;
     let n = this.header.tableError();
-    if (n) return invalidTableHeaderError(n);
+    if (n) return KI(n);
     if (this.header instanceof C.Identifier) {
       let s = t[this.header._symbol];
       if (s && t.hasOwnProperty(this.header._symbol) && Kr(s)) return s;
@@ -15604,34 +15543,32 @@
     if (this.isFreeVariable(t)) {
       if (this.columnIndex === 0) {
         let i = this.header._symbol;
-        if (!e.validFirstColumnVariable(i)) {
-          return invalidFirstTableColumnError();
-        }
+        if (!e.validFirstColumnVariable(i)) return eP();
       }
       let s = [];
       for (let i = 0; i < this.values.length; i++) {
         if (this.values[i].tableError()) {
-          s.push(invalidTableEntryError(this.values[i].tableError()));
+          s.push(Wd(this.values[i].tableError()));
           continue;
         }
         let o = this.values[i].tryGetConcreteTree(e, t);
         o.isError
           ? s.push(o)
           : o.tableError()
-          ? s.push(invalidTableEntryError(o.tableError()))
+          ? s.push(Wd(o.tableError()))
           : o.valueType === Number || o.valueType === Complex
           ? s.push(o)
-          : s.push(tableEntryTypeErrorError([oe(o.valueType)]));
+          : s.push(bT([oe(o.valueType)]));
       }
       for (let i = 0; i < s.length; i++) {
         if (s[i].isError) continue;
         let o = this.values[i] && this.values[i].tableError();
         if (o) {
-          s[i] = invalidTableEntryError(o);
+          s[i] = Wd(o);
           continue;
         }
         let a = s[i].getDependencies();
-        a.length && (s[i] = tooManyVariablesError(a).setDependencies(a));
+        a.length && (s[i] = rn(a).setDependencies(a));
       }
       return new dl(s, this.header._symbol);
     } else {
@@ -15642,11 +15579,9 @@
           s.valueType !== ListOfNumber &&
           s.valueType !== Complex && s.valueType !== ListOfComplex &&
           s.valueType !== EmptyList
-        ? tableHeaderTypeErrorError([oe((r = s.valueType) != null ? r : Any)])
+        ? hT([oe((r = s.valueType) != null ? r : Any)])
         : s.getDependencies().length > 0
-        ? tooManyVariablesError(s.getDependencies()).setDependencies(
-          s.getDependencies(),
-        )
+        ? rn(s.getDependencies()).setDependencies(s.getDependencies())
         : s;
     }
   };
@@ -16897,26 +16832,20 @@
       m = s,
       h = s;
     if (a && (h = m = s.slice(1), y -= 1, g -= 1), i) {
-      if (!u) throw illegalDotCallError(r);
+      if (!u) throw Gd(r);
       let P = e.getInstruction(m[0]).valueType;
       if (
         !j(P) && P !== Segment3D && P !== Vector3D && P !== Distribution &&
         P !== Tone &&
         (P === Point || !vd(P)) && n !== "real" && n !== "imag"
-      ) {
-        throw dotLHSTypeErrorError(r, oe(P), {
-          blockExport: e.areAllArgsConstant([m[0]]),
-        });
-      }
+      ) throw tT(r, oe(P), { blockExport: e.areAllArgsConstant([m[0]]) });
       r = "." + r, h = m.slice(1), y -= 1, g -= 1;
     }
     if (
       (t.isGeometryEnabled() || t.is3dPolicy()) && n === "length" &&
       h.length === 1 && j(e.getInstruction(h[0]).valueType)
     ) {
-      let P = t.is3dPolicy()
-        ? threeDLengthTypeErrorError
-        : geometryLengthTypeErrorError;
+      let P = t.is3dPolicy() ? eT : Kx;
       if (p.length === 0) {
         throw P(r, Pa(e, h)[0], { blockExport: e.areAllArgsConstant(h) });
       }
@@ -16960,23 +16889,13 @@
       if (
         !j(e.getInstruction(r[0]).valueType) ||
         !j(e.getInstruction(r[1]).valueType)
-      ) {
-        throw nonListDoubleReducerError(t, {
-          blockExport: e.areAllArgsConstant(r),
-        });
-      }
+      ) throw jd(t, { blockExport: e.areAllArgsConstant(r) });
     } else if (
       c === "parameterizedReducer" && !i && r.length === 2 &&
       !j(e.getInstruction(r[0]).valueType)
-    ) {
-      throw nonListParameterizedReducerError(t, {
-        blockExport: e.areAllArgsConstant([r[0]]),
-      });
-    }
+    ) throw rP(t, { blockExport: e.areAllArgsConstant([r[0]]) });
     if (t === "logbase" && r.length !== 2) {
-      return wrongArityError("log", 1, r.length - 1, {
-        includeUsageExample: true,
-      });
+      return Ao("log", 1, r.length - 1, { includeUsageExample: true });
     }
     if (t === "random") return $T();
     if (r.length < o || r.length > a) {
@@ -16994,27 +16913,23 @@
           : (b = a, i && m ? T = n + m : x && (T = n + x)),
           i && (c === "parameterizedReducer" || t === "pdf" || t === "cdf")
       ) {
-        return wrongArityError(n, b, r.length, {
+        return Ao(n, b, r.length, {
           includeUsageExample: true,
           usageExample: T,
         });
       }
-      if (c === "reducer" && r.length === 0) return zeroArgReducerError(n);
-      if (c === "doubleReducer") return wrongDoubleReducerArityError(n);
-      if (c === "parameterizedReducer") {
-        return wrongParameterizedReducerArityError(n);
-      }
-      if (c === "color") return colorArityError(n);
+      if (c === "reducer" && r.length === 0) return jT(n);
+      if (c === "doubleReducer") return qd(n);
+      if (c === "parameterizedReducer") return WT(n);
+      if (c === "color") return XT(n);
       if (el(t)) {
         switch (t) {
           case "pdf":
-            return pdfWrongArityError();
+            return HT();
           case "cdf":
-            return r.length < o
-              ? cdfRequiresArgumentsError()
-              : cdfTooManyArgumentsError();
+            return r.length < o ? zT() : UT();
           case "tdist":
-            return tdistWrongArityError();
+            return qT();
           case "length":
           case "round":
           case "floor":
@@ -17103,7 +17018,7 @@
           case "rays":
           case "vectors":
           case "arcs":
-            throw unexpectedSymbolError(n);
+            throw ks(n);
           case "histogram":
           case "dotplot":
           case "boxplot":
@@ -17115,7 +17030,7 @@
           case "transpose":
           case "rref":
           case "trace":
-            throw internalError(`Unexpected arity error for ${t}`);
+            throw U(`Unexpected arity error for ${t}`);
           default:
             let M = t;
             throw new Error(`Unexpected compiler function ${M}`);
@@ -17127,7 +17042,7 @@
       t === "polygon" && r.length === 2 &&
       e.getInstruction(r[0]).valueType === Number &&
       e.getInstruction(r[1]).valueType === Number
-    ) return polygonTwoNumbersErrorError();
+    ) return Ud();
     let p = [], f = [];
     for (let g = 0; g < s.length; g++) {
       let m = s[g],
@@ -17141,14 +17056,13 @@
       let g = new v(y);
       return d ? g : g.allowExport();
     }
-    return functionTypeErrorError(n, f, { blockExport: d });
+    return Hs(n, f, { blockExport: d });
   }
   function eN(e, t, n, r, s) {
     let i = nN(e);
-    return i && !rN(e, n, r) ? new v(i) : wrongArityError(e, t, r.length, {
-      includeUsageExample: !i,
-      usageExample: s,
-    });
+    return i && !rN(e, n, r)
+      ? new v(i)
+      : Ao(e, t, r.length, { includeUsageExample: !i, usageExample: s });
   }
   function aH(e) {
     return el(e) ? Fo[e] : Tp(e) ? Bn[e] : {};
@@ -17271,13 +17185,11 @@
       else if (n instanceof gn || n instanceof Gu) {
         f = n._symbol, d = (p = n._errorSymbol) != null ? p : f;
       } else return;
-      if (f === "polygon" && t.polygonUnsupportedPreferTriangle()) {
-        throw polygonUnsupportedIn3dError();
-      }
+      if (f === "polygon" && t.polygonUnsupportedPreferTriangle()) throw ky();
       if (
         f === "length" && !t.isGeometryEnabled() && !t.is3dPolicy() &&
         r.length === 0
-      ) throw wrongArityLengthAsCountError();
+      ) throw ZT();
       tN(e, t, f, d, r, n instanceof Ms);
       return;
     }
@@ -17294,102 +17206,92 @@
       c = e.areAllArgsConstant(r);
     switch (s) {
       case "Add":
-        throw addTypeErrorError(u, { blockExport: c });
+        throw Fx(u, { blockExport: c });
       case "Subtract":
-        throw subtractTypeErrorError(u, { blockExport: c });
+        throw Vx(u, { blockExport: c });
       case "CrossMultiply":
         throw t.is3dProduct() && i.length === 2 &&
             (se(i[0], Point) && se(i[1], Point) ||
               se(i[0], Number) && se(i[1], Point3D) ||
               se(i[0], Point3D) && se(i[1], Number))
-          ? multiplyTypeErrorCrossError(u, { blockExport: c })
-          : multiplyTypeErrorError(u, { blockExport: c });
+          ? Bx(u, { blockExport: c })
+          : Vd(u, { blockExport: c });
       case "DotMultiply":
-        throw multiplyTypeErrorError(u, { blockExport: c });
+        throw Vd(u, { blockExport: c });
       case "Multiply": {
         if (t.is3dProduct() && i.length === 2) {
           if (se(i[0], Point3D) && se(i[1], Point3D)) {
-            throw multiplyTypeError3DError(u, { blockExport: c });
+            throw kx(u, { blockExport: c });
           }
           if (se(i[0], Point) && se(i[1], Point)) {
-            throw multiplyTypeError2DError(u, { blockExport: c });
+            throw Gx(u, { blockExport: c });
           }
         }
-        throw multiplyTypeErrorError(u, { blockExport: c });
+        throw Vd(u, { blockExport: c });
       }
       case "Divide":
-        throw divideTypeErrorError(u, { blockExport: c });
+        throw Hx(u, { blockExport: c });
       case "Exponent":
-        throw exponentTypeErrorError(u, { blockExport: c });
+        throw zx(u, { blockExport: c });
       case "Negative":
-        throw negativeTypeErrorError(u, { blockExport: c });
+        throw Ux(u, { blockExport: c });
       case "Comparator['=']":
       case "Comparator['>']":
       case "Comparator['<']":
       case "Comparator['>=']":
       case "Comparator['<=']":
       case "ComparatorChain":
-        throw comparatorTypeErrorError(u, { blockExport: c });
+        throw Yx(u, { blockExport: c });
       case "Or":
-        throw orTypeErrorError(u, { blockExport: c });
+        throw Zx(u, { blockExport: c });
       case "Piecewise":
         throw se(i[0], Bool)
-          ? piecewiseBranchTypeErrorError([
+          ? gT([
             oe(e.getInstruction(r[1]).valueType),
             oe(e.getInstruction(r[2]).valueType),
           ], { blockExport: e.areAllArgsConstant([r[1], r[2]]) })
-          : piecewiseConditionTypeErrorError(u, {
-            blockExport: e.areAllArgsConstant([r[0]]),
-          });
+          : fy(u, { blockExport: e.areAllArgsConstant([r[0]]) });
       case "Restriction":
-        throw piecewiseConditionTypeErrorError(u, { blockExport: c });
+        throw fy(u, { blockExport: c });
       case "List":
       case "TableColumnValue": {
         sN(e, r);
         break;
       }
       case "ListAccess":
-        throw indexTypeErrorError(u, { blockExport: c });
+        throw Bd(u, { blockExport: c });
       case "Norm":
-        throw functionTypeErrorError("abs", u, { blockExport: c });
+        throw Hs("abs", u, { blockExport: c });
       case "ParenSeq": {
         let f = i.indexOf(Action) !== -1, d = i.some((g) => g !== Action);
-        if (f && d) {
-          throw combineTypeErrorError([oe(i[0]), oe(i[1])], { blockExport: c });
-        }
+        if (f && d) throw yy([oe(i[0]), oe(i[1])], { blockExport: c });
         if (i.length !== 2 && (!t.is3dProduct() || i.length !== 3)) {
           let g = t.is3dPolicy() ? 3 : 2;
-          throw badTupleDimensionsError(g);
+          throw KT(g);
         }
         let y = i.find((g) => !se(g, Number));
         throw y !== void 0
-          ? pointTypeErrorError(oe(y), { blockExport: c })
-          : internalError("Unexpected error type checking ParenSeq");
+          ? Wx(oe(y), { blockExport: c })
+          : U("Unexpected error type checking ParenSeq");
       }
       case "BareSeq": {
-        if (i.length === 0) throw emptyParenError();
-        if (i.length === 1) {
-          throw internalError("Length-1 BareSeq is impossible");
-        }
+        if (i.length === 0) throw Yd();
+        if (i.length === 1) throw U("Length-1 BareSeq is impossible");
         let f = i[0], d = i.find((y) => y !== f);
-        if (d) throw combineTypeErrorError([oe(f), oe(d)], { blockExport: c });
-        if (f === Number) {
-          throw r.length === 2 ? malformedPointError() : malformedListError();
-        }
+        if (d) throw yy([oe(f), oe(d)], { blockExport: c });
+        if (f === Number) throw r.length === 2 ? JT() : QT();
         sN(e, r);
         break;
       }
       case "NamedCoordinateAccess":
-        throw coordinateAccessTypeErrorError(u, "." + n.symbol, {
-          blockExport: c,
-        });
+        throw jx(u, "." + n.symbol, { blockExport: c });
       case "Integral": {
         let [f, d, y] = i, g = j(f) ? Ve(f) : f, m = j(d) ? Ve(d) : d;
         throw kn(g, Number)
           ? kn(m, Number)
-            ? integralArgumentTypeErrorError([oe(y)], { blockExport: c })
-            : integralUpperBoundTypeErrorError([oe(d)], { blockExport: c })
-          : integralLowerBoundTypeErrorError([oe(f)], { blockExport: c });
+            ? pT([oe(y)], { blockExport: c })
+            : lT([oe(d)], { blockExport: c })
+          : cT([oe(f)], { blockExport: c });
       }
       case "Ans":
       case "Constant":
@@ -17425,16 +17327,12 @@
   function sN(e, t) {
     if (t.length === 0) return;
     let n = e.getInstruction(t[0]).valueType;
-    if (!wn(n)) {
-      throw listTypeErrorError([oe(n)], {
-        blockExport: Je(e.getInstruction(t[0])),
-      });
-    }
+    if (!wn(n)) throw vc([oe(n)], { blockExport: Je(e.getInstruction(t[0])) });
     let r = e.areAllArgsConstant(t);
     for (let s of t) {
       let i = e.getInstruction(s).valueType;
-      if (!wn(i)) throw listTypeErrorError([oe(i)], { blockExport: r });
-      if (i !== n) throw heterogeneousListError({ blockExport: r });
+      if (!wn(i)) throw vc([oe(i)], { blockExport: r });
+      if (i !== n) throw Hd({ blockExport: r });
     }
   }
   function uH(e, t, n) {
@@ -17519,11 +17417,11 @@
           !se(c, Vector) &&
           !se(c, Circle) && !se(c, Arc) && !se(c, AngleMarker) &&
           !se(c, Tone) && !se(c, DirectedAngleMarker)
-        ) throw updateRuleTypeErrorError(oe(c));
+        ) throw ET(oe(c));
       }
       let a = {};
       for (let u of n.symbols) {
-        if (a[u]) throw duplicateUpdateRulesError(u);
+        if (a[u]) throw CT(u);
         a[u] = true;
       }
       return;
@@ -17537,7 +17435,7 @@
     let i = Pa(e, n.args), o = e.areAllArgsConstant(n.args);
     switch (n.type) {
       case 32:
-        throw andTypeErrorError(i, { blockExport: o });
+        throw Xx(i, { blockExport: o });
       case 22:
       case 21:
       case 44:
@@ -17574,7 +17472,7 @@
       case 53:
       case 54:
       case 55:
-        throw internalError(`Invalid argument types for opcode ${n.type}`);
+        throw U(`Invalid argument types for opcode ${n.type}`);
       default: {
         let a = n;
         throw new Error(`Unexpected opcode: ${a.type}`);
@@ -17806,7 +17704,7 @@
     let r = qn(e, t);
     if (r === void 0) {
       throw new Error(`${n}
-  Non-constant instruction: "${al(e, ur(e, t))}"`);
+Non-constant instruction: "${al(e, ur(e, t))}"`);
     }
     return r;
   }
@@ -18198,12 +18096,12 @@
           s = t[2],
           i = t[3],
           o = validateRangeLength(n, r, s, i);
-        if (o === 0) throw nonArithmeticRangeError();
+        if (o === 0) throw Jd();
         return o;
       }
       case "validateSampleCount": {
         let n = Vo(t[0]), r = validateSampleCount(n);
-        if (r === 0 && n !== 0) throw badSampleSizeError();
+        if (r === 0 && n !== 0) throw IP();
         return r;
       }
       case "select":
@@ -18825,7 +18723,7 @@
           c = o.args[u];
         if (!ph(e, c, a)) {
           if (t.valueType === ListOfDistribution) {
-            if (s == null) throw variableLengthDistributionListError(fs(e, r));
+            if (s == null) throw sf(fs(e, r));
             let f = [];
             for (let d = 0; d < s; d++) {
               let y = e.InboundsListAccess([r, e.Constant(d + 1)]);
@@ -19236,42 +19134,42 @@
       "isinf(x) || isnan(x) ? NaN : dcg_isOddHalfPiMultiple(abs(x)) ? 0.0 : cos(x)",
     ),
     tan: ci(pe`float a=abs(x);
-      return isinf(x) || isnan(x) ? NaN
-        : dcg_isPiMultiple(a) ? 0.0
-        : dcg_isOddHalfPiMultiple(a) ? Infinity
-        : tan(x);`),
+    return isinf(x) || isnan(x) ? NaN
+      : dcg_isPiMultiple(a) ? 0.0
+      : dcg_isOddHalfPiMultiple(a) ? Infinity
+      : tan(x);`),
     cot: ci(pe`float a=abs(x);
-        return isinf(x) || isnan(x) ? NaN
-          : a < 0.03 ? 1.0/x - x/3.0
-          : dcg_isPiMultiple(a) ? Infinity
-          : dcg_isOddHalfPiMultiple(a) ? 0.0
-          : 1.0 / tan(x);`),
+      return isinf(x) || isnan(x) ? NaN
+        : a < 0.03 ? 1.0/x - x/3.0
+        : dcg_isPiMultiple(a) ? Infinity
+        : dcg_isOddHalfPiMultiple(a) ? 0.0
+        : 1.0 / tan(x);`),
     sec: Dn(
       "isinf(x) || isnan(x) ? NaN : dcg_isOddHalfPiMultiple(abs(x)) ? Infinity: 1.0 / cos(x)",
     ),
     csc: ci(pe`float a=abs(x);
-        return isinf(x) || isnan(x) ? NaN
-          : a < 0.03 ? 1.0/x + x/6.0
-          : dcg_isPiMultiple(a) ? Infinity
-          : 1.0 / sin(x);`),
+      return isinf(x) || isnan(x) ? NaN
+        : a < 0.03 ? 1.0/x + x/6.0
+        : dcg_isPiMultiple(a) ? Infinity
+        : 1.0 / sin(x);`),
     arcsin: ci(pe`if (isinf(x) || isnan(x)) { return NaN; }
-      if (x == 1.0) { return dcg_PI/2.0; }
-      if (x == -1.0) { return -dcg_PI/2.0; }
-      if (x > 1.0 || x < -1.0) return NaN;
-      float y0 = asin(x);
-      return y0 + (x - sin(y0)) / cos(y0);`),
+    if (x == 1.0) { return dcg_PI/2.0; }
+    if (x == -1.0) { return -dcg_PI/2.0; }
+    if (x > 1.0 || x < -1.0) return NaN;
+    float y0 = asin(x);
+    return y0 + (x - sin(y0)) / cos(y0);`),
     arccos: ci(pe`if (isinf(x) || isnan(x)) { return NaN; }
-      if (x == 1.0) { return 0.0; }
-      if (x == -1.0) { return dcg_PI; }
-      if (x > 1.0 || x < -1.0) return NaN;
-      float y0 = acos(x);
-      return y0 + (cos(y0) - x) / sin(y0);`),
+    if (x == 1.0) { return 0.0; }
+    if (x == -1.0) { return dcg_PI; }
+    if (x > 1.0 || x < -1.0) return NaN;
+    float y0 = acos(x);
+    return y0 + (cos(y0) - x) / sin(y0);`),
     arctan: qf(pe`isnan(x) || isnan(y) ? NaN
-        : isinf(x) && isinf(y) ?
-          (y > 0.0 ? 0.25 : 0.75) * sign(x) * dcg_PI
-        : x == 0.0 && y == 0.0 ? y
-        : atan(x, y)
-      `),
+      : isinf(x) && isinf(y) ?
+        (y > 0.0 ? 0.25 : 0.75) * sign(x) * dcg_PI
+      : x == 0.0 && y == 0.0 ? y
+      : atan(x, y)
+    `),
     arccot: Dn("isnan(x) ? NaN : dcg_PI/2.0 - atan(x)"),
     arcsec: Dn("isnan(x) ? NaN : dcg_arccos(1.0/x)"),
     arccsc: Dn("isnan(x) ? NaN : dcg_arcsin(1.0/x)"),
@@ -19286,33 +19184,33 @@
       "isinf(x) ? 0.0 : isnan(x) ? NaN : x == 0.0 ? Infinity : abs(x) < 0.03 ? 1.0/x - x/6.0 : 1.0/sinh(x)",
     ),
     arcsinh: ci(pe`float a=abs(x);
-        return isnan(x) ? NaN : sign(x) * (
-          1.0 + x * x == 1.0
-            ? dcg_log1p(a)
-            : log(a + dcg_rtxsqpone(a))
-        );`),
+      return isnan(x) ? NaN : sign(x) * (
+        1.0 + x * x == 1.0
+          ? dcg_log1p(a)
+          : log(a + dcg_rtxsqpone(a))
+      );`),
     arccosh: Dn("x < 1.0 || isnan(x) ? NaN : log(x + dcg_rtxsqmone(x))"),
     arctanh: ci(pe`if (isnan(x) || abs(x) > 1.0) { return NaN; }
-        if (x == 1.0) { return Infinity; }
-        if (x == -1.0) { return -Infinity; }
-        float y0 = 0.5*(dcg_log1p(x) - dcg_log1p(-x));
-        float c = cosh(y0);
-        return y0 + (x - tanh(y0)) * c * c;`),
+      if (x == 1.0) { return Infinity; }
+      if (x == -1.0) { return -Infinity; }
+      float y0 = 0.5*(dcg_log1p(x) - dcg_log1p(-x));
+      float c = cosh(y0);
+      return y0 + (x - tanh(y0)) * c * c;`),
     arccoth: Dn("isnan(x) ? NaN : abs(x) >= 1.0 ? dcg_arctanh(1.0/x) : NaN"),
     arcsech: Dn(
       "isnan(x) ? NaN : 0.0 < x && x <= 1.0 ? dcg_arccosh(1.0/x) : x == 0.0 ? Infinity : NaN",
     ),
     arccsch: Dn("isinf(x) ? 0.0 : isnan(x) ? NaN : dcg_arcsinh(1.0/x)"),
     sinpiSeries: ci(pe`float xsq = x*x;
-      return x*(dcg_PI-xsq*(5.167708-xsq*(2.549761-xsq*0.5890122)));`),
+    return x*(dcg_PI-xsq*(5.167708-xsq*(2.549761-xsq*0.5890122)));`),
     sinpi: ci(pe`if (isnan(x) || isinf(x)) { return NaN; }
-      if (x==0.0) { return x; }
-      if (x == floor(x)) { return x > 0.0 ? 0.0 : -0.0; }
-      int i = int(dcg_round(2.0*x));
-      float t = -0.5 * float(i) + x;
-      float s = bool(i & 2) ? -1.0 : 1.0;
-      float y = bool(i & 1) ? cos(dcg_PI * t) : dcg_sinpiSeries(t);
-      return s*y;`),
+    if (x==0.0) { return x; }
+    if (x == floor(x)) { return x > 0.0 ? 0.0 : -0.0; }
+    int i = int(dcg_round(2.0*x));
+    float t = -0.5 * float(i) + x;
+    float s = bool(i & 2) ? -1.0 : 1.0;
+    float y = bool(i & 1) ? cos(dcg_PI * t) : dcg_sinpiSeries(t);
+    return s*y;`),
     sincpi: Dn(
       "isnan(x) ? NaN : isinf(x) ? 0.0 : x == 0.0 ? 1.0 : dcg_sinpi(x)/(dcg_PI*x);",
     ),
@@ -19322,33 +19220,33 @@
       "float t = x*x; return isnan(x) || t < 1.0 ? NaN : t - 1.0 == t ? abs(x) : sqrt(t - 1.0);",
     ),
     hypot: AN(pe`if (isnan(x) || isnan(y)) return NaN;
-        if (isinf(x) || isinf(y)) return Infinity;
-        x = abs(x);
-        y = abs(y);
-        float m = max(x,y);
-        x /= m;
-        y /= m;
-        return m == 0.0 ? 0.0 : sqrt(x*x + y*y) * m;`),
+      if (isinf(x) || isinf(y)) return Infinity;
+      x = abs(x);
+      y = abs(y);
+      float m = max(x,y);
+      x /= m;
+      y /= m;
+      return m == 0.0 ? 0.0 : sqrt(x*x + y*y) * m;`),
     min: qf(pe`isnan(x) || isnan(y) ? NaN : min(x, y)`),
     max: qf(pe`isnan(x) || isnan(y) ? NaN : max(x, y)`),
     log: Dn(
       "isnan(x) ? NaN : x > 0.0 ? log(x)*0.4342944819 : x == 0.0 ? -Infinity : NaN",
     ),
     logbase: qf(pe`isnan(x) || isnan(y) ? NaN
-        : y == 1.0 ?
-          (
-            x > 1.0 ? Infinity
-            : x == 1.0 ? NaN
-            : x < 0.0 ? NaN
-            : -Infinity
-          )
-        : y > 0.0 ?
-          (
-            x > 0.0 ? log(x)/log(y)
-            : x == 0.0 && !isinf(y) ? -Infinity
-            : NaN
-          )
-        : NaN`),
+      : y == 1.0 ?
+        (
+          x > 1.0 ? Infinity
+          : x == 1.0 ? NaN
+          : x < 0.0 ? NaN
+          : -Infinity
+        )
+      : y > 0.0 ?
+        (
+          x > 0.0 ? log(x)/log(y)
+          : x == 0.0 && !isinf(y) ? -Infinity
+          : NaN
+        )
+      : NaN`),
     ln: Dn("isnan(x) ? NaN : x > 0.0 ? log(x) : x == 0.0 ? -Infinity : NaN"),
     exp: Dn("isnan(x) ? NaN : exp(x)"),
     floor: Dn("isnan(x) ? NaN : floor(x)"),
@@ -19363,108 +19261,108 @@
       "float",
       "float x, float y",
       pe`if (isnan(x) || isnan(y)) { return NaN; }
-      return pow(x/exp(1.0), y);`,
+    return pow(x/exp(1.0), y);`,
     ),
     stirlerrSeries: ci(pe`float S0 = 0.083333336;
-      float S1 = 0.0027777778;
-      float S2 = 0.0007936508;
-      float nn = x*x;
-      return (S0-(S1-S2/nn)/nn)/x;`),
+    float S1 = 0.0027777778;
+    float S2 = 0.0007936508;
+    float nn = x*x;
+    return (S0-(S1-S2/nn)/nn)/x;`),
     factorialAsymptotic: Dn(
       "dcg_stirlingPrefactor(x,x)*sqrt(2.0*dcg_PI*x)*exp(dcg_stirlerrSeries(x))",
     ),
     factorialMinimax: ci(pe`float n1 = 2.1618295;
-      float n2 = 1.5849807;
-      float n3 = 0.4026814;
-      float d1 = 2.2390451;
-      float d2 = 1.6824219;
-      float d3 = 0.43668285;
-  
-      float n = 1.0 + x*(n1 + x*(n2 + x*n3));
-      float d = 1.0 + x*(d1 + x*(d2 + x*d3));
-      float xp1 = x+1.0;
-  
-      return dcg_stirlingPrefactor(xp1,x)*sqrt(xp1)*(n/d);
-      `),
+    float n2 = 1.5849807;
+    float n3 = 0.4026814;
+    float d1 = 2.2390451;
+    float d2 = 1.6824219;
+    float d3 = 0.43668285;
+
+    float n = 1.0 + x*(n1 + x*(n2 + x*n3));
+    float d = 1.0 + x*(d1 + x*(d2 + x*d3));
+    float xp1 = x+1.0;
+
+    return dcg_stirlingPrefactor(xp1,x)*sqrt(xp1)*(n/d);
+    `),
     factorialPositive: Dn(
       pe`(x>33.0)?Infinity:(x>8.0)?dcg_factorialAsymptotic(x):dcg_factorialMinimax(x);`,
     ),
     factorial: ci(pe`if (isnan(x) || (isinf(x) && x < 0.0)) { return NaN; }
-      bool isInteger = x == floor(x);
-      if (x < 0.0) {
-        if (isInteger) return Infinity;
-        return 1.0 / (dcg_sincpi(x) * dcg_factorialPositive(-x));
-      }
-      float approx = dcg_factorialPositive(x);
-      return isInteger ? dcg_round(approx) : approx;`),
+    bool isInteger = x == floor(x);
+    if (x < 0.0) {
+      if (isInteger) return Infinity;
+      return 1.0 / (dcg_sincpi(x) * dcg_factorialPositive(-x));
+    }
+    float approx = dcg_factorialPositive(x);
+    return isInteger ? dcg_round(approx) : approx;`),
     distance: kr(
       "float",
       "vec2 a, vec2 b",
       pe`
-        if (any(isnan(a)) || any(isnan(b))) return NaN;
-        vec2 d = a-b;
-        return dcg_hypot(d.x, d.y);`,
+      if (any(isnan(a)) || any(isnan(b))) return NaN;
+      vec2 d = a-b;
+      return dcg_hypot(d.x, d.y);`,
     ),
     distanceThreeD: kr(
       "float",
       "vec3 a, vec3 b",
       pe`
-        if (any(isnan(a)) || any(isnan(b))) return NaN;
-        vec3 d = a-b;
-        return dcg_hypot(dcg_hypot(d.x, d.y), d.z);`,
+      if (any(isnan(a)) || any(isnan(b))) return NaN;
+      vec3 d = a-b;
+      return dcg_hypot(dcg_hypot(d.x, d.y), d.z);`,
     ),
     hsv: kr(
       "vec3",
       "float h, float s, float v",
       pe`if (isnan(h) || isnan(s) || isnan(v)) {discard;}
-        vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
-        if (isinf(h)) h = 0.0;
-        vec3 p = abs(fract(h / 360.0 + K.xyz) * 6.0 - K.www);
-        return vec3(clamp(v, 0.0, 1.0) * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), clamp(s, 0.0, 1.0)));`,
+      vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+      if (isinf(h)) h = 0.0;
+      vec3 p = abs(fract(h / 360.0 + K.xyz) * 6.0 - K.www);
+      return vec3(clamp(v, 0.0, 1.0) * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), clamp(s, 0.0, 1.0)));`,
     ),
     rgb: kr(
       "vec3",
       "float r, float g, float b",
       pe`if (isnan(r) || isnan(g) || isnan(b)) {discard;}
-      return clamp(vec3(r,g,b),0.0,255.0)/255.0;`,
+    return clamp(vec3(r,g,b),0.0,255.0)/255.0;`,
     ),
     erf: ci(pe`if (isnan(x)) return NaN;
-        float t = abs(x);
-        float n = x*x;
-        float r = -n;
-        return sign(x) * (
-          r < -750.0
-            ? 1.0
-            : t >= 0.065
-            ? 1.0 - exp(r) * (
-              t > 50000000.0
-                ? r / t
-                : t > 50.0
-                ? (r * (n * (n + 4.5) + 2.0)) / (t * (n * (n + 5.0) + 3.75))
-                : ((0.9999999999999999+t*(2.224574423459406+t*(2.444115549920689+
-                  t*(1.7057986861852539+t*(0.8257463703357973+
-                    t*(0.28647031042892007+t*(0.07124513844341643+
-                      t*(0.012296749268608364+t*(0.001347817214557592+
-                        0.00007263959403471071*t))))))))
-                  )/(1.0+t*(3.352953590554884+t*(5.227518529742423+
-                    t*(5.003720878235473+t*(3.266590890998987+
-                      t*(1.5255421920765353+t*(0.5185887413188858+
-                        t*(0.12747319185915415+t*(0.02185979575963238+
-                          t*(0.0023889438122503674+0.00012875032817508128*t
-                  ))))))))))
-                )
-            )
-            : t*(1.1283791670955126+r*(0.37612638903183754+
-                r*(0.11283791670955126+r*(0.026866170645131252+
-                  0.005223977625442188*r))))
-        );`),
+      float t = abs(x);
+      float n = x*x;
+      float r = -n;
+      return sign(x) * (
+        r < -750.0
+          ? 1.0
+          : t >= 0.065
+          ? 1.0 - exp(r) * (
+            t > 50000000.0
+              ? r / t
+              : t > 50.0
+              ? (r * (n * (n + 4.5) + 2.0)) / (t * (n * (n + 5.0) + 3.75))
+              : ((0.9999999999999999+t*(2.224574423459406+t*(2.444115549920689+
+                t*(1.7057986861852539+t*(0.8257463703357973+
+                  t*(0.28647031042892007+t*(0.07124513844341643+
+                    t*(0.012296749268608364+t*(0.001347817214557592+
+                      0.00007263959403471071*t))))))))
+                )/(1.0+t*(3.352953590554884+t*(5.227518529742423+
+                  t*(5.003720878235473+t*(3.266590890998987+
+                    t*(1.5255421920765353+t*(0.5185887413188858+
+                      t*(0.12747319185915415+t*(0.02185979575963238+
+                        t*(0.0023889438122503674+0.00012875032817508128*t
+                ))))))))))
+              )
+          )
+          : t*(1.1283791670955126+r*(0.37612638903183754+
+              r*(0.11283791670955126+r*(0.026866170645131252+
+                0.005223977625442188*r))))
+      );`),
     restriction: kr("bool", "bool x", "return x;"),
     restrictionToBoolean: kr("bool", "bool x", "return x;"),
     complex: kr(
       "vec2",
       "float u, float v",
       pe`if (isnan(u) || isnan(v)) { return vec2(NaN, NaN); }
-      return vec2(u,v);`,
+    return vec2(u,v);`,
     ),
     real: kr("float", "vec2 c", "return c.x;"),
     imag: kr("float", "vec2 c", "return c.y;"),
@@ -19485,78 +19383,78 @@
       "return isnan(x) ? vec2(NaN, NaN) : vec2(x, 0);",
     ),
     complexSqrt: $s(pe`float u = z.x; float v = z.y;
-      float r = sqrt(0.5 * (abs(u) + dcg_hypot(u, v)));
-      if (r == 0.0 || isnan(v) || isinf(v)) return dcg_complex(r, v);
-      if (u > 0.0) return dcg_complex(r, 0.5 * (v / r));
-      if (v < 0.0) r = -r;
-      return dcg_complex(0.5 * (v / r), r);`),
+    float r = sqrt(0.5 * (abs(u) + dcg_hypot(u, v)));
+    if (r == 0.0 || isnan(v) || isinf(v)) return dcg_complex(r, v);
+    if (u > 0.0) return dcg_complex(r, 0.5 * (v / r));
+    if (v < 0.0) r = -r;
+    return dcg_complex(0.5 * (v / r), r);`),
     complexDivide: kr(
       "vec2",
       "vec2 a, vec2 b",
       pe`float u1 = a.x; float v1 = a.y;
-        float u2 = b.x; float v2 = b.y;
-        if (isnan(u1) || isnan(v1) || isnan(u2) || isnan(v2)) return vec2(NaN, NaN);
-        if (isinf(u1) || isinf(v1)) return vec2(NaN, NaN);
-        if (u2 == 0.0 && v2 == 0.0) return vec2(NaN, NaN);
-        if (isinf(u2) || isinf(v2)) return vec2(0.0, 0.0);
-        if (abs(v2) <= abs(u2)) {
-          return dcg_subComplexDivide(a, b);
-        } else {
-          return dcg_conj(dcg_subComplexDivide(a.yx, b.yx));
-        }`,
+      float u2 = b.x; float v2 = b.y;
+      if (isnan(u1) || isnan(v1) || isnan(u2) || isnan(v2)) return vec2(NaN, NaN);
+      if (isinf(u1) || isinf(v1)) return vec2(NaN, NaN);
+      if (u2 == 0.0 && v2 == 0.0) return vec2(NaN, NaN);
+      if (isinf(u2) || isinf(v2)) return vec2(0.0, 0.0);
+      if (abs(v2) <= abs(u2)) {
+        return dcg_subComplexDivide(a, b);
+      } else {
+        return dcg_conj(dcg_subComplexDivide(a.yx, b.yx));
+      }`,
     ),
     complexLn: $s(pe`float u = z.x; float v = z.y;
-        return dcg_complex(dcg_ln(dcg_hypot(u,v)), dcg_arctan(v,u));`),
+      return dcg_complex(dcg_ln(dcg_hypot(u,v)), dcg_arctan(v,u));`),
     complexExp: $s(pe`float u = z.x; float v = z.y;
-        if (isnan(u)) return vec2(NaN, NaN);
-        float r = exp(u);
-        return v == 0.0 ? vec2(r, 0.0) : dcg_complexFromPolarRounded(r, v);`),
+      if (isnan(u)) return vec2(NaN, NaN);
+      float r = exp(u);
+      return v == 0.0 ? vec2(r, 0.0) : dcg_complexFromPolarRounded(r, v);`),
     complexPow: kr(
       "vec2",
       "vec2 z1, vec2 z2",
       pe`float u2 = z2.x; float v2 = z2.y;
-        float u1 = z1.x; float v1 = z1.y;
-        if (isnan(u1) || isnan(v1) || isnan(u2) || isnan(v2))
-          return vec2(NaN, NaN);
-        float r1 = dcg_hypot(u1, v1);
-        float theta1 = dcg_arctan(v1, u1);
-        float rOut = pow(r1, u2) * exp(-theta1 * v2);
-        float thetaOut = log(r1) * v2 + theta1 * u2;
-        if (!isinf(rOut)) {
-          return dcg_complexFromPolarRounded(rOut, thetaOut);
-        } else {
-          return dcg_complexFromPolarRounded(
-            exp(u2 * log(r1) - theta1 * v2),
-            thetaOut
-          );
-        }
-        `,
+      float u1 = z1.x; float v1 = z1.y;
+      if (isnan(u1) || isnan(v1) || isnan(u2) || isnan(v2))
+        return vec2(NaN, NaN);
+      float r1 = dcg_hypot(u1, v1);
+      float theta1 = dcg_arctan(v1, u1);
+      float rOut = pow(r1, u2) * exp(-theta1 * v2);
+      float thetaOut = log(r1) * v2 + theta1 * u2;
+      if (!isinf(rOut)) {
+        return dcg_complexFromPolarRounded(rOut, thetaOut);
+      } else {
+        return dcg_complexFromPolarRounded(
+          exp(u2 * log(r1) - theta1 * v2),
+          thetaOut
+        );
+      }
+      `,
     ),
     complexSin: $s(pe`float u = z.x; float v = z.y;
-        return dcg_complex(dcg_sin(u) * dcg_cosh(v), dcg_cos(u) * dcg_sinh(v));`),
+      return dcg_complex(dcg_sin(u) * dcg_cosh(v), dcg_cos(u) * dcg_sinh(v));`),
     complexCos: $s(pe`float u = z.x; float v = z.y;
-        return dcg_complex(dcg_cos(u) * dcg_cosh(v), -dcg_sin(u) * dcg_sinh(v));`),
+      return dcg_complex(dcg_cos(u) * dcg_cosh(v), -dcg_sin(u) * dcg_sinh(v));`),
     complexSinh: $s(pe`float u = z.x; float v = z.y;
-        return dcg_complex(dcg_sinh(u) * dcg_cos(v), dcg_cosh(u) * dcg_sin(v));`),
+      return dcg_complex(dcg_sinh(u) * dcg_cos(v), dcg_cosh(u) * dcg_sin(v));`),
     complexCosh: $s(pe`float u = z.x; float v = z.y;
-        return dcg_complex(dcg_cosh(u) * dcg_cos(v), dcg_sinh(u) * dcg_sin(v));`),
+      return dcg_complex(dcg_cosh(u) * dcg_cos(v), dcg_sinh(u) * dcg_sin(v));`),
     complexTanh: $s(pe`float u = z.x; float v = z.y;
-        float tanv = dcg_tan(v); float tanhu = dcg_tanh(u);
-        if (isnan(tanv) || isnan(tanhu)) return vec2(NaN, NaN);
-        if (isinf(tanv)) return vec2(1.0 / tanhu, 0.0);
-  
-        float tanv2 = tanv * tanv;
-        float secv2 = 1.0 + tanv2;
-        float sinhu = dcg_sinh(u);
-        float sinhu2 = sinhu * sinhu;
-        float tanhu2 = tanhu * tanhu;
-        return dcg_complex(
-          (secv2 * tanhu) / (1.0 + tanv2 * tanhu2),
-          tanv / (1.0 + secv2 * sinhu2)
-        );`),
+      float tanv = dcg_tan(v); float tanhu = dcg_tanh(u);
+      if (isnan(tanv) || isnan(tanhu)) return vec2(NaN, NaN);
+      if (isinf(tanv)) return vec2(1.0 / tanhu, 0.0);
+
+      float tanv2 = tanv * tanv;
+      float secv2 = 1.0 + tanv2;
+      float sinhu = dcg_sinh(u);
+      float sinhu2 = sinhu * sinhu;
+      float tanhu2 = tanhu * tanhu;
+      return dcg_complex(
+        (secv2 * tanhu) / (1.0 + tanv2 * tanhu2),
+        tanv / (1.0 + secv2 * sinhu2)
+      );`),
     complexTan: $s(pe`float u = z.x; float v = z.y;
-        vec2 t = dcg_complexTanh(vec2(-v, u));
-        return vec2(t.y, -t.x);`),
+      vec2 t = dcg_complexTanh(vec2(-v, u));
+      return vec2(t.y, -t.x);`),
     complexSec: $s("return dcg_complexReciprocal(dcg_complexCos(z));"),
     complexCsc: $s("return dcg_complexReciprocal(dcg_complexSin(z));"),
     complexCot: $s("return dcg_complexReciprocal(dcg_complexTan(z));"),
@@ -19567,12 +19465,12 @@
       "vec2",
       "vec2 z, vec2 base",
       pe`
-        float u = z.x; float v = z.y;
-        float bu = base.x; float covp = base.y;
-        if (any(isnan(z)) || any(isnan(base))) return vec2(NaN, NaN);
-        if (covp == 0.0 && bu == 0.0) return vec2(NaN, NaN);
-        if (u == 0.0 && v == 0.0) return vec2(-Infinity, 0);${""}
-        return dcg_complexDivide(dcg_complexLn(z), dcg_complexLn(base));`,
+      float u = z.x; float v = z.y;
+      float bu = base.x; float covp = base.y;
+      if (any(isnan(z)) || any(isnan(base))) return vec2(NaN, NaN);
+      if (covp == 0.0 && bu == 0.0) return vec2(NaN, NaN);
+      if (u == 0.0 && v == 0.0) return vec2(-Infinity, 0);${""}
+      return dcg_complexDivide(dcg_complexLn(z), dcg_complexLn(base));`,
     ),
     complexLog: $s("return dcg_complexLogbase(z, vec2(10.0,0.0));"),
   });
@@ -19615,53 +19513,53 @@
   var OH = tM({
     lcm: Ys((e) =>
       pe`float g = abs(dcg_round(L[0]));
-        if (isnan(g) || isinf(g)) return NaN;
-        for (int i=1; i<${e}; i++) {
-          float v = abs(dcg_round(L[i]));
-          if (isnan(v) || isinf(v)) return NaN;
-          if (g != 0.0)
-            g *= dcg_round(v / dcg_gcd2(g, v));
-        }
-        return g;`
+      if (isnan(g) || isinf(g)) return NaN;
+      for (int i=1; i<${e}; i++) {
+        float v = abs(dcg_round(L[i]));
+        if (isnan(v) || isinf(v)) return NaN;
+        if (g != 0.0)
+          g *= dcg_round(v / dcg_gcd2(g, v));
+      }
+      return g;`
     ),
     gcd: Ys((e) =>
       pe`float g = abs(dcg_round(L[0]));
-        if (isnan(g) || isinf(g)) return NaN;
-        for (int i=1; i<${e}; i++) {
-          float x = L[i];
-          if (isnan(x) || isinf(x)) return NaN;
-          g = dcg_gcd2(g, abs(dcg_round(x)));
-        }
-        return g;`
+      if (isnan(g) || isinf(g)) return NaN;
+      for (int i=1; i<${e}; i++) {
+        float x = L[i];
+        if (isnan(x) || isinf(x)) return NaN;
+        g = dcg_gcd2(g, abs(dcg_round(x)));
+      }
+      return g;`
     ),
     mean: Ys((e) =>
       pe`float tot = 0.0;
-        for (int i=0; i<${e}; i++) {
-          float x = L[i];
-          if (isnan(x) || (isinf(x) && x == -tot)) return NaN;
-          tot += x;
-        }
-        return tot / ${e}.0;`
+      for (int i=0; i<${e}; i++) {
+        float x = L[i];
+        if (isnan(x) || (isinf(x) && x == -tot)) return NaN;
+        tot += x;
+      }
+      return tot / ${e}.0;`
     ),
     total: Ys((e) =>
       pe`float tot = 0.0;
-        for (int i=0; i<${e}; i++) {
-          float x = L[i];
-          if (isnan(x) || (isinf(x) && x == -tot)) return NaN;
-          tot += x;
-        }
-        return tot;`
+      for (int i=0; i<${e}; i++) {
+        float x = L[i];
+        if (isnan(x) || (isinf(x) && x == -tot)) return NaN;
+        tot += x;
+      }
+      return tot;`
     ),
     stdev: Ys((e) => SN(e, e - 1), { deps: ["mean"] }),
     stdevp: Ys((e) => SN(e, e), { deps: ["mean"] }),
     mad: Ys((e) =>
       pe`float mean = dcg_mean(L);
-        if (isnan(mean) || isinf(mean)) return NaN;
-        float tot = 0.0;
-        for (int i=0; i<${e}; i++) {
-          tot += abs(L[i] - mean);
-        }
-        return tot / ${e}.0;`, { deps: ["mean"] }),
+      if (isnan(mean) || isinf(mean)) return NaN;
+      float tot = 0.0;
+      for (int i=0; i<${e}; i++) {
+        tot += abs(L[i] - mean);
+      }
+      return tot / ${e}.0;`, { deps: ["mean"] }),
     listMin: Ys((e) => vN(e, "min")),
     listMax: Ys((e) => vN(e, "max")),
     argmin: Ys((e) => ON(e, "<")),
@@ -19671,7 +19569,7 @@
         e % 2 === 1
           ? `return L[int(dcg_sortPerm(L)[${(e - 1) / 2}])];`
           : pe`float[${e}] perm = dcg_sortPerm(L);
-            return 0.5*(L[int(perm[${e / 2}])]+L[int(perm[${e / 2 - 1}])]);`,
+          return 0.5*(L[int(perm[${e / 2}])]+L[int(perm[${e / 2 - 1}])]);`,
       {
         deps: ["sortPerm"],
       },
@@ -19679,45 +19577,18 @@
     varp: Ys((e) => DN(e, e), { deps: ["mean"] }),
     var: Ys((e) => DN(e, e - 1), { deps: ["mean"] }),
     sortPerm: Ys((e) => {
-      if (e > 100) throw gpuMaxListSizeError();
+      if (e > 100) throw Oc();
       return pe`float[${e}] permFloat;
-          float lastMin = -Infinity;
-          int lastIndex = -1;
-          for (int i=0; i<${e}; i++) {
-            float currMin = NaN;
-            int currIndex = ${e};
-            int j;
-            for (j=0; j<${e}; j++) {
-              float e = L[j];
-              float cmpLast = dcg_compareAscendingNaNLast(e, lastMin);
-              float cmpCurr = dcg_compareAscendingNaNLast(currMin, e);
-              if (
-                (cmpLast > 0.0 || (cmpLast == 0.0 && j > lastIndex))
-                && (cmpCurr > 0.0 || (cmpCurr == 0.0 && j < currIndex))
-              ) {
-                currMin = e;
-                currIndex = j;
-              }
-            }
-            permFloat[i] = float(currIndex);
-            lastMin = currMin;
-            lastIndex = currIndex;
-          }
-          return permFloat;`;
-    }, { outType: (e) => `float[${e}]` }),
-    complexSortPerm: Ys((e) => {
-      if (e > 100) throw gpuMaxListSizeError();
-      return pe`float[${e}] permFloat;
-        vec2 lastMin = vec2(-Infinity,-Infinity);
+        float lastMin = -Infinity;
         int lastIndex = -1;
         for (int i=0; i<${e}; i++) {
-          vec2 currMin = vec2(NaN,NaN);
+          float currMin = NaN;
           int currIndex = ${e};
           int j;
           for (j=0; j<${e}; j++) {
-            vec2 e = L[j];
-            float cmpLast = dcg_compareComplexLexicographic(e, lastMin);
-            float cmpCurr = dcg_compareComplexLexicographic(currMin, e);
+            float e = L[j];
+            float cmpLast = dcg_compareAscendingNaNLast(e, lastMin);
+            float cmpCurr = dcg_compareAscendingNaNLast(currMin, e);
             if (
               (cmpLast > 0.0 || (cmpLast == 0.0 && j > lastIndex))
               && (cmpCurr > 0.0 || (cmpCurr == 0.0 && j < currIndex))
@@ -19731,79 +19602,106 @@
           lastIndex = currIndex;
         }
         return permFloat;`;
+    }, { outType: (e) => `float[${e}]` }),
+    complexSortPerm: Ys((e) => {
+      if (e > 100) throw Oc();
+      return pe`float[${e}] permFloat;
+      vec2 lastMin = vec2(-Infinity,-Infinity);
+      int lastIndex = -1;
+      for (int i=0; i<${e}; i++) {
+        vec2 currMin = vec2(NaN,NaN);
+        int currIndex = ${e};
+        int j;
+        for (j=0; j<${e}; j++) {
+          vec2 e = L[j];
+          float cmpLast = dcg_compareComplexLexicographic(e, lastMin);
+          float cmpCurr = dcg_compareComplexLexicographic(currMin, e);
+          if (
+            (cmpLast > 0.0 || (cmpLast == 0.0 && j > lastIndex))
+            && (cmpCurr > 0.0 || (cmpCurr == 0.0 && j < currIndex))
+          ) {
+            currMin = e;
+            currIndex = j;
+          }
+        }
+        permFloat[i] = float(currIndex);
+        lastMin = currMin;
+        lastIndex = currIndex;
+      }
+      return permFloat;`;
     }, { inType: (e) => `vec2[${e}]`, outType: (e) => `float[${e}]` }),
   });
   function DN(e, t) {
     return t === 0 ? "return NaN;" : pe`float mean = dcg_mean(L);
-      if (isnan(mean) || isinf(mean)) return NaN;
-      float tot = 0.0;
-      for (int i=0; i<${e}; i++) {
-        float delta = L[i] - mean;
-        tot += delta * delta;
-      }
-      return tot / ${t}.0;`;
+    if (isnan(mean) || isinf(mean)) return NaN;
+    float tot = 0.0;
+    for (int i=0; i<${e}; i++) {
+      float delta = L[i] - mean;
+      tot += delta * delta;
+    }
+    return tot / ${t}.0;`;
   }
   function SN(e, t) {
     return t === 0 ? "return NaN;" : pe`float mean = dcg_mean(L);
-      if (isnan(mean) || isinf(mean)) return NaN;
-      float tot = 0.0;
-      for (int i=0; i<${e}; i++) {
-        tot = dcg_hypot(tot, L[i] - mean);
-      }
-      return tot / ${nM(Math.sqrt(t))};`;
+    if (isnan(mean) || isinf(mean)) return NaN;
+    float tot = 0.0;
+    for (int i=0; i<${e}; i++) {
+      tot = dcg_hypot(tot, L[i] - mean);
+    }
+    return tot / ${nM(Math.sqrt(t))};`;
   }
   function vN(e, t) {
     return pe`float m = L[0];
-      if (isnan(m)) return NaN;
-      for (int i=1; i<${e}; i++) {
-        float x = L[i];
-        if (isnan(x)) return NaN;
-        m = ${t}(m, x);
-      }
-      return m;`;
+    if (isnan(m)) return NaN;
+    for (int i=1; i<${e}; i++) {
+      float x = L[i];
+      if (isnan(x)) return NaN;
+      m = ${t}(m, x);
+    }
+    return m;`;
   }
   function ON(e, t) {
     return pe`if (isnan(L[0])) return 0.0;
-      int arg = 0;
-      float best = L[0];
-      for (int i=1; i<${e}; i++) {
-        float e = L[i];
-        if (isnan(e)) return 0.0;
-        if (e ${t} best) {
-          arg = i;
-          best = e;
-        }
+    int arg = 0;
+    float best = L[0];
+    for (int i=1; i<${e}; i++) {
+      float e = L[i];
+      if (isnan(e)) return 0.0;
+      if (e ${t} best) {
+        arg = i;
+        best = e;
       }
-      return float(arg + 1);`;
+    }
+    return float(arg + 1);`;
   }
   var NH = tM({
       cov: eM((e) => NN(e, e - 1)),
       covp: eM((e) => NN(e, e)),
       corr: eM((e) =>
         pe`${_N(e)}
-        float t1 = 0.0;
-        float t2 = 0.0;
-        float tc = 0.0;
-        for (int i=0; i<${e}; i++) {
-          float d1 = X[i] - m1;
-          float d2 = Y[i] - m2;
-          t1 = dcg_hypot(t1, d1);
-          t2 = dcg_hypot(t2, d2);
-          tc += d1 * d2;
-        }
-        return tc / (t1 * t2);`
+      float t1 = 0.0;
+      float t2 = 0.0;
+      float tc = 0.0;
+      for (int i=0; i<${e}; i++) {
+        float d1 = X[i] - m1;
+        float d2 = Y[i] - m2;
+        t1 = dcg_hypot(t1, d1);
+        t2 = dcg_hypot(t2, d2);
+        tc += d1 * d2;
+      }
+      return tc / (t1 * t2);`
       ),
     }),
     RH = {
       type: "elementsAt",
       value: (e, t) =>
         `${e}[${t}] dcg_elementsAt(${e}[${t}] X, float[${t}] Y) {
-        ${e}[${t}] outList;
-        for (int i=0; i<${t}; i++) {
-          outList[i] = X[int(Y[i])];
-        }
-        return outList;
-      }`,
+      ${e}[${t}] outList;
+      for (int i=0; i<${t}; i++) {
+        outList[i] = X[int(Y[i])];
+      }
+      return outList;
+    }`,
     },
     AH = { ...RN, ...OH, ...NH, elementsAt: RH },
     yh = AH;
@@ -19831,207 +19729,207 @@
   }
   function NN(e, t) {
     return pe`${_N(e)}
-      float tot = 0.0;
-      for (int i=0; i<${e}; i++) {
-        tot += (X[i] - m1) * (Y[i] - m2);
-      }
-      return tot / ${t}.0;`;
+    float tot = 0.0;
+    for (int i=0; i<${e}; i++) {
+      tot += (X[i] - m1) * (Y[i] - m2);
+    }
+    return tot / ${t}.0;`;
   }
   function _N(e) {
     return pe`float m1 = 0.0;
-      for (int i=0; i<${e}; i++) {
-        float x = X[i];
-        if (isnan(x) || isinf(x)) return NaN;
-        m1 += x;
-      }
-      m1 /= ${e}.0;
-      float m2 = 0.0;
-      for (int i=0; i<${e}; i++) {
-        float y = Y[i];
-        if (isnan(y) || isinf(y)) return NaN;
-        m2 += y;
-      }
-      m2 /= ${e}.0;`;
+    for (int i=0; i<${e}; i++) {
+      float x = X[i];
+      if (isnan(x) || isinf(x)) return NaN;
+      m1 += x;
+    }
+    m1 /= ${e}.0;
+    float m2 = 0.0;
+    for (int i=0; i<${e}; i++) {
+      float y = Y[i];
+      if (isnan(y) || isinf(y)) return NaN;
+      m2 += y;
+    }
+    m2 /= ${e}.0;`;
   }
   var LH = [
       pe`float dcg_rawpow(float x, float y) {
-      if (isnan(x) || isnan(y)) return NaN;
-      if (y==0.0) return 1.0;
-      if (isinf(y)) {${""}
-        float a = abs(x);
-        if (a == 1.0) return NaN;
-        if (y > 0.0) {
-          return a > 1.0 ? Infinity : 0.0;
-        } else {
-          return a < 1.0 ? Infinity : 0.0;
-        }
-      }
-      if (x > 0.0) return pow(x, y);
-      else if (x == 0.0) {
-        if (y > 0.0) return 0.0;
-        else if (y == 0.0) return 1.0;
-        else return Infinity;
+    if (isnan(x) || isnan(y)) return NaN;
+    if (y==0.0) return 1.0;
+    if (isinf(y)) {${""}
+      float a = abs(x);
+      if (a == 1.0) return NaN;
+      if (y > 0.0) {
+        return a > 1.0 ? Infinity : 0.0;
       } else {
-        float m = mod(y, 2.0);
-        if (m == 1.0) return -pow(-x, y);
-        else return pow(-x, y);
+        return a < 1.0 ? Infinity : 0.0;
       }
-    }`,
+    }
+    if (x > 0.0) return pow(x, y);
+    else if (x == 0.0) {
+      if (y > 0.0) return 0.0;
+      else if (y == 0.0) return 1.0;
+      else return Infinity;
+    } else {
+      float m = mod(y, 2.0);
+      if (m == 1.0) return -pow(-x, y);
+      else return pow(-x, y);
+    }
+  }`,
       pe`float dcg_pow(float x, float y) {
-      if (isnan(x) || isnan(y)) return NaN;
-      if (y==0.0) return 1.0;
-      if (isinf(y)) {
-        float a = abs(x);
-        if (a == 1.0) return NaN;
-        if (y > 0.0) {
-          return a > 1.0 ? Infinity : 0.0;
-        } else {
-          return a < 1.0 ? Infinity : 0.0;
-        }
-      }
-      if (x > 0.0) return pow(x,y);
-      else if (x == 0.0) {
-        if (y > 0.0) return 0.0;
-        if (y == 0.0) return 1.0;
-        if (y < 0.0) return Infinity;
+    if (isnan(x) || isnan(y)) return NaN;
+    if (y==0.0) return 1.0;
+    if (isinf(y)) {
+      float a = abs(x);
+      if (a == 1.0) return NaN;
+      if (y > 0.0) {
+        return a > 1.0 ? Infinity : 0.0;
       } else {
-        float m = mod(y, 2.0);
-        if (m == 0.0) return pow(-x, y);
-        else if (m == 1.0) return -pow(-x, y);
-        else {${""}
-          vec2 a0 = vec2(0.0, 1.0);
-          vec2 a1 = vec2(1.0, 0.0);
-          float approx = y;
-          for (int i=0; i<12; i+=1) {
-            float whole = floor(approx);
-            vec2 a = whole * a1 + a0;
-            if (a.y > 100.0) break;
-            a0 = a1; a1 = a;
-            if (approx == whole) break;
-            approx = 1.0 / (approx - whole);
-          }${""}
-          float r = a1.x / a1.y;
-          float m = max(max(abs(y), abs(r)), 1.0);
-          if (abs(mod(a1.y, 2.0) - 1.0) < 0.01 && abs((r - y)/y) < 0.00001) {
-            return (mod(a1.x, 2.0) == 0.0 ? 1.0 : -1.0) * pow(-x, y);
-          } else {
-            return NaN;
-          }
+        return a < 1.0 ? Infinity : 0.0;
+      }
+    }
+    if (x > 0.0) return pow(x,y);
+    else if (x == 0.0) {
+      if (y > 0.0) return 0.0;
+      if (y == 0.0) return 1.0;
+      if (y < 0.0) return Infinity;
+    } else {
+      float m = mod(y, 2.0);
+      if (m == 0.0) return pow(-x, y);
+      else if (m == 1.0) return -pow(-x, y);
+      else {${""}
+        vec2 a0 = vec2(0.0, 1.0);
+        vec2 a1 = vec2(1.0, 0.0);
+        float approx = y;
+        for (int i=0; i<12; i+=1) {
+          float whole = floor(approx);
+          vec2 a = whole * a1 + a0;
+          if (a.y > 100.0) break;
+          a0 = a1; a1 = a;
+          if (approx == whole) break;
+          approx = 1.0 / (approx - whole);
+        }${""}
+        float r = a1.x / a1.y;
+        float m = max(max(abs(y), abs(r)), 1.0);
+        if (abs(mod(a1.y, 2.0) - 1.0) < 0.01 && abs((r - y)/y) < 0.00001) {
+          return (mod(a1.x, 2.0) == 0.0 ? 1.0 : -1.0) * pow(-x, y);
+        } else {
+          return NaN;
         }
       }
-    }`,
+    }
+  }`,
       pe`float dcg_add(float x, float y) {
-      return isnan(x) || isnan(y) ? NaN
-        : isinf(x) && isinf(y) && x != y ? NaN
-        : x + y;
-    }`,
+    return isnan(x) || isnan(y) ? NaN
+      : isinf(x) && isinf(y) && x != y ? NaN
+      : x + y;
+  }`,
       pe`float dcg_sub(float x, float y) {
-      return isnan(x) || isnan(y) ? NaN
-        : isinf(x) && isinf(y) && x != -y ? NaN
-        : x - y;
-    }`,
+    return isnan(x) || isnan(y) ? NaN
+      : isinf(x) && isinf(y) && x != -y ? NaN
+      : x - y;
+  }`,
       pe`float dcg_mul(float x, float y) {
-      return isnan(x) || isnan(y) ? NaN
-        : isinf(x) && y == 0.0 ? NaN
-        : x == 0.0 && isinf(y) ? NaN
-        : x * y;
-    }`,
+    return isnan(x) || isnan(y) ? NaN
+      : isinf(x) && y == 0.0 ? NaN
+      : x == 0.0 && isinf(y) ? NaN
+      : x * y;
+  }`,
       pe`float dcg_div(float x, float y) {
-      return isnan(x) || isnan(y) ? NaN
-        : isinf(x) && isinf(y) ? NaN
-        : x == 0.0 && y == 0.0 ? NaN
-        : x / y;
-    }`,
+    return isnan(x) || isnan(y) ? NaN
+      : isinf(x) && isinf(y) ? NaN
+      : x == 0.0 && y == 0.0 ? NaN
+      : x / y;
+  }`,
       pe`float dcg_neg(float x) {
-      return isnan(x) ? NaN : -x;
-    }`,
+    return isnan(x) ? NaN : -x;
+  }`,
       pe`bool dcg_equal(float x, float y) {
-      return isnan(x) || isnan(y) ? false : x == y;
-    }`,
+    return isnan(x) || isnan(y) ? false : x == y;
+  }`,
       pe`bool dcg_less(float x, float y) {
-      return isnan(x) || isnan(y) ? false : x < y;
-    }`,
+    return isnan(x) || isnan(y) ? false : x < y;
+  }`,
       pe`bool dcg_lessEqual(float x, float y) {
-      return isnan(x) || isnan(y) ? false : x <= y;
-    }`,
+    return isnan(x) || isnan(y) ? false : x <= y;
+  }`,
       pe`bool dcg_greater(float x, float y) {
-      return isnan(x) || isnan(y) ? false : x > y;
-    }`,
+    return isnan(x) || isnan(y) ? false : x > y;
+  }`,
       pe`bool dcg_greaterEqual(float x, float y) {
-      return isnan(x) || isnan(y) ? false : x >= y;
-    }`,
+    return isnan(x) || isnan(y) ? false : x >= y;
+  }`,
       pe`float dcg_gcd2(float u, float v) {
-      for (int i=0; i<95; i++) {
-        if (v == 0.0) break;
-        u = mod(u, v);
-        if (u == 0.0) break;
-        v = mod(v, u);
-      }
-      return u+v;
-    }`,
+    for (int i=0; i<95; i++) {
+      if (v == 0.0) break;
+      u = mod(u, v);
+      if (u == 0.0) break;
+      v = mod(v, u);
+    }
+    return u+v;
+  }`,
       pe`float dcg_log1p(float x) {
-      return x - 0.5 * x * x == x ? x : log(1.0 + x);
-    }`,
+    return x - 0.5 * x * x == x ? x : log(1.0 + x);
+  }`,
       pe`bool dcg_isPiMultiple(float absx) {
-      if (absx > 1.0e5) return false;
-      return floor(0.5 + dcg_PI_INV * absx) * dcg_PI == absx;
-    }`,
+    if (absx > 1.0e5) return false;
+    return floor(0.5 + dcg_PI_INV * absx) * dcg_PI == absx;
+  }`,
       pe`bool dcg_isOddHalfPiMultiple(float absx) {
-      if (absx > 1.0e5) return false;
-      float n = floor(0.5 + 2.0 * dcg_PI_INV * absx);
-      return mod(n, 2.0) == 1.0 && n * dcg_PI == 2.0 * absx;
-    }`,
+    if (absx > 1.0e5) return false;
+    float n = floor(0.5 + 2.0 * dcg_PI_INV * absx);
+    return mod(n, 2.0) == 1.0 && n * dcg_PI == 2.0 * absx;
+  }`,
       "vec2 dcg_conj(vec2 a) { return vec2(a.x, -a.y); }",
       pe`vec2 dcg_subComplexDivide(vec2 a, vec2 b) {
-      float u1 = a.x; float v1 = a.y;
-      float u2 = b.x; float v2 = b.y;
-      float r = v2 / u2;
-      float t = 1.0 / (u2 + v2 * r);
-      if (r == 0.0) {
-        return dcg_complex((u1 + v2 * (v1 / u2)) * t, (v1 - v2 * (u1 / u2)) * t);
-      } else {
-        return dcg_complex((u1 + v1 * r) * t, (v1 - u1 * r) * t);
-      }
-    }`,
+    float u1 = a.x; float v1 = a.y;
+    float u2 = b.x; float v2 = b.y;
+    float r = v2 / u2;
+    float t = 1.0 / (u2 + v2 * r);
+    if (r == 0.0) {
+      return dcg_complex((u1 + v2 * (v1 / u2)) * t, (v1 - v2 * (u1 / u2)) * t);
+    } else {
+      return dcg_complex((u1 + v1 * r) * t, (v1 - u1 * r) * t);
+    }
+  }`,
       pe`vec2 dcg_complexFromPolarRounded(float r, float theta) {
-      if (isnan(r) || isnan(theta)) return vec2(NaN, NaN);
-      if (r == 0.0) return vec2(0.0, 0.0);
-      return dcg_complex(r * dcg_cos(theta), r * dcg_sin(theta));
-    }`,
+    if (isnan(r) || isnan(theta)) return vec2(NaN, NaN);
+    if (r == 0.0) return vec2(0.0, 0.0);
+    return dcg_complex(r * dcg_cos(theta), r * dcg_sin(theta));
+  }`,
       pe`vec2 dcg_complexReciprocal(vec2 z) {
-      return dcg_complexDivide(vec2(1.0,0.0), z);
-    }`,
+    return dcg_complexDivide(vec2(1.0,0.0), z);
+  }`,
       pe`float dcg_compareAscendingNaNLast(float x, float y) {
-      float diff = dcg_sub(x,y);
-      return !isnan(diff) ? diff : float(isnan(x)) - float(isnan(y));
-    }`,
+    float diff = dcg_sub(x,y);
+    return !isnan(diff) ? diff : float(isnan(x)) - float(isnan(y));
+  }`,
       pe`float dcg_compareComplexLexicographic(vec2 x, vec2 y) {
-      float realComparison = dcg_compareAscendingNaNLast(x.x, y.x);
-      return realComparison != 0.0 ? realComparison : dcg_compareAscendingNaNLast(x.y, y.y);
-    }`,
+    float realComparison = dcg_compareAscendingNaNLast(x.x, y.x);
+    return realComparison != 0.0 ? realComparison : dcg_compareAscendingNaNLast(x.y, y.y);
+  }`,
     ].join(`
-  `),
+`),
     wH = `
-    float dcg_round(float x);
-    float dcg_hypot(float x, float y);
-    float dcg_rtxsqpone(float x);
-    float dcg_rtxsqmone(float x);
-    float dcg_cos(float x);
-    float dcg_sin(float x);
-    float dcg_tan(float x);
-    float dcg_tanh(float x);
-    vec2 dcg_complex(float u, float v);
-    vec2 dcg_complexDivide(vec2 a, vec2 b);
-  `,
+  float dcg_round(float x);
+  float dcg_hypot(float x, float y);
+  float dcg_rtxsqpone(float x);
+  float dcg_rtxsqmone(float x);
+  float dcg_cos(float x);
+  float dcg_sin(float x);
+  float dcg_tan(float x);
+  float dcg_tanh(float x);
+  vec2 dcg_complex(float u, float v);
+  vec2 dcg_complexDivide(vec2 a, vec2 b);
+`,
     FH = Object.values(RN).map((e) => e.value).join(`
-  `),
+`),
     oK = pe`uniform float NaN;
-      uniform float Infinity;
-      #define dcg_PI 3.141592653589793
-      #define dcg_PI_INV 0.3183098861837907
-      ${wH}\n
-      ${LH}\n
-      ${FH}`;
+    uniform float Infinity;
+    #define dcg_PI 3.141592653589793
+    #define dcg_PI_INV 0.3183098861837907
+    ${wH}\n
+    ${LH}\n
+    ${FH}`;
   function pe(e, ...t) {
     let n = e[0];
     for (let r = 0; r < t.length; r++) n += t[r], n += e[r + 1];
@@ -20039,15 +19937,15 @@
   }
   function VH(e) {
     let t = e.split(`
-  `);
+`);
     if (/^\s/.test(t[0][0])) {
       throw new Error("Programming error: Expected un-indented first line");
     }
     if (t.length <= 1) return e;
     let n = Math.min(...t.slice(1).map((r) => r.match(/^\s*/)[0].length));
     return t[0] + `
-  ` + t.slice(1).map((r) => r.slice(n)).join(`
-  `);
+` + t.slice(1).map((r) => r.slice(n)).join(`
+`);
   }
   function Ma(e, t) {
     let n = new rM(e, t), r = Zg(n);
@@ -20070,7 +19968,7 @@
     }
     printValue(n, r) {
       if (Array.isArray(n)) {
-        if (n.length > 100) throw gpuMaxListSizeError();
+        if (n.length > 100) throw Oc();
         let s = j(r),
           i = s ? Ve(r) : r,
           o = n.map((c) => this.printValue(c, i)).join(","),
@@ -20085,7 +19983,7 @@
         case "number":
           return this.printFloatOrUniformGLSL(n);
         case "string":
-          throw gpuUnsupportedFunctionError("random");
+          throw Xl("random");
         case "object":
           if (gu(n)) throw new Error("Action values cannot be compiled");
           return this.printFloatOrUniformGLSL(V(n));
@@ -20106,19 +20004,17 @@
         i = n.callData.type === "sum";
       if (r.type !== 1) {
         let u = fs(this.chunk, n.args[0]);
-        throw i ? gpuVariableSumError(u) : gpuVariableProductError(u);
+        throw i ? gy(u) : hy(u);
       }
       if (s.type !== 1) {
         let u = fs(this.chunk, n.args[1]);
-        throw i ? gpuVariableSumError(u) : gpuVariableProductError(u);
+        throw i ? gy(u) : hy(u);
       }
       if (r.valueType !== Number || s.valueType !== Number) {
         throw new Error("Programming error: non-number in summation bounds");
       }
       let o = V(r.value), a = V(s.value);
-      if (!isFinite(a - o) || a - o >= 1e3) {
-        throw i ? gpuLongSumError() : gpuLongProductError();
-      }
+      if (!isFinite(a - o) || a - o >= 1e3) throw i ? VT() : BT();
     }
     checkFiniteBounds() {
       return "";
@@ -20179,9 +20075,7 @@
     }
     emitListAccess(n, r, s, i) {
       let o = qn(this.chunk, i.args[0]);
-      if (o === void 0) {
-        throw gpuVariableListLengthError(fs(this.chunk, i.args[0]));
-      }
+      if (o === void 0) throw mu(fs(this.chunk, i.args[0]));
       let a = `int(${r})`;
       return `(${a}>=1&&${a}<=${o})?${n}[${a}-1]:${s}`;
     }
@@ -20189,11 +20083,11 @@
       return `${n}[int(${r})-1]`;
     }
     emitNativeFunction(n, r) {
-      if (!yh[r.symbol]) throw gpuUnsupportedFunctionError(r.symbol);
+      if (!yh[r.symbol]) throw Xl(r.symbol);
       return `dcg_${r.symbol}(${n.join(",")})`;
     }
     emitExtendSeed() {
-      throw gpuUnsupportedFunctionError("random");
+      throw Xl("random");
     }
     emitVarDeclaration(n, r) {
       let s = r ? ";" : "";
@@ -20203,27 +20097,27 @@
       return `${sM(this.chunk, n)} ${r}=${s};`;
     }
     emitFunctionCall() {
-      throw gpuUnsupportedFunctionError("recursion");
+      throw Xl("recursion");
     }
   };
   function hK(...e) {
     return Object.keys(Object.assign({}, ...e)).join(`
-  `);
+`);
   }
   function LN(e) {
     let { type: t, arity: n } = e, r = t + "[" + n + "]", s = r + " buildList(";
     for (let i = 0; i < n - 1; i++) s += `${t} _${i}, `;
     s += `${t} _${n - 1}) {
-  `,
+`,
       s += r + ` a;
-  `;
+`;
     for (let i = 0; i < n; i++) {
       s += `a[${i}] = _${i};
-  `;
+`;
     }
     return s += `return a;
-  }
-  `,
+}
+`,
       s;
   }
   function BH(e, t) {
@@ -20241,17 +20135,17 @@
         let o = yh[i.symbol];
         if ((o == null ? void 0 : o.type) === "reducer") {
           let a = i.args[0], u = qn(e, a);
-          if (u === void 0) throw gpuVariableListLengthError(fs(e, a));
+          if (u === void 0) throw mu(fs(e, a));
           for (let c of o.deps) t[yh[c].value(u)] = true;
           t[o.value(u)] = true;
         } else if ((o == null ? void 0 : o.type) === "double-reducer") {
           let a = i.args[0], u = i.args[1], c = qn(e, a), l = qn(e, u);
-          if (c === void 0) throw gpuVariableListLengthError(fs(e, a));
-          if (l === void 0) throw gpuVariableListLengthError(fs(e, u));
+          if (c === void 0) throw mu(fs(e, a));
+          if (l === void 0) throw mu(fs(e, u));
           t[o.value(c, l)] = true;
         } else if ((o == null ? void 0 : o.type) === "elementsAt") {
           let a = $f(Ve(i.valueType)), u = i.args[1], c = qn(e, u);
-          if (c === void 0) throw gpuVariableListLengthError(fs(e, u));
+          if (c === void 0) throw mu(fs(e, u));
           t[o.value(a, c)] = true;
         }
       }
@@ -20282,8 +20176,8 @@
     let n = e.getInstruction(t);
     if (j(n.valueType)) {
       let r = qn(e, t);
-      if (r === void 0) throw gpuVariableListLengthError(fs(e, t));
-      if (r > 100) throw gpuMaxListSizeError();
+      if (r === void 0) throw mu(fs(e, t));
+      if (r > 100) throw Oc();
       return `${$f(n.valueType)}[${r}]`;
     } else return $f(n.valueType);
   }
@@ -20294,7 +20188,7 @@
         let s = "_DCG_SC_" + r;
         t[s] = { value: e[r] },
           n += "uniform float " + s + `;
-  `;
+`;
       }
     }
     return { uniforms: t, declarations: n };
@@ -20899,9 +20793,7 @@
                 variable: n.variable,
                 value: V(r.value),
               });
-            } else if (!(Je(r) && r.valueType === ListOfNumber)) {
-              throw badEqualitySliceError();
-            }
+            } else if (!(Je(r) && r.valueType === ListOfNumber)) throw ca();
           } else if (
             this.openChunk.getInstruction(n.index).valueType === Number
           ) {
@@ -20909,7 +20801,7 @@
             s.setReturnIndex(n.index),
               s.fuseBroadcast(),
               t.push({ type: "implicit", sliceChunk: s });
-          } else throw badEqualitySliceError();
+          } else throw ca();
         }
         return t;
       }
@@ -21075,7 +20967,7 @@
         case 28:
           return n.Subtract([s.args[1], s.args[0]]);
         case 25:
-          throw internalError("convertBoolsToNums on an equality.");
+          throw U("convertBoolsToNums on an equality.");
         case 32:
           return n.NativeFunction("listMin", xh(e, s.args));
         case 31:
@@ -21083,7 +20975,7 @@
         case 1:
           return n.Constant(s.value ? 1 / 0 : -1 / 0);
         default:
-          throw internalError("convertBoolsToNums on a non-opcode condition.");
+          throw U("convertBoolsToNums on a non-opcode condition.");
       }
     });
   }
@@ -21236,7 +21128,7 @@
       let r = GN(e.newChunk, n[0]);
       if (r) return e.slices.push(r), [];
     }
-    if (n.some((r) => BN(e.newChunk, r))) throw badEqualitySliceError();
+    if (n.some((r) => BN(e.newChunk, r))) throw ca();
     if (n.length === 1) {
       let r = n[0];
       return [...gh(e.newChunk, r)];
@@ -22077,7 +21969,7 @@
       switch (n.val) {
         case "real":
         case "imag":
-          throw dotRHSPropertyErrorError(n.val);
+          throw nT(n.val);
       }
     }
   }
@@ -22155,12 +22047,10 @@
         if (o.type === "Call") {
           let [a, u] = o.args, c = Sr(u).length;
           if (a.type === "Cmd" && a.val === "logbase") {
-            if (c !== 2) throw primedFunctionArityError();
-          } else if (c !== 1) throw primedFunctionArityError();
+            if (c !== 2) throw Nc();
+          } else if (c !== 1) throw Nc();
           return n.Prime(t.nprimes, It(e, t.args));
-        } else {throw o.type === "ImplicitCall"
-            ? primeWithoutParenError()
-            : unexpectedPrimeError();}
+        } else throw o.type === "ImplicitCall" ? Cy() : My();
       }
       case "Index": {
         let [o, a] = t.args;
@@ -22193,7 +22083,7 @@
       case "Paren": {
         let [o] = t.args;
         if (o.type === "Seq") {
-          if (o.args.length === 0) throw emptyParenError();
+          if (o.args.length === 0) throw Yd();
           return n.ParenSeq(It(e, o.args));
         } else return mn(e, o);
       }
@@ -22215,7 +22105,7 @@
       }
       case "Subscript": {
         let [o, a] = t.args;
-        if (a.val.length === 0) throw emptySubscriptError();
+        if (a.val.length === 0) throw Ey();
         let u;
         switch (o.type) {
           case "Letter":
@@ -22225,9 +22115,9 @@
             u = o.val;
             break;
           default:
-            throw unexpectedSubscriptError();
+            throw lI();
         }
-        if (u === "ans") throw unexpectedSymbolError("ans");
+        if (u === "ans") throw ks("ans");
         return n.Identifier(`${u}_${a.val}`);
       }
       case "Superscript": {
@@ -22274,7 +22164,7 @@
       case "Derivative": {
         let o = It(e, t.args);
         if (!lr(t.args[0])) {
-          throw internalError(
+          throw U(
             `Expected identifier in derivative, but found ${t.args[0].type}`,
           );
         }
@@ -22291,18 +22181,14 @@
       }
       case "Sum": {
         let [o, a, u] = t.args;
-        if (a.type !== "Comparator" || !ed(a)) {
-          throw incorrectSumLowerBoundError();
-        }
+        if (a.type !== "Comparator" || !ed(a)) throw aP();
         let c = It(e, [a.args[0], a.args[1], u]),
           l = mn(Kf(e, { prefix: "ro", expr: c[0] }), o);
         return n.Sum(c.concat(l));
       }
       case "Product": {
         let [o, a, u] = t.args;
-        if (a.type !== "Comparator" || !ed(a)) {
-          throw incorrectProductLowerBoundError();
-        }
+        if (a.type !== "Comparator" || !ed(a)) throw uP();
         let c = It(e, [a.args[0], a.args[1], u]),
           l = mn(Kf(e, { prefix: "ro", expr: c[0] }), o);
         return n.Product(c.concat(l));
@@ -22317,10 +22203,8 @@
             if (u.type === "Juxt") {
               if (
                 [u, c] = u.args, c.type === "Letter" && c.val === "i"
-              ) throw writeIntegralError();
-            } else if (u.type === "Letter" && u.val === "i") {
-              throw writeIntegralError();
-            }
+              ) throw Gy();
+            } else if (u.type === "Letter" && u.val === "i") throw Gy();
           }
         }
         let [o, a] = t.args;
@@ -22328,8 +22212,8 @@
           o.type === "MixedNumber" &&
           !(lr(a) || a.type === "Piecewise" || a.type === "Call" ||
             a.type === "Paren")
-        ) throw adjacentMixedNumberError(Nh(o));
-        if (a.type === "MixedNumber") throw adjacentMixedNumberError(Nh(a));
+        ) throw Ty(Nh(o));
+        if (a.type === "MixedNumber") throw Ty(Nh(a));
         return n.Multiply(It(e, t.args));
       }
       case "Letter":
@@ -22338,17 +22222,17 @@
         let o = t.val;
         switch (o) {
           case "ans": {
-            if (e.currentIndex === void 0) throw badSymbolContextError("ans");
+            if (e.currentIndex === void 0) throw Kd("ans");
             return n.Ans(`ans_{${e.currentIndex - 1}}`);
           }
           case "approx":
-            throw unrecognizedSymbolError(o);
+            throw uy(o);
           case "dt": {
-            if (!e.allowDt) throw badSymbolContextError(o);
+            if (!e.allowDt) throw Kd(o);
             return n.Identifier(o);
           }
           case "index": {
-            if (!e.allowIndex) throw badSymbolContextError(o);
+            if (!e.allowIndex) throw Kd(o);
             return n.Identifier(o);
           }
           default:
@@ -22375,23 +22259,19 @@
           e.setInput(n.Constant(true), No(t.span.input, t.span.start)),
         ]);
       case "Comparator":
-        throw t.symbol === "="
-          ? unexpectedSymbolError("=")
-          : unexpectedInequalityError();
+        throw t.symbol === "=" ? ks("=") : cy();
       case "ComparatorChain":
-        throw t.symbols.includes("=")
-          ? unexpectedEqualityError()
-          : unexpectedInequalityError();
+        throw t.symbols.includes("=") ? wx() : cy();
       case "Tilde":
-        throw unexpectedSymbolError("~");
+        throw ks("~");
       case "Colon":
-        throw unexpectedSymbolError(":");
+        throw ks(":");
       case "Ellipsis":
-        throw unexpectedSymbolError("...");
+        throw ks("...");
       case "For":
         return Oh(e, t, { parentIsList: false });
       case "EmptyRangeEnd":
-        throw invalidHalfEmptyRangeError();
+        throw sP();
       case "Err":
         throw Tz(t.error);
       default:
@@ -22431,9 +22311,7 @@
             ]);
           }
           if (mz(c) && Kp[l] !== void 0) return n.FunctionCall(Kp[l], a);
-          throw EM(l)
-            ? badTrigExponentError(l)
-            : badLogExponentError(l === "logbase" ? "log" : l);
+          throw EM(l) ? gI(l) : hI(l === "logbase" ? "log" : l);
         }
       }
     }
@@ -22443,7 +22321,7 @@
     let r = e.nodes,
       [s, i] = t.args,
       o = e.setInput(r.Identifier(`_comprehensionIndex_${cz++}`), void 0);
-    if (s.type === "For") throw substitutionAmbiguousCommaError("for");
+    if (s.type === "For") throw yu("for");
     let a = mn(Kf(e, { prefix: "li", expr: o }), s), u = [];
     if (i.type === "Seq") {
       let p = false, f = false, d = false;
@@ -22454,7 +22332,7 @@
           : f = true, g.type === "Cmd" && g.val === "cursor" && (d = true);
       }
       if (p && f) {
-        let y = substitutionAmbiguousCommaError("for");
+        let y = yu("for");
         throw d &&
           y.setCursorContext({
             type: "for-assignment-lhs",
@@ -22472,11 +22350,9 @@
         let f = e.setInput(r.AssignmentExpression(It(e, p.args)), p.span);
         u.push(f);
       } else {
-        if (p.type === "Comparator") {
-          throw invalidIntervalComprehensionParameterError("a");
-        }
+        if (p.type === "Comparator") throw Jl("a");
         {
-          let f = listComprehensionIncorrectInputError();
+          let f = vP();
           throw p.type === "Cmd" && p.val === "cursor" &&
             f.setCursorContext({
               type: "for-assignment-lhs",
@@ -22495,7 +22371,7 @@
       let i = false, o = false, a = false;
       for (let u = 0; u < t.args.length; u++) {
         let c = t.args[u];
-        if (c.type === "With") throw substitutionAmbiguousCommaError("with");
+        if (c.type === "With") throw yu("with");
         if (ed(c) || GR(c)) i = true;
         else if (
           e.allowIntervalComprehensions && c.type === "ComparatorChain"
@@ -22507,8 +22383,8 @@
           }
         } else a = true;
       }
-      if ((i || o) && a) throw substitutionAmbiguousCommaError("with");
-      if (o) throw substitutionUnsupportedIntervalError();
+      if ((i || o) && a) throw yu("with");
+      if (o) throw Yy();
     }
     if (e.allowIntervalComprehensions && t.type === "ComparatorChain") {
       let i;
@@ -22517,7 +22393,7 @@
       } catch (o) {
         i = false;
       }
-      if (i) throw substitutionUnsupportedIntervalError();
+      if (i) throw Yy();
     }
     if (t.type === "With") throw $y();
     let r = Sr(t), s = [];
@@ -22536,20 +22412,18 @@
     return !!lr(n);
   }
   function MM(e) {
-    if (e.symbols.length !== 2) {
-      throw invalidIntervalComprehensionParameterError("a");
-    }
+    if (e.symbols.length !== 2) throw Jl("a");
     let [t, n, r] = e.args, [s, i] = e.symbols;
-    if (!lr(n)) throw invalidIntervalComprehensionParameterError("a");
+    if (!lr(n)) throw Jl("a");
     if (
       s !== "<" && s !== "<=" || i !== "<" && i !== "<=" ||
       e.symbols.includes("=")
-    ) throw invalidIntervalComprehensionParameterError(Yn(n.span));
+    ) throw Jl(Yn(n.span));
     return { min: t, identifier: n, max: r, open: [s === "<", i === "<"] };
   }
   function gz(e, t) {
     let n = e.nodes;
-    if (!lr(t.args[0])) throw updateRuleNonIdentifierLHSError();
+    if (!lr(t.args[0])) throw MT();
     return e = Kf(e, {
       prefix: "ec",
       expr: e.setInput(n.Identifier("globalEventCount"), void 0),
@@ -22576,10 +22450,8 @@
       switch (f.type) {
         case "Colon": {
           let [d, y] = f.args;
-          if (!Qf(d)) throw colonMissingConditionError();
-          if (y.type === "With" && y.args[1].type === "Seq") {
-            throw substitutionAmbiguousCommaError("with");
-          }
+          if (!Qf(d)) throw TI();
+          if (y.type === "With" && y.args[1].type === "Seq") throw yu("with");
           o.push({
             condition: e.setInput(Ca(e, d), d.span),
             if_expr: mn(e, y),
@@ -22594,13 +22466,13 @@
           });
           break;
         case "For":
-          throw substitutionAmbiguousCommaError("for");
+          throw yu("for");
         default:
           break e;
       }
     }
-    if (i === 0) throw piecewiseMissingConditionError();
-    if (i < s.length - 1) throw piecewisePartMissingConditionError();
+    if (i === 0) throw bI();
+    if (i < s.length - 1) throw xI();
     let a, u;
     i === s.length - 1 ? (a = Jf(e, s[i]), u = s[i]) : a = n.Constant(NaN);
     let c = a, l = u == null ? void 0 : u.span, p;
@@ -22622,7 +22494,7 @@
       case "ComparatorChain":
         return n.ComparatorChain(t.symbols, It(e, t.args));
       default:
-        throw internalError(`Unexpected type for condition: ${t.type}`);
+        throw U(`Unexpected type for condition: ${t.type}`);
     }
   }
   function bz(e) {
@@ -22631,14 +22503,10 @@
       t.type === "Superscript" && (t = t.args[0]),
         t.type === "Cmd" && t.val === "logbase" && n.type === "Seq" &&
         n.args.length === 2
-    ) {
-      if (!Yo(n.args[0])) {
-        throw badImplicitCallError("log");
-      }
-    } else if (!Yo(n)) {
+    ) { if (!Yo(n.args[0])) throw xy("log"); } else if (!Yo(n)) {
       throw t.type === "Cmd"
-        ? badImplicitCallError(t.val)
-        : internalError(`Unexpected type for args of implicit call: ${n.type}`);
+        ? xy(t.val)
+        : U(`Unexpected type for args of implicit call: ${n.type}`);
     }
   }
   function kR(e) {
@@ -22667,81 +22535,79 @@
       case "EmptyGroup":
       case "UnexpectedDifferential":
       case "UnexpectedEnd":
-        return internalError(`Unexpected error type: ${e.type}`);
+        return U(`Unexpected error type: ${e.type}`);
       case "InvalidOperatorName":
-        return invalidOperatorNameError();
+        return cI();
       case "UnexpectedCloseDelimiter":
       case "MissingCloseDelimiter":
-        return mismatchedBracesError(e.open, e.close);
+        return bP(e.open, e.close);
       case "UnrecognizedSymbol":
-        return e.val === "."
-          ? unexpectedSymbolError(e.val)
-          : unrecognizedSymbolError(e.val);
+        return e.val === "." ? ks(e.val) : uy(e.val);
       case "EmptyInput":
-        return blankExpressionError();
+        return Xd();
       case "BinaryOperatorMissingRight":
       case "BinaryOperatorMissingLeft":
         return $d(e.val === "%" ? "% of" : e.val);
       case "UnaryOperatorMissingLeft":
-        return unaryOperatorMissingLeftError(e.val);
+        return nI(e.val);
       case "UnaryOperatorMissingRight":
-        return unaryOperatorMissingRightError(e.val);
+        return rI(e.val);
       case "UnexpectedSubscript":
-        return cannotSubscriptError(e.base);
+        return EI(e.base);
       case "PercentMissingOf":
-        return percentMissingOfError();
+        return TP();
       case "SumMissingBound":
-        return sumMissingBoundError();
+        return iP();
       case "ProductMissingBound":
-        return productMissingBoundError();
+        return oP();
       case "IntegralMissingBound":
-        return integralMissingBoundError();
+        return pP();
       case "SumMissingBody":
-        return sumMissingBodyError();
+        return mP();
       case "ProductMissingBody":
-        return productMissingBodyError();
+        return yP();
       case "IntegralMissingBody":
-        return integralMissingBodyError();
+        return gP();
       case "DerivativeMissingBody":
-        return derivativeMissingBodyError();
+        return hP();
       case "IntegralMissingDifferential":
-        return integralMissingDifferentialError();
+        return dP();
       case "DifferentialWithSuperscript":
-        return differentialWithSuperscriptError();
+        return fP();
       case "FractionMissingNumerator":
-        return fractionMissingNumeratorError();
+        return sI();
       case "FractionMissingDenominator":
-        return fractionMissingDenominatorError();
+        return iI();
       case "FractionEmpty":
-        return fractionEmptyError();
+        return oI();
       case "EmptySuperscript":
-        return emptySuperscriptError();
+        return aI();
       case "EmptySubscript":
-        return emptySubscriptError();
+        return Ey();
       case "InvalidSubscript":
-        return invalidSubscriptError(e.val);
+        return uI(e.val);
       case "SuperscriptWithPrime":
-        return superscriptWithPrimeError();
+        return pI();
       case "PrimeWithoutParen":
-        return primeWithoutParenError();
+        return Cy();
       case "UnexpectedPrime":
-        return unexpectedPrimeError();
+        return My();
       case "EmptyRadical":
-        return emptyRadicalError();
+        return dI();
       case "EmptyRadicalIndex":
-        return emptyRadicalIndexError();
+        return fI();
       case "EmptySquareBracket":
-        return emptySquareBracketError();
+        return mI();
       case "EmptyPipe":
-        return emptyPipeError();
+        return yI();
       case "FunctionMissingArgument":
-        return wrongArityError(e.val, 1, 0, { includeUsageExample: true });
+        return Ao(e.val, 1, 0, { includeUsageExample: true });
       case "AdjacentNumbers":
-        return adjacentNumbersError(Nh(e.args[0]), Nh(e.args[1]));
+        return eI(Nh(e.args[0]), Nh(e.args[1]));
       case "TokenWithSubscript":
-        return tokenWithSubscriptError();
+        return tI();
       case "UnexpectedFor":
-        return unexpectedSymbolError("for");
+        return ks("for");
       default:
         throw `Unexpected surface node ${e.type}.`;
     }
@@ -23185,7 +23051,7 @@
           s.type === "Err" ? H(e, s) : H(e, cR(Pe(t, e), [s]));
       }
       case "Frac": {
-        if (e.opts.disallowFrac) throw fractionsUnavailableError();
+        if (e.opts.disallowFrac) throw Uy();
         e = Xe(e);
         let o = Xu(ru(n.num, e.opts)), a = Xu(ru(n.den, e.opts));
         if (
@@ -23384,11 +23250,11 @@
         if (
           n.val.endsWith(".") && a.type === "Cmd" &&
           (a.val === "\\real" || a.val === "\\imag")
-        ) throw dotLHSConstantNumberErrorError();
+        ) throw ly();
         return H(e, o);
       }
       case "MixedNumber": {
-        if (e.opts.disallowFrac) throw fractionsUnavailableError();
+        if (e.opts.disallowFrac) throw Uy();
         e = Xe(e);
         let o = e.token;
         if (o.type === "Decimal" || o.type === "MixedNumber") {
@@ -23679,7 +23545,7 @@
         switch (n[0].type) {
           case "Decimal":
           case "MixedNumber":
-            throw dotLHSConstantNumberErrorError();
+            throw ly();
           default:
             return MR(t, n);
         }
@@ -23747,7 +23613,7 @@
       : { type: "Bounds", sup: s, sub: r };
   }
   function rm(e) {
-    if (e.opts.disableParentheses) throw parenthesesUnavailableError();
+    if (e.opts.disableParentheses) throw DP();
     let t = e, n = ss(e), r = vA(n.type);
     if (Hr(e, "(")) e = Xe(e);
     else {throw new Error(
@@ -24152,7 +24018,7 @@
     return { state: e, tree: t } = Fh(e, true), e = Zo(e, "]"), qi(e, t);
   }
   function zz() {
-    throw featureUnavailableError();
+    throw rf();
   }
   function $A(e, t) {
     return t && !e._inputSpan && e.setInputSpan(t), e;
@@ -24205,7 +24071,7 @@
     function c(p) {
       return p.parseOptions = t, p;
     }
-    if (e === "") return c(blankExpressionError());
+    if (e === "") return c(Xd());
     try {
       let p = UA(e), f = OA(p, u), d = zR(a, f);
       return d.parseOptions = t, d;
@@ -24215,7 +24081,7 @@
         ? f = p
         : typeof p == "string"
         ? f = new C.Error(p)
-        : f = internalError(p),
+        : f = U(p),
         c(f);
     }
   }
@@ -25539,16 +25405,14 @@
   function kh(e, t, n, r) {
     let s = e.getInstruction(n).valueType;
     if (om(s) !== r) {
-      throw internalError(
-        `Incorrect derivative strategy '${r}' for type ${s}.`,
-      );
+      throw U(`Incorrect derivative strategy '${r}' for type ${s}.`);
     }
     let i = e.getInstruction(t).valueType;
     if (!oU(i, r)) {
       let o = e.areAllArgsConstant([t]);
       throw r === "number"
-        ? derivativeTypeErrorError([oe(i)], { blockExport: o })
-        : derivativeTypeErrorRespectError([oe(i), oe(s)], { blockExport: o });
+        ? dT([oe(i)], { blockExport: o })
+        : fT([oe(i), oe(s)], { blockExport: o });
     }
     switch (r) {
       case "number":
@@ -25560,7 +25424,7 @@
           e.Subtract([o, e.Multiply([e.ImaginaryUnit(), a])]),
         ]);
       default:
-        throw internalError(`Invalid derivative strategy '${r}'.`);
+        throw U(`Invalid derivative strategy '${r}'.`);
     }
   }
   function oU(e, t) {
@@ -25571,14 +25435,12 @@
       case "complex":
         return kn(e, Complex) || kn(e, ListOfComplex);
       default:
-        throw internalError(`Invalid derivative strategy '${t}'.`);
+        throw U(`Invalid derivative strategy '${t}'.`);
     }
   }
   function zM(e, t, n) {
     let r = e.getInstruction(n).valueType, s = om(r);
-    if (!s) {
-      throw internalError(`chunk.derivative called on non-number ${at(r)}.`);
-    }
+    if (!s) throw U(`chunk.derivative called on non-number ${at(r)}.`);
     return kh(e, t, n, s);
   }
   function jA(e) {
@@ -25594,7 +25456,7 @@
     }
     return t.push("}"),
       t.join(`
-  `);
+`);
   }
   var Ia = class e {
     constructor(t) {
@@ -25683,7 +25545,7 @@
     getRecursionStructure(t) {
       let n = this.getInstruction(t);
       if (n.endIndex === -1) {
-        throw internalError(
+        throw U(
           "Programming error: cannot get recursion structure before function is closed",
         );
       }
@@ -25710,7 +25572,7 @@
       };
     }
     pushInstructionChecked(t) {
-      if (this.instructions.length >= 32768) throw deeplyNestedError();
+      if (this.instructions.length >= 32768) throw _T();
       this.instructions.push(t),
         this.setReturnIndex(this.instructions.length - 1);
     }
@@ -25766,7 +25628,7 @@
     }
     ConstantOfType(t, n) {
       if (typeof n == "number" && (n = Se(n, 1)), j(t) && n.length > 1e4) {
-        throw maxListSizeError();
+        throw zd();
       }
       return this.pushLeafInstruction({ type: 1, valueType: t, value: n });
     }
@@ -25778,9 +25640,7 @@
         s = this.getInstruction(n[0]).valueType,
         i = zl[s],
         o = i ? i[t] : Any;
-      if (o === void 0) {
-        throw internalError(`Invalid slot index: ${t} for ${at(s)}.`);
-      }
+      if (o === void 0) throw U(`Invalid slot index: ${t} for ${at(s)}.`);
       return this.pushInstruction({ type: r, valueType: o, args: n, index: t });
     }
     ImaginaryUnit() {
@@ -25875,7 +25735,7 @@
     }
     List(t) {
       let n = 38, r = Sn(this, n, t);
-      if (t.length > 1e4) throw maxListSizeError();
+      if (t.length > 1e4) throw zd();
       return this.pushInstruction({ type: n, valueType: r, args: t });
     }
     ListAccess(t) {
@@ -25936,7 +25796,7 @@
     }
     BeginBroadcast(t, n) {
       let r = 23, s = Sn(this, r, []), i = this.getInstruction(t[0]);
-      if (Je(i) && hn(this, t[0]) > 1e4) throw maxListSizeError();
+      if (Je(i) && hn(this, t[0]) > 1e4) throw zd();
       return this.pushInstruction({
         type: r,
         valueType: s,
@@ -26360,20 +26220,20 @@
           case "Sum":
           case "Product":
           case "Integral":
-            throw internalError(
+            throw U(
               new Error(
                 `${n.kind} scope is not expected to define multiple symbols`,
               ),
             );
           case "FunctionDefinition":
-            throw duplicateFunctionParameterError(i);
+            throw II(i);
           case "ListComprehension":
-            throw shadowedListComprehensionInputError(i);
+            throw qy(i);
           case "Substitution":
-            throw substitutionDuplicateSymbolError(i);
+            throw VP(i);
           default:
             let o = n.kind;
-            throw internalError(new Error(`Unexpected scope kind ${o}`));
+            throw U(new Error(`Unexpected scope kind ${o}`));
         }
       }
       s[i] = true;
@@ -26385,40 +26245,40 @@
           switch (n.kind) {
             case "Sum":
             case "Product":
-              throw shadowedIndexError(i);
+              throw vy(i);
             case "Integral":
-              throw shadowedIntegrationVariableError(i);
+              throw By(i);
             case "FunctionDefinition":
-              throw parameterAlreadyDefinedError(i);
+              throw Sy(i);
             case "Substitution":
             case "ListComprehension":
-              throw substitutionIllegalLHSError(i);
+              throw af(i);
             default:
               let a = n.kind;
-              throw internalError(new Error(`Unexpected scope kind ${a}`));
+              throw U(new Error(`Unexpected scope kind ${a}`));
           }
         }
         if (
           (n.kind === "ListComprehension" || n.kind === "Substitution") &&
           o.type === "FunctionDefinition"
-        ) throw substitutionFunctionLHSError(i);
+        ) throw uf(i);
       }
       if (r[i]) {
         switch (n.kind) {
           case "Sum":
           case "Product":
-            throw shadowedIndexError(i);
+            throw vy(i);
           case "Integral":
-            throw shadowedIntegrationVariableError(i);
+            throw By(i);
           case "FunctionDefinition":
-            throw parameterAlreadyDefinedError(i);
+            throw Sy(i);
           case "ListComprehension":
-            throw shadowedListComprehensionInputError(i);
+            throw qy(i);
           case "Substitution":
-            throw substitutionLocalLHSError(i);
+            throw wP(i);
           default:
             let a = n.kind;
-            throw internalError(new Error(`Unexpected scope kind ${a}`));
+            throw U(new Error(`Unexpected scope kind ${a}`));
         }
       }
     }
@@ -26624,7 +26484,7 @@
       case Point3D:
         return e.TupleOfType(t, n);
       default:
-        throw internalError(
+        throw U(
           `Type ${at(t)} is not a supported aggregate type for building.`,
         );
     }
@@ -26914,7 +26774,7 @@
     getRegressionDependencyError(t) {
       if (this.allowsRegressionParameterDependency()) return;
       let [n, r] = Object.entries(this.substitutedGlobals)[0];
-      return substitutionBodyDependsOnRegressionError(n, t, r);
+      return FP(n, t, r);
     }
     getKind() {
       return this.kind;
@@ -27015,7 +26875,7 @@
         p.chunk.fuseBroadcast(),
         pU(p, t, c);
     } catch (f) {
-      let d = f instanceof v ? f : internalError(f);
+      let d = f instanceof v ? f : U(f);
       d.setCursorContext(p.chunk.getCursorContext()), p.chunk.setError(d);
     }
     return p.chunk;
@@ -27025,11 +26885,7 @@
     if (t.type === "FunctionDefinition") {
       for (
         let o of n
-      ) {
-        if (
-          t._argSymbols.indexOf(o) !== -1 || t._symbol === o
-        ) throw updateRuleLocalLHSError(o);
-      }
+      ) if (t._argSymbols.indexOf(o) !== -1 || t._symbol === o) throw my(o);
     }
     let i = [];
     for (let o of n) s.isDefined(o) || i.push(o);
@@ -27218,14 +27074,14 @@
             let b = Fe(e, T), M = r.getInstruction(b);
             if (g === void 0) {
               if (g = M.valueType, !wn(g)) {
-                throw listTypeErrorError([oe(g)], { blockExport: h });
+                throw vc([oe(g)], { blockExport: h });
               }
               m = vn(g);
             } else if (M.valueType !== g) {
               if (fu(g, M.valueType) !== void 0) {
                 return r.unsafelyTruncate(d), r.List(Ju(e, t, t.args));
               }
-              throw heterogeneousListError({ blockExport: h });
+              throw Hd({ blockExport: h });
             }
             if (M.type !== 1) {
               throw new Error(
@@ -27257,9 +27113,7 @@
         let d = Fe(e, t.args[0]), y = r.getInstruction(d);
         if (t.args[1].type === "Range" && t.args[1].args[1].length === 0) {
           if (!j(y.valueType)) {
-            throw indexTypeErrorError([oe(y.valueType), oe(Number)], {
-              blockExport: Je(y),
-            });
+            throw Bd([oe(y.valueType), oe(Number)], { blockExport: Je(y) });
           }
           let g = ur(r, d),
             m = QM(e, Fe(e, t.args[1].args[0]), r.List([g]), {
@@ -27325,23 +27179,19 @@
       case "Ans":
       case "Identifier": {
         let d = t._symbol, y = t._errorSymbol;
-        if (t.type === "Ans" && r.argNames.indexOf(d) !== -1) {
-          throw ansUndefinedError();
-        }
+        if (t.type === "Ans" && r.argNames.indexOf(d) !== -1) throw EP();
         let g = s.getSymbol(d);
         if (g !== void 0) return g;
         let m = s.getVisibleGlobalDefinition(d);
         if (m === void 0) {
           throw tt[d]
-            ? tt[d].isFunction
-              ? functionUnsupportedError(y, e.policy)
-              : constantUnsupportedError(y)
+            ? tt[d].isFunction ? Li(y, e.policy) : _c(y)
             : e.recursiveFunctionContext &&
                 e.recursiveFunctionContext.fnSymbols.includes(d)
-            ? identifierAsFunctionError(d)
+            ? Iy(d)
             : new Error(`Programming Error: reached undefined symbol ${d}`);
         }
-        if (s.isLocal(d) || m.isFunction) throw identifierAsFunctionError(y);
+        if (s.isLocal(d) || m.isFunction) throw Iy(y);
         if (m.type === "RegressionParameter") {
           let x = i.getRegressionDependencyError(y);
           if (x) throw x;
@@ -27411,7 +27261,7 @@
           (g != null && g.isFunction)
         ) {
           let m = y._symbol, h = y._errorSymbol;
-          if (Af(g)) throw illegalDotCallError(h);
+          if (Af(g)) throw Gd(h);
           let x = y.type === "Identifier" ? [d] : [d].concat(y.args),
             T = Ju(e, t, x);
           return $h(e, m, h, T, x);
@@ -27421,7 +27271,7 @@
             x = [y.seed, d].concat(y.args.slice(1)),
             T = Ju(e, t, x);
           return $h(e, m, h, T, x);
-        } else throw unexpectedSymbolError(".");
+        } else throw ks(".");
       }
       case "Seed":
         return r.ConstantOfType(SeedType, t._stringValue);
@@ -27429,7 +27279,7 @@
         return r.ExtendSeed(t.tag, yo(e, t, t.args));
       case "Integral": {
         let d = t._differential._symbol, y = s.childScope();
-        y.setErrorIfAccessed(d, badIntegralBoundDependencyError(d));
+        y.setErrorIfAccessed(d, xP(d));
         let g = Ci(e, y),
           m = Fe(g, t.args[1]),
           h = Fe(g, t.args[2]),
@@ -27443,9 +27293,7 @@
           return r.Multiply([P, r.Subtract([h, m])]);
         }
         let D = Jp(r, [m, h, P]);
-        if (D !== void 0 && um(r, D, b)) {
-          throw variableLengthIntegralDependsOnIntegrationVariableError(d);
-        }
+        if (D !== void 0 && um(r, D, b)) throw LP(d);
         let S = D !== void 0 ? r.BeginBroadcast([D]) : void 0, O = m;
         S !== void 0 && j(x.valueType) && (O = Ea(r, m, S));
         let _ = h;
@@ -27479,38 +27327,27 @@
       case "Sum":
       case "Product": {
         let d = t._index._symbol, y = t.type === "Sum", g = s.childScope();
-        g.setErrorIfAccessed(
-          d,
-          y ? badSumBoundDependencyError(d) : badProductBoundDependencyError(d),
-        );
+        g.setErrorIfAccessed(d, y ? cP(d) : lP(d));
         let m = Ci(e, g), h = Fe(m, t.args[1]);
         h = zi(m.chunk, h);
         let x = Fe(m, t.args[2]);
         if (x = zi(m.chunk, x), !gt(r, h, Number)) {
           let me = zu(r, [h]), J = r.areAllArgsConstant([h]);
-          throw y
-            ? sumLowerBoundTypeErrorError(me, { blockExport: J })
-            : productLowerBoundTypeErrorError(me, { blockExport: J });
+          throw y ? rT(me, { blockExport: J }) : oT(me, { blockExport: J });
         }
         if (!gt(r, x, Number)) {
           let me = zu(r, [x]), J = r.areAllArgsConstant([x]);
-          throw y
-            ? sumUpperBoundTypeErrorError(me, { blockExport: J })
-            : productUpperBoundTypeErrorError(me, { blockExport: J });
+          throw y ? sT(me, { blockExport: J }) : aT(me, { blockExport: J });
         }
         let T = r.NativeFunction("round", [h]),
           b = r.NativeFunction("round", [x]),
           M = r.getInstruction(T),
           P = r.getInstruction(b);
         if (M.type === 1 && M.valueType === Number && !isFinite(V(M.value))) {
-          throw y
-            ? sumInfiniteBoundErrorError()
-            : productInfiniteBoundErrorError();
+          throw y ? py() : dy();
         }
         if (P.type === 1 && P.valueType === Number && !isFinite(V(P.value))) {
-          throw y
-            ? sumInfiniteBoundErrorError()
-            : productInfiniteBoundErrorError();
+          throw y ? py() : dy();
         }
         let D = r.SymbolicVar(Number, d), S = s.childScope();
         S.addLexicalBinding(d, D);
@@ -27520,9 +27357,7 @@
           G = (t.type === "Sum" ? ql : Jm).find((me) => Ec(L, me));
         if (G === void 0) {
           let me = zu(r, [O]), J = r.areAllArgsConstant([O]);
-          throw y
-            ? sumArgumentTypeErrorError(me, { blockExport: J })
-            : productArgumentTypeErrorError(me, { blockExport: J });
+          throw y ? iT(me, { blockExport: J }) : uT(me, { blockExport: J });
         }
         if (!um(r, O, D)) {
           let me = r.Add([r.Subtract([b, T]), r.Constant(1)]);
@@ -27539,11 +27374,7 @@
           ]);
         }
         let k = Jp(r, [T, b, O]);
-        if (k !== void 0 && um(r, k, D)) {
-          throw y
-            ? variableLengthSumBodyDependsOnIndexError(d)
-            : variableLengthProductBodyDependsOnIndexError(d);
-        }
+        if (k !== void 0 && um(r, k, D)) throw y ? AP(d) : _P(d);
         let Z = k !== void 0 ? r.BeginBroadcast([k]) : void 0, F = T;
         Z !== void 0 && j(M.valueType) && (F = Ea(r, T, Z));
         let Y = b;
@@ -27576,11 +27407,7 @@
           g = fl(r, y),
           m = r.getInstruction(g),
           h = om(m.valueType);
-        if (!h) {
-          throw derivativeVariableTypeErrorError(d, zu(r, [g]), {
-            blockExport: Je(m),
-          });
-        }
+        if (!h) throw mT(d, zu(r, [g]), { blockExport: Je(m) });
         let x, T, b = false;
         if ((m.type === 2 || m.type === 3) && m.valueType === Number) {
           x = e, T = g;
@@ -27602,29 +27429,25 @@
       }
       case "Prime": {
         let d = t.args[0];
-        if (s.isLocal(d._symbol)) throw identifierIsNotFunctionError(d._symbol);
+        if (s.isLocal(d._symbol)) throw Py(d._symbol);
         let y = s.getVisibleGlobalDefinition(d._symbol);
-        if (!y) throw functionNotDefinedError(d._symbol);
-        if (!y.isFunction) throw identifierIsNotFunctionError(d._symbol);
+        if (!y) throw Dy(d._symbol);
+        if (!y.isFunction) throw Py(d._symbol);
         let g = Fe(e, d.args[0]),
           m = fl(r, g),
           h = r.getInstruction(m),
           x = om(h.valueType);
-        if (!x) {
-          throw primeVariableTypeErrorError(d._symbol, zu(r, [m]), {
-            blockExport: Je(h),
-          });
-        }
+        if (!x) throw yT(d._symbol, zu(r, [m]), { blockExport: Je(h) });
         let T = false, b;
         (h.type === 2 || h.type === 3) && h.valueType === Number
           ? b = m
           : (b = r.SymbolicVar(h.valueType), T = true);
         let M, P;
         if (d._symbol === "logbase") {
-          if (d.args.length !== 2) throw primedFunctionArityError();
+          if (d.args.length !== 2) throw Nc();
           M = [b, Fe(e, d.args[1])], P = [d.args[0], d.args[1]];
         } else {
-          if (d.args.length !== 1) throw primedFunctionArityError();
+          if (d.args.length !== 1) throw Nc();
           M = [b], P = [d.args[0]];
         }
         let S = Gr(r, $h(e, d._symbol, d._errorSymbol, M, P));
@@ -27648,23 +27471,18 @@
             g = s.childScope();
           return g.setErrorIfAccessed(
             d._symbol,
-            selfReferentialFunctionsError([d._symbol], {
-              suggestAlternativeFunctionName: y,
-            }),
+            Rc([d._symbol], { suggestAlternativeFunctionName: y }),
           ),
             Fe(Ci(e, g), t._expression);
         }
       }
       case "RecursiveFunctionBaseCase": {
         let d = s.childScope(), y = t;
-        return d.setErrorIfAccessed(
-          y._symbol,
-          selfReferentialBaseCaseError(y._symbol),
-        ),
+        return d.setErrorIfAccessed(y._symbol, CI(y._symbol)),
           Fe(Ci(e, d), t._expression);
       }
       case "Construction":
-        throw unexpectedSymbolError("construction");
+        throw ks("construction");
       default:
         let f = a;
         throw new Error(`Programming error, unimplemented node type ${f}`);
@@ -27845,11 +27663,7 @@
     if (t = _g(c, t), a && a.type === "type-inference" && a.definitions[t]) {
       let d = u.getFunctionBodySubstitution(a.fnSymbols);
       if (d && d.substitutedGlobals.length > 0) {
-        throw substitutionRecursiveCallLHSError(
-          d.operator,
-          d.substitutedGlobals[0],
-          t,
-        );
+        throw BP(d.operator, d.substitutedGlobals[0], t);
       }
       a.registerFunctionCall(t, r.map((m) => i.getInstruction(m).valueType));
       let y = a.definitions[t];
@@ -27862,14 +27676,14 @@
       let d = i.getInstruction(l);
       if (d.type === 4) {
         if (d.signature.argTypes.length !== r.length) {
-          throw wrongArityError(t, d.signature.argTypes.length, r.length, {
+          throw Ao(t, d.signature.argTypes.length, r.length, {
             includeUsageExample: true,
           });
         }
         for (let y = 0; y < r.length; y++) {
           let g = i.getInstruction(r[y]).valueType, m = d.signature.argTypes[y];
           if (!se(g, m)) {
-            throw expectedArgumentToBeButFoundError(y, at(m), at(g), {
+            throw Lx(y, at(m), at(g), {
               blockExport: Je(i.getInstruction(r[y])),
             });
           }
@@ -27879,36 +27693,30 @@
         return Wh(e.chunk, [l, ...r], n, true);
       }
       if (r.length >= 1) return f_(e, t, s, r);
-      throw d.type === 2
-        ? functionNotDefinedError(n)
-        : d.valueType === Distribution
-        ? distributionAsFunctionError(n)
-        : variableAsFunctionError(n);
+      throw d.type === 2 ? Dy(n) : d.valueType === Distribution ? Vy(n) : Fy(n);
     }
     let p = o.getVisibleGlobalDefinition(t);
     if (p === void 0 || !p.isFunction) {
       if ((f = tt[t]) != null && f.isFunction) {
         throw t === "logbase" && o.isGlobal("ln") && o.isGlobal("log")
-          ? logbaseUnsupportedError()
-          : functionUnsupportedError(n, e.policy);
+          ? MP()
+          : Li(n, e.policy);
       }
       if (p) {
         let d = Fe(e, p);
-        if (i.getInstruction(d).valueType === Distribution) {
-          throw distributionAsFunctionError(n);
-        }
+        if (i.getInstruction(d).valueType === Distribution) throw Vy(n);
         if (se(i.getInstruction(d).valueType, Transformation)) {
           return Wh(e.chunk, [d, ...r], n, true);
         }
       }
       if (r.length >= 1) return f_(e, t, s, r);
       throw p
-        ? variableAsFunctionError(n)
+        ? Fy(n)
         : new Error(`Programming Error: reached undefined symbol ${t}`);
     }
     if (Af(p)) {
       if (r.length !== p._argSymbols.length) {
-        throw wrongArityError(n, p._argSymbols.length, r.length, {
+        throw Ao(n, p._argSymbols.length, r.length, {
           includeUsageExample: true,
         });
       }
@@ -27920,9 +27728,7 @@
         if (y.length > 0) {
           let g = Jp(i, y);
           if (g === void 0) {
-            throw internalError(
-              "Programming error: expected list length to be defined",
-            );
+            throw U("Programming error: expected list length to be defined");
           }
           let m = i.BeginBroadcast([g]), h = [];
           for (let M = 0; M < r.length; M++) {
@@ -27938,7 +27744,7 @@
     } else {
       if (Fo.hasOwnProperty(t)) return xU(e, t, n, r, s);
       if (Bn.hasOwnProperty(t)) return pi(e, t, r);
-      throw functionUnsupportedError(n, e.policy);
+      throw Li(n, e.policy);
     }
   }
   function Uh(e, t, n, r) {
@@ -27958,7 +27764,7 @@
       s = Bn[t],
       i = n.length,
       { minArity: o, maxArity: a } = s;
-    if (i > a || i < o) throw internalError("Unexpected arity mismatch");
+    if (i > a || i < o) throw U("Unexpected arity mismatch");
     let u = b_(r, n, s);
     switch (s.tag) {
       case "default":
@@ -28003,18 +27809,14 @@
     let s = r.find((i) => bU(e, t, i));
     if (!s) {
       if (typeof n == "string") {
-        throw functionTypeErrorError(n, Pa(e, t), {
-          blockExport: e.areAllArgsConstant(t),
-        });
+        throw Hs(n, Pa(e, t), { blockExport: e.areAllArgsConstant(t) });
       }
       return n(e, t);
     }
     return s.build(e, t);
   }
   function c_(e, t) {
-    if (t.length !== 2) {
-      throw internalError("Can only take the midpoint of two points");
-    }
+    if (t.length !== 2) throw U("Can only take the midpoint of two points");
     let n = e.Constant(Se(1, 2));
     return e.Multiply([n, e.Add(t)]);
   }
@@ -28445,31 +28247,27 @@
           x = i.getInstruction(p[0]),
           T = i.getInstruction(h);
         if (x.valueType !== SeedType) {
-          throw internalError(
-            `Unexpected value type for seed arg: ${x.valueType}`,
-          );
+          throw U(`Unexpected value type for seed arg: ${x.valueType}`);
         }
-        if (T.valueType === ListOfDistribution) {
-          throw randomFromBroadcastDistributionError();
-        }
+        if (T.valueType === ListOfDistribution) throw YT();
         let b;
         if (j(T.valueType)) b = t_;
         else {
           if (T.type !== 42 || T.valueType !== Distribution) {
-            throw internalError('Expected distribution argument to "random"');
+            throw U('Expected distribution argument to "random"');
           }
           b = Sa[T.symbol][t];
         }
         if (p.length > 2) {
           let M = p[2], P = i.getInstruction(M);
           if (P.valueType !== Number) {
-            throw internalError(
+            throw U(
               `Expected numSamples argument to random() to be a number but got ${P.valueType}`,
             );
           }
           if (p.length === 4) {
             if (i.getInstruction(p[3]).valueType !== Number) {
-              throw internalError(
+              throw U(
                 `Expected userSeed argument to random() to be a number but got ${P.valueType}`,
               );
             }
@@ -28491,7 +28289,7 @@
         if (
           !j(i.getInstruction(h).valueType) ||
           x !== void 0 && i.getInstruction(x).valueType !== Number
-        ) throw internalError(`Unexpected args for "${t}"`);
+        ) throw U(`Unexpected args for "${t}"`);
         return x !== void 0 && (m = i.ExtendSeed("us", [m, x])),
           i.NativeFunction("shuffle", [m, h]);
       }
@@ -28514,7 +28312,7 @@
           if (k !== EmptyList) {
             if (j(k)) m.push({ isList: true, index: w, elementType: Ve(k) });
             else if (wn(k)) m.push({ isList: false, index: w, elementType: k });
-            else {throw functionTypeErrorError(n, Pa(i, r), {
+            else {throw Hs(n, Pa(i, r), {
                 blockExport: i.areAllArgsConstant(p),
               });}
           }
@@ -28522,9 +28320,7 @@
         if (m.length === 0) return i.ConstantOfType(EmptyList, []);
         for (let w of m) {
           if (w.elementType !== m[0].elementType) {
-            throw functionTypeErrorError(n, Pa(i, r), {
-              blockExport: i.areAllArgsConstant(p),
-            });
+            throw Hs(n, Pa(i, r), { blockExport: i.areAllArgsConstant(p) });
           }
         }
         if (h) {
@@ -28566,7 +28362,7 @@
       case "unique": {
         let m = p[0], h = i.getInstruction(m);
         if (!j(h.valueType) || h.valueType === ListOfDistribution) {
-          throw internalError(`Unexpected types for ${t}`);
+          throw U(`Unexpected types for ${t}`);
         }
         return i.NativeFunction("elementsAt", [
           m,
@@ -28584,7 +28380,7 @@
           match: [Number, Number],
           noBroadcast: true,
           build: () => {
-            throw polygonTwoNumbersErrorError();
+            throw Ud();
           },
         }, {
           match: [Number, Number],
@@ -28617,7 +28413,7 @@
         if (gt(i, p[0], AngleMarker)) {
           return i.NativeFunction("undirectedCoterminalAngle", p);
         }
-        throw internalError(`Unexpected types for ${t}`);
+        throw U(`Unexpected types for ${t}`);
       }
       case "histogram":
       case "dotplot":
@@ -28637,7 +28433,7 @@
       case "rays":
       case "arcs":
       case "vectors":
-        throw unexpectedSymbolError(n);
+        throw ks(n);
       default: {
         let m = t;
         throw new Error(`Programming Error: unexpected compiler function ${m}`);
@@ -28687,13 +28483,11 @@
   }
   function lm(e, t, n) {
     let r = t[0], s = e.getInstruction(r);
-    if (!se(s.valueType, Distribution)) {
-      throw internalError(`Unexpected args for "${n}"`);
-    }
+    if (!se(s.valueType, Distribution)) throw U(`Unexpected args for "${n}"`);
     let i = t.slice(1);
     for (let o of i) {
       if (!se(e.getInstruction(o).valueType, Number)) {
-        throw internalError(`Unexpected args for "${n}"`);
+        throw U(`Unexpected args for "${n}"`);
       }
     }
     if (j(s.valueType)) {
@@ -28704,7 +28498,7 @@
         let p = e.getInstruction(l);
         if (j(p.valueType)) {
           let f = qn(e, l);
-          if (f === void 0) throw variableLengthDistributionListError(fs(e, l));
+          if (f === void 0) throw sf(fs(e, l));
           a = Math.min(a, f);
         }
       }
@@ -28712,9 +28506,7 @@
       for (let c = 0; c < a; c++) {
         let l = zf(e, o[0], c), p = e.getInstruction(l);
         if (p.type !== 42) {
-          throw internalError(
-            `Unexpected opcode for distribution arg: ${p.type}`,
-          );
+          throw U(`Unexpected opcode for distribution arg: ${p.type}`);
         }
         let f = [];
         for (let d of o.slice(1)) {
@@ -28725,9 +28517,7 @@
       return e.List(u);
     } else {
       if (s.type !== 42) {
-        throw internalError(
-          `Unexpected opcode for distribution arg: ${s.type}`,
-        );
+        throw U(`Unexpected opcode for distribution arg: ${s.type}`);
       }
       return Sa[s.symbol][n](e, r, i);
     }
@@ -28747,21 +28537,19 @@
       let a = n.getInstruction(t[i]).valueType;
       r = r || a === Action, s = s || a !== Action;
     }
-    if (r && s) {
-      throw internalError("Unexpected mix of actions and non-actions");
-    }
+    if (r && s) throw U("Unexpected mix of actions and non-actions");
     if (r) return I_(e, t);
     if (t.length === 2) return n.TupleOfType(Point, t);
     if (t.length == 3) return n.TupleOfType(Point3D, t);
-    throw internalError(`Unexpected tuple dimensions: ${t.length}`);
+    throw U(`Unexpected tuple dimensions: ${t.length}`);
   }
   function PU(e, t) {
     let { chunk: n } = e;
     ms(t.args);
     let r = Ju(e, t, t.args);
-    if (r.length < 1) throw internalError("Empty bare sequence");
+    if (r.length < 1) throw U("Empty bare sequence");
     let s = n.getInstruction(r[0]).valueType;
-    if (s === Number) throw internalError("Ambiguous bare sequence");
+    if (s === Number) throw U("Ambiguous bare sequence");
     return s === Action ? I_(e, r) : n.List(r);
   }
   function I_(e, t) {
@@ -28785,8 +28573,8 @@
         default: {
           let a = fs(n, i);
           throw a.length > 0
-            ? actionMergeFreeVariableError(a)
-            : internalError(`Unexpected opcode for action: ${o.type}`);
+            ? OT(a)
+            : U(`Unexpected opcode for action: ${o.type}`);
         }
       }
     }
@@ -28794,13 +28582,13 @@
   }
   function JM(e, t) {
     let { scope: n, policy: r } = e;
-    if (n.isLocal(t)) return updateRuleLocalLHSError(t);
+    if (n.isLocal(t)) return my(t);
     let s = n.getVisibleGlobalDefinition(t);
     return r.assignmentForbidden(t)
-      ? updateRuleIllegalLHSError(t)
+      ? ST(t)
       : s && s.type === "FunctionDefinition"
-      ? updateRuleFunctionLHSError(t)
-      : updateRuleUndefinedLHSError(t).allowExport();
+      ? vT(t)
+      : DT(t).allowExport();
   }
   function EU(e, t) {
     switch (e.getInstruction(t).valueType) {
@@ -28833,11 +28621,11 @@
     ms(t._inputLists);
     for (let { _symbol: x } of t._inputLists) {
       let T = x;
-      l.setErrorIfAccessed(T, badForInputListDependencyError(T));
+      l.setErrorIfAccessed(T, OP(T));
     }
     for (let x of t.parameters) {
       let T = x.identifier._symbol;
-      l.setErrorIfAccessed(T, badForIntervalDependencyError(T));
+      l.setErrorIfAccessed(T, NP(T));
     }
     let p = Ci(e, l);
     for (let x = t._inputLists.length - 1; x >= 0; x--) {
@@ -28855,9 +28643,7 @@
           let _ = T.args[1].getInputSpan();
           _ && (O = Yn(_));
         }
-        throw listComprehensionInputListTypeErrorError(b, oe(P.valueType), O, {
-          blockExport: Je(P),
-        });
+        throw SP(b, oe(P.valueType), O, { blockExport: Je(P) });
       }
       let D = ur(r, M);
       u.push({ symbol: b, assignedList: M, lengthIndex: D }),
@@ -28917,20 +28703,16 @@
     }, o);
     if (g !== void 0) {
       let x = r.EndMap([g, h]), T = r.getInstruction(h).valueType;
-      if (ua(T)) throw invalidNestedIntervalComprehensionError();
-      if (!Ix(T)) throw invalidIntervalComprehensionReturnTypeError(T);
+      if (ua(T)) throw zP();
+      if (!Ix(T)) throw kP(T);
       let b = n.is3dPolicy() ? 2 : 1;
-      if (t.parameters.length + a.length > b) {
-        throw invalidIntervalComprehensionArityError(T, t.parameters.length);
-      }
+      if (t.parameters.length + a.length > b) throw HP(T, t.parameters.length);
       let M = Px(T, t.parameters.length + a.length);
       h = r.BlockVar(M, [x]);
     }
     if (y !== void 0) {
       let x = r.getInstruction(h);
-      if (!wn(x.valueType)) {
-        throw listTypeErrorError([oe(x.valueType)], { blockExport: Je(x) });
-      }
+      if (!wn(x.valueType)) throw vc([oe(x.valueType)], { blockExport: Je(x) });
       let T = r.EndBroadcast([y, h]);
       h = r.BroadcastResult(vn(x.valueType), [T]);
     } else t.shouldCoerceToList && (h = r.List([h]));
@@ -28952,7 +28734,7 @@
         "Programming error: expected range start list to have constant length.",
       );
     if (o.valueType !== ListOfNumber || a.valueType !== ListOfNumber) {
-      throw nonArithmeticRangeError();
+      throw Jd();
     }
     let l = i.Constant(1),
       p = i.Constant(0),
@@ -29037,7 +28819,7 @@
         M = r.Constant(0),
         P = r.And([r.Equal([y, M]), r.Equal([g, M])]);
       return r.Piecewise([P, r.NanOfType(DirectedAngleMarker), b]);
-    } else throw internalError(`Unexpected types for ${n}`);
+    } else throw U(`Unexpected types for ${n}`);
   }
   function aN(e, t) {
     return e.Divide([
@@ -29125,12 +28907,7 @@
     }
     let c = r.areAllArgsConstant(i),
       l = Ui(r, i, () => {
-        throw transformationDefinitionTypeErrorError(
-          t,
-          Pa(r, i),
-          a[0].signature,
-          { blockExport: c },
-        );
+        throw Jx(t, Pa(r, i), a[0].signature, { blockExport: c });
       }, u);
     return Wh(r, [l, n[0]], t, true);
   }
@@ -29154,12 +28931,8 @@
     function i() {
       if (r) {
         let o = t.slice(1);
-        throw transformationTypeErrorError(n, zu(e, o), {
-          blockExport: e.areAllArgsConstant(o),
-        });
-      } else {throw functionTypeErrorError(n, zu(e, t), {
-          blockExport: e.areAllArgsConstant(t),
-        });}
+        throw Qx(n, zu(e, o), { blockExport: e.areAllArgsConstant(o) });
+      } else throw Hs(n, zu(e, t), { blockExport: e.areAllArgsConstant(t) });
     }
     return Ui(e, t, i, s);
   }
@@ -29186,7 +28959,7 @@
       if (gt(e, s, Arc)) return e.NativeFunction("lineArcIntersection", i);
       if (gt(e, s, Line)) return e.NativeFunction("lineLineIntersection", i);
     }
-    throw internalError("Invalid intersection types");
+    throw U("Invalid intersection types");
   }
   function SU(e, [t, n], [r, s]) {
     let { chunk: i, scope: o } = e,
@@ -29227,10 +29000,8 @@
       else throw of();
       let p = t._assignments[u].args[1], f = r.getVisibleGlobalDefinition(l);
       if (f) {
-        if (f.type === "FunctionDefinition") {
-          throw substitutionFunctionLHSError(l);
-        }
-        if (n.assignmentForbidden(l)) throw substitutionIllegalLHSError(l);
+        if (f.type === "FunctionDefinition") throw uf(l);
+        if (n.assignmentForbidden(l)) throw af(l);
       }
       let d = Fe(e, p);
       i.addDynamicBinding(l, d, p), o.push(l);
@@ -29259,15 +29030,13 @@
   function OU(e, t) {
     let { chunk: n, scope: r } = e,
       s = r.getVisibleGlobalDefinition("construction");
-    if (!s) {
-      throw internalError("Expected 'construction' to be defined in the frame");
-    }
+    if (!s) throw U("Expected 'construction' to be defined in the frame");
     if (s.type !== "Construction" || !(s instanceof Q)) {
-      throw internalError(`Expected construction node but found ${s.type}}`);
+      throw U(`Expected construction node but found ${s.type}}`);
     }
-    if (!ki(t)) throw internalError(`Expected identifier but found ${t.type}`);
+    if (!ki(t)) throw U(`Expected identifier but found ${t.type}`);
     let i = t._symbol;
-    if (!(i in d_)) throw unexpectedSymbolError("construction");
+    if (!(i in d_)) throw ks("construction");
     let o = d_[i];
     if (s.args.length === 0) return n.ConstantOfType(o, []);
     let a = Ve(o), u = [];
@@ -29323,23 +29092,19 @@
     } catch (y) {
       throw u.isUnconditionallyRecursive && y instanceof v && !y.blocksExport
         ? o.length > 1 || E_(t, t._expression)
-          ? selfReferentialFunctionsError(o, {
-            suggestAlternativeFunctionName: false,
-          })
-          : recursiveFunctionMissingBaseCaseError(o)
+          ? Rc(o, { suggestAlternativeFunctionName: false })
+          : oy(o)
         : y;
     }
     let c = {}, l = {}, p = {}, f = s.childScope();
     for (let y of o) {
       let g = u.returnTypes[y];
       if (g === void 0) {
-        throw internalError(
-          `Could not infer the return type for recursive function ${y}.`,
-        );
+        throw U(`Could not infer the return type for recursive function ${y}.`);
       }
       let m = u.argTypes[y];
       if (m === void 0) {
-        throw internalError(
+        throw U(
           `Could not infer the argument types for recursive function ${y}.`,
         );
       }
@@ -29363,9 +29128,7 @@
         },
         b = C_(T, m, n.baseCases, Fe(T, m._expression));
       if (r.getInstruction(b).valueType !== c[y]) {
-        throw functionTypeErrorError(y, Pa(r, a), {
-          blockExport: r.areAllArgsConstant(a),
-        });
+        throw Hs(y, Pa(r, a), { blockExport: r.areAllArgsConstant(a) });
       }
       b = Gr(r, b), r.EndFunction([x, b]);
     }
@@ -29378,10 +29141,8 @@
         )
         : g != null && g.maxRecursiveCallOffsets &&
             o.every((m) => g.maxRecursiveCallOffsets[m] === 0)
-        ? selfReferentialFunctionsError(o, {
-          suggestAlternativeFunctionName: false,
-        })
-        : recursiveFunctionMissingBaseCaseWithMetadataError(o, {
+        ? Rc(o, { suggestAlternativeFunctionName: false })
+        : Sx(o, {
           type: "missing-non-recursive-branch",
           recursionGroup: o,
           recursiveStructure: g,
@@ -29402,9 +29163,7 @@
       o = t.argTypes[n._symbol];
     if (i !== void 0 && o !== void 0) return { returnType: i, argTypes: o };
     let a = n._argSymbols.length, u = r.length;
-    if (a !== u) {
-      throw wrongArityError(n._symbol, a, u, { includeUsageExample: true });
-    }
+    if (a !== u) throw Ao(n._symbol, a, u, { includeUsageExample: true });
     let c = r.map((d) => s.getInstruction(d).valueType),
       l = `${n._symbol}:${c.join(",")}:${Object.keys(t.returnTypes).join(",")}`;
     if (t.stack.includes(l)) {
@@ -29434,16 +29193,12 @@
           S || (S = w);
           let k = s.getInstruction(G), Z = k.valueType;
           if (Je(k) || (O = false), P === void 0) P = _.specifiedArg.argIndex;
-          else if (P !== _.specifiedArg.argIndex) {
-            throw baseCaseTooComplicatedUsePiecewiseError();
-          }
+          else if (P !== _.specifiedArg.argIndex) throw wd();
           let F = D;
           if (F === void 0) D = Z;
           else {
             let Y = Ha(F, Z);
-            if (Y === void 0) {
-              throw baseCasesMustAllHaveSameReturnTypeError({ blockExport: O });
-            }
+            if (Y === void 0) throw Ld({ blockExport: O });
             D = Y;
           }
         }
@@ -29454,17 +29209,11 @@
         let P = C_(h, n, t.baseCases, Fe(h, y || b)),
           { someArgBroadcasts: D, inferredArgTypes: S } = NU(s, T, p, P);
         if (c = S, f = s.getInstruction(P).valueType, D) {
-          if (!j(f)) {
-            throw internalError(
-              `TODO: expected a list type but found ${at(f)}`,
-            );
-          }
+          if (!j(f)) throw U(`TODO: expected a list type but found ${at(f)}`);
           f = Ve(f);
         }
         let O = t.returnTypes[n._symbol];
-        if (O !== void 0 && f !== O) {
-          throw baseCasesMustAllHaveSameReturnTypeError({ blockExport: false });
-        }
+        if (O !== void 0 && f !== O) throw Ld({ blockExport: false });
         t.argTypes[n._symbol] = S, t.returnTypes[n._symbol] = f;
       }
     }),
@@ -29478,9 +29227,7 @@
         t.stack.pop();
         let h = s.getInstruction(m).valueType, x = f === void 0 ? h : Ha(f, h);
         if (x === void 0) {
-          throw internalError(
-            `Mismatched return types: ${f && at(f)} vs ${at(h)}`,
-          );
+          throw U(`Mismatched return types: ${f && at(f)} vs ${at(h)}`);
         }
         return t.returnTypes[n._symbol] = x, { returnType: x, argTypes: c };
       });
@@ -29520,7 +29267,7 @@
     for (let p = 0; p < t.length; p++) {
       let f = t[p], d = e.getInstruction(f).valueType;
       if (u[f - n] & 2) {
-        if (!j(d)) throw internalError(`Expected list type but found ${at(d)}`);
+        if (!j(d)) throw U(`Expected list type but found ${at(d)}`);
         l = true, c.push(Ve(d));
       } else c.push(d);
     }
@@ -29538,9 +29285,7 @@
         d = s.getInstruction(f);
       Je(d) || (i = false);
       let y = s.getInstruction(f).valueType, g = s.getInstruction(r).valueType;
-      if (Ha(y, g) === void 0) {
-        throw baseCasesMustAllHaveSameReturnTypeError({ blockExport: i });
-      }
+      if (Ha(y, g) === void 0) throw Ld({ blockExport: i });
       r = s.Piecewise([p, f, r]);
     }
     return r;
@@ -29566,7 +29311,7 @@
       coerceToNumber: n && n.coerceToNumber,
     }, this);
     return e.isGeometryEnabled() && r.argNames.some((i) => i[0] === "$")
-      ? dependsOnDeletedGeoObjectError()
+      ? GP()
       : (s = r.getError()) != null
       ? s
       : new on(r);
@@ -29583,82 +29328,69 @@
   var Di = true;
   function S_(e, t) {
     let n = t.length, r = t[0];
-    if (n < 2) throw methodRequiresListError(this._symbol, { blockExport: Di });
+    if (n < 2) throw so(this._symbol, { blockExport: Di });
     if (!D_(r.valueType, [ListOfNumber, EmptyList])) {
-      throw methodRequiresListError(this._symbol, { blockExport: Di });
+      throw so(this._symbol, { blockExport: Di });
     }
-    if (n > 2) throw tooManyArgumentsError(this._symbol, 2);
+    if (n > 2) throw by(this._symbol, 2);
   }
   C.Histogram.prototype.typeCheck = S_;
   C.DotPlot.prototype.typeCheck = S_;
   C.BoxPlot.prototype.typeCheck = function (e, t) {
     let n = t.length, r = t[0];
-    if (n === 0) {
-      throw methodRequiresListError(this._symbol, { blockExport: Di });
-    }
+    if (n === 0) throw so(this._symbol, { blockExport: Di });
     if (!D_(r.valueType, [ListOfNumber, EmptyList])) {
-      throw methodRequiresListError(this._symbol, { blockExport: Di });
+      throw so(this._symbol, { blockExport: Di });
     }
-    if (n > 1) throw methodRequiresListError(this._symbol, { blockExport: Di });
+    if (n > 1) throw so(this._symbol, { blockExport: Di });
   };
   C.TTest.prototype.typeCheck = function (e, t) {
     let n = this._symbol;
-    if (t.length === 0) throw methodRequiresListError(n, { blockExport: Di });
-    if (t[0].valueType === EmptyList) throw ttestListTooShortError(n);
-    if (t[0].valueType !== ListOfNumber) {
-      throw methodRequiresListError(n, { blockExport: Di });
-    }
-    if (t.length > 2) throw tooManyArgumentsError(n, 2);
-    if (t[0].length < 2) throw ttestListTooShortError(n);
+    if (t.length === 0) throw so(n, { blockExport: Di });
+    if (t[0].valueType === EmptyList) throw jl(n);
+    if (t[0].valueType !== ListOfNumber) throw so(n, { blockExport: Di });
+    if (t.length > 2) throw by(n, 2);
+    if (t[0].length < 2) throw jl(n);
     if (t[1] && t[1].valueType !== Number) {
-      throw functionTypeErrorError(n, KM(t), { blockExport: Di });
+      throw Hs(n, KM(t), { blockExport: Di });
     }
   };
   C.IndependentTTest.prototype.typeCheck = function (e, t) {
     let n = this._symbol;
-    if (t.length !== 2) throw wrongDoubleReducerArityError(n);
+    if (t.length !== 2) throw qd(n);
     if (!j(t[0].valueType) || !j(t[1].valueType)) {
-      throw nonListDoubleReducerError(n, { blockExport: Di });
+      throw jd(n, { blockExport: Di });
     }
     if (t[0].valueType === EmptyList || t[1].valueType === EmptyList) {
-      throw ttestListTooShortError("ittest");
+      throw jl("ittest");
     }
     if (t[0].valueType !== ListOfNumber || t[1].valueType !== ListOfNumber) {
-      throw functionTypeErrorError(n, KM(t), { blockExport: Di });
+      throw Hs(n, KM(t), { blockExport: Di });
     }
-    if (t[0].length < 2 || t[1].length < 2) {
-      throw ttestListTooShortError("ittest");
-    }
+    if (t[0].length < 2 || t[1].length < 2) throw jl("ittest");
   },
     C.Stats.prototype.typeCheck = function (e, t) {
       let n = t.length, r = t[0];
-      if (n === 0) {
-        throw methodRequiresListError(this._symbol, {
+      if (n === 0) throw so(this._symbol, { blockExport: Di });
+      if (r.valueType === EmptyList) {
+        throw Hs(this._symbol, KM(t), { blockExport: Di });
+      }
+      if (r.valueType !== ListOfNumber) {
+        throw so(this._symbol, {
           blockExport: Di,
         });
       }
-      if (r.valueType === EmptyList) {
-        throw functionTypeErrorError(this._symbol, KM(t), { blockExport: Di });
-      }
-      if (r.valueType !== ListOfNumber) {
-        throw methodRequiresListError(
-          this._symbol,
-          { blockExport: Di },
-        );
-      }
-      if (n > 1) {
-        throw methodRequiresListError(this._symbol, { blockExport: Di });
-      }
+      if (n > 1) throw so(this._symbol, { blockExport: Di });
     };
   var iu = function (e, t, n) {
       n = n || 0;
       let r = Array(n + 1).join("  "), s = r + "  ";
       return `[
-  ` + s + e.map((i) => i.repr(t, n + 1)).join(
+` + s + e.map((i) => i.repr(t, n + 1)).join(
         `,
-  ` + s,
+` + s,
       ) + `
-  ` + r + "]";
+` + r + "]";
     },
     Tr = function (e, t) {
       return t = t || "", "" + t + e;
@@ -29671,30 +29403,30 @@
     let n = Array(t + 1).join("  "),
       r = n + "  ",
       s = this._chunk.print().split(`
-  `);
+`);
     return s.pop(),
       Tr(this.type, e) + "(`\n" + r + s.join(
         `
-  ` + r,
+` + r,
       ) + `
-  ` + n + "`)";
+` + n + "`)";
   };
   C.DoubleInequality.prototype.repr = function (e, t) {
     t = t || 0;
     let n = Array(t + 1).join("  "), r = n + "  ";
     return Tr(this.type, e) + `([
-  ` + r + this.args[0].repr(e, t + 1) + `,
-  ` + r + "'" + this.args[1] + `',
-  ` + r + this.args[2].repr(e, t + 1) + `,
-  ` + r + "'" + this.args[3] + `',
-  ` + r + this.args[4].repr(e, t + 1) + `
-  ` + n + "])";
+` + r + this.args[0].repr(e, t + 1) + `,
+` + r + "'" + this.args[1] + `',
+` + r + this.args[2].repr(e, t + 1) + `,
+` + r + "'" + this.args[3] + `',
+` + r + this.args[4].repr(e, t + 1) + `
+` + n + "])";
   };
   C.ComparatorChain.prototype.repr = function (e, t) {
     return t = t || 0,
       Tr(this.type, e) + "([" + this.symbols.map((n) => `'${n}'`).join(",") +
       `],
-  ` + iu(this.args, e, t) + ")";
+` + iu(this.args, e, t) + ")";
   };
   C.Identifier.prototype.repr = function (e) {
     return Tr(this.type, e) + "('" + this._symbol + "')";
@@ -29772,30 +29504,30 @@
   C.Image.prototype.repr = function (e, t) {
     let n = Array(t + 1).join("  "), r = n + "  ";
     return Tr(this.type, e) + `({
-  ` + r + "center: " + this.center.repr(e, t + 1) + `,
-  ` + r + "radianAngle: " + this.radianAngle.repr(e, t + 1) + `,
-  ` + r + "width: " + this.width.repr(e, t + 1) + `,
-  ` + r + "height: " + this.height.repr(e, t + 1) + `},
-  ` + r + "opacity: " + this.opacity.repr(e, t + 1) + `,
-  ` + r + JSON.stringify(this.moveStrategy) + `
-  ` + n + "})";
+` + r + "center: " + this.center.repr(e, t + 1) + `,
+` + r + "radianAngle: " + this.radianAngle.repr(e, t + 1) + `,
+` + r + "width: " + this.width.repr(e, t + 1) + `,
+` + r + "height: " + this.height.repr(e, t + 1) + `},
+` + r + "opacity: " + this.opacity.repr(e, t + 1) + `,
+` + r + JSON.stringify(this.moveStrategy) + `
+` + n + "})";
   };
   C.Ticker.prototype.repr = function (e, t) {
     let n = Array(t + 1).join("  "), r = n + "  ";
     return Tr(this.type, e) + `({
-  ` + r + "handler: " + this.handler.repr(e, t + 1) + `,
-  ` + r + "minStep: " + this.minStep.repr(e, t + 1) + `
-  ` + n + "})";
+` + r + "handler: " + this.handler.repr(e, t + 1) + `,
+` + r + "minStep: " + this.minStep.repr(e, t + 1) + `
+` + n + "})";
   };
   C.Slider.prototype.repr = function (e, t) {
     let n = Array(t + 1).join("  "), r = n + "  ";
     return Tr(this.type, e) + `({
-  ` + r + "sliderAssignment: " + this.sliderAssignment.repr(e, t + 1) + `,
-  ` + r + "sliderMin: " + (this.sliderMin && this.sliderMin.repr(e, t + 1)) + `,
-  ` + r + "sliderMax: " + (this.sliderMax && this.sliderMax.repr(e, t + 1)) + `,
-  ` + r + "sliderStep: " + (this.sliderStep && this.sliderStep.repr(e, t + 1)) +
+` + r + "sliderAssignment: " + this.sliderAssignment.repr(e, t + 1) + `,
+` + r + "sliderMin: " + (this.sliderMin && this.sliderMin.repr(e, t + 1)) + `,
+` + r + "sliderMax: " + (this.sliderMax && this.sliderMax.repr(e, t + 1)) + `,
+` + r + "sliderStep: " + (this.sliderStep && this.sliderStep.repr(e, t + 1)) +
       `},
-  ` + n + ")";
+` + n + ")";
   };
   C.ImaginaryUnit.prototype.repr = function (e) {
     return Tr(this.type, e) + "()";
@@ -30149,40 +29881,40 @@
       "_s",
       "_k",
       'if(typeof accum === "undefined") accum = ' + n + `;
-  if(typeof x === "number") { var xi = x; ` + t + `; return accum; }
-  if(typeof _s === "undefined") _s = numeric.dim(x);
-  if(typeof _k === "undefined") _k = 0;
-  var _n = _s[_k];
-  var i,xi;
-  if(_k < _s.length-1) {
-      for(i=_n-1;i>=0;i--) {
-          accum = arguments.callee(x[i],accum,_s,_k+1);
-      }    return accum;
-  }
-  for(i=_n-1;i>=1;i-=2) { 
-      xi = x[i];
-      ` + t + `;
-      xi = x[i-1];
-      ` + t + `;
-  }
-  if(i === 0) {
-      xi = x[i];
-      ` + t + `
-  }
-  return accum;`,
+if(typeof x === "number") { var xi = x; ` + t + `; return accum; }
+if(typeof _s === "undefined") _s = numeric.dim(x);
+if(typeof _k === "undefined") _k = 0;
+var _n = _s[_k];
+var i,xi;
+if(_k < _s.length-1) {
+    for(i=_n-1;i>=0;i--) {
+        accum = arguments.callee(x[i],accum,_s,_k+1);
+    }    return accum;
+}
+for(i=_n-1;i>=1;i-=2) { 
+    xi = x[i];
+    ` + t + `;
+    xi = x[i-1];
+    ` + t + `;
+}
+if(i === 0) {
+    xi = x[i];
+    ` + t + `
+}
+return accum;`,
     );
   };
   B.mapreduce2 = function (t, n) {
     return B.compile(
       "x",
       `var n = x.length;
-  var i,xi;
-  ` + n + `
-  for(i=n-1;i!==-1;--i) { 
-      xi = x[i];
-      ` + t + `
-  }
-  return accum;`,
+var i,xi;
+` + n + `
+for(i=n-1;i!==-1;--i) { 
+    xi = x[i];
+    ` + t + `
+}
+return accum;`,
     );
   };
   B.rep = function (t, n, r) {
@@ -30312,19 +30044,18 @@
       s[t.length + 1] = "_k",
       s[t.length + 2] = 'if(typeof _s === "undefined") _s = numeric.dim(' + u +
         `);
-  if(typeof _k === "undefined") _k = 0;
-  var _n = _s[_k];
-  var i` + (c ? "" : ", ret = Array(_n)") + `;
-  if(_k < _s.length-1) {
-      for(i=_n-1;i>=0;i--) ret[i] = arguments.callee(` + t.join(",") +
-        `,_s,_k+1);
-      return ret;
-  }
-  ` + r + `
-  for(i=_n-1;i!==-1;--i) {
-      ` + n + `
-  }
-  return ret;`,
+if(typeof _k === "undefined") _k = 0;
+var _n = _s[_k];
+var i` + (c ? "" : ", ret = Array(_n)") + `;
+if(_k < _s.length-1) {
+    for(i=_n-1;i>=0;i--) ret[i] = arguments.callee(` + t.join(",") + `,_s,_k+1);
+    return ret;
+}
+` + r + `
+for(i=_n-1;i!==-1;--i) {
+    ` + n + `
+}
+return ret;`,
       B.compile.apply(null, s);
   };
   B.pointwise2 = function (t, n, r) {
@@ -30336,12 +30067,12 @@
         s.push(a);
     }
     return s[t.length] = "var _n = " + u + `.length;
-  var i` + (c ? "" : ", ret = Array(_n)") + `;
-  ` + r + `
-  for(i=_n-1;i!==-1;--i) {
-  ` + n + `
-  }
-  return ret;`,
+var i` + (c ? "" : ", ret = Array(_n)") + `;
+` + r + `
+for(i=_n-1;i!==-1;--i) {
+` + n + `
+}
+return ret;`,
       B.compile.apply(null, s);
   };
   B._biforeach = function e(t, n, r, s, i) {
@@ -30464,7 +30195,7 @@
         var n, r, s = "";
         B.myIndexOf.call(B.mathfuns2, e) !== -1
           ? (s = "var " + t + " = Math." + t + `;
-  `,
+`,
             n = function (i, o, a) {
               return i + " = " + t + "(" + o + "," + a + ")";
             },
@@ -30498,19 +30229,19 @@
           ),
           B[e] = B.compile(
             `var n = arguments.length, i, x = arguments[0], y;
-  var VV = numeric.` + e + "VV, VS = numeric." + e + "VS, SV = numeric." + e +
+var VV = numeric.` + e + "VV, VS = numeric." + e + "VS, SV = numeric." + e +
               `SV;
-  var dim = numeric.dim;
-  for(i=1;i!==n;++i) { 
-    y = arguments[i];
-    if(typeof x === "object") {
-        if(typeof y === "object") x = numeric._biforeach2(x,y,dim(x),0,VV);
-        else x = numeric._biforeach2(x,y,dim(x),0,VS);
-    } else if(typeof y === "object") x = numeric._biforeach2(x,y,dim(y),0,SV);
-    else ` + r("x", "y") + `
-  }
-  return x;
-  `,
+var dim = numeric.dim;
+for(i=1;i!==n;++i) { 
+  y = arguments[i];
+  if(typeof x === "object") {
+      if(typeof y === "object") x = numeric._biforeach2(x,y,dim(x),0,VV);
+      else x = numeric._biforeach2(x,y,dim(x),0,VS);
+  } else if(typeof y === "object") x = numeric._biforeach2(x,y,dim(y),0,SV);
+  else ` + r("x", "y") + `
+}
+return x;
+`,
           ),
           B[t] = B[e],
           B[e + "eqV"] = B.pointwise2(
@@ -30521,15 +30252,15 @@
           B[e + "eqS"] = B.pointwise2(["ret[i]", "x"], r("ret[i]", "x"), s),
           B[e + "eq"] = B.compile(
             `var n = arguments.length, i, x = arguments[0], y;
-  var V = numeric.` + e + "eqV, S = numeric." + e + `eqS
-  var s = numeric.dim(x);
-  for(i=1;i!==n;++i) { 
-    y = arguments[i];
-    if(typeof y === "object") numeric._biforeach(x,y,s,0,V);
-    else numeric._biforeach(x,y,s,0,S);
-  }
-  return x;
-  `,
+var V = numeric.` + e + "eqV, S = numeric." + e + `eqS
+var s = numeric.dim(x);
+for(i=1;i!==n;++i) { 
+  y = arguments[i];
+  if(typeof y === "object") numeric._biforeach(x,y,s,0,V);
+  else numeric._biforeach(x,y,s,0,S);
+}
+return x;
+`,
           );
       }
     }
@@ -30543,7 +30274,7 @@
           t = B.ops1[e],
           B.myIndexOf.call(B.mathfuns, e) !== -1 && Math.hasOwnProperty(t) &&
           (s = "var " + t + " = Math." + t + `;
-  `),
+`),
           B[e + "eqV"] = B.pointwise2(
             ["ret[i]"],
             "ret[i] = " + t + "(ret[i]);",
@@ -30552,22 +30283,22 @@
           B[e + "eq"] = B.compile(
             "x",
             'if(typeof x !== "object") return ' + t + `x
-  var i;
-  var V = numeric.` + e + `eqV;
-  var s = numeric.dim(x);
-  numeric._foreach(x,s,0,V);
-  return x;
-  `,
+var i;
+var V = numeric.` + e + `eqV;
+var s = numeric.dim(x);
+numeric._foreach(x,s,0,V);
+return x;
+`,
           ),
           B[e + "V"] = B.pointwise2(["x[i]"], "ret[i] = " + t + "(x[i]);", s),
           B[e] = B.compile(
             "x",
             'if(typeof x !== "object") return ' + t + `(x)
-  var i;
-  var V = numeric.` + e + `V;
-  var s = numeric.dim(x);
-  return numeric._foreach2(x,s,0,V);
-  `,
+var i;
+var V = numeric.` + e + `V;
+var s = numeric.dim(x);
+return numeric._foreach2(x,s,0,V);
+`,
           ));
     }
     for (e = 0; e < B.mathfuns.length; ++e) t = B.mathfuns[e], delete B.ops1[t];
@@ -30580,19 +30311,19 @@
             "s",
             "k",
             t[1] + `if(typeof x !== "object") {    xi = x;
-  ` + t[0] + `
-      return accum;
-  }if(typeof s === "undefined") s = numeric.dim(x);
-  if(typeof k === "undefined") k = 0;
-  if(k === s.length-1) return numeric.` + e + `V(x);
-  var xi;
-  var n = x.length, i;
-  for(i=n-1;i!==-1;--i) {
-     xi = arguments.callee(x[i]);
-  ` + t[0] + `
-  }
-  return accum;
-  `,
+` + t[0] + `
+    return accum;
+}if(typeof s === "undefined") s = numeric.dim(x);
+if(typeof k === "undefined") k = 0;
+if(k === s.length-1) return numeric.` + e + `V(x);
+var xi;
+var n = x.length, i;
+for(i=n-1;i!==-1;--i) {
+   xi = arguments.callee(x[i]);
+` + t[0] + `
+}
+return accum;
+`,
           ));
     }
   })();
@@ -31882,7 +31613,7 @@
     try {
       return iq(e, t);
     } catch (n) {
-      return n instanceof C.Error ? n : internalError(n);
+      return n instanceof C.Error ? n : U(n);
     }
   }
   var ud = { coerceToNumber: "all-except-complex" },
@@ -31910,15 +31641,13 @@
     if (a.isError) throw a;
     if (u.isError) throw u;
     if (!sq(a.valueType, u.valueType)) {
-      throw regressionTypeErrorError([oe(a.valueType), oe(u.valueType)]);
+      throw PT([oe(a.valueType), oe(u.valueType)]);
     }
     let c = t._difference.buildIRExpression(n, r, fC);
     if (c.isError) throw c;
     let l = c.valueType;
     for (let S of c.getDependencies()) {
-      if (!n.validRegressionParameter(S)) {
-        throw invalidRegressionParameterError(S);
-      }
+      if (!n.validRegressionParameter(S)) throw tP(S);
     }
     let f = !rq(t)
         ? W_(c.getDependencies(), t.userData.regressionParameters, i)
@@ -32035,7 +31764,7 @@
           return aq(s);
         };
       default:
-        throw internalError("Regression with invalid value type.");
+        throw U("Regression with invalid value type.");
     }
   }
   function j_(e, t) {
@@ -32045,7 +31774,7 @@
       case ListOfComplex:
         return uq(e);
       default:
-        throw internalError("Regression with invalid value type.");
+        throw U("Regression with invalid value type.");
     }
   }
   function aq(e) {
@@ -32119,7 +31848,7 @@
   }
   function K_(e, t, n, r, s, i, o) {
     let a = ob(r, o);
-    if (!isFinite(a)) throw optimizationErrorError();
+    if (!isFinite(a)) throw nP();
     if (t.getDependencies().length > 0) return { RMSE: Math.sqrt(a) };
     let u = fq(t.asValue(), t.valueType);
     if (
@@ -32260,7 +31989,7 @@
         return n / e.length;
       }
       default:
-        throw internalError("Regression with invalid value type.");
+        throw U("Regression with invalid value type.");
     }
   }
   function fq(e, t) {
@@ -32283,7 +32012,7 @@
         return a / n.length;
       }
       default:
-        throw internalError("Regression with invalid value type.");
+        throw U("Regression with invalid value type.");
     }
   }
   function oL(e, t, n) {
@@ -32297,7 +32026,7 @@
       case ListOfComplex:
         return e * Math.SQRT2;
       default:
-        throw internalError("Regression with invalid value type.");
+        throw U("Regression with invalid value type.");
     }
   }
   function rL(e, t, n, r) {
@@ -32432,7 +32161,7 @@
     try {
       return hq(e, t);
     } catch (n) {
-      return n instanceof C.Base ? n : internalError(n);
+      return n instanceof C.Base ? n : U(n);
     }
   }
   function gC(e, t) {
@@ -32454,7 +32183,7 @@
           t,
         );
     } catch (n) {
-      return n instanceof C.Base ? n : internalError(n);
+      return n instanceof C.Base ? n : U(n);
     }
   }
   function ab(e, t) {
@@ -32466,9 +32195,7 @@
       case Number:
         return Number.isNaN(n.value);
       default:
-        throw internalError(
-          "Unexpected type in isConstantNaN: " + at(n.valueType),
-        );
+        throw U("Unexpected type in isConstantNaN: " + at(n.valueType));
     }
   }
   function hq({ policy: e, frame: t }, n) {
@@ -32480,7 +32207,7 @@
         (r = true, s = x._dependencies, x.args.length > 1)
       ) {
         let M = n._dependencies.filter((D) => !s.includes(D)),
-          P = tooManyVariablesError([T]).setDependencies(M);
+          P = rn([T]).setDependencies(M);
         throw P.silent = true, P;
       }
     }
@@ -32499,9 +32226,9 @@
       p = l !== "=",
       f = Fe(u, i.args[0]),
       d = zi(c, f, { peelableCoerce: true });
-    if (d !== f && !ab(c, f) && ab(c, d)) throw warnComplexImplicitError(l);
+    if (d !== f && !ab(c, f) && ab(c, d)) throw Ny(l);
     let y = Fe(u, i.args[1]), g = zi(c, y, { peelableCoerce: true });
-    if (g !== y && !ab(c, y) && ab(c, g)) throw warnComplexImplicitError(l);
+    if (g !== y && !ab(c, y) && ab(c, g)) throw Ny(l);
     try {
       Uo(c, e, i, [d, g]);
     } catch (x) {
@@ -32527,7 +32254,7 @@
     if (c.fuseBroadcast(), c.isConstant()) return new on(c);
     let h = c.getInstruction(d).type !== 2 ||
       xl(t, i.args[1]).indexOf(c.argNames[d]) !== -1;
-    if (!Si.plotImplicits && h) throw implicitsDisabledError();
+    if (!Si.plotImplicits && h) throw ZI();
     return Jr[l].direction === -1 ? c.Subtract([g, d]) : c.Subtract([d, g]),
       c.fuseBroadcast(),
       cL({
@@ -32552,32 +32279,28 @@
   ) {
     let a = o.getLiveArgNames();
     if (a.length === 0) {
-      throw internalError(
-        `Unexpected: non-constant node with dependencies: ${a}`,
-      );
+      throw U(`Unexpected: non-constant node with dependencies: ${a}`);
     }
     if (a.length === 1 && !n && !Si.plotSingleVariableImplicitEquations) {
-      return singleVariableImplicitEquationsDisabledError();
+      return XI();
     }
     let u = (g) => g === "x" || g === "y" || g === "z";
     if (e.is3dPolicy() ? !a.every(u) : a.length > 2) {
       let g = e.sliderVariables(a);
       if (s) {
         let m = i ? a.filter((x) => !i.includes(x)) : a,
-          h = tooManyVariablesError(g).setDependencies(m);
+          h = rn(g).setDependencies(m);
         return h.silent = true, h;
-      } else return tooManyVariablesError(g).setDependencies(a);
+      } else return rn(g).setDependencies(a);
     }
     if (n && !e.validInequalityVariables(a)) return $I().setDependencies(a);
     let { localFrames: c, effectiveOrder: l, variableOfInterest: p } = bq(t, n);
-    if (e.complicatedPolarImplicit(p, l)) {
-      return complicatedPolarImplicitError().setDependencies(a);
-    }
+    if (e.complicatedPolarImplicit(p, l)) return WI().setDependencies(a);
     if (!e.validImplicitVariables(a)) {
-      let g = invalidImplicitVariablesError();
+      let g = Ac();
       return s && (g.silent = true), g;
     }
-    if (e.is3dPolicy() && r && l !== 1) return badEqualitySliceError();
+    if (e.is3dPolicy() && r && l !== 1) return ca();
     if (l > 2 || e.is3dPolicy() && !r) return new on(o);
     let f = [], d = [], y = 1;
     for (let g = 0; g < c.length; g++) {
@@ -37636,7 +37359,7 @@
                         _e = [];
                       for (let At of ue) {
                         if (!(At instanceof on)) {
-                          throw internalError(
+                          throw U(
                             "Programming Error: bad type",
                           );
                         }
@@ -37649,9 +37372,7 @@
                         } else if (be === "z") {
                           L = At._chunk.getCompiledFunction(["x", "y"]),
                             T.graphMode = 200;
-                        } else {throw internalError(
-                            "Programming Error: bad lhs",
-                          );}
+                        } else throw U("Programming Error: bad lhs");
                         _e.push(Y(Ge));
                       }
                       return _e;
@@ -38407,7 +38128,7 @@
       }
       return a;
     } catch (a) {
-      let u = a instanceof C.Error ? a.getError() : internalError(a).getError();
+      let u = a instanceof C.Error ? a.getError() : U(a).getError();
       return [pw(u)];
     }
   };
@@ -41351,22 +41072,18 @@
     try {
       return e$(e, t, n);
     } catch (r) {
-      return r instanceof v ? r : internalError(r);
+      return r instanceof v ? r : U(r);
     }
   }
   function e$(e, t, n) {
     var l, p;
     if (!e.is3dProduct() || n.isError) return n;
     if (!(n instanceof on)) {
-      return internalError(
-        "Expected peel error to be checked on an IRExpression",
-      );
+      return U("Expected peel error to be checked on an IRExpression");
     }
     function r(f, d) {
       let y = d.filter((g) => f.indexOf(g) < 0);
-      if (y.length) {
-        return cannotRestrictError(y[0]).allowExport().setDependencies(y);
-      }
+      if (y.length) return kI(y[0]).allowExport().setDependencies(y);
     }
     function s() {
       let f = zb(o), d = t$(e, n);
@@ -41381,20 +41098,16 @@
       { numRestrictions: u, numEqualityRestrictions: c } = Ow(a);
     if (c !== 0) {
       if (c === 1) {
-        if (u !== c && !t.isInequality()) {
-          return mixedRestrictionEquationError();
-        }
+        if (u !== c && !t.isInequality()) return wT();
         let y = tu(a, [], { allowSlices: true }).getSliceVariablesOrImplicit();
-        if (y.length !== 1) return badEqualitySliceError();
+        if (y.length !== 1) return ca();
         let g = x1(o), m = y[0];
         if (g.indexOf(m) < 0) {
           return m === "_implicit"
-            ? badEqualitySliceError().allowExport()
-            : cannotRestrictWithEqualityError(m).allowExport().setDependencies([
-              m,
-            ]);
+            ? ca().allowExport()
+            : zI(m).allowExport().setDependencies([m]);
         }
-      } else return multipleEqualityRestrictionsError();
+      } else return LT();
     }
     return (p = (l = s()) != null ? l : i()) != null ? p : n;
   }
@@ -41775,14 +41488,10 @@
       let p = s.asValue();
       typeof p == "number" && !isNaN(p) && p >= 0
         ? a = { status: "valid", value: p }
-        : a = {
-          status: "error",
-          error: tickerMinStepNonNegativeNumberError().getError(),
-        };
+        : a = { status: "error", error: DI().getError() };
     }
     let u = Object.keys(i);
-    u.length > 0 &&
-      (r = tooManyVariablesError(u).setDependencies(r.getDependencies()));
+    u.length > 0 && (r = rn(u).setDependencies(r.getDependencies()));
     let c;
     r.isError && !C1(e, r)
       ? c = { status: "error", error: r.getError() }
@@ -41802,7 +41511,7 @@
     if (n instanceof C.Ticker) {
       return e.graphingEnabled()
         ? c$(e, n, r)
-        : (s.error = internalError("Ticker without graphing").getError(), s);
+        : (s.error = U("Ticker without graphing").getError(), s);
     }
     if (e.is3dProduct()) {
       let c = e, l = n.getGraphMode(c, r);
@@ -42305,7 +42014,7 @@
   function Xb(e, t, n, r) {
     if (r.isError) return new q(e, t, n, r);
     if (!e.areAllScalesLinear() && !Ul(r.valueType)) {
-      let u = logScaleTypeErrorError(oe(r.valueType));
+      let u = Yl(oe(r.valueType));
       return u.setCursorContext(r.getCursorContext()), new q(e, t, n, u);
     }
     let s = Do(e, r),
@@ -42357,8 +42066,7 @@
       case Tone:
       case ListOfTone:
         s.length
-          ? o = tooManyVariablesError(n.getSliderVariables(e, r))
-            .setDependencies(s)
+          ? o = rn(n.getSliderVariables(e, r)).setDependencies(s)
           : o = r;
         break;
       case Point:
@@ -42371,7 +42079,7 @@
           if (e.validParametricVariables(s)) o = r;
           else {
             let u = n.getSliderVariables(e, r);
-            o = tooManyVariablesError(u).setDependencies(u);
+            o = rn(u).setDependencies(u);
           }
         } else o = r;
         break;
@@ -42389,8 +42097,7 @@
       case ListOfMapInterval2DPoint3D: {
         s.length === 0
           ? o = r
-          : o = tooManyVariablesError(n.getSliderVariables(e, r))
-            .setDependencies(s);
+          : o = rn(n.getSliderVariables(e, r)).setDependencies(s);
         break;
       }
       case Number:
@@ -42400,21 +42107,16 @@
           : s.length <= (e.is3dPolicy() ? 2 : 1)
           ? e.is3dPolicy() && i.length > s.length &&
               !e.validImplicitVariables(i)
-            ? o = tooManyVariablesError(n.getSliderVariables(e, r))
-              .setDependencies(i)
+            ? o = rn(n.getSliderVariables(e, r)).setDependencies(i)
             : e.validExpressionVariables(s)
             ? o = r
-            : o = equationRequiredError(e.implicitDependency(s))
-              .setDependencies(s)
+            : o = wy(e.implicitDependency(s)).setDependencies(s)
           : e.validImplicitVariables(s)
-          ? o = equationRequiredError().setDependencies(s)
-          : o = tooManyVariablesError(n.getSliderVariables(e, r))
-            .setDependencies(i);
+          ? o = wy().setDependencies(s)
+          : o = rn(n.getSliderVariables(e, r)).setDependencies(i);
         break;
       default:
-        o = internalError(
-          `Programming error: unexpected value type ${r.valueType}`,
-        );
+        o = U(`Programming error: unexpected value type ${r.valueType}`);
     }
     return Kr(o) && o.setCursorContext(r.getCursorContext()),
       o = Pd(e, n, o),
@@ -42484,7 +42186,7 @@
     if (tt[this._symbol]) return this.asEquation().analyze(e, t);
     let n = this._symbol.split("_")[0];
     if ((a = tt[n]) != null && a.isFunction) {
-      return new q(e, t, this, cannotRedefineError(this._symbol, n));
+      return new q(e, t, this, Zl(this._symbol, n));
     }
     let r = this.tryGetConcreteTree(e, t);
     if (
@@ -42498,7 +42200,7 @@
       }
     }
     if (e.is3dPolicy() && e.assignmentForbidden(this._symbol)) {
-      return new q(e, t, this, invalidFunctionNameError(this._symbol));
+      return new q(e, t, this, zy(this._symbol));
     }
     if (r.isError) return new q(e, t, this, r);
     let s = this._argSymbols, i = r.getDependencies();
@@ -42506,28 +42208,23 @@
       (r = r.coerceToNumericIfPossible());
     let o = i.filter((u) => s.indexOf(u) === -1);
     if (e.unplottablePolarFunction(this._symbol, i)) {
-      return new q(e, t, this, unplottablePolarFunctionError());
+      return new q(e, t, this, qI());
     }
     if (o.some((u) => e.assignmentForbidden(u))) {
-      return new q(
-        e,
-        t,
-        this,
-        addArgumentsToDefinitionError(o, this._symbol, s).setDependencies(i),
-      );
+      return new q(e, t, this, Zd(o, this._symbol, s).setDependencies(i));
     }
     if (o.length) {
       let u = this.getSliderVariables(e, r);
-      return new q(e, t, this, tooManyVariablesError(u).setDependencies(u));
+      return new q(e, t, this, rn(u).setDependencies(u));
     }
     return !e.areAllScalesLinear() && !Ul(r.valueType)
-      ? new q(e, t, this, logScaleTypeErrorError(oe(r.valueType)))
+      ? new q(e, t, this, Yl(oe(r.valueType)))
       : (r = Pd(e, this, r), new q(e, t, this, r));
   };
   C.Assignment.prototype.analyze = function (e, t, n) {
     if (hs(this)) return bs(e, t, this);
     let r = this._symbol;
-    if (!e.validLHS(r)) return new q(e, t, this, invalidLHSError(r));
+    if (!e.validLHS(r)) return new q(e, t, this, UI(r));
     if (tt.hasOwnProperty(r) || e.isComplexEnabled() && r === br) {
       return this.asEquation().analyze(e, t);
     }
@@ -42539,18 +42236,17 @@
     ) s = Uw(this._expression).tryGetConcreteTree(e, t);
     else {
       let d = Tn(t);
-      d[r] = e.validSolvedVariable(r)
-        ? void 0
-        : invalidImplicitVariablesError(), s = this.tryGetConcreteTree(e, d);
+      d[r] = e.validSolvedVariable(r) ? void 0 : Ac(),
+        s = this.tryGetConcreteTree(e, d);
     }
     if (s.isError) return new q(e, t, this, s);
     if (!e.areAllScalesLinear() && !Ul(s.valueType)) {
-      return new q(e, t, this, logScaleTypeErrorError(oe(s.valueType)));
+      return new q(e, t, this, Yl(oe(s.valueType)));
     }
     if (this.isEquation(e, s)) return this.asEquation().analyze(e, t);
     let i = s.valueType === RGBColor || s.valueType === ListOfColor;
     if (e.assignmentForbidden(r) && i) {
-      let d = cannotAssignColorError(r).allowExport().setDependencies([r]);
+      let d = HI(r).allowExport().setDependencies([r]);
       return new q(e, t, this, d);
     }
     let o = s.getDependencies(), a = Do(e, s);
@@ -42561,20 +42257,16 @@
     let u = a.includes("x") || a.includes("y"),
       c = a.includes("r") || a.includes("theta");
     if (r === "r" && o.includes("phi")) {
-      let d = a.includes("z")
-        ? cantCombineSphericalAndCylindricalError()
-        : useRhoForSphericalCoordinatesError();
+      let d = a.includes("z") ? Oy() : BI();
       return new q(e, t, this, d);
     }
     if (r === "rho" && a.includes("z")) {
-      let d = o.includes("phi")
-        ? cantCombineSphericalAndCylindricalError()
-        : useRForCylindricalCoordinatesError();
+      let d = o.includes("phi") ? Oy() : GI();
       return new q(e, t, this, d);
     }
     let l = this.getSliderVariables(e, s, o);
     if (e.tooManySliderVariables(o, l, i) || u && c) {
-      let d = tooManyVariablesError(l).allowExport().setDependencies(l);
+      let d = rn(l).allowExport().setDependencies(l);
       return new q(e, t, this, d);
     }
     let p = v1(this._expression, e, t, s, n, this);
@@ -42601,35 +42293,21 @@
     if (n.isError) return new q(e, t, this, n);
     let r = this._argSymbols, s = n.getDependencies();
     if (e.is3dPolicy() && e.assignmentForbidden(this._symbol)) {
-      return new q(e, t, this, invalidFunctionNameError(this._symbol));
+      return new q(e, t, this, zy(this._symbol));
     }
     let i = s.filter((o) => r.indexOf(o) === -1);
     if (i.includes(this.specifiedArg.argSymbol)) {
-      return new q(
-        e,
-        t,
-        this,
-        baseCaseCannotDependOnRecursiveParameterError(
-          this.specifiedArg.argSymbol,
-        ),
-      );
+      return new q(e, t, this, Ox(this.specifiedArg.argSymbol));
     }
     for (let o of i) {
-      if (e.assignmentForbidden(o)) {
-        return new q(
-          e,
-          t,
-          this,
-          recursiveFunctionCannotDependOnFreeVariableError(o),
-        );
-      }
+      if (e.assignmentForbidden(o)) return new q(e, t, this, vx(o));
     }
     if (i.length) {
       let o = this.getSliderVariables(e, n);
-      return new q(e, t, this, tooManyVariablesError(o).setDependencies(o));
+      return new q(e, t, this, rn(o).setDependencies(o));
     }
     return !e.areAllScalesLinear() && !Ul(n.valueType)
-      ? new q(e, t, this, logScaleTypeErrorError(oe(n.valueType)))
+      ? new q(e, t, this, Yl(oe(n.valueType)))
       : new q(e, t, this, n);
   };
   function Hw(e, t, n) {
@@ -42639,7 +42317,7 @@
       let s = r.asTypedValue();
       if (s !== void 0) return s;
     }
-    return tableRegressionInvalidDataError();
+    return IT();
   }
   function x$(e) {
     return e[1] !== 0 && !isNaN(e[1]);
@@ -42651,11 +42329,11 @@
     let [r, s] = n.variables, i = Hw(e, t, r), o = Hw(e, t, s);
     if (!("value" in i)) return i;
     if (!("value" in o)) return o;
-    if (zw(i) || zw(o)) return tableRegressionTypeErrorError(oe(Complex));
+    if (zw(i) || zw(o)) return TT(oe(Complex));
   }
   C.Regression.prototype.analyzeRegression = function (e, t, n, r, s) {
     if (!e.isCustomRegressionSupported() && !this.tableRegressionData) {
-      return new q(e, t, this, customRegressionsUnsupportedError());
+      return new q(e, t, this, CP());
     }
     if (hs(this)) return bs(e, t, this);
     let i = {
@@ -42676,19 +42354,14 @@
         this.tableRegressionData && o instanceof Wa
     ) {
       let a = We(o.parameters).filter((u) => !/^regressionparameter_/.test(u));
-      if (a.length) return new q(e, t, this, tooManyVariablesError(a));
+      if (a.length) return new q(e, t, this, rn(a));
     }
     return new q(e, t, this, o);
   };
   function O1(e, t) {
     let n = this.tryGetConcreteTree(e, t), r = n.getDependencies();
     return r.length
-      ? new q(
-        e,
-        t,
-        this,
-        tooManyVariablesError(this.getSliderVariables(e, n)).setDependencies(r),
-      )
+      ? new q(e, t, this, rn(this.getSliderVariables(e, n)).setDependencies(r))
       : new q(e, t, this, this.tryGetConcreteTree(e, t));
   }
   C.Histogram.prototype.analyze = function (e, t) {
@@ -42696,21 +42369,21 @@
       ? bs(e, t, this)
       : e.areAllScalesLinear()
       ? O1.call(this, e, t)
-      : new q(e, t, this, logScaleHistogramError());
+      : new q(e, t, this, NT());
   };
   C.DotPlot.prototype.analyze = function (e, t) {
     return hs(this)
       ? bs(e, t, this)
       : e.areAllScalesLinear()
       ? O1.call(this, e, t)
-      : new q(e, t, this, logScaleDotPlotError());
+      : new q(e, t, this, RT());
   };
   C.BoxPlot.prototype.analyze = function (e, t) {
     return hs(this)
       ? bs(e, t, this)
       : e.areAllScalesLinear()
       ? O1.call(this, e, t)
-      : new q(e, t, this, logScaleBoxPlotError());
+      : new q(e, t, this, AT());
   };
   function qw(e) {
     return function (t, n) {
@@ -42721,9 +42394,7 @@
           t,
           n,
           this,
-          tooManyVariablesError(this.getSliderVariables(t, r)).setDependencies(
-            s,
-          ),
+          rn(this.getSliderVariables(t, r)).setDependencies(s),
         );
       }
       let i = new q(t, n, this, this.tryGetConcreteTree(t, n));
@@ -42745,7 +42416,7 @@
         e,
         t,
         this,
-        tooManyVariablesError(this.getSliderVariables(e, n)).setDependencies(r),
+        rn(this.getSliderVariables(e, n)).setDependencies(r),
       );
     }
     let s = new q(e, t, this, this.tryGetConcreteTree(e, t));
@@ -42764,7 +42435,7 @@
   function I$(e, t) {
     if (hs(this)) return bs(e, t, this);
     if (this.getOperator() !== "=" && !Si.plotInequalities) {
-      return new q(e, t, this, inequalitiesDisabledError());
+      return new q(e, t, this, Ry());
     }
     let r = uL({ policy: e, frame: t }, this);
     if (r.isError) return new q(e, t, this, r);
@@ -42772,28 +42443,21 @@
     if (r instanceof C.SolvedEquation && s.length) {
       let i = s.concat(r._symbol);
       if (!e.validImplicitVariables(i)) {
-        return new q(
-          e,
-          t,
-          this,
-          invalidImplicitVariablesError().setDependencies(i),
-        );
+        return new q(e, t, this, Ac().setDependencies(i));
       }
     }
     return this.getGraphMode(e, r) === 8 && !e.validImplicitVariables(s)
-      ? new q(e, t, this, invalidImplicitVariablesError().setDependencies(s))
+      ? new q(e, t, this, Ac().setDependencies(s))
       : (r = Pd(e, this, r), new q(e, t, this, r));
   }
   C.DoubleInequality.prototype.analyze = function (e, t) {
     if (hs(this)) return bs(e, t, this);
-    if (!Si.plotInequalities) {
-      return new q(e, t, this, inequalitiesDisabledError());
-    }
+    if (!Si.plotInequalities) return new q(e, t, this, Ry());
     let n = this.tryGetConcreteTree(e, t);
     if (n.isError) return new q(e, t, this, n);
     let r = n.getDependencies();
     return Jr[this._operators[0]].direction !== Jr[this._operators[1]].direction
-      ? new q(e, t, this, mismatchedDoubleInequalityError())
+      ? new q(e, t, this, _y())
       : e.validDoubleInequalitySymbol(n._symbol)
       ? e.validDoubleInequalityVariables(r)
         ? r.length > 2
@@ -42801,30 +42465,14 @@
             e,
             t,
             this,
-            tooManyVariablesError(this.getSliderVariables(e, n))
-              .setDependencies(r),
+            rn(this.getSliderVariables(e, n)).setDependencies(r),
           )
           : n._expressions[0].getDependencies().indexOf(n._symbol) !== -1 ||
               n._expressions[1].getDependencies().indexOf(n._symbol) !== -1
-          ? new q(
-            e,
-            t,
-            this,
-            complicatedDoubleInequalityError().setDependencies(r),
-          )
+          ? new q(e, t, this, Ly().setDependencies(r))
           : new q(e, t, this, n)
-        : new q(
-          e,
-          t,
-          this,
-          invalidDoubleInequalityVariablesError().setDependencies(r),
-        )
-      : new q(
-        e,
-        t,
-        this,
-        invalidDoubleInequalityVariablesError().setDependencies(r),
-      );
+        : new q(e, t, this, Ay().setDependencies(r))
+      : new q(e, t, this, Ay().setDependencies(r));
   };
   C.ComparatorChain.prototype.analyze = function (e, t) {
     if (hs(this)) return bs(e, t, this);
@@ -42838,45 +42486,30 @@
             e,
             t,
             this,
-            (this.symbols.includes("=")
-              ? invalidImplicitVariables3dError()
-              : invalidDoubleInequality3dError()).setDependencies(r),
+            (this.symbols.includes("=") ? YI() : jI()).setDependencies(r),
           );
         }
         if (
           !(this.symbols.every((i) => i === "<" || i === "<=") ||
             this.symbols.every((i) => i === ">" || i === ">=") ||
             this.symbols.every((i) => i === "="))
-        ) {
-          return new q(
-            e,
-            t,
-            this,
-            mismatchedDoubleInequalityError().setDependencies(r),
-          );
-        }
+        ) return new q(e, t, this, _y().setDependencies(r));
         if (this.symbols.includes("=") && !r.includes("z")) {
-          return new q(
-            e,
-            t,
-            this,
-            invalidDoubleEquality3dError().setDependencies(r),
-          );
+          return new q(e, t, this, JI().setDependencies(r));
         }
         let s = this._difference.tryGetConcreteTree(e, t);
         return s = Pd(e, this, s), new q(e, t, this, s);
       } else {return this.symbols.includes("=")
-          ? new q(e, t, this, unplottableEqualityChainError())
+          ? new q(e, t, this, QI())
           : this.symbols.length > 2
           ? new q(e, t, this, $x())
           : e.validDoubleInequalityVariables(r)
-          ? new q(e, t, this, complicatedDoubleInequalityError())
+          ? new q(e, t, this, Ly())
           : new q(
             e,
             t,
             this,
-            tooManyVariablesError(this.getSliderVariables(e, n))
-              .setDependencies(r),
+            rn(this.getSliderVariables(e, n)).setDependencies(r),
           );}
     }
     return new q(e, t, this, n);
@@ -42915,21 +42548,11 @@
         t,
         this,
         new C.Image({
-          center: s.length
-            ? tooManyVariablesError(i).setDependencies(s)
-            : r.center,
-          radianAngle: i.length
-            ? tooManyVariablesError(i).setDependencies(i)
-            : r.radianAngle,
-          width: o.length
-            ? tooManyVariablesError(o).setDependencies(o)
-            : r.width,
-          height: a.length
-            ? tooManyVariablesError(a).setDependencies(a)
-            : r.height,
-          opacity: u.length
-            ? tooManyVariablesError(u).setDependencies(u)
-            : r.opacity,
+          center: s.length ? rn(i).setDependencies(s) : r.center,
+          radianAngle: i.length ? rn(i).setDependencies(i) : r.radianAngle,
+          width: o.length ? rn(o).setDependencies(o) : r.width,
+          height: a.length ? rn(a).setDependencies(a) : r.height,
+          opacity: u.length ? rn(u).setDependencies(u) : r.opacity,
         }),
       )
       : (r.moveStrategy = this.getMoveStrategy(e, t, r, n),
@@ -42944,8 +42567,7 @@
         e,
         t,
         this,
-        tooManyVariablesError(e.sliderVariables(o)).setDependencies(o)
-          .allowExport(),
+        rn(e.sliderVariables(o)).setDependencies(o).allowExport(),
       );
     } else s = new q(e, t, this, n);
     let i = s.evaluationState;
@@ -42984,7 +42606,7 @@
     let n = this.tryGetConcreteTree(e, t);
     return n.isError
       ? new q(e, t, this, n)
-      : new q(e, t, this, internalError(`Unexpected node type ${this.type}`));
+      : new q(e, t, this, U(`Unexpected node type ${this.type}`));
   };
   C.Expression.prototype.analyzeFourFunction = function (e, t) {
     let n = this.tryGetConcreteTree(e, t);
@@ -42992,70 +42614,62 @@
     let r = n.getDependencies();
     if (r.length > 0) {
       let s = r[0], i, o = tt[s];
-      return o
-        ? i = o.isFunction
-          ? functionUnsupportedError(s, e)
-          : constantUnsupportedError(s)
-        : i = variablesUnsupportedError(s),
+      return o ? i = o.isFunction ? Li(s, e) : _c(s) : i = ef(s),
         new q(e, t, this, i);
     }
     return new q(e, t, this, n);
   };
   C.Assignment.prototype.analyzeFourFunction = function (e, t) {
-    return new q(e, t, this, assignmentsUnsupportedError());
+    return new q(e, t, this, tf());
   };
   C.FunctionDefinition.prototype.analyzeFourFunction = function (e, t) {
-    return new q(e, t, this, functionDefinitionsUnsupportedError());
+    return new q(e, t, this, nf());
   };
   function $w(e, t) {
-    return new q(e, t, this, equationsUnsupportedError());
+    return new q(e, t, this, Ua());
   }
   C.Equation.prototype.analyzeFourFunction = $w;
   C.CallAssignment.prototype.analyzeFourFunction = $w;
   function R1(e, t) {
-    return new q(e, t, this, inequalitiesUnsupportedError());
+    return new q(e, t, this, Lc());
   }
   C.DoubleInequality.prototype.analyzeFourFunction = R1;
   C.ComparatorChain.prototype.analyzeFourFunction = R1;
   C.BaseComparator.prototype.analyzeFourFunction = R1;
   C.Regression.prototype.analyzeFourFunction = function (e, t) {
-    return new q(e, t, this, regressionsUnsupportedError());
+    return new q(e, t, this, wc());
   };
   C.ParenSeq.prototype.analyzeFourFunction = function (e, t) {
-    return new q(e, t, this, pointsUnsupportedError());
+    return new q(e, t, this, Fc());
   };
   C.Base.prototype.analyzeScientific = function (e, t) {
     let n = this.tryGetConcreteTree(e, t);
     return n.isError
       ? new q(e, t, this, n)
-      : new q(e, t, this, internalError(`Unexpected node type ${this.type}`));
+      : new q(e, t, this, U(`Unexpected node type ${this.type}`));
   };
   C.Expression.prototype.analyzeScientific = function (e, t) {
     let n = this.tryGetConcreteTree(e, t);
     if (n.isError) return new q(e, t, this, n);
     let r = n.getDependencies();
-    return r.length > 0
-      ? new q(e, t, this, tooManyVariablesError(r))
-      : new q(e, t, this, n);
+    return r.length > 0 ? new q(e, t, this, rn(r)) : new q(e, t, this, n);
   };
   C.Assignment.prototype.analyzeScientific = function (e, t) {
     let n = this._symbol;
-    if (tt[n]) return new q(e, t, this, cannotRedefineError(n));
+    if (tt[n]) return new q(e, t, this, Zl(n));
     let r = Tn(t);
-    r[n] = equationsUnsupportedError();
+    r[n] = Ua();
     let s = this.tryGetConcreteTree(e, r);
     if (s.isError) return new q(e, t, this, s);
     let i = s.getDependencies();
     return this.isEquation(e, s)
-      ? new q(e, t, this, equationsUnsupportedError())
+      ? new q(e, t, this, Ua())
       : i.length > 0
-      ? new q(e, t, this, tooManyVariablesError(i))
+      ? new q(e, t, this, rn(i))
       : new q(e, t, this, s);
   };
   C.FunctionDefinition.prototype.analyzeScientific = function (e, t) {
-    if (tt[this._symbol]) {
-      return new q(e, t, this, cannotRedefineError(this._symbol));
-    }
+    if (tt[this._symbol]) return new q(e, t, this, Zl(this._symbol));
     let n = this.tryGetConcreteTree(e, t);
     if (n.isError) return new q(e, t, this, n);
     let r = this._argSymbols, s = n.getDependencies();
@@ -43064,38 +42678,36 @@
         e,
         t,
         this,
-        selfReferentialFunctionsError([this._symbol], {
-          suggestAlternativeFunctionName: false,
-        }),
+        Rc([this._symbol], { suggestAlternativeFunctionName: false }),
       );
     }
     let i = s.filter((o) => r.indexOf(o) === -1);
     return i.length
-      ? new q(e, t, this, addArgumentsToDefinitionError(i, this._symbol, r))
+      ? new q(e, t, this, Zd(i, this._symbol, r))
       : new q(e, t, this, n);
   };
   function Yw(e, t) {
-    return new q(e, t, this, equationsUnsupportedError());
+    return new q(e, t, this, Ua());
   }
   C.Equation.prototype.analyzeScientific = Yw;
   C.CallAssignment.prototype.analyzeScientific = Yw;
   function A1(e, t) {
-    return new q(e, t, this, inequalitiesUnsupportedError());
+    return new q(e, t, this, Lc());
   }
   C.DoubleInequality.prototype.analyzeScientific = A1;
   C.ComparatorChain.prototype.analyzeScientific = A1;
   C.BaseComparator.prototype.analyzeScientific = A1;
   C.Regression.prototype.analyzeScientific = function (e, t) {
-    return new q(e, t, this, regressionsUnsupportedError());
+    return new q(e, t, this, wc());
   };
   C.ParenSeq.prototype.analyzeScientific = function (e, t) {
-    return new q(e, t, this, pointsUnsupportedError());
+    return new q(e, t, this, Fc());
   };
   C.Base.prototype.analyzeSingleExpressionScientific = function (e, t) {
     let n = this.tryGetConcreteTree(e, t);
     return n.isError
       ? new q(e, t, this, n)
-      : new q(e, t, this, internalError(`Unexpected node type ${this.type}`));
+      : new q(e, t, this, U(`Unexpected node type ${this.type}`));
   };
   C.Expression.prototype.analyzeSingleExpressionScientific = function (e, t) {
     let n = this.tryGetConcreteTree(e, t);
@@ -43103,40 +42715,36 @@
     let r = n.getDependencies();
     if (r.length > 0) {
       let s = r[0], i, o = tt[s];
-      return o
-        ? i = o.isFunction
-          ? functionUnsupportedError(s, e)
-          : constantUnsupportedError(s)
-        : i = variablesUnsupportedError(s),
+      return o ? i = o.isFunction ? Li(s, e) : _c(s) : i = ef(s),
         new q(e, t, this, i);
     }
     return new q(e, t, this, n);
   };
   C.Assignment.prototype.analyzeSingleExpressionScientific = function (e, t) {
-    return new q(e, t, this, assignmentsUnsupportedError());
+    return new q(e, t, this, tf());
   };
   C.FunctionDefinition.prototype.analyzeSingleExpressionScientific = function (
     e,
     t,
   ) {
-    return new q(e, t, this, functionDefinitionsUnsupportedError());
+    return new q(e, t, this, nf());
   };
   function Xw(e, t) {
-    return new q(e, t, this, equationsUnsupportedError());
+    return new q(e, t, this, Ua());
   }
   C.Equation.prototype.analyzeSingleExpressionScientific = Xw;
   C.CallAssignment.prototype.analyzeSingleExpressionScientific = Xw;
   function _1(e, t) {
-    return new q(e, t, this, inequalitiesUnsupportedError());
+    return new q(e, t, this, Lc());
   }
   C.DoubleInequality.prototype.analyzeSingleExpressionScientific = _1;
   C.ComparatorChain.prototype.analyzeSingleExpressionScientific = _1;
   C.BaseComparator.prototype.analyzeSingleExpressionScientific = _1;
   C.Regression.prototype.analyzeSingleExpressionScientific = function (e, t) {
-    return new q(e, t, this, regressionsUnsupportedError());
+    return new q(e, t, this, wc());
   };
   C.ParenSeq.prototype.analyzeSingleExpressionScientific = function (e, t) {
-    return new q(e, t, this, pointsUnsupportedError());
+    return new q(e, t, this, Fc());
   };
   C.Base.prototype.getGraphInfo = function (e, t) {
     let n = t.getDependencies(), r, s;
@@ -43960,7 +43568,7 @@
       ) {
         for (let o = 0; o < s.columns.length; o++) {
           let a = s.columns[o];
-          if (ha(a)) throw internalError("Unexpected concrete column.");
+          if (ha(a)) throw U("Unexpected concrete column.");
           !Kr(a) && a.header && a.header.metaData &&
             jw(n, r, a.header.metaData);
         }
@@ -44248,8 +43856,8 @@
         throw new Error(
           "Programming Error: key '" + r +
             `' does not exist in table. Must be one of:
-  ` + Object.keys(t).join(`
-  `),
+` + Object.keys(t).join(`
+`),
         );
       }
     }
@@ -44325,8 +43933,8 @@
         throw new Error(
           "Programming Error: key '" + n +
             `' does not exist in table. Must be one of:
-  ` + Object.keys(t).join(`
-  `),
+` + Object.keys(t).join(`
+`),
         );
       }
     }
@@ -44375,8 +43983,8 @@
         throw new Error(
           "Programming Error: key '" + r +
             `' does not exist in table. Must be one of:
-  ` + Object.keys(t).join(`
-  `),
+` + Object.keys(t).join(`
+`),
         );
       }
     }
@@ -44757,7 +44365,7 @@
     if (!s) return;
     K$(s.type) || (s.isLogMode = false);
     let i = e.columns, { columnIds: o } = s, a = r.get(o.x), u = r.get(o.y);
-    if (!(a && u)) return internalError("Missing columns for table regression");
+    if (!(a && u)) return U("Missing columns for table regression");
     let c = [{
         id: a.userData.id,
         isIdentifier: ki(a.header),
@@ -44775,7 +44383,7 @@
       f = Mi(p, n);
     if (Kr(f)) return f;
     if (!ui(f)) {
-      return internalError(
+      return U(
         `Expected table regression to parse as Regression, but got ${f.type}`,
       );
     }
@@ -44870,7 +44478,7 @@
     sa = "**geo_construction_statement_id**";
   function ri(e, t) {
     let n = Mi(e, t);
-    return n.isError || n instanceof C.Expression ? n : opaqueError();
+    return n.isError || n instanceof C.Expression ? n : Fd();
   }
   function f5(e) {
     let t = e.rawTree.userData, n = e.rawTree.metaData;
@@ -44911,19 +44519,17 @@
         .sort();
       for (let { symbol: u, localFrameID: c } of o) {
         if (n && i.has(u)) continue;
-        let l = cycleError(a);
+        let l = MI(a);
         if (c !== void 0) {
           let p = t.getLocalFrame(c);
           p[u] = l, e.definitionLevel[u] === 1 && (t.global[u] = l);
         } else t.global[u] = l;
       }
     }
-    for (let o of We(r)) {
-      r.hasOwnProperty(o) && (t.global[o] = multiplyDefinedError(o));
-    }
+    for (let o of We(r)) r.hasOwnProperty(o) && (t.global[o] = Wl(o));
     for (let [o, a] of e.localDependencyOrder) {
       let u = t.getLocalFrame(o);
-      for (let c of We(a.multiplyDefined)) u[c] = multiplyDefinedError(c);
+      for (let c of We(a.multiplyDefined)) u[c] = Wl(c);
     }
   }
   function hc(e, t) {
@@ -44948,12 +44554,9 @@
         isNaN(p) && (d = false, p = NaN),
         f
           ? d
-            ? l > p &&
-              (f = false,
-                d = false,
-                r.error = cdfMaxLessThanMinError().getError())
-            : r.error = cdfMaxInvalidError().getError()
-          : r.error = cdfMinInvalidError().getError(),
+            ? l > p && (f = false, d = false, r.error = VI().getError())
+            : r.error = FI().getError()
+          : r.error = wI().getError(),
         f && d
     ) {
       let m = new a5("cdf", [u, new So(l), new So(p)]);
@@ -45135,7 +44738,7 @@
         s = e.evaluationState.column_data[a];
         let u = e.rawTree.columns[a];
         if (!Kr(u)) {
-          if (ha(u)) throw internalError("Unexpected concrete column.");
+          if (ha(u)) throw U("Unexpected concrete column.");
           i = u.header.metaData,
             o = i[r],
             CF(o, s, i, t, n, r, e.concreteTree.valueType);
@@ -45171,7 +44774,7 @@
         r = e.evaluationState.column_data[o];
         let a = e.rawTree.columns[o];
         if (!Kr(a)) {
-          if (ha(a)) throw internalError("Unexpected concrete column.");
+          if (ha(a)) throw U("Unexpected concrete column.");
           s = a.header.metaData, i = s.colorLatex, SF(i, s, r, t, n);
         }
       }
@@ -45191,7 +44794,7 @@
       } catch (n) {
         e.evaluationState.error = n instanceof C.Error
           ? n.getError()
-          : internalError(n).getError();
+          : U(n).getError();
       }
     }
   }
@@ -45202,14 +44805,12 @@
       o = s.metaData.clickHandler;
     if (!o) return;
     let a = o.tryGetConcreteTree(t, n);
-    !a.isError && a.valueType !== Action &&
-      (a = eventHandlerTypeErrorError(oe(a.valueType)));
+    !a.isError && a.valueType !== Action && (a = kd(oe(a.valueType)));
     for (let c of a.getDependencies()) {
       t.validActionVariable(c) || (i[c] = true);
     }
     let u = Object.keys(i);
-    u.length > 0 &&
-    (a = tooManyVariablesError(u).setDependencies(a.getDependencies())),
+    u.length > 0 && (a = rn(u).setDependencies(a.getDependencies())),
       a.isError && !C1(t, a)
         ? r.click_handler = { status: "error", error: a.getError() }
         : a.isEmptyAction
@@ -45348,12 +44949,9 @@
       isFinite(t) || (s = false, t = NaN),
       r
         ? s
-          ? e > t &&
-            (r = false,
-              s = false,
-              n.error = domainMaxLessThanMinError().getError())
-          : n.error = domainMaxInvalidError().getError()
-        : n.error = domainMinInvalidError().getError(),
+          ? e > t && (r = false, s = false, n.error = LI().getError())
+          : n.error = _I().getError()
+        : n.error = AI().getError(),
       { min: e, max: t, minValid: r, maxValid: s };
   }
   function v5(e, t, n) {
@@ -45368,9 +44966,7 @@
       p = true;
     isFinite(u) || (l = false, u = NaN),
       isFinite(c) || (p = false, c = NaN),
-      l
-        ? p || (r.error = boxplotBreadthInvalidError().getError())
-        : r.error = boxplotOffsetInvalidError().getError(),
+      l ? p || (r.error = kT().getError()) : r.error = GT().getError(),
       s.metaData.evaluatedAxisOffset = u,
       s.metaData.evaluatedBreadth = c,
       r.viz_values = { axisOffset: u, breadth: c },
@@ -45466,10 +45062,10 @@
           globalRandomSeed: new EF(this.globalRandomSeedString || ""),
           width: this.policy.dimensionVarsEnabled()
             ? new So(Se(this.dimensions.width, 1))
-            : variableUnsupportedError("width"),
+            : Hy("width"),
           height: this.policy.dimensionVarsEnabled()
             ? new So(Se(this.dimensions.height, 1))
-            : variableUnsupportedError("height"),
+            : Hy("height"),
         }),
         this.mainFrameContext = new Rl(this.parent_frame),
         this.lastFrame = Tn(this.parent_frame),
@@ -45523,8 +45119,7 @@
       i !== this.initialEvaluation &&
       (this.initialEvaluation = i,
         this.parent_frame.initialEvaluation = new So(i ? 1 : 0)),
-        t.hasOwnProperty("logInternalErrors") &&
-        setLogInternalErrorsError(t.logInternalErrors),
+        t.hasOwnProperty("logInternalErrors") && Dx(t.logInternalErrors),
         t.viewState && this.setViewState(t.viewState),
         t.hasOwnProperty("degreeMode") && this.setDegreeMode(t.degreeMode),
         t.hasOwnProperty("globalRandomSeed") &&
@@ -45586,11 +45181,7 @@
         t.hasOwnProperty("dimensions") && this.setDimensions(t.dimensions),
           t.hasOwnProperty("complex") &&
           (this.setComplex(!!t.complex), !t.isCompleteState)
-      ) {
-        throw internalError(
-          "Complex mode changed without a complete change set.",
-        );
-      }
+      ) throw U("Complex mode changed without a complete change set.");
       t.hasOwnProperty("customRegressions") &&
         this.setCustomRegressions(!!t.customRegressions);
       let a = yc();
@@ -46428,7 +46019,7 @@
     }
     updateConstruction() {
       if (!this.policy.isGeometryEnabled) {
-        this.parent_frame.construction = featureUnavailableError();
+        this.parent_frame.construction = rf();
         return;
       }
       let t = [];
@@ -46600,9 +46191,7 @@
                 ? void 0
                 : h.latex,
               w;
-            _.length > 0
-              ? w = unexportableTableRegressionError(_).getError()
-              : L && (w = computedColumnHeaderError(L).getError()),
+            _.length > 0 ? w = qP(_).getError() : L && (w = UP(L).getError()),
               S.table_regression = {
                 status: "success",
                 result: P.regression,
@@ -46612,7 +46201,7 @@
               };
           } else {S.table_regression = {
               status: "error",
-              error: (x = P.error) != null ? x : internalError(
+              error: (x = P.error) != null ? x : U(
                 'Expected regression state to define either "regression" or "error"',
               ).getError(),
             };}
@@ -46705,9 +46294,7 @@
       }
     }
     analyzeSingleStatementGraphing(t, n, r, s, i) {
-      if (!this.policy.graphingEnabled()) {
-        throw internalError("Expected graphing policy");
-      }
+      if (!this.policy.graphingEnabled()) throw U("Expected graphing policy");
       if (i === "main" && r.r) {
         let a = Tn(r);
         a.r = void 0;
@@ -46719,7 +46306,7 @@
         if (i === "regression") {
           for (let u of o) {
             let c = this.statements[u],
-              l = recursionInRegressionError(),
+              l = xT(),
               p = { policy: this.policy, rawTree: c, concreteTree: l };
             return [{ id: u, stmtAnalysis: p }];
           }
