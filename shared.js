@@ -163,7 +163,7 @@
       return e >= 0 ? Math.atan(t / e) : Math.atan(t / e) + Math.PI;
     }
   }
-  var Oi = Math.hypot;
+  var MathHypot = Math.hypot;
   function Va(e, t) {
     return e > 0 == t > 0 ? e + .5 * (t - e) : .5 * (e + t);
   }
@@ -171,7 +171,7 @@
     return e * r + t * s + n * i;
   }
   function to(e, t, n, r, s, i, o, a, u) {
-    let c = Oi(o - r, a - s, u - i);
+    let c = MathHypot(o - r, a - s, u - i);
     return c === 0 ? 0 : GF(
       (e - r) / c,
       (t - s) / c,
@@ -207,11 +207,11 @@
   }
   function j1(e, t, n, r, s, i) {
     let o = kF(e, t, n, r, s, i);
-    return Oi(e - o[0], t - o[1]);
+    return MathHypot(e - o[0], t - o[1]);
   }
   function J1(e, t, n, r, s, i, o, a, u) {
     let c = HF(e, t, n, r, s, i, o, a, u);
-    return Oi(e - c[0], t - c[1], n - c[2]);
+    return MathHypot(e - c[0], t - c[1], n - c[2]);
   }
   function sY(e, t, n, r, s, i, o) {
     let a = Math.atan2(t - r, e - n);
@@ -232,7 +232,7 @@
   function iY(e) {
     return Math.round(e - .5) + .5;
   }
-  function Ba(e, t = 1e6) {
+  function toFraction1(e, t = 1e6) {
     if (e === 1 / 0) return { n: 1 / 0, d: 1 };
     if (e === -1 / 0) return { n: -1 / 0, d: 1 };
     if (!isFinite(e)) return { n: NaN, d: 1 };
@@ -981,7 +981,7 @@
     }
     if (e === 0) return { string: "0", latex: "0", value: e };
     Math.abs(e) > Math.abs(t) && (t = e);
-    let r = Ba(e / Math.PI, 24), s, i, o, a, u, c, l = n ? DV(t) : CV(t);
+    let r = toFraction1(e / Math.PI, 24), s, i, o, a, u, c, l = n ? DV(t) : CV(t);
     if (l && si(r.n / r.d * Math.PI, e, 3)) {
       return r.n === 0
         ? (s = "0", a = "0")
@@ -1072,7 +1072,7 @@
   function canDisplayAsFraction(e) {
     let t = DD(e);
     if (t < 1 || t > 1e12) return false;
-    let { n, d: r } = Ba(e, t);
+    let { n, d: r } = toFraction1(e, t);
     return r === 1 ? false : e === e + Math.pow(2, -3) * Math.abs(n / r - e);
   }
   function numericLabel(e, t) {
@@ -1095,7 +1095,7 @@
     if (!p) return { type: "undefined" };
     let f = parseInt(p[2], 10), d = f >= i;
     if (canDisplayAsFraction(e) && o) {
-      let m = Ba(e, DD(e));
+      let m = toFraction1(e, DD(e));
       return {
         type: "fraction",
         numerator: m.n.toString(),
@@ -6959,7 +6959,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       },
     }),
   );
-  function zc(e, t) {
+  function gcd1(e, t) {
     if (!isFinite(e) || !isFinite(t)) return NaN;
     if (
       e = Math.round(e),
@@ -6976,10 +6976,10 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     for (; n > 0;) e = t, t = n, n = e % t;
     return t;
   }
-  function Uc(e, t) {
+  function pow1(e, t) {
     if (isNaN(e) && t === 0) return NaN;
     if (e >= 0 || t === Math.floor(t)) return Math.pow(e, t);
-    let n = Ba(t, 100);
+    let n = toFraction1(t, 100);
     return si(n.n / n.d, t, 2) && n.d % 2 === 1
       ? (n.n % 2 === 0 ? 1 : -1) * Math.pow(-e, t)
       : NaN;
@@ -7090,17 +7090,17 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       sign: sign,
       hypot: hypot,
     } = Math,
-    toFraction = Ba,
-    gcd = zc,
-    pow = Uc,
+    toFraction = toFraction1,
+    gcd = gcd1,
+    pow = pow1,
     SYMBOL_DIVERGES = Symbol("DIVERGES"),
     RecursiveFunctionResult = ((
       n,
     ) => (n[n.SUCCESS = 0] = "SUCCESS",
       n[n.MISSING_CACHE_ENTRY = 1] = "MISSING_CACHE_ENTRY",
       n))(RecursiveFunctionResult || {}),
-    Tg = class Tg {
-      constructor(t = Tg.defaultLimit, n) {
+    LruCacheClass = class LruCacheClass {
+      constructor(t = LruCacheClass.defaultLimit, n) {
         this.limit = t;
         this.computeSize = n;
         this.currentSize = 0;
@@ -7120,8 +7120,8 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
         this.cache.set(t, { size: r, value: n });
       }
     };
-  Tg.defaultLimit = 1e5;
-  var LruCache = Tg, RECURSIVE_DEPTH_LIMIT = 1e4, RECURSIVE_COMPUTATION_LIMIT = RECURSIVE_DEPTH_LIMIT * 2;
+  LruCacheClass.defaultLimit = 1e5;
+  var LruCache = LruCacheClass, RECURSIVE_DEPTH_LIMIT = 1e4, RECURSIVE_COMPUTATION_LIMIT = RECURSIVE_DEPTH_LIMIT * 2;
   function getRecursiveDepthLimit() {
     return RECURSIVE_DEPTH_LIMIT;
   }
@@ -8389,11 +8389,11 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let t = 0;
     for (let n = 0; n < e.length - 1; n++) {
       let [r, s] = e[n], [i, o] = e[n + 1];
-      t += Oi(i - r, o - s);
+      t += MathHypot(i - r, o - s);
     }
     if (e.length > 1) {
       let [n, r] = e[e.length - 1], [s, i] = e[0];
-      t += Oi(s - n, i - r);
+      t += MathHypot(s - n, i - r);
     }
     return t;
   }
@@ -9486,7 +9486,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
       Math.floor(t) !== t || Math.abs(e) > Of || Math.abs(t) > Of
     ) return e / t;
     t < 0 && (e = -e, t = -t);
-    let n = zc(e, t);
+    let n = gcd1(e, t);
     return hp(e / n, t / n);
   }
   function Us(e) {
@@ -9502,12 +9502,12 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   }
   function qs(e, t) {
     if (!an(e) || !an(t)) return V(e) + V(t);
-    let n = zc(e.d, t.d);
+    let n = gcd1(e.d, t.d);
     return Se(e.n * (t.d / n) + t.n * (e.d / n), e.d / n * t.d);
   }
   function wr(e, t) {
     if (!an(e) || !an(t)) return V(e) * V(t);
-    let n = zc(e.n, t.d), r = zc(t.n, e.d);
+    let n = gcd1(e.n, t.d), r = gcd1(t.n, e.d);
     return Se(e.n / n * (t.n / r), e.d / r * (t.d / n));
   }
   function ai(e, t) {
@@ -9519,7 +9519,7 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
   function uk(e, t) {
     let n = e, r = t;
     if (t.n < 0 && (r = Us(t), n = Xv(e)), !an(n) || !an(r)) {
-      return Uc(V(e), V(t));
+      return pow1(V(e), V(t));
     }
     if (e = n, t = r, t.d === 1) {
       return Se(Math.pow(e.n, t.n), Math.pow(e.d, t.n));
@@ -9529,13 +9529,13 @@ ${this.activeEdges.map((t) => `[${t.index}] ${t.scanlineX}`)}`;
     let o = (s ? -1 : 1) * Math.round(Math.pow(Math.abs(e.n), 1 / t.d)),
       a = Math.round(Math.pow(Math.abs(e.d), 1 / t.d));
     return Math.pow(o, t.d) !== e.n || Math.pow(a, t.d) !== e.d
-      ? Uc(V(e), V(t))
+      ? pow1(V(e), V(t))
       : Se(Math.pow(o, t.n), Math.pow(a, t.n));
   }
   function Zv(e, t) {
-    if (!an(e) || !an(t)) return Uc(V(e), V(t));
+    if (!an(e) || !an(t)) return pow1(V(e), V(t));
     let n = uk(e, t);
-    return an(n) ? n : Uc(V(e), V(t));
+    return an(n) ? n : pow1(V(e), V(t));
   }
   function Wv(e) {
     if (!an(e)) return Math.sqrt(e);
@@ -32995,8 +32995,8 @@ return accum;
           return;
         }
         (!this.colinear(n, this.pivotPoint, t) ||
-          Oi(n[0] - t[0], n[1] - t[1], (n[2] || 0) - (t[2] || 0)) <
-            Oi(
+          MathHypot(n[0] - t[0], n[1] - t[1], (n[2] || 0) - (t[2] || 0)) <
+            MathHypot(
               n[0] - this.pendingPoint[0],
               n[1] - this.pendingPoint[1],
               (n[2] || 0) - (this.pendingPoint[2] || 0),
@@ -35938,8 +35938,8 @@ return accum;
   function I8(e, t) {
     let n = t.viewport.xmax - t.viewport.xmin,
       r = t.viewport.ymax - t.viewport.ymin,
-      s = Oi(n, r),
-      i = Oi(30, 30),
+      s = MathHypot(n, r),
+      i = MathHypot(30, 30),
       o = Math.round(2 - Math.log(s / i) / Math.LN10);
     if (o <= 0) return Math.round(e) + "";
     {
@@ -36526,7 +36526,7 @@ return accum;
               labelSize: this.metaData.computedLabelSize,
               labelAngle: this.metaData.computedLabelAngle,
               labelOrientation: this.userData.labelOrientation,
-              labels: L ? [L] : [I8(Oi(P - b, D - M), n)],
+              labels: L ? [L] : [I8(MathHypot(P - b, D - M), n)],
             });
           }
           return S;
@@ -45894,7 +45894,7 @@ return accum;
   Object.defineProperty(__dcg_chunk_exports__, "P", { get: () => W1 });
   Object.defineProperty(__dcg_chunk_exports__, "Q", { get: () => Bm });
   Object.defineProperty(__dcg_chunk_exports__, "R", { get: () => tY });
-  Object.defineProperty(__dcg_chunk_exports__, "S", { get: () => Oi });
+  Object.defineProperty(__dcg_chunk_exports__, "S", { get: () => MathHypot });
   Object.defineProperty(__dcg_chunk_exports__, "T", { get: () => Va });
   Object.defineProperty(__dcg_chunk_exports__, "U", { get: () => to });
   Object.defineProperty(__dcg_chunk_exports__, "V", { get: () => kF });
