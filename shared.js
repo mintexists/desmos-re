@@ -1,51 +1,53 @@
 (() => {
   const __dcg_chunk_exports__ = {};
-  var _5 =
-    ((e) =>
+  // #region Module Loading - names from chatgpt ok im sorry
+  var requireModule =
+    ((moduleName) =>
       typeof require != "undefined"
         ? require
         : typeof Proxy != "undefined"
-        ? new Proxy(e, {
+        ? new Proxy(moduleName, {
           get: (t, n) => (typeof require != "undefined" ? require : t)[n],
         })
-        : e)(function (e) {
+        : moduleName)(function (moduleName) {
         if (typeof require != "undefined") {
           return require.apply(this, arguments);
         }
-        throw Error('Dynamic require of "' + e + '" is not supported');
+        throw Error('Dynamic require of "' + moduleName + '" is not supported');
       });
-  var L5 = (e, t) => () => (e && (t = e(e = 0)), t);
-  var w5 =
-      (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports),
-    ia = (e, t) => {
-      for (var n in t) {
-        Object.defineProperty(e, n, { get: t[n], enumerable: true });
+  var lazyDefine = (initializer, moduleExports) => () => (initializer && (moduleExports = initializer(initializer = 0)), moduleExports);
+  var defineModule =
+      (moduleFactory, moduleExports) => () => (moduleExports || moduleFactory((moduleExports = { exports: {} }).exports, moduleExports), moduleExports.exports),
+    defineProperties = (target, source) => {
+      for (var property in source) {
+        Object.defineProperty(target, property, { get: source[property], enumerable: true });
       }
     },
-    VF = (e, t, n, r) => {
-      if (t && typeof t == "object" || typeof t == "function") {
-        for (let s of Object.getOwnPropertyNames(t)) {
-          !Object.prototype.hasOwnProperty.call(e, s) && s !== n &&
-            Object.defineProperty(e, s, {
-              get: () => t[s],
-              enumerable: !(r = Object.getOwnPropertyDescriptor(t, s)) ||
-                r.enumerable,
+    mergeExports = (targetModule, sourceModule, ignoreProp, descriptor) => {
+      if (sourceModule && typeof sourceModule == "object" || typeof sourceModule == "function") {
+        for (let property of Object.getOwnPropertyNames(sourceModule)) {
+          !Object.prototype.hasOwnProperty.call(targetModule, property) && property !== ignoreProp &&
+            Object.defineProperty(targetModule, property, {
+              get: () => sourceModule[property],
+              enumerable: !(descriptor = Object.getOwnPropertyDescriptor(sourceModule, property)) ||
+                descriptor.enumerable,
             });
         }
       }
-      return e;
+      return targetModule;
     };
-  var F5 = (
-    e,
-    t,
-    n,
-  ) => (n = e != null ? Object.create(Object.getPrototypeOf(e)) : {},
-    VF(
-      t || !e || !e.__esModule
-        ? Object.defineProperty(n, "default", { value: e, enumerable: true })
-        : n,
-      e,
+  var defineDefaultExport = (
+    moduleExports,
+    defaultExport,
+    ignoreProp,
+  ) => (ignoreProp = moduleExports != null ? Object.create(Object.getPrototypeOf(moduleExports)) : {},
+    mergeExports(
+      defaultExport || !moduleExports || !moduleExports.__esModule
+        ? Object.defineProperty(ignoreProp, "default", { value: moduleExports, enumerable: true })
+        : ignoreProp,
+      moduleExports,
     ));
+  // #endregion
   var V5 = (() => {
     for (var e = new Uint8Array(128), t = 0; t < 64; t++) {
       e[t < 26 ? t + 65 : t < 52 ? t + 71 : t < 62 ? t - 4 : t * 4 - 205] = t;
@@ -122,7 +124,7 @@
       trace: K5,
     } = Z1;
   var Oo = {};
-  ia(Oo, {
+  defineProperties(Oo, {
     DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS: () =>
       DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS,
     DEFAULT_EVALUATION_LABEL_OPTIONS: () => DEFAULT_EVALUATION_LABEL_OPTIONS,
@@ -1316,7 +1318,7 @@
       : "0";
   }
   var Ht = {};
-  ia(Ht, {
+  defineProperties(Ht, {
     actionMergeFreeVariable: () => actionMergeFreeVariableError,
     addArgumentsToDefinition: () => addArgumentsToDefinitionError,
     addTypeError: () => addTypeErrorError,
@@ -1725,7 +1727,7 @@
     return e.input.slice(e.start, e.end);
   }
   var Ie = {};
-  ia(Ie, {
+  defineProperties(Ie, {
     Action: () => Action,
     AngleMarker: () => AngleMarker,
     Any: () => Any,
@@ -5222,7 +5224,7 @@
     return isList(e.valueType);
   }
   var Gi = {};
-  ia(Gi, {
+  defineProperties(Gi, {
     LruCache: () => LruCache,
     RECURSIVE_COMPUTATION_LIMIT: () => RECURSIVE_COMPUTATION_LIMIT,
     RECURSIVE_DEPTH_LIMIT: () => RECURSIVE_DEPTH_LIMIT,
@@ -15322,7 +15324,7 @@
     },
     C = Qk;
   var F1 = {};
-  ia(F1, { parse: () => Mi, setInput: () => $A });
+  defineProperties(F1, { parse: () => Mi, setInput: () => $A });
   var Dr = { xmin: -5, xmax: 5, ymin: -5, ymax: 5, zmin: -5, zmax: 5 };
   function S0(e, t) {
     let n = Math.round(1e6 * e) / 1e6;
@@ -35932,7 +35934,7 @@
     };
   }
   var y8 = {};
-  ia(y8, {
+  defineProperties(y8, {
     LinearToSRGB: () => f8,
     SRGBToLinear: () => vb,
     colorString: () => qL,
@@ -44130,7 +44132,7 @@
     }
   };
   var Kb = {};
-  ia(Kb, { getFrame: () => G$ });
+  defineProperties(Kb, { getFrame: () => G$ });
   function G$(e) {
     let t = {};
     return e.additionalFunctions &&
@@ -44140,7 +44142,7 @@
       t;
   }
   var _m = {};
-  ia(_m, { getFrame: () => q$ });
+  defineProperties(_m, { getFrame: () => q$ });
   var tF = {
     segment: true,
     line: true,
@@ -44287,7 +44289,7 @@
       t;
   }
   var B1 = {};
-  ia(B1, { getFrame: () => X$ });
+  defineProperties(B1, { getFrame: () => X$ });
   var uF = ["pi", "e", "trigAngleMultiplier"],
     cF = [
       "sqrt",
@@ -44351,7 +44353,7 @@
       t;
   }
   var G1 = {};
-  ia(G1, { getFrame: () => Z$ });
+  defineProperties(G1, { getFrame: () => Z$ });
   var pF = ["pi", "e", "trigAngleMultiplier"],
     dF = [
       "sqrt",
@@ -46853,11 +46855,11 @@
       this.sendMessage("processChangeSet", n);
     }
   };
-  Object.defineProperty(__dcg_chunk_exports__, "a", { get: () => _5 });
-  Object.defineProperty(__dcg_chunk_exports__, "b", { get: () => L5 });
-  Object.defineProperty(__dcg_chunk_exports__, "c", { get: () => w5 });
-  Object.defineProperty(__dcg_chunk_exports__, "d", { get: () => ia });
-  Object.defineProperty(__dcg_chunk_exports__, "e", { get: () => F5 });
+  Object.defineProperty(__dcg_chunk_exports__, "a", { get: () => requireModule });
+  Object.defineProperty(__dcg_chunk_exports__, "b", { get: () => lazyDefine });
+  Object.defineProperty(__dcg_chunk_exports__, "c", { get: () => defineModule });
+  Object.defineProperty(__dcg_chunk_exports__, "d", { get: () => defineProperties });
+  Object.defineProperty(__dcg_chunk_exports__, "e", { get: () => defineDefaultExport });
   Object.defineProperty(__dcg_chunk_exports__, "f", { get: () => V5 });
   Object.defineProperty(__dcg_chunk_exports__, "g", { get: () => Fl });
   Object.defineProperty(__dcg_chunk_exports__, "h", { get: () => qm });
