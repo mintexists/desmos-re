@@ -20751,29 +20751,29 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   var sS = {};
   __dcg_shared_module_exports__["defineProperties"](sS, {
-    CLCalculator: () => ON,
+    CLCalculator: () => ON_CLCalculator,
     Label: () => __dcg_shared_module_exports__["OoLabel"],
-    applyDiff: () => FN,
-    applyLocalizationMap: () => HN,
-    blankGeometryCalculatorState: () => xQ,
-    blankGraphingCalculatorState: () => yQ,
-    builtInFrame: () => mQ,
-    calculateDiff: () => UN,
-    colorHelpers: () => __dcg_shared_module_exports__["Td"],
-    context: () => gQ,
-    expressionParser: () => WM,
-    extractLocalizationMap: () => qN,
-    formatLatex: () => tB,
-    migrateGeoStateToCalcState: () => ug,
-    migrateToLatest: () => dc,
+    applyDiff: () => FN_applyDiff,
+    applyLocalizationMap: () => HN_applyLocalizationMap,
+    blankGeometryCalculatorState: () => xQ_blankGeometryCalculatorState,
+    blankGraphingCalculatorState: () => yQ_blankGraphingCalculatorState,
+    builtInFrame: () => mQ_builtInFrame,
+    calculateDiff: () => UN_calculateDiff,
+    colorHelpers: () => __dcg_shared_module_exports__["colorHelpers"],
+    context: () => gQ_context,
+    expressionParser: () => WM_expressionParser,
+    extractLocalizationMap: () => qN_extractLocalizationMap,
+    formatLatex: () => tB_formatLatex,
+    migrateGeoStateToCalcState: () => ug_migrateGeoStateToCalcState,
+    migrateToLatest: () => dc_migrateToLatest,
     numberToDecimalString: () => __dcg_shared_module_exports__["ce"],
     numberToLatex: () => __dcg_shared_module_exports__["be"],
-    parseNodes: () => oB,
-    parser: () => uQ,
-    policies: () => bQ,
-    replaceIdentifierWithLatex: () => PM,
-    treeQueries: () => hQ,
-    types: () => fQ,
+    parseNodes: () => oB_parseNodes,
+    parser: () => uQ_parser,
+    policies: () => bQ_policies,
+    replaceIdentifierWithLatex: () => PM_replaceIdentifierWithLatex,
+    treeQueries: () => hQ_treeQueries,
+    types: () => fQ_types,
   });
   var wM = {
       enabled: false,
@@ -21996,9 +21996,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return ZC(r, e).length !== 0;
   }
   function eS(r, e, t) {
-    return LM(t) === void 0 ? r : PM(r, e, t);
+    return LM(t) === void 0 ? r : PM_replaceIdentifierWithLatex(r, e, t);
   }
-  function PM(r, e, t) {
+  function PM_replaceIdentifierWithLatex(r, e, t) {
     let o = ZC(r, e);
     if (o.length === 0) return r;
     let i = "", n = 0;
@@ -22383,7 +22383,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   }
   var FM = [fN, bN, xN, wN, CN, SN, TN, TM, kM, GM, VM, OM, RM];
   var _l = 12;
-  function dc(r) {
+  function dc_migrateToLatest(r) {
     if (r.version > _l) {
       return typeof console != "undefined" && console.warn &&
         console.warn(
@@ -22411,10 +22411,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return PN(r);
   }
   function VN(r) {
-    return PJ(dc(r));
+    return PJ(dc_migrateToLatest(r));
   }
-  function ON(r) {
-    let e = dc(r),
+  function ON_CLCalculator(r) {
+    let e = dc_migrateToLatest(r),
       t = {},
       o = e.graph.degreeMode,
       i = e.randomSeed,
@@ -22476,7 +22476,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       },
     };
   }
-  function FN(r, e) {
+  function FN_applyDiff(r, e) {
     let t = __dcg_shared_module_exports__["Jc"](r);
     return tS(t, e);
   }
@@ -22551,7 +22551,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     for (let s = i - 1; s >= 0; s--) n[s] = r[a], a = t[a];
     return n;
   }
-  function UN(r, e) {
+  function UN_calculateDiff(r, e) {
     return rS(r, e, 0);
   }
   function rS(r, e, t) {
@@ -22746,7 +22746,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       t(r.url, "url", "image", "geometry-object-image-url"),
       e;
   }
-  function qN(r) {
+  function qN_extractLocalizationMap(r) {
     let e = {};
     if (r.type == "graph") {
       let t = r.graphState.expressions.list;
@@ -22765,7 +22765,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
     return e;
   }
-  function HN(r, e, t) {
+  function HN_applyLocalizationMap(r, e, t) {
     var i;
     let o = __dcg_shared_module_exports__["Jc"](r);
     if (t === "graph") {
@@ -23027,7 +23027,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         return r;
     }
   }
-  function ug(r) {
+  function ug_migrateGeoStateToCalcState(r) {
     let e = !nQ,
       t = zM(r),
       o = {},
@@ -23434,8 +23434,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     ) return { script: zx("log", e, r[0].args[1]), arg: t ? Wr(t) : "" };
     if (eB(r[0])) return { script: zx("log", e), arg: t ? Wr(t) : "" };
   }
-  function tB(r) {
-    let e = WM.parse(r.latex);
+  function tB_formatLatex(r) {
+    let e = WM_expressionParser.parse(r.latex);
     if (e.type == "Err") return;
     let t = on(e);
     for (; t.type === "Paren";) t = t.args[0];
@@ -23632,7 +23632,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         let e = __dcg_shared_module_exports__["Vc"](r);
         return __dcg_shared_module_exports__["Rc"](e);
       } catch (e) {
-        let t = e instanceof oB.Base ? e.getInputSpan() : void 0;
+        let t = e instanceof oB_parseNodes.Base ? e.getInputSpan() : void 0;
         t || (t = __dcg_shared_module_exports__["ta"](r, 0, r.length));
         let o = {
           ...__dcg_shared_module_exports__["Qc"](),
@@ -23642,14 +23642,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       }
     }
   }
-  var uQ = { parse: dQ },
-    WM = { parse: pQ },
-    hQ = { countNumbers: iS },
-    gQ = __dcg_shared_module_exports__["pe"],
-    mQ = __dcg_shared_module_exports__["qc"],
-    fQ = __dcg_shared_module_exports__["Fb"],
-    oB = __dcg_shared_module_exports__["C_types"],
-    bQ = {
+  var uQ_parser = { parse: dQ },
+    WM_expressionParser = { parse: pQ },
+    hQ_treeQueries = { countNumbers: iS },
+    gQ_context = __dcg_shared_module_exports__["pe"],
+    mQ_builtInFrame = __dcg_shared_module_exports__["qc"],
+    fQ_types = __dcg_shared_module_exports__["Fb"],
+    oB_parseNodes = __dcg_shared_module_exports__["C_types"],
+    bQ_policies = {
       graphing: new __dcg_shared_module_exports__["ae"]({
         enableGeometry: false,
         enable3d: false,
@@ -23665,8 +23665,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         singleExpression: false,
       }),
     },
-    yQ = Bx,
-    xQ = nf;
+    yQ_blankGraphingCalculatorState = Bx,
+    xQ_blankGeometryCalculatorState = nf;
   var zpe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var el = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     mt = class extends el.Class {
@@ -89573,7 +89573,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     if (!(o[0].length < 2)) return o;
   }
   function Z9(r) {
-    let e = __dcg_shared_module_exports__["Jc"](dc(r));
+    let e = __dcg_shared_module_exports__["Jc"](dc_migrateToLatest(r));
     return e.graph.product = "geometry-calculator", e;
   }
   function AI(r) {
@@ -89719,8 +89719,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (!l.ok) throw void 0;
       let c = await l.json(), d = c.state, p = e$(e);
       r.isGeometry() &&
-      (p === "geometry" ? d = ug(d) : p === "graphing" && (d = Z9(d))),
-        d = dc(d),
+      (p === "geometry" ? d = ug_migrateGeoStateToCalcState(d) : p === "graphing" && (d = Z9(d))),
+        d = dc_migrateToLatest(d),
         t(d, (h, u) => {
           h || !u || !p ? i() : s(u, c.title || "", p);
         });
@@ -104985,7 +104985,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         t || (t = {}),
         e || (e = this.getBlankState()),
         typeof e == "string" && (e = JSON.parse(e));
-      let o = dc(e);
+      let o = dc_migrateToLatest(e);
       !this.canEnableComplexMode() &&
         ((s = o == null ? void 0 : o.graph) != null && s.complex) &&
         (o.graph.complex = false, o.graph.degreeMode = e.graph.degreeMode);
@@ -117448,11 +117448,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         getSliderMin: nl,
         getSliderMax: bc,
         valueTypes: __dcg_shared_module_exports__["valueTypes"],
-        migrateGeoStateToCalcState: ug,
+        migrateGeoStateToCalcState: ug_migrateGeoStateToCalcState,
         Mathtools: sS,
       },
       GeometryBeta: GR,
-      migrateGeoStateToCalcState: ug,
+      migrateGeoStateToCalcState: ug_migrateGeoStateToCalcState,
       HeadlessGraphingCalculator: LR,
       maybeNotifyUserChangedLatex: Fe.simulateUserChangedLatex,
       Fragile: {

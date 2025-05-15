@@ -38688,8 +38688,8 @@
       ...c8(e),
     };
   }
-  var y8 = {};
-  defineProperties(y8, {
+  var y8_colorHelpers = {};
+  defineProperties(y8_colorHelpers, {
     LinearToSRGB: () => f8,
     SRGBToLinear: () => vb,
     colorString: () => qL,
@@ -51166,8 +51166,8 @@
   Object.defineProperty(__dcg_chunk_exports__, "Sd", {
     get: () => m8,
   });
-  Object.defineProperty(__dcg_chunk_exports__, "Td", {
-    get: () => y8,
+  Object.defineProperty(__dcg_chunk_exports__, "colorHelpers", {
+    get: () => y8_colorHelpers,
   });
   Object.defineProperty(__dcg_chunk_exports__, "Ud", {
     get: () => Aie,
