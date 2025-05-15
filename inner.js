@@ -1,7 +1,7 @@
-import {xhrFetch} from "./utils.js"
+import { xhrFetch } from "./utils.js";
 
 export default (() => {
-  const __dcg_shared_module_source__ = xhrFetch('./shared.js');
+  const __dcg_shared_module_source__ = xhrFetch("./shared.js");
   const __dcg_shared_module_exports__ = eval(
     __dcg_shared_module_source__,
   );
@@ -11,7 +11,7 @@ export default (() => {
 // store the code for the worker module as a function that takes the shared module exports as an argument
 const __dcg_worker_module__ = (__dcg_shared_module_exports__) => {
 ` +
-      xhrFetch('./worker.js') +
+      xhrFetch("./worker.js") +
       `
 };
 // execute the shared module store its exports
@@ -45,20 +45,20 @@ __dcg_worker_module__(__dcg_worker_shared_module_exports__);`;
 
     return { createWorker, default: { createWorker } };
   })();
-  var iB = __dcg_shared_module_exports__["b"](() => {});
-  var nB = __dcg_shared_module_exports__["b"](() => {});
-  var aB = __dcg_shared_module_exports__["b"](() => {});
-  var sB = __dcg_shared_module_exports__["b"](() => {});
-  var lB = __dcg_shared_module_exports__["b"](() => {});
-  var cB = __dcg_shared_module_exports__["b"](() => {});
-  var dB = __dcg_shared_module_exports__["b"](() => {});
-  var pB = __dcg_shared_module_exports__["b"](() => {});
-  var uB = __dcg_shared_module_exports__["b"](() => {});
-  var hB = __dcg_shared_module_exports__["b"](() => {});
-  var gB = __dcg_shared_module_exports__["b"](() => {});
-  var mB = __dcg_shared_module_exports__["b"](() => {});
-  var fB = __dcg_shared_module_exports__["b"](() => {});
-  var bB = __dcg_shared_module_exports__["b"](() => {
+  var iB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var nB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var aB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var sB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var lB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var cB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var dB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var pB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var uB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var hB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var gB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var mB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var fB = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var bB = __dcg_shared_module_exports__["lazyDefine"](() => {
     nB();
     aB();
     sB();
@@ -74,11 +74,11 @@ __dcg_worker_module__(__dcg_worker_shared_module_exports__);`;
   });
   var wQ,
     yge,
-    yB = __dcg_shared_module_exports__["b"](() => {
+    yB = __dcg_shared_module_exports__["lazyDefine"](() => {
       wQ = ["education", "commercial", "generic", "prospect"],
         yge = [...wQ, "uncategorized"];
     });
-  var xB = __dcg_shared_module_exports__["b"](() => {});
+  var xB = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function $M(r) {
     let e = {};
     for (let t in r) e[t] = r[t].getAuthoringConfig();
@@ -97,7 +97,7 @@ __dcg_worker_module__(__dcg_worker_shared_module_exports__);`;
     dS,
     jM,
     hg,
-    wB = __dcg_shared_module_exports__["b"](() => {
+    wB = __dcg_shared_module_exports__["lazyDefine"](() => {
       Hx = class {},
         Su = class extends Hx {
           constructor() {
@@ -772,7 +772,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     GQ,
     LQ,
     PQ,
-    DB = __dcg_shared_module_exports__["b"](() => {
+    DB = __dcg_shared_module_exports__["lazyDefine"](() => {
       wB();
       pS = new pt({
         name: "Horizontal Axis",
@@ -1451,11 +1451,11 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
           dcg_cost_curves: TQ,
         });
     });
-  var kB = __dcg_shared_module_exports__["b"](() => {
+  var kB = __dcg_shared_module_exports__["lazyDefine"](() => {
     DB();
   });
-  var _B = __dcg_shared_module_exports__["b"](() => {});
-  var IB = __dcg_shared_module_exports__["b"](() => {});
+  var _B = __dcg_shared_module_exports__["lazyDefine"](() => {});
+  var IB = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function NQ(r) {
     var o;
     let [e, t] = (o = RQ.exec(r)) != null ? o : [];
@@ -1487,26 +1487,26 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     OQ,
     RQ,
     FQ,
-    AB = __dcg_shared_module_exports__["b"](() => {
+    AB = __dcg_shared_module_exports__["lazyDefine"](() => {
       VQ = /lang=[A-Za-z]+/,
         OQ = /(cl|learn|help).desmos.com/,
         RQ = /^(?:https?:)?(?:\/\/)?([^\s:\/\?]+)/i,
         FQ = /(^desmos\.com$)|(\.desmos.com$)/;
     });
-  var MB = __dcg_shared_module_exports__["b"](() => {});
+  var MB = __dcg_shared_module_exports__["lazyDefine"](() => {});
   var GB,
-    LB = __dcg_shared_module_exports__["b"](() => {
+    LB = __dcg_shared_module_exports__["lazyDefine"](() => {
       GB = () => {};
     });
   var PB,
     cf,
     Mge,
-    VB = __dcg_shared_module_exports__["b"](() => {
+    VB = __dcg_shared_module_exports__["lazyDefine"](() => {
       PB = "v1_10",
         cf = `dcg-calculator-api-container-${PB}`,
         Mge = `dcg-matrix-api-container-${PB}`;
     });
-  var mg = __dcg_shared_module_exports__["b"](() => {
+  var mg = __dcg_shared_module_exports__["lazyDefine"](() => {
     bB();
     yB();
     xB();
@@ -1524,7 +1524,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
   function Wx(r, e, t) {
     df == null || df.leaveBreadcrumb(r, e, t);
   }
-  var df, Ss = __dcg_shared_module_exports__["b"](() => {});
+  var df, Ss = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function fS(r) {
     let e = () => r;
     return e.isDCGViewConst = true, e;
@@ -1532,7 +1532,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
   function Hn(r) {
     return typeof r == "function" && !!r.isDCGViewConst;
   }
-  var pc = __dcg_shared_module_exports__["b"](() => {});
+  var pc = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function OB(r) {
     let e = r();
     if (typeof e == "string") return e;
@@ -1566,7 +1566,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
   }
   var RB,
     FB,
-    BB = __dcg_shared_module_exports__["b"](() => {
+    BB = __dcg_shared_module_exports__["lazyDefine"](() => {
       pc();
       RB = /^\s+|\s+$/g, FB = /\s+/;
     });
@@ -1585,13 +1585,13 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
       return { bindings: { [r]: e } };
     };
   }
-  var zB = __dcg_shared_module_exports__["b"](() => {
+  var zB = __dcg_shared_module_exports__["lazyDefine"](() => {
     pc();
   });
   function bS(r, e, t) {
     return t === void 0 ? r.removeAttribute(e) : r.setAttribute(e, `${t}`);
   }
-  var JM = __dcg_shared_module_exports__["b"](() => {});
+  var JM = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function qB(r) {
     let e = r(), t = typeof e;
     if (t === "string") return e;
@@ -1614,7 +1614,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
       };
     return { value: e, bindings: t };
   }
-  var KB = __dcg_shared_module_exports__["b"](() => {
+  var KB = __dcg_shared_module_exports__["lazyDefine"](() => {
     JM();
     pc();
   });
@@ -1629,7 +1629,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     return t(e);
   }
   var QM,
-    yS = __dcg_shared_module_exports__["b"](() => {
+    yS = __dcg_shared_module_exports__["lazyDefine"](() => {
       QM = {};
     });
   function jB(r, e) {
@@ -1653,7 +1653,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
       };
     }
   }
-  var YB = __dcg_shared_module_exports__["b"](() => {});
+  var YB = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function XB(r, e) {
     let t = e(), o;
     return Hn(e) || (o = {
@@ -1665,14 +1665,14 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     }),
       { value: t, bindings: o };
   }
-  var JB = __dcg_shared_module_exports__["b"](() => {
+  var JB = __dcg_shared_module_exports__["lazyDefine"](() => {
     JM();
     pc();
   });
   function QB(r) {
     return r.startsWith("on") && r[2] === r[2].toUpperCase();
   }
-  var ZB = __dcg_shared_module_exports__["b"](() => {});
+  var ZB = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function e5(r, e) {
     if (typeof e != "function") {
       throw new Error(
@@ -1681,7 +1681,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     }
     return WB(r) ? $B(r, e) : QB(r) ? jB(r, e) : XB(r, e);
   }
-  var t5 = __dcg_shared_module_exports__["b"](() => {
+  var t5 = __dcg_shared_module_exports__["lazyDefine"](() => {
     YB();
     JB();
     yS();
@@ -1695,7 +1695,7 @@ ${qx(i.attribute_key, JSON.stringify(c))}}`);
     var o;
     ((o = r._bindings[e]) != null ? o : []).forEach((i) => i());
   }
-  var ZM = __dcg_shared_module_exports__["b"](() => {});
+  var ZM = __dcg_shared_module_exports__["lazyDefine"](() => {});
   function o5(r) {
     $x.push(r);
   }
@@ -1718,7 +1718,7 @@ ${i.formatted}`
     console.warn(t), $x.forEach((o) => o(t));
   }
   var $x,
-    xS = __dcg_shared_module_exports__["b"](() => {
+    xS = __dcg_shared_module_exports__["lazyDefine"](() => {
       id();
       $x = [];
     });
@@ -1726,7 +1726,7 @@ ${i.formatted}`
     bg,
     wS,
     vS,
-    uf = __dcg_shared_module_exports__["b"](() => {
+    uf = __dcg_shared_module_exports__["lazyDefine"](() => {
       pc();
       xS();
       qa = class {
@@ -1800,12 +1800,12 @@ ${i.formatted}`
       ? new vS(r, i, o)
       : new r(a)._construct();
   }
-  var hf = __dcg_shared_module_exports__["b"](() => {
+  var hf = __dcg_shared_module_exports__["lazyDefine"](() => {
     uf();
   });
   var Eu,
     qi,
-    id = __dcg_shared_module_exports__["b"](() => {
+    id = __dcg_shared_module_exports__["lazyDefine"](() => {
       t5();
       ZM();
       pc();
@@ -1988,8 +1988,8 @@ ${i.formatted}`
     });
   var Tme,
     CS,
-    a5 = __dcg_shared_module_exports__["b"](() => {
-      Tme = __dcg_shared_module_exports__["e"](ne());
+    a5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      Tme = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       id();
       CS = class extends qi {
         constructor() {
@@ -2028,7 +2028,7 @@ ${i.formatted}`
       };
     });
   var s5,
-    l5 = __dcg_shared_module_exports__["b"](() => {
+    l5 = __dcg_shared_module_exports__["lazyDefine"](() => {
       s5 = (r) => {
         let e = r.length,
           t = new Array(e),
@@ -2070,7 +2070,7 @@ ${i.formatted}`
     }
     return { removes: o, inserts: s };
   }
-  var d5 = __dcg_shared_module_exports__["b"](() => {
+  var d5 = __dcg_shared_module_exports__["lazyDefine"](() => {
     l5();
   });
   function p5(r, e, t) {
@@ -2127,14 +2127,14 @@ ${i.formatted}`
     let t = document.createDocumentFragment();
     return r.renderTo(t, e), t.childNodes;
   }
-  var ES = __dcg_shared_module_exports__["b"](() => {
+  var ES = __dcg_shared_module_exports__["lazyDefine"](() => {
     ZM();
   });
   var Lme,
     eG,
     wf,
-    tG = __dcg_shared_module_exports__["b"](() => {
-      Lme = __dcg_shared_module_exports__["e"](ne());
+    tG = __dcg_shared_module_exports__["lazyDefine"](() => {
+      Lme = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       d5();
       pc();
       uf();
@@ -2301,16 +2301,16 @@ ${i.formatted}`
     return o._viewName = "Each", o;
   }
   var Bme,
-    g5 = __dcg_shared_module_exports__["b"](() => {
-      Bme = __dcg_shared_module_exports__["e"](ne());
+    g5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      Bme = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       hf();
       tG();
     });
   var Hme,
     rG,
     ad,
-    jx = __dcg_shared_module_exports__["b"](() => {
-      Hme = __dcg_shared_module_exports__["e"](ne());
+    jx = __dcg_shared_module_exports__["lazyDefine"](() => {
+      Hme = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       pc();
       uf();
       ES();
@@ -2400,8 +2400,8 @@ ${i.formatted}`
     });
   var Xme,
     TS,
-    m5 = __dcg_shared_module_exports__["b"](() => {
-      Xme = __dcg_shared_module_exports__["e"](ne());
+    m5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      Xme = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       pc();
       uf();
       jx();
@@ -2455,8 +2455,8 @@ ${i.formatted}`
     return t._viewName = "IfDefined", t;
   }
   var rfe,
-    b5 = __dcg_shared_module_exports__["b"](() => {
-      rfe = __dcg_shared_module_exports__["e"](ne());
+    b5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      rfe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       hf();
       jx();
     });
@@ -2465,8 +2465,8 @@ ${i.formatted}`
   }
   var afe,
     y5,
-    oG = __dcg_shared_module_exports__["b"](() => {
-      afe = __dcg_shared_module_exports__["e"](ne());
+    oG = __dcg_shared_module_exports__["lazyDefine"](() => {
+      afe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       hf();
       jx();
       y5 = (r, e, t) => {
@@ -2487,14 +2487,14 @@ ${i.formatted}`
     return t._viewName = "IfElse", t;
   }
   var dfe,
-    w5 = __dcg_shared_module_exports__["b"](() => {
-      dfe = __dcg_shared_module_exports__["e"](ne());
+    w5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      dfe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       oG();
     });
   var hfe,
     kS,
-    v5 = __dcg_shared_module_exports__["b"](() => {
-      hfe = __dcg_shared_module_exports__["e"](ne());
+    v5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      hfe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       id();
       kS = class extends qi {
         constructor() {
@@ -2541,8 +2541,8 @@ ${i.formatted}`
     });
   var ffe,
     _S,
-    C5 = __dcg_shared_module_exports__["b"](() => {
-      ffe = __dcg_shared_module_exports__["e"](ne());
+    C5 = __dcg_shared_module_exports__["lazyDefine"](() => {
+      ffe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
       id();
       _S = class extends qi {
         constructor() {
@@ -2584,7 +2584,7 @@ ${i.formatted}`
       };
     });
   var IS = {};
-  __dcg_shared_module_exports__["d"](IS, {
+  __dcg_shared_module_exports__["defineProperties"](IS, {
     Checkbox: () => CS,
     Each: () => h5,
     For: () => wf,
@@ -2596,7 +2596,7 @@ ${i.formatted}`
     SwitchUnion: () => DS,
     Textarea: () => _S,
   });
-  var S5 = __dcg_shared_module_exports__["b"](() => {
+  var S5 = __dcg_shared_module_exports__["lazyDefine"](() => {
     a5();
     g5();
     tG();
@@ -2609,7 +2609,7 @@ ${i.formatted}`
     C5();
   });
   var iG = {};
-  __dcg_shared_module_exports__["d"](iG, {
+  __dcg_shared_module_exports__["defineProperties"](iG, {
     Class: () => UQ,
     Components: () => IS,
     View: () => qi,
@@ -2624,7 +2624,7 @@ ${i.formatted}`
     unmountFromNode: () => u5,
   });
   var UQ,
-    nG = __dcg_shared_module_exports__["b"](() => {
+    nG = __dcg_shared_module_exports__["lazyDefine"](() => {
       BB();
       zB();
       KB();
@@ -2653,7 +2653,7 @@ ${i.formatted}`
       ].forEach((r) => pf(r, UB(r)));
     });
   var sd,
-    E5 = __dcg_shared_module_exports__["b"](() => {
+    E5 = __dcg_shared_module_exports__["lazyDefine"](() => {
       nG();
       nG();
       sd = iG;
@@ -2974,7 +2974,7 @@ ${i.formatted}`
     dZ,
     pZ,
     ee,
-    qt = __dcg_shared_module_exports__["b"](() => {
+    qt = __dcg_shared_module_exports__["lazyDefine"](() => {
       "use strict";
       hp = [],
         zQ = Object.getPrototypeOf,
@@ -4188,7 +4188,8 @@ ${i.formatted}`
             setup: function () {
               var o = this.ownerDocument || this.document || this,
                 i = Qo.access(o, e);
-              i || o.addEventListener(r, t, true), Qo.access(o, e, (i || 0) + 1);
+              i || o.addEventListener(r, t, true),
+                Qo.access(o, e, (i || 0) + 1);
             },
             teardown: function () {
               var o = this.ownerDocument || this.document || this,
@@ -4422,7 +4423,7 @@ ${i.formatted}`
       typeof noGlobal == "undefined" && (window.jQuery = window.$ = le);
       ee = le;
     });
-  var ne = __dcg_shared_module_exports__["c"](($fe, W5) => {
+  var ne = __dcg_shared_module_exports__["defineModule"](($fe, W5) => {
     iB();
     mg();
     Ss();
@@ -4513,7 +4514,7 @@ ${i.formatted}`
       });
     W5.exports = sd;
   });
-  var CU = __dcg_shared_module_exports__["c"]((sw) => {
+  var CU = __dcg_shared_module_exports__["defineModule"]((sw) => {
     var ht = sw && sw.__extends || function () {
         var r = function (e, t) {
           return r = Object.setPrototypeOf ||
@@ -5395,7 +5396,11 @@ ${i.formatted}`
                 b.setEnds(X),
                 H[e] = m,
                 G.each(function (ge) {
-                  return ge[r] = g, ge.parent = b, g && (g[e] = ge), g = ge, true;
+                  return ge[r] = g,
+                    ge.parent = b,
+                    g && (g[e] = ge),
+                    g = ge,
+                    true;
                 }),
                 G;
             },
@@ -11138,7 +11143,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
       }
     })();
   });
-  var sK = __dcg_shared_module_exports__["c"]((nke, aK) => {
+  var sK = __dcg_shared_module_exports__["defineModule"]((nke, aK) => {
     aK.exports = {
       area: true,
       base: true,
@@ -11158,7 +11163,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
       wbr: true,
     };
   });
-  var cK = __dcg_shared_module_exports__["c"]((ake, lK) => {
+  var cK = __dcg_shared_module_exports__["defineModule"]((ake, lK) => {
     var Woe = /([\w-]+)|=|(['"])([.\s\S]*?)\2/g, $oe = sK();
     lK.exports = function (r) {
       var e = 0,
@@ -11189,7 +11194,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         i;
     };
   });
-  var pK = __dcg_shared_module_exports__["c"]((ske, dK) => {
+  var pK = __dcg_shared_module_exports__["defineModule"]((ske, dK) => {
     var joe = /(?:<!--[\S\s]*?-->|<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)/g,
       Yoe = cK(),
       Xoe = Object.create ? Object.create(null) : {};
@@ -11234,7 +11239,7 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
         o;
     };
   });
-  var gK = __dcg_shared_module_exports__["c"]((lke, hK) => {
+  var gK = __dcg_shared_module_exports__["defineModule"]((lke, hK) => {
     function Joe(r) {
       var e = [];
       for (var t in r) e.push(t + '="' + r[t] + '"');
@@ -11258,11 +11263,11 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
       }, "");
     };
   });
-  var fK = __dcg_shared_module_exports__["c"]((cke, mK) => {
+  var fK = __dcg_shared_module_exports__["defineModule"]((cke, mK) => {
     mK.exports = { parse: pK(), stringify: gK() };
   });
   var td = {};
-  __dcg_shared_module_exports__["d"](td, {
+  __dcg_shared_module_exports__["defineProperties"](td, {
     UnicodeBraille: () => sa,
     latexToNemeth: () => lp,
     latexToUeb: () => cp,
@@ -11291,18 +11296,21 @@ https://github.com/mathquill/mathquill/wiki/%60dev%60-branch-(2014%E2%80%932015)
     },
     Qm =
       ((r) =>
-        typeof __dcg_shared_module_exports__["a"] != "undefined"
-          ? __dcg_shared_module_exports__["a"]
+        typeof __dcg_shared_module_exports__["requireModule"] != "undefined"
+          ? __dcg_shared_module_exports__["requireModule"]
           : typeof Proxy != "undefined"
           ? new Proxy(r, {
             get: (e, t) =>
-              (typeof __dcg_shared_module_exports__["a"] != "undefined"
-                ? __dcg_shared_module_exports__["a"]
+              (typeof __dcg_shared_module_exports__["requireModule"] !=
+                  "undefined"
+                ? __dcg_shared_module_exports__["requireModule"]
                 : e)[t],
           })
           : r)(function (r) {
-          if (typeof __dcg_shared_module_exports__["a"] != "undefined") {
-            return __dcg_shared_module_exports__["a"].apply(
+          if (
+            typeof __dcg_shared_module_exports__["requireModule"] != "undefined"
+          ) {
+            return __dcg_shared_module_exports__["requireModule"].apply(
               this,
               arguments,
             );
@@ -18273,7 +18281,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
                     }
                   }
                   return at
-                    ? (Ue = this.test_match(at, J[be]), Ue !== false ? Ue : false)
+                    ? (Ue = this.test_match(at, J[be]),
+                      Ue !== false ? Ue : false)
                     : this._input === ""
                     ? this.EOF
                     : this.parseError(
@@ -20043,10 +20052,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return t;
   }
   function jY(r) {
-    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : false;
+    return r.type === "terminal"
+      ? /^(\\langle |\[|\(|\\{)$/.test(r.value)
+      : false;
   }
   function YY(r) {
-    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : false;
+    return r.type === "terminal"
+      ? /^(\\rangle |\]|\)|\\})$/.test(r.value)
+      : false;
   }
   function XY(r) {
     return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : false;
@@ -20411,10 +20424,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return t;
   }
   function fX(r) {
-    return r.type === "terminal" ? /^(\\langle |\[|\(|\\{)$/.test(r.value) : false;
+    return r.type === "terminal"
+      ? /^(\\langle |\[|\(|\\{)$/.test(r.value)
+      : false;
   }
   function bX(r) {
-    return r.type === "terminal" ? /^(\\rangle |\]|\)|\\})$/.test(r.value) : false;
+    return r.type === "terminal"
+      ? /^(\\rangle |\]|\)|\\})$/.test(r.value)
+      : false;
   }
   function yX(r) {
     return r.type === "terminal" ? /^(\\\||\|)$/.test(r.value) : false;
@@ -20723,18 +20740,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let o = __dcg_shared_module_exports__["Nb"](
       __dcg_shared_module_exports__["qc"],
     );
-    return o.trigAngleMultiplier = new __dcg_shared_module_exports__["pc"](
-      e ? Math.PI / 180 : 1,
-    ),
+    return o.trigAngleMultiplier =
+      new __dcg_shared_module_exports__["Et_Constant"](
+        e ? Math.PI / 180 : 1,
+      ),
       +__dcg_shared_module_exports__["Wc"](r).tryGetConcreteTree(
         __dcg_shared_module_exports__["Xc"],
         o,
       ).asValue();
   }
   var sS = {};
-  __dcg_shared_module_exports__["d"](sS, {
+  __dcg_shared_module_exports__["defineProperties"](sS, {
     CLCalculator: () => ON,
-    Label: () => __dcg_shared_module_exports__["qa"],
+    Label: () => __dcg_shared_module_exports__["OoLabel"],
     applyDiff: () => FN,
     applyLocalizationMap: () => HN,
     blankGeometryCalculatorState: () => xQ,
@@ -20939,7 +20957,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       e;
   }
   var SM = { NONE: "NONE", POSITIVE: "POSITIVE", BOTH: "BOTH" },
-    zX = { expression: true, table: true, image: true, folder: true, text: true };
+    zX = {
+      expression: true,
+      table: true,
+      image: true,
+      folder: true,
+      text: true,
+    };
   function qX(r) {
     if (r.type) {
       if (zX.hasOwnProperty(r.type)) return r.type;
@@ -23624,7 +23648,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     gQ = __dcg_shared_module_exports__["pe"],
     mQ = __dcg_shared_module_exports__["qc"],
     fQ = __dcg_shared_module_exports__["Fb"],
-    oB = __dcg_shared_module_exports__["wc"],
+    oB = __dcg_shared_module_exports__["C_types"],
     bQ = {
       graphing: new __dcg_shared_module_exports__["ae"]({
         enableGeometry: false,
@@ -23643,8 +23667,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     },
     yQ = Bx,
     xQ = nf;
-  var zpe = __dcg_shared_module_exports__["e"](ne());
-  var el = __dcg_shared_module_exports__["e"](ne()),
+  var zpe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var el = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     mt = class extends el.Class {
       template() {
         return el.createElement(
@@ -23737,7 +23761,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         };
     }
   }();
-  var cl = __dcg_shared_module_exports__["e"](ne());
+  var cl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   mg();
   var uZ = (r) => XM(r) || r === "localhost",
@@ -23858,7 +23882,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ? void 0
       : j5.matches;
   var sr = {};
-  __dcg_shared_module_exports__["d"](sr, {
+  __dcg_shared_module_exports__["defineProperties"](sr, {
     ALT: () => fG,
     BACKSPACE: () => _u,
     CAPSLOCK: () => yG,
@@ -24543,7 +24567,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     elIsTypeable: wp,
     shouldIgnoreMouseDown: yU,
   };
-  var Lbe = __dcg_shared_module_exports__["e"](CU());
+  var Lbe = __dcg_shared_module_exports__["defineDefaultExport"](CU());
   qt();
   var SU = [
       "exp|exponent ln|natural-log log",
@@ -24729,9 +24753,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       t !== this.shouldBeFocused() && this.props.onFocusedChanged(t, e);
     }
   };
-  var N8 = __dcg_shared_module_exports__["e"](ne());
-  var $i = __dcg_shared_module_exports__["e"](ne());
-  var n0e = __dcg_shared_module_exports__["e"](ne());
+  var N8 = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var $i = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var n0e = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var XS = { IS_HOVERED: 1.25, IS_PRESSED: 1.125, IS_GHOSTED: .4 },
     lw = { IS_HOVERED: .5, IS_DEPRESSED: .3 },
     _G = { IS_GHOSTED: .4 },
@@ -24807,7 +24831,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       i = IU(r, o);
     if (
       t && t.type === "iterative" && t.signature.argTypes.length === 1 &&
-      t.returnType === __dcg_shared_module_exports__["wa"] &&
+      t.returnType === __dcg_shared_module_exports__["Number"] &&
       r.formula.function_definition && i !== void 0 && isFinite(i) &&
       Math.abs(i) < AG
     ) return "recursive-function";
@@ -24879,7 +24903,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return {
       headers: [
         "x",
-        `${__dcg_shared_module_exports__["ma"](e)}\\left(x\\right)`,
+        `${
+          __dcg_shared_module_exports__["identifierToLatex"](e)
+        }\\left(x\\right)`,
       ],
       values: [i, []],
     };
@@ -24890,7 +24916,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ? {
         headers: [
           "x",
-          `${__dcg_shared_module_exports__["ma"](e)}\\left(x\\right)`,
+          `${
+            __dcg_shared_module_exports__["identifierToLatex"](e)
+          }\\left(x\\right)`,
         ],
         values: [IG, []],
       }
@@ -25490,20 +25518,20 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     }
   }
   function qU(r, e) {
-    let t = __dcg_shared_module_exports__["Rb"](r),
-      o = __dcg_shared_module_exports__["Rb"](e);
+    let t = __dcg_shared_module_exports__["toFraction"](r),
+      o = __dcg_shared_module_exports__["toFraction"](e);
     if (
       !__dcg_shared_module_exports__["Y"](t.n / t.d, r) ||
       !__dcg_shared_module_exports__["Y"](o.n / o.d, e)
     ) return;
-    let i = __dcg_shared_module_exports__["Tb"](t.d, o.d),
+    let i = __dcg_shared_module_exports__["lcm"](t.d, o.d),
       n = t.n * (i / t.d),
       s = o.n * (i / o.d) - n;
     return { nstart: n, nstep: s, lcm: i };
   }
   function FZ(r) {
     return isFinite(r)
-      ? __dcg_shared_module_exports__["la"](r, {
+      ? __dcg_shared_module_exports__["truncatedLatexLabel"](r, {
         digits: 8,
         bigCutoff: 1e6,
         smallCutoff: .001,
@@ -25513,7 +25541,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function NZ(r) {
     return !isFinite(r[0]) || !isFinite(r[1])
       ? "\\mathrm{undefined}"
-      : __dcg_shared_module_exports__["pa"](r, {
+      : __dcg_shared_module_exports__["complexNumberLabel"](r, {
         digits: 5,
         bigCutoff: 1e6,
         smallCutoff: .001,
@@ -25539,7 +25567,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     for (let n = t.values.length - 1; n >= 0; n--) {
       let a = t.values[n];
       typeof a == "number"
-        ? (i.computedValues[n] = FZ(a), isNaN(a) && (i.hasNanOrErrorValue = true))
+        ? (i.computedValues[n] = FZ(a),
+          isNaN(a) && (i.hasNanOrErrorValue = true))
         : Array.isArray(a)
         ? (i.computedValues[n] = NZ(a),
           (isNaN(a[0]) || isNaN(a[1])) && (i.hasNanOrErrorValue = true),
@@ -25873,7 +25902,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     for (let n = 0; n < i; n++) {
       o.push({
         id: t.generateId(),
-        latex: __dcg_shared_module_exports__["ma"](HU[n] + "_" + r),
+        latex: __dcg_shared_module_exports__["identifierToLatex"](
+          HU[n] + "_" + r,
+        ),
         values: e[n],
         color: t.getNextColor(),
         hidden: false,
@@ -26407,13 +26438,15 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             : o.status) === "success"
       ) {
         let l = s.formula.table_regression.result.residualVariable,
-          c = __dcg_shared_module_exports__["na"](l);
+          c = __dcg_shared_module_exports__["latexToIdentifier"](l);
         e.add(c);
       } else if (s.type === "expression" && s.formula.is_regression) {
         let l = (i = s.formula.regression) == null
             ? void 0
             : i.residualVariable,
-          c = l ? __dcg_shared_module_exports__["na"](l) : void 0;
+          c = l
+            ? __dcg_shared_module_exports__["latexToIdentifier"](l)
+            : void 0;
         c && e.add(c);
         for (
           let d
@@ -26899,7 +26932,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function TE(r) {
     return r.formula
       ? r.formula.variables.map((t) =>
-        __dcg_shared_module_exports__["ma"](t)
+        __dcg_shared_module_exports__["identifierToLatex"](t)
       ) || []
       : [];
   }
@@ -27180,7 +27213,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         Cw(e, this.suggestedIdentifierRename.from) === 0 &&
         (this.suggestedIdentifierRename = void 0);
       let n = t.formula.defined_name || "",
-        a = n ? __dcg_shared_module_exports__["ma"](n) : "";
+        a = n ? __dcg_shared_module_exports__["identifierToLatex"](n) : "";
       if (!this.suggestedIdentifierRename) {
         a &&
           (this.suggestedIdentifierRename = {
@@ -27207,7 +27240,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         this.suggestedIdentifierRename.countOfChanges = 0;
         return;
       }
-      let s = __dcg_shared_module_exports__["na"](
+      let s = __dcg_shared_module_exports__["latexToIdentifier"](
         this.suggestedIdentifierRename.from,
       );
       if (this.suggestedIdentifierRename.folderId = void 0, o(s) > 0) {
@@ -27367,7 +27400,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
   function Sw(r) {
     var e;
     return (((e = r.formula) == null ? void 0 : e.variables) || []).map(
-      (t) => __dcg_shared_module_exports__["ma"](t),
+      (t) => __dcg_shared_module_exports__["identifierToLatex"](t),
     );
   }
   function ME(r, e) {
@@ -28392,14 +28425,14 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             let { value: d, valueType: p } =
               (s = n.typed_constant_value) != null ? s : {};
             d !== void 0 &&
-              (p === __dcg_shared_module_exports__["Ba"]
+              (p === __dcg_shared_module_exports__["ListOfNumber"]
                 ? l.evaluation = {
                   type: "ListOfNumber",
                   value: d.slice(),
                 }
-                : __dcg_shared_module_exports__["ua"](
+                : __dcg_shared_module_exports__["isSubTypeOrCoercible"](
                   p,
-                  __dcg_shared_module_exports__["wa"],
+                  __dcg_shared_module_exports__["Number"],
                 ) && (l.evaluation = { type: "Number", value: d }),
                 l.evaluationDisplayed = !!n.is_evaluable);
             break;
@@ -28960,7 +28993,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       }
       updateFromValues(e) {
         var t, o, i;
-        if (e && e.valueType === __dcg_shared_module_exports__["fb"]) {
+        if (e && e.valueType === __dcg_shared_module_exports__["Tone"]) {
           this.synthesizers.length > 1
             ? (this.tearDownSynthesizers(this.synthesizers.slice(1)),
               this.synthesizers.length = 1)
@@ -28969,7 +29002,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
             (t = this.synthesizers[0]) == null ||
             t.setFrequencyAndGain(e.value[0], e.value[1]);
         } else if (
-          e && e.valueType === __dcg_shared_module_exports__["gb"]
+          e && e.valueType === __dcg_shared_module_exports__["ListOfTone"]
         ) {
           if (
             this.synthesizers.length > e.value.length &&
@@ -29038,8 +29071,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return e
       ? r.controller.isDecimalToFractionEnabled() &&
         ((t = e.typed_constant_value) == null ? void 0 : t.valueType) ===
-          __dcg_shared_module_exports__["wa"] &&
-        __dcg_shared_module_exports__["ia"](
+          __dcg_shared_module_exports__["Number"] &&
+        __dcg_shared_module_exports__["canDisplayAsFraction"](
           sL((o = e.typed_constant_value) == null ? void 0 : o.value),
         )
       : false;
@@ -29065,9 +29098,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         ((s = e.typed_constant_value) == null ? void 0 : s.value) !==
           void 0 &&
         e.typed_constant_value.valueType !==
-          __dcg_shared_module_exports__["xa"] &&
+          __dcg_shared_module_exports__["Bool"] &&
         !(__dcg_shared_module_exports__["Wc"](r.latex) instanceof
-          __dcg_shared_module_exports__["sc"]),
+          __dcg_shared_module_exports__["Nu_Equation"]),
       i = Eq(r) && Hu(r),
       n = !!e.rgb_value && r.formula.assignment;
     return !!(o || i || n);
@@ -29094,7 +29127,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
           !((l = d == null ? void 0 : d.additional) != null &&
             l.includes(f)) &&
           (n.push(
-            `${__dcg_shared_module_exports__["ma"](c)}\\left(${f}\\right)`,
+            `${
+              __dcg_shared_module_exports__["identifierToLatex"](c)
+            }\\left(${f}\\right)`,
           ),
             n.length > zw)
         ) return [];
@@ -29282,7 +29317,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return e
       ? e.is_single_identifier
         ? []
-        : e.variables.map((t) => __dcg_shared_module_exports__["ma"](t)) || []
+        : e.variables.map((t) =>
+          __dcg_shared_module_exports__["identifierToLatex"](t)
+        ) || []
       : [];
   }
   function QG(r, e) {
@@ -29312,19 +29349,19 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     var e, t;
     return r.type === "expression" &&
       (((e = r.formula.typed_constant_value) == null ? void 0 : e.valueType) ===
-          __dcg_shared_module_exports__["fb"] ||
+          __dcg_shared_module_exports__["Tone"] ||
         ((t = r.formula.typed_constant_value) == null
             ? void 0
-            : t.valueType) === __dcg_shared_module_exports__["gb"]);
+            : t.valueType) === __dcg_shared_module_exports__["ListOfTone"]);
   }
   function Iq(r) {
     var t, o, i, n;
     if (
       !Is(r) ||
       ((t = r.formula.typed_constant_value) == null ? void 0 : t.valueType) ===
-        __dcg_shared_module_exports__["gb"] ||
+        __dcg_shared_module_exports__["ListOfTone"] ||
       ((o = r.formula.typed_constant_value) == null ? void 0 : o.valueType) ===
-            __dcg_shared_module_exports__["fb"] &&
+            __dcg_shared_module_exports__["Tone"] &&
         ((i = r.formula.typed_constant_value) == null ? void 0 : i.value[0]) >=
           gb &&
         ((n = r.formula.typed_constant_value) == null ? void 0 : n.value[0]) <=
@@ -29338,11 +29375,13 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return !!r.hidden || !!((e = Ca(r)) != null && e.hidden);
   }
   function Aw(r) {
-    return !Is(r) || Bw(r) ? false : r.formula.typed_constant_value.valueType ===
-        __dcg_shared_module_exports__["fb"]
+    return !Is(r) || Bw(r)
+      ? false
+      : r.formula.typed_constant_value.valueType ===
+          __dcg_shared_module_exports__["Tone"]
       ? r.formula.typed_constant_value.value[1] > 0
       : r.formula.typed_constant_value.valueType ===
-          __dcg_shared_module_exports__["gb"]
+          __dcg_shared_module_exports__["ListOfTone"]
       ? r.formula.typed_constant_value.value.some((e) => e[1] > 0)
       : false;
   }
@@ -29396,7 +29435,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     return r.cachedDisplayLatex.valueLatex;
   }
   function Aq(r) {
-    return __dcg_shared_module_exports__["ea"](r).latex;
+    return __dcg_shared_module_exports__["value"](r).latex;
   }
   function pL(r) {
     return r.slider.hardMin ? r.slider.min : Aq(nl(r));
@@ -29781,7 +29820,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     if (e && e.latex === r.latex) return e.result;
     let t = Nx(r.latex),
       o = t
-        ? { latex: t, identifier: __dcg_shared_module_exports__["na"](t) }
+        ? {
+          latex: t,
+          identifier: __dcg_shared_module_exports__["latexToIdentifier"](t),
+        }
         : void 0;
     return r.cachedAssignmentOrFunctionName = {
       latex: r.latex,
@@ -29795,7 +29837,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         null
       ? void 0
       : o.valueType;
-    return e == null ? false : __dcg_shared_module_exports__["wb"](e);
+    return e == null ? false : __dcg_shared_module_exports__["isList"](e);
   }
   function oT(r) {
     var o;
@@ -29811,28 +29853,28 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         : i.valueType,
       t = false;
     if (
-      e && __dcg_shared_module_exports__["wb"](e) &&
-      (t = true, e = __dcg_shared_module_exports__["xb"](e)),
-        e == null || !__dcg_shared_module_exports__["yb"](e)
+      e && __dcg_shared_module_exports__["isList"](e) &&
+      (t = true, e = __dcg_shared_module_exports__["elementType"](e)),
+        e == null || !__dcg_shared_module_exports__["isGeometryType"](e)
     ) return "U";
     switch (e) {
-      case __dcg_shared_module_exports__["ya"]:
+      case __dcg_shared_module_exports__["Point"]:
         return t ? "P" : "p";
-      case __dcg_shared_module_exports__["La"]:
-      case __dcg_shared_module_exports__["Ta"]:
-      case __dcg_shared_module_exports__["Ra"]:
+      case __dcg_shared_module_exports__["Segment"]:
+      case __dcg_shared_module_exports__["Ray"]:
+      case __dcg_shared_module_exports__["Line"]:
         return t ? "L" : "l";
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return t ? "V" : "v";
-      case __dcg_shared_module_exports__["Pa"]:
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Arc"]:
+      case __dcg_shared_module_exports__["Circle"]:
         return t ? "C" : "c";
-      case __dcg_shared_module_exports__["Va"]:
-      case __dcg_shared_module_exports__["Xa"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
         return t ? "A" : "a";
-      case __dcg_shared_module_exports__["Ja"]:
+      case __dcg_shared_module_exports__["Polygon"]:
         return "P";
-      case __dcg_shared_module_exports__["Za"]:
+      case __dcg_shared_module_exports__["Transformation"]:
         return "T";
       default:
         return e;
@@ -29846,32 +29888,32 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       : o.valueType;
     if (
       e == null ||
-      (__dcg_shared_module_exports__["wb"](e) &&
-        (e = __dcg_shared_module_exports__["xb"](e)),
-        !__dcg_shared_module_exports__["yb"](e))
+      (__dcg_shared_module_exports__["isList"](e) &&
+        (e = __dcg_shared_module_exports__["elementType"](e)),
+        !__dcg_shared_module_exports__["isGeometryType"](e))
     ) return "unknown";
     switch (e) {
-      case __dcg_shared_module_exports__["ya"]:
+      case __dcg_shared_module_exports__["Point"]:
         return "point";
-      case __dcg_shared_module_exports__["La"]:
+      case __dcg_shared_module_exports__["Segment"]:
         return "segment";
-      case __dcg_shared_module_exports__["Ta"]:
+      case __dcg_shared_module_exports__["Ray"]:
         return "ray";
-      case __dcg_shared_module_exports__["Ra"]:
+      case __dcg_shared_module_exports__["Line"]:
         return "line";
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return "vector";
-      case __dcg_shared_module_exports__["Pa"]:
+      case __dcg_shared_module_exports__["Arc"]:
         return "arc";
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Circle"]:
         return "circle";
-      case __dcg_shared_module_exports__["Va"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
         return "angle";
-      case __dcg_shared_module_exports__["Xa"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
         return "directedangle";
-      case __dcg_shared_module_exports__["Ja"]:
+      case __dcg_shared_module_exports__["Polygon"]:
         return "polygon";
-      case __dcg_shared_module_exports__["Za"]:
+      case __dcg_shared_module_exports__["Transformation"]:
         return "transformation";
       default:
         return e;
@@ -29885,29 +29927,29 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       : o.valueType;
     if (
       e == null ||
-      (__dcg_shared_module_exports__["wb"](e) &&
-        (e = __dcg_shared_module_exports__["xb"](e)),
-        !__dcg_shared_module_exports__["yb"](e))
+      (__dcg_shared_module_exports__["isList"](e) &&
+        (e = __dcg_shared_module_exports__["elementType"](e)),
+        !__dcg_shared_module_exports__["isGeometryType"](e))
     ) return "unknown";
     switch (e) {
-      case __dcg_shared_module_exports__["ya"]:
+      case __dcg_shared_module_exports__["Point"]:
         return "point";
-      case __dcg_shared_module_exports__["La"]:
-      case __dcg_shared_module_exports__["Ta"]:
-      case __dcg_shared_module_exports__["Ra"]:
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Segment"]:
+      case __dcg_shared_module_exports__["Ray"]:
+      case __dcg_shared_module_exports__["Line"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return "line";
-      case __dcg_shared_module_exports__["Pa"]:
+      case __dcg_shared_module_exports__["Arc"]:
         return "arc";
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Circle"]:
         return "circle";
-      case __dcg_shared_module_exports__["Va"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
         return "angle";
-      case __dcg_shared_module_exports__["Xa"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
         return "directedangle";
-      case __dcg_shared_module_exports__["Ja"]:
+      case __dcg_shared_module_exports__["Polygon"]:
         return "polygon";
-      case __dcg_shared_module_exports__["Za"]:
+      case __dcg_shared_module_exports__["Transformation"]:
         return "transformation";
       default:
         return e;
@@ -29927,9 +29969,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
         : a.valueType;
     return !e || e === "apply" ||
         __dcg_shared_module_exports__["Dc"](e) && t !== void 0 &&
-          !__dcg_shared_module_exports__["Ab"](
+          !__dcg_shared_module_exports__["isTypeOrListOfType"](
             t,
-            __dcg_shared_module_exports__["Za"],
+            __dcg_shared_module_exports__["Transformation"],
           )
       ? Wee(r)
       : e === "segments"
@@ -30078,7 +30120,7 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     var e;
     return ((e = r.formula.typed_constant_value) == null
         ? void 0
-        : e.valueType) === __dcg_shared_module_exports__["db"]
+        : e.valueType) === __dcg_shared_module_exports__["Complex"]
       ? false
       : r.displayEvaluationAsFraction;
   }
@@ -30401,10 +30443,10 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = r.formula.typed_constant_value;
     if (!e) return false;
     let t = e.valueType;
-    return t === __dcg_shared_module_exports__["Va"] ||
-      t === __dcg_shared_module_exports__["Wa"] ||
-      t === __dcg_shared_module_exports__["Xa"] ||
-      t === __dcg_shared_module_exports__["Ya"];
+    return t === __dcg_shared_module_exports__["AngleMarker"] ||
+      t === __dcg_shared_module_exports__["ListOfAngleMarker"] ||
+      t === __dcg_shared_module_exports__["DirectedAngleMarker"] ||
+      t === __dcg_shared_module_exports__["ListOfDirectedAngleMarker"];
   }
   function ja(r) {
     let e = zu(r);
@@ -30415,12 +30457,12 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     let e = r.formula.typed_constant_value;
     if (!e) return false;
     let t = e.valueType;
-    return t === __dcg_shared_module_exports__["La"] ||
-      t === __dcg_shared_module_exports__["Ma"] ||
-      t === __dcg_shared_module_exports__["Va"] ||
-      t === __dcg_shared_module_exports__["Wa"] ||
-      t === __dcg_shared_module_exports__["Xa"] ||
-      t === __dcg_shared_module_exports__["Ya"];
+    return t === __dcg_shared_module_exports__["Segment"] ||
+      t === __dcg_shared_module_exports__["ListOfSegment"] ||
+      t === __dcg_shared_module_exports__["AngleMarker"] ||
+      t === __dcg_shared_module_exports__["ListOfAngleMarker"] ||
+      t === __dcg_shared_module_exports__["DirectedAngleMarker"] ||
+      t === __dcg_shared_module_exports__["ListOfDirectedAngleMarker"];
   }
   function kL(r) {
     return r.formula.expression_type === "SEGMENT3D";
@@ -30477,9 +30519,9 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
       ? void 0
       : o.valueType;
     if (e !== void 0) {
-      return __dcg_shared_module_exports__["Ab"](
+      return __dcg_shared_module_exports__["isTypeOrListOfType"](
         e,
-        __dcg_shared_module_exports__["La"],
+        __dcg_shared_module_exports__["Segment"],
       );
     }
   }
@@ -30629,8 +30671,8 @@ Expecting ` + Bh.join(", ") + ", got '" + (this.terminals_[Ho] || Ho) + "'"
     ) return;
     let { value: e, valueType: t } = r.formula.typed_constant_value;
     switch (t) {
-      case __dcg_shared_module_exports__["ya"]:
-      case __dcg_shared_module_exports__["db"]:
+      case __dcg_shared_module_exports__["Point"]:
+      case __dcg_shared_module_exports__["Complex"]:
         return { x: e[0], y: e[1] };
     }
   }
@@ -33363,7 +33405,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (__dcg_shared_module_exports__["Ob"](o)) {
         return `${
           Fl(
-            __dcg_shared_module_exports__["vb"](o.valueType),
+            __dcg_shared_module_exports__["prettyPrint"](o.valueType),
             e.getLanguage(),
           )
         }. ${
@@ -33372,33 +33414,37 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           })
         }`;
       }
-      if (__dcg_shared_module_exports__["yb"](o.valueType)) {
+      if (__dcg_shared_module_exports__["isGeometryType"](o.valueType)) {
         return Fl(
-          __dcg_shared_module_exports__["vb"](o.valueType),
+          __dcg_shared_module_exports__["prettyPrint"](o.valueType),
           e.getLanguage(),
         );
       }
       switch (o.valueType) {
-        case __dcg_shared_module_exports__["wa"]:
-          return Ao(__dcg_shared_module_exports__["la"](+o.value, t));
-        case __dcg_shared_module_exports__["db"]:
-          return Ao(__dcg_shared_module_exports__["pa"](o.value, t));
-        case __dcg_shared_module_exports__["Ha"]:
+        case __dcg_shared_module_exports__["Number"]:
+          return Ao(
+            __dcg_shared_module_exports__["truncatedLatexLabel"](+o.value, t),
+          );
+        case __dcg_shared_module_exports__["Complex"]:
+          return Ao(
+            __dcg_shared_module_exports__["complexNumberLabel"](o.value, t),
+          );
+        case __dcg_shared_module_exports__["RGBColor"]:
           return md(e, r.formula.rgb_value);
-        case __dcg_shared_module_exports__["xa"]:
-        case __dcg_shared_module_exports__["bb"]:
-        case __dcg_shared_module_exports__["Ga"]:
-        case __dcg_shared_module_exports__["hb"]:
-        case __dcg_shared_module_exports__["jb"]:
-        case __dcg_shared_module_exports__["lb"]:
-        case __dcg_shared_module_exports__["nb"]:
-        case __dcg_shared_module_exports__["pb"]:
-        case __dcg_shared_module_exports__["fb"]:
-        case __dcg_shared_module_exports__["za"]:
-        case __dcg_shared_module_exports__["Fa"]:
-        case __dcg_shared_module_exports__["Ea"]:
+        case __dcg_shared_module_exports__["Bool"]:
+        case __dcg_shared_module_exports__["Restriction"]:
+        case __dcg_shared_module_exports__["SeedType"]:
+        case __dcg_shared_module_exports__["Point3D"]:
+        case __dcg_shared_module_exports__["Segment3D"]:
+        case __dcg_shared_module_exports__["Triangle3D"]:
+        case __dcg_shared_module_exports__["Sphere3D"]:
+        case __dcg_shared_module_exports__["Vector3D"]:
+        case __dcg_shared_module_exports__["Tone"]:
+        case __dcg_shared_module_exports__["Action"]:
+        case __dcg_shared_module_exports__["ErrorType"]:
+        case __dcg_shared_module_exports__["EmptyList"]:
           return Fl(
-            __dcg_shared_module_exports__["vb"](o.valueType),
+            __dcg_shared_module_exports__["prettyPrint"](o.valueType),
             e.getLanguage(),
           );
         default:
@@ -33425,8 +33471,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let t = r.formula.typed_constant_value.value,
       o = r.formula.typed_constant_value.valueType;
     return e.listIndex !== void 0 &&
-      __dcg_shared_module_exports__["wb"](o) &&
-      (o = __dcg_shared_module_exports__["xb"](o), t = t[e.listIndex]),
+      __dcg_shared_module_exports__["isList"](o) &&
+      (o = __dcg_shared_module_exports__["elementType"](o), t = t[e.listIndex]),
       { value: t, valueType: o };
   }
   function AT(r, e, t) {
@@ -33556,7 +33602,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             index: r.id,
             center: Fo(a, e, { includeDetails: false, depth: o + 1 }),
             radius: Ao(
-              __dcg_shared_module_exports__["ea"](l, d.xmax - d.xmin)
+              __dcg_shared_module_exports__["value"](l, d.xmax - d.xmin)
                 .latex,
             ),
           },
@@ -33667,7 +33713,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (n <= 10) {
         let c = kb(r, e).filter((d) =>
           il(d) && d.type === "expression" && !d.hidden &&
-          Ap(d, t).valueType === __dcg_shared_module_exports__["ya"]
+          Ap(d, t).valueType === __dcg_shared_module_exports__["Point"]
         );
         c.length === n && c.forEach((d) => {
           l.push(Fo(d, e, { includeDetails: false, depth: o + 1 }));
@@ -33755,7 +33801,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             { index: r.id },
           ),
         );
-    } else if (c === __dcg_shared_module_exports__["Ra"]) {
+    } else if (c === __dcg_shared_module_exports__["Line"]) {
       r.hidden && o >= an
         ? n.push(
           e.s("graphing-calculator-narration-geometry-hidden-line"),
@@ -33766,7 +33812,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "graphing-calculator-narration-geometry-unlabeled-line-with-index",
           { index: r.id },
         );
-    } else if (c === __dcg_shared_module_exports__["Ta"]) {
+    } else if (c === __dcg_shared_module_exports__["Ray"]) {
       if (
         r.hidden && o >= an
           ? n.push(
@@ -33784,10 +33830,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           (E == null ? void 0 : E.type) === "expression" &&
           (((A = E == null ? void 0 : E.formula.geometry) == null
                 ? void 0
-                : A.valueType) === __dcg_shared_module_exports__["Va"] ||
+                : A.valueType) ===
+              __dcg_shared_module_exports__["AngleMarker"] ||
             ((P = E == null ? void 0 : E.formula.geometry) == null
                 ? void 0
-                : P.valueType) === __dcg_shared_module_exports__["Xa"])
+                : P.valueType) ===
+              __dcg_shared_module_exports__["DirectedAngleMarker"])
       ) {
         let O = Fo(E, e, { includeDetails: false, depth: o + 1 });
         i = e.s(
@@ -33795,7 +33843,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           { bisectorDescription: i, item: O },
         );
       }
-    } else if (c === __dcg_shared_module_exports__["La"]) {
+    } else if (c === __dcg_shared_module_exports__["Segment"]) {
       if (
         r.hidden && o >= an
           ? n.push(
@@ -33825,13 +33873,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             {
               segmentDescription: i,
               length: Ao(
-                __dcg_shared_module_exports__["ea"](z, S.xmax - S.xmin)
+                __dcg_shared_module_exports__["value"](z, S.xmax - S.xmin)
                   .latex,
               ),
             },
           ));
       }
-    } else {c === __dcg_shared_module_exports__["$a"] &&
+    } else {c === __dcg_shared_module_exports__["Vector"] &&
         (r.hidden && o >= an
           ? n.push(
             e.s("graphing-calculator-narration-geometry-hidden-vector"),
@@ -33884,7 +33932,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let E = d.labels[i];
       E && "text" in E && (c = ei(E.text));
     }
-    s === __dcg_shared_module_exports__["Va"]
+    s === __dcg_shared_module_exports__["AngleMarker"]
       ? l
         ? n = e.s(
           "graphing-calculator-narration-geometry-labeled-angle",
@@ -33899,7 +33947,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "graphing-calculator-narration-geometry-unlabeled-angle",
           { index: r.id },
         )
-      : s === __dcg_shared_module_exports__["Xa"] &&
+      : s === __dcg_shared_module_exports__["DirectedAngleMarker"] &&
         (l
           ? n = e.s(
             "graphing-calculator-narration-geometry-labeled-directed-angle",
@@ -33942,64 +33990,64 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function XH(r, e, t) {
     let { value: o, valueType: i } = Ap(r, t), n = [], a = o.length;
-    switch (__dcg_shared_module_exports__["xb"](i)) {
-      case __dcg_shared_module_exports__["ya"]:
+    switch (__dcg_shared_module_exports__["elementType"](i)) {
+      case __dcg_shared_module_exports__["Point"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-points", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Circle"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-circles", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Pa"]:
+      case __dcg_shared_module_exports__["Arc"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-arcs", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Ja"]:
+      case __dcg_shared_module_exports__["Polygon"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-polygons", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Ra"]:
+      case __dcg_shared_module_exports__["Line"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-lines", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Ta"]:
+      case __dcg_shared_module_exports__["Ray"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-rays", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["La"]:
+      case __dcg_shared_module_exports__["Segment"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-segments", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Va"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
         n.push(
           e.s("graphing-calculator-narration-geometry-list-of-angles", {
             count: a,
           }),
         );
         break;
-      case __dcg_shared_module_exports__["Xa"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
         n.push(
           e.s(
             "graphing-calculator-narration-geometry-list-of-directed-angles",
@@ -34088,7 +34136,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         a = e[o],
           s = e[o + 1],
           !(isNaN(a) || isNaN(s)) &&
-          (t += __dcg_shared_module_exports__["S"](a - i, s - n), i = a, n = s);
+          (t += __dcg_shared_module_exports__["MathHypot"](a - i, s - n),
+            i = a,
+            n = s);
       }
       return t;
     }
@@ -35224,7 +35274,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let t = 20;
     return e.settings.config.projectorMode && (t *= 1.4), t;
   }
-  var Pr = __dcg_shared_module_exports__["e"](ne());
+  var Pr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function $te(r, e) {
     let t = document.createRange();
     t.selectNode(r);
@@ -35692,8 +35742,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       r.transform.apply(r, e.transform.matrix),
       r.translate(-e.transform.origin.x / t, -e.transform.origin.y / o);
   }
-  var zl = __dcg_shared_module_exports__["e"](ne());
-  var qT = __dcg_shared_module_exports__["e"](ne());
+  var zl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var qT = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var nt = class extends qT.Class {
     template() {
       return this.props.children
@@ -35795,7 +35845,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var sn = __dcg_shared_module_exports__["e"](ne());
+  var sn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   qt();
   function HT(r) {
@@ -37122,10 +37172,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let p, h = a.type === 1007 && a.getCompiledFunction();
       if (h) {
         let u = s === 1, f = u ? a.y : a.x, [y, C] = I8([c, d], u);
-        p = __dcg_shared_module_exports__["fa"](f, y, C, h), p = I8(p, u);
+        p = __dcg_shared_module_exports__["point"](f, y, C, h), p = I8(p, u);
       } else {p = [
-          __dcg_shared_module_exports__["ea"](a.x, c),
-          __dcg_shared_module_exports__["ea"](a.y, d),
+          __dcg_shared_module_exports__["value"](a.x, c),
+          __dcg_shared_module_exports__["value"](a.y, d),
         ];}
       o = !isFinite(p[1].value),
         i = p[0].latex,
@@ -37151,9 +37201,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ? {
           is_hole: o,
           type: "latex",
-          text: __dcg_shared_module_exports__["pa"](
+          text: __dcg_shared_module_exports__["complexNumberLabel"](
             [a.x, a.y],
-            __dcg_shared_module_exports__["ha"],
+            __dcg_shared_module_exports__[
+              "DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS"
+            ],
           ),
         }
         : {
@@ -37199,7 +37251,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     },
     Pb = class extends Pr.Class {
       constructor() {
-        super(...arguments), this.labelsDirty = false, this.traceLinePt = void 0;
+        super(...arguments),
+          this.labelsDirty = false,
+          this.traceLinePt = void 0;
       }
       init() {
         this.grapher = this.props.grapher(),
@@ -37321,7 +37375,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let t = this.cachedLabelDict[e], o;
         t
           ? t.isComplex
-            ? o = Ao(__dcg_shared_module_exports__["pa"]([t.x, t.y]))
+            ? o = Ao(
+              __dcg_shared_module_exports__["complexNumberLabel"]([t.x, t.y]),
+            )
             : o = ll(this.controller, t.x, t.y)
           : o = this.controller.s(
             "graphing-calculator-label-poi-unknown-coordinates",
@@ -37586,13 +37642,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           l.hasEditableLabel() && v && v.type === "expression" && !Ea(v)
         ) return;
         let w = (v == null ? void 0 : v.type) === "expression" &&
-            __dcg_shared_module_exports__["Ab"](
+            __dcg_shared_module_exports__["isTypeOrListOfType"](
               (we = (me = v.formula) == null
                   ? void 0
                   : me.typed_constant_value) == null
                 ? void 0
                 : we.valueType,
-              __dcg_shared_module_exports__["db"],
+              __dcg_shared_module_exports__["Complex"],
             ),
           S = iP(t, a),
           k = l.pointIdxOnBranch,
@@ -38382,7 +38438,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         o = !this.lastAriaAlert || this.lastAriaAlert.id !== e ||
           !!(t != null && t.updated);
       return this.lastAriaAlert = t,
-        t != null && t.completeMessage ? (o && xe(t.completeMessage), true) : false;
+        t != null && t.completeMessage
+          ? (o && xe(t.completeMessage), true)
+          : false;
     }
     getAriaAlert(e) {
       var U, z;
@@ -38400,7 +38458,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         p = ((U = s == null ? void 0 : s.formula.typed_constant_value) ==
               null
             ? void 0
-            : U.valueType) === __dcg_shared_module_exports__["db"]
+            : U.valueType) === __dcg_shared_module_exports__["Complex"]
           ? (z = s == null ? void 0 : s.formula.typed_constant_value) ==
               null
             ? void 0
@@ -38436,7 +38494,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? O = _ + P
             : S
             ? p
-              ? O = `${Ao(__dcg_shared_module_exports__["pa"](p))}${P}`
+              ? O = `${
+                Ao(__dcg_shared_module_exports__["complexNumberLabel"](p))
+              }${P}`
               : O = `${Bl(a, v)} ${Ul(a, w)}${P}`
             : E
             ? O = _
@@ -38445,7 +38505,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             a.s("graphing-calculator-narration-item-at-coordinates", {
               itemDescription: _,
               coordinates: p
-                ? Ao(__dcg_shared_module_exports__["pa"](p))
+                ? Ao(__dcg_shared_module_exports__["complexNumberLabel"](p))
                 : ll(a, v, w),
             })
           }${A}${P}`,
@@ -38504,7 +38564,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let { width: i } = o.screen;
     return t
       ? r.s("graphing-calculator-narration-audio-trace-property-x", {
-        x: Ao(__dcg_shared_module_exports__["ea"](e, Ng(o, e)).latex),
+        x: Ao(__dcg_shared_module_exports__["value"](e, Ng(o, e)).latex),
       })
       : r.s("graphing-calculator-narration-x-percentage-coordinate", {
         x: Math.round(o.mathToPixels.mapX(e) / i * 1e3) / 10,
@@ -38516,7 +38576,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let { height: i } = o.screen;
     return t
       ? r.s("graphing-calculator-narration-audio-trace-property-y", {
-        y: Ao(__dcg_shared_module_exports__["ea"](e, Ng(o, e)).latex),
+        y: Ao(__dcg_shared_module_exports__["value"](e, Ng(o, e)).latex),
       })
       : r.s("graphing-calculator-narration-y-percentage-coordinate", {
         y: Math.round(o.mathToPixels.mapY(e) / i * 1e3) / 10,
@@ -38852,7 +38912,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       n = r.type === "expression" &&
           ((l = r.formula.typed_constant_value) == null
               ? void 0
-              : l.valueType) === __dcg_shared_module_exports__["db"]
+              : l.valueType) === __dcg_shared_module_exports__["Complex"]
         ? (c = r.formula.typed_constant_value) == null ? void 0 : c.value
         : void 0;
     !o && il(r)
@@ -38875,28 +38935,28 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let { value: o, valueType: i } = Ap(r, t);
     if (!o) return e.s("shared-calculator-narration-item-unknown");
     let n = [];
-    if (__dcg_shared_module_exports__["wb"](i)) n = XH(r, e, t);
+    if (__dcg_shared_module_exports__["isList"](i)) n = XH(r, e, t);
     else {switch (i) {
-        case __dcg_shared_module_exports__["ya"]:
+        case __dcg_shared_module_exports__["Point"]:
           n = AT(r, e, t);
           break;
-        case __dcg_shared_module_exports__["Na"]:
+        case __dcg_shared_module_exports__["Circle"]:
           n = KH(r, e, t);
           break;
-        case __dcg_shared_module_exports__["Pa"]:
+        case __dcg_shared_module_exports__["Arc"]:
           n = WH(r, e, t);
           break;
-        case __dcg_shared_module_exports__["Ja"]:
+        case __dcg_shared_module_exports__["Polygon"]:
           n = $H(r, e, t);
           break;
-        case __dcg_shared_module_exports__["Ra"]:
-        case __dcg_shared_module_exports__["Ta"]:
-        case __dcg_shared_module_exports__["La"]:
-        case __dcg_shared_module_exports__["$a"]:
+        case __dcg_shared_module_exports__["Line"]:
+        case __dcg_shared_module_exports__["Ray"]:
+        case __dcg_shared_module_exports__["Segment"]:
+        case __dcg_shared_module_exports__["Vector"]:
           n = jH(r, e, t);
           break;
-        case __dcg_shared_module_exports__["Va"]:
-        case __dcg_shared_module_exports__["Xa"]:
+        case __dcg_shared_module_exports__["AngleMarker"]:
+        case __dcg_shared_module_exports__["DirectedAngleMarker"]:
           n = YH(r, e, t);
           break;
         default:
@@ -38961,7 +39021,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     return o.listIndex !== void 0 &&
         ((n = (i = e.formula) == null ? void 0 : i.geometry) != null &&
           n.valueType) &&
-        __dcg_shared_module_exports__["wb"](e.formula.geometry.valueType)
+        __dcg_shared_module_exports__["isList"](e.formula.geometry.valueType)
       ? t.s("graphing-calculator-narration-item-with-list-index", {
         listIndex: o.listIndex + 1,
         item: r,
@@ -39121,31 +39181,31 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Sre(r, e) {
     if (
       (e == null ? void 0 : e.valueType) !==
-        __dcg_shared_module_exports__["Va"] &&
+        __dcg_shared_module_exports__["AngleMarker"] &&
       (e == null ? void 0 : e.valueType) !==
-        __dcg_shared_module_exports__["Xa"]
+        __dcg_shared_module_exports__["DirectedAngleMarker"]
     ) return;
     let [t, o, i] = e.value;
     return { type: r, start: o, delta: i };
   }
   function Ere(r) {
     return (r == null ? void 0 : r.valueType) ===
-        __dcg_shared_module_exports__["Pa"]
-      ? __dcg_shared_module_exports__["bc"](r.value)
+        __dcg_shared_module_exports__["Arc"]
+      ? __dcg_shared_module_exports__["getArcDetails"](r.value)
       : void 0;
   }
   function Tre(r) {
     return (r == null ? void 0 : r.valueType) ===
-        __dcg_shared_module_exports__["Ja"]
+        __dcg_shared_module_exports__["Polygon"]
       ? r.value
       : void 0;
   }
   function R8(r) {
     let e = r == null ? void 0 : r.valueType;
     if (
-      e !== __dcg_shared_module_exports__["La"] &&
-      e !== __dcg_shared_module_exports__["Ra"] &&
-      e !== __dcg_shared_module_exports__["Ta"]
+      e !== __dcg_shared_module_exports__["Segment"] &&
+      e !== __dcg_shared_module_exports__["Line"] &&
+      e !== __dcg_shared_module_exports__["Ray"]
     ) return;
     let [[t, o], [i, n]] = r.value;
     return __dcg_shared_module_exports__["R"](i - t, n - o);
@@ -39153,7 +39213,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Dre(r) {
     if (
       (r == null ? void 0 : r.valueType) !==
-        __dcg_shared_module_exports__["$a"]
+        __dcg_shared_module_exports__["Vector"]
     ) return;
     let [e, t] = r.value[0];
     return __dcg_shared_module_exports__["R"](e, t);
@@ -39161,7 +39221,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function kre(r) {
     if (
       (r == null ? void 0 : r.valueType) !==
-        __dcg_shared_module_exports__["Za"]
+        __dcg_shared_module_exports__["Transformation"]
     ) return;
     let [e, t] = r.value[1];
     return __dcg_shared_module_exports__["R"](e, t);
@@ -39170,17 +39230,17 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     var i;
     if (
       (r == null ? void 0 : r.valueType) !==
-        __dcg_shared_module_exports__["Ra"]
+        __dcg_shared_module_exports__["Line"]
     ) return dP;
     let t = (i = R8(r)) != null ? i : dP.angle, o = 1;
     if (e.length === 2) {
       let n = e[0], a = e[1], s = n == null ? void 0 : n.valueType;
       if (
-        (s === __dcg_shared_module_exports__["La"] ||
-          s === __dcg_shared_module_exports__["Ra"] ||
-          s === __dcg_shared_module_exports__["Ta"]) &&
+        (s === __dcg_shared_module_exports__["Segment"] ||
+          s === __dcg_shared_module_exports__["Line"] ||
+          s === __dcg_shared_module_exports__["Ray"]) &&
         (a == null ? void 0 : a.valueType) ===
-          __dcg_shared_module_exports__["ya"]
+          __dcg_shared_module_exports__["Point"]
       ) {
         let [l, c] = n.value[0],
           [d, p] = n.value[1],
@@ -39239,7 +39299,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       c = .8,
       d = c * t,
       p = c * o,
-      h = __dcg_shared_module_exports__["Sb"](1 / (c * l), 0, 2),
+      h = __dcg_shared_module_exports__["clamp"](1 / (c * l), 0, 2),
       u = (ql(e) - h) * M8(e),
       f = (e + u) / 2,
       y = c * l * An(r + u),
@@ -39295,7 +39355,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           c = -i * Yn(t),
           d = i * An((e + t) / 2),
           p = -i * Yn((e + t) / 2),
-          h = __dcg_shared_module_exports__["Sb"](2 * (da - ql(o)), 0, 1),
+          h = __dcg_shared_module_exports__["clamp"](2 * (da - ql(o)), 0, 1),
           u = h * (Bb(a, l, d) + rh(a, l, d)) / 2,
           f = h * (Bb(s, c, p) + rh(s, c, p)) / 2,
           y = Ki - u,
@@ -39765,7 +39825,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       getAssignment() {
         let e = this.props.identifier();
-        return e[0] !== "$" ? __dcg_shared_module_exports__["ma"](e) : "";
+        return e[0] !== "$"
+          ? __dcg_shared_module_exports__["identifierToLatex"](e)
+          : "";
       }
       getAriaLabel() {
         let e = this.getTokenInfo(),
@@ -40210,7 +40272,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return i.latex(e), i.latex();
       }
     };
-  var rs = __dcg_shared_module_exports__["e"](ne());
+  var rs = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: zre, If: qre } = rs.Components,
     vo = class extends rs.Class {
       constructor() {
@@ -40372,13 +40434,13 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return e.key === (o == null ? void 0 : o.key) || t && !o ? 0 : -1;
       }
     };
-  var Ur = __dcg_shared_module_exports__["e"](ne());
+  var Ur = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   function Jr() {
     document.activeElement && wp(document.activeElement) &&
       ee(document.activeElement).trigger("blur");
   }
-  var Xn = __dcg_shared_module_exports__["e"](ne());
+  var Xn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function B8(r) {
     if (!r) return;
     let e = [];
@@ -40410,7 +40472,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         error: "Braille mode should be 'nemeth' or 'ueb'",
       };
   }
-  var Hb = __dcg_shared_module_exports__["e"](ne());
+  var Hb = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var { Input: Hre } = Hb.Components,
     Ug = class extends Hb.Class {
@@ -40534,7 +40596,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.props.sixKeyInput();
       }
     };
-  var lv = __dcg_shared_module_exports__["e"](ne());
+  var lv = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Kb = class extends lv.Class {
     template() {
       return lv.createElement(Le, {
@@ -40763,7 +40825,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Wb(r) {
     return !r || r.value === "";
   }
-  var U8 = __dcg_shared_module_exports__["e"](ne());
+  var U8 = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function Kre(r) {
     let e = r.target;
     return e.classList.contains("dcg-exp-action-button") ||
@@ -40818,7 +40880,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       });
     }
   };
-  var Ht = __dcg_shared_module_exports__["e"](ne());
+  var Ht = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: hP } = Ht.Components,
     Hl = class extends Ht.Class {
       init() {
@@ -41044,8 +41106,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           );
       }
     };
-  var no = __dcg_shared_module_exports__["e"](ne());
-  var ti = __dcg_shared_module_exports__["e"](ne());
+  var no = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ti = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Wre } = ti.Components,
     zg = class extends ti.Class {
       init() {
@@ -41144,10 +41206,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var dl = __dcg_shared_module_exports__["e"](ne());
-  var Ti = __dcg_shared_module_exports__["e"](ne());
-  var Do = __dcg_shared_module_exports__["e"](ne());
-  var XT = __dcg_shared_module_exports__["e"](ne());
+  var dl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Ti = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Do = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var XT = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var $b = class extends XT.Class {
     template() {
@@ -41175,7 +41237,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       (e = this.mathquillFocus) == null || e.updateMathquillFocused();
     }
   };
-  var JT = __dcg_shared_module_exports__["e"](ne());
+  var JT = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var $re = .9,
     Pp = class extends JT.Class {
       template() {
@@ -41378,16 +41440,21 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         if (e === void 0 || t === void 0) return { type: "undefined" };
         let o = { valueType: t, value: e };
         switch (o.valueType) {
-          case __dcg_shared_module_exports__["db"]:
-            let s = __dcg_shared_module_exports__["pa"](o.value, {
-              ...__dcg_shared_module_exports__["ha"],
-              displayAsFraction: this.shouldDisplayAsFraction(),
-            });
+          case __dcg_shared_module_exports__["Complex"]:
+            let s = __dcg_shared_module_exports__["complexNumberLabel"](
+              o.value,
+              {
+                ...__dcg_shared_module_exports__[
+                  "DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS"
+                ],
+                displayAsFraction: this.shouldDisplayAsFraction(),
+              },
+            );
             return s === "undefined"
               ? { type: "undefined" }
               : { type: "number", valueLatex: s };
-          case __dcg_shared_module_exports__["Ha"]:
-          case __dcg_shared_module_exports__["Ia"]:
+          case __dcg_shared_module_exports__["RGBColor"]:
+          case __dcg_shared_module_exports__["ListOfColor"]:
             return {
               type: "rgbcolor",
               colorValue: Array.isArray(o.value)
@@ -41396,20 +41463,28 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               val: o.value,
               ariaLabel: this.getColorLabel(),
             };
-          case __dcg_shared_module_exports__["wa"]:
-            return __dcg_shared_module_exports__["ja"](o.value, {
-                ...__dcg_shared_module_exports__["ga"],
+          case __dcg_shared_module_exports__["Number"]:
+            return __dcg_shared_module_exports__["numericLabel"](o.value, {
+                ...__dcg_shared_module_exports__[
+                  "DEFAULT_EVALUATION_LABEL_OPTIONS"
+                ],
                 displayAsFraction: this.shouldDisplayAsFraction(),
               }).type === "undefined"
               ? { type: "undefined" }
               : {
                 type: "number",
-                valueLatex: (a = __dcg_shared_module_exports__["la"](o.value, {
-                    ...__dcg_shared_module_exports__["ga"],
-                    displayAsFraction: this.shouldDisplayAsFraction(),
-                  })) != null
-                  ? a
-                  : "",
+                valueLatex:
+                  (a = __dcg_shared_module_exports__["truncatedLatexLabel"](
+                      o.value,
+                      {
+                        ...__dcg_shared_module_exports__[
+                          "DEFAULT_EVALUATION_LABEL_OPTIONS"
+                        ],
+                        displayAsFraction: this.shouldDisplayAsFraction(),
+                      },
+                    )) != null
+                    ? a
+                    : "",
               };
           default:
             return Array.isArray(o.value)
@@ -41468,7 +41543,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var Ps = __dcg_shared_module_exports__["e"](ne());
+  var Ps = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { SwitchUnion: Yre } = Ps.Components,
     lr = class extends Ps.Class {
       init() {
@@ -41698,7 +41773,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                       controller: this.props.controller,
                       id: () => this.model.id,
                       valueType: this.const(
-                        __dcg_shared_module_exports__["wa"],
+                        __dcg_shared_module_exports__["Number"],
                       ),
                     }),
                   )),
@@ -41762,7 +41837,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var Mn = __dcg_shared_module_exports__["e"](ne());
+  var Mn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Xre, For: H8, SwitchUnion: Jre } = Mn.Components,
     jb = class extends Mn.Class {
       init() {
@@ -41993,8 +42068,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           );
       }
     };
-  var ri = __dcg_shared_module_exports__["e"](ne());
-  var Sc = __dcg_shared_module_exports__["e"](ne());
+  var ri = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Sc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Md = class extends Sc.Class {
     template() {
       return Sc.createElement(
@@ -42162,7 +42237,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return "\\le " + this.getDomainVariableString() + " \\le";
       }
       getPlaceholder(e) {
-        return __dcg_shared_module_exports__["ea"](e).string.replace(
+        return __dcg_shared_module_exports__["value"](e).string.replace(
           "\u03C0",
           "\\pi",
         );
@@ -42300,7 +42375,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var eo = __dcg_shared_module_exports__["e"](ne());
+  var eo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { Switch: Zre } = eo.Components,
     uv = class extends eo.Class {
       init() {
@@ -42437,7 +42512,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var ln = __dcg_shared_module_exports__["e"](ne());
+  var ln = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { Input: eoe, IfElse: mP, IfDefined: toe, If: K8 } = ln.Components,
     Hg = class extends ln.Class {
       template() {
@@ -42630,7 +42705,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var Ta = __dcg_shared_module_exports__["e"](ne());
+  var Ta = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var hv = class extends Ta.Class {
     constructor() {
       super(...arguments),
@@ -42714,7 +42789,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
     }
   };
-  var oi = __dcg_shared_module_exports__["e"](ne());
+  var oi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: roe, If: ooe } = oi.Components,
     Ec = class extends oi.Class {
       init() {
@@ -42822,8 +42897,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             .slice(0, zw);
       }
     };
-  var Ke = __dcg_shared_module_exports__["e"](ne());
-  var gv = __dcg_shared_module_exports__["e"](ne());
+  var Ke = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var gv = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var pl = class extends gv.Class {
     init() {
       this.controller = this.props.controller();
@@ -42879,12 +42954,15 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   var W8 = 1e-6, $8 = 1e9;
   function fP(r, e) {
     let t = Math.max(bP(r.parameters[e]), r.displayPrecision);
-    return __dcg_shared_module_exports__["la"](r.parameters[e], {
-      digits: t,
-      scientificNotationDigits: t - 1,
-      smallCutoff: W8,
-      bigCutoff: $8,
-    });
+    return __dcg_shared_module_exports__["truncatedLatexLabel"](
+      r.parameters[e],
+      {
+        digits: t,
+        scientificNotationDigits: t - 1,
+        smallCutoff: W8,
+        bigCutoff: $8,
+      },
+    );
   }
   function bP(r) {
     let e = Math.abs(r);
@@ -42893,14 +42971,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     return Math.min(9, t + 5);
   }
   function yP(r) {
-    return __dcg_shared_module_exports__["la"](r, {
+    return __dcg_shared_module_exports__["truncatedLatexLabel"](r, {
       zeroCutoff: 1e-15,
       digits: 4,
       smallCutoff: 1e-6,
       bigCutoff: 1e9,
     });
   }
-  var ns = __dcg_shared_module_exports__["e"](ne());
+  var ns = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: ioe } = ns.Components,
     ZT = class extends ns.Class {
       init() {
@@ -43368,8 +43446,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return e + "=" + fP(this.props.regression(), e);
       }
     };
-  var mi = __dcg_shared_module_exports__["e"](ne());
-  var hi = __dcg_shared_module_exports__["e"](ne());
+  var mi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var hi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   qt();
   var aoe = 0,
@@ -43621,14 +43699,14 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let t = this.props.min(),
           o = this.props.max(),
           i = this.rootNode.getBoundingClientRect().width,
-          n = __dcg_shared_module_exports__["Sb"](e / i, 0, 1),
+          n = __dcg_shared_module_exports__["clamp"](e / i, 0, 1),
           a = t + (o - t) * n,
           s = (o - t) / i;
         return ho(a - s, a + s);
       }
       percentFromValue(e) {
         let t = this.props.min(), o = this.props.max();
-        return __dcg_shared_module_exports__["Sb"](
+        return __dcg_shared_module_exports__["clamp"](
           (e - t) / (o - t),
           0,
           1,
@@ -43712,7 +43790,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var gi = __dcg_shared_module_exports__["e"](ne());
+  var gi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: coe } = gi.Components,
     mv = class extends gi.Class {
       init() {
@@ -43947,7 +44025,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       getDependentLatex() {
         let e = Ya(this.model) || "";
-        return " \\le " + __dcg_shared_module_exports__["ma"](e) +
+        return " \\le " +
+          __dcg_shared_module_exports__["identifierToLatex"](e) +
           " \\le ";
       }
       getFocusedInput() {
@@ -44202,7 +44281,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           e.location === "step");
       }
     };
-  var Gn = __dcg_shared_module_exports__["e"](ne());
+  var Gn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: doe } = Gn.Components,
     bv = class extends Gn.Class {
       init() {
@@ -44305,14 +44384,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       getStatValue(e) {
         var t;
-        return (t = __dcg_shared_module_exports__["la"](e, {
-            ...__dcg_shared_module_exports__["ga"],
+        return (t = __dcg_shared_module_exports__["truncatedLatexLabel"](e, {
+            ...__dcg_shared_module_exports__[
+              "DEFAULT_EVALUATION_LABEL_OPTIONS"
+            ],
           })) != null
           ? t
           : "";
       }
     };
-  var hr = __dcg_shared_module_exports__["e"](ne());
+  var hr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var yv = class extends hr.Class {
     init() {
       this.controller = this.props.controller(),
@@ -44423,7 +44504,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return e ? __dcg_shared_module_exports__["de"](e.notEqual, 5) : "";
     }
   };
-  var jt = __dcg_shared_module_exports__["e"](ne());
+  var jt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { SwitchUnion: poe, If: X8 } = jt.Components,
     Jb = class extends jt.Class {
       template() {
@@ -45010,8 +45091,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     };
   Ss();
-  var ji = __dcg_shared_module_exports__["e"](ne());
-  var Vp = __dcg_shared_module_exports__["e"](ne());
+  var ji = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Vp = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Di = class extends Vp.Class {
     template() {
       return Vp.createElement(
@@ -45046,9 +45127,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       );
     }
   };
-  var Gd = __dcg_shared_module_exports__["e"](ne());
-  var Ln = __dcg_shared_module_exports__["e"](ne());
-  var Go = __dcg_shared_module_exports__["e"](ne()),
+  var Gd = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Ln = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Go = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     oD = class extends Go.Class {
       template() {
         return Go.createElement(
@@ -45385,7 +45466,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
     }
   };
-  var Jn = __dcg_shared_module_exports__["e"](ne());
+  var Jn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var nD = class extends Jn.Class {
     init() {
       this.controller = this.props.controller(),
@@ -45569,7 +45650,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     }
   };
-  var vv = __dcg_shared_module_exports__["e"](ne());
+  var vv = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var aD = class extends vv.Class {
     init() {
       this.model = this.props.model(),
@@ -45791,8 +45872,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           !this.model.formula.assignment;
       }
       hasError() {
-        return this.colorError() ? true : !!this.model.error && !Vl(this.model) &&
-          this.controller.getBrailleMode() === "none";
+        return this.colorError()
+          ? true
+          : !!this.model.error && !Vl(this.model) &&
+            this.controller.getBrailleMode() === "none";
       }
       hasSlider() {
         return !!this.model.sliderExists;
@@ -45957,7 +46040,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           : Xr(this.model, "hide");
       }
     };
-  var as = __dcg_shared_module_exports__["e"](ne());
+  var as = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: xoe } = as.Components,
     sD = class extends as.Class {
       init() {
@@ -46010,7 +46093,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var ss = __dcg_shared_module_exports__["e"](ne());
+  var ss = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: woe } = ss.Components,
     Qb = class extends ss.Class {
       init() {
@@ -46059,7 +46142,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var cn = __dcg_shared_module_exports__["e"](ne());
+  var cn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: voe, Switch: Coe } = cn.Components,
     Wl = class extends cn.Class {
       init() {
@@ -47642,7 +47725,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             : Toe(o, i))), e(null, n);
     }, { orientation: true, canvas: true, maxWidth: 1600, maxHeight: 1600 });
   }
-  var Pn = __dcg_shared_module_exports__["e"](ne());
+  var Pn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function dD(r) {
     let e = document.createElement("a");
     return e.href = r, e.href;
@@ -48217,7 +48300,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
   }
   var hD = {};
-  __dcg_shared_module_exports__["d"](hD, {
+  __dcg_shared_module_exports__["defineProperties"](hD, {
     LARGE: () => Hoe,
     MEDIUM: () => IP,
     SMALL: () => qoe,
@@ -48226,11 +48309,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   });
   var zoe = 9, qoe = 12, IP = 16, Hoe = 20, Koe = 24;
   Ss();
-  var fi = __dcg_shared_module_exports__["e"](ne());
+  var fi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
-  var Sr = __dcg_shared_module_exports__["e"](ne());
-  var Yt = __dcg_shared_module_exports__["e"](ne());
-  var $l = __dcg_shared_module_exports__["e"](ne());
+  var Sr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Yt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var $l = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var Op = class extends $l.Class {
     init() {
@@ -48491,7 +48574,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           );
       }
     };
-  var Tc = __dcg_shared_module_exports__["e"](ne()),
+  var Tc = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     go = class extends Tc.Class {
       template() {
         return Tc.createElement(
@@ -48518,8 +48601,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var ls = __dcg_shared_module_exports__["e"](ne()),
-    mD = __dcg_shared_module_exports__["e"](fK());
+  var ls = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
+    mD = __dcg_shared_module_exports__["defineDefaultExport"](fK());
   var MP = /\{\$([a-zA-Z0-9\-]+([a-zA-Z0-9\-]+_)*[a-zA-Z0-9\-]+)\}/;
   function bK(r, e) {
     let t = 0, o = 0, i = {}, n = {}, a = s(r);
@@ -48923,7 +49006,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
       isList() {
-        return this.model.formula ? !!this.model.formula.is_concrete_list : false;
+        return this.model.formula
+          ? !!this.model.formula.is_concrete_list
+          : false;
       }
       hasError() {
         return this.packedError() !== void 0;
@@ -48958,8 +49043,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var Rp = __dcg_shared_module_exports__["e"](ne());
-  var Er = __dcg_shared_module_exports__["e"](ne());
+  var Rp = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Er = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: wK, If: bD } = Er.Components,
     ey = class extends Er.Class {
       init() {
@@ -49206,7 +49291,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o === "End" && (l = 1 / 0),
           o === "Up" && s - a >= 0 && (l = s - a),
           o === "Down" && s + a <= c && (l = s + a),
-          l = __dcg_shared_module_exports__["Sb"](l, 0, c),
+          l = __dcg_shared_module_exports__["clamp"](l, 0, c),
           l !== s &&
           (l < a
             ? (this.props.onColorSelected(i[l]),
@@ -49328,7 +49413,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         : Fu(this.model);
     }
   };
-  var Yi = __dcg_shared_module_exports__["e"](ne());
+  var Yi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: nie, For: aie } = Yi.Components,
     ty = class extends Yi.Class {
       init() {
@@ -49453,7 +49538,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           : this.onDragModeSelected(e);
       }
     };
-  var Ri = __dcg_shared_module_exports__["e"](ne());
+  var Ri = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: vK } = Ri.Components,
     yD = class extends Ri.Class {
       init() {
@@ -49560,7 +49645,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var jl = __dcg_shared_module_exports__["e"](ne());
+  var jl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: lie } = jl.Components,
     nh = class extends jl.Class {
       init() {
@@ -49615,8 +49700,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var Jt = __dcg_shared_module_exports__["e"](ne());
-  var Qn = __dcg_shared_module_exports__["e"](ne());
+  var Jt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Qn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: cie } = Qn.Components,
     die = [{
       orientation: "default",
@@ -49746,7 +49831,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var Dc = __dcg_shared_module_exports__["e"](ne());
+  var Dc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var ry = class extends Dc.Class {
     init() {
       this.controller = this.props.controller(),
@@ -50122,7 +50207,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var zr = __dcg_shared_module_exports__["e"](ne());
+  var zr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: CK } = zr.Components,
     oy = class extends zr.Class {
       init() {
@@ -50408,7 +50493,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var Xi = __dcg_shared_module_exports__["e"](ne());
+  var Xi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: uie } = Xi.Components,
     CD = class extends Xi.Class {
       init() {
@@ -50509,7 +50594,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
       }
     };
-  var mo = __dcg_shared_module_exports__["e"](ne());
+  var mo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: PP } = mo.Components,
     iy = class extends mo.Class {
       init() {
@@ -50742,7 +50827,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           : `${8}`;
       }
     };
-  var Ji = __dcg_shared_module_exports__["e"](ne());
+  var Ji = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: mie } = Ji.Components,
     SD = class extends Ji.Class {
       init() {
@@ -50845,7 +50930,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return `${3}`;
       }
     };
-  var jo = __dcg_shared_module_exports__["e"](ne());
+  var jo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: VP } = jo.Components,
     ED = class extends jo.Class {
       init() {
@@ -51986,8 +52071,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
     },
     cs = NP;
-  var sx = __dcg_shared_module_exports__["e"](ne());
-  var Hv = __dcg_shared_module_exports__["e"](ne());
+  var sx = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Hv = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var cy, xt, kv, zP, UP;
   function Da(r, e) {
@@ -53294,26 +53379,26 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       u = false,
       f = [],
       y = Ao(
-        __dcg_shared_module_exports__["qa"].value(t.xmin, Ng(o, t.xmin))
+        __dcg_shared_module_exports__["OoLabel"].value(t.xmin, Ng(o, t.xmin))
           .latex,
       ),
       C = Ao(
-        __dcg_shared_module_exports__["qa"].value(t.xmax, Ng(o, t.xmax))
+        __dcg_shared_module_exports__["OoLabel"].value(t.xmax, Ng(o, t.xmax))
           .latex,
       ),
       E = Ao(
-        __dcg_shared_module_exports__["qa"].value(t.ymin, jT(o, t.ymin))
+        __dcg_shared_module_exports__["OoLabel"].value(t.ymin, jT(o, t.ymin))
           .latex,
       ),
       v = Ao(
-        __dcg_shared_module_exports__["qa"].value(t.ymax, jT(o, t.ymax))
+        __dcg_shared_module_exports__["OoLabel"].value(t.ymax, jT(o, t.ymax))
           .latex,
       ),
       w = t.zmin
-        ? Ao(__dcg_shared_module_exports__["qa"].value(t.zmin).latex)
+        ? Ao(__dcg_shared_module_exports__["OoLabel"].value(t.zmin).latex)
         : "",
       S = t.zmax
-        ? Ao(__dcg_shared_module_exports__["qa"].value(t.zmax).latex)
+        ? Ao(__dcg_shared_module_exports__["OoLabel"].value(t.zmax).latex)
         : "";
     if (r.is3dProduct()) {
       let { xmin: _, xmax: A, ymin: P, ymax: O, zmin: U, zmax: z } = t,
@@ -53730,9 +53815,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           } else continue;
           for (let h = 0; h < py; h++) {
             let u = p(l, c, h / (py - 1)),
-              f = __dcg_shared_module_exports__["ea"](u).value,
+              f = __dcg_shared_module_exports__["value"](u).value,
               y = p(l, c, (h + 1) / (py - 1)),
-              C = __dcg_shared_module_exports__["ea"](y).value,
+              C = __dcg_shared_module_exports__["value"](y).value,
               E = this.getInterveningPOIs(f, C, n, s);
             if (E.length > 0) d.push.apply(d, E);
             else {
@@ -53867,10 +53952,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             continue;
           }
           let n = o[o.length - 1];
-          __dcg_shared_module_exports__["ea"](n.x).value ===
-              __dcg_shared_module_exports__["ea"](i.x).value &&
-            __dcg_shared_module_exports__["ea"](n.y).value ===
-              __dcg_shared_module_exports__["ea"](i.y).value &&
+          __dcg_shared_module_exports__["value"](n.x).value ===
+              __dcg_shared_module_exports__["value"](i.x).value &&
+            __dcg_shared_module_exports__["value"](n.y).value ===
+              __dcg_shared_module_exports__["value"](i.y).value &&
             n.branch === i.branch
             ? (n.typeChain ||
               (n.typeChain = n.type !== void 0 ? [n.type] : []),
@@ -54575,7 +54660,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       if (!this.independentScale) return 0;
       let t = __dcg_shared_module_exports__["fd"](this.independentScale, e) /
         this.screenDuration;
-      return __dcg_shared_module_exports__["Sb"](2 * t - 1, -1, 1);
+      return __dcg_shared_module_exports__["clamp"](2 * t - 1, -1, 1);
     }
     setupScales(e) {
       this.projection = this.controller.get2dProjection(),
@@ -55409,7 +55494,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ),
           ),
           e.graphMode === 25 || e.graphMode === 26
-            ? yt(Ao(__dcg_shared_module_exports__["pa"]([e.x, e.y])))
+            ? yt(
+              Ao(
+                __dcg_shared_module_exports__["complexNumberLabel"]([e.x, e.y]),
+              ),
+            )
             : (this.queueCoordinateProp(e, "x"),
               this.queueCoordinateProp(e, "y"));
       }
@@ -56095,7 +56184,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         Si(), this.reportAudioTrace({ propToSpeak: "type", playSound: false });
       }
       reportBranch() {
-        Si(), this.reportAudioTrace({ propToSpeak: "branch", playSound: false });
+        Si(),
+          this.reportAudioTrace({ propToSpeak: "branch", playSound: false });
       }
       describePoint() {
         Si(), this.reportAudioTrace({ playSound: false }), xe();
@@ -56817,7 +56907,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       r.fillRect(t + 1, o + 2, 1, 1),
       r.fillStyle = i;
   }
-  var jAe = __dcg_shared_module_exports__["e"](ne());
+  var jAe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function JP(r, e) {
     return `${r}_dcg_delim_${e}`;
   }
@@ -56961,7 +57051,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = t[e.calcId],
           i = e.listIndex || 0;
         return o
-          ? o.listIndexes ? o.listIndexes[i] = true : o.listIndexes = { [i]: true }
+          ? o.listIndexes
+            ? o.listIndexes[i] = true
+            : o.listIndexes = { [i]: true }
           : (o = { listIndexes: { [i]: true } }, t[e.calcId] = o),
           t;
       } else return this.hoveredObjects;
@@ -57000,7 +57092,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return !t || t.type !== "expression" ? false : Hi(t);
     }
   };
-  var qp = __dcg_shared_module_exports__["e"](ne()),
+  var qp = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     { If: Qie } = qp.Components,
     FD = class extends qp.Class {
       init() {
@@ -57030,8 +57122,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return this.controller.isVirtualMouseAllowed();
       }
     };
-  var r6 = __dcg_shared_module_exports__["e"](ne());
-  var ka = __dcg_shared_module_exports__["e"](ne());
+  var r6 = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ka = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Zie } = ka.Components,
     ND = class extends ka.Class {
       init() {
@@ -57829,7 +57921,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               let k = 0;
               rne(c, d, y, (_) => {
                 let A = new _a(
-                  __dcg_shared_module_exports__["ea"](_, f),
+                  __dcg_shared_module_exports__["value"](_, f),
                   r.settings.labelSize,
                 );
                 k = Math.max(A.getDimensionAlongAxis(l), k);
@@ -57844,7 +57936,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let v = o6(r)[l === "x" ? "majorStepX" : "majorStepY"],
             w = nV(
               v,
-              __dcg_shared_module_exports__["ea"](y, f).string.indexOf(
+              __dcg_shared_module_exports__["value"](y, f).string.indexOf(
                   "\u03C0",
                 ) >= 0
                 ? v >= 1 ? one : ine
@@ -58184,7 +58276,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let M = [],
             F = [],
             Z = [],
-            te = new _a(__dcg_shared_module_exports__["ea"](N, l), w),
+            te = new _a(__dcg_shared_module_exports__["value"](N, l), w),
             Y = te.getRect();
           switch (
             N > 0
@@ -58238,7 +58330,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             let he;
             t.settings.degreeMode
               ? he = Y.toString() + "\xB0"
-              : he = __dcg_shared_module_exports__["ea"](
+              : he = __dcg_shared_module_exports__["value"](
                 Y * Math.PI / 180,
                 2 * Math.PI,
               ).string;
@@ -58251,12 +58343,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             Y === 0 || Y === 180
               ? fe -= S
               : (Y === 90 || Y === 270) && (K += se + 3);
-            let me = __dcg_shared_module_exports__["Sb"](
+            let me = __dcg_shared_module_exports__["clamp"](
                 K,
                 3 + se,
                 f - 3 - se,
               ),
-              we = __dcg_shared_module_exports__["Sb"](
+              we = __dcg_shared_module_exports__["clamp"](
                 fe,
                 3 + S,
                 y - 3 - S,
@@ -58391,7 +58483,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let P = 5, O = false;
         if (a && s && (l || c)) {
           O = true, e.fillStyle = E;
-          let V = new _a(__dcg_shared_module_exports__["ea"](0, 1), k);
+          let V = new _a(__dcg_shared_module_exports__["value"](0, 1), k);
           V.drawCenteredAt(e, {
             x: w - V.getRect().right - P,
             y: S - V.getRect().top + P,
@@ -58403,7 +58495,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             R = V ? n.x.label : ds(d, p, U);
           for (let N of R) {
             let M = V ? void 0 : p - d,
-              F = __dcg_shared_module_exports__["ea"](N, M, V),
+              F = __dcg_shared_module_exports__["value"](N, M, V),
               Z = new _a(F, k);
             Z.getString() === "0" && O || x.push(Z);
           }
@@ -58413,7 +58505,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             R = V ? n.y.label : ds(h, u, z);
           for (let N of R) {
             let M = V ? void 0 : u - h,
-              F = __dcg_shared_module_exports__["ea"](N, M, V),
+              F = __dcg_shared_module_exports__["value"](N, M, V),
               Z = new _a(F, k);
             Z.getString() === "0" && O || L.push(Z);
           }
@@ -58585,7 +58677,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     let t = lh(r), o = lh(e);
     return lh(t - o) <= (t < o ? o : t) * 1e-4;
   }
-  var EMe = __dcg_shared_module_exports__["e"](ne());
+  var EMe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Nv = class {
     constructor(e) {
       this.grapher = e,
@@ -58818,7 +58910,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       ...s6,
     },
     fy = Object.keys(s6);
-  var Et = __dcg_shared_module_exports__["e"](ne());
+  var Et = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function sV(r, e) {
     if (r.indexOf("\\idref_{") === 0) {
       let t = r.indexOf("}"), o = r.slice(8, t);
@@ -58972,8 +59064,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function cV(r, e) {
     __dcg_shared_module_exports__["Ob"](r)
       ? r.value.forEach((t, o) => {
-        let i = __dcg_shared_module_exports__["xb"](r.valueType);
-        if (__dcg_shared_module_exports__["Bb"](i)) {
+        let i = __dcg_shared_module_exports__["elementType"](r.valueType);
+        if (__dcg_shared_module_exports__["isMapOrListOfMap"](i)) {
           throw new Error("Programming error: unexpected lambda type");
         }
         e({ valueType: i, value: t }, o + 1);
@@ -58983,7 +59075,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function Bv(r) {
     let e = r.formula.geometry, t = e == null ? void 0 : e.identifier;
     return t
-      ? __dcg_shared_module_exports__["ma"](t)
+      ? __dcg_shared_module_exports__["identifierToLatex"](t)
       : "\\idref_{" + r.id + "}";
   }
   function Qg(r, e) {
@@ -59031,78 +59123,78 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function cne(r, e) {
     switch (r.valueType) {
-      case __dcg_shared_module_exports__["Da"]:
+      case __dcg_shared_module_exports__["ListOfPoint"]:
         return {
-          valueType: __dcg_shared_module_exports__["ya"],
+          valueType: __dcg_shared_module_exports__["Point"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Oa"]:
+      case __dcg_shared_module_exports__["ListOfCircle"]:
         return {
-          valueType: __dcg_shared_module_exports__["Na"],
+          valueType: __dcg_shared_module_exports__["Circle"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Ma"]:
+      case __dcg_shared_module_exports__["ListOfSegment"]:
         return {
-          valueType: __dcg_shared_module_exports__["La"],
+          valueType: __dcg_shared_module_exports__["Segment"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Ua"]:
+      case __dcg_shared_module_exports__["ListOfRay"]:
         return {
-          valueType: __dcg_shared_module_exports__["Ta"],
+          valueType: __dcg_shared_module_exports__["Ray"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["ab"]:
+      case __dcg_shared_module_exports__["ListOfVector"]:
         return {
-          valueType: __dcg_shared_module_exports__["$a"],
+          valueType: __dcg_shared_module_exports__["Vector"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Sa"]:
+      case __dcg_shared_module_exports__["ListOfLine"]:
         return {
-          valueType: __dcg_shared_module_exports__["Ra"],
+          valueType: __dcg_shared_module_exports__["Line"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Ka"]:
+      case __dcg_shared_module_exports__["ListOfPolygon"]:
         return {
-          valueType: __dcg_shared_module_exports__["Ja"],
+          valueType: __dcg_shared_module_exports__["Polygon"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Qa"]:
+      case __dcg_shared_module_exports__["ListOfArc"]:
         return {
-          valueType: __dcg_shared_module_exports__["Pa"],
+          valueType: __dcg_shared_module_exports__["Arc"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Wa"]:
+      case __dcg_shared_module_exports__["ListOfAngleMarker"]:
         return {
-          valueType: __dcg_shared_module_exports__["Va"],
+          valueType: __dcg_shared_module_exports__["AngleMarker"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Ya"]:
+      case __dcg_shared_module_exports__["ListOfDirectedAngleMarker"]:
         return {
-          valueType: __dcg_shared_module_exports__["Xa"],
+          valueType: __dcg_shared_module_exports__["DirectedAngleMarker"],
           value: r.value[e],
         };
-      case __dcg_shared_module_exports__["Ea"]:
-      case __dcg_shared_module_exports__["Ba"]:
-      case __dcg_shared_module_exports__["eb"]:
-      case __dcg_shared_module_exports__["_a"]:
-      case __dcg_shared_module_exports__["Ca"]:
-      case __dcg_shared_module_exports__["cb"]:
-      case __dcg_shared_module_exports__["Ia"]:
-      case __dcg_shared_module_exports__["gb"]:
-      case __dcg_shared_module_exports__["ib"]:
-      case __dcg_shared_module_exports__["kb"]:
-      case __dcg_shared_module_exports__["mb"]:
-      case __dcg_shared_module_exports__["ob"]:
-      case __dcg_shared_module_exports__["qb"]:
+      case __dcg_shared_module_exports__["EmptyList"]:
+      case __dcg_shared_module_exports__["ListOfNumber"]:
+      case __dcg_shared_module_exports__["ListOfComplex"]:
+      case __dcg_shared_module_exports__["ListOfTransformation"]:
+      case __dcg_shared_module_exports__["ListOfBool"]:
+      case __dcg_shared_module_exports__["ListOfRestriction"]:
+      case __dcg_shared_module_exports__["ListOfColor"]:
+      case __dcg_shared_module_exports__["ListOfTone"]:
+      case __dcg_shared_module_exports__["ListOfPoint3D"]:
+      case __dcg_shared_module_exports__["ListOfSegment3D"]:
+      case __dcg_shared_module_exports__["ListOfTriangle3D"]:
+      case __dcg_shared_module_exports__["ListOfSphere3D"]:
+      case __dcg_shared_module_exports__["ListOfVector3D"]:
         throw new Error(
           "Programming Error: unexpected type " +
-            __dcg_shared_module_exports__["vb"](r.valueType),
+            __dcg_shared_module_exports__["prettyPrint"](r.valueType),
         );
       default:
         throw r.valueType,
           new Error(
             "Programming Error: expected a list type but found " +
-              __dcg_shared_module_exports__["vb"](r.valueType),
+              __dcg_shared_module_exports__["prettyPrint"](r.valueType),
           );
     }
   }
@@ -59116,25 +59208,25 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function KD(r) {
     switch (r) {
-      case __dcg_shared_module_exports__["ya"]:
+      case __dcg_shared_module_exports__["Point"]:
         return "Point";
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Circle"]:
         return "Circle";
-      case __dcg_shared_module_exports__["Pa"]:
+      case __dcg_shared_module_exports__["Arc"]:
         return "Arc";
-      case __dcg_shared_module_exports__["Ja"]:
+      case __dcg_shared_module_exports__["Polygon"]:
         return "Polygon";
-      case __dcg_shared_module_exports__["Ra"]:
+      case __dcg_shared_module_exports__["Line"]:
         return "Line";
-      case __dcg_shared_module_exports__["La"]:
+      case __dcg_shared_module_exports__["Segment"]:
         return "Segment";
-      case __dcg_shared_module_exports__["Ta"]:
+      case __dcg_shared_module_exports__["Ray"]:
         return "Ray";
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return "Vector";
-      case __dcg_shared_module_exports__["Va"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
         return "Angle";
-      case __dcg_shared_module_exports__["Xa"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
         return "Angle";
     }
   }
@@ -59243,7 +59335,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     canNextInputBePoint() {
       let e = this._getFirstMissingInput();
       return e && e.type === "point" ? true : !!(e && e.type === "union" &&
-        e.valueTypes.indexOf(__dcg_shared_module_exports__["ya"]) !==
+        e.valueTypes.indexOf(__dcg_shared_module_exports__["Point"]) !==
           -1);
     }
     getNonPointInputType() {
@@ -59255,9 +59347,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     isValidNextInputType(e) {
       if (
         this.canNextInputBePoint() &&
-        __dcg_shared_module_exports__["ua"](
+        __dcg_shared_module_exports__["isSubTypeOrCoercible"](
           e,
-          __dcg_shared_module_exports__["ya"],
+          __dcg_shared_module_exports__["Point"],
         )
       ) return true;
       let t = this._getFirstMissingInput();
@@ -59268,42 +59360,44 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let i = t.type;
         switch (i) {
           case "point":
-            o = [__dcg_shared_module_exports__["ya"]];
+            o = [__dcg_shared_module_exports__["Point"]];
             break;
           case "straight":
-            o = [...__dcg_shared_module_exports__["zb"].types];
+            o = [...__dcg_shared_module_exports__["straightTypes"].types];
             break;
           case "angle":
             o = [
-              __dcg_shared_module_exports__["Va"],
-              __dcg_shared_module_exports__["Xa"],
+              __dcg_shared_module_exports__["AngleMarker"],
+              __dcg_shared_module_exports__["DirectedAngleMarker"],
             ];
             break;
           case "arc":
-            o = [__dcg_shared_module_exports__["Pa"]];
+            o = [__dcg_shared_module_exports__["Arc"]];
             break;
           case "circle":
-            o = [__dcg_shared_module_exports__["Na"]];
+            o = [__dcg_shared_module_exports__["Circle"]];
             break;
           case "polygon":
-            o = [__dcg_shared_module_exports__["Ja"]];
+            o = [__dcg_shared_module_exports__["Polygon"]];
             break;
           case "segment":
-            o = [__dcg_shared_module_exports__["La"]];
+            o = [__dcg_shared_module_exports__["Segment"]];
             break;
           case "vector":
-            o = [__dcg_shared_module_exports__["$a"]];
+            o = [__dcg_shared_module_exports__["Vector"]];
             break;
           default:
             return i;
         }
       }
       return t.numberInputInfo &&
-        o.push(__dcg_shared_module_exports__["wa"]),
-        o.some((i) => __dcg_shared_module_exports__["ua"](e, i));
+        o.push(__dcg_shared_module_exports__["Number"]),
+        o.some((i) =>
+          __dcg_shared_module_exports__["isSubTypeOrCoercible"](e, i)
+        );
     }
     getAllValidNextInputTypes() {
-      return __dcg_shared_module_exports__["tb"].filter((e) =>
+      return __dcg_shared_module_exports__["allValueTypes"].filter((e) =>
         this.isValidNextInputType(e)
       );
     }
@@ -59468,30 +59562,30 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function WD(r, e) {
     if (typeof e == "object") {
       return e.valueTypes.some((t) =>
-        __dcg_shared_module_exports__["ua"](r, t)
+        __dcg_shared_module_exports__["isSubTypeOrCoercible"](r, t)
       );
     }
     switch (e) {
       case "point":
-        return r === __dcg_shared_module_exports__["ya"];
+        return r === __dcg_shared_module_exports__["Point"];
       case "straight":
-        return r === __dcg_shared_module_exports__["Ra"] ||
-          r === __dcg_shared_module_exports__["Ta"] ||
-          r === __dcg_shared_module_exports__["La"] ||
-          r === __dcg_shared_module_exports__["$a"];
+        return r === __dcg_shared_module_exports__["Line"] ||
+          r === __dcg_shared_module_exports__["Ray"] ||
+          r === __dcg_shared_module_exports__["Segment"] ||
+          r === __dcg_shared_module_exports__["Vector"];
       case "angle":
-        return r === __dcg_shared_module_exports__["Va"] ||
-          r === __dcg_shared_module_exports__["Xa"];
+        return r === __dcg_shared_module_exports__["AngleMarker"] ||
+          r === __dcg_shared_module_exports__["DirectedAngleMarker"];
       case "arc":
-        return r === __dcg_shared_module_exports__["Pa"];
+        return r === __dcg_shared_module_exports__["Arc"];
       case "circle":
-        return r === __dcg_shared_module_exports__["Na"];
+        return r === __dcg_shared_module_exports__["Circle"];
       case "polygon":
-        return r === __dcg_shared_module_exports__["Ja"];
+        return r === __dcg_shared_module_exports__["Polygon"];
       case "segment":
-        return r === __dcg_shared_module_exports__["La"];
+        return r === __dcg_shared_module_exports__["Segment"];
       case "vector":
-        return r === __dcg_shared_module_exports__["$a"];
+        return r === __dcg_shared_module_exports__["Vector"];
       default:
         return e;
     }
@@ -59502,10 +59596,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.valueType = t;
       }
       static point(e) {
-        return new r(e, __dcg_shared_module_exports__["ya"]);
+        return new r(e, __dcg_shared_module_exports__["Point"]);
       }
       static polygonSegment(e) {
-        return new r(e, __dcg_shared_module_exports__["La"]);
+        return new r(e, __dcg_shared_module_exports__["Segment"]);
       }
     },
     Vr = class extends _c {
@@ -59519,10 +59613,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           this.icon = o.icon,
           this.workflows = o.workflows.map((i) => {
             let n = i.input.broadcast
-              ? __dcg_shared_module_exports__["Db"](i.input.types, {
+              ? __dcg_shared_module_exports__["broadcastable"](i.input.types, {
                 geometry: true,
               })
-              : __dcg_shared_module_exports__["Cb"](i.input.types, {
+              : __dcg_shared_module_exports__["signature"](i.input.types, {
                 geometry: true,
               });
             return { ...i, signature: n };
@@ -59574,10 +59668,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           o = this.getMatchingWorkflowForCurrentInputs(t - 1);
         return !!(o != null && o.allMatches.some((i) => {
           let n = i.signature.argTypeAtIndex(t);
-          return n === void 0 ? false : __dcg_shared_module_exports__["Eb"](
-            __dcg_shared_module_exports__["ya"],
-            n,
-          );
+          return n === void 0
+            ? false
+            : __dcg_shared_module_exports__["typeSatisfiesArgType"](
+              __dcg_shared_module_exports__["Point"],
+              n,
+            );
         }));
       }
       isDegenerateInput(t) {
@@ -59623,7 +59719,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 id: `${d}`,
                 type: "union",
                 hint: $D(n, d),
-                valueTypes: [...h, __dcg_shared_module_exports__["ya"]],
+                valueTypes: [...h, __dcg_shared_module_exports__["Point"]],
               })
               : a.push({ id: `${d}`, type: "point", hint: $D(n, d) });
           } else {a.push({
@@ -59681,8 +59777,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               return d === void 0
                 ? false
                 : typeof d == "number"
-                ? __dcg_shared_module_exports__["wb"](d)
-                : d.getTypes().some(__dcg_shared_module_exports__["wb"]);
+                ? __dcg_shared_module_exports__["isList"](d)
+                : d.getTypes().some(__dcg_shared_module_exports__["isList"]);
             });
         } else return true;
       }
@@ -59704,11 +59800,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   function d6(r) {
     return typeof r == "number"
-      ? r === __dcg_shared_module_exports__["ya"]
+      ? r === __dcg_shared_module_exports__["Point"]
       : r.getTypes().every((e) =>
-        __dcg_shared_module_exports__["Ab"](
+        __dcg_shared_module_exports__["isTypeOrListOfType"](
           e,
-          __dcg_shared_module_exports__["ya"],
+          __dcg_shared_module_exports__["Point"],
         )
       );
   }
@@ -59728,7 +59824,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         return r.type, false;
     }
   }
-  var Kp = __dcg_shared_module_exports__["e"](ne()),
+  var Kp = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     by = class extends Kp.Class {
       template() {
         return Kp.createElement(
@@ -59741,7 +59837,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var yy = __dcg_shared_module_exports__["e"](ne());
+  var yy = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var p6 =
       'a, input, button:not([disabled]), textarea, select [role="textbox"], [tabIndex="0"], [role="option"], [role="button"], [role="link"], summary',
@@ -59967,10 +60063,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         !!(e != null && e.focusFirstOption);
     }
     shouldMoveFocusToLastOption() {
-      return this.props.focusOnOpen ? this.props.focusOnOpen() === "last" : false;
+      return this.props.focusOnOpen
+        ? this.props.focusOnOpen() === "last"
+        : false;
     }
   };
-  var Zg = __dcg_shared_module_exports__["e"](ne()),
+  var Zg = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     XD = class extends Zg.Class {
       onSpanMount(e) {
         e.insertAdjacentHTML(
@@ -59986,8 +60084,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var _r = __dcg_shared_module_exports__["e"](ne());
-  var JD = __dcg_shared_module_exports__["e"](ne());
+  var _r = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var JD = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function h6(r, e, t) {
     r.save();
     for (let o of t) {
@@ -60300,7 +60398,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       o.clearRect(0, 0, o.canvas.width, o.canvas.height), h6(o, t, e);
     }
   };
-  var pa = __dcg_shared_module_exports__["e"](ne());
+  var pa = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: hne, Each: gne, SwitchUnion: mne } = pa.Components,
     xy = class extends pa.Class {
       init() {
@@ -60878,8 +60976,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
     }
   }
-  var Zn = __dcg_shared_module_exports__["e"](ne());
-  var or = __dcg_shared_module_exports__["e"](ne());
+  var Zn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var or = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { Switch: yne, SwitchUnion: xne } = or.Components,
     Pd = class extends or.Class {
       template() {
@@ -61111,7 +61209,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return { ...r, latex: r.latex + t };
     }
     if (r.type === "simple") {
-      let o = __dcg_shared_module_exports__["ma"](r.identifier);
+      let o = __dcg_shared_module_exports__["identifierToLatex"](r.identifier);
       if (!/^\\token\{(\d+)\}$/.test(o)) {
         return { type: "arbitrary-expression", latex: o + t };
       }
@@ -61340,7 +61438,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       applyTransformation(e) {
         var o;
         if (!((o = e.formula.geometry) != null && o.identifier)) return;
-        let t = __dcg_shared_module_exports__["ma"](
+        let t = __dcg_shared_module_exports__["identifierToLatex"](
           e.formula.geometry.identifier,
         );
         this.controller.dispatch({
@@ -61349,7 +61447,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         });
       }
     };
-  var dn = __dcg_shared_module_exports__["e"](ne());
+  var dn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Sne, IfElse: Ene, SwitchUnion: Tne } = dn.Components,
     tk = class extends dn.Class {
       init() {
@@ -61387,12 +61485,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? void 0
             : i.valueType
         ) {
-          case __dcg_shared_module_exports__["ya"]:
+          case __dcg_shared_module_exports__["Point"]:
             return { type: "single", objectType: "point", model: t };
-          case __dcg_shared_module_exports__["Va"]:
-          case __dcg_shared_module_exports__["Xa"]:
+          case __dcg_shared_module_exports__["AngleMarker"]:
+          case __dcg_shared_module_exports__["DirectedAngleMarker"]:
             return { type: "single", objectType: "angle", model: t };
-          case __dcg_shared_module_exports__["La"]:
+          case __dcg_shared_module_exports__["Segment"]:
             return { type: "single", objectType: "segment", model: t };
           default:
             return { type: "multiple", objectType: "point" };
@@ -61465,7 +61563,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             }))
           : (this.singleItemState.mode = "text",
             ((t = e.model.formula.geometry) == null ? void 0 : t.valueType) ===
-                __dcg_shared_module_exports__["ya"]
+                __dcg_shared_module_exports__["Point"]
               ? this.controller.dispatch({
                 type: "set-label-state-for-selected-points",
                 state: "auto",
@@ -61602,8 +61700,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var ao = __dcg_shared_module_exports__["e"](ne());
-  var Fi = __dcg_shared_module_exports__["e"](ne());
+  var ao = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Fi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { Input: Dne, If: uV } = Fi.Components,
     rk = class extends Fi.Class {
       constructor() {
@@ -61934,7 +62032,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         this.controller.dispatch({ type: "delete-all-selected-items" });
       }
     };
-  var us = __dcg_shared_module_exports__["e"](ne());
+  var us = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: kne } = us.Components,
     ik = class extends us.Class {
       init() {
@@ -62403,10 +62501,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           });
           let s = (n = a.formula.geometry) == null ? void 0 : n.valueType;
           switch (
-            __dcg_shared_module_exports__["wb"](s) &&
-            (s = __dcg_shared_module_exports__["xb"](s)), s
+            __dcg_shared_module_exports__["isList"](s) &&
+            (s = __dcg_shared_module_exports__["elementType"](s)), s
           ) {
-            case __dcg_shared_module_exports__["ya"]:
+            case __dcg_shared_module_exports__["Point"]:
               a.showLabel
                 ? e.pointLabels.push(a.label ? "text" : "measurement")
                 : e.pointLabels.push("none"),
@@ -62414,28 +62512,28 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 a.formula.move_strategy &&
                 e.draggableFreePoint.push(a.dragMode !== "NONE");
               break;
-            case __dcg_shared_module_exports__["Ja"]:
+            case __dcg_shared_module_exports__["Polygon"]:
               break;
-            case __dcg_shared_module_exports__["Pa"]:
+            case __dcg_shared_module_exports__["Arc"]:
               e.arrowMode.push(a.arrowMode);
               break;
-            case __dcg_shared_module_exports__["Na"]:
+            case __dcg_shared_module_exports__["Circle"]:
               break;
-            case __dcg_shared_module_exports__["Ra"]:
+            case __dcg_shared_module_exports__["Line"]:
               break;
-            case __dcg_shared_module_exports__["Ta"]:
+            case __dcg_shared_module_exports__["Ray"]:
               break;
-            case __dcg_shared_module_exports__["$a"]:
+            case __dcg_shared_module_exports__["Vector"]:
               break;
-            case __dcg_shared_module_exports__["La"]:
+            case __dcg_shared_module_exports__["Segment"]:
               e.singleLabelableExpressionModel.push(a),
                 e.arrowMode.push(a.arrowMode);
               break;
-            case __dcg_shared_module_exports__["Va"]:
-            case __dcg_shared_module_exports__["Xa"]:
+            case __dcg_shared_module_exports__["AngleMarker"]:
+            case __dcg_shared_module_exports__["DirectedAngleMarker"]:
               e.singleLabelableExpressionModel.push(a);
               break;
-            case __dcg_shared_module_exports__["Za"]:
+            case __dcg_shared_module_exports__["Transformation"]:
               break;
             default:
           }
@@ -62494,9 +62592,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let t = e.formula.typed_constant_value;
           if (
             !t ||
-            __dcg_shared_module_exports__["Ab"](
+            __dcg_shared_module_exports__["isTypeOrListOfType"](
               t.valueType,
-              __dcg_shared_module_exports__["ya"],
+              __dcg_shared_module_exports__["Point"],
             )
           ) return;
           let o = this.controller.getAllAvailableGeoTools(), i = [];
@@ -62531,9 +62629,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             ? void 0
             : o.valueType;
           a !== void 0 &&
-            __dcg_shared_module_exports__["Ab"](
+            __dcg_shared_module_exports__["isTypeOrListOfType"](
               a,
-              __dcg_shared_module_exports__["Za"],
+              __dcg_shared_module_exports__["Transformation"],
             ) && e.push(i);
         }
         return e.reverse();
@@ -62664,7 +62762,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let e = this.sectionValues.singleLabelableExpressionModel;
         !this.isLabelMenuOpen() && e && !ja(e) &&
         ((t = e.formula.geometry) == null ? void 0 : t.valueType) ===
-          __dcg_shared_module_exports__["ya"] &&
+          __dcg_shared_module_exports__["Point"] &&
         this.controller.dispatch({
           type: "set-label-state-for-selected-points",
           state: "auto",
@@ -62739,16 +62837,16 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   qt();
   function wy(r) {
     let e = [[r.x0, r.y0], [r.x1, r.y1], [r.x2, r.y2]],
-      [t, o] = __dcg_shared_module_exports__["Vb"](e),
-      i = __dcg_shared_module_exports__["Qb"](r.x0 - t, r.y0 - o);
+      [t, o] = __dcg_shared_module_exports__["arcCenter"](e),
+      i = __dcg_shared_module_exports__["hypot"](r.x0 - t, r.y0 - o);
     return { x: t, y: o, radius: i };
   }
   function ak(r) {
     let e = [[r.x0, r.y0], [r.x1, r.y1], [r.x2, r.y2]],
-      [t, o] = __dcg_shared_module_exports__["Vb"](e);
+      [t, o] = __dcg_shared_module_exports__["arcCenter"](e);
     return {
       startAngle: Math.atan2(r.y0 - o, r.x0 - t),
-      deltaAngle: __dcg_shared_module_exports__["Wb"](e),
+      deltaAngle: __dcg_shared_module_exports__["arcOmega"](e),
     };
   }
   var Ine = Math.hypot && Math.hypot(1 / 0, NaN) === 1 / 0;
@@ -63037,12 +63135,12 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return false;
     }
     getAllValidNextInputTypes() {
-      return __dcg_shared_module_exports__["tb"].filter((e) =>
+      return __dcg_shared_module_exports__["allValueTypes"].filter((e) =>
         this.isValidNextInputType(e)
       );
     }
     isValidNextInputType(e) {
-      return e !== __dcg_shared_module_exports__["Za"];
+      return e !== __dcg_shared_module_exports__["Transformation"];
     }
     getNonPointInputType() {}
     getHint() {
@@ -63115,7 +63213,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       let i = this.controller.getGeoModel().getCurrentTool();
       (!this.controller.isGeometry() ||
-        i.isValidNextInputType(__dcg_shared_module_exports__["va"])) &&
+        i.isValidNextInputType(__dcg_shared_module_exports__["Any"])) &&
         this.findNonGeometryTabTargetsInGraph().filter((p) =>
           !(i instanceof om && this.controller.isClickableId(p.calcId))
         ).forEach((p) => {
@@ -64051,7 +64149,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let o = this._getStyledPointRadiusForPOI(e, t.adjustments),
           i = Math.max(0, t.tolerance - o),
           n = t.projection.map_pt(e),
-          a = __dcg_shared_module_exports__["S"](
+          a = __dcg_shared_module_exports__["MathHypot"](
             n.x - t.screenPt.x,
             n.y - t.screenPt.y,
           ),
@@ -64377,7 +64475,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 ? void 0
                 : f.valueType;
               C = !(this.controller.isGeometry() && E &&
-                __dcg_shared_module_exports__["yb"](E));
+                __dcg_shared_module_exports__["isGeometryType"](E));
             }
             return {
               type: "sketch-branch",
@@ -64598,7 +64696,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 L = A - E,
                 V = Math.atan2(x, L);
               if (__dcg_shared_module_exports__["Q"](V, w, S)) {
-                __dcg_shared_module_exports__["S"](x * _, L * k) <=
+                __dcg_shared_module_exports__["MathHypot"](x * _, L * k) <=
                     O + 7 && (z = 0);
               } else {
                 let R = __dcg_shared_module_exports__["V"](
@@ -64617,11 +64715,11 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                     E,
                     v,
                   ),
-                  M = __dcg_shared_module_exports__["S"](
+                  M = __dcg_shared_module_exports__["MathHypot"](
                     k * (R[0] - A),
                     _ * (R[1] - P),
                   ),
-                  F = __dcg_shared_module_exports__["S"](
+                  F = __dcg_shared_module_exports__["MathHypot"](
                     k * (N[0] - A),
                     _ * (N[1] - P),
                   );
@@ -64656,7 +64754,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 _,
               );
             if (!A) return null;
-            let P = __dcg_shared_module_exports__["S"](
+            let P = __dcg_shared_module_exports__["MathHypot"](
               A[0] - a,
               A[1] - s,
             );
@@ -64684,7 +64782,10 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
               );
             if (!_) return null;
             let A = l.mapCoordinatePair(_),
-              P = __dcg_shared_module_exports__["S"](A[0] - a, A[1] - s);
+              P = __dcg_shared_module_exports__["MathHypot"](
+                A[0] - a,
+                A[1] - s,
+              );
             return {
               closestPoint: { x: A[0], y: A[1] },
               minDistance: P,
@@ -64716,7 +64817,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
                 U - a,
                 z - s,
               ),
-              L = __dcg_shared_module_exports__["S"](x[0], x[1]);
+              L = __dcg_shared_module_exports__["MathHypot"](x[0], x[1]);
             x[e.graphMode === 1 ? 1 : 0] < 0
               ? L < d && (d = L, h = x)
               : L < p && (p = L, u = x);
@@ -64854,7 +64955,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           if (
             !c &&
             l.typedRuntimeValue.valueType ===
-              __dcg_shared_module_exports__["ya"] &&
+              __dcg_shared_module_exports__["Point"] &&
             l.data.isMovablePoint
           ) {
             let [d, p] = l.typedRuntimeValue.value;
@@ -64887,7 +64988,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           case "movable-point-parent":
             let t = { x: e.x, y: e.y };
             if (e.transformations) {
-              let o = __dcg_shared_module_exports__["oc"](
+              let o = __dcg_shared_module_exports__["transformPoint"](
                 e.transformations.forward,
                 [t.x, t.y],
               );
@@ -65484,26 +65585,26 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         let o = t.formula.typed_constant_value;
         if (!o || !this.manager.getProjection()) return;
         let n = o.valueType, a = o.value;
-        if (__dcg_shared_module_exports__["wb"](o.valueType)) {
+        if (__dcg_shared_module_exports__["isList"](o.valueType)) {
           let p = e == null ? void 0 : e.listIndex;
-          p && (n = __dcg_shared_module_exports__["xb"](n), a = a[p]);
+          p && (n = __dcg_shared_module_exports__["elementType"](n), a = a[p]);
         }
         let s = e == null ? void 0 : e.polygonEdge;
         if (
-          n === __dcg_shared_module_exports__["Ja"] && s !== void 0 &&
+          n === __dcg_shared_module_exports__["Polygon"] && s !== void 0 &&
           s >= 0 && a.length > s
         ) {
           let p = a[s], h = a[(s + 1) % a.length];
-          n = __dcg_shared_module_exports__["La"], a = [p, h];
+          n = __dcg_shared_module_exports__["Segment"], a = [p, h];
         }
         let l = NaN, c = NaN;
-        return n === __dcg_shared_module_exports__["ya"]
+        return n === __dcg_shared_module_exports__["Point"]
           ? (l = a[0], c = a[1])
-          : n === __dcg_shared_module_exports__["Ra"] ||
-              n === __dcg_shared_module_exports__["Ta"] ||
-              n === __dcg_shared_module_exports__["La"]
+          : n === __dcg_shared_module_exports__["Line"] ||
+              n === __dcg_shared_module_exports__["Ray"] ||
+              n === __dcg_shared_module_exports__["Segment"]
           ? (l = (a[0][0] + a[1][0]) / 2, c = (a[0][1] + a[1][1]) / 2)
-          : n === __dcg_shared_module_exports__["$a"]
+          : n === __dcg_shared_module_exports__["Vector"]
           ? (l = a[1][0] + a[0][0] / 2, c = a[1][1] + a[0][1] / 2)
           : (d = a[0]) != null && d.length && (l = a[0][0], c = a[0][1]),
           { x: l, y: c };
@@ -65732,7 +65833,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let i;
           if ("tokenId" in o) {
             let n = this.controller.getGeoTokenInfoFromIdentifier(
-              __dcg_shared_module_exports__["na"](o.tokenId),
+              __dcg_shared_module_exports__["latexToIdentifier"](o.tokenId),
             );
             i = n && n.calcId;
           } else i = o.calcId;
@@ -65847,7 +65948,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
     }
   };
   mg();
-  var Wp = __dcg_shared_module_exports__["e"](ne()),
+  var Wp = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     mk = class extends Wp.Class {
       template() {
         return Wp.createElement(
@@ -65875,7 +65976,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         );
       }
     };
-  var kPe = __dcg_shared_module_exports__["e"](ne());
+  var kPe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Ic = class extends _c {
     generateDefaultName() {
       return "does not matter";
@@ -65943,8 +66044,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             inputs: [{ type: "point", id: "1", hint: M6 }, {
               type: "union",
               valueTypes: [
-                __dcg_shared_module_exports__["ya"],
-                __dcg_shared_module_exports__["Xa"],
+                __dcg_shared_module_exports__["Point"],
+                __dcg_shared_module_exports__["DirectedAngleMarker"],
               ],
               id: "2",
               hint: Kne,
@@ -65980,7 +66081,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
             l = a && this.model.findDefsForInputId(a)[0];
           s = !!(l &&
             l.typedRuntimeValue.valueType ==
-              __dcg_shared_module_exports__["ya"]),
+              __dcg_shared_module_exports__["Point"]),
             s
               ? (t.inputs.push({ type: "point", id: "3", hint: Wne }),
                 t.outputs.push({
@@ -66037,8 +66138,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [G6, $ne],
         },
@@ -66047,8 +66148,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         input: {
           broadcast: false,
           types: [
-            __dcg_shared_module_exports__["$a"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Vector"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [G6, jne],
         },
@@ -66071,7 +66172,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   function nm(r) {
     if (!Xne(r)) {
       return __dcg_shared_module_exports__["Pb"](
-        __dcg_shared_module_exports__["$a"],
+        __dcg_shared_module_exports__["Vector"],
       );
     }
     let e = r[1][0],
@@ -66082,49 +66183,50 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
   }
   var Jne = 14, L6 = 2.5, Qne = 40, Zne = 15, eae = .75, tae = 1;
   function uh(r) {
-    return r.valueType === __dcg_shared_module_exports__["ya"]
+    return r.valueType === __dcg_shared_module_exports__["Point"]
       ? r.value
-      : r.valueType === __dcg_shared_module_exports__["Da"]
+      : r.valueType === __dcg_shared_module_exports__["ListOfPoint"]
       ? r.value[0]
       : void 0;
   }
   function rae(r) {
-    return r.valueType === __dcg_shared_module_exports__["$a"]
+    return r.valueType === __dcg_shared_module_exports__["Vector"]
       ? r.value
-      : r.valueType === __dcg_shared_module_exports__["ab"]
+      : r.valueType === __dcg_shared_module_exports__["ListOfVector"]
       ? r.value[0]
       : void 0;
   }
   function oae(r) {
-    return r.valueType === __dcg_shared_module_exports__["Ra"] ||
-        r.valueType === __dcg_shared_module_exports__["Ta"] ||
-        r.valueType === __dcg_shared_module_exports__["La"] ||
-        r.valueType === __dcg_shared_module_exports__["$a"]
+    return r.valueType === __dcg_shared_module_exports__["Line"] ||
+        r.valueType === __dcg_shared_module_exports__["Ray"] ||
+        r.valueType === __dcg_shared_module_exports__["Segment"] ||
+        r.valueType === __dcg_shared_module_exports__["Vector"]
       ? {
-        segment: r.valueType === __dcg_shared_module_exports__["La"],
+        segment: r.valueType === __dcg_shared_module_exports__["Segment"],
         value: r.value,
       }
-      : r.valueType === __dcg_shared_module_exports__["Sa"] ||
-          r.valueType === __dcg_shared_module_exports__["Ua"] ||
-          r.valueType === __dcg_shared_module_exports__["Ma"] ||
-          r.valueType === __dcg_shared_module_exports__["ab"]
+      : r.valueType === __dcg_shared_module_exports__["ListOfLine"] ||
+          r.valueType === __dcg_shared_module_exports__["ListOfRay"] ||
+          r.valueType === __dcg_shared_module_exports__["ListOfSegment"] ||
+          r.valueType === __dcg_shared_module_exports__["ListOfVector"]
       ? {
-        segment: r.valueType === __dcg_shared_module_exports__["Ma"],
+        segment: r.valueType === __dcg_shared_module_exports__["ListOfSegment"],
         value: r.value[0],
       }
       : void 0;
   }
   function P6(r) {
-    return r.valueType === __dcg_shared_module_exports__["wa"]
+    return r.valueType === __dcg_shared_module_exports__["Number"]
       ? r.value
-      : r.valueType === __dcg_shared_module_exports__["Ba"]
+      : r.valueType === __dcg_shared_module_exports__["ListOfNumber"]
       ? r.value[0]
       : void 0;
   }
   function V6(r) {
-    return r.valueType === __dcg_shared_module_exports__["Xa"]
+    return r.valueType === __dcg_shared_module_exports__["DirectedAngleMarker"]
       ? r.value
-      : r.valueType === __dcg_shared_module_exports__["Ya"]
+      : r.valueType ===
+          __dcg_shared_module_exports__["ListOfDirectedAngleMarker"]
       ? r.value[0]
       : void 0;
   }
@@ -66193,7 +66295,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       }
       if (isNaN(d) && isNaN(p)) return;
       let h = 40,
-        u = h / __dcg_shared_module_exports__["S"](a - l, s - c),
+        u = h / __dcg_shared_module_exports__["MathHypot"](a - l, s - c),
         f = d + (c - s) * u,
         y = p - (l - a) * u,
         C = d - (c - s) * u,
@@ -66227,8 +66329,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         a = t.pixelsToMath.mapX(25) - t.pixelsToMath.mapX(0);
       [[a, 0], [0, a], [-a, 0], [0, -a]].forEach((s) => {
         let l = [o[0] + s[0], o[1] + s[1]],
-          c = __dcg_shared_module_exports__["oc"](
-            __dcg_shared_module_exports__["lc"](o, i),
+          c = __dcg_shared_module_exports__["transformPoint"](
+            __dcg_shared_module_exports__["dilation"](o, i),
             l,
           ),
           [d, p] = t.map_xy_pairs(l),
@@ -66391,9 +66493,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       let S = w.formula.typed_constant_value;
       if (!S) continue;
       if (
-        __dcg_shared_module_exports__["Ab"](
+        __dcg_shared_module_exports__["isTypeOrListOfType"](
           S.valueType,
-          __dcg_shared_module_exports__["$a"],
+          __dcg_shared_module_exports__["Vector"],
         )
       ) {
         let _ = (c = pi(w)) == null ? void 0 : c.identifier;
@@ -66426,9 +66528,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
         ((p = S == null ? void 0 : S.call) == null ? void 0 : p.symbol) ===
           "translate" &&
         (k == null ? void 0 : k.args.length) === 1 &&
-        __dcg_shared_module_exports__["Ab"](
+        __dcg_shared_module_exports__["isTypeOrListOfType"](
           k.args[0].valueType,
-          __dcg_shared_module_exports__["$a"],
+          __dcg_shared_module_exports__["Vector"],
         )
       ) {
         let _ = (f = (u = (h = w.formula.geometry) == null ? void 0 : h.call) ==
@@ -66446,9 +66548,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           "rotate" &&
         (k != null && k.args) &&
         (k == null ? void 0 : k.args.length) > 1 &&
-        __dcg_shared_module_exports__["Ab"](
+        __dcg_shared_module_exports__["isTypeOrListOfType"](
           k.args[1].valueType,
-          __dcg_shared_module_exports__["Xa"],
+          __dcg_shared_module_exports__["DirectedAngleMarker"],
         )
       ) {
         let _ = (v = (E = (C = w.formula.geometry) == null ? void 0 : C.call) ==
@@ -66543,7 +66645,7 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       o = e.y - r.y,
       i = .5 * (r.x + e.x),
       n = .5 * (r.y + e.y),
-      a = .5 * __dcg_shared_module_exports__["S"](t, o);
+      a = .5 * __dcg_shared_module_exports__["MathHypot"](t, o);
     return { center: Aa(i, n), radius: a };
   }
   function R6(r, e) {
@@ -69531,7 +69633,8 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           let n = this.children;
           for (let a = 0, s = n.length; a < s; a++) {
             let l = n[a];
-            l.matrixWorldAutoUpdate === true && l.updateWorldMatrix(false, true);
+            l.matrixWorldAutoUpdate === true &&
+              l.updateWorldMatrix(false, true);
           }
         }
       }
@@ -70255,7 +70358,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
           : null,
         this.texture.minFilter = i.minFilter !== void 0 ? i.minFilter : ml,
         this.depthBuffer = i.depthBuffer !== void 0 ? i.depthBuffer : true,
-        this.stencilBuffer = i.stencilBuffer !== void 0 ? i.stencilBuffer : false,
+        this.stencilBuffer = i.stencilBuffer !== void 0
+          ? i.stencilBuffer
+          : false,
         this.depthTexture = i.depthTexture !== void 0 ? i.depthTexture : null,
         this.samples = i.samples !== void 0 ? i.samples : 0;
     }
@@ -70434,7 +70539,9 @@ l10n-internal-time = {DATETIME($d, minute: "numeric", hour: "numeric")}
       return t[t.length - 1];
     }
     updateArcLengths() {
-      this.needsUpdate = true, this.cacheLengths = void 0, this.getCurveLengths();
+      this.needsUpdate = true,
+        this.cacheLengths = void 0,
+        this.getCurveLengths();
     }
     getCurveLengths() {
       if (
@@ -73418,7 +73525,8 @@ Program Info Log: ` + A + `
           extensionDrawBuffers:
             ((Z = v.extensions) == null ? void 0 : Z.drawBuffers) === true,
           extensionShaderTextureLOD:
-            ((te = v.extensions) == null ? void 0 : te.shaderTextureLOD) === true,
+            ((te = v.extensions) == null ? void 0 : te.shaderTextureLOD) ===
+              true,
           rendererExtensionFragDepth: true,
           rendererExtensionDrawBuffers: true,
           rendererExtensionShaderTextureLod: true,
@@ -73862,7 +73970,9 @@ Program Info Log: ` + A + `
           de && e.drawBuffers(Ge);
       }
       function me(Q) {
-        return f !== Q ? (wt(Q, "program", e), e.useProgram(Q), f = Q, true) : false;
+        return f !== Q
+          ? (wt(Q, "program", e), e.useProgram(Q), f = Q, true)
+          : false;
       }
       let we = {
           [Od]: e.FUNC_ADD,
@@ -76986,7 +77096,7 @@ Program Info Log: ` + A + `
   }
   var Mc = 134e3, E7 = 134e-6;
   function T7(r, e, t, o) {
-    return t = __dcg_shared_module_exports__["Sb"](t, E7, Mc),
+    return t = __dcg_shared_module_exports__["clamp"](t, E7, Mc),
       o = o != null ? o : r === 0 || e === 0 ? 0 : (r + e) / 2,
       r = o + (r - o) / (e - r) * t,
       e = r + t,
@@ -77159,7 +77269,7 @@ Program Info Log: ` + A + `
               this.axis3D = [A.x, A.y, A.z],
                 this.useVirtualSphere && this.snapSpinAxisIfClose();
               let z = 240 * (Lc / 180);
-              this.speed3D = __dcg_shared_module_exports__["Sb"](
+              this.speed3D = __dcg_shared_module_exports__["clamp"](
                 P / U,
                 -z,
                 z,
@@ -77349,7 +77459,7 @@ Program Info Log: ` + A + `
             this.axis3D = [u.x, u.y, u.z], this.speed3D = f;
           } else {
             let p = 240 * (Lc / 180);
-            this.speed3D = __dcg_shared_module_exports__["Sb"](
+            this.speed3D = __dcg_shared_module_exports__["clamp"](
               this.speed3D * 1.1,
               -p,
               p,
@@ -77500,7 +77610,7 @@ Program Info Log: ` + A + `
         i.isOrienting = true,
           i.startTime = window.performance.now(),
           i.duration = 150 *
-            __dcg_shared_module_exports__["Sb"](p / 30, 1, 3);
+            __dcg_shared_module_exports__["clamp"](p / 30, 1, 3);
       }
       updateViewport(t) {
         let o = this.grapher3d, i = o.controller.getGrapher2d();
@@ -78570,9 +78680,9 @@ ${Dh}
       c = .05 * (l > 360 ? 1 : l > 120 ? 360 / l : 4 - l / 120),
       d = 4,
       p = d * c / .08,
-      h = __dcg_shared_module_exports__["Sb"](0, t, o),
-      u = __dcg_shared_module_exports__["Sb"](0, i, n),
-      f = __dcg_shared_module_exports__["Sb"](0, a, s),
+      h = __dcg_shared_module_exports__["clamp"](0, t, o),
+      u = __dcg_shared_module_exports__["clamp"](0, i, n),
+      f = __dcg_shared_module_exports__["clamp"](0, a, s),
       y = o - t,
       C = n - i,
       E = s - a,
@@ -78670,7 +78780,7 @@ ${Dh}
         Ce == null || Ce.position.set(We[0], We[1], We[2]);
     }
     function O(Ce) {
-      return Math.acos(__dcg_shared_module_exports__["Sb"](Ce, -1, 1));
+      return Math.acos(__dcg_shared_module_exports__["clamp"](Ce, -1, 1));
     }
     let U = l <= 0 ? -1 : 1,
       z = c <= 0 ? -1 : 1,
@@ -78723,7 +78833,7 @@ ${Dh}
       let { showNumbers3D: a, showPlane3D: s } = o.settings,
         { xmin: l, xmax: c, ymin: d, ymax: p, zmin: h, zmax: u } = e,
         [f, y, C] = [c - l, p - d, u - h],
-        E = __dcg_shared_module_exports__["Sb"](0, h, u);
+        E = __dcg_shared_module_exports__["clamp"](0, h, u);
       this.basePosition = new ye((c + l) / 2, (p + d) / 2, E),
         this.zOffset = ale * (u - h);
       let v = new e0(f, y);
@@ -78748,8 +78858,8 @@ ${Dh}
           S = new Ai(w, t.zMaterial),
           k = i9(S),
           [_, A] = [
-            __dcg_shared_module_exports__["Sb"](0, l, c),
-            __dcg_shared_module_exports__["Sb"](0, d, p),
+            __dcg_shared_module_exports__["clamp"](0, l, c),
+            __dcg_shared_module_exports__["clamp"](0, d, p),
           ];
         S.setRotationFromEuler(ym(Math.PI / 2, 0, 0)),
           S.name = "z plane",
@@ -78781,7 +78891,7 @@ ${Dh}
       { xmin: a, xmax: s, zmin: l, zmax: c } = t,
       d = [];
     for (let w of i) {
-      let S = __dcg_shared_module_exports__["qa"].value(w, c - l);
+      let S = __dcg_shared_module_exports__["OoLabel"].value(w, c - l);
       d.push(new _a(S, n));
     }
     o.save(),
@@ -78823,9 +78933,9 @@ ${Dh}
   }
   function dle(r, e, { tickMaterial: t }) {
     let { xmin: o, xmax: i, ymin: n, ymax: a, zmin: s, zmax: l } = e,
-      c = __dcg_shared_module_exports__["Sb"](0, o, i),
-      d = __dcg_shared_module_exports__["Sb"](0, n, a),
-      p = __dcg_shared_module_exports__["Sb"](0, s, l),
+      c = __dcg_shared_module_exports__["clamp"](0, o, i),
+      d = __dcg_shared_module_exports__["clamp"](0, n, a),
+      p = __dcg_shared_module_exports__["clamp"](0, s, l),
       h = Math.PI,
       u = .004,
       f = u * (i - o),
@@ -79895,7 +80005,7 @@ gl_FragColor = maxAccum;
   }
   function u9(r, e, t) {
     var R, N, M;
-    let o = __dcg_shared_module_exports__["Sb"](
+    let o = __dcg_shared_module_exports__["clamp"](
         Math.floor(8 + 30 * e),
         8,
         20,
@@ -80026,7 +80136,7 @@ gl_FragColor = maxAccum;
           ) {
             he.normalize();
             let oe = Math.acos(
-              __dcg_shared_module_exports__["Sb"](
+              __dcg_shared_module_exports__["clamp"](
                 Z[ae - 1].dot(Z[ae]),
                 -1,
                 1,
@@ -80287,7 +80397,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let A = 6 * t,
       P = 1 - Math.min(1, A / _),
       O = r.clone().add(S.clone().multiplyScalar(P)),
-      U = __dcg_shared_module_exports__["Sb"](Tle(8 + 80 * t), 8, 30);
+      U = __dcg_shared_module_exports__["clamp"](Tle(8 + 80 * t), 8, 30);
     x(r, t), x(O, t), L();
     let z = E.length / 3;
     E.push(r.x, r.y, r.z), v.push(n.x, n.y, n.z), x(r, t, n);
@@ -80694,7 +80804,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           c = Number(l);
         if (
           (l === "" || isNaN(c)) && (c = .5),
-            c = __dcg_shared_module_exports__["Sb"](c, 0, 1),
+            c = __dcg_shared_module_exports__["clamp"](c, 0, 1),
             c < p0
         ) return;
         let d = this.materialManager.getOrMakeMaterial({
@@ -80731,7 +80841,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             i = (Math.floor(n / s) + 1) * s;
           } else a === 0 ? i = n - 1 : i = n;
         }
-        return __dcg_shared_module_exports__["Sb"](i, 1, t);
+        return __dcg_shared_module_exports__["clamp"](i, 1, t);
       }
       getConfig() {
         return this.controller.getGraphSettings().config;
@@ -80743,7 +80853,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         for (let n in this.surfaces) {
           let a = this.surfaces[n];
           if (a.isTransparent) {
-            let s = __dcg_shared_module_exports__["Sb"](
+            let s = __dcg_shared_module_exports__["clamp"](
               a.mesh.material.opacity,
               0,
               1,
@@ -82311,10 +82421,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   };
   mg();
-  var Wt = __dcg_shared_module_exports__["e"](ne());
-  var Ut = __dcg_shared_module_exports__["e"](ne());
-  var ze = __dcg_shared_module_exports__["e"](ne());
-  var ru = __dcg_shared_module_exports__["e"](ne()),
+  var Wt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Ut = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ze = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ru = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     tr = class extends ru.Class {
       template() {
         return ru.createElement(
@@ -82413,8 +82523,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.props.ariaExpanded ? this.props.ariaExpanded() : void 0;
       }
     };
-  var oI = __dcg_shared_module_exports__["e"](ne());
-  var V9 = __dcg_shared_module_exports__["e"](ne()),
+  var oI = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var V9 = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     Cm = class extends V9.Class {
       init() {
         this.controller = this.props.controller();
@@ -82427,7 +82537,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, this.props.children);
     }
   };
-  var re = __dcg_shared_module_exports__["e"](ne());
+  var re = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: F9, If: O9, Switch: Ule } = re.Components;
   function cr(r, e) {
     return r === void 0
@@ -83724,7 +83834,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function to(r = 1) {
     return re.createElement("div", { style: re.const(`flex-grow:${r}`) });
   }
-  var N9 = __dcg_shared_module_exports__["e"](ne());
+  var N9 = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var OO = class OO extends N9.Class {
     init() {
       this.controller = this.props.controller(),
@@ -84125,7 +84235,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
       isSpeedDownDisabled() {
         let r = this.controller.getAudioGraph();
-        return !r || this.isAudioDisabled() ? true : r.getAudioSpeedIndex() <= 0;
+        return !r || this.isAudioDisabled()
+          ? true
+          : r.getAudioSpeedIndex() <= 0;
       }
       isSpeedUpDisabled() {
         let r = this.controller.getAudioGraph();
@@ -84141,7 +84253,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : "";
       }
     };
-  var Ir = __dcg_shared_module_exports__["e"](ne());
+  var Ir = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: aI, For: B9 } = Ir.Components,
     sI = class extends ii {
       template() {
@@ -84575,8 +84687,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return I(this, r, { style: "popover" });
       }
     };
-  var Ih = __dcg_shared_module_exports__["e"](ne());
-  var Ky = __dcg_shared_module_exports__["e"](ne()),
+  var Ih = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Ky = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     $e = class extends Ky.Class {
       template() {
         return Ky.createElement("div", {
@@ -84651,7 +84763,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var Wy = __dcg_shared_module_exports__["e"](ne());
+  var Wy = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var cI = class extends ii {
     template() {
       return Wy.createElement(
@@ -84718,7 +84830,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var ga = __dcg_shared_module_exports__["e"](ne());
+  var ga = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: Kle } = ga.Components,
     dI = class extends ii {
       template() {
@@ -84852,7 +84964,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : this.controller.s("graphing-calculator-button-functions");
       }
     };
-  var xl = __dcg_shared_module_exports__["e"](ne());
+  var xl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Wle } = xl.Components,
     pI = class extends ii {
       template() {
@@ -84964,7 +85076,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : this.controller.s("graphing-calculator-button-functions");
       }
     };
-  var $y = __dcg_shared_module_exports__["e"](ne());
+  var $y = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var uI = class extends ii {
     template() {
       return $y.createElement(
@@ -85035,7 +85147,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var jy = __dcg_shared_module_exports__["e"](ne());
+  var jy = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var hI = class extends ii {
     template() {
       return jy.createElement(
@@ -85401,9 +85513,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       t.preventDefault(), t.stopPropagation();
     });
   }
-  var ro = __dcg_shared_module_exports__["e"](ne());
-  var ko = __dcg_shared_module_exports__["e"](ne());
-  var ec = __dcg_shared_module_exports__["e"](ne());
+  var ro = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ko = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ec = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var fI = class extends ec.Class {
     template() {
       return ec.createElement(
@@ -85613,12 +85725,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let s = a.formula.typed_constant_value;
         if (!s) return true;
         if (
-          __dcg_shared_module_exports__["Ab"](
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
             s.valueType,
-            __dcg_shared_module_exports__["Za"],
+            __dcg_shared_module_exports__["Transformation"],
           )
         ) {
-          let c = __dcg_shared_module_exports__["wb"](s.valueType)
+          let c = __dcg_shared_module_exports__["isList"](s.valueType)
             ? s.value
             : [s.value];
           for (let d of c) {
@@ -85836,8 +85948,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : "tools";
       }
     };
-  var xo = __dcg_shared_module_exports__["e"](ne());
-  var ms = __dcg_shared_module_exports__["e"](ne());
+  var xo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ms = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Yy = class extends ms.Class {
     init() {
       this.controller = this.props.controller();
@@ -85934,7 +86046,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         : this.controller.dispatch({ type: "undo" });
     }
   };
-  var ta = __dcg_shared_module_exports__["e"](ne());
+  var ta = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Zle } = ta.Components,
     Ah = class extends ta.Class {
       init() {
@@ -86007,7 +86119,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
       }
     };
-  var bo = __dcg_shared_module_exports__["e"](ne()),
+  var bo = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     { SwitchUnion: ece } = bo.Components,
     h0 = class extends bo.Class {
       template() {
@@ -86092,7 +86204,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           });
       }
     };
-  var zs = __dcg_shared_module_exports__["e"](ne());
+  var zs = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var g0 = class extends zs.Class {
     init() {
       this.controller = this.props.controller();
@@ -86136,7 +86248,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       this.controller.dispatch({ type: "reset-graph" });
     }
   };
-  var ra = __dcg_shared_module_exports__["e"](ne());
+  var ra = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var m0 = class extends ra.Class {
     init() {
       this.controller = this.props.controller();
@@ -86256,7 +86368,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var ve = __dcg_shared_module_exports__["e"](ne());
+  var ve = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var tc = function (r, e, t) {
     if (r === void 0 || e === void 0) return false;
@@ -86273,8 +86385,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return d >= p ? o = Math.min(Math.max(l, p), d) : o = .5 * (d + p),
       o !== l ? (e.scrollTop = o, e.scrollTop != l) : false;
   };
-  var yo = __dcg_shared_module_exports__["e"](ne());
-  var Mh = __dcg_shared_module_exports__["e"](ne());
+  var yo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Mh = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Sm = class extends Mh.Class {
     template() {
       return Mh.createElement(
@@ -86437,7 +86549,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
       }
     };
-  var hn = __dcg_shared_module_exports__["e"](ne());
+  var hn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: tce } = hn.Components,
     Gh = class extends hn.Class {
       init() {
@@ -86527,7 +86639,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "set-braille-mode", mode: e });
       }
     };
-  var gn = __dcg_shared_module_exports__["e"](ne());
+  var gn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: q9 } = gn.Components,
     Lh = class extends gn.Class {
       init() {
@@ -86598,7 +86710,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var Pc = __dcg_shared_module_exports__["e"](ne());
+  var Pc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: rce } = Pc.Components,
     rc = class extends Pc.Class {
       init() {
@@ -86698,7 +86810,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "update-degree-mode", mode: e });
       }
     };
-  var ou = __dcg_shared_module_exports__["e"](ne());
+  var ou = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Xy = class extends ou.Class {
     init() {
       this.controller = this.props.controller();
@@ -87637,9 +87749,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "zoom", direction: "square" });
       }
     };
-  var Tr = __dcg_shared_module_exports__["e"](ne());
+  var Tr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
-  var Ra = __dcg_shared_module_exports__["e"](ne());
+  var Ra = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: W9 } = Ra.Components,
     Jy = class extends Ra.Class {
       init() {
@@ -87698,7 +87810,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
       }
     };
-  var Uo = __dcg_shared_module_exports__["e"](ne());
+  var Uo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: $9 } = Uo.Components,
     BO = 0,
     f0 = tI / 8,
@@ -87863,7 +87975,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             o = f0 - 1;
             break;
         }
-        o = __dcg_shared_module_exports__["Sb"](o + 1, BO, f0),
+        o = __dcg_shared_module_exports__["clamp"](o + 1, BO, f0),
           this.controller.dispatch({
             type: "set-perspective-distortion",
             value: o,
@@ -87876,7 +87988,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
       }
     };
-  var et = __dcg_shared_module_exports__["e"](ne());
+  var et = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Vh } = et.Components,
     Oh = class extends et.Class {
       template() {
@@ -88586,7 +88698,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.getKeypadHeight() ? "bottom: 0" : "";
       }
     };
-  var Vc = __dcg_shared_module_exports__["e"](ne());
+  var Vc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var TI = class extends Vc.Class {
     init() {
       this.controller = this.props.controller();
@@ -88637,7 +88749,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var ni = __dcg_shared_module_exports__["e"](ne());
+  var ni = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var DI = class extends ni.Class {
     init() {
       this.controller = this.props.controller();
@@ -88929,7 +89041,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.controller.hasDefaultState();
       }
     };
-  var gr = __dcg_shared_module_exports__["e"](ne()),
+  var gr = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     { If: y0 } = gr.Components,
     zO = class extends gr.Class {
       init() {
@@ -89053,7 +89165,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return (t = e.isGeometry) == null ? void 0 : t.call(e);
       }
     };
-  var tt = __dcg_shared_module_exports__["e"](ne());
+  var tt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   function j9(r) {
     if (window.clipboardData && window.clipboardData.getData) {
@@ -89616,7 +89728,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       i();
     }
   }
-  var Zy = __dcg_shared_module_exports__["e"](ne()),
+  var Zy = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     x0 = class extends Zy.Class {
       init() {
         this.controller = this.props.controller();
@@ -89636,7 +89748,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (e) return e.itemLeft + "px";
       }
     };
-  var iu = __dcg_shared_module_exports__["e"](ne());
+  var iu = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var { If: sce } = iu.Components,
     GI = class extends iu.Class {
@@ -89690,7 +89802,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.initialWidth = void 0;
       }
     };
-  var Qi = __dcg_shared_module_exports__["e"](ne());
+  var Qi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: lce, If: cce } = Qi.Components,
     LI = class extends Qi.Class {
       init() {
@@ -89857,7 +89969,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return !Ru(this.model);
       }
     };
-  var nu = __dcg_shared_module_exports__["e"](ne());
+  var nu = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var PI = class extends nu.Class {
     init() {
       var e;
@@ -89906,7 +90018,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var ir = __dcg_shared_module_exports__["e"](ne());
+  var ir = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: w0 } = ir.Components,
     VI = class extends ir.Class {
       constructor() {
@@ -90165,8 +90277,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
       }
     };
-  var _t = __dcg_shared_module_exports__["e"](ne());
-  var ct = __dcg_shared_module_exports__["e"](ne());
+  var _t = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ct = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var { If: v0 } = ct.Components,
     C0 = class extends ct.Class {
@@ -90539,7 +90651,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return !(t || o);
       }
     };
-  var Kd = __dcg_shared_module_exports__["e"](ne());
+  var Kd = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var OI = class extends Kd.Class {
     init() {
       this.controller = this.props.controller();
@@ -90585,7 +90697,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       });
     }
   };
-  var Wd = __dcg_shared_module_exports__["e"](ne());
+  var Wd = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var RI = class extends Wd.Class {
     init() {
@@ -90955,8 +91067,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : this.controller.toneItemsExist();
       }
     };
-  var mr = __dcg_shared_module_exports__["e"](ne());
-  var Oc = __dcg_shared_module_exports__["e"](ne());
+  var mr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Oc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var { Textarea: dce } = Oc.Components,
     au = class extends Oc.Class {
@@ -91444,7 +91556,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           e;
       }
     };
-  var mn = __dcg_shared_module_exports__["e"](ne());
+  var mn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: t$, If: uce } = mn.Components,
     FI = class extends mn.Class {
       init() {
@@ -91720,7 +91832,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         }), this.lastFocusedIdentifier = p;
       }
     };
-  var Kt = __dcg_shared_module_exports__["e"](ne());
+  var Kt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: hce, If: T0, Textarea: gce } = Kt.Components,
     NI = class extends Kt.Class {
       template() {
@@ -91955,7 +92067,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return !(e && e.type === "folder" && e.inFrontOfEverything);
       }
     };
-  var Qe = __dcg_shared_module_exports__["e"](ne());
+  var Qe = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: D0, SwitchUnion: mce } = Qe.Components,
     Em = class extends Qe.Class {
       init() {
@@ -92427,7 +92539,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             }));
       }
     };
-  var Fa = __dcg_shared_module_exports__["e"](ne()),
+  var Fa = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     _0 = class extends Fa.Class {
       template() {
         return this.controller = this.props.controller(),
@@ -92469,7 +92581,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "new-expression-at-end" });
       }
     };
-  var Ar = __dcg_shared_module_exports__["e"](ne()),
+  var Ar = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     I0 = class extends Ar.Class {
       init() {
         this.controller = this.props.controller();
@@ -92533,7 +92645,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "hide-progress-update-legend" });
       }
     };
-  var A0 = __dcg_shared_module_exports__["e"](ne());
+  var A0 = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var M0 = class extends is {
     didMountRoot(e) {
       this.onItemViewMounted(e);
@@ -92554,8 +92666,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         });
     }
   };
-  var zo = __dcg_shared_module_exports__["e"](ne());
-  var fn = __dcg_shared_module_exports__["e"](ne());
+  var zo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var fn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var UI = [
       .05,
       .1,
@@ -92815,7 +92927,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return this.model.slider.loopMode === e;
     }
   };
-  var rr = __dcg_shared_module_exports__["e"](ne());
+  var rr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function r$(r) {
     let e = [], t = r.getAllItemModels();
     for (let o of t) {
@@ -92915,7 +93027,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return { width: o.width, height: o.height };
   }
   qt();
-  var fs = __dcg_shared_module_exports__["e"](ne());
+  var fs = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: wce } = fs.Components,
     qI = class extends fs.Class {
       init() {
@@ -92974,8 +93086,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var je = __dcg_shared_module_exports__["e"](ne());
-  var Ni = __dcg_shared_module_exports__["e"](ne());
+  var je = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Ni = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var vce =
       'a, input, button:not([disabled]), textarea, select [role="textbox"], [tabIndex="0"], [role="option"], [role="button"], [role="link"], summary',
@@ -93440,9 +93552,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var oa = __dcg_shared_module_exports__["e"](ne());
+  var oa = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
-  var dr = __dcg_shared_module_exports__["e"](ne());
+  var dr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: c$, If: KI, IfDefined: Tce, Switch: Dce } = dr.Components,
     WI = class extends dr.Class {
       template() {
@@ -93821,7 +93933,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         throw new Error(`Unexpected progress status: ${r}`);
     }
   }
-  var aj = __dcg_shared_module_exports__["e"](ne());
+  var aj = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var O0 = class {
     constructor(e) {
@@ -93954,10 +94066,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         : e.dragTarget.type === "token" &&
           (y = { x: 0, y: i.height / 2 });
       let C = e.mousePt.y - y.y,
-        E = __dcg_shared_module_exports__["Sb"](C - t.y, -a / 2, n - a),
+        E = __dcg_shared_module_exports__["clamp"](C - t.y, -a / 2, n - a),
         v = 0;
       f &&
-        (v = __dcg_shared_module_exports__["Sb"](
+        (v = __dcg_shared_module_exports__["clamp"](
           e.mousePt.x - y.x - t.x,
           0,
           o.width - i.width - 4,
@@ -94057,7 +94169,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       0,
     );
     i && (n += i);
-    let s = .5 / (__dcg_shared_module_exports__["Ub"](t, o) * e);
+    let s = .5 / (__dcg_shared_module_exports__["distance"](t, o) * e);
     return ho(n - s, n + s);
   }
   function Rc(r, e) {
@@ -94073,7 +94185,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     if (!t) return 0;
     let i = r.mapx(1) - r.mapx(0);
     switch (t.valueType) {
-      case __dcg_shared_module_exports__["Na"]: {
+      case __dcg_shared_module_exports__["Circle"]: {
         let a = e.x - t.value[0][0],
           s = e.y - t.value[0][1],
           l = Math.atan2(s, a) / (2 * Math.PI);
@@ -94081,25 +94193,25 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let c = Rc(0, [o]), d = Rc(1, [o]);
         if (l >= c && l <= d) return l;
         {
-          let p = __dcg_shared_module_exports__["_b"](t.value, c),
-            h = __dcg_shared_module_exports__["_b"](t.value, d),
-            u = __dcg_shared_module_exports__["Ub"](p, [e.x, e.y]),
-            f = __dcg_shared_module_exports__["Ub"](h, [e.x, e.y]);
+          let p = __dcg_shared_module_exports__["circleGlider"](t.value, c),
+            h = __dcg_shared_module_exports__["circleGlider"](t.value, d),
+            u = __dcg_shared_module_exports__["distance"](p, [e.x, e.y]),
+            f = __dcg_shared_module_exports__["distance"](h, [e.x, e.y]);
           return u <= f ? c : d;
         }
       }
-      case __dcg_shared_module_exports__["Pa"]: {
-        let a = __dcg_shared_module_exports__["bc"](t.value);
+      case __dcg_shared_module_exports__["Arc"]: {
+        let a = __dcg_shared_module_exports__["getArcDetails"](t.value);
         if (!a) return 0;
         if (a.type === "segment") {
           let s = R0(e, i, a.start, a.end);
           return Rc(s, [{ min: 0, max: 1 }, o]);
         } else if (a.type === "rays") {
-          let s = __dcg_shared_module_exports__["Ub"](a.start1, [
+          let s = __dcg_shared_module_exports__["distance"](a.start1, [
               e.x,
               e.y,
             ]),
-            l = __dcg_shared_module_exports__["Ub"](a.start2, [e.x, e.y]),
+            l = __dcg_shared_module_exports__["distance"](a.start2, [e.x, e.y]),
             c = !o || o.min === void 0 ? -1 / 0 : o.min,
             d = !o || o.max === void 0 ? 1 / 0 : o.max;
           return s < l
@@ -94116,7 +94228,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         } else if (a.type == "arc") {
           let [s, l] = a.center,
             { radius: c, startAngle: d } = a,
-            p = __dcg_shared_module_exports__["Wb"](t.value),
+            p = __dcg_shared_module_exports__["arcOmega"](t.value),
             h = e.x - s,
             u = e.y - l,
             f = __dcg_shared_module_exports__["P"](
@@ -94139,25 +94251,29 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let y = Rc(0, [o]), C = Rc(1, [o]);
           if (f >= y && f <= C) return f;
           {
-            let E = __dcg_shared_module_exports__["$b"](t.value, y),
-              v = __dcg_shared_module_exports__["$b"](t.value, C),
-              w = __dcg_shared_module_exports__["Ub"](E, [e.x, e.y]),
-              S = __dcg_shared_module_exports__["Ub"](v, [e.x, e.y]);
+            let E = __dcg_shared_module_exports__["arcGlider"](t.value, y),
+              v = __dcg_shared_module_exports__["arcGlider"](t.value, C),
+              w = __dcg_shared_module_exports__["distance"](E, [e.x, e.y]),
+              S = __dcg_shared_module_exports__["distance"](v, [e.x, e.y]);
             return w <= S ? y : C;
           }
         }
         return Rc(0, [o]);
       }
-      case __dcg_shared_module_exports__["Ta"]:
-      case __dcg_shared_module_exports__["La"]:
-      case __dcg_shared_module_exports__["Ra"]: {
+      case __dcg_shared_module_exports__["Ray"]:
+      case __dcg_shared_module_exports__["Segment"]:
+      case __dcg_shared_module_exports__["Line"]: {
         let a = R0(e, i, t.value[0], t.value[1]);
         return Rc(a, [{
-          min: t.valueType === __dcg_shared_module_exports__["Ra"] ? void 0 : 0,
-          max: t.valueType !== __dcg_shared_module_exports__["La"] ? void 0 : 1,
+          min: t.valueType === __dcg_shared_module_exports__["Line"]
+            ? void 0
+            : 0,
+          max: t.valueType !== __dcg_shared_module_exports__["Segment"]
+            ? void 0
+            : 1,
         }, o]);
       }
-      case __dcg_shared_module_exports__["Ja"]: {
+      case __dcg_shared_module_exports__["Polygon"]: {
         let a = t.value,
           s = 1 / 0,
           l = Rc(0, [o]),
@@ -94169,17 +94285,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let f = a[u],
             y = a[(u + 1) % a.length],
             C = Rc(R0(e, i, f, y, u), [{ min: u, max: u + 1 }, o]),
-            E = __dcg_shared_module_exports__["ac"](t.value, C),
-            v = __dcg_shared_module_exports__["Ub"](E, [e.x, e.y]);
+            E = __dcg_shared_module_exports__["polygonGlider"](t.value, C),
+            v = __dcg_shared_module_exports__["distance"](E, [e.x, e.y]);
           v < s && (s = v, l = C);
         }
         return l;
       }
-      case __dcg_shared_module_exports__["ya"]:
-      case __dcg_shared_module_exports__["Va"]:
-      case __dcg_shared_module_exports__["Xa"]:
-      case __dcg_shared_module_exports__["Za"]:
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Point"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
+      case __dcg_shared_module_exports__["Transformation"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return 0;
       default:
         return t;
@@ -94187,23 +94303,23 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   function u$(r, e) {
     switch (r.valueType) {
-      case __dcg_shared_module_exports__["Na"]:
-        return __dcg_shared_module_exports__["_b"](r.value, e);
-      case __dcg_shared_module_exports__["Pa"]:
-        return __dcg_shared_module_exports__["$b"](r.value, e);
-      case __dcg_shared_module_exports__["Ta"]:
-        return __dcg_shared_module_exports__["Zb"](r.value, e);
-      case __dcg_shared_module_exports__["La"]:
-        return __dcg_shared_module_exports__["Yb"](r.value, e);
-      case __dcg_shared_module_exports__["Ra"]:
-        return __dcg_shared_module_exports__["Xb"](r.value, e);
-      case __dcg_shared_module_exports__["Ja"]:
-        return __dcg_shared_module_exports__["ac"](r.value, e);
-      case __dcg_shared_module_exports__["ya"]:
-      case __dcg_shared_module_exports__["Va"]:
-      case __dcg_shared_module_exports__["Xa"]:
-      case __dcg_shared_module_exports__["Za"]:
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Circle"]:
+        return __dcg_shared_module_exports__["circleGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Arc"]:
+        return __dcg_shared_module_exports__["arcGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Ray"]:
+        return __dcg_shared_module_exports__["rayGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Segment"]:
+        return __dcg_shared_module_exports__["segmentGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Line"]:
+        return __dcg_shared_module_exports__["lineGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Polygon"]:
+        return __dcg_shared_module_exports__["polygonGlider"](r.value, e);
+      case __dcg_shared_module_exports__["Point"]:
+      case __dcg_shared_module_exports__["AngleMarker"]:
+      case __dcg_shared_module_exports__["DirectedAngleMarker"]:
+      case __dcg_shared_module_exports__["Transformation"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return [NaN, NaN];
       default:
         return r;
@@ -94217,17 +94333,17 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let l = e.model.formula.typed_constant_value;
       if (
         (l == null ? void 0 : l.valueType) !==
-          __dcg_shared_module_exports__["ya"]
+          __dcg_shared_module_exports__["Point"]
       ) {
         throw new Error(
           `Expected movable point to be a Point but found ${
-            l ? __dcg_shared_module_exports__["ub"](l.valueType) : void 0
+            l ? __dcg_shared_module_exports__["repr"](l.valueType) : void 0
           } instead`,
         );
       }
       a = a != null ? a : l.value[0],
         s = s != null ? s : l.value[1],
-        [a, s] = __dcg_shared_module_exports__["oc"](
+        [a, s] = __dcg_shared_module_exports__["transformPoint"](
           e.transform.forward,
           [a, s],
         );
@@ -94285,7 +94401,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let c = o.compiled.fn;
     e &&
       (c = (k) =>
-        __dcg_shared_module_exports__["oc"](e.forward, o.compiled.fn(k)));
+        __dcg_shared_module_exports__["transformPoint"](
+          e.forward,
+          o.compiled.fn(k),
+        ));
     let d = (k) => {
         let [_, A] = c(k);
         return { x: _, y: A } = r.mathToPixels.mapPoint({ x: _, y: A }), [_, A];
@@ -94295,7 +94414,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       f = dL(a, i, { ignoreSoftLimits: l }),
       y = f,
       [C, E] = d(y),
-      v = __dcg_shared_module_exports__["S"](C - h, E - u);
+      v = __dcg_shared_module_exports__["MathHypot"](C - h, E - u);
     if (v < 1) {
       let k = __dcg_shared_module_exports__["aa"](
         d,
@@ -94314,7 +94433,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             { ignoreSoftLimits: l },
           ),
           [P, O] = d(A);
-        __dcg_shared_module_exports__["S"](P - h, O - u) > v && (f = A);
+        __dcg_shared_module_exports__["MathHypot"](P - h, O - u) > v && (f = A);
       }
     }
     n && (f = f$(r, al(a), f, c));
@@ -94347,7 +94466,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     let l = o.compiled.fn;
     t &&
       (l = (w) =>
-        __dcg_shared_module_exports__["oc"](t.forward, o.compiled.fn(w)));
+        __dcg_shared_module_exports__["transformPoint"](
+          t.forward,
+          o.compiled.fn(w),
+        ));
     let c = (w) => {
         let [S, k] = l(w);
         return { x: S, y: k } = e.mathToPixels.mapPoint({ x: S, y: k }), [S, k];
@@ -94379,7 +94501,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   ) {
     let n = e.reverse_map_pt(i);
     if (t) {
-      let d = __dcg_shared_module_exports__["oc"](t.inverse, [n.x, n.y]);
+      let d = __dcg_shared_module_exports__["transformPoint"](t.inverse, [
+        n.x,
+        n.y,
+      ]);
       n = { x: d[0], y: d[1] };
     }
     let a = o.type === "updateSliderForGlider"
@@ -94445,7 +94570,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   ) {
     if (t) {
       let { x: u, y: f } = e.pixelsToMath.mapPoint(a),
-        [y, C] = __dcg_shared_module_exports__["oc"](t.inverse, [u, f]);
+        [y, C] = __dcg_shared_module_exports__["transformPoint"](t.inverse, [
+          u,
+          f,
+        ]);
       a = e.mathToPixels.mapPoint({ x: y, y: C });
     }
     let l = e.pixelsToMath.mapRect({
@@ -94506,7 +94634,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       [n, a] = r.move_strategy;
     if (
       ((h = r.typed_constant_value) == null ? void 0 : h.valueType) ===
-        __dcg_shared_module_exports__["db"] &&
+        __dcg_shared_module_exports__["Complex"] &&
       n.type === "updateCoordinate" && a.type === "updateCoordinate"
     ) {
       let [u, f] = r.typed_constant_value.value,
@@ -94517,7 +94645,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         w = n.inputSpan;
       return {
         latex: w.input.slice(0, w.start) +
-          __dcg_shared_module_exports__["pa"]([E, v], {
+          __dcg_shared_module_exports__["complexNumberLabel"]([E, v], {
             alwaysEmitImaginary: true,
           }) + w.input.slice(w.end),
         x: y ? o : void 0,
@@ -94617,7 +94745,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           i[n].type === "updateCoordinate" ||
           i[n].type === "updateGliderParameter"
         ) {
-          o.type === "image" ? $G(o, true) : o.type === "expression" && gL(o, true);
+          o.type === "image"
+            ? $G(o, true)
+            : o.type === "expression" && gL(o, true);
         } else if (
           a.type === "updateSlider" ||
           a.type === "updateSliderNonlinear" ||
@@ -94642,7 +94772,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       t.type === "table"
         ? t.draggingOnGraphpaper && RG(t, false)
         : t.type === "expression"
-        ? (t.sliderDragging && Ww(t, false), t.draggingOnGraphpaper && gL(t, false))
+        ? (t.sliderDragging && Ww(t, false),
+          t.draggingOnGraphpaper && gL(t, false))
         : t.type === "image" && t.draggingOnGraphpaper && $G(t, false);
     }
   }
@@ -94959,7 +95090,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       l = 5,
       c = { x: a, y: s },
       d = r.map_pt(c);
-    if (__dcg_shared_module_exports__["S"](d.x - n.x, d.y - n.y) <= l) {
+    if (__dcg_shared_module_exports__["MathHypot"](d.x - n.x, d.y - n.y) <= l) {
       return c;
     }
   }
@@ -95147,9 +95278,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     var a;
     if (
       e.typedRuntimeValue.valueType ===
-        __dcg_shared_module_exports__["Za"] ||
+        __dcg_shared_module_exports__["Transformation"] ||
       e.typedRuntimeValue.valueType ===
-        __dcg_shared_module_exports__["_a"]
+        __dcg_shared_module_exports__["ListOfTransformation"]
     ) return [];
     let t = e.data.call;
     if (!t || !t.parents) return [];
@@ -95160,9 +95291,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           c = l &&
             ((a = r[l]) == null ? void 0 : a.typedRuntimeValue.valueType);
         c &&
-          __dcg_shared_module_exports__["Ab"](
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
             c,
-            __dcg_shared_module_exports__["La"],
+            __dcg_shared_module_exports__["Segment"],
           )
           ? n = [s]
           : n = [s, l];
@@ -95192,9 +95323,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         let o = (e == null ? void 0 : e.list) || [];
         t && (o = o.concat(t)), this.list = o;
         let i = (e == null ? void 0 : e.forward) || Uce;
-        t && (i = __dcg_shared_module_exports__["mc"](i, t.value)),
+        t &&
+        (i = __dcg_shared_module_exports__["composeTransformation"](
+          i,
+          t.value,
+        )),
           this.forward = i,
-          this.inverse = __dcg_shared_module_exports__["nc"](i);
+          this.inverse = __dcg_shared_module_exports__["invertTransformation"](
+            i,
+          );
       }
       add(e) {
         return new z0(this, e);
@@ -95256,7 +95393,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (i[_.assignment]) {
         if (
           _.typedRuntimeValue.valueType ===
-            __dcg_shared_module_exports__["ya"] && !A
+            __dcg_shared_module_exports__["Point"] && !A
         ) t[_.assignment] = i[_.assignment];
         else if (A === "glider" && P.length && !a[P[0]]) {
           o[_.assignment] = i[_.assignment];
@@ -95266,11 +95403,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let z = (u = r[P[0]]) == null ? void 0 : u.typedRuntimeValue;
             if (
               (z == null ? void 0 : z.valueType) ===
-                __dcg_shared_module_exports__["_a"]
+                __dcg_shared_module_exports__["ListOfTransformation"]
             ) return {};
             if (
               (z == null ? void 0 : z.valueType) !==
-                __dcg_shared_module_exports__["Za"]
+                __dcg_shared_module_exports__["Transformation"]
             ) continue;
             O = O.add(z);
           }
@@ -95336,7 +95473,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   function tx(r) {
     if (r.type === "arbitrary-expression") return;
     let e = __dcg_shared_module_exports__["Cc"](r);
-    return e ? __dcg_shared_module_exports__["ma"](e) : void 0;
+    return e ? __dcg_shared_module_exports__["identifierToLatex"](e) : void 0;
   }
   function S$(r) {
     return r !== void 0;
@@ -95390,7 +95527,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       for (let l in o) {
         let c = o[l];
         if (!c) continue;
-        let d = __dcg_shared_module_exports__["na"](c.assignment), p = [];
+        let d = __dcg_shared_module_exports__["latexToIdentifier"](
+            c.assignment,
+          ),
+          p = [];
         for (let h of c.data.parentDependencies) {
           p.push(h), t[h] || (t[h] = []), t[h].push(d);
         }
@@ -95454,15 +95594,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   function E$(r) {
     switch (r.valueType) {
-      case __dcg_shared_module_exports__["La"]:
-      case __dcg_shared_module_exports__["Ra"]:
-      case __dcg_shared_module_exports__["Ta"]:
+      case __dcg_shared_module_exports__["Segment"]:
+      case __dcg_shared_module_exports__["Line"]:
+      case __dcg_shared_module_exports__["Ray"]:
         return { type: "straight", def: r.value };
-      case __dcg_shared_module_exports__["$a"]:
+      case __dcg_shared_module_exports__["Vector"]:
         return { type: "straight", def: nm(r.value) };
-      case __dcg_shared_module_exports__["Na"]:
+      case __dcg_shared_module_exports__["Circle"]:
         return { type: "circle", def: r.value };
-      case __dcg_shared_module_exports__["Pa"]:
+      case __dcg_shared_module_exports__["Arc"]:
         return { type: "arc", def: r.value };
     }
   }
@@ -95471,29 +95611,56 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       case "straight":
         switch (e.type) {
           case "straight":
-            return __dcg_shared_module_exports__["fc"](r.def, e.def);
+            return __dcg_shared_module_exports__["lineLineIntersection"](
+              r.def,
+              e.def,
+            );
           case "circle":
-            return __dcg_shared_module_exports__["dc"](r.def, e.def);
+            return __dcg_shared_module_exports__["lineCircleIntersection"](
+              r.def,
+              e.def,
+            );
           case "arc":
-            return __dcg_shared_module_exports__["hc"](r.def, e.def);
+            return __dcg_shared_module_exports__["lineArcIntersection"](
+              r.def,
+              e.def,
+            );
         }
       case "circle":
         switch (e.type) {
           case "straight":
-            return __dcg_shared_module_exports__["ec"](r.def, e.def);
+            return __dcg_shared_module_exports__["circleLineIntersection"](
+              r.def,
+              e.def,
+            );
           case "circle":
-            return __dcg_shared_module_exports__["cc"](r.def, e.def);
+            return __dcg_shared_module_exports__["circleCircleIntersection"](
+              r.def,
+              e.def,
+            );
           case "arc":
-            return __dcg_shared_module_exports__["gc"](r.def, e.def);
+            return __dcg_shared_module_exports__["circleArcIntersection"](
+              r.def,
+              e.def,
+            );
         }
       case "arc":
         switch (e.type) {
           case "straight":
-            return __dcg_shared_module_exports__["jc"](r.def, e.def);
+            return __dcg_shared_module_exports__["arcLineIntersection"](
+              r.def,
+              e.def,
+            );
           case "circle":
-            return __dcg_shared_module_exports__["ic"](r.def, e.def);
+            return __dcg_shared_module_exports__["arcCircleIntersection"](
+              r.def,
+              e.def,
+            );
           case "arc":
-            return __dcg_shared_module_exports__["kc"](r.def, e.def);
+            return __dcg_shared_module_exports__["arcArcIntersection"](
+              r.def,
+              e.def,
+            );
         }
     }
     return [NaN, NaN];
@@ -95533,8 +95700,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let t = this.getAllValidNextInputTypes();
       if (
         t.some((i) =>
-          i === __dcg_shared_module_exports__["va"] ||
-          i === __dcg_shared_module_exports__["Aa"]
+          i === __dcg_shared_module_exports__["Any"] ||
+          i === __dcg_shared_module_exports__["ListOfAny"]
         )
       ) {
         return Ls(
@@ -95542,9 +95709,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
       let o = t.filter((i) =>
-        !(__dcg_shared_module_exports__["wb"](i) &&
-          t.find((n) => __dcg_shared_module_exports__["xb"](i) === n))
-      ).map((i) => Fl(__dcg_shared_module_exports__["vb"](i), Zw()));
+        !(__dcg_shared_module_exports__["isList"](i) &&
+          t.find((n) => __dcg_shared_module_exports__["elementType"](i) === n))
+      ).map((i) => Fl(__dcg_shared_module_exports__["prettyPrint"](i), Zw()));
       return o.length === 0
         ? Ls(
           "graphing-calculator-text-geometry-tool-expression-edit-generic-hint-0",
@@ -95626,14 +95793,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let i = false;
       for (let n of o) {
         if (
-          __dcg_shared_module_exports__["Ab"](
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
             n,
-            __dcg_shared_module_exports__["va"],
+            __dcg_shared_module_exports__["Any"],
           )
         ) return false;
-        __dcg_shared_module_exports__["Ab"](
+        __dcg_shared_module_exports__["isTypeOrListOfType"](
           n,
-          __dcg_shared_module_exports__["ya"],
+          __dcg_shared_module_exports__["Point"],
         ) && (i = true);
       }
       return i;
@@ -95645,38 +95812,39 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         (t == null ? void 0 : t.type) === "permissive"
       ) return false;
       let o = tR(t);
-      return !(!o || o.some((i) =>
-        __dcg_shared_module_exports__["Ab"](
-          i,
-          __dcg_shared_module_exports__["va"],
-        )
-      ) || o.every((i) =>
-        __dcg_shared_module_exports__["Ab"](
-          i,
-          __dcg_shared_module_exports__["wa"],
-        ) ||
-        __dcg_shared_module_exports__["Ab"](
-          i,
-          __dcg_shared_module_exports__["Va"],
-        ) ||
-        __dcg_shared_module_exports__["Ab"](
-          i,
-          __dcg_shared_module_exports__["Xa"],
-        )
-      ));
+      return !(!o ||
+        o.some((i) =>
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
+            i,
+            __dcg_shared_module_exports__["Any"],
+          )
+        ) || o.every((i) =>
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
+            i,
+            __dcg_shared_module_exports__["Number"],
+          ) ||
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
+            i,
+            __dcg_shared_module_exports__["AngleMarker"],
+          ) ||
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
+            i,
+            __dcg_shared_module_exports__["DirectedAngleMarker"],
+          )
+        ));
     }
   };
   function tR(r) {
     if ((r == null ? void 0 : r.type) === "permissive") {
-      return [__dcg_shared_module_exports__["va"]];
+      return [__dcg_shared_module_exports__["Any"]];
     }
     if ((r == null ? void 0 : r.type) === "empty") {
       return [
-        __dcg_shared_module_exports__["Va"],
-        __dcg_shared_module_exports__["Xa"],
-        __dcg_shared_module_exports__["Wa"],
-        __dcg_shared_module_exports__["Ya"],
-        __dcg_shared_module_exports__["$a"],
+        __dcg_shared_module_exports__["AngleMarker"],
+        __dcg_shared_module_exports__["DirectedAngleMarker"],
+        __dcg_shared_module_exports__["ListOfAngleMarker"],
+        __dcg_shared_module_exports__["ListOfDirectedAngleMarker"],
+        __dcg_shared_module_exports__["Vector"],
       ];
     }
     if (
@@ -95692,9 +95860,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return e == null
       ? void 0
       : e.filter((t) =>
-        !__dcg_shared_module_exports__["Ab"](
+        !__dcg_shared_module_exports__["isTypeOrListOfType"](
           t,
-          __dcg_shared_module_exports__["hb"],
+          __dcg_shared_module_exports__["Point3D"],
         )
       );
   }
@@ -95729,9 +95897,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [rR, oR, iR],
         },
@@ -95739,13 +95907,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, {
         input: {
           broadcast: false,
-          types: [__dcg_shared_module_exports__["Ja"]],
+          types: [__dcg_shared_module_exports__["Polygon"]],
           hints: [nR],
         },
         output: ({ inputs: r }) => {
           if (
             r.length !== 1 ||
-            r[0].valueType !== __dcg_shared_module_exports__["Ja"]
+            r[0].valueType !== __dcg_shared_module_exports__["Polygon"]
           ) {
             throw new Error(
               `Programming error: expected a single polygon input, got ${
@@ -95794,9 +95962,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: false,
           types: [
-            __dcg_shared_module_exports__["sb"].of([
-              __dcg_shared_module_exports__["Va"],
-              __dcg_shared_module_exports__["Xa"],
+            __dcg_shared_module_exports__["Union"].of([
+              __dcg_shared_module_exports__["AngleMarker"],
+              __dcg_shared_module_exports__["DirectedAngleMarker"],
             ]),
           ],
           hints: [Kce],
@@ -95848,9 +96016,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [$ce, jce, Yce],
         },
@@ -95878,8 +96046,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [Qce, Zce],
         },
@@ -95943,8 +96111,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["La"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Segment"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [tde, rde],
         },
@@ -96033,9 +96201,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [rR, oR, iR],
         },
@@ -96043,13 +96211,13 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, {
         input: {
           broadcast: false,
-          types: [__dcg_shared_module_exports__["Ja"]],
+          types: [__dcg_shared_module_exports__["Polygon"]],
           hints: [nR],
         },
         output: ({ inputs: r }) => {
           if (
             r.length !== 1 || typeof r[0] != "object" ||
-            r[0].valueType !== __dcg_shared_module_exports__["Ja"]
+            r[0].valueType !== __dcg_shared_module_exports__["Polygon"]
           ) {
             throw new Error(
               `Programming error: expected a single polygon input, got ${
@@ -96090,8 +96258,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [nde, ade],
         },
@@ -96120,8 +96288,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [A$],
         },
@@ -96129,7 +96297,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }, {
         input: {
           broadcast: true,
-          types: [__dcg_shared_module_exports__["La"]],
+          types: [__dcg_shared_module_exports__["Segment"]],
           hints: [A$],
         },
         output: [{ type: "midpoint", parents: [0] }],
@@ -96163,8 +96331,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["zb"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["straightTypes"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [cde, dde],
         },
@@ -96199,8 +96367,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["zb"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["straightTypes"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [ude, hde],
         },
@@ -96222,7 +96390,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       workflows: [{
         input: {
           broadcast: true,
-          types: [__dcg_shared_module_exports__["ya"]],
+          types: [__dcg_shared_module_exports__["Point"]],
           hints: [mde],
         },
         output: [],
@@ -96264,10 +96432,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           types: {
             type: "variadic",
             initial: [
-              __dcg_shared_module_exports__["ya"],
-              __dcg_shared_module_exports__["ya"],
+              __dcg_shared_module_exports__["Point"],
+              __dcg_shared_module_exports__["Point"],
             ],
-            rest: __dcg_shared_module_exports__["ya"],
+            rest: __dcg_shared_module_exports__["Point"],
           },
           hints: (r) => r === 0 ? bde : r < 3 ? yde : xde,
         },
@@ -96312,8 +96480,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [vde, Cde],
         },
@@ -96372,8 +96540,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         input: {
           broadcast: true,
           types: [
-            __dcg_shared_module_exports__["ya"],
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
+            __dcg_shared_module_exports__["Point"],
           ],
           hints: [Ede, Tde],
         },
@@ -96422,12 +96590,12 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return false;
     }
     getAllValidNextInputTypes() {
-      return __dcg_shared_module_exports__["tb"].filter((e) =>
+      return __dcg_shared_module_exports__["allValueTypes"].filter((e) =>
         this.isValidNextInputType(e)
       );
     }
     isValidNextInputType(e) {
-      return e !== __dcg_shared_module_exports__["Za"];
+      return e !== __dcg_shared_module_exports__["Transformation"];
     }
     getNonPointInputType() {}
     getHint() {
@@ -96472,7 +96640,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           i = o && this.model.findDefsForInputId(o)[0];
         return i &&
           i.typedRuntimeValue.valueType ===
-            __dcg_shared_module_exports__["$a"];
+            __dcg_shared_module_exports__["Vector"];
       }
       getSpec() {
         return this.firstInputIsVector()
@@ -96480,8 +96648,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             inputs: [{
               type: "union",
               valueTypes: [
-                __dcg_shared_module_exports__["ya"],
-                __dcg_shared_module_exports__["$a"],
+                __dcg_shared_module_exports__["Point"],
+                __dcg_shared_module_exports__["Vector"],
               ],
               id: "1",
               hint: lR,
@@ -96498,8 +96666,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             inputs: [{
               type: "union",
               valueTypes: [
-                __dcg_shared_module_exports__["ya"],
-                __dcg_shared_module_exports__["$a"],
+                __dcg_shared_module_exports__["Point"],
+                __dcg_shared_module_exports__["Vector"],
               ],
               id: "1",
               hint: lR,
@@ -96794,7 +96962,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let c = GN(l);
             if (c && c in __dcg_shared_module_exports__["qc"]) continue;
             this.controller.getItemsByIdentifier(
-              __dcg_shared_module_exports__["na"](l),
+              __dcg_shared_module_exports__["latexToIdentifier"](l),
             ).length ||
               o.push({
                 type: "slider",
@@ -96970,8 +97138,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     isValidNextInputType(e) {
       let t = this.getCurrentTool(), o = t.getNonPointInputType();
-      return e && __dcg_shared_module_exports__["wb"](e) &&
-        (e = __dcg_shared_module_exports__["xb"](e)),
+      return e && __dcg_shared_module_exports__["isList"](e) &&
+        (e = __dcg_shared_module_exports__["elementType"](e)),
         !!(o && e && WD(e, o) ||
           t.canNextInputBePoint() && e && WD(e, "point"));
     }
@@ -97002,18 +97170,20 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               this.controller.shouldIgnoreGraphInteractions(c)
               ? h = "fade-out"
               : this.isValidNextInputType(
-                      __dcg_shared_module_exports__["ya"],
+                      __dcg_shared_module_exports__["Point"],
                     ) &&
                     (Dm(KD(u)) ||
-                      __dcg_shared_module_exports__["wb"](u) &&
-                        Dm(KD(__dcg_shared_module_exports__["xb"](u)))) ||
+                      __dcg_shared_module_exports__["isList"](u) &&
+                        Dm(
+                          KD(__dcg_shared_module_exports__["elementType"](u)),
+                        )) ||
                   u &&
-                    __dcg_shared_module_exports__["Ab"](
+                    __dcg_shared_module_exports__["isTypeOrListOfType"](
                       u,
-                      __dcg_shared_module_exports__["Ja"],
+                      __dcg_shared_module_exports__["Polygon"],
                     ) &&
                     this.isValidNextInputType(
-                      __dcg_shared_module_exports__["La"],
+                      __dcg_shared_module_exports__["Segment"],
                     ) ||
                   this.isValidNextInputType(u) ||
                   this.store.getState().ui.currentTool.outputHistory[d]
@@ -97021,7 +97191,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               : h = "fade-out";
             let f = this.store.getState().fadeAnimations[d];
             if (f && f.type !== h) {
-              let y = __dcg_shared_module_exports__["Sb"](
+              let y = __dcg_shared_module_exports__["clamp"](
                   t - f.start,
                   0,
                   150,
@@ -97045,7 +97215,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let o = this.store.getState().fadeAnimations[t.id];
       if (!o) return 1;
       let i = Date.now(),
-        n = __dcg_shared_module_exports__["Sb"](
+        n = __dcg_shared_module_exports__["clamp"](
           (i - o.start) / 150,
           0,
           1,
@@ -97138,25 +97308,26 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     _getPixelsAwayFromDef(e, t, o) {
       let i = o.typedRuntimeValue;
       switch (i.valueType) {
-        case __dcg_shared_module_exports__["ya"]: {
+        case __dcg_shared_module_exports__["Point"]: {
           let a = t.mapx(i.value[0]), s = t.mapy(i.value[1]);
-          return __dcg_shared_module_exports__["S"](e.x - a, e.y - s) - 6;
+          return __dcg_shared_module_exports__["MathHypot"](e.x - a, e.y - s) -
+            6;
         }
-        case __dcg_shared_module_exports__["Ra"]:
-        case __dcg_shared_module_exports__["La"]:
-        case __dcg_shared_module_exports__["Ta"]:
-        case __dcg_shared_module_exports__["$a"]: {
+        case __dcg_shared_module_exports__["Line"]:
+        case __dcg_shared_module_exports__["Segment"]:
+        case __dcg_shared_module_exports__["Ray"]:
+        case __dcg_shared_module_exports__["Vector"]: {
           let n, a, s, l;
-          if (i.valueType === __dcg_shared_module_exports__["$a"]) {
+          if (i.valueType === __dcg_shared_module_exports__["Vector"]) {
             let [[h, u], [f, y]] = nm(i.value);
             n = t.mapx(h), s = t.mapy(u), a = t.mapx(f), l = t.mapy(y);
           } else {n = t.mapx(i.value[0][0]),
               s = t.mapy(i.value[0][1]),
               a = t.mapx(i.value[1][0]),
               l = t.mapy(i.value[1][1]);}
-          let c = i.valueType === __dcg_shared_module_exports__["Ra"],
-            d = i.valueType === __dcg_shared_module_exports__["Ra"] ||
-              i.valueType === __dcg_shared_module_exports__["Ta"],
+          let c = i.valueType === __dcg_shared_module_exports__["Line"],
+            d = i.valueType === __dcg_shared_module_exports__["Line"] ||
+              i.valueType === __dcg_shared_module_exports__["Ray"],
             p = __dcg_shared_module_exports__["W"](
               e.x,
               e.y,
@@ -97168,10 +97339,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               d,
             );
           return p
-            ? __dcg_shared_module_exports__["S"](p[0] - e.x, p[1] - e.y)
+            ? __dcg_shared_module_exports__["MathHypot"](p[0] - e.x, p[1] - e.y)
             : 1 / 0;
         }
-        case __dcg_shared_module_exports__["Na"]: {
+        case __dcg_shared_module_exports__["Circle"]: {
           let n = i.value[0][0],
             a = i.value[0][1],
             s = i.value[1],
@@ -97182,11 +97353,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             h = __dcg_shared_module_exports__["X"](d, p, n, a, s, l, c);
           return h
             ? t.screen.width / (t.viewport.xmax - t.viewport.xmin) *
-              __dcg_shared_module_exports__["S"](h[0] - d, h[1] - p)
+              __dcg_shared_module_exports__["MathHypot"](h[0] - d, h[1] - p)
             : 1 / 0;
         }
-        case __dcg_shared_module_exports__["Pa"]: {
-          let n = __dcg_shared_module_exports__["bc"](i.value);
+        case __dcg_shared_module_exports__["Arc"]: {
+          let n = __dcg_shared_module_exports__["getArcDetails"](i.value);
           if (!n) return 1 / 0;
           let a = (s, l, c, d) => {
             let p = t.mapx(s[0]),
@@ -97204,7 +97375,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 d,
               );
             return y
-              ? __dcg_shared_module_exports__["S"](y[0] - e.x, y[1] - e.y)
+              ? __dcg_shared_module_exports__["MathHypot"](
+                y[0] - e.x,
+                y[1] - e.y,
+              )
               : 1 / 0;
           };
           if (n.type === "arc") {
@@ -97221,7 +97395,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               );
             return c
               ? t.screen.width / (t.viewport.xmax - t.viewport.xmin) *
-                __dcg_shared_module_exports__["S"](c[0] - s, c[1] - l)
+                __dcg_shared_module_exports__["MathHypot"](c[0] - s, c[1] - l)
               : 1 / 0;
           } else {return n.type === "segment"
               ? a(n.start, n.end, false, false)
@@ -97230,15 +97404,15 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 a(n.start2, n.end2, false, true),
               );}
         }
-        case __dcg_shared_module_exports__["Ja"]: {
+        case __dcg_shared_module_exports__["Polygon"]: {
           let n = [];
           return i.value.forEach((a) => {
             n.push(t.mapx(a[0]), t.mapy(a[1]));
           }),
             __dcg_shared_module_exports__["ba"](n, [e.x, e.y]) ? 0 : 1 / 0;
         }
-        case __dcg_shared_module_exports__["Va"]:
-        case __dcg_shared_module_exports__["Xa"]: {
+        case __dcg_shared_module_exports__["AngleMarker"]:
+        case __dcg_shared_module_exports__["DirectedAngleMarker"]: {
           let n = t.screen.width / (t.viewport.xmax - t.viewport.xmin),
             a = t.screen.height / (t.viewport.ymax - t.viewport.ymin),
             [[s, l], c, d] = i.value,
@@ -97251,7 +97425,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             E = u - s,
             v = Math.atan2(C, E);
           if (__dcg_shared_module_exports__["Q"](v, c, d)) {
-            __dcg_shared_module_exports__["S"](C * a, E * n) <= p + 7 &&
+            __dcg_shared_module_exports__["MathHypot"](C * a, E * n) <= p + 7 &&
               (y = 0);
           } else {
             let w = __dcg_shared_module_exports__["V"](
@@ -97270,11 +97444,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                 s,
                 l,
               ),
-              k = __dcg_shared_module_exports__["S"](
+              k = __dcg_shared_module_exports__["MathHypot"](
                 n * (w[0] - u),
                 a * (w[1] - f),
               ),
-              _ = __dcg_shared_module_exports__["S"](
+              _ = __dcg_shared_module_exports__["MathHypot"](
                 n * (S[0] - u),
                 a * (S[1] - f),
               );
@@ -97282,7 +97456,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           }
           return y;
         }
-        case __dcg_shared_module_exports__["Za"]:
+        case __dcg_shared_module_exports__["Transformation"]:
           return 1 / 0;
         default:
           return 1 / 0;
@@ -97298,11 +97472,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         s = false,
         l = false;
       (h = t.isValidNextInputType) != null &&
-      h.call(t, __dcg_shared_module_exports__["ya"]) && (s = true),
+      h.call(t, __dcg_shared_module_exports__["Point"]) && (s = true),
         t.shouldUseJitEdges() &&
-        (t.isValidNextInputType(__dcg_shared_module_exports__["La"]) ||
-          t.isValidNextInputType(__dcg_shared_module_exports__["Ra"]) ||
-          t.isValidNextInputType(__dcg_shared_module_exports__["Ta"])) &&
+        (t.isValidNextInputType(__dcg_shared_module_exports__["Segment"]) ||
+          t.isValidNextInputType(__dcg_shared_module_exports__["Line"]) ||
+          t.isValidNextInputType(__dcg_shared_module_exports__["Ray"])) &&
         (l = true);
       let c = n && s;
       c && (l = true);
@@ -97324,14 +97498,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         ) {
           if (
             u.typedRuntimeValue.valueType ===
-              __dcg_shared_module_exports__["Ja"]
+              __dcg_shared_module_exports__["Polygon"]
           ) {
             if (u.typedRuntimeValue.value.length) {
               if (l) {
                 let v = u;
                 if (
                   v.typedRuntimeValue.valueType ===
-                    __dcg_shared_module_exports__["Ja"]
+                    __dcg_shared_module_exports__["Polygon"]
                 ) {
                   let w = v.typedRuntimeValue.value;
                   for (let S = 0; S < w.length; S++) {
@@ -97349,7 +97523,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
                         referenceLatex: A,
                         data: v.data,
                         typedRuntimeValue: {
-                          valueType: __dcg_shared_module_exports__["La"],
+                          valueType: __dcg_shared_module_exports__["Segment"],
                           value: [k, _],
                         },
                         polygonEdgeInfo: { edgeNumber: S, polygonDef: v },
@@ -97362,9 +97536,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           }
           if (
             c &&
-            !__dcg_shared_module_exports__["Ab"](
+            !__dcg_shared_module_exports__["isTypeOrListOfType"](
               u.typedRuntimeValue.valueType,
-              __dcg_shared_module_exports__["Ja"],
+              __dcg_shared_module_exports__["Polygon"],
             )
           ) {
             o.push(u);
@@ -97516,9 +97690,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       Qg({ controller: this.controller, expandLists: false }, (l) => {
         if (
           l.data.identifier &&
-          __dcg_shared_module_exports__["Ab"](
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
             l.typedRuntimeValue.valueType,
-            __dcg_shared_module_exports__["ya"],
+            __dcg_shared_module_exports__["Point"],
           )
         ) {
           let c = l.data.identifier;
@@ -97529,9 +97703,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             getGeometryTree: (l) => l.data.call,
             isPointOrListOfPoints: (l) =>
-              __dcg_shared_module_exports__["Ab"](
+              __dcg_shared_module_exports__["isTypeOrListOfType"](
                 l.typedRuntimeValue.valueType,
-                __dcg_shared_module_exports__["ya"],
+                __dcg_shared_module_exports__["Point"],
               ),
             lookup: (l) => n[l],
             resolvesTo: (l, c) => l === c.data.identifier,
@@ -97637,19 +97811,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
   }
   function Pde(r) {
     let e = new Set();
-    e.add(__dcg_shared_module_exports__["ya"]);
+    e.add(__dcg_shared_module_exports__["Point"]);
     for (let t of r) {
       if (
         t.type !== "expression" || !t.formula.typed_constant_value ||
         t.hidden
       ) continue;
       let o = t.formula.typed_constant_value.valueType,
-        i = __dcg_shared_module_exports__["wb"](o)
-          ? __dcg_shared_module_exports__["xb"](o)
+        i = __dcg_shared_module_exports__["isList"](o)
+          ? __dcg_shared_module_exports__["elementType"](o)
           : o;
-      __dcg_shared_module_exports__["yb"](i) && e.add(i),
-        i === __dcg_shared_module_exports__["Ja"] &&
-        e.add(__dcg_shared_module_exports__["La"]);
+      __dcg_shared_module_exports__["isGeometryType"](i) && e.add(i),
+        i === __dcg_shared_module_exports__["Polygon"] &&
+        e.add(__dcg_shared_module_exports__["Segment"]);
     }
     return e;
   }
@@ -97662,7 +97836,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       r.focusLocation = e,
         !e ||
         (e.type === "ticker" &&
-          (r.getListModel().ticker.playing = false, Nr(r.getListModel(), void 0)),
+          (r.getListModel().ticker.playing = false,
+            Nr(r.getListModel(), void 0)),
           e.type === "settings" || e.type === "generic-menu" ||
           e.type === "editable-label" || e.type === "add-item-btn" ||
           e.type === "add-expression-btn" || e.type === "add-note-btn" ||
@@ -98222,7 +98397,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return i;
   }
   function Nde(r, { parsed: e, location: t }, o) {
-    let i = __dcg_shared_module_exports__["na"](r);
+    let i = __dcg_shared_module_exports__["latexToIdentifier"](r);
     if (e.type === "Identifier" && e._symbol === i) {
       let a = Fde[t];
       return a ? [a(o)] : void 0;
@@ -98507,7 +98682,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let l = s.match(/(\\token{[0-9]+})/g);
           if (l) {
             for (let c of l) {
-              let d = __dcg_shared_module_exports__["na"](c);
+              let d = __dcg_shared_module_exports__["latexToIdentifier"](c);
               d !== a.identifier && $$(e, a, d);
             }
           }
@@ -98591,7 +98766,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         u[y] = true;
       }
       for (let y in u) {
-        Il(p, __dcg_shared_module_exports__["ma"](y)) && delete u[y];
+        Il(p, __dcg_shared_module_exports__["identifierToLatex"](y)) &&
+          delete u[y];
       }
       let f = Object.keys(u);
       f.length && (s[d] = f);
@@ -98670,7 +98846,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       expressionsHiddenTime: void 0,
     };
   }
-  var Yo = __dcg_shared_module_exports__["e"](ne()),
+  var Yo = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     rA = class extends Yo.Class {
       template() {
         return Yo.createElement(
@@ -98728,7 +98904,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     return (e.length > 1 && e[0] === "1" ? e.slice(1) : e).join("\\cdot");
   }
   function _m(r, e) {
-    let t = __dcg_shared_module_exports__["ea"](r, e), o = "";
+    let t = __dcg_shared_module_exports__["value"](r, e), o = "";
     if (t.mantissa) o = Qde(t.mantissa) + "^{" + t.superscript + "}";
     else {
       let i = t.string.split("/");
@@ -100110,7 +100286,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = this.getItemModel(e.id);
             if (!x || x.type !== "expression") return;
-            Vw(x, e.pointOpacity), x.showLabel || this._setItemHidden(e.id, false);
+            Vw(x, e.pointOpacity),
+              x.showLabel || this._setItemHidden(e.id, false);
           }
           break;
         case "set-item-pointsize":
@@ -101174,7 +101351,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           {
             let x = e.from,
               L = e.to,
-              V = __dcg_shared_module_exports__["na"](x),
+              V = __dcg_shared_module_exports__["latexToIdentifier"](x),
               R = this.getGeometryFolder();
             R && this.getItemsByIdentifier(V).forEach((N) => {
               e.geoFolder && N.folderId !== R.id
@@ -101418,19 +101595,19 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       e === "xAxisScale"
         ? (this._setAxisLimitLatex(
           "xmin",
-          __dcg_shared_module_exports__["la"](o.xmin),
+          __dcg_shared_module_exports__["truncatedLatexLabel"](o.xmin),
         ),
           this._setAxisLimitLatex(
             "xmax",
-            __dcg_shared_module_exports__["la"](o.xmax),
+            __dcg_shared_module_exports__["truncatedLatexLabel"](o.xmax),
           ))
         : (this._setAxisLimitLatex(
           "ymin",
-          __dcg_shared_module_exports__["la"](o.ymin),
+          __dcg_shared_module_exports__["truncatedLatexLabel"](o.ymin),
         ),
           this._setAxisLimitLatex(
             "ymax",
-            __dcg_shared_module_exports__["la"](o.ymax),
+            __dcg_shared_module_exports__["truncatedLatexLabel"](o.ymax),
           )),
         this.graphSettings.xAxisScale === this.graphSettings.yAxisScale &&
         (this.graphSettings.setProperty(
@@ -101450,11 +101627,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           f = ho(n.reverse_mapx(h - .25), n.reverse_mapx(h + .25));
         this._setAxisLimitLatex(
           "xmin",
-          __dcg_shared_module_exports__["la"](u),
+          __dcg_shared_module_exports__["truncatedLatexLabel"](u),
         ),
           this._setAxisLimitLatex(
             "xmax",
-            __dcg_shared_module_exports__["la"](f),
+            __dcg_shared_module_exports__["truncatedLatexLabel"](f),
           );
       }
       if (e === "yAxisScale" && d) {
@@ -101464,11 +101641,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           f = ho(n.reverse_mapy(h - .25), n.reverse_mapy(h + .25));
         this._setAxisLimitLatex(
           "ymin",
-          __dcg_shared_module_exports__["la"](u),
+          __dcg_shared_module_exports__["truncatedLatexLabel"](u),
         ),
           this._setAxisLimitLatex(
             "ymax",
-            __dcg_shared_module_exports__["la"](f),
+            __dcg_shared_module_exports__["truncatedLatexLabel"](f),
           );
       }
       this.lastDirectlyEditedViewport = t.getCurrentViewport();
@@ -101580,9 +101757,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : c.valueType;
         if (
           !u ||
-          __dcg_shared_module_exports__["Ab"](
+          __dcg_shared_module_exports__["isTypeOrListOfType"](
             u,
-            __dcg_shared_module_exports__["Za"],
+            __dcg_shared_module_exports__["Transformation"],
           )
         ) continue;
         let f = (d = pi(p)) == null ? void 0 : d.latex;
@@ -102061,7 +102238,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           var k;
           let S = (k = pi(w)) == null ? void 0 : k.identifier;
           S && (S[0] === "$" || w.formula.geometry) && S &&
-            (o[S] ? o[S].multiple = true : o[S] = { model: w, multiple: false });
+            (o[S]
+              ? o[S].multiple = true
+              : o[S] = { model: w, multiple: false });
         };
       for (let w of this.getAllToolPreviewItems()) bL(w), i(w);
       for (let w of this.getAllItemModels()) {
@@ -102304,7 +102483,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (this.getGeoModel().getClickToInsertMode() === "permissive") {
         return {
           type: "permissive",
-          allowedTypes: [__dcg_shared_module_exports__["va"]],
+          allowedTypes: [__dcg_shared_module_exports__["Any"]],
           cursorContext: i ? t : void 0,
         };
       }
@@ -102328,12 +102507,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       if (!o || o.type !== "expression") return false;
       let i = o.formula.typed_constant_value;
       t === 0 &&
-        (!i || !__dcg_shared_module_exports__["wb"](i.valueType)) &&
+        (!i || !__dcg_shared_module_exports__["isList"](i.valueType)) &&
         (t = void 0);
       let n, a, s = Ya(o);
       if (
-        s ? a = __dcg_shared_module_exports__["ma"](s) : o.formula.geometry &&
-          (a = this.getAutonameLatexForExpression(o), n = a), !a
+        s
+          ? a = __dcg_shared_module_exports__["identifierToLatex"](s)
+          : o.formula.geometry &&
+            (a = this.getAutonameLatexForExpression(o), n = a), !a
       ) return false;
       t !== void 0 && (a += "\\left[" + (t + 1) + "\\right]");
       let l = this.getFocusLocation();
@@ -102354,16 +102535,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let t = this.getValidCursorContext();
       if (t) {
         if (!e) return false;
-        let o = __dcg_shared_module_exports__["wb"](e)
-          ? __dcg_shared_module_exports__["xb"](e)
+        let o = __dcg_shared_module_exports__["isList"](e)
+          ? __dcg_shared_module_exports__["elementType"](e)
           : e;
         return t.type === "empty" &&
-            __dcg_shared_module_exports__["yb"](o)
+            __dcg_shared_module_exports__["isGeometryType"](o)
           ? false
           : (t.type === "expression-arguments"
             ? t.allowedTypesForInsertedArg
             : t.allowedTypes).some((n) =>
-              __dcg_shared_module_exports__["ua"](o, n)
+              __dcg_shared_module_exports__["isSubTypeOrCoercible"](o, n)
             );
       }
       return false;
@@ -102618,7 +102799,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           for (let n of e.boundingBoxes) {
             if (
               n.symbol &&
-              __dcg_shared_module_exports__["ma"](n.symbol) === i
+              __dcg_shared_module_exports__["identifierToLatex"](n.symbol) === i
             ) return [n];
           }
         }
@@ -102629,7 +102810,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
               for (let a of n.boundingBoxes) {
                 if (
                   a.symbol &&
-                  __dcg_shared_module_exports__["ma"](a.symbol) === i
+                  __dcg_shared_module_exports__["identifierToLatex"](
+                      a.symbol,
+                    ) === i
                 ) {
                   return [a];
                 }
@@ -102721,7 +102904,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           Array.isArray(i) && typeof i[0] == "string") &&
           e.push({
             id: t.id,
-            assignmentLatex: __dcg_shared_module_exports__["ma"](o),
+            assignmentLatex: __dcg_shared_module_exports__["identifierToLatex"](
+              o,
+            ),
           });
       }
       return e;
@@ -102736,7 +102921,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           e.push({
             id: "shader",
             assignmentLatex: "shader:" +
-              __dcg_shared_module_exports__["ma"](o),
+              __dcg_shared_module_exports__["identifierToLatex"](o),
           });
       }
       return e;
@@ -102745,7 +102930,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       for (let t of this.getAllItemModels()) {
         if (t.type !== "expression") continue;
         let o = Ya(t);
-        if (o && __dcg_shared_module_exports__["ma"](o) === e) {
+        if (o && __dcg_shared_module_exports__["identifierToLatex"](o) === e) {
           let i = mL(t);
           if (i) return i;
         }
@@ -103164,7 +103349,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let t = this.getItemModel(e);
       if (!t || t.type !== "expression" || qw(t)) return false;
       let o = this.getEvaluationValueForItem(e);
-      return typeof o != "number" ? false : __dcg_shared_module_exports__["ia"](o);
+      return typeof o != "number"
+        ? false
+        : __dcg_shared_module_exports__["canDisplayAsFraction"](o);
     }
     shouldEvaluationForItemDisplayAsFraction(e) {
       if (!this.isDecimalToFractionEnabled()) return false;
@@ -103173,7 +103360,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
     getEvaluationLabelOptionsForItem(e) {
       return {
-        ...__dcg_shared_module_exports__["ga"],
+        ...__dcg_shared_module_exports__["DEFAULT_EVALUATION_LABEL_OPTIONS"],
         displayAsFraction: this.shouldEvaluationForItemDisplayAsFraction(
           e,
         ),
@@ -103233,7 +103420,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         ? 1
         : e < 1e-4
         ? 0
-        : __dcg_shared_module_exports__["Sb"](e, 0, f0);
+        : __dcg_shared_module_exports__["clamp"](e, 0, f0);
     }
     isBeta3DMode() {
       return this.isThreeDMode() && this.getGraphSettings().config.beta3d;
@@ -104195,7 +104382,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         i = t.index + 1,
         n = t.center,
         a = OE(this.listModel),
-        s = __dcg_shared_module_exports__["ma"]("C_" + a),
+        s = __dcg_shared_module_exports__["identifierToLatex"]("C_" + a),
         l = this.createItemModel({
           id: this.generateId(),
           type: "expression",
@@ -104244,7 +104431,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         c = n.map((p) => {
           let h = s[p], u = "1";
           h && h.value !== void 0 && (u = h.value);
-          let f, y = __dcg_shared_module_exports__["na"](p);
+          let f, y = __dcg_shared_module_exports__["latexToIdentifier"](p);
           p === ""
             ? f = ""
             : l && l.hasOwnProperty(y)
@@ -104660,9 +104847,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           (n = t.formula.geometry) != null && n.unconstructable ||
           t.formula.recursion_base_case ||
           t.formula.function_definition &&
-            !__dcg_shared_module_exports__["Ab"](
+            !__dcg_shared_module_exports__["isTypeOrListOfType"](
               o,
-              __dcg_shared_module_exports__["Za"],
+              __dcg_shared_module_exports__["Transformation"],
             )
         ? false
         : !!((a = t.formula.geometry) != null && a.parentDependencies);
@@ -105413,7 +105600,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (!n) continue;
         let a = n.latex;
         if (!ya(a)) continue;
-        let s = __dcg_shared_module_exports__["na"](a);
+        let s = __dcg_shared_module_exports__["latexToIdentifier"](a);
         if (o.isMultiplyDefined(s, { includeRegressionExports: true })) {
           let l = s.split("_")[0],
             c = o.getLastSubscriptForName(l, {
@@ -105422,7 +105609,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             d = `${l}_{${c + 1}}`;
           fd(this.listModel, a, d, { limitToItem: e.id }),
             o.optimisticallyRegisterColumnName(
-              __dcg_shared_module_exports__["na"](d),
+              __dcg_shared_module_exports__["latexToIdentifier"](d),
             );
         }
       }
@@ -106235,7 +106422,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         }
       }
     };
-  var bn = __dcg_shared_module_exports__["e"](ne());
+  var bn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   var { If: ipe, Switch: npe } = bn.Components,
     d1 = class extends bn.Class {
@@ -106535,9 +106722,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.getMathquillConfig({});
       }
     };
-  var so = __dcg_shared_module_exports__["e"](ne());
+  var so = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
-  var yn = __dcg_shared_module_exports__["e"](ne());
+  var yn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { SwitchUnion: ape, If: spe } = yn.Components,
     p1 = class extends yn.Class {
       init() {
@@ -107443,7 +107630,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         }
       }
     };
-  var Bi = __dcg_shared_module_exports__["e"](ne());
+  var Bi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var m1 = class extends is {
     didMountRoot(e) {
       this.onItemViewMounted(e);
@@ -107558,7 +107745,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       return !(!e || e.type !== "text" || e.id !== this.id);
     }
   };
-  var Xt = __dcg_shared_module_exports__["e"](ne());
+  var Xt = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: sj, IfDefined: lpe } = Xt.Components,
     nA = class extends Xt.Class {
       init() {
@@ -108851,7 +109038,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.controller.dispatch({ type: "new-images", files: t });
       }
     };
-  var oc = __dcg_shared_module_exports__["e"](ne());
+  var oc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: upe } = oc.Components,
     hpe = 3e3,
     aA = class extends oc.Class {
@@ -108890,7 +109077,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var Dr = __dcg_shared_module_exports__["e"](ne());
+  var Dr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
   qt();
   var vR = class {
@@ -108920,9 +109107,9 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       }
     },
     sA = new vR();
-  var Ui = __dcg_shared_module_exports__["e"](ne());
-  var fr = __dcg_shared_module_exports__["e"](ne());
-  var br = __dcg_shared_module_exports__["e"](ne());
+  var Ui = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var fr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var br = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: CR } = br.Components,
     lA = class extends br.Class {
       constructor() {
@@ -109853,7 +110040,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.getKeypadHeight() ? "bottom: 0" : "";
       }
     };
-  var jd = __dcg_shared_module_exports__["e"](ne()),
+  var jd = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     { Switch: gpe } = jd.Components,
     mA = class extends jd.Class {
       constructor() {
@@ -111134,7 +111321,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let l = false, c = this.controller.getGeoModel();
             if (
               this.controller.hasAnyItemsSelected() &&
-              (this.controller.dispatch({ type: "set-none-selected" }), l = true),
+              (this.controller.dispatch({ type: "set-none-selected" }),
+                l = true),
                 c.isToolplayActive() &&
                 (this.controller.dispatch({
                   type: "cancel-geo-toolplay",
@@ -112847,11 +113035,11 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       let t = this.getExpressionValue(e);
       return !t || typeof t != "number"
         ? false
-        : __dcg_shared_module_exports__["ia"](t);
+        : __dcg_shared_module_exports__["canDisplayAsFraction"](t);
     }
     isEvaluationList(e) {
       var t;
-      return __dcg_shared_module_exports__["wb"](
+      return __dcg_shared_module_exports__["isList"](
         (t = this.getExpressionTypedConstantValue(e)) == null
           ? void 0
           : t.valueType,
@@ -112939,7 +113127,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this._evaluate();
     }
     _cleanupLatex(e) {
-      return e = __dcg_shared_module_exports__["oa"](e),
+      return e = __dcg_shared_module_exports__["trimLatex"](e),
         e.substr(e.length - 1) === "=" && (e = e.substr(0, e.length - 1)),
         e;
     }
@@ -112985,14 +113173,14 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
             let { value: l, valueType: c } =
                 (i = a.typed_constant_value) != null ? i : {},
               d = !a.is_evaluable &&
-                c === __dcg_shared_module_exports__["wa"] &&
-                __dcg_shared_module_exports__["ia"](l);
+                c === __dcg_shared_module_exports__["Number"] &&
+                __dcg_shared_module_exports__["canDisplayAsFraction"](l);
             this._evaluations[n] = {
               error: a.error,
               ansId: void 0,
               typedConstantValue: a.typed_constant_value,
               showEvaluation: a.is_evaluable || d ||
-                c === __dcg_shared_module_exports__["Ba"],
+                c === __dcg_shared_module_exports__["ListOfNumber"],
               isRationalizableConstant: d,
             };
           }
@@ -113730,12 +113918,16 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     getLabelOptionsForExpression(e) {
       let t = this.model.getExpressionTypedConstantValue(e);
       return (t == null ? void 0 : t.valueType) ===
-          __dcg_shared_module_exports__["db"]
+          __dcg_shared_module_exports__["Complex"]
         ? {
-          ...__dcg_shared_module_exports__["ha"],
+          ...__dcg_shared_module_exports__[
+            "DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS"
+          ],
           digits: Math.min(
             this.getEvaluationDigits(),
-            __dcg_shared_module_exports__["ha"].digits,
+            __dcg_shared_module_exports__[
+              "DEFAULT_COMPLEX_EVALUATION_LABEL_OPTIONS"
+            ].digits,
           ),
         }
         : {
@@ -113749,10 +113941,10 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
     }
   };
   mg();
-  var yr = __dcg_shared_module_exports__["e"](ne());
-  var ma = __dcg_shared_module_exports__["e"](ne());
+  var yr = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var ma = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   qt();
-  var kj = __dcg_shared_module_exports__["e"](ne()),
+  var kj = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     nr = class extends kj.Class {
       init() {
         this.controller = this.props.controller(),
@@ -113761,7 +113953,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           this.s = this.controller.s;
       }
     };
-  var $t = __dcg_shared_module_exports__["e"](ne());
+  var $t = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: cu, Input: Cpe, Textarea: Spe } = $t.Components,
     T1 = class extends nr {
       constructor() {
@@ -113863,18 +114055,21 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           let o = this.controller.getLabelOptionsForExpression(e),
             i = this.model.getExpressionTypedConstantValue(e);
           switch (i == null ? void 0 : i.valueType) {
-            case __dcg_shared_module_exports__["db"]:
-              t = __dcg_shared_module_exports__["pa"](i.value, {
+            case __dcg_shared_module_exports__["Complex"]:
+              t = __dcg_shared_module_exports__["complexNumberLabel"](i.value, {
                 ...o,
                 digits: 5,
                 scientificNotationDigits: 3,
               }, "html");
               break;
-            case __dcg_shared_module_exports__["wa"]:
-              t = __dcg_shared_module_exports__["ka"](i.value, o);
+            case __dcg_shared_module_exports__["Number"]:
+              t = __dcg_shared_module_exports__["truncatedHTMLLabel"](
+                i.value,
+                o,
+              );
               break;
             default:
-              __dcg_shared_module_exports__["wb"](
+              __dcg_shared_module_exports__["isList"](
                 i == null ? void 0 : i.valueType,
               ) && (t = "[...]");
               break;
@@ -113900,15 +114095,22 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           o = this.model.getExpressionTypedConstantValue(e),
           i;
         switch (o == null ? void 0 : o.valueType) {
-          case __dcg_shared_module_exports__["db"]:
-            i = __dcg_shared_module_exports__["pa"](o.value, t, "latex");
+          case __dcg_shared_module_exports__["Complex"]:
+            i = __dcg_shared_module_exports__["complexNumberLabel"](
+              o.value,
+              t,
+              "latex",
+            );
             break;
-          case __dcg_shared_module_exports__["wa"]:
-            i = __dcg_shared_module_exports__["la"](o.value, t);
+          case __dcg_shared_module_exports__["Number"]:
+            i = __dcg_shared_module_exports__["truncatedLatexLabel"](
+              o.value,
+              t,
+            );
             break;
           default:
             if (
-              __dcg_shared_module_exports__["wb"](
+              __dcg_shared_module_exports__["isList"](
                 o == null ? void 0 : o.valueType,
               )
             ) return `\\mathrm{${o.value.length}\\ element\\ list}`;
@@ -113966,15 +114168,21 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         if (this.getShowEvaluation()) {
           let o = this.model.getExpressionTypedConstantValue(e), i = "";
           switch (o == null ? void 0 : o.valueType) {
-            case __dcg_shared_module_exports__["db"]:
-              i = __dcg_shared_module_exports__["pa"](o.value, t);
+            case __dcg_shared_module_exports__["Complex"]:
+              i = __dcg_shared_module_exports__["complexNumberLabel"](
+                o.value,
+                t,
+              );
               break;
-            case __dcg_shared_module_exports__["wa"]:
-              i = __dcg_shared_module_exports__["la"](o.value, t);
+            case __dcg_shared_module_exports__["Number"]:
+              i = __dcg_shared_module_exports__["truncatedLatexLabel"](
+                o.value,
+                t,
+              );
               break;
             default:
               if (
-                __dcg_shared_module_exports__["wb"](
+                __dcg_shared_module_exports__["isList"](
                   o == null ? void 0 : o.valueType,
                 )
               ) return `${o.value.length} element list`;
@@ -114316,8 +114524,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.container = e;
       }
     };
-  var Co = __dcg_shared_module_exports__["e"](ne());
-  var bs = __dcg_shared_module_exports__["e"](ne());
+  var Co = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var bs = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { For: Dpe } = bs.Components,
     px = class extends bs.Class {
       template() {
@@ -114472,8 +114680,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         : "";
     }
   };
-  var qo = __dcg_shared_module_exports__["e"](ne());
-  var Lm = __dcg_shared_module_exports__["e"](ne());
+  var qo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Lm = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var Bc = class extends Cm {
     template() {
       return Lm.createElement(
@@ -114492,7 +114700,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var ux = __dcg_shared_module_exports__["e"](ne()),
+  var ux = __dcg_shared_module_exports__["defineDefaultExport"](ne()),
     _o = class extends ux.Class {
       template() {
         return ux.createElement("div", {
@@ -114556,8 +114764,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.props.didMount && this.props.didMount(e);
       }
     };
-  var lo = __dcg_shared_module_exports__["e"](ne());
-  var Yd = __dcg_shared_module_exports__["e"](ne());
+  var lo = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var Yd = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   function kpe() {
     if (!NS) return false;
     let r = navigator.userAgent.match(/Version\/(\d+)/);
@@ -114894,7 +115102,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return this.controller.isProjectorMode();
       }
     };
-  var ic = __dcg_shared_module_exports__["e"](ne());
+  var ic = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Ape } = ic.Components,
     hx = class extends nr {
       template() {
@@ -115064,7 +115272,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         this.controller.dispatch({ type: "toggle-settings-menu" });
       }
     };
-  var Ks = __dcg_shared_module_exports__["e"](ne());
+  var Ks = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { Switch: Mj } = Ks.Components,
     A1 = class extends nr {
       template() {
@@ -115175,7 +115383,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
           : void 0;
       }
     };
-  var Gi = __dcg_shared_module_exports__["e"](ne());
+  var Gi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: AR, IfElse: Gpe } = Gi.Components,
     CA = class extends nr {
       template() {
@@ -115303,8 +115511,8 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var vl = __dcg_shared_module_exports__["e"](ne());
-  var gx = __dcg_shared_module_exports__["e"](ne());
+  var vl = __dcg_shared_module_exports__["defineDefaultExport"](ne());
+  var gx = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var M1 = class extends nr {
     template() {
       return gx.createElement(
@@ -115367,7 +115575,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var Uc = __dcg_shared_module_exports__["e"](ne());
+  var Uc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var G1 = class extends nr {
     template() {
       return Uc.createElement(
@@ -115436,7 +115644,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var Fn = __dcg_shared_module_exports__["e"](ne());
+  var Fn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: Lpe } = Fn.Components,
     L1 = class extends nr {
       template() {
@@ -115505,7 +115713,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var Nn = __dcg_shared_module_exports__["e"](ne());
+  var Nn = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: Ppe } = Nn.Components,
     P1 = class extends nr {
       template() {
@@ -115582,7 +115790,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var ai = __dcg_shared_module_exports__["e"](ne());
+  var ai = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { IfElse: Gj } = ai.Components,
     V1 = class extends nr {
       template() {
@@ -115676,7 +115884,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var mx = __dcg_shared_module_exports__["e"](ne());
+  var mx = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var O1 = class extends nr {
     template() {
       return mx.createElement(
@@ -115739,7 +115947,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       );
     }
   };
-  var zc = __dcg_shared_module_exports__["e"](ne());
+  var zc = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var R1 = class extends nr {
     template() {
       return zc.createElement(
@@ -115843,7 +116051,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var yi = __dcg_shared_module_exports__["e"](ne());
+  var yi = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: SA } = yi.Components,
     EA = class extends nr {
       template() {
@@ -115937,7 +116145,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var Xd = __dcg_shared_module_exports__["e"](ne());
+  var Xd = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var N1 = class extends nr {
     template() {
       return Xd.createElement(
@@ -116011,7 +116219,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         : void 0;
     }
   };
-  var si = __dcg_shared_module_exports__["e"](ne());
+  var si = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var { If: Lj } = si.Components,
     TA = class extends nr {
       template() {
@@ -116101,7 +116309,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         );
       }
     };
-  var ia = __dcg_shared_module_exports__["e"](ne());
+  var ia = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var B1 = class extends nr {
     template() {
       return ia.createElement(
@@ -116500,7 +116708,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
         return true;
       }
     };
-  var bx = __dcg_shared_module_exports__["e"](ne());
+  var bx = __dcg_shared_module_exports__["defineDefaultExport"](ne());
   var q1 = class {
     constructor(e) {
       this.eventModel = new Kl();
@@ -117239,7 +117447,7 @@ gl_FragColor = LinearTosRGB( gl_FragColor );
       __compareBranches: {
         getSliderMin: nl,
         getSliderMax: bc,
-        valueTypes: __dcg_shared_module_exports__["rb"],
+        valueTypes: __dcg_shared_module_exports__["valueTypes"],
         migrateGeoStateToCalcState: ug,
         Mathtools: sS,
       },
